@@ -11,7 +11,23 @@ const Offers = () => {
   const [selectedSubFilter, setSelectedSubFilter] = useState<string[]>([]);
   const [sortBy, setSortBy] = useState("Featured");
 
-  const destinations = ["All", "Maldives", "Seychelles"];
+  const destinations = [
+    "All",
+    "Finland",
+    "Japan",
+    "China",
+    "Zanzibar",
+    "Maldives",
+    "Seychelles",
+    "Mauritius",
+    "Greece",
+    "Bali",
+    "Thailand",
+    "UK",
+    "Turkey",
+    "Europe",
+    "Cruise"
+  ];
   
   const subFilters: Record<string, string[]> = {
     "Maldives": [

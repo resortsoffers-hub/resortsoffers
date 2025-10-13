@@ -7,8 +7,30 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const Offers = () => {
-  const [filterType, setFilterType] = useState("All");
+  const [selectedDestination, setSelectedDestination] = useState("All");
+  const [selectedSubFilter, setSelectedSubFilter] = useState<string[]>([]);
   const [sortBy, setSortBy] = useState("Featured");
+
+  const destinations = ["All", "Maldives", "Seychelles"];
+  
+  const subFilters: Record<string, string[]> = {
+    "Maldives": [
+      "Sea plane",
+      "Domestic flight",
+      "Speed boat",
+      "Honeymooners",
+      "Families",
+      "Ladies",
+      "All inclusive",
+      "Water pool villa"
+    ],
+    "Seychelles": [
+      "Prasline island",
+      "Mahe",
+      "La digue",
+      "Private island"
+    ]
+  };
 
   const offers = [
     {
@@ -79,11 +101,24 @@ const Offers = () => {
     }
   ];
 
-  const types = ["All", "Seasonal", "Package", "Wellness", "Last Minute"];
+  const toggleSubFilter = (filter: string) => {
+    setSelectedSubFilter(prev => 
+      prev.includes(filter) 
+        ? prev.filter(f => f !== filter)
+        : [...prev, filter]
+    );
+  };
 
-  const filteredOffers = filterType === "All" 
+  const filteredOffers = selectedDestination === "All" 
     ? offers 
-    : offers.filter(offer => offer.type === filterType);
+    : offers.filter(offer => {
+        const matchesDestination = offer.destination.includes(selectedDestination);
+        if (selectedSubFilter.length === 0) return matchesDestination;
+        
+        // Here you would match sub-filters based on offer properties
+        // For now, just filter by destination
+        return matchesDestination;
+      });
 
   const sortedOffers = [...filteredOffers].sort((a, b) => {
     if (sortBy === "Featured") return b.featured ? 1 : -1;
@@ -110,36 +145,61 @@ const Offers = () => {
       {/* Filter & Sort Section */}
       <section className="section-padding">
         <div className="container-custom">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-12">
-            <div>
-              <h2 className="text-sm font-semibold text-muted-foreground mb-2">Filter by Type</h2>
+          {/* Destination Filter */}
+          <div className="mb-8">
+            <h2 className="text-sm font-semibold text-muted-foreground mb-3">Filter by Destination</h2>
+            <div className="flex gap-2 flex-wrap">
+              {destinations.map((destination) => (
+                <Button
+                  key={destination}
+                  variant={selectedDestination === destination ? "default" : "outline"}
+                  onClick={() => {
+                    setSelectedDestination(destination);
+                    setSelectedSubFilter([]);
+                  }}
+                  size="sm"
+                >
+                  {destination}
+                </Button>
+              ))}
+            </div>
+          </div>
+
+          {/* Sub Filters */}
+          {selectedDestination !== "All" && subFilters[selectedDestination] && (
+            <div className="mb-8">
+              <h2 className="text-sm font-semibold text-muted-foreground mb-3">
+                {selectedDestination} Filters
+              </h2>
               <div className="flex gap-2 flex-wrap">
-                {types.map((type) => (
+                {subFilters[selectedDestination].map((filter) => (
                   <Button
-                    key={type}
-                    variant={filterType === type ? "default" : "outline"}
-                    onClick={() => setFilterType(type)}
+                    key={filter}
+                    variant={selectedSubFilter.includes(filter) ? "default" : "outline"}
+                    onClick={() => toggleSubFilter(filter)}
                     size="sm"
                   >
-                    {type}
+                    {filter}
                   </Button>
                 ))}
               </div>
             </div>
-            <div>
-              <h2 className="text-sm font-semibold text-muted-foreground mb-2">Sort By</h2>
-              <div className="flex gap-2">
-                {["Featured", "Discount"].map((sort) => (
-                  <Button
-                    key={sort}
-                    variant={sortBy === sort ? "default" : "outline"}
-                    onClick={() => setSortBy(sort)}
-                    size="sm"
-                  >
-                    {sort}
-                  </Button>
-                ))}
-              </div>
+          )}
+
+          {/* Sort By */}
+          <div className="mb-12">
+            <h2 className="text-sm font-semibold text-muted-foreground mb-3">Sort By</h2>
+            <div className="flex gap-2">
+              {["Featured", "Discount"].map((sort) => (
+                <Button
+                  key={sort}
+                  variant={sortBy === sort ? "default" : "outline"}
+                  onClick={() => setSortBy(sort)}
+                  size="sm"
+                >
+                  {sort}
+                </Button>
+              ))}
             </div>
           </div>
 

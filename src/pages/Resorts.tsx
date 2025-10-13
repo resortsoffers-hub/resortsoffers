@@ -116,7 +116,7 @@ const Resorts = () => {
         
         <div className="relative z-10 container-custom text-center">
           <h1 className="text-4xl md:text-6xl font-bold hero-text mb-6 animate-fade-in">
-            Luxury Resorts & Holiday Packages
+            Our Partners - Luxury Resorts
           </h1>
           <p className="text-xl md:text-2xl hero-text max-w-3xl mx-auto">
             Discover our curated collection of the world's finest luxury properties

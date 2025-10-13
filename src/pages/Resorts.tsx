@@ -11,56 +11,89 @@ const Resorts = () => {
 
   const resorts = [
     {
-      name: "Lefay Resort & SPA Dolomiti",
-      location: "Italy",
-      region: "Europe",
-      rating: 5,
-      description: "Luxury wellness resort nestled in the Italian Dolomites with stunning mountain views and world-class spa facilities.",
-      features: ["Spa & Wellness", "Mountain Views", "Gourmet Dining", "Ski Access"]
-    },
-    {
-      name: "Lefay Resort & SPA Lago di Garda",
-      location: "Italy",
-      region: "Europe",
-      rating: 5,
-      description: "Elegant lakeside retreat offering panoramic views of Lake Garda and comprehensive wellness programs.",
-      features: ["Lakeside", "Wellness Center", "Fine Dining", "Private Beach"]
-    },
-    {
-      name: "Allium Bodrum Resort & Spa",
-      location: "Turkey",
-      region: "Middle East",
-      rating: 5,
-      description: "Contemporary luxury resort on the Turkish Riviera combining modern design with traditional hospitality.",
-      features: ["Beach Access", "Spa Treatments", "Water Sports", "All-Inclusive"]
-    },
-    {
-      name: "Paradise Maldives Resort",
+      name: "The Ritz-Carlton Maldives",
       location: "Maldives",
-      region: "Asia",
+      region: "Maldives",
       rating: 5,
-      description: "Exclusive overwater villas in pristine tropical paradise with world-class diving and snorkeling.",
-      features: ["Overwater Villas", "Diving Center", "Private Islands", "Butler Service"]
+      description: "Be surrounded by azure sky and ocean at The Ritz-Carlton Maldives, Fari Islands, featuring luxury villas and world-class amenities.",
+      features: ["Overwater Villas", "Kids Club", "Spa & Wellness", "Multiple Restaurants"],
+      website: "https://www.ritzcarlton.com/en/hotels/maldives"
     },
     {
-      name: "Desert Oasis Dubai",
-      location: "UAE",
-      region: "Middle East",
+      name: "Patina Maldives",
+      location: "Maldives",
+      region: "Maldives",
       rating: 5,
-      description: "Luxurious desert resort combining Arabian heritage with contemporary elegance and adventure.",
-      features: ["Desert Safari", "Spa Retreat", "Fine Dining", "Cultural Experiences"]
+      description: "A 42-hectare island haven of freedom and wonder, offering perpetual flow of inspiration with world-class dining destinations.",
+      features: ["Beach & Overwater Villas", "Multiple Dining", "Wellness Center", "Cultural Events"],
+      website: "https://www.patinamaldives.com"
     },
     {
-      name: "Santorini Sunset Suites",
-      location: "Greece",
-      region: "Europe",
+      name: "One&Only Reethi Rah",
+      location: "Maldives",
+      region: "Maldives",
       rating: 5,
-      description: "Cliffside luxury suites with breathtaking caldera views and infinity pools overlooking the Aegean Sea.",
-      features: ["Infinity Pools", "Sunset Views", "Wine Tastings", "Private Terraces"]
+      description: "Surrounded by azure sky and ocean, immersed in iconic over-water villas with eight restaurants and five bars.",
+      features: ["Overwater Villas", "8 Restaurants", "5 Bars", "Private Beach"],
+      website: "https://www.oneandonlyresorts.com/one-and-only-reethi-rah-maldives"
+    },
+    {
+      name: "Four Seasons Landaa Giraavaru",
+      location: "Maldives",
+      region: "Maldives",
+      rating: 5,
+      description: "UNESCO Biosphere Reserve luxury resort offering pristine natural beauty and world-class hospitality.",
+      features: ["Beach Villas", "Marine Discovery", "Spa Retreat", "Fine Dining"],
+      website: "https://www.fourseasons.com/maldiveslg"
+    },
+    {
+      name: "Jumeirah Maldives",
+      location: "Maldives",
+      region: "Maldives",
+      rating: 5,
+      description: "Experience luxury in the Maldives with Jumeirah's signature hospitality, featuring elegant villas and exceptional dining.",
+      features: ["Water Villas", "Spa Services", "Water Sports", "Kids Club"],
+      website: "https://www.jumeirah.com/en/stay/maldives"
+    },
+    {
+      name: "OZEN Reserve Bolifushi",
+      location: "Maldives",
+      region: "Maldives",
+      rating: 5,
+      description: "Your intimate escape into luxury where opulence meets meaningful connection. Cultural immersion with Maldivian-inspired cuisine.",
+      features: ["All-Inclusive", "Wellness Journey", "Cultural Immersion", "Private Pool Villas"],
+      website: "https://ozenreserve.com"
+    },
+    {
+      name: "Waldorf Astoria Maldives",
+      location: "Maldives",
+      region: "Maldives",
+      rating: 5,
+      description: "Iconic luxury resort in the Maldives offering exceptional service and pristine natural beauty in an exclusive setting.",
+      features: ["Reef & Beach Villas", "Spa Sanctuary", "Multiple Dining", "Water Sports"],
+      website: "https://www.waldorfastoriamaldives.com"
+    },
+    {
+      name: "Villa Private Island",
+      location: "Maldives",
+      region: "Maldives",
+      rating: 5,
+      description: "Ultimate privacy and luxury in exclusive private island villas with personalized service and bespoke experiences.",
+      features: ["Private Islands", "Butler Service", "Yacht Excursions", "Exclusive Dining"],
+      website: "https://www.villahotels.com"
+    },
+    {
+      name: "Cheval Blanc Randheli",
+      location: "Maldives",
+      region: "Maldives",
+      rating: 5,
+      description: "A new contemporary vision of hospitality promoting French craftsmanship and Art de Vivre à la française in the Maldives.",
+      features: ["Luxury Villas", "French Cuisine", "Spa by Guerlain", "Private Island"],
+      website: "https://www.chevalblanc.com/en/maison/maldives-randheli"
     }
   ];
 
-  const regions = ["All", "Europe", "Middle East", "Asia"];
+  const regions = ["All", "Maldives"];
 
   const filteredResorts = selectedRegion === "All" 
     ? resorts 
@@ -140,8 +173,12 @@ const Resorts = () => {
                       </span>
                     ))}
                   </div>
-                  <Button className="w-full" variant="outline">
-                    View Details
+                  <Button 
+                    className="w-full" 
+                    variant="outline"
+                    onClick={() => window.open(resort.website, '_blank')}
+                  >
+                    Visit Website
                   </Button>
                 </CardContent>
               </Card>

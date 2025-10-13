@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Phone, MapPin, Clock, MessageCircle, Globe, Send, Facebook, Instagram, Twitter } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { toast } from "sonner";
@@ -18,17 +18,17 @@ const Contact = () => {
     {
       icon: <MapPin className="w-6 h-6 text-accent" />,
       title: "Office Location",
-      details: ["Travel Connections Arabia DMCC", "Dubai, United Arab Emirates"]
+      details: ["Dubai, United Arab Emirates"]
     },
     {
       icon: <Phone className="w-6 h-6 text-accent" />,
-      title: "Phone",
-      details: ["+971 4 XXX XXXX", "+971 50 XXX XXXX"]
+      title: "Phone & WhatsApp",
+      details: ["+971 56 762 2484", "+966 58 236 0080"]
     },
     {
-      icon: <Mail className="w-6 h-6 text-accent" />,
-      title: "Email",
-      details: ["info@tca.me", "sales@tca.me"]
+      icon: <Globe className="w-6 h-6 text-accent" />,
+      title: "Website",
+      details: ["www.resortsoffers.com"]
     },
     {
       icon: <Clock className="w-6 h-6 text-accent" />,
@@ -111,6 +111,23 @@ const Contact = () => {
             {/* Contact Information */}
             <div>
               <h2 className="text-3xl font-bold mb-6">Get in Touch</h2>
+              
+              {/* WhatsApp Buttons */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <a href="https://wa.me/971567622484" target="_blank" rel="noopener noreferrer">
+                  <Button className="w-full bg-[#25D366] hover:bg-[#20BA5A] text-white" size="lg">
+                    <MessageCircle className="mr-2" size={20} />
+                    WhatsApp UAE
+                  </Button>
+                </a>
+                <a href="https://wa.me/966582360080" target="_blank" rel="noopener noreferrer">
+                  <Button className="w-full bg-[#25D366] hover:bg-[#20BA5A] text-white" size="lg">
+                    <MessageCircle className="mr-2" size={20} />
+                    WhatsApp KSA
+                  </Button>
+                </a>
+              </div>
+
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
                   <Card key={index}>
@@ -131,17 +148,26 @@ const Contact = () => {
                 ))}
               </div>
 
-              {/* Map Placeholder */}
+              {/* Social Media Links */}
               <Card className="mt-6">
                 <CardHeader>
-                  <CardTitle>Visit Our Office</CardTitle>
-                  <CardDescription>
-                    We're located in the heart of Dubai's business district
-                  </CardDescription>
+                  <CardTitle>Connect With Us</CardTitle>
+                  <CardDescription>Follow us on social media</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="h-64 bg-muted rounded-lg flex items-center justify-center">
-                    <p className="text-muted-foreground">Map View</p>
+                  <div className="flex gap-4">
+                    <a href="https://www.facebook.com/Resortsoffers/" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Facebook">
+                      <Facebook size={24} />
+                    </a>
+                    <a href="https://www.instagram.com/resortsoffers/" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Instagram">
+                      <Instagram size={24} />
+                    </a>
+                    <a href="https://twitter.com/Resortsoffers" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Twitter">
+                      <Twitter size={24} />
+                    </a>
+                    <a href="https://t.me/resortsoffers" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Telegram">
+                      <Send size={24} />
+                    </a>
                   </div>
                 </CardContent>
               </Card>
@@ -159,7 +185,7 @@ const Contact = () => {
           <div className="max-w-3xl mx-auto space-y-6">
             {[
               {
-                q: "What services does TCA provide?",
+                q: "What services does Resorts offers Tourism consultancy provide?",
                 a: "We offer comprehensive hotel representation, sales & marketing services, revenue management, and tourism consultancy specifically for the Middle East market."
               },
               {
@@ -167,8 +193,8 @@ const Contact = () => {
                 a: "Our primary focus is the Middle East market, with strong presence in UAE, Saudi Arabia, Qatar, Kuwait, Bahrain, and Oman."
               },
               {
-                q: "How can I partner with TCA?",
-                a: "Contact us through this form or email sales@tca.me to discuss partnership opportunities. We'll schedule a consultation to understand your needs."
+                q: "How can I partner with you?",
+                a: "Contact us through this form, WhatsApp, or visit www.resortsoffers.com to discuss partnership opportunities. We'll schedule a consultation to understand your needs."
               },
               {
                 q: "Do you work with both independent hotels and chains?",

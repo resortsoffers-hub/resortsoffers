@@ -17,23 +17,23 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: <MapPin className="w-6 h-6 text-accent" />,
-      title: "Office Location",
-      details: ["Your City, Country"]
+      title: "Service Area",
+      details: ["Worldwide Luxury Resorts"]
     },
     {
       icon: <Phone className="w-6 h-6 text-accent" />,
       title: "Phone",
-      details: ["+1 (555) 123-4567"]
+      details: ["+1 (800) RESORTS", "+1 (800) 737-6787"]
     },
     {
       icon: <Globe className="w-6 h-6 text-accent" />,
-      title: "Website",
-      details: ["www.yourbusiness.com"]
+      title: "Email & Website",
+      details: ["info@resortsoffers.com", "www.resortsoffers.com"]
     },
     {
       icon: <Clock className="w-6 h-6 text-accent" />,
       title: "Business Hours",
-      details: ["Sunday - Thursday: 9:00 AM - 6:00 PM", "Friday - Saturday: Closed"]
+      details: ["Monday - Friday: 9:00 AM - 8:00 PM", "Saturday - Sunday: 10:00 AM - 6:00 PM", "Available 24/7 for urgent inquiries"]
     }
   ];
 
@@ -48,7 +48,7 @@ const Contact = () => {
             Contact Us
           </h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto opacity-90">
-            Let's discuss how we can help your business succeed
+            Let's plan your perfect luxury resort experience together
           </p>
         </div>
       </section>
@@ -83,8 +83,8 @@ const Contact = () => {
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="company">Company / Hotel Name</Label>
-                  <Input id="company" placeholder="Your organization" />
+                  <Label htmlFor="company">Preferred Destination (Optional)</Label>
+                  <Input id="company" placeholder="e.g., Maldives, Caribbean, Dubai" />
                 </div>
                 
                 <div className="space-y-2">
@@ -97,7 +97,7 @@ const Contact = () => {
                   <Textarea 
                     id="message" 
                     required 
-                    placeholder="Tell us about your requirements..."
+                    placeholder="Tell us about your dream vacation, travel dates, number of guests, and any special requirements..."
                     rows={6}
                   />
                 </div>
@@ -141,13 +141,13 @@ const Contact = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="flex gap-4">
-                    <a href="#" className="hover:text-accent transition-colors" aria-label="Facebook">
+                    <a href="https://facebook.com/resortsoffers" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Facebook">
                       <Facebook size={24} />
                     </a>
-                    <a href="#" className="hover:text-accent transition-colors" aria-label="Instagram">
+                    <a href="https://instagram.com/resortsoffers" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Instagram">
                       <Instagram size={24} />
                     </a>
-                    <a href="#" className="hover:text-accent transition-colors" aria-label="Twitter">
+                    <a href="https://twitter.com/resortsoffers" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Twitter">
                       <Twitter size={24} />
                     </a>
                   </div>
@@ -167,20 +167,20 @@ const Contact = () => {
           <div className="max-w-3xl mx-auto space-y-6">
             {[
               {
-                q: "What services do you provide?",
-                a: "We offer comprehensive professional services tailored to meet your business needs. Contact us to learn more about how we can help."
+                q: "What types of resorts do you offer?",
+                a: "We partner with luxury resorts worldwide, including beachfront properties, mountain retreats, island paradises, and exclusive boutique hotels. Each resort is carefully selected for quality and service."
               },
               {
-                q: "Which industries do you serve?",
-                a: "We work with clients across various industries, providing customized solutions for each unique business requirement."
+                q: "How do I book a resort package?",
+                a: "Simply contact us through this form, email, or phone. Our travel experts will discuss your preferences, show you available options, and handle all booking arrangements."
               },
               {
-                q: "How can I get started?",
-                a: "Contact us through this form or call us directly. We'll schedule a consultation to understand your needs and discuss how we can help."
+                q: "Are your offers really exclusive?",
+                a: "Yes! We have special partnerships with luxury resorts that provide us with exclusive rates and packages not available to the general public."
               },
               {
-                q: "Do you offer custom solutions?",
-                a: "Yes, we specialize in creating tailored solutions that address your specific business challenges and objectives."
+                q: "Do you offer custom vacation packages?",
+                a: "Absolutely! We specialize in creating personalized vacation experiences tailored to your specific preferences, budget, and travel dates."
               }
             ].map((faq, index) => (
               <Card key={index}>

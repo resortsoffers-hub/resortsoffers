@@ -8,10 +8,10 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Your Business Name</h3>
+            <h3 className="text-xl font-bold mb-4">ResortsOffers.com</h3>
             <p className="text-sm opacity-90">
-              Professional business services tailored to your needs,
-              delivering excellence and quality in everything we do.
+              Discover exclusive luxury resort packages and special offers worldwide. 
+              Your gateway to unforgettable vacation experiences.
             </p>
           </div>
 
@@ -31,12 +31,16 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Contact Us</h4>
             <ul className="space-y-2 text-sm">
               <li className="flex items-center gap-2">
+                <Mail size={16} />
+                <span>info@resortsoffers.com</span>
+              </li>
+              <li className="flex items-center gap-2">
                 <Phone size={16} />
-                <span>+1 (555) 123-4567</span>
+                <span>+1 (800) RESORTS</span>
               </li>
               <li className="flex items-center gap-2">
                 <MapPin size={16} />
-                <span>Your City, Country</span>
+                <span>Worldwide Service</span>
               </li>
             </ul>
           </div>
@@ -45,13 +49,13 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Follow Us</h4>
             <div className="flex gap-4 flex-wrap">
-              <a href="#" className="hover:text-accent transition-colors" aria-label="Facebook">
+              <a href="https://facebook.com/resortsoffers" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Facebook">
                 <Facebook size={20} />
               </a>
-              <a href="#" className="hover:text-accent transition-colors" aria-label="Instagram">
+              <a href="https://instagram.com/resortsoffers" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Instagram">
                 <Instagram size={20} />
               </a>
-              <a href="#" className="hover:text-accent transition-colors" aria-label="Twitter">
+              <a href="https://twitter.com/resortsoffers" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Twitter">
                 <Twitter size={20} />
               </a>
             </div>
@@ -59,7 +63,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center text-sm opacity-75">
-          <p>&copy; {new Date().getFullYear()} Your Business Name. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} ResortsOffers.com. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -10,26 +10,26 @@ const Index = () => {
   const features = [
     {
       icon: <Compass className="w-8 h-8 text-accent" />,
-      title: "Consultancy",
-      description: "Expert guidance and professional consulting services tailored to your needs.",
+      title: "Travel Consultancy",
+      description: "Expert guidance to help you find the perfect resort for your dream vacation.",
       link: "/consultancy",
     },
     {
       icon: <Building2 className="w-8 h-8 text-accent" />,
-      title: "Our Partners",
-      description: "Trusted partnerships and collaborations that drive success.",
+      title: "Luxury Resorts",
+      description: "Handpicked premium resorts and hotels from around the world.",
       link: "/resorts",
     },
     {
       icon: <Gift className="w-8 h-8 text-accent" />,
       title: "Special Offers",
-      description: "Exclusive packages and deals tailored for you.",
+      description: "Exclusive resort packages and limited-time deals you won't find elsewhere.",
       link: "/offers",
     },
     {
       icon: <Users className="w-8 h-8 text-accent" />,
-      title: "Our Team",
-      description: "Dedicated professionals with years of industry expertise.",
+      title: "Expert Team",
+      description: "Dedicated travel specialists with years of resort industry expertise.",
       link: "/team",
     },
   ];
@@ -51,13 +51,13 @@ const Index = () => {
         
         <div className="relative z-10 container-custom text-center animate-fade-in">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold hero-text mb-6">
-            Professional Business Services
+            Luxury Resort Experiences
           </h1>
           <h2 className="text-3xl md:text-5xl font-bold hero-text mb-4">
-            Excellence in Every Detail
+            Exclusive Packages & Special Offers
           </h2>
           <p className="text-xl md:text-2xl hero-text mb-8 max-w-3xl mx-auto">
-            Delivering quality solutions tailored to your unique needs
+            Discover the world's finest resorts with unbeatable deals
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
             <Link to="/services">
@@ -79,13 +79,13 @@ const Index = () => {
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              Your Trusted Business Partner
+              Your Gateway to Luxury Travel
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              We provide comprehensive professional services designed to help your business thrive. 
-              Our team of experts works closely with you to understand your unique needs and deliver 
-              tailored solutions that drive growth and success. With years of industry experience, 
-              we're committed to excellence in everything we do.
+              At ResortsOffers.com, we specialize in curating exceptional resort experiences worldwide. 
+              Our expert team works closely with premium resort partners to bring you exclusive packages, 
+              unbeatable deals, and personalized travel consultancy. With years of experience in luxury travel, 
+              we're committed to making your dream vacation a reality.
             </p>
           </div>
         </div>
@@ -121,10 +121,10 @@ const Index = () => {
       <section className="section-padding bg-primary text-primary-foreground">
         <div className="container-custom text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Get Started?
+            Ready to Book Your Dream Vacation?
           </h2>
           <p className="text-lg mb-8 max-w-2xl mx-auto opacity-90">
-            Discover how our professional services can help you achieve your goals.
+            Contact us today and let our experts help you find the perfect resort experience.
           </p>
           <Link to="/contact">
             <Button size="lg" variant="secondary" className="text-lg px-8">

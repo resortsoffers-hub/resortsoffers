@@ -9,37 +9,37 @@ const Team = () => {
       name: "Sarah Al-Rashid",
       position: "Managing Director",
       bio: "With over 20 years in luxury hospitality, Sarah leads our regional operations with strategic vision and industry expertise.",
-      email: "sarah@tca.me"
+      email: "sarah@yourbusiness.com"
     },
     {
       name: "Michael Chen",
       position: "Head of Sales & Marketing",
       bio: "Michael brings 15+ years of experience in luxury hotel sales across the Middle East and Asian markets.",
-      email: "michael@tca.me"
+      email: "michael@yourbusiness.com"
     },
     {
       name: "Layla Hassan",
       position: "Director of Client Relations",
       bio: "Layla specializes in building lasting partnerships with premium travel agencies and corporate clients throughout the region.",
-      email: "layla@tca.me"
+      email: "layla@yourbusiness.com"
     },
     {
       name: "James Anderson",
       position: "Revenue Management Director",
       bio: "James optimizes pricing strategies and revenue performance for our portfolio of luxury partner properties.",
-      email: "james@tca.me"
+      email: "james@yourbusiness.com"
     },
     {
       name: "Fatima Al-Mahmoud",
       position: "Marketing Manager",
       bio: "Fatima crafts compelling brand stories and digital marketing campaigns for our luxury hotel partners.",
-      email: "fatima@tca.me"
+      email: "fatima@yourbusiness.com"
     },
     {
       name: "David Martinez",
       position: "Business Development Manager",
       bio: "David identifies new market opportunities and develops strategic partnerships across the hospitality sector.",
-      email: "david@tca.me"
+      email: "david@yourbusiness.com"
     }
   ];
 
@@ -151,8 +151,8 @@ const Team = () => {
             Join Our Growing Team
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            We're always looking for talented professionals passionate about luxury hospitality. 
-            Explore career opportunities with TCA.
+            We're always looking for talented professionals passionate about excellence. 
+            Explore career opportunities with us.
           </p>
           <a href="/contact">
             <button className="bg-primary text-primary-foreground px-8 py-3 rounded-lg text-lg font-semibold hover:bg-primary/90 transition-colors">

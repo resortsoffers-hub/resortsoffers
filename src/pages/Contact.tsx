@@ -18,17 +18,17 @@ const Contact = () => {
     {
       icon: <MapPin className="w-6 h-6 text-accent" />,
       title: "Office Location",
-      details: ["Dubai, United Arab Emirates"]
+      details: ["Your City, Country"]
     },
     {
       icon: <Phone className="w-6 h-6 text-accent" />,
-      title: "Phone & WhatsApp",
-      details: ["+971 56 762 2484", "+966 58 236 0080"]
+      title: "Phone",
+      details: ["+1 (555) 123-4567"]
     },
     {
       icon: <Globe className="w-6 h-6 text-accent" />,
       title: "Website",
-      details: ["www.resortsoffers.com"]
+      details: ["www.yourbusiness.com"]
     },
     {
       icon: <Clock className="w-6 h-6 text-accent" />,
@@ -48,7 +48,7 @@ const Contact = () => {
             Contact Us
           </h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto opacity-90">
-            Let's discuss how we can elevate your luxury hospitality presence
+            Let's discuss how we can help your business succeed
           </p>
         </div>
       </section>
@@ -112,21 +112,6 @@ const Contact = () => {
             <div>
               <h2 className="text-3xl font-bold mb-6">Get in Touch</h2>
               
-              {/* WhatsApp Buttons */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                <a href="https://wa.me/971567622484" target="_blank" rel="noopener noreferrer">
-                  <Button className="w-full bg-[#25D366] hover:bg-[#20BA5A] text-white" size="lg">
-                    <MessageCircle className="mr-2" size={20} />
-                    WhatsApp UAE
-                  </Button>
-                </a>
-                <a href="https://wa.me/966582360080" target="_blank" rel="noopener noreferrer">
-                  <Button className="w-full bg-[#25D366] hover:bg-[#20BA5A] text-white" size="lg">
-                    <MessageCircle className="mr-2" size={20} />
-                    WhatsApp KSA
-                  </Button>
-                </a>
-              </div>
 
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
@@ -156,17 +141,14 @@ const Contact = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="flex gap-4">
-                    <a href="https://www.facebook.com/Resortsoffers/" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Facebook">
+                    <a href="#" className="hover:text-accent transition-colors" aria-label="Facebook">
                       <Facebook size={24} />
                     </a>
-                    <a href="https://www.instagram.com/resortsoffers/" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Instagram">
+                    <a href="#" className="hover:text-accent transition-colors" aria-label="Instagram">
                       <Instagram size={24} />
                     </a>
-                    <a href="https://twitter.com/Resortsoffers" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Twitter">
+                    <a href="#" className="hover:text-accent transition-colors" aria-label="Twitter">
                       <Twitter size={24} />
-                    </a>
-                    <a href="https://t.me/resortsoffers" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Telegram">
-                      <Send size={24} />
                     </a>
                   </div>
                 </CardContent>
@@ -185,20 +167,20 @@ const Contact = () => {
           <div className="max-w-3xl mx-auto space-y-6">
             {[
               {
-                q: "What services does Resorts offers Tourism consultancy provide?",
-                a: "We offer comprehensive hotel representation, sales & marketing services, revenue management, and tourism consultancy specifically for the Middle East market."
+                q: "What services do you provide?",
+                a: "We offer comprehensive professional services tailored to meet your business needs. Contact us to learn more about how we can help."
               },
               {
-                q: "Which regions do you cover?",
-                a: "Our primary focus is the Middle East market, with strong presence in UAE, Saudi Arabia, Qatar, Kuwait, Bahrain, and Oman."
+                q: "Which industries do you serve?",
+                a: "We work with clients across various industries, providing customized solutions for each unique business requirement."
               },
               {
-                q: "How can I partner with you?",
-                a: "Contact us through this form, WhatsApp, or visit www.resortsoffers.com to discuss partnership opportunities. We'll schedule a consultation to understand your needs."
+                q: "How can I get started?",
+                a: "Contact us through this form or call us directly. We'll schedule a consultation to understand your needs and discuss how we can help."
               },
               {
-                q: "Do you work with both independent hotels and chains?",
-                a: "Yes, we represent both independent luxury properties and select hotels from international chains looking to strengthen their Middle East presence."
+                q: "Do you offer custom solutions?",
+                a: "Yes, we specialize in creating tailored solutions that address your specific business challenges and objectives."
               }
             ].map((faq, index) => (
               <Card key={index}>

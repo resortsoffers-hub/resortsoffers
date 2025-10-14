@@ -10,26 +10,26 @@ const Index = () => {
   const features = [
     {
       icon: <Compass className="w-8 h-8 text-accent" />,
-      title: "Tourism Consultancy",
-      description: "Expert guidance for luxury travel experiences and destination management.",
+      title: "Consultancy",
+      description: "Expert guidance and professional consulting services tailored to your needs.",
       link: "/consultancy",
     },
     {
       icon: <Building2 className="w-8 h-8 text-accent" />,
-      title: "Luxury Resorts",
-      description: "Curated selection of the world's finest hotels and resorts.",
+      title: "Our Partners",
+      description: "Trusted partnerships and collaborations that drive success.",
       link: "/resorts",
     },
     {
       icon: <Gift className="w-8 h-8 text-accent" />,
       title: "Special Offers",
-      description: "Exclusive packages and deals on premium destinations worldwide.",
+      description: "Exclusive packages and deals tailored for you.",
       link: "/offers",
     },
     {
       icon: <Users className="w-8 h-8 text-accent" />,
       title: "Our Team",
-      description: "Dedicated professionals with years of hospitality expertise.",
+      description: "Dedicated professionals with years of industry expertise.",
       link: "/team",
     },
   ];
@@ -51,13 +51,13 @@ const Index = () => {
         
         <div className="relative z-10 container-custom text-center animate-fade-in">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold hero-text mb-6">
-            Luxury Hotel & Destination
+            Professional Business Services
           </h1>
           <h2 className="text-3xl md:text-5xl font-bold hero-text mb-4">
-            Representation in the Middle East
+            Excellence in Every Detail
           </h2>
           <p className="text-xl md:text-2xl hero-text mb-8 max-w-3xl mx-auto">
-            Representing a unique collection of luxurious properties situated in desirable locations
+            Delivering quality solutions tailored to your unique needs
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
             <Link to="/services">
@@ -79,13 +79,13 @@ const Index = () => {
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              Representing Luxurious Properties
+              Your Trusted Business Partner
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              As an independent regional sales and marketing office in the Middle East, 
-              we offer a seamless extension to the Sales and Marketing teams of our partner hotels. 
-              We spearhead calculated Sales and Marketing initiatives to promote inbound business 
-              from the Middle East to our valued partner properties across the world.
+              We provide comprehensive professional services designed to help your business thrive. 
+              Our team of experts works closely with you to understand your unique needs and deliver 
+              tailored solutions that drive growth and success. With years of industry experience, 
+              we're committed to excellence in everything we do.
             </p>
           </div>
         </div>
@@ -121,10 +121,10 @@ const Index = () => {
       <section className="section-padding bg-primary text-primary-foreground">
         <div className="container-custom text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Elevate Your Travel Experience?
+            Ready to Get Started?
           </h2>
           <p className="text-lg mb-8 max-w-2xl mx-auto opacity-90">
-            Discover exclusive luxury destinations and personalized services tailored to your preferences.
+            Discover how our professional services can help you achieve your goals.
           </p>
           <Link to="/contact">
             <Button size="lg" variant="secondary" className="text-lg px-8">

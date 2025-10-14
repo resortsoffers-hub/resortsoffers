@@ -10,8 +10,8 @@ const Navbar = () => {
   const navItems = [
     { name: "Home", path: "/" },
     { name: "Services", path: "/services" },
-    { name: "Tourism Consultancy", path: "/consultancy" },
-    { name: "Luxury Resorts", path: "/resorts" },
+    { name: "Consultancy", path: "/consultancy" },
+    { name: "Partners", path: "/resorts" },
     { name: "Offers", path: "/offers" },
     { name: "Our Team", path: "/team" },
     { name: "Contact", path: "/contact" },
@@ -24,10 +24,7 @@ const Navbar = () => {
       <div className="container-custom">
         <div className="flex justify-between items-center h-20">
           <Link to="/" className="flex items-center">
-            <h1 className="text-xl md:text-2xl font-bold text-primary">Resorts offers</h1>
-            <span className="ml-2 text-xs text-muted-foreground hidden md:block">
-              Tourism consultancy
-            </span>
+            <h1 className="text-xl md:text-2xl font-bold text-primary">Your Business Name</h1>
           </Link>
 
           {/* Desktop Navigation */}

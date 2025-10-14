@@ -8,10 +8,10 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Resorts offers Tourism consultancy</h3>
+            <h3 className="text-xl font-bold mb-4">Your Business Name</h3>
             <p className="text-sm opacity-90">
-              Leading luxury hotel and destination representation in the Middle East,
-              connecting world-class properties with discerning travelers.
+              Professional business services tailored to your needs,
+              delivering excellence and quality in everything we do.
             </p>
           </div>
 
@@ -20,9 +20,9 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm">
               <li><Link to="/services" className="hover:text-accent transition-colors">Services</Link></li>
-              <li><Link to="/consultancy" className="hover:text-accent transition-colors">Tourism Consultancy</Link></li>
-              <li><Link to="/resorts" className="hover:text-accent transition-colors">Luxury Resorts</Link></li>
-              <li><Link to="/offers" className="hover:text-accent transition-colors">Special Offers</Link></li>
+              <li><Link to="/consultancy" className="hover:text-accent transition-colors">Consultancy</Link></li>
+              <li><Link to="/resorts" className="hover:text-accent transition-colors">Partners</Link></li>
+              <li><Link to="/offers" className="hover:text-accent transition-colors">Offers</Link></li>
             </ul>
           </div>
 
@@ -32,19 +32,11 @@ const Footer = () => {
             <ul className="space-y-2 text-sm">
               <li className="flex items-center gap-2">
                 <Phone size={16} />
-                <a href="https://wa.me/971567622484" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
-                  +971 56 762 2484
-                </a>
-              </li>
-              <li className="flex items-center gap-2">
-                <Phone size={16} />
-                <a href="https://wa.me/966582360080" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
-                  +966 58 236 0080
-                </a>
+                <span>+1 (555) 123-4567</span>
               </li>
               <li className="flex items-center gap-2">
                 <MapPin size={16} />
-                <span>Dubai, UAE</span>
+                <span>Your City, Country</span>
               </li>
             </ul>
           </div>
@@ -53,24 +45,21 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Follow Us</h4>
             <div className="flex gap-4 flex-wrap">
-              <a href="https://www.facebook.com/Resortsoffers/" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Facebook">
+              <a href="#" className="hover:text-accent transition-colors" aria-label="Facebook">
                 <Facebook size={20} />
               </a>
-              <a href="https://www.instagram.com/resortsoffers/" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Instagram">
+              <a href="#" className="hover:text-accent transition-colors" aria-label="Instagram">
                 <Instagram size={20} />
               </a>
-              <a href="https://twitter.com/Resortsoffers" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Twitter">
+              <a href="#" className="hover:text-accent transition-colors" aria-label="Twitter">
                 <Twitter size={20} />
-              </a>
-              <a href="https://t.me/resortsoffers" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Telegram">
-                <Send size={20} />
               </a>
             </div>
           </div>
         </div>
 
         <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center text-sm opacity-75">
-          <p>&copy; {new Date().getFullYear()} Resorts offers Tourism consultancy. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Your Business Name. All rights reserved.</p>
         </div>
       </div>
     </footer>

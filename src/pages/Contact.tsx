@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Phone, MapPin, Clock, MessageCircle, Globe, Send, Facebook, Instagram, Twitter } from "lucide-react";
+import { MapPin, Clock, MessageCircle, Globe, Send, Facebook, Instagram, Twitter } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { toast } from "sonner";
@@ -21,19 +21,22 @@ const Contact = () => {
       details: ["Worldwide Luxury Resorts"]
     },
     {
-      icon: <Phone className="w-6 h-6 text-accent" />,
-      title: "Phone",
-      details: ["+1 (800) RESORTS", "+1 (800) 737-6787"]
+      icon: <MessageCircle className="w-6 h-6 text-accent" />,
+      title: "WhatsApp",
+      details: [
+        { text: "+971 567 622 484 (UAE)", link: "https://wa.me/971567622484" },
+        { text: "+966 582 360 080 (KSA)", link: "https://wa.me/966582360080" }
+      ]
     },
     {
       icon: <Globe className="w-6 h-6 text-accent" />,
-      title: "Email & Website",
-      details: ["info@resortsoffers.com", "www.resortsoffers.com"]
+      title: "Website",
+      details: [{ text: "www.resortsoffers.com", link: "https://www.resortsoffers.com" }]
     },
     {
       icon: <Clock className="w-6 h-6 text-accent" />,
       title: "Business Hours",
-      details: ["Monday - Friday: 9:00 AM - 8:00 PM", "Saturday - Sunday: 10:00 AM - 6:00 PM", "Available 24/7 for urgent inquiries"]
+      details: ["Available 24/7 for urgent inquiries"]
     }
   ];
 
@@ -125,7 +128,13 @@ const Contact = () => {
                     <CardContent>
                       {info.details.map((detail, i) => (
                         <p key={i} className="text-muted-foreground">
-                          {detail}
+                          {typeof detail === 'string' ? (
+                            detail
+                          ) : (
+                            <a href={detail.link} target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
+                              {detail.text}
+                            </a>
+                          )}
                         </p>
                       ))}
                     </CardContent>
@@ -141,14 +150,17 @@ const Contact = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="flex gap-4">
-                    <a href="https://facebook.com/resortsoffers" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Facebook">
+                    <a href="https://www.facebook.com/Resortsoffers/" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Facebook">
                       <Facebook size={24} />
                     </a>
-                    <a href="https://instagram.com/resortsoffers" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Instagram">
+                    <a href="https://www.instagram.com/resortsoffers/" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Instagram">
                       <Instagram size={24} />
                     </a>
-                    <a href="https://twitter.com/resortsoffers" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Twitter">
+                    <a href="https://twitter.com/Resortsoffers" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Twitter">
                       <Twitter size={24} />
+                    </a>
+                    <a href="https://t.me/resortsoffers" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Telegram">
+                      <Send size={24} />
                     </a>
                   </div>
                 </CardContent>

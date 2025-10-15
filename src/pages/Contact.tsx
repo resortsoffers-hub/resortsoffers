@@ -17,8 +17,8 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: <MapPin className="w-6 h-6 text-accent" />,
-      title: "Service Area",
-      details: ["Worldwide Luxury Resorts"]
+      title: "Location",
+      details: ["Dubai, UAE"]
     },
     {
       icon: <MessageCircle className="w-6 h-6 text-accent" />,

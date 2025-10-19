@@ -25,7 +25,8 @@ const Contact = () => {
       title: "WhatsApp",
       details: [
         { text: "+971 56 762 2484 (UAE)", link: "https://wa.me/971567622484" },
-        { text: "+966 582 360 080 (KSA)", link: "https://wa.me/966582360080" }
+        { text: "+966 582 360 080 (KSA)", link: "https://wa.me/966582360080" },
+        { text: "+44 7500 029091 (UK)", link: "https://wa.me/447500029091" }
       ]
     },
     {

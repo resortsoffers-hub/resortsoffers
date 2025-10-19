@@ -43,6 +43,12 @@ const Footer = () => {
                 </a>
               </li>
               <li className="flex items-center gap-2">
+                <MessageCircle size={16} />
+                <a href="https://wa.me/447500029091" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
+                  +44 7500 029091 (UK)
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
                 <MapPin size={16} />
                 <span>Deira - Port Saeed, Dubai, UAE</span>
               </li>

@@ -151,12 +151,12 @@ const Offers = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="section-padding bg-gradient-to-br from-primary to-primary/80 text-primary-foreground mt-20">
+      <section className="section-padding mt-20">
         <div className="container-custom text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
             Special Offers
           </h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto opacity-90">
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-muted-foreground">
             Exclusive deals on luxury destinations worldwide - Limited time only
           </p>
         </div>

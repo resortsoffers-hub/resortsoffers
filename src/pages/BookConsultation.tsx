@@ -98,6 +98,7 @@ const BookConsultation = () => {
                 <div>
                   <CardTitle className="text-2xl">Nora El Khalifi</CardTitle>
                   <CardDescription className="text-lg">CEO & Managing Director</CardDescription>
+                  <CardDescription className="text-sm mt-1">Member of Dubai Business Women Council</CardDescription>
                 </div>
               </div>
             </CardHeader>

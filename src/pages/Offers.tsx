@@ -12,6 +12,11 @@ import maldivesPatina from "@/assets/maldives-patina.jpg";
 import maldivesOceanPool from "@/assets/maldives-ocean-pool.jpg";
 import maldivesRitz from "@/assets/maldives-ritz.jpg";
 import maldivesVillas from "@/assets/maldives-villas.jpg";
+import santoriniGreece from "@/assets/santorini-greece.jpg";
+import dolomitiSki from "@/assets/dolomiti-ski.jpg";
+import dubaiFamily from "@/assets/dubai-family.jpg";
+import lakeGardaWellness from "@/assets/lake-garda-wellness.jpg";
+import bodrumBeach from "@/assets/bodrum-beach.jpg";
 
 const Offers = () => {
   const [selectedDestination, setSelectedDestination] = useState("All");
@@ -59,7 +64,8 @@ const Offers = () => {
       description: "Celebrate your love with champagne, couples spa treatment, and sunset dinner at our exclusive cliffside restaurant.",
       features: ["Champagne on Arrival", "Couples Massage", "Private Dinner"],
       price: "from $550/night",
-      featured: true
+      featured: true,
+      image: santoriniGreece
     },
     {
       title: "Ski Season Special",
@@ -70,7 +76,8 @@ const Offers = () => {
       description: "Hit the slopes with our winter special including ski pass, equipment rental, and après-ski wellness treatments.",
       features: ["Ski Pass Included", "Equipment Rental", "Daily Spa Access"],
       price: "from $380/night",
-      featured: false
+      featured: false,
+      image: dolomitiSki
     },
     {
       title: "Family Adventure Package",
@@ -81,7 +88,8 @@ const Offers = () => {
       description: "Ultimate family experience with theme park tickets, kids club access, and connecting rooms for maximum comfort.",
       features: ["Kids Stay Free", "Theme Park Tickets", "Kids Club Access"],
       price: "from $320/night",
-      featured: true
+      featured: true,
+      image: dubaiFamily
     },
     {
       title: "Wellness Retreat Offer",
@@ -92,7 +100,8 @@ const Offers = () => {
       description: "5-night wellness program including daily yoga, meditation, spa treatments, and organic gourmet cuisine.",
       features: ["Daily Yoga", "Spa Treatments", "Wellness Menu"],
       price: "from $420/night",
-      featured: false
+      featured: false,
+      image: lakeGardaWellness
     },
     {
       title: "Last Minute Beach Escape",
@@ -103,7 +112,8 @@ const Offers = () => {
       description: "Book within 14 days of arrival for exclusive savings on all-inclusive beach resort experience.",
       features: ["All-Inclusive", "Water Sports", "Beach Club Access"],
       price: "from $280/night",
-      featured: true
+      featured: true,
+      image: bodrumBeach
     },
     {
       title: "Luxury Water Villa Experience",

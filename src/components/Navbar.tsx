@@ -19,13 +19,13 @@ const Navbar = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="fixed top-0 w-full bg-primary shadow-md z-50">
+    <nav className="fixed top-0 w-full bg-[#003B95] shadow-lg z-50">
       <div className="container-custom">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <h1 className="text-xl md:text-2xl font-bold text-white">
-              ResortsOffers.com
+            <h1 className="text-xl md:text-2xl font-black text-white tracking-tight">
+              ResortsOffers<span className="text-white">.com</span>
             </h1>
           </Link>
 

@@ -21,27 +21,27 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="w-full max-w-6xl mx-auto bg-white rounded-lg shadow-xl p-2 md:p-4">
+    <div className="w-full max-w-6xl mx-auto bg-white rounded shadow-2xl p-3 md:p-4 border-4 border-[#003B95]">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-3">
         {/* Destination */}
         <div className="relative">
-          <label className="text-xs font-medium text-gray-700 mb-1 block">
+          <label className="text-xs font-semibold text-gray-800 mb-1 block">
             Where are you going?
           </label>
           <div className="relative">
-            <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+            <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#003B95]" />
             <Input
               placeholder="Destination"
               value={destination}
               onChange={(e) => setDestination(e.target.value)}
-              className="pl-10 h-12 border-2 border-gray-200 focus:border-primary"
+              className="pl-10 h-14 border-2 border-gray-300 focus:border-[#003B95] bg-white text-gray-900 font-medium"
             />
           </div>
         </div>
 
         {/* Check-in Date */}
         <div>
-          <label className="text-xs font-medium text-gray-700 mb-1 block">
+          <label className="text-xs font-semibold text-gray-800 mb-1 block">
             Check-in date
           </label>
           <Popover>
@@ -49,15 +49,15 @@ const SearchBar = () => {
               <Button
                 variant="outline"
                 className={cn(
-                  "w-full h-12 justify-start text-left font-normal border-2 border-gray-200 hover:border-primary",
-                  !checkIn && "text-muted-foreground"
+                  "w-full h-14 justify-start text-left font-medium border-2 border-gray-300 hover:border-[#003B95] bg-white text-gray-900",
+                  !checkIn && "text-gray-500"
                 )}
               >
-                <CalendarIcon className="mr-2 h-4 w-4" />
+                <CalendarIcon className="mr-2 h-5 w-5 text-[#003B95]" />
                 {checkIn ? format(checkIn, "MMM dd, yyyy") : "Select date"}
               </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-auto p-0" align="start">
+            <PopoverContent className="w-auto p-0 bg-white border-2 border-[#003B95]" align="start">
               <Calendar
                 mode="single"
                 selected={checkIn}
@@ -72,7 +72,7 @@ const SearchBar = () => {
 
         {/* Check-out Date */}
         <div>
-          <label className="text-xs font-medium text-gray-700 mb-1 block">
+          <label className="text-xs font-semibold text-gray-800 mb-1 block">
             Check-out date
           </label>
           <Popover>
@@ -80,15 +80,15 @@ const SearchBar = () => {
               <Button
                 variant="outline"
                 className={cn(
-                  "w-full h-12 justify-start text-left font-normal border-2 border-gray-200 hover:border-primary",
-                  !checkOut && "text-muted-foreground"
+                  "w-full h-14 justify-start text-left font-medium border-2 border-gray-300 hover:border-[#003B95] bg-white text-gray-900",
+                  !checkOut && "text-gray-500"
                 )}
               >
-                <CalendarIcon className="mr-2 h-4 w-4" />
+                <CalendarIcon className="mr-2 h-5 w-5 text-[#003B95]" />
                 {checkOut ? format(checkOut, "MMM dd, yyyy") : "Select date"}
               </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-auto p-0" align="start">
+            <PopoverContent className="w-auto p-0 bg-white border-2 border-[#003B95]" align="start">
               <Calendar
                 mode="single"
                 selected={checkOut}
@@ -103,20 +103,20 @@ const SearchBar = () => {
 
         {/* Guests Selector */}
         <div>
-          <label className="text-xs font-medium text-gray-700 mb-1 block">
+          <label className="text-xs font-semibold text-gray-800 mb-1 block">
             Guests & Rooms
           </label>
           <Popover>
             <PopoverTrigger asChild>
               <Button
                 variant="outline"
-                className="w-full h-12 justify-start text-left font-normal border-2 border-gray-200 hover:border-primary"
+                className="w-full h-14 justify-start text-left font-medium border-2 border-gray-300 hover:border-[#003B95] bg-white text-gray-900"
               >
-                <Users className="mr-2 h-4 w-4" />
+                <Users className="mr-2 h-5 w-5 text-[#003B95]" />
                 {adults} adults · {children} children · {rooms} room{rooms > 1 ? 's' : ''}
               </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-80 p-4" align="start">
+            <PopoverContent className="w-80 p-4 bg-white border-2 border-[#003B95]" align="start">
               <div className="space-y-4">
                 {/* Adults */}
                 <div className="flex items-center justify-between">
@@ -208,7 +208,7 @@ const SearchBar = () => {
         <Button 
           onClick={handleSearch} 
           size="lg" 
-          className="w-full md:w-auto md:px-12 h-12 text-base font-semibold"
+          className="w-full md:w-auto md:px-16 h-14 text-base font-bold bg-[#003B95] hover:bg-[#0052CC] text-white"
         >
           Search
         </Button>

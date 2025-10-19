@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Compass, Building2, Gift, Users } from "lucide-react";
@@ -37,6 +38,9 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <link rel="canonical" href="https://www.resortsoffers.com/" />
+      </Helmet>
       <Navbar />
       
       {/* Hero Section */}

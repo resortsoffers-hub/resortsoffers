@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { MapPin, Users, Target, Lightbulb, BarChart, Shield } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -40,6 +41,9 @@ const Consultancy = () => {
 
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <link rel="canonical" href="https://www.resortsoffers.com/consultancy" />
+      </Helmet>
       <Navbar />
       
       {/* Hero Section */}

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Mail, Linkedin } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -51,6 +52,9 @@ const Team = () => {
 
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <link rel="canonical" href="https://www.resortsoffers.com/team" />
+      </Helmet>
       <Navbar />
       
       {/* Hero Section */}

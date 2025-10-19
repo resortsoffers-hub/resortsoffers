@@ -1,0 +1,36 @@
+{
+  "nav": {
+    "resorts": "度假村",
+    "offers": "优惠",
+    "services": "服务",
+    "consultancy": "咨询",
+    "blog": "博客",
+    "team": "我们的团队",
+    "contact": "联系我们",
+    "bookConsultation": "预约免费咨询"
+  },
+  "hero": {
+    "title": "豪华度假体验",
+    "subtitle": "以无与伦比的优惠探索世界上最好的度假村"
+  },
+  "about": {
+    "title": "您的豪华旅行门户",
+    "description": "在 ResortsOffers.com，我们专注于策划全球卓越的度假村体验。我们的专家团队与高端度假村合作伙伴密切合作，为您带来独家套餐、无与伦比的优惠和个性化旅行咨询。凭借多年的豪华旅行经验，我们致力于让您的梦想假期成为现实。"
+  },
+  "services": {
+    "title": "我们做什么",
+    "travelConsultancy": "旅行咨询",
+    "travelConsultancyDesc": "专家指导帮助您找到完美的度假村，实现梦想假期。",
+    "luxuryResorts": "豪华度假村",
+    "luxuryResortsDesc": "来自世界各地精心挑选的高端度假村和酒店。",
+    "specialOffers": "特别优惠",
+    "specialOffersDesc": "独家度假村套餐和您在其他地方找不到的限时优惠。",
+    "expertTeam": "专家团队",
+    "expertTeamDesc": "专业的旅行专家，拥有多年度假村行业专业知识。"
+  },
+  "cta": {
+    "title": "准备预订您的梦想假期了吗？",
+    "description": "立即联系我们，让我们的专家帮助您找到完美的度假村体验。",
+    "button": "联系我们"
+  }
+}

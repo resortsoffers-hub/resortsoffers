@@ -7,31 +7,34 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SearchBar from "@/components/SearchBar";
 import heroImage from "@/assets/hero-resort.jpg";
+import { useTranslation } from "react-i18next";
 
 const Index = () => {
+  const { t } = useTranslation();
+  
   const features = [
     {
       icon: <Compass className="w-8 h-8 text-accent" />,
-      title: "Travel Consultancy",
-      description: "Expert guidance to help you find the perfect resort for your dream vacation.",
+      title: t('services.travelConsultancy'),
+      description: t('services.travelConsultancyDesc'),
       link: "/consultancy",
     },
     {
       icon: <Building2 className="w-8 h-8 text-accent" />,
-      title: "Luxury Resorts",
-      description: "Handpicked premium resorts and hotels from around the world.",
+      title: t('services.luxuryResorts'),
+      description: t('services.luxuryResortsDesc'),
       link: "/resorts",
     },
     {
       icon: <Gift className="w-8 h-8 text-accent" />,
-      title: "Special Offers",
-      description: "Exclusive resort packages and limited-time deals you won't find elsewhere.",
+      title: t('services.specialOffers'),
+      description: t('services.specialOffersDesc'),
       link: "/offers",
     },
     {
       icon: <Users className="w-8 h-8 text-accent" />,
-      title: "Expert Team",
-      description: "Dedicated travel specialists with years of resort industry expertise.",
+      title: t('services.expertTeam'),
+      description: t('services.expertTeamDesc'),
       link: "/team",
     },
   ];
@@ -57,10 +60,10 @@ const Index = () => {
         <div className="relative z-10 container-custom animate-fade-in">
           <div className="text-center mb-8">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold hero-text mb-6">
-              Luxury Resort Experiences
+              {t('hero.title')}
             </h1>
             <p className="text-xl md:text-2xl hero-text mb-8 max-w-3xl mx-auto">
-              Discover the world's finest resorts with unbeatable deals
+              {t('hero.subtitle')}
             </p>
           </div>
           
@@ -74,13 +77,10 @@ const Index = () => {
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              Your Gateway to Luxury Travel
+              {t('about.title')}
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              At ResortsOffers.com, we specialize in curating exceptional resort experiences worldwide. 
-              Our expert team works closely with premium resort partners to bring you exclusive packages, 
-              unbeatable deals, and personalized travel consultancy. With years of experience in luxury travel, 
-              we're committed to making your dream vacation a reality.
+              {t('about.description')}
             </p>
           </div>
         </div>
@@ -90,7 +90,7 @@ const Index = () => {
       <section className="section-padding">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            What We Do
+            {t('services.title')}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => (
@@ -116,14 +116,14 @@ const Index = () => {
       <section className="section-padding bg-primary text-primary-foreground">
         <div className="container-custom text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Book Your Dream Vacation?
+            {t('cta.title')}
           </h2>
           <p className="text-lg mb-8 max-w-2xl mx-auto opacity-90">
-            Contact us today and let our experts help you find the perfect resort experience.
+            {t('cta.description')}
           </p>
           <Link to="/contact">
             <Button size="lg" variant="secondary" className="text-lg px-8">
-              Get in Touch
+              {t('cta.button')}
             </Button>
           </Link>
         </div>

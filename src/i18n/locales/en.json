@@ -1,0 +1,36 @@
+{
+  "nav": {
+    "resorts": "Resorts",
+    "offers": "Offers",
+    "services": "Services",
+    "consultancy": "Consultancy",
+    "blog": "Blog",
+    "team": "Our Team",
+    "contact": "Contact",
+    "bookConsultation": "Book Free Consultation"
+  },
+  "hero": {
+    "title": "Luxury Resort Experiences",
+    "subtitle": "Discover the world's finest resorts with unbeatable deals"
+  },
+  "about": {
+    "title": "Your Gateway to Luxury Travel",
+    "description": "At ResortsOffers.com, we specialize in curating exceptional resort experiences worldwide. Our expert team works closely with premium resort partners to bring you exclusive packages, unbeatable deals, and personalized travel consultancy. With years of experience in luxury travel, we're committed to making your dream vacation a reality."
+  },
+  "services": {
+    "title": "What We Do",
+    "travelConsultancy": "Travel Consultancy",
+    "travelConsultancyDesc": "Expert guidance to help you find the perfect resort for your dream vacation.",
+    "luxuryResorts": "Luxury Resorts",
+    "luxuryResortsDesc": "Handpicked premium resorts and hotels from around the world.",
+    "specialOffers": "Special Offers",
+    "specialOffersDesc": "Exclusive resort packages and limited-time deals you won't find elsewhere.",
+    "expertTeam": "Expert Team",
+    "expertTeamDesc": "Dedicated travel specialists with years of resort industry expertise."
+  },
+  "cta": {
+    "title": "Ready to Book Your Dream Vacation?",
+    "description": "Contact us today and let our experts help you find the perfect resort experience.",
+    "button": "Get in Touch"
+  }
+}

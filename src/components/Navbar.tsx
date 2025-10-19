@@ -2,19 +2,22 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { t } = useTranslation();
 
   const navItems = [
-    { name: "Resorts", path: "/resorts" },
-    { name: "Offers", path: "/offers" },
-    { name: "Services", path: "/services" },
-    { name: "Consultancy", path: "/consultancy" },
-    { name: "Blog", path: "/blog" },
-    { name: "Our Team", path: "/team" },
-    { name: "Contact", path: "/contact" },
+    { name: t('nav.resorts'), path: "/resorts" },
+    { name: t('nav.offers'), path: "/offers" },
+    { name: t('nav.services'), path: "/services" },
+    { name: t('nav.consultancy'), path: "/consultancy" },
+    { name: t('nav.blog'), path: "/blog" },
+    { name: t('nav.team'), path: "/team" },
+    { name: t('nav.contact'), path: "/contact" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -50,9 +53,10 @@ const Navbar = () => {
                 size="sm"
                 className="ml-2"
               >
-                Book Free Consultation
+                {t('nav.bookConsultation')}
               </Button>
             </Link>
+            <LanguageSwitcher />
           </div>
 
           {/* Mobile Menu Button */}
@@ -89,9 +93,12 @@ const Navbar = () => {
                 variant="secondary"
                 className="w-full justify-start mb-2"
               >
-                Book Free Consultation
+                {t('nav.bookConsultation')}
               </Button>
             </Link>
+            <div className="px-2 mt-2">
+              <LanguageSwitcher />
+            </div>
           </div>
         )}
       </div>

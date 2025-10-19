@@ -39,7 +39,7 @@ const Index = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden mt-20">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden mt-16">
         <div className="absolute inset-0">
           <img 
             src={heroImage} 

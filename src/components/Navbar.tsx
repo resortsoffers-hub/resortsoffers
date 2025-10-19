@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
@@ -8,11 +8,10 @@ const Navbar = () => {
   const location = useLocation();
 
   const navItems = [
-    { name: "Home", path: "/" },
+    { name: "Resorts", path: "/resorts" },
+    { name: "Offers", path: "/offers" },
     { name: "Services", path: "/services" },
     { name: "Consultancy", path: "/consultancy" },
-    { name: "Partners", path: "/resorts" },
-    { name: "Offers", path: "/offers" },
     { name: "Our Team", path: "/team" },
     { name: "Contact", path: "/contact" },
   ];
@@ -20,11 +19,14 @@ const Navbar = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+    <nav className="fixed top-0 w-full bg-primary shadow-md z-50">
       <div className="container-custom">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
           <Link to="/" className="flex items-center">
-            <h1 className="text-xl md:text-2xl font-bold text-primary">Resorts Offers Tourism</h1>
+            <h1 className="text-xl md:text-2xl font-bold text-white">
+              ResortsOffers.com
+            </h1>
           </Link>
 
           {/* Desktop Navigation */}
@@ -32,18 +34,27 @@ const Navbar = () => {
             {navItems.map((item) => (
               <Link key={item.path} to={item.path}>
                 <Button
-                  variant={isActive(item.path) ? "default" : "ghost"}
-                  className="text-sm"
+                  variant="ghost"
+                  className={`text-white hover:bg-white/10 ${
+                    isActive(item.path) ? "bg-white/20" : ""
+                  }`}
                 >
                   {item.name}
                 </Button>
               </Link>
             ))}
+            <Button 
+              variant="ghost" 
+              className="text-white hover:bg-white/10 ml-4"
+            >
+              <User className="w-4 h-4 mr-2" />
+              Sign In
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2"
+            className="lg:hidden p-2 text-white"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -61,13 +72,22 @@ const Navbar = () => {
                 onClick={() => setIsOpen(false)}
               >
                 <Button
-                  variant={isActive(item.path) ? "default" : "ghost"}
-                  className="w-full justify-start mb-1"
+                  variant="ghost"
+                  className={`w-full justify-start mb-1 text-white hover:bg-white/10 ${
+                    isActive(item.path) ? "bg-white/20" : ""
+                  }`}
                 >
                   {item.name}
                 </Button>
               </Link>
             ))}
+            <Button 
+              variant="ghost" 
+              className="w-full justify-start text-white hover:bg-white/10"
+            >
+              <User className="w-4 h-4 mr-2" />
+              Sign In
+            </Button>
           </div>
         )}
       </div>

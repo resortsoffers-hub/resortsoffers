@@ -7,6 +7,11 @@ import { Calendar, Users, Percent, MapPin } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SearchBar from "@/components/SearchBar";
+import maldivesWaldorf from "@/assets/maldives-waldorf.jpg";
+import maldivesPatina from "@/assets/maldives-patina.jpg";
+import maldivesOceanPool from "@/assets/maldives-ocean-pool.jpg";
+import maldivesRitz from "@/assets/maldives-ritz.jpg";
+import maldivesVillas from "@/assets/maldives-villas.jpg";
 
 const Offers = () => {
   const [selectedDestination, setSelectedDestination] = useState("All");
@@ -42,7 +47,8 @@ const Offers = () => {
       description: "Book 90 days in advance and save 30% on your tropical paradise getaway with overwater villa accommodation.",
       features: ["Free Airport Transfer", "Daily Breakfast", "Spa Credit $200"],
       price: "from $450/night",
-      featured: true
+      featured: true,
+      image: maldivesWaldorf
     },
     {
       title: "Romantic Honeymoon Package",
@@ -98,6 +104,54 @@ const Offers = () => {
       features: ["All-Inclusive", "Water Sports", "Beach Club Access"],
       price: "from $280/night",
       featured: true
+    },
+    {
+      title: "Luxury Water Villa Experience",
+      destination: "Maldives",
+      type: "Package",
+      discount: 25,
+      validUntil: "2026-04-30",
+      description: "Stay in a stunning overwater villa with private pool, direct ocean access, and sunset views.",
+      features: ["Private Pool", "Ocean Access", "Butler Service"],
+      price: "from $680/night",
+      featured: true,
+      image: maldivesPatina
+    },
+    {
+      title: "Exclusive Ocean Pool Villa",
+      destination: "Maldives",
+      type: "Luxury",
+      discount: 20,
+      validUntil: "2026-05-31",
+      description: "Ultra-modern circular villa on stilts with infinity pool, direct ocean views, and contemporary design.",
+      features: ["Infinity Pool", "Modern Design", "Ocean Views"],
+      price: "from $850/night",
+      featured: true,
+      image: maldivesOceanPool
+    },
+    {
+      title: "Ritz-Carlton Beach Paradise",
+      destination: "Maldives",
+      type: "Luxury",
+      discount: 30,
+      validUntil: "2026-03-31",
+      description: "Signature Ritz-Carlton service in pristine beach villas surrounded by turquoise waters and white sand.",
+      features: ["Beach Villa", "World-Class Service", "Water Sports"],
+      price: "from $720/night",
+      featured: true,
+      image: maldivesRitz
+    },
+    {
+      title: "Maldives Villa Collection",
+      destination: "Maldives",
+      type: "Package",
+      discount: 35,
+      validUntil: "2026-06-30",
+      description: "Choose from our collection of overwater villas with private pools and direct lagoon access.",
+      features: ["Private Villas", "All-Inclusive Option", "Water Activities"],
+      price: "from $520/night",
+      featured: true,
+      image: maldivesVillas
     }
   ];
 
@@ -201,6 +255,15 @@ const Offers = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {sortedOffers.map((offer, index) => (
               <Card key={index} className="hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+                {offer.image && (
+                  <div className="w-full h-64 overflow-hidden">
+                    <img 
+                      src={offer.image} 
+                      alt={offer.title}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                )}
                 <CardHeader>
                   <div className="flex items-start justify-between mb-2">
                     <div className="flex-1">

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, Twitter, MapPin, MessageCircle, Link as LinkIcon } from "lucide-react";
+import { Facebook, Instagram, Twitter, MapPin, MessageCircle, Link as LinkIcon, Youtube } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -68,6 +68,9 @@ const Footer = () => {
               </a>
               <a href="https://twitter.com/Resortsoffers" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Twitter">
                 <Twitter size={20} />
+              </a>
+              <a href="https://www.youtube.com/@resortsoffers" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="YouTube">
+                <Youtube size={20} />
               </a>
               <a href="https://www.tiktok.com/@resortsoffers" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="TikTok">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

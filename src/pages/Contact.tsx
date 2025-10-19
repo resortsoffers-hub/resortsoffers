@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { MapPin, Clock, MessageCircle, Globe, Send, Facebook, Instagram, Twitter, Star } from "lucide-react";
+import { MapPin, Clock, MessageCircle, Globe, Send, Facebook, Instagram, Twitter, Star, Youtube } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { toast } from "sonner";
@@ -168,6 +168,9 @@ const Contact = () => {
                     </a>
                     <a href="https://twitter.com/Resortsoffers" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Twitter">
                       <Twitter size={24} />
+                    </a>
+                    <a href="https://www.youtube.com/@resortsoffers" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="YouTube">
+                      <Youtube size={24} />
                     </a>
                     <a href="https://t.me/resortsoffers" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Telegram">
                       <Send size={24} />

@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { MapPin, Clock, MessageCircle, Globe, Send, Facebook, Instagram, Twitter } from "lucide-react";
+import { MapPin, Clock, MessageCircle, Globe, Send, Facebook, Instagram, Twitter, Star } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { toast } from "sonner";
@@ -18,13 +18,13 @@ const Contact = () => {
     {
       icon: <MapPin className="w-6 h-6 text-accent" />,
       title: "Location",
-      details: ["Dubai, UAE"]
+      details: ["Deira - Port Saeed - Dubai - United Arab Emirates"]
     },
     {
       icon: <MessageCircle className="w-6 h-6 text-accent" />,
       title: "WhatsApp",
       details: [
-        { text: "+971 567 622 484 (UAE)", link: "https://wa.me/971567622484" },
+        { text: "+971 56 762 2484 (UAE)", link: "https://wa.me/971567622484" },
         { text: "+966 582 360 080 (KSA)", link: "https://wa.me/966582360080" }
       ]
     },
@@ -37,6 +37,11 @@ const Contact = () => {
       icon: <Clock className="w-6 h-6 text-accent" />,
       title: "Business Hours",
       details: ["Available 24/7 for urgent inquiries"]
+    },
+    {
+      icon: <Star className="w-6 h-6 text-accent" />,
+      title: "Google Reviews",
+      details: [{ text: "Leave us a review ⭐", link: "https://g.page/r/CfJvRGYBkj4NEBM/review" }]
     }
   ];
 

@@ -6,40 +6,46 @@ import Footer from "@/components/Footer";
 const Team = () => {
   const teamMembers = [
     {
-      name: "Sarah Al-Rashid",
+      name: "Nora El Khalifi",
       position: "Managing Director",
-      bio: "With over 20 years in luxury hospitality, Sarah leads our regional operations with strategic vision and industry expertise.",
-      email: "sarah@yourbusiness.com"
+      bio: "With over 20 years in luxury hospitality, Nora leads our regional operations with strategic vision and industry expertise.",
+      email: "sarah@yourbusiness.com",
+      linkedin: "https://www.linkedin.com/in/noraelkhalifi"
     },
     {
       name: "Michael Chen",
       position: "Head of Sales & Marketing",
       bio: "Michael brings 15+ years of experience in luxury hotel sales across the Middle East and Asian markets.",
-      email: "michael@yourbusiness.com"
+      email: "michael@yourbusiness.com",
+      linkedin: "https://www.linkedin.com/company/resortsoffers"
     },
     {
       name: "Layla Hassan",
       position: "Director of Client Relations",
       bio: "Layla specializes in building lasting partnerships with premium travel agencies and corporate clients throughout the region.",
-      email: "layla@yourbusiness.com"
+      email: "layla@yourbusiness.com",
+      linkedin: "https://www.linkedin.com/company/resortsoffers"
     },
     {
       name: "James Anderson",
       position: "Revenue Management Director",
       bio: "James optimizes pricing strategies and revenue performance for our portfolio of luxury partner properties.",
-      email: "james@yourbusiness.com"
+      email: "james@yourbusiness.com",
+      linkedin: "https://www.linkedin.com/company/resortsoffers"
     },
     {
       name: "Fatima Al-Mahmoud",
       position: "Marketing Manager",
       bio: "Fatima crafts compelling brand stories and digital marketing campaigns for our luxury hotel partners.",
-      email: "fatima@yourbusiness.com"
+      email: "fatima@yourbusiness.com",
+      linkedin: "https://www.linkedin.com/company/resortsoffers"
     },
     {
       name: "David Martinez",
       position: "Business Development Manager",
       bio: "David identifies new market opportunities and develops strategic partnerships across the hospitality sector.",
-      email: "david@yourbusiness.com"
+      email: "david@yourbusiness.com",
+      linkedin: "https://www.linkedin.com/company/resortsoffers"
     }
   ];
 
@@ -97,7 +103,9 @@ const Team = () => {
                       <Mail size={20} />
                     </a>
                     <a 
-                      href="#" 
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-muted-foreground hover:text-primary transition-colors"
                       aria-label={`${member.name} LinkedIn profile`}
                     >

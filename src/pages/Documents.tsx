@@ -9,11 +9,13 @@ import { FileText, Upload, X } from "lucide-react";
 const Documents = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [filePreview, setFilePreview] = useState<string | null>(null);
+  const [showCompanyDoc, setShowCompanyDoc] = useState(true);
 
   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
       setSelectedFile(file);
+      setShowCompanyDoc(false);
       
       // Create preview for images and PDFs
       if (file.type.startsWith('image/')) {
@@ -34,6 +36,7 @@ const Documents = () => {
   const clearFile = () => {
     setSelectedFile(null);
     setFilePreview(null);
+    setShowCompanyDoc(true);
   };
 
   return (
@@ -65,7 +68,37 @@ const Documents = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                {!selectedFile ? (
+                {showCompanyDoc && !selectedFile ? (
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between mb-4">
+                      <div>
+                        <h3 className="text-lg font-semibold">Resorts Offers Company Profile</h3>
+                        <p className="text-sm text-muted-foreground">View our company information and services</p>
+                      </div>
+                      <label className="cursor-pointer">
+                        <Button variant="outline" asChild>
+                          <span>
+                            <Upload size={16} className="mr-2" />
+                            Upload Different File
+                          </span>
+                        </Button>
+                        <input
+                          type="file"
+                          className="hidden"
+                          onChange={handleFileSelect}
+                          accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png,.gif"
+                        />
+                      </label>
+                    </div>
+                    <div className="border rounded-lg overflow-hidden">
+                      <iframe
+                        src="/Resorts_Offers_REP.pdf"
+                        className="w-full h-[700px]"
+                        title="Resorts Offers Company Profile"
+                      />
+                    </div>
+                  </div>
+                ) : !selectedFile ? (
                   <label className="flex flex-col items-center justify-center border-2 border-dashed border-muted rounded-lg p-12 cursor-pointer hover:border-primary transition-colors">
                     <Upload size={48} className="text-muted-foreground mb-4" />
                     <span className="text-lg font-medium mb-2">Click to upload a document</span>

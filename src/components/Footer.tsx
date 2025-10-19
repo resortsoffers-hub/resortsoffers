@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, Twitter, MapPin, MessageCircle, Link as LinkIcon, Youtube } from "lucide-react";
+import { Facebook, Instagram, Twitter, MapPin, MessageCircle, Link as LinkIcon, Youtube, Linkedin } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -65,6 +65,9 @@ const Footer = () => {
               </a>
               <a href="https://www.instagram.com/resortsoffers/" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Instagram">
                 <Instagram size={20} />
+              </a>
+              <a href="https://www.linkedin.com/in/noraelkhalifi/" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="LinkedIn">
+                <Linkedin size={20} />
               </a>
               <a href="https://twitter.com/Resortsoffers" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Twitter">
                 <Twitter size={20} />

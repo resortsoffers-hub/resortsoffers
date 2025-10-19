@@ -43,13 +43,15 @@ const Navbar = () => {
                 </Button>
               </Link>
             ))}
-            <Button 
-              variant="ghost" 
-              className="text-white hover:bg-white/10 ml-4"
-            >
-              <User className="w-4 h-4 mr-2" />
-              Sign In
-            </Button>
+            <Link to="/book-consultation">
+              <Button 
+                variant="secondary"
+                size="sm"
+                className="ml-2"
+              >
+                Book Free Consultation
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -81,13 +83,14 @@ const Navbar = () => {
                 </Button>
               </Link>
             ))}
-            <Button 
-              variant="ghost" 
-              className="w-full justify-start text-white hover:bg-white/10"
-            >
-              <User className="w-4 h-4 mr-2" />
-              Sign In
-            </Button>
+            <Link to="/book-consultation" onClick={() => setIsOpen(false)}>
+              <Button 
+                variant="secondary"
+                className="w-full justify-start mb-2"
+              >
+                Book Free Consultation
+              </Button>
+            </Link>
           </div>
         )}
       </div>

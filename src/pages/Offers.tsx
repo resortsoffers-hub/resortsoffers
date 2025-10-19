@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Calendar, Users, Percent, MapPin } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SearchBar from "@/components/SearchBar";
 
 const Offers = () => {
   const [selectedDestination, setSelectedDestination] = useState("All");
@@ -162,9 +163,14 @@ const Offers = () => {
         </div>
       </section>
 
-      {/* Filter & Sort Section */}
+      {/* Search & Filter Section */}
       <section className="section-padding">
         <div className="container-custom">
+          {/* Search Bar */}
+          <div className="mb-8">
+            <SearchBar />
+          </div>
+
           {/* Destination Filter */}
           <div className="mb-8">
             <h2 className="text-sm font-semibold text-muted-foreground mb-3">Filter by Destination</h2>

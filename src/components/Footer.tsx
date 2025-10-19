@@ -92,6 +92,40 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Customer Reviews */}
+        <div className="border-t border-primary-foreground/20 mt-12 pt-8">
+          <h4 className="font-semibold text-center mb-6">What Our Clients Say</h4>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-primary-foreground/10 p-4 rounded-lg">
+              <div className="flex mb-2">
+                {[...Array(5)].map((_, i) => (
+                  <span key={i} className="text-accent">★</span>
+                ))}
+              </div>
+              <p className="text-sm mb-2">"Exceptional service! They found us the perfect honeymoon resort in Maldives."</p>
+              <p className="text-xs opacity-75">- Sarah & Ahmed</p>
+            </div>
+            <div className="bg-primary-foreground/10 p-4 rounded-lg">
+              <div className="flex mb-2">
+                {[...Array(5)].map((_, i) => (
+                  <span key={i} className="text-accent">★</span>
+                ))}
+              </div>
+              <p className="text-sm mb-2">"Best travel consultancy in Dubai! Professional and responsive team."</p>
+              <p className="text-xs opacity-75">- Mohammed Al-Rashid</p>
+            </div>
+            <div className="bg-primary-foreground/10 p-4 rounded-lg">
+              <div className="flex mb-2">
+                {[...Array(5)].map((_, i) => (
+                  <span key={i} className="text-accent">★</span>
+                ))}
+              </div>
+              <p className="text-sm mb-2">"Amazing deals and unforgettable experience. Highly recommended!"</p>
+              <p className="text-xs opacity-75">- Fatima & Family</p>
+            </div>
+          </div>
+        </div>
+
         <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center text-sm opacity-75">
           <p className="mb-2">Member of Dubai Business Women Council</p>
           <p>&copy; {new Date().getFullYear()} Resorts Offers Tourism Consultancy. All rights reserved.</p>

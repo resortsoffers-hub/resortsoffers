@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Compass, Building2, Gift, Users } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SearchBar from "@/components/SearchBar";
 import heroImage from "@/assets/hero-resort.jpg";
 
 const Index = () => {
@@ -49,28 +50,18 @@ const Index = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary/40" />
         </div>
         
-        <div className="relative z-10 container-custom text-center animate-fade-in">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold hero-text mb-6">
-            Luxury Resort Experiences
-          </h1>
-          <h2 className="text-3xl md:text-5xl font-bold hero-text mb-4">
-            Exclusive Packages & Special Offers
-          </h2>
-          <p className="text-xl md:text-2xl hero-text mb-8 max-w-3xl mx-auto">
-            Discover the world's finest resorts with unbeatable deals
-          </p>
-          <div className="flex gap-4 justify-center flex-wrap">
-            <Link to="/services">
-              <Button size="lg" variant="secondary" className="text-lg px-8">
-                Explore Services
-              </Button>
-            </Link>
-            <Link to="/contact">
-              <Button size="lg" variant="outline" className="text-lg px-8 bg-white/10 text-white border-white hover:bg-white hover:text-primary">
-                Contact Us
-              </Button>
-            </Link>
+        <div className="relative z-10 container-custom animate-fade-in">
+          <div className="text-center mb-8">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold hero-text mb-6">
+              Luxury Resort Experiences
+            </h1>
+            <p className="text-xl md:text-2xl hero-text mb-8 max-w-3xl mx-auto">
+              Discover the world's finest resorts with unbeatable deals
+            </p>
           </div>
+          
+          {/* Search Bar */}
+          <SearchBar />
         </div>
       </section>
 

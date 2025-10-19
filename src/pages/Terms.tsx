@@ -80,6 +80,12 @@ const Terms = () => {
                     The previously confirmed villa will be released and offered to the next waitlisted guest.
                   </p>
                 </div>
+                <div>
+                  <h3 className="font-semibold text-lg mb-2">Early Departures</h3>
+                  <p className="text-muted-foreground">
+                    Early departures will be considered as no-shows.
+                  </p>
+                </div>
               </CardContent>
             </Card>
 
@@ -90,13 +96,20 @@ const Terms = () => {
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="text-muted-foreground">
-                  "Force Majeure" covers events beyond a party's reasonable control—such as acts of God, natural disasters, 
-                  terrorism, war, or government restrictions—under which either party may terminate relevant agreements 
-                  without liability.
+                  "Force Majeure" (also known as "impossibility") covers events beyond a party's reasonable control—such 
+                  as acts of God, natural disasters, terrorism, war, or government restrictions—under which either party 
+                  may terminate relevant agreements without liability. The clause often requires written notice and provides 
+                  a mechanism to reschedule events or reservations based on availability and negotiation.
                 </p>
                 
+                <p className="text-muted-foreground">
+                  In hotel management agreements, pandemics or epidemics may or may not be explicitly stated as force 
+                  majeure—often appearing only as "events beyond reasonable control." Legal interpretations differ globally, 
+                  and some agreements now add explicit references to epidemics and quarantine mandates.
+                </p>
+
                 <div>
-                  <h3 className="font-semibold text-lg mb-2">Qualifying Events Include:</h3>
+                  <h3 className="font-semibold text-lg mb-2">Under Force Majeure - Typical Events Include:</h3>
                   <ul className="list-disc list-inside space-y-2 text-muted-foreground ml-4">
                     <li>Natural disasters (e.g., storms, flooding, tsunami)</li>
                     <li>Government travel restrictions or curfews</li>
@@ -107,13 +120,12 @@ const Terms = () => {
                   </ul>
                 </div>
 
-                <div>
-                  <h3 className="font-semibold text-lg mb-2">Not Typically Covered:</h3>
-                  <ul className="list-disc list-inside space-y-2 text-muted-foreground ml-4">
-                    <li>Regular weather (such as monsoon rain)</li>
-                    <li>Transient illness or mild disruptions</li>
-                    <li>Events that do not trigger official government restrictions or prevent resort operation</li>
-                  </ul>
+                <div className="bg-accent/10 p-4 rounded-lg">
+                  <p className="text-sm text-muted-foreground">
+                    <strong>Note:</strong> Regular weather (such as monsoon rain), transient illness, or mild disruptions 
+                    usually do not meet the threshold unless they trigger official government restrictions or prevent the 
+                    resort from operating at all.
+                  </p>
                 </div>
 
                 <div className="bg-accent/10 p-4 rounded-lg mt-4">
@@ -142,30 +154,34 @@ const Terms = () => {
                   <li>Retain deposits and apply them to rebooked or rescheduled reservations</li>
                   <li>Offer postponement or rebooking options</li>
                   <li>Retain deposits to apply to a new booking in lieu of refunds</li>
-                  <li>Provide alternative arrangements based on availability</li>
-                  <li>Handle refunds or compensation depending on contract terms</li>
+                  <li>Leave refunds or compensation, depending on contract terms</li>
+                  <li>Allow termination or postponement of events/reservation</li>
                 </ul>
               </CardContent>
             </Card>
 
-            {/* Additional Information */}
+            {/* General Cancellation Policy */}
             <Card>
               <CardHeader>
-                <CardTitle className="text-2xl">Additional Information</CardTitle>
+                <CardTitle className="text-2xl">General Cancellation Policy</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent>
                 <p className="text-muted-foreground">
-                  Resorts often require strict cancellation policies. The clause typically requires written notice and 
-                  provides a mechanism to reschedule events or reservations based on availability and negotiation.
+                  Hotel cancellation terms vary depending on the property and package booked. Please refer to the 
+                  specific hotel's policy for applicable charges in case of modification, no-show, or cancellation.
                 </p>
+              </CardContent>
+            </Card>
+
+            {/* Service Charges */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-2xl">Service Charges</CardTitle>
+              </CardHeader>
+              <CardContent>
                 <p className="text-muted-foreground">
-                  In hotel management agreements, pandemics or epidemics may or may not be explicitly stated as force 
-                  majeure—often appearing only as "events beyond reasonable control." Legal interpretations differ 
-                  globally, and some agreements now add explicit references to epidemics and quarantine mandates.
-                </p>
-                <p className="text-muted-foreground">
-                  Some resorts may honor refunds or waive cancellation policies during declared natural disasters—even 
-                  on non-refundable rates—especially when corporate waivers are activated.
+                  A fixed service charge applies to all bookings. This fee is non-refundable under all circumstances, 
+                  including when a cancellation results in a full or partial refund from the hotel.
                 </p>
               </CardContent>
             </Card>

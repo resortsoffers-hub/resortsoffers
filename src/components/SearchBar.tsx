@@ -7,13 +7,36 @@ import { CalendarIcon, MapPin, Users, Minus, Plus } from "lucide-react";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 
-const SearchBar = () => {
+interface SearchBarProps {
+  selectedDestination?: string;
+  onDestinationChange?: (destination: string) => void;
+}
+
+const SearchBar = ({ selectedDestination = "All", onDestinationChange }: SearchBarProps) => {
   const [destination, setDestination] = useState("");
   const [checkIn, setCheckIn] = useState<Date>();
   const [checkOut, setCheckOut] = useState<Date>();
   const [adults, setAdults] = useState(2);
   const [children, setChildren] = useState(0);
   const [rooms, setRooms] = useState(1);
+
+  const destinations = [
+    "All",
+    "Finland",
+    "Japan",
+    "China",
+    "Zanzibar",
+    "Maldives",
+    "Seychelles",
+    "Mauritius",
+    "Greece",
+    "Bali",
+    "Thailand",
+    "UK",
+    "Turkey",
+    "Europe",
+    "Cruise"
+  ];
 
   const handleSearch = () => {
     console.log("Search:", { destination, checkIn, checkOut, adults, children, rooms });
@@ -212,6 +235,24 @@ const SearchBar = () => {
         >
           Search
         </Button>
+      </div>
+
+      {/* Destination Filter Buttons */}
+      <div className="mt-6 pt-6 border-t border-gray-200">
+        <h2 className="text-sm font-semibold text-gray-800 mb-3">Filter by Destination</h2>
+        <div className="flex gap-2 flex-wrap">
+          {destinations.map((dest) => (
+            <Button
+              key={dest}
+              variant={selectedDestination === dest ? "default" : "outline"}
+              onClick={() => onDestinationChange?.(dest)}
+              size="sm"
+              className={selectedDestination === dest ? "bg-[#003B95] hover:bg-[#0052CC]" : ""}
+            >
+              {dest}
+            </Button>
+          ))}
+        </div>
       </div>
     </div>
   );

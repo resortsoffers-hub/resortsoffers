@@ -12,24 +12,6 @@ const Offers = () => {
   const [selectedDestination, setSelectedDestination] = useState("All");
   const [selectedSubFilter, setSelectedSubFilter] = useState<string[]>([]);
   const [sortBy, setSortBy] = useState("Featured");
-
-  const destinations = [
-    "All",
-    "Finland",
-    "Japan",
-    "China",
-    "Zanzibar",
-    "Maldives",
-    "Seychelles",
-    "Mauritius",
-    "Greece",
-    "Bali",
-    "Thailand",
-    "UK",
-    "Turkey",
-    "Europe",
-    "Cruise"
-  ];
   
   const subFilters: Record<string, string[]> = {
     "Maldives": [
@@ -166,29 +148,15 @@ const Offers = () => {
       {/* Search & Filter Section */}
       <section className="section-padding">
         <div className="container-custom">
-          {/* Search Bar */}
+          {/* Search Bar with Destination Filter */}
           <div className="mb-8">
-            <SearchBar />
-          </div>
-
-          {/* Destination Filter */}
-          <div className="mb-8">
-            <h2 className="text-sm font-semibold text-muted-foreground mb-3">Filter by Destination</h2>
-            <div className="flex gap-2 flex-wrap">
-              {destinations.map((destination) => (
-                <Button
-                  key={destination}
-                  variant={selectedDestination === destination ? "default" : "outline"}
-                  onClick={() => {
-                    setSelectedDestination(destination);
-                    setSelectedSubFilter([]);
-                  }}
-                  size="sm"
-                >
-                  {destination}
-                </Button>
-              ))}
-            </div>
+            <SearchBar 
+              selectedDestination={selectedDestination}
+              onDestinationChange={(dest) => {
+                setSelectedDestination(dest);
+                setSelectedSubFilter([]);
+              }}
+            />
           </div>
 
           {/* Sub Filters */}

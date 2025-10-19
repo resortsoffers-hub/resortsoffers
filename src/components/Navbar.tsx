@@ -24,7 +24,7 @@ const Navbar = () => {
       <div className="container-custom">
         <div className="flex justify-between items-center h-20">
           <Link to="/" className="flex items-center">
-            <h1 className="text-xl md:text-2xl font-bold text-primary">Resorts Offers</h1>
+            <h1 className="text-xl md:text-2xl font-bold text-primary">Resorts Offers Tourism</h1>
           </Link>
 
           {/* Desktop Navigation */}

@@ -91,6 +91,114 @@ const Resorts = () => {
       description: "A new contemporary vision of hospitality promoting French craftsmanship and Art de Vivre à la française in the Maldives.",
       features: ["Luxury Villas", "French Cuisine", "Spa by Guerlain", "Private Island"],
       website: "https://www.chevalblanc.com/en/maison/maldives-randheli"
+    },
+    {
+      name: "Joali Maldives",
+      location: "Maldives",
+      region: "Maldives",
+      rating: 5,
+      description: "An immersive luxury experience where art meets nature. Discover bespoke design, world-class dining, and unparalleled service.",
+      features: ["Art Gallery", "Private Beaches", "Underwater Restaurant", "Spa Sanctuary"],
+      website: "https://www.joali.com"
+    },
+    {
+      name: "Soneva Fushi",
+      location: "Maldives",
+      region: "Maldives",
+      rating: 5,
+      description: "Barefoot luxury in a pristine tropical paradise. Experience sustainable sophistication with oversized villas and exceptional dining.",
+      features: ["Eco-Luxury Villas", "Observatory", "Outdoor Cinema", "Organic Cuisine"],
+      website: "https://www.soneva.com/soneva-fushi"
+    },
+    {
+      name: "JW Marriott Maldives",
+      location: "Maldives",
+      region: "Maldives",
+      rating: 5,
+      description: "Sophisticated island sanctuary offering contemporary luxury with stunning overwater and beach villas in the heart of the Maldives.",
+      features: ["Overwater Pool Villas", "Multiple Restaurants", "Spa & Wellness", "Water Sports Center"],
+      website: "https://www.marriott.com/hotels/travel/mlejw-jw-marriott-maldives-resort-and-spa"
+    },
+    {
+      name: "SO/ Maldives",
+      location: "Maldives",
+      region: "Maldives",
+      rating: 5,
+      description: "Bold, playful, and avant-garde luxury resort inspired by fashion and design. Experience the extraordinary with vibrant energy.",
+      features: ["Designer Villas", "Fashion Events", "Gourmet Dining", "Beach Club"],
+      website: "https://www.so-maldives.com"
+    },
+    {
+      name: "Kuda Villingili Resort",
+      location: "Maldives",
+      region: "Maldives",
+      rating: 5,
+      description: "Tropical island paradise combining natural beauty with refined luxury. Enjoy pristine beaches and exceptional personalized service.",
+      features: ["Beach & Water Villas", "Infinity Pools", "Spa Treatments", "Water Activities"],
+      website: "https://www.kudavillingili.com"
+    },
+    {
+      name: "Niyama Private Islands",
+      location: "Maldives",
+      region: "Maldives",
+      rating: 5,
+      description: "Two stunning private islands offering ultimate freedom and bespoke experiences. Redefine luxury with underwater restaurants and more.",
+      features: ["Private Islands", "Underwater Nightclub", "Surf School", "Spa by Drift"],
+      website: "https://www.niyama.com"
+    },
+    {
+      name: "W Maldives",
+      location: "Maldives",
+      region: "Maldives",
+      rating: 5,
+      description: "Contemporary luxury meets island paradise. Experience vibrant energy, innovative design, and world-class entertainment.",
+      features: ["Overwater Bungalows", "Beach Club", "AWAY Spa", "Water Sports"],
+      website: "https://www.marriott.com/hotels/travel/mlewh-w-maldives"
+    },
+    {
+      name: "Hilton Maldives Amingiri",
+      location: "Maldives",
+      region: "Maldives",
+      rating: 5,
+      description: "Intimate island resort featuring pristine beaches, turquoise lagoons, and sophisticated accommodation with modern amenities.",
+      features: ["Beach & Overwater Villas", "All-Inclusive Options", "Spa Wellness", "Kids Club"],
+      website: "https://www.hilton.com/en/hotels/mleaahh-hilton-maldives-amingiri-resort-and-spa"
+    },
+    {
+      name: "Hard Rock Hotel Maldives",
+      location: "Maldives",
+      region: "Maldives",
+      rating: 5,
+      description: "Rock star luxury in paradise. Enjoy music-inspired experiences, legendary service, and world-class entertainment.",
+      features: ["Rock Spa", "Live Music", "Overwater Villas", "Signature Dining"],
+      website: "https://www.hardrockhotels.com/maldives"
+    },
+    {
+      name: "Dusit Thani Maldives",
+      location: "Maldives",
+      region: "Maldives",
+      rating: 5,
+      description: "Thai-inspired luxury resort combining warm hospitality with stunning natural beauty. Experience authentic Thai wellness and cuisine.",
+      features: ["Thai Spa", "Authentic Cuisine", "Beach & Ocean Villas", "Dive Center"],
+      website: "https://www.dusit.com/dusitthani-maldives"
+    },
+    {
+      name: "Siyam World Maldives",
+      location: "Maldives",
+      region: "Maldives",
+      rating: 5,
+      description: "The ultimate playground for adventure seekers and families. Experience thrilling water sports, entertainment, and luxury accommodations.",
+      features: ["Water Park", "Adventure Sports", "Family Villas", "Multiple Restaurants"],
+      website: "https://www.siyam.com/siyamworld"
+    },
+    {
+      name: "Joy Island Maldives",
+      location: "Maldives",
+      region: "Maldives",
+      rating: 5,
+      description: "Contemporary island retreat offering modern luxury and genuine Maldivian hospitality in a vibrant tropical setting.",
+      features: ["Modern Villas", "Beach Access", "Spa Services", "Water Activities"],
+      website: "https://www.joyislandmaldives.com"
     }
   ];
 

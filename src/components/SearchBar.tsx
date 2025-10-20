@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { CalendarIcon, MapPin, Users, Minus, Plus } from "lucide-react";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
@@ -237,22 +238,25 @@ const SearchBar = ({ selectedDestination = "All", onDestinationChange }: SearchB
         </Button>
       </div>
 
-      {/* Destination Filter Buttons */}
+      {/* Destination Filter Dropdown */}
       <div className="mt-6 pt-6 border-t border-gray-200">
-        <h2 className="text-sm font-semibold text-gray-800 mb-3">Filter by Destination</h2>
-        <div className="flex gap-2 flex-wrap">
-          {destinations.map((dest) => (
-            <Button
-              key={dest}
-              variant={selectedDestination === dest ? "default" : "outline"}
-              onClick={() => onDestinationChange?.(dest)}
-              size="sm"
-              className={selectedDestination === dest ? "bg-[#003B95] hover:bg-[#0052CC]" : ""}
-            >
-              {dest}
-            </Button>
-          ))}
-        </div>
+        <label className="text-sm font-semibold text-gray-800 mb-3 block">Filter by Destination</label>
+        <Select value={selectedDestination} onValueChange={onDestinationChange}>
+          <SelectTrigger className="w-full md:w-64 h-12 border-2 border-gray-300 bg-white text-gray-900 font-medium">
+            <SelectValue placeholder="Select destination" />
+          </SelectTrigger>
+          <SelectContent className="bg-white z-50 max-h-[300px]">
+            {destinations.map((dest) => (
+              <SelectItem 
+                key={dest} 
+                value={dest}
+                className="cursor-pointer hover:bg-gray-100 focus:bg-gray-100"
+              >
+                {dest}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
       </div>
     </div>
   );

@@ -6,6 +6,7 @@ import { Compass, Building2, Gift, Users } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SearchBar from "@/components/SearchBar";
+import AddressSection from "@/components/AddressSection";
 import heroImage from "@/assets/resorts/bali-clifftop-resort.jpg";
 import { useTranslation } from "react-i18next";
 
@@ -303,6 +304,9 @@ const Index = () => {
           </Link>
         </div>
       </section>
+
+      {/* Address Section with Map */}
+      <AddressSection />
 
       <Footer />
     </div>

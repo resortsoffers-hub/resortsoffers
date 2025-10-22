@@ -34,9 +34,36 @@ import poolBreakfast from "@/assets/resorts/pool-breakfast.jpg";
 import waterVillasAerial from "@/assets/resorts/water-villas-aerial.jpg";
 import luxuryInfinityPool from "@/assets/resorts/luxury-infinity-pool.jpg";
 import baliClifftopResort from "@/assets/resorts/bali-clifftop-resort.jpg";
+import ritzCarltonLogo from "@/assets/partners/ritz-carlton-logo.png";
+import fourSeasonsLogo from "@/assets/partners/four-seasons-logo.png";
+import oneAndOnlyLogo from "@/assets/partners/oneandonly-logo.png";
+import jumeirahLogo from "@/assets/partners/jumeirah-logo.png";
+import waldorfLogo from "@/assets/partners/waldorf-logo.png";
+import stRegisLogo from "@/assets/partners/stregis-logo.png";
+import mandarinOrientalLogo from "@/assets/partners/mandarin-oriental-logo.png";
+import bulgariLogo from "@/assets/partners/bulgari-logo.png";
+import atlantisLogo from "@/assets/partners/atlantis-logo.png";
+import anantaraLogo from "@/assets/partners/anantara-logo.png";
+import armaniLogo from "@/assets/partners/armani-logo.png";
+import rafflesLogo from "@/assets/partners/raffles-logo.png";
 
 const Resorts = () => {
   const [selectedRegion, setSelectedRegion] = useState("All");
+
+  const partnerLogos = [
+    { src: ritzCarltonLogo, name: "Ritz-Carlton" },
+    { src: fourSeasonsLogo, name: "Four Seasons" },
+    { src: oneAndOnlyLogo, name: "One&Only" },
+    { src: jumeirahLogo, name: "Jumeirah" },
+    { src: waldorfLogo, name: "Waldorf Astoria" },
+    { src: stRegisLogo, name: "St. Regis" },
+    { src: mandarinOrientalLogo, name: "Mandarin Oriental" },
+    { src: bulgariLogo, name: "Bulgari Hotels" },
+    { src: atlantisLogo, name: "Atlantis" },
+    { src: anantaraLogo, name: "Anantara" },
+    { src: armaniLogo, name: "Armani Hotels" },
+    { src: rafflesLogo, name: "Raffles" },
+  ];
 
   const heroImages = [
     { src: maldivesAerial1, alt: "Aerial view of luxury Maldives resort with overwater villas and pristine turquoise lagoon" },
@@ -936,8 +963,32 @@ const Resorts = () => {
       </Helmet>
       <Navbar />
       
+      {/* Partner Logos Section */}
+      <section className="py-16 mt-20 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-4">Our Luxury Partner Hotels & Resorts</h2>
+          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+            We collaborate with the world's most prestigious hotel brands to bring you exceptional luxury experiences
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
+            {partnerLogos.map((logo, index) => (
+              <div
+                key={index}
+                className="flex items-center justify-center p-6 bg-background rounded-lg hover:shadow-lg transition-shadow"
+              >
+                <img
+                  src={logo.src}
+                  alt={`${logo.name} logo`}
+                  className="w-full h-auto max-h-16 object-contain grayscale hover:grayscale-0 transition-all"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      
       {/* Hero Section with Carousel */}
-      <section className="relative h-[70vh] flex items-center justify-center overflow-hidden mt-20">
+      <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
         <Carousel className="w-full h-full">
           <CarouselContent>
             {heroImages.map((image, index) => (

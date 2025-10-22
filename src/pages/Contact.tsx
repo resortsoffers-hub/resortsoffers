@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { MapPin, Clock, MessageCircle, Globe, Send, Facebook, Instagram, Twitter, Star, Youtube, Linkedin } from "lucide-react";
+import { MapPin, Clock, MessageCircle, Globe, Send, Facebook, Instagram, Twitter, Star, Youtube, Linkedin, Calendar, Bell } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { toast } from "sonner";
@@ -23,22 +23,18 @@ const Contact = () => {
     },
     {
       icon: <MessageCircle className="w-6 h-6 text-accent" />,
-      title: "WhatsApp",
+      title: "WhatsApp Business - Available 24/7",
       details: [
         { text: "+971 56 762 2484 (UAE)", link: "https://wa.me/971567622484" },
         { text: "+966 582 360 080 (KSA)", link: "https://wa.me/966582360080" },
         { text: "+44 7500 029091 (UK)", link: "https://wa.me/447500029091" }
-      ]
+      ],
+      badge: "24/7"
     },
     {
       icon: <Globe className="w-6 h-6 text-accent" />,
       title: "Website",
       details: [{ text: "www.resortsoffers.com", link: "https://www.resortsoffers.com" }]
-    },
-    {
-      icon: <Clock className="w-6 h-6 text-accent" />,
-      title: "Business Hours",
-      details: ["Available 24/7 for urgent inquiries"]
     },
     {
       icon: <Star className="w-6 h-6 text-accent" />,
@@ -128,11 +124,18 @@ const Contact = () => {
 
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
-                  <Card key={index}>
+                  <Card key={index} className={info.badge ? "border-accent/50" : ""}>
                     <CardHeader>
-                      <div className="flex items-center gap-3">
-                        {info.icon}
-                        <CardTitle className="text-lg">{info.title}</CardTitle>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          {info.icon}
+                          <CardTitle className="text-lg">{info.title}</CardTitle>
+                        </div>
+                        {info.badge && (
+                          <span className="bg-accent text-accent-foreground px-3 py-1 rounded-full text-xs font-semibold">
+                            {info.badge}
+                          </span>
+                        )}
                       </div>
                     </CardHeader>
                     <CardContent>
@@ -150,6 +153,50 @@ const Contact = () => {
                     </CardContent>
                   </Card>
                 ))}
+
+                {/* Book Online Meeting Card */}
+                <Card className="border-primary/50 bg-gradient-to-br from-primary/5 to-accent/5">
+                  <CardHeader>
+                    <div className="flex items-center gap-3">
+                      <Calendar className="w-6 h-6 text-primary" />
+                      <CardTitle className="text-lg">Book Online Meeting</CardTitle>
+                    </div>
+                    <CardDescription className="flex items-center gap-2 mt-2">
+                      <Bell className="w-4 h-4" />
+                      Instant confirmation via WhatsApp for both parties
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <p className="text-sm text-muted-foreground">
+                      Schedule a personalized consultation with our travel experts. Perfect for urgent inquiries and detailed trip planning.
+                    </p>
+                    <div className="space-y-2">
+                      <div className="flex items-start gap-2 text-sm">
+                        <div className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0" />
+                        <span>Automated calendar sync for both parties</span>
+                      </div>
+                      <div className="flex items-start gap-2 text-sm">
+                        <div className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0" />
+                        <span>WhatsApp notifications & reminders</span>
+                      </div>
+                      <div className="flex items-start gap-2 text-sm">
+                        <div className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0" />
+                        <span>Meeting confirmation sent instantly</span>
+                      </div>
+                    </div>
+                    <Button 
+                      className="w-full" 
+                      size="lg"
+                      onClick={() => window.open('https://calendly.com/resortsoffers', '_blank')}
+                    >
+                      <Calendar className="w-4 h-4 mr-2" />
+                      Schedule Meeting Now
+                    </Button>
+                    <p className="text-xs text-center text-muted-foreground">
+                      Available time slots will be shown based on your timezone
+                    </p>
+                  </CardContent>
+                </Card>
               </div>
 
               {/* Social Media Links */}

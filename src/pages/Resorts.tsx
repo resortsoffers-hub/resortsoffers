@@ -930,9 +930,45 @@ const Resorts = () => {
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>Resort Partners - Luxury Hotels Worldwide | Resorts Offers</title>
-        <meta name="description" content="Explore our exclusive resort partners across the globe - from Maldives to Dubai, Bora Bora to Switzerland. Premium hotels and luxury accommodations." />
+        <title>Luxury Resorts Worldwide - Maldives, Dubai, Bali & More | ResortsOffers.com</title>
+        <meta name="description" content="Browse 100+ luxury resorts worldwide. Premium hotels in Maldives, Dubai, Bali, Switzerland, Bora Bora. 5-star accommodations, overwater villas, private beaches & spa resorts." />
+        <meta name="keywords" content="luxury resorts, 5-star hotels, Maldives resorts, Dubai hotels, Bali villas, overwater bungalows, beach resorts, ski resorts, honeymoon resorts, family resorts" />
         <link rel="canonical" href="https://www.resortsoffers.com/resorts" />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.resortsoffers.com/resorts" />
+        <meta property="og:title" content="Luxury Resorts Worldwide - Maldives, Dubai, Bali & More" />
+        <meta property="og:description" content="Browse 100+ luxury resorts worldwide. Premium 5-star hotels and exclusive accommodations." />
+        <meta property="og:image" content="https://www.resortsoffers.com/resorts-og.jpg" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://www.resortsoffers.com/resorts" />
+        <meta name="twitter:title" content="Luxury Resorts Worldwide" />
+        <meta name="twitter:description" content="Browse 100+ luxury resorts - Maldives, Dubai, Bali & more." />
+        <meta name="twitter:image" content="https://www.resortsoffers.com/resorts-og.jpg" />
+        
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "Luxury Resorts Collection",
+            "numberOfItems": "100+",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                  "@type": "Resort",
+                  "name": "Maldives Luxury Resorts",
+                  "description": "Overwater villas and private island resorts"
+                }
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       <Navbar />
       

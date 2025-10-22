@@ -77,7 +77,51 @@ const Services = () => {
   return (
     <div className="min-h-screen">
       <Helmet>
+        <title>Luxury Travel Services - Resort Booking & Vacation Planning | ResortsOffers.com</title>
+        <meta name="description" content="Comprehensive luxury travel services: exclusive resort bookings, personalized vacation planning, honeymoon packages, group travel, and 24/7 concierge support." />
+        <meta name="keywords" content="luxury travel services, resort booking, vacation planning, honeymoon packages, group travel, travel concierge, VIP travel services" />
         <link rel="canonical" href="https://www.resortsoffers.com/services" />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.resortsoffers.com/services" />
+        <meta property="og:title" content="Luxury Travel Services - Resort Booking & Planning" />
+        <meta property="og:description" content="Comprehensive luxury travel services with 24/7 support." />
+        <meta property="og:image" content="https://www.resortsoffers.com/services-og.jpg" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Luxury Travel Services" />
+        <meta name="twitter:description" content="Resort booking, vacation planning & 24/7 support." />
+        
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "Travel Services",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                  "@type": "Service",
+                  "name": "Exclusive Resort Bookings",
+                  "description": "Access to premium resorts worldwide"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                  "@type": "Service",
+                  "name": "Personalized Vacation Planning",
+                  "description": "Customized travel itineraries"
+                }
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       <Navbar />
       

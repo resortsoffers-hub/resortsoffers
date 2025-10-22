@@ -87,9 +87,40 @@ const Blog = () => {
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>Luxury Travel Blog - Resorts Offers</title>
-        <meta name="description" content="Expert insights, destination guides, and travel tips for luxury resort experiences worldwide." />
+        <title>Luxury Travel Blog - Resort Guides, Tips & Destination Insights | ResortsOffers.com</title>
+        <meta name="description" content="Expert travel blog with luxury resort reviews, destination guides, booking tips, honeymoon ideas, and insider travel advice. Updated weekly with fresh content." />
+        <meta name="keywords" content="travel blog, resort reviews, destination guides, travel tips, luxury travel advice, honeymoon destinations, vacation planning tips" />
         <link rel="canonical" href="https://www.resortsoffers.com/blog" />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="blog" />
+        <meta property="og:url" content="https://www.resortsoffers.com/blog" />
+        <meta property="og:title" content="Luxury Travel Blog - Resort Guides & Tips" />
+        <meta property="og:description" content="Expert travel insights, destination guides, and luxury resort reviews." />
+        <meta property="og:image" content="https://www.resortsoffers.com/blog-og.jpg" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Luxury Travel Blog" />
+        <meta name="twitter:description" content="Resort guides, tips & destination insights." />
+        
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Blog",
+            "name": "ResortsOffers Travel Blog",
+            "description": "Luxury travel insights and resort guides",
+            "publisher": {
+              "@type": "Organization",
+              "name": "ResortsOffers.com",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.resortsoffers.com/logo.png"
+              }
+            }
+          })}
+        </script>
       </Helmet>
       <Navbar />
 

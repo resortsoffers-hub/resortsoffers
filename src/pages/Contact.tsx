@@ -46,7 +46,41 @@ const Contact = () => {
   return (
     <div className="min-h-screen">
       <Helmet>
+        <title>Contact Us - Luxury Travel Experts | ResortsOffers.com</title>
+        <meta name="description" content="Contact our luxury travel experts. Get instant support via WhatsApp, email, or phone. Available 24/7 to help plan your perfect resort vacation." />
+        <meta name="keywords" content="contact travel agency, luxury travel experts, resort booking help, travel support, WhatsApp booking, travel consultation" />
         <link rel="canonical" href="https://www.resortsoffers.com/contact" />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.resortsoffers.com/contact" />
+        <meta property="og:title" content="Contact Us - Luxury Travel Experts" />
+        <meta property="og:description" content="Contact our luxury travel experts. Available 24/7 to help plan your vacation." />
+        <meta property="og:image" content="https://www.resortsoffers.com/contact-og.jpg" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact Us - Luxury Travel Experts" />
+        <meta name="twitter:description" content="Available 24/7 to help plan your perfect vacation." />
+        
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "mainEntity": {
+              "@type": "TravelAgency",
+              "name": "ResortsOffers.com",
+              "telephone": "+971567622484",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+971567622484",
+                "contactType": "Customer Service",
+                "availableLanguage": ["English", "Arabic", "Chinese", "Russian"]
+              }
+            }
+          })}
+        </script>
       </Helmet>
       <Navbar />
       

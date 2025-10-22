@@ -98,9 +98,51 @@ const Events = () => {
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>Travel Industry Events - Resorts Offers</title>
-        <meta name="description" content="Join us at major travel industry events worldwide. Connect with luxury resort experts at ATM Dubai, WTM London, ILTM Cannes, and more." />
+        <title>Travel Industry Events - ATM Dubai, WTM London, ILTM Cannes | ResortsOffers.com</title>
+        <meta name="description" content="Meet us at top travel events: ATM Dubai, WTM London, ILTM Cannes, TTM Maldives. Network with luxury travel professionals and discover exclusive resort partnerships." />
+        <meta name="keywords" content="travel events, ATM Dubai, WTM London, ILTM Cannes, travel trade shows, luxury travel exhibitions, resort partnerships" />
         <link rel="canonical" href="https://www.resortsoffers.com/events" />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.resortsoffers.com/events" />
+        <meta property="og:title" content="Travel Industry Events - Global Presence" />
+        <meta property="og:description" content="Meet us at ATM Dubai, WTM London, ILTM Cannes & more." />
+        <meta property="og:image" content="https://www.resortsoffers.com/events-og.jpg" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Travel Industry Events" />
+        <meta name="twitter:description" content="Meet us at top global travel events." />
+        
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "Travel Industry Events",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                  "@type": "Event",
+                  "name": "Arabian Travel Market (ATM) Dubai",
+                  "location": "Dubai, UAE"
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                  "@type": "Event",
+                  "name": "World Travel Market (WTM) London",
+                  "location": "London, UK"
+                }
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       <Navbar />
       

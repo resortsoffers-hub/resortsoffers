@@ -221,9 +221,48 @@ const Offers = () => {
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>Resorts Offers - Exclusive Luxury Travel Deals | Special Packages</title>
-        <meta name="description" content="Discover exclusive resorts offers and luxury travel deals worldwide. Save up to 40% on premium hotels, beach escapes, and honeymoon packages." />
+        <title>Exclusive Resort Offers & Deals - Up to 40% OFF | ResortsOffers.com</title>
+        <meta name="description" content="Limited-time luxury resort offers! Save up to 40% on Maldives water villas, Dubai beach resorts, Bali honeymoon packages & more. Book your dream vacation today." />
+        <meta name="keywords" content="resort deals, hotel offers, Maldives deals, Dubai hotel offers, honeymoon packages, luxury resort discounts, beach resort deals, exclusive travel offers" />
         <link rel="canonical" href="https://www.resortsoffers.com/offers" />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.resortsoffers.com/offers" />
+        <meta property="og:title" content="Exclusive Resort Offers & Deals - Up to 40% OFF" />
+        <meta property="og:description" content="Limited-time luxury resort offers! Save up to 40% on Maldives, Dubai, Bali & more." />
+        <meta property="og:image" content="https://www.resortsoffers.com/offers-og.jpg" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://www.resortsoffers.com/offers" />
+        <meta name="twitter:title" content="Exclusive Resort Offers - Up to 40% OFF" />
+        <meta name="twitter:description" content="Limited-time luxury resort offers! Save up to 40% on premium hotels." />
+        <meta name="twitter:image" content="https://www.resortsoffers.com/offers-og.jpg" />
+        
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "OfferCatalog",
+            "name": "Luxury Resort Offers",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Product",
+                  "name": "Maldives Luxury Resort Packages",
+                  "description": "Exclusive water villa deals with up to 40% discount"
+                },
+                "priceSpecification": {
+                  "@type": "UnitPriceSpecification",
+                  "priceCurrency": "USD",
+                  "price": "Starting from $500/night"
+                }
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       <Navbar />
       

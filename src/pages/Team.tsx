@@ -65,7 +65,22 @@ const Team = () => {
   return (
     <div className="min-h-screen">
       <Helmet>
+        <title>Meet Our Expert Travel Team | ResortsOffers.com</title>
+        <meta name="description" content="Meet our team of luxury travel experts with 20+ years combined experience. Specialists in resort selection, destination planning, and personalized service." />
+        <meta name="keywords" content="travel experts, luxury travel advisors, resort specialists, travel consultants, vacation planners, travel team" />
         <link rel="canonical" href="https://www.resortsoffers.com/team" />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.resortsoffers.com/team" />
+        <meta property="og:title" content="Meet Our Expert Travel Team" />
+        <meta property="og:description" content="Luxury travel experts with 20+ years combined experience." />
+        <meta property="og:image" content="https://www.resortsoffers.com/team-og.jpg" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Meet Our Expert Travel Team" />
+        <meta name="twitter:description" content="Luxury travel experts with 20+ years experience." />
       </Helmet>
       <Navbar />
       

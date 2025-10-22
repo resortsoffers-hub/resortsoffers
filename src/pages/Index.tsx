@@ -42,7 +42,59 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Helmet>
+        <title>Luxury Resort Deals & Exclusive Hotel Offers | ResortsOffers.com</title>
+        <meta name="description" content="Discover exclusive luxury resort deals worldwide. Save up to 40% on premium hotels in Maldives, Dubai, Bali & more. Expert travel consultancy & personalized booking services." />
+        <meta name="keywords" content="luxury resorts, hotel deals, resort offers, travel packages, Maldives resorts, Dubai hotels, luxury travel, honeymoon packages, beach resorts, exclusive deals" />
         <link rel="canonical" href="https://www.resortsoffers.com/" />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.resortsoffers.com/" />
+        <meta property="og:title" content="Luxury Resort Deals & Exclusive Hotel Offers | ResortsOffers.com" />
+        <meta property="og:description" content="Discover exclusive luxury resort deals worldwide. Save up to 40% on premium hotels in Maldives, Dubai, Bali & more." />
+        <meta property="og:image" content="https://www.resortsoffers.com/og-image.jpg" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://www.resortsoffers.com/" />
+        <meta name="twitter:title" content="Luxury Resort Deals & Exclusive Hotel Offers" />
+        <meta name="twitter:description" content="Discover exclusive luxury resort deals worldwide. Save up to 40% on premium hotels." />
+        <meta name="twitter:image" content="https://www.resortsoffers.com/og-image.jpg" />
+        
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "TravelAgency",
+            "name": "ResortsOffers.com",
+            "description": "Luxury resort deals and exclusive hotel offers worldwide",
+            "url": "https://www.resortsoffers.com",
+            "logo": "https://www.resortsoffers.com/logo.png",
+            "telephone": "+971567622484",
+            "priceRange": "$$$",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "AE"
+            },
+            "sameAs": [
+              "https://www.instagram.com/resortsoffers",
+              "https://www.facebook.com/resortsoffers"
+            ]
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "ResortsOffers.com",
+            "url": "https://www.resortsoffers.com",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://www.resortsoffers.com/resorts?q={search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
+          })}
+        </script>
       </Helmet>
       <Navbar />
       

@@ -42,7 +42,51 @@ const Consultancy = () => {
   return (
     <div className="min-h-screen">
       <Helmet>
+        <title>Expert Travel Consultancy Services - Personalized Vacation Planning | ResortsOffers.com</title>
+        <meta name="description" content="Professional travel consultancy services. Get expert advice on luxury resort selection, destination planning, and personalized itineraries. Free consultation available." />
+        <meta name="keywords" content="travel consultancy, vacation planning, luxury travel advisor, resort consultant, destination expert, travel planning services, honeymoon planning" />
         <link rel="canonical" href="https://www.resortsoffers.com/consultancy" />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.resortsoffers.com/consultancy" />
+        <meta property="og:title" content="Expert Travel Consultancy Services" />
+        <meta property="og:description" content="Professional travel consultancy for luxury resorts. Free consultation available." />
+        <meta property="og:image" content="https://www.resortsoffers.com/consultancy-og.jpg" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://www.resortsoffers.com/consultancy" />
+        <meta name="twitter:title" content="Expert Travel Consultancy Services" />
+        <meta name="twitter:description" content="Professional travel consultancy for luxury resorts." />
+        <meta name="twitter:image" content="https://www.resortsoffers.com/consultancy-og.jpg" />
+        
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "serviceType": "Travel Consultancy",
+            "provider": {
+              "@type": "TravelAgency",
+              "name": "ResortsOffers.com"
+            },
+            "areaServed": "Worldwide",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Travel Planning Services",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Free 15-Minute Consultation"
+                  }
+                }
+              ]
+            }
+          })}
+        </script>
       </Helmet>
       <Navbar />
       

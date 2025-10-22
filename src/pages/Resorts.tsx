@@ -548,15 +548,6 @@ const Resorts = () => {
       website: "https://www.theslatephuket.com"
     },
     {
-      name: "Rosewood Phuket",
-      location: "Phuket",
-      region: "Phuket",
-      rating: 5,
-      description: "Ultra-luxury beachfront resort offering elegant pavilions, world-class dining, and personalized Rosewood service.",
-      features: ["Beach Pavilions", "Asaya Spa", "Multiple Pools", "Fine Dining"],
-      website: "https://www.rosewoodhotels.com/en/phuket"
-    },
-    {
       name: "Keemala Phuket",
       location: "Phuket",
       region: "Phuket",
@@ -566,13 +557,13 @@ const Resorts = () => {
       website: "https://www.keemala.com"
     },
     {
-      name: "Rosewood Phuket",
+      name: "Point Yamu by COMO",
       location: "Phuket",
       region: "Phuket",
       rating: 5,
-      description: "Beachfront sanctuary on Emerald Bay, offering elegant pavilions and villas with contemporary Thai design.",
-      features: ["Beachfront Pavilions", "Asaya Wellness", "Seven Dining Venues", "Kids Club"],
-      website: "https://www.rosewoodhotels.com/en/phuket"
+      description: "Contemporary resort on Cape Yamu peninsula, offering wellness-focused luxury with stunning Phang Nga Bay views.",
+      features: ["Peninsula Location", "COMO Shambhala", "Infinity Pool", "Italian Cuisine"],
+      website: "https://www.comohotels.com/phuket"
     },
     // Dubai Partners
     {
@@ -593,6 +584,69 @@ const Resorts = () => {
       features: ["Beachfront Suites", "World-Class Dining", "Aquaventure Access", "Cloud 22 Beach Club"],
       website: "https://www.atlantis.com/dubai/atlantis-the-royal"
     },
+    {
+      name: "Bulgari Resort Dubai",
+      location: "Dubai",
+      region: "Dubai",
+      rating: 5,
+      description: "Ultra-luxurious seahorse-shaped island resort featuring Italian elegance and stunning marina views.",
+      features: ["Private Island", "Bulgari Spa", "Yacht Club", "Italian Dining"],
+      website: "https://www.bulgarihotels.com/en_US/dubai"
+    },
+    {
+      name: "One&Only The Palm",
+      location: "Dubai",
+      region: "Dubai",
+      rating: 5,
+      description: "Beachfront sanctuary on Palm Jumeirah offering Moorish architecture and world-class dining experiences.",
+      features: ["Private Beach", "Moorish Design", "Guerlain Spa", "Celebrity Chef Restaurants"],
+      website: "https://www.oneandonlyresorts.com/one-and-only-the-palm-dubai"
+    },
+    {
+      name: "Jumeirah Al Naseem",
+      location: "Dubai",
+      region: "Dubai",
+      rating: 5,
+      description: "Contemporary beachfront resort at Madinat Jumeirah with Burj Al Arab views and family-friendly luxury.",
+      features: ["Burj Al Arab Views", "Private Beach", "Talise Spa", "Multiple Pools"],
+      website: "https://www.jumeirah.com/en/stay/dubai/madinat-jumeirah/jumeirah-al-naseem"
+    },
+    {
+      name: "Palazzo Versace Dubai",
+      location: "Dubai",
+      region: "Dubai",
+      rating: 5,
+      description: "Italian opulence meets Arabian luxury on Culture Village waterfront with signature Versace design throughout.",
+      features: ["Versace Design", "Marina Views", "Italian Cuisine", "Spa"],
+      website: "https://www.palazzoversace.ae"
+    },
+    {
+      name: "Armani Hotel Dubai",
+      location: "Dubai",
+      region: "Dubai",
+      rating: 5,
+      description: "Sophisticated hotel in Burj Khalifa designed by Giorgio Armani, offering minimalist elegance and world-class service.",
+      features: ["Burj Khalifa", "Armani Design", "Fine Dining", "Armani/SPA"],
+      website: "https://www.armanihotels.com/dubai"
+    },
+    {
+      name: "Address Downtown Dubai",
+      location: "Dubai",
+      region: "Dubai",
+      rating: 5,
+      description: "Modern luxury hotel adjacent to Dubai Mall with stunning Burj Khalifa and fountain views.",
+      features: ["Fountain Views", "Rooftop Pool", "Dubai Mall Access", "Multiple Restaurants"],
+      website: "https://www.addresshotels.com/en/hotels/address-downtown"
+    },
+    {
+      name: "Mandarin Oriental Jumeira",
+      location: "Dubai",
+      region: "Dubai",
+      rating: 5,
+      description: "Beachfront luxury resort featuring contemporary Arabian design and Mandarin Oriental's legendary service.",
+      features: ["Private Beach", "Skyline Views", "The Spa", "Eight Restaurants"],
+      website: "https://www.mandarinoriental.com/en/dubai/jumeira-beach"
+    },
     // London Partners
     {
       name: "The Savoy",
@@ -611,6 +665,24 @@ const Resorts = () => {
       description: "Art Deco masterpiece in Mayfair, epitomizing British elegance and world-class service.",
       features: ["Mayfair Location", "Art Deco Design", "Afternoon Tea", "Michelin-Star Dining"],
       website: "https://www.claridges.co.uk"
+    },
+    {
+      name: "The Connaught",
+      location: "London",
+      region: "London",
+      rating: 5,
+      description: "Refined Mayfair hotel blending tradition with contemporary luxury and world-renowned dining.",
+      features: ["Mayfair Location", "Michelin Stars", "Aman Spa", "Traditional Elegance"],
+      website: "https://www.the-connaught.co.uk"
+    },
+    {
+      name: "The Langham London",
+      location: "London",
+      region: "London",
+      rating: 5,
+      description: "Europe's first grand hotel, offering Victorian elegance and modern luxury near Regent Street.",
+      features: ["Historic Property", "Artesian Bar", "Chuan Spa", "Afternoon Tea"],
+      website: "https://www.langhamhotels.com/en/the-langham/london"
     },
     // Bora Bora Partners
     {
@@ -631,6 +703,24 @@ const Resorts = () => {
       features: ["Overwater Villas", "Private Pools", "Butler Service", "Lagoon Restaurant"],
       website: "https://www.marriott.com/hotels/travel/bobxr-the-st-regis-bora-bora-resort"
     },
+    {
+      name: "Conrad Bora Bora Nui",
+      location: "Bora Bora",
+      region: "Bora Bora",
+      rating: 5,
+      description: "Luxury resort on private island offering overwater villas and hillside pool villas with spectacular lagoon views.",
+      features: ["Private Island", "Overwater Villas", "Hillside Villas", "Hina Spa"],
+      website: "https://www.hilton.com/en/hotels/bobpfci-conrad-bora-bora-nui"
+    },
+    {
+      name: "InterContinental Bora Bora Resort",
+      location: "Bora Bora",
+      region: "Bora Bora",
+      rating: 5,
+      description: "Iconic resort featuring overwater bungalows and beach villas with Mount Otemanu backdrop.",
+      features: ["Overwater Bungalows", "Beach Villas", "Thalasso Spa", "Multiple Restaurants"],
+      website: "https://www.ihg.com/intercontinental/hotels/us/en/bora-bora"
+    },
     // Turkey Partners
     {
       name: "Six Senses Kaplankaya",
@@ -650,6 +740,24 @@ const Resorts = () => {
       features: ["Paradise Bay", "Private Beach", "Turkish Spa", "Gourmet Dining"],
       website: "https://www.mandarinoriental.com/en/bodrum/paradise-bay"
     },
+    {
+      name: "D-Hotel Maris",
+      location: "Turkey",
+      region: "Turkey",
+      rating: 5,
+      description: "Design-focused luxury resort on pristine beach, featuring stunning architecture and exceptional service.",
+      features: ["Beach Access", "Contemporary Design", "Nu Teras Restaurant", "Private Marina"],
+      website: "https://www.dhotel.com.tr"
+    },
+    {
+      name: "Maxx Royal Belek",
+      location: "Turkey",
+      region: "Turkey",
+      rating: 5,
+      description: "Ultra-all-inclusive resort in Belek offering world-class facilities and personalized luxury service.",
+      features: ["All-Inclusive Luxury", "Multiple Pools", "Private Beach", "Kids Club"],
+      website: "https://www.maxxroyal.com/belek"
+    },
     // Morocco Partners
     {
       name: "La Mamounia",
@@ -668,6 +776,15 @@ const Resorts = () => {
       description: "Palatial resort featuring private riads with rooftop terraces, exemplifying Moroccan craftsmanship.",
       features: ["Private Riads", "Rooftop Terraces", "Three Restaurants", "Spa by Guerlain"],
       website: "https://www.royalmansour.com/en"
+    },
+    {
+      name: "Four Seasons Resort Marrakech",
+      location: "Morocco",
+      region: "Morocco",
+      rating: 5,
+      description: "Palatial resort surrounded by gardens and palm groves, offering Moroccan elegance and modern luxury.",
+      features: ["Garden Setting", "Moroccan Design", "Spa", "Multiple Pools"],
+      website: "https://www.fourseasons.com/marrakech"
     },
     // Switzerland Partners
     {

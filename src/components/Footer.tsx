@@ -149,6 +149,43 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Payment Methods */}
+        <div className="border-t border-primary-foreground/20 mt-8 pt-8">
+          <h4 className="font-semibold text-center mb-6">Accepted Payment Methods</h4>
+          <div className="flex justify-center items-center gap-6 flex-wrap">
+            {/* Tabby */}
+            <div className="bg-white p-3 rounded-lg h-12 flex items-center">
+              <svg width="80" height="24" viewBox="0 0 80 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15.2 7.2H8.8V4.8h16v2.4h-6.4V19.2h-3.2V7.2zM32.8 4.8h3.2V19.2h-3.2v-1.6c-0.8 1.2-2.4 2-4 2-3.2 0-5.6-2.4-5.6-5.6v-9.2h3.2v8.8c0 1.6 1.2 2.8 2.8 2.8s2.8-1.2 2.8-2.8V4.8h-0.2zM45.6 4.8c3.2 0 5.6 2.4 5.6 5.6v9.2h-3.2v-8.8c0-1.6-1.2-2.8-2.8-2.8s-2.8 1.2-2.8 2.8v8.8h-3.2V4.8h3.2v1.6c0.8-1.2 2.4-2 4-2h0.2zM59.6 4.8c3.2 0 5.6 2.4 5.6 5.6v9.2h-3.2v-8.8c0-1.6-1.2-2.8-2.8-2.8s-2.8 1.2-2.8 2.8v8.8h-3.2V4.8h3.2v1.6c0.8-1.2 2.4-2 4-2h0.2zM74.4 19.6c-2.4 0-4.4-2-4.4-4.4 0-2.4 2-4.4 4.4-4.4s4.4 2 4.4 4.4c0 2.4-2 4.4-4.4 4.4z" fill="#3CDBC0"/>
+              </svg>
+            </div>
+            
+            {/* Visa */}
+            <div className="bg-white p-3 rounded-lg h-12 flex items-center">
+              <svg width="60" height="24" viewBox="0 0 60 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24.2 4.8l-6.4 14.4h-4.4l-3.2-12c-0.4-1.2-0.8-1.6-2-2-1.2-0.4-3.2-0.8-5.2-1.2l0-0.4h8.8c1.2 0 2 0.8 2.4 2l2 10.4 5.2-12.4h4.8v0.2zM44.8 14.8c0-3.6-5.2-3.6-5.2-5.2 0-0.4 0.4-1.2 1.6-1.2 1.2 0 2 0.4 2.8 0.8l0.4-2.4c-0.8-0.4-2-0.8-3.2-0.8-4.4 0-7.6 2.4-7.6 5.6 0 2.4 2.4 3.6 4 4.4 1.6 0.8 2.4 1.2 2.4 2 0 1.2-1.2 1.6-2.4 1.6-2 0-3.2-0.4-4.4-1.2l-0.4 2.4c0.8 0.4 2.4 1.2 4.4 1.2 4.8 0 8-2.4 8-5.6v0.4zM54 19.2h4l-3.6-14.4h-3.6c-1.2 0-2 0.4-2.4 1.6l-6.4 12.8h4.8l0.8-2.4h5.6l0.8 2.4zM49.2 13.6l2.4-6.4 1.2 6.4h-3.6zM30.4 4.8l-3.6 14.4h-4.4l3.6-14.4h4.4z" fill="#1434CB"/>
+              </svg>
+            </div>
+            
+            {/* Mastercard */}
+            <div className="bg-white p-3 rounded-lg h-12 flex items-center">
+              <svg width="40" height="24" viewBox="0 0 40 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="15" cy="12" r="10" fill="#EB001B"/>
+                <circle cx="25" cy="12" r="10" fill="#F79E1B"/>
+                <path d="M20 6c1.8 1.4 3 3.6 3 6s-1.2 4.6-3 6c-1.8-1.4-3-3.6-3-6s1.2-4.6 3-6z" fill="#FF5F00"/>
+              </svg>
+            </div>
+            
+            {/* American Express */}
+            <div className="bg-white p-3 rounded-lg h-12 flex items-center">
+              <svg width="60" height="24" viewBox="0 0 60 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="60" height="24" rx="2" fill="#006FCF"/>
+                <path d="M12.4 8.8l-1.6 4h3.2l-1.6-4zM8 16.8l0.8-2h2.4l0.8 2h2.4l-4-9.6h-2.8l-4 9.6h2.4v0zM22 7.2v2h2.4v7.6h2.4v-7.6h2.4v-2h-7.2zM32.8 7.2v2h2.4v7.6h2.4v-7.6h2.4v-2h-7.2zM44.8 16.8v-2.4h-4.8v-1.2h4.8v-2.4h-4.8v-1.2h4.8v-2.4h-7.2v9.6h7.2zM50.4 7.2l-2.4 4.8-2.4-4.8h-2.8l4 6v3.6h2.4v-3.6l4-6h-2.8z" fill="white"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
         <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center text-sm opacity-75">
           <p className="mb-2">Member of Dubai Business Women Council</p>
           <p className="mb-2">Resorts Offers Tourism Consultancy</p>

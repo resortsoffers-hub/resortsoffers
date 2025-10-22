@@ -7,6 +7,18 @@ import { Calendar, Users, Percent, MapPin } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SearchBar from "@/components/SearchBar";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import maldivesAerial1 from "@/assets/resorts/maldives-aerial-1.jpg";
+import maldivesAerial2 from "@/assets/resorts/maldives-aerial-2.jpg";
+import maldivesPoolDining from "@/assets/resorts/maldives-pool-dining.jpg";
+import maldivesWaterVilla from "@/assets/resorts/maldives-water-villa.jpg";
+import maldivesVillaPool from "@/assets/resorts/maldives-villa-pool.jpg";
 import maldivesWaldorf from "@/assets/maldives-waldorf.jpg";
 import maldivesPatina from "@/assets/maldives-patina.jpg";
 import maldivesOceanPool from "@/assets/maldives-ocean-pool.jpg";
@@ -22,6 +34,22 @@ const Offers = () => {
   const [selectedDestination, setSelectedDestination] = useState("All");
   const [selectedSubFilter, setSelectedSubFilter] = useState<string[]>([]);
   const [sortBy, setSortBy] = useState("Featured");
+
+  const whatsappNumber = "971567622484";
+  
+  const heroImages = [
+    { src: maldivesAerial1, alt: "Aerial view of luxury Maldives resort with overwater villas and pristine turquoise lagoon" },
+    { src: maldivesAerial2, alt: "Stunning aerial perspective of Maldives island resort surrounded by crystal clear waters" },
+    { src: maldivesPoolDining, alt: "Luxury infinity pool with oceanfront dining at sunset in Maldives resort" },
+    { src: maldivesWaterVilla, alt: "Exclusive overwater villa with private pool and ocean access in Maldives" },
+    { src: maldivesVillaPool, alt: "Premium water villa with infinity pool overlooking turquoise Maldives lagoon" },
+  ];
+
+  const handleBookNow = (offerTitle: string, destination: string, price: string) => {
+    const message = `Hi! I'm interested in booking the "${offerTitle}" offer in ${destination}. Price: ${price}. Can you provide more details?`;
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
   
   const subFilters: Record<string, string[]> = {
     "Maldives": [
@@ -197,13 +225,33 @@ const Offers = () => {
       </Helmet>
       <Navbar />
       
-      {/* Hero Section */}
-      <section className="section-padding mt-20">
-        <div className="container-custom text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
+      {/* Hero Section with Carousel */}
+      <section className="relative h-[70vh] flex items-center justify-center overflow-hidden mt-20">
+        <Carousel className="w-full h-full" opts={{ loop: true }}>
+          <CarouselContent>
+            {heroImages.map((image, index) => (
+              <CarouselItem key={index}>
+                <div className="relative h-[70vh]">
+                  <img 
+                    src={image.src} 
+                    alt={image.alt}
+                    className="w-full h-full object-cover"
+                    loading={index === 0 ? "eager" : "lazy"}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-primary/70 to-primary/50" />
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="left-4" />
+          <CarouselNext className="right-4" />
+        </Carousel>
+        
+        <div className="absolute z-10 container-custom text-center pointer-events-none">
+          <h1 className="text-4xl md:text-6xl font-bold hero-text mb-6 animate-fade-in">
             Special Offers
           </h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-muted-foreground">
+          <p className="text-xl md:text-2xl hero-text max-w-3xl mx-auto">
             Exclusive deals on luxury destinations worldwide - Limited time only
           </p>
         </div>
@@ -318,7 +366,10 @@ const Offers = () => {
                           Valid until {new Date(offer.validUntil).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                         </div>
                       </div>
-                      <Button size="lg">
+                      <Button 
+                        size="lg"
+                        onClick={() => handleBookNow(offer.title, offer.destination, offer.price)}
+                      >
                         Book Now
                       </Button>
                     </div>

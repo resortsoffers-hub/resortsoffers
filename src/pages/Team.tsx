@@ -73,14 +73,70 @@ const Team = () => {
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.resortsoffers.com/team" />
+        <meta property="og:site_name" content="ResortsOffers.com" />
         <meta property="og:title" content="Meet Our Expert Travel Team" />
         <meta property="og:description" content="Luxury travel experts with 20+ years combined experience." />
         <meta property="og:image" content="https://www.resortsoffers.com/team-og.jpg" />
+        <meta property="og:locale" content="en_US" />
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Meet Our Expert Travel Team" />
         <meta name="twitter:description" content="Luxury travel experts with 20+ years experience." />
+        
+        {/* Structured Data - Breadcrumb */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.resortsoffers.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Team",
+                "item": "https://www.resortsoffers.com/team"
+              }
+            ]
+          })}
+        </script>
+        {/* Structured Data - Team Members */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "ResortsOffers.com",
+            "employee": [
+              {
+                "@type": "Person",
+                "name": "Nora El Khalifi",
+                "jobTitle": "Managing Director",
+                "email": "ceo@resortsoffers.com",
+                "worksFor": {
+                  "@type": "Organization",
+                  "name": "ResortsOffers.com"
+                }
+              },
+              {
+                "@type": "Person",
+                "name": "Michael Chen",
+                "jobTitle": "Head of Sales & Marketing",
+                "email": "michael@resortsoffers.com"
+              },
+              {
+                "@type": "Person",
+                "name": "Latifa El Khalifi",
+                "jobTitle": "Contract Manager",
+                "email": "contracting@resortsoffers.com"
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       <Navbar />
       

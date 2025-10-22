@@ -98,47 +98,100 @@ const Events = () => {
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>Travel Industry Events - ATM Dubai, WTM London, ILTM Cannes | ResortsOffers.com</title>
-        <meta name="description" content="Meet us at top travel events: ATM Dubai, WTM London, ILTM Cannes, TTM Maldives. Network with luxury travel professionals and discover exclusive resort partnerships." />
-        <meta name="keywords" content="travel events, ATM Dubai, WTM London, ILTM Cannes, travel trade shows, luxury travel exhibitions, resort partnerships" />
+        <title>Travel Industry Events & Trade Shows 2025-2026 | ResortsOffers.com</title>
+        <meta name="description" content="Join us at major travel industry events: WTM London, ATM Dubai, ILTM Cannes, TTM Maldives. Network with luxury travel professionals worldwide." />
+        <meta name="keywords" content="travel trade shows, WTM London, ATM Dubai, ILTM Cannes, travel industry events, hospitality conferences, luxury travel events" />
         <link rel="canonical" href="https://www.resortsoffers.com/events" />
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.resortsoffers.com/events" />
-        <meta property="og:title" content="Travel Industry Events - Global Presence" />
-        <meta property="og:description" content="Meet us at ATM Dubai, WTM London, ILTM Cannes & more." />
+        <meta property="og:site_name" content="ResortsOffers.com" />
+        <meta property="og:title" content="Travel Industry Events & Trade Shows 2025-2026" />
+        <meta property="og:description" content="Join us at major travel trade shows worldwide." />
         <meta property="og:image" content="https://www.resortsoffers.com/events-og.jpg" />
+        <meta property="og:locale" content="en_US" />
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Travel Industry Events" />
-        <meta name="twitter:description" content="Meet us at top global travel events." />
+        <meta name="twitter:title" content="Travel Industry Events 2025-2026" />
+        <meta name="twitter:description" content="Join us at WTM London, ATM Dubai, ILTM Cannes & more." />
         
-        {/* Structured Data */}
+        {/* Structured Data - Breadcrumb */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "ItemList",
-            "name": "Travel Industry Events",
+            "@type": "BreadcrumbList",
             "itemListElement": [
               {
                 "@type": "ListItem",
                 "position": 1,
-                "item": {
-                  "@type": "Event",
-                  "name": "Arabian Travel Market (ATM) Dubai",
-                  "location": "Dubai, UAE"
-                }
+                "name": "Home",
+                "item": "https://www.resortsoffers.com/"
               },
               {
                 "@type": "ListItem",
                 "position": 2,
-                "item": {
-                  "@type": "Event",
-                  "name": "World Travel Market (WTM) London",
-                  "location": "London, UK"
+                "name": "Events",
+                "item": "https://www.resortsoffers.com/events"
+              }
+            ]
+          })}
+        </script>
+        {/* Structured Data - Events */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "itemListElement": [
+              {
+                "@type": "Event",
+                "name": "World Travel Market (WTM) London 2025",
+                "startDate": "2025-11-01",
+                "location": {
+                  "@type": "Place",
+                  "name": "ExCeL London",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "London",
+                    "addressCountry": "GB"
+                  }
+                },
+                "description": "The world's most influential travel and tourism event",
+                "organizer": {
+                  "@type": "Organization",
+                  "name": "Reed Travel Exhibitions"
                 }
+              },
+              {
+                "@type": "Event",
+                "name": "Arabian Travel Market (ATM) 2026",
+                "startDate": "2026-04-01",
+                "location": {
+                  "@type": "Place",
+                  "name": "Dubai World Trade Centre",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Dubai",
+                    "addressCountry": "AE"
+                  }
+                },
+                "description": "Leading travel & tourism trade show in the Middle East"
+              },
+              {
+                "@type": "Event",
+                "name": "ILTM Cannes 2025",
+                "startDate": "2025-12-01",
+                "location": {
+                  "@type": "Place",
+                  "name": "Palais des Festivals",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Cannes",
+                    "addressCountry": "FR"
+                  }
+                },
+                "description": "International Luxury Travel Market flagship event"
               }
             ]
           })}

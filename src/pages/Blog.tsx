@@ -95,22 +95,46 @@ const Blog = () => {
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="blog" />
         <meta property="og:url" content="https://www.resortsoffers.com/blog" />
+        <meta property="og:site_name" content="ResortsOffers.com" />
         <meta property="og:title" content="Luxury Travel Blog - Resort Guides & Tips" />
         <meta property="og:description" content="Expert travel insights, destination guides, and luxury resort reviews." />
         <meta property="og:image" content="https://www.resortsoffers.com/blog-og.jpg" />
+        <meta property="og:locale" content="en_US" />
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Luxury Travel Blog" />
         <meta name="twitter:description" content="Resort guides, tips & destination insights." />
         
-        {/* Structured Data */}
+        {/* Structured Data - Breadcrumb */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.resortsoffers.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://www.resortsoffers.com/blog"
+              }
+            ]
+          })}
+        </script>
+        {/* Structured Data - Blog */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Blog",
             "name": "ResortsOffers Travel Blog",
             "description": "Luxury travel insights and resort guides",
+            "url": "https://www.resortsoffers.com/blog",
             "publisher": {
               "@type": "Organization",
               "name": "ResortsOffers.com",
@@ -118,7 +142,18 @@ const Blog = () => {
                 "@type": "ImageObject",
                 "url": "https://www.resortsoffers.com/logo.png"
               }
-            }
+            },
+            "blogPost": [
+              {
+                "@type": "BlogPosting",
+                "headline": "Ultimate Guide to Maldives Luxury Resorts in 2025",
+                "datePublished": "2025-01-15",
+                "author": {
+                  "@type": "Person",
+                  "name": "Nora El Khalifi"
+                }
+              }
+            ]
           })}
         </script>
       </Helmet>

@@ -199,10 +199,194 @@ const Resorts = () => {
       description: "Contemporary island retreat offering modern luxury and genuine Maldivian hospitality in a vibrant tropical setting.",
       features: ["Modern Villas", "Beach Access", "Spa Services", "Water Activities"],
       website: "https://www.joyislandmaldives.com"
+    },
+    // Seychelles Hotels
+    {
+      name: "Four Seasons Resort Seychelles",
+      location: "Seychelles",
+      region: "Seychelles",
+      rating: 5,
+      description: "Nestled on a hillside overlooking Petite Anse Bay, featuring luxurious tree-house villas with panoramic ocean views.",
+      features: ["Hillside Villas", "Private Beach", "Spa Sanctuary", "Gourmet Dining"],
+      website: "https://www.fourseasons.com/seychelles"
+    },
+    {
+      name: "Six Senses Zil Pasyon",
+      location: "Seychelles",
+      region: "Seychelles",
+      rating: 5,
+      description: "Private island resort featuring expansive villas, pristine beaches, and sustainable luxury in a breathtaking natural setting.",
+      features: ["Private Island", "Eco-Luxury Villas", "Organic Spa", "Cinema Paradiso"],
+      website: "https://www.sixsenses.com/en/resorts/zil-pasyon"
+    },
+    {
+      name: "North Island Seychelles",
+      location: "Seychelles",
+      region: "Seychelles",
+      rating: 5,
+      description: "Ultra-exclusive private island resort with only 11 villas, offering unparalleled privacy and bespoke luxury experiences.",
+      features: ["Ultra-Luxury Villas", "Private Island", "Conservation Program", "Butler Service"],
+      website: "https://www.north-island.com"
+    },
+    {
+      name: "Constance Ephelia Seychelles",
+      location: "Seychelles",
+      region: "Seychelles",
+      rating: 5,
+      description: "Seychelles' largest resort spanning 120 hectares, featuring two pristine beaches and lush tropical gardens.",
+      features: ["Two Beaches", "Spa Village", "Zip Line", "Kids Club"],
+      website: "https://www.ephelia.com"
+    },
+    {
+      name: "Raffles Seychelles",
+      location: "Seychelles",
+      region: "Seychelles",
+      rating: 5,
+      description: "Perched on a hillside with stunning ocean views, offering spacious villas with private plunge pools and butler service.",
+      features: ["Hillside Villas", "Private Pools", "Curieuse Marine Park", "Spa by Raffles"],
+      website: "https://www.raffles.com/seychelles"
+    },
+    // Mauritius Hotels
+    {
+      name: "One&Only Le Saint Géran",
+      location: "Mauritius",
+      region: "Mauritius",
+      rating: 5,
+      description: "Legendary beachfront resort on a private peninsula, offering timeless elegance and world-class service.",
+      features: ["Private Peninsula", "Championship Golf", "Kids Only Club", "Water Sports"],
+      website: "https://www.oneandonlyresorts.com/le-saint-geran-mauritius"
+    },
+    {
+      name: "The Oberoi Mauritius",
+      location: "Mauritius",
+      region: "Mauritius",
+      rating: 5,
+      description: "Subtropical paradise featuring elegant villas and pavilions with private gardens and ocean views.",
+      features: ["Ocean Villas", "Private Gardens", "Spa by Oberoi", "Fine Dining"],
+      website: "https://www.oberoihotels.com/hotels-in-mauritius"
+    },
+    {
+      name: "Shangri-La Le Touessrok",
+      location: "Mauritius",
+      region: "Mauritius",
+      rating: 5,
+      description: "Beachfront resort with exclusive private island access, offering world-class golf and dining experiences.",
+      features: ["Private Island Access", "Championship Golf", "CHI Spa", "Beachfront Suites"],
+      website: "https://www.shangri-la.com/mauritius/letouessrokresort"
+    },
+    {
+      name: "Four Seasons Resort Mauritius",
+      location: "Mauritius",
+      region: "Mauritius",
+      rating: 5,
+      description: "Luxury resort on Anahita Golf Estate, featuring spacious villas and world-class amenities.",
+      features: ["Golf Course Villas", "Spa Sanctuary", "Kids For All Seasons", "Water Sports"],
+      website: "https://www.fourseasons.com/mauritius"
+    },
+    {
+      name: "Constance Prince Maurice",
+      location: "Mauritius",
+      region: "Mauritius",
+      rating: 5,
+      description: "Secluded sanctuary on the east coast, offering overwater suites and romantic luxury experiences.",
+      features: ["Overwater Suites", "Private Beach", "U Spa by Constance", "Gourmet Dining"],
+      website: "https://www.princemaurice.com"
+    },
+    // Bali Hotels
+    {
+      name: "Four Seasons Resort Bali at Sayan",
+      location: "Bali",
+      region: "Bali",
+      rating: 5,
+      description: "Riverside sanctuary in Ubud's jungle, featuring dramatic architecture and holistic wellness experiences.",
+      features: ["Jungle Villas", "Sacred River Spa", "Yoga Programs", "Balinese Culture"],
+      website: "https://www.fourseasons.com/sayan"
+    },
+    {
+      name: "The Mulia Bali",
+      location: "Bali",
+      region: "Bali",
+      rating: 5,
+      description: "Ultra-luxury beachfront resort in Nusa Dua, offering opulent suites and exceptional dining experiences.",
+      features: ["Beachfront Suites", "Nine Restaurants", "Spa by Mulia", "Aqua Park"],
+      website: "https://www.themulia.com"
+    },
+    {
+      name: "Bulgari Resort Bali",
+      location: "Bali",
+      region: "Bali",
+      rating: 5,
+      description: "Clifftop resort in Uluwatu combining Italian luxury with Balinese hospitality and breathtaking ocean views.",
+      features: ["Clifftop Villas", "Bulgari Spa", "Private Beach", "Italian Cuisine"],
+      website: "https://www.bulgarihotels.com/en_US/bali"
+    },
+    {
+      name: "Mandapa, a Ritz-Carlton Reserve",
+      location: "Bali",
+      region: "Bali",
+      rating: 5,
+      description: "Luxury riverside retreat in Ubud, offering authentic Balinese experiences and serene natural beauty.",
+      features: ["Riverside Villas", "Cultural Experiences", "Spa Sanctuary", "Organic Cuisine"],
+      website: "https://www.ritzcarlton.com/en/hotels/mandapa-bali"
+    },
+    {
+      name: "Amankila Bali",
+      location: "Bali",
+      region: "Bali",
+      rating: 5,
+      description: "Hillside resort overlooking Lombok Strait, featuring traditional Balinese architecture and world-class service.",
+      features: ["Beach Club", "Infinity Pools", "Aman Spa", "Private Beach"],
+      website: "https://www.aman.com/resorts/amankila"
+    },
+    // Phuket Hotels
+    {
+      name: "Amanpuri Phuket",
+      location: "Phuket",
+      region: "Phuket",
+      rating: 5,
+      description: "Thailand's first Aman resort, offering serene luxury on a pristine peninsula with private beach access.",
+      features: ["Private Pavilions", "Beach Club", "Aman Spa", "Yacht Charter"],
+      website: "https://www.aman.com/resorts/amanpuri"
+    },
+    {
+      name: "Anantara Layan Phuket Resort",
+      location: "Phuket",
+      region: "Phuket",
+      rating: 5,
+      description: "Secluded beachfront resort on Layan Beach, offering contemporary Thai luxury and personalized service.",
+      features: ["Beach Access", "Anantara Spa", "Infinity Pools", "Thai Cuisine"],
+      website: "https://www.anantara.com/en/layan-phuket"
+    },
+    {
+      name: "Trisara Phuket",
+      location: "Phuket",
+      region: "Phuket",
+      rating: 5,
+      description: "Ultra-exclusive resort featuring private pool villas with stunning ocean views and personalized service.",
+      features: ["Private Pool Villas", "Private Beach", "Jara Spa", "Seafood Restaurant"],
+      website: "https://www.trisara.com"
+    },
+    {
+      name: "The Slate Phuket",
+      location: "Phuket",
+      region: "Phuket",
+      rating: 5,
+      description: "Unique heritage-inspired resort on Nai Yang Beach, celebrating Phuket's tin-mining history with bold design.",
+      features: ["Heritage Design", "Beach Club", "Coqoon Spa", "Multiple Dining"],
+      website: "https://www.theslatephuket.com"
+    },
+    {
+      name: "Rosewood Phuket",
+      location: "Phuket",
+      region: "Phuket",
+      rating: 5,
+      description: "Beachfront sanctuary on Emerald Bay, offering elegant pavilions and villas with contemporary Thai design.",
+      features: ["Beachfront Pavilions", "Asaya Wellness", "Seven Dining Venues", "Kids Club"],
+      website: "https://www.rosewoodhotels.com/en/phuket"
     }
   ];
 
-  const regions = ["All", "Maldives"];
+  const regions = ["All", "Maldives", "Seychelles", "Mauritius", "Bali", "Phuket"];
 
   const filteredResorts = selectedRegion === "All" 
     ? resorts 

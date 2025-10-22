@@ -27,10 +27,12 @@ const Index = () => {
     return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
   };
 
+  // Featured Special Offers - these are marked as featured on the Offers page
   const featuredOffers = [
     {
       title: "Early Bird Summer Escape",
       destination: "Maldives",
+      type: "Seasonal",
       discount: 30,
       validUntil: "2025-12-31",
       description: "Book 90 days in advance and save 30% on your tropical paradise getaway with overwater villa accommodation.",
@@ -41,6 +43,7 @@ const Index = () => {
     {
       title: "Romantic Honeymoon Package",
       destination: "Santorini, Greece",
+      type: "Package",
       discount: 25,
       validUntil: "2026-03-31",
       description: "Celebrate your love with champagne, couples spa treatment, and sunset dinner at our exclusive cliffside restaurant.",
@@ -51,6 +54,7 @@ const Index = () => {
     {
       title: "Family Adventure Package",
       destination: "Dubai, UAE",
+      type: "Package",
       discount: 35,
       validUntil: "2025-12-20",
       description: "Ultimate family experience with theme park tickets, kids club access, and connecting rooms for maximum comfort.",
@@ -59,33 +63,36 @@ const Index = () => {
       image: dubaiFamily
     },
     {
+      title: "Last Minute Beach Escape",
+      destination: "Bodrum, Turkey",
+      type: "Last Minute",
+      discount: 40,
+      validUntil: "2025-11-30",
+      description: "Book within 14 days of arrival for exclusive savings on all-inclusive beach resort experience.",
+      features: ["All-Inclusive", "Water Sports", "Beach Club Access"],
+      price: "from $280/night",
+      image: maldivesWaterVilla
+    },
+    {
       title: "Luxury Water Villa Experience",
       destination: "Maldives",
+      type: "Package",
       discount: 25,
       validUntil: "2026-04-30",
       description: "Stay in a stunning overwater villa with private pool, direct ocean access, and sunset views.",
       features: ["Private Pool", "Ocean Access", "Butler Service"],
       price: "from $680/night",
-      image: maldivesWaterVilla
+      image: maldivesVillaPool
     },
     {
       title: "Exclusive Ocean Pool Villa",
       destination: "Maldives",
+      type: "Luxury",
       discount: 20,
       validUntil: "2026-05-31",
       description: "Ultra-modern circular villa on stilts with infinity pool, direct ocean views, and contemporary design.",
       features: ["Infinity Pool", "Modern Design", "Ocean Views"],
       price: "from $850/night",
-      image: maldivesVillaPool
-    },
-    {
-      title: "Maldives Villa Collection",
-      destination: "Maldives",
-      discount: 35,
-      validUntil: "2026-06-30",
-      description: "Choose from our collection of overwater villas with private pools and direct lagoon access.",
-      features: ["Private Villas", "All-Inclusive Option", "Water Activities"],
-      price: "from $520/night",
       image: maldivesKandinma
     }
   ];
@@ -369,9 +376,9 @@ const Index = () => {
       <section className="section-padding bg-muted/50">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Exclusive Resort Offers</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Special Offers</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Limited-time luxury resort deals with savings up to 40% off. Book your dream vacation today!
+              Handpicked exclusive deals with savings up to 40% off. Limited availability - book your dream vacation today!
             </p>
           </div>
 
@@ -396,7 +403,8 @@ const Index = () => {
                   <div className="flex items-start justify-between mb-2">
                     <CardTitle className="text-xl">{offer.title}</CardTitle>
                   </div>
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                  <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
+                    <Badge variant="secondary" className="text-xs">{offer.type}</Badge>
                     <div className="flex items-center gap-1">
                       <MapPin className="w-4 h-4" />
                       <span>{offer.destination}</span>

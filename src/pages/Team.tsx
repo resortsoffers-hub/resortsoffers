@@ -3,6 +3,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Mail, Linkedin } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import noraPhoto from "@/assets/team/nora-el-khalifi.jpg";
+import michaelPhoto from "@/assets/team/michael-chen.jpg";
+import laylaPhoto from "@/assets/team/layla-hassan.jpg";
+import jamesPhoto from "@/assets/team/james-anderson.jpg";
+import fatimaPhoto from "@/assets/team/fatima-al-mahmoud.jpg";
+import davidPhoto from "@/assets/team/david-martinez.jpg";
 
 const Team = () => {
   const teamMembers = [
@@ -10,43 +16,49 @@ const Team = () => {
       name: "Nora El Khalifi",
       position: "Managing Director",
       bio: "With over 20 years in luxury hospitality, Nora leads our regional operations with strategic vision and industry expertise.",
-      email: "sarah@yourbusiness.com",
-      linkedin: "https://www.linkedin.com/in/noraelkhalifi"
+      email: "ceo@resortsoffers.com",
+      linkedin: "https://www.linkedin.com/in/noraelkhalifi",
+      photo: noraPhoto
     },
     {
       name: "Michael Chen",
       position: "Head of Sales & Marketing",
       bio: "Michael brings 15+ years of experience in luxury hotel sales across the Middle East and Asian markets.",
-      email: "michael@yourbusiness.com",
-      linkedin: "https://www.linkedin.com/company/resortsoffers"
+      email: "michael@resortsoffers.com",
+      linkedin: "https://www.linkedin.com/company/resortsoffers",
+      photo: michaelPhoto
     },
     {
       name: "Layla Hassan",
       position: "Director of Client Relations",
       bio: "Layla specializes in building lasting partnerships with premium travel agencies and corporate clients throughout the region.",
-      email: "layla@yourbusiness.com",
-      linkedin: "https://www.linkedin.com/company/resortsoffers"
+      email: "layla@resortsoffers.com",
+      linkedin: "https://www.linkedin.com/company/resortsoffers",
+      photo: laylaPhoto
     },
     {
       name: "James Anderson",
       position: "Revenue Management Director",
       bio: "James optimizes pricing strategies and revenue performance for our portfolio of luxury partner properties.",
-      email: "james@yourbusiness.com",
-      linkedin: "https://www.linkedin.com/company/resortsoffers"
+      email: "james@resortsoffers.com",
+      linkedin: "https://www.linkedin.com/company/resortsoffers",
+      photo: jamesPhoto
     },
     {
       name: "Fatima Al-Mahmoud",
       position: "Marketing Manager",
       bio: "Fatima crafts compelling brand stories and digital marketing campaigns for our luxury hotel partners.",
-      email: "fatima@yourbusiness.com",
-      linkedin: "https://www.linkedin.com/company/resortsoffers"
+      email: "fatima@resortsoffers.com",
+      linkedin: "https://www.linkedin.com/company/resortsoffers",
+      photo: fatimaPhoto
     },
     {
       name: "David Martinez",
       position: "Business Development Manager",
       bio: "David identifies new market opportunities and develops strategic partnerships across the hospitality sector.",
-      email: "david@yourbusiness.com",
-      linkedin: "https://www.linkedin.com/company/resortsoffers"
+      email: "david@resortsoffers.com",
+      linkedin: "https://www.linkedin.com/company/resortsoffers",
+      photo: davidPhoto
     }
   ];
 
@@ -88,7 +100,11 @@ const Team = () => {
             {teamMembers.map((member, index) => (
               <Card key={index} className="hover:shadow-xl transition-all duration-300">
                 <CardHeader>
-                  <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 mx-auto mb-4" />
+                  <img 
+                    src={member.photo} 
+                    alt={member.name}
+                    className="w-32 h-32 rounded-full object-cover mx-auto mb-4 border-4 border-primary/10"
+                  />
                   <CardTitle className="text-xl text-center">{member.name}</CardTitle>
                   <CardDescription className="text-center font-semibold text-accent">
                     {member.position}
@@ -98,6 +114,14 @@ const Team = () => {
                   <p className="text-muted-foreground text-sm mb-4 text-center">
                     {member.bio}
                   </p>
+                  <div className="text-center mb-4">
+                    <a 
+                      href={`mailto:${member.email}`} 
+                      className="text-sm text-primary hover:underline"
+                    >
+                      {member.email}
+                    </a>
+                  </div>
                   <div className="flex justify-center gap-4 pt-4 border-t">
                     <a 
                       href={`mailto:${member.email}`} 

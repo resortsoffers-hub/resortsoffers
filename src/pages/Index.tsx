@@ -6,7 +6,7 @@ import { Compass, Building2, Gift, Users } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SearchBar from "@/components/SearchBar";
-import heroImage from "@/assets/hero-resort.jpg";
+import heroImage from "@/assets/resorts/bali-clifftop-resort.jpg";
 import { useTranslation } from "react-i18next";
 
 const Index = () => {
@@ -51,10 +51,10 @@ const Index = () => {
         <div className="absolute inset-0">
           <img 
             src={heroImage} 
-            alt="Luxury resort with ocean view" 
+            alt="Luxury clifftop resort with infinity pools overlooking turquoise ocean in Bali" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-primary/10" />
         </div>
         
         <div className="relative z-10 container-custom animate-fade-in">

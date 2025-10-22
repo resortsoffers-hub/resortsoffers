@@ -32,13 +32,16 @@ import weddingDance from "@/assets/resorts/wedding-dance.jpg";
 import weddingCoupleCart from "@/assets/resorts/wedding-couple-cart.jpg";
 import poolBreakfast from "@/assets/resorts/pool-breakfast.jpg";
 import waterVillasAerial from "@/assets/resorts/water-villas-aerial.jpg";
+import luxuryInfinityPool from "@/assets/resorts/luxury-infinity-pool.jpg";
+import baliClifftopResort from "@/assets/resorts/bali-clifftop-resort.jpg";
 
 const Resorts = () => {
   const [selectedRegion, setSelectedRegion] = useState("All");
 
   const heroImages = [
     { src: maldivesAerial1, alt: "Aerial view of luxury Maldives resort with overwater villas and pristine turquoise lagoon" },
-    { src: maldivesAerial2, alt: "Stunning aerial perspective of Maldives island resort surrounded by crystal clear waters" },
+    { src: baliClifftopResort, alt: "Stunning clifftop resort pools overlooking crystal blue ocean in Bali" },
+    { src: luxuryInfinityPool, alt: "Ultra-luxury infinity pool villa with panoramic ocean views" },
     { src: luxuryVillaPool, alt: "Luxury Maldives villa with private pool, wooden deck, and tropical palm trees" },
     { src: coupleBikes, alt: "Romantic couple cycling along overwater walkway at Maldives luxury resort" },
     { src: poolAerial, alt: "Aerial view of stunning infinity pool surrounded by lush tropical gardens and turquoise ocean" },
@@ -47,6 +50,7 @@ const Resorts = () => {
     { src: weddingCoupleCart, alt: "Happy wedding couple with vintage golf cart on Maldives resort pathway" },
     { src: poolBreakfast, alt: "Luxury oceanfront pool with gourmet breakfast setup overlooking crystal waters" },
     { src: waterVillasAerial, alt: "Breathtaking aerial view of luxury overwater villas with private pools in Maldives" },
+    { src: maldivesAerial2, alt: "Stunning aerial perspective of Maldives island resort surrounded by crystal clear waters" },
     { src: maldivesPoolDining, alt: "Luxury infinity pool with oceanfront dining at sunset in Maldives resort" },
     { src: maldivesWaterVilla, alt: "Exclusive overwater villa with private pool and ocean access in Maldives" },
     { src: maldivesVillaPool, alt: "Premium water villa with infinity pool overlooking turquoise Maldives lagoon" },
@@ -242,6 +246,51 @@ const Resorts = () => {
       features: ["Modern Villas", "Beach Access", "Spa Services", "Water Activities"],
       website: "https://www.joyislandmaldives.com"
     },
+    {
+      name: "Velaa Private Island",
+      location: "Maldives",
+      region: "Maldives",
+      rating: 5,
+      description: "Ultra-exclusive private island offering unmatched luxury with personal butlers, world-class spa, and Michelin-starred dining.",
+      features: ["Private Island", "Golf Academy", "Michelin Dining", "Velaa Spa"],
+      website: "https://www.velaaprivateisland.com"
+    },
+    {
+      name: "Anantara Kihavah Villas",
+      location: "Maldives",
+      region: "Maldives",
+      rating: 5,
+      description: "Luxurious resort featuring underwater restaurant SEA, infinity pools, and pristine beaches in the UNESCO Biosphere Reserve.",
+      features: ["Underwater Restaurant", "Overwater Spa", "Observatory", "Private Villas"],
+      website: "https://www.anantara.com/en/kihavah-maldives"
+    },
+    {
+      name: "Vakkaru Maldives",
+      location: "Maldives",
+      region: "Maldives",
+      rating: 5,
+      description: "Secluded island paradise offering barefoot luxury with spacious villas, pristine beaches, and exceptional personalized service.",
+      features: ["Beach & Water Villas", "Merana Spa", "Marine Discovery", "Kids Club"],
+      website: "https://www.vakkarumaldives.com"
+    },
+    {
+      name: "Fairmont Maldives Sirru Fen Fushi",
+      location: "Maldives",
+      region: "Maldives",
+      rating: 5,
+      description: "Secluded sanctuary in the Shaviyani Atoll offering pristine nature, underwater sculpture gallery, and luxurious accommodations.",
+      features: ["Coralarium", "Willow Stream Spa", "Water Sports", "Turtle Rehabilitation"],
+      website: "https://www.fairmont-maldives.com"
+    },
+    {
+      name: "Gili Lankanfushi",
+      location: "Maldives",
+      region: "Maldives",
+      rating: 5,
+      description: "Sustainable luxury resort offering rustic sophistication with overwater villas, organic dining, and barefoot elegance.",
+      features: ["Eco-Luxury", "Private Water Reserves", "Organic Spa", "Barefoot Experience"],
+      website: "https://www.gili-lankanfushi.com"
+    },
     // Seychelles Hotels
     {
       name: "Four Seasons Resort Seychelles",
@@ -287,6 +336,33 @@ const Resorts = () => {
       description: "Perched on a hillside with stunning ocean views, offering spacious villas with private plunge pools and butler service.",
       features: ["Hillside Villas", "Private Pools", "Curieuse Marine Park", "Spa by Raffles"],
       website: "https://www.raffles.com/seychelles"
+    },
+    {
+      name: "Hilton Seychelles Labriz Resort & Spa",
+      location: "Seychelles",
+      region: "Seychelles",
+      rating: 5,
+      description: "Beachfront paradise on Silhouette Island featuring spacious villas, pristine nature, and world-class wellness facilities.",
+      features: ["Island Paradise", "Eforea Spa", "Seven Restaurants", "Marine Activities"],
+      website: "https://www.hilton.com/en/hotels/sezhihi-hilton-seychelles-labriz-resort-and-spa"
+    },
+    {
+      name: "Anantara Maia Seychelles Villas",
+      location: "Seychelles",
+      region: "Seychelles",
+      rating: 5,
+      description: "Ultra-luxurious all-villa resort on a private peninsula offering complete seclusion and personalized service.",
+      features: ["Private Pool Villas", "Butler Service", "Spa", "Gourmet Dining"],
+      website: "https://www.anantara.com/en/maia-seychelles"
+    },
+    {
+      name: "Kempinski Seychelles Resort",
+      location: "Seychelles",
+      region: "Seychelles",
+      rating: 5,
+      description: "Luxury beachfront resort on Baie Lazare offering elegant rooms, exceptional dining, and stunning Indian Ocean views.",
+      features: ["Beachfront Villas", "European Elegance", "Spa by Resense", "Water Sports"],
+      website: "https://www.kempinski.com/en/seychelles/baie-lazare"
     },
     // Mauritius Hotels
     {
@@ -334,6 +410,33 @@ const Resorts = () => {
       features: ["Overwater Suites", "Private Beach", "U Spa by Constance", "Gourmet Dining"],
       website: "https://www.princemaurice.com"
     },
+    {
+      name: "Lux* Belle Mare",
+      location: "Mauritius",
+      region: "Mauritius",
+      rating: 5,
+      description: "Beachfront resort on the east coast offering contemporary luxury, world-class dining, and extensive wellness facilities.",
+      features: ["Beachfront Suites", "LUX* Me Spa", "Multiple Restaurants", "Water Sports"],
+      website: "https://www.luxresorts.com/en/mauritius/lux-belle-mare"
+    },
+    {
+      name: "Constance Belle Mare Plage",
+      location: "Mauritius",
+      region: "Mauritius",
+      rating: 5,
+      description: "Expansive beachfront resort featuring two championship golf courses, multiple restaurants, and family-friendly amenities.",
+      features: ["Two Golf Courses", "Seven Restaurants", "U Spa", "Kids Club"],
+      website: "https://www.bellemareplage.com"
+    },
+    {
+      name: "The St. Regis Mauritius Resort",
+      location: "Mauritius",
+      region: "Mauritius",
+      rating: 5,
+      description: "Sophisticated beachfront resort offering bespoke butler service, luxurious accommodations, and refined dining experiences.",
+      features: ["Butler Service", "Iridium Spa", "Private Beach", "Fine Dining"],
+      website: "https://www.marriott.com/hotels/travel/mruse-the-st-regis-mauritius-resort"
+    },
     // Bali Hotels
     {
       name: "Four Seasons Resort Bali at Sayan",
@@ -380,6 +483,33 @@ const Resorts = () => {
       features: ["Beach Club", "Infinity Pools", "Aman Spa", "Private Beach"],
       website: "https://www.aman.com/resorts/amankila"
     },
+    {
+      name: "COMO Shambhala Estate",
+      location: "Bali",
+      region: "Bali",
+      rating: 5,
+      description: "Holistic wellness retreat in Ubud's jungle offering transformative programs, yoga, and integrative health.",
+      features: ["Wellness Programs", "Yoga Pavilion", "Organic Cuisine", "Jungle Villas"],
+      website: "https://www.comohotels.com/bali/como-shambhala-estate"
+    },
+    {
+      name: "Alila Villas Uluwatu",
+      location: "Bali",
+      region: "Bali",
+      rating: 5,
+      description: "Contemporary clifftop resort offering sustainable luxury with stunning ocean views and innovative architecture.",
+      features: ["Clifftop Villas", "Infinity Pool", "Spa Alila", "Sustainable Design"],
+      website: "https://www.alilahotels.com/uluwatu"
+    },
+    {
+      name: "AYANA Resort and Spa Bali",
+      location: "Bali",
+      region: "Bali",
+      rating: 5,
+      description: "Sprawling clifftop resort featuring multiple pools, world-famous Rock Bar, and extensive spa facilities.",
+      features: ["Rock Bar", "Multiple Pools", "Aquatonic Spa", "12 Restaurants"],
+      website: "https://www.ayana.com/bali"
+    },
     // Phuket Hotels
     {
       name: "Amanpuri Phuket",
@@ -416,6 +546,24 @@ const Resorts = () => {
       description: "Unique heritage-inspired resort on Nai Yang Beach, celebrating Phuket's tin-mining history with bold design.",
       features: ["Heritage Design", "Beach Club", "Coqoon Spa", "Multiple Dining"],
       website: "https://www.theslatephuket.com"
+    },
+    {
+      name: "Rosewood Phuket",
+      location: "Phuket",
+      region: "Phuket",
+      rating: 5,
+      description: "Ultra-luxury beachfront resort offering elegant pavilions, world-class dining, and personalized Rosewood service.",
+      features: ["Beach Pavilions", "Asaya Spa", "Multiple Pools", "Fine Dining"],
+      website: "https://www.rosewoodhotels.com/en/phuket"
+    },
+    {
+      name: "Keemala Phuket",
+      location: "Phuket",
+      region: "Phuket",
+      rating: 5,
+      description: "Enchanting rainforest resort featuring unique clay cottage and tree house villas with innovative design and holistic wellness.",
+      features: ["Unique Villas", "Mala Spa", "Rainforest Setting", "Organic Cuisine"],
+      website: "https://www.keemala.com"
     },
     {
       name: "Rosewood Phuket",

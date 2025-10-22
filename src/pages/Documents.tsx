@@ -43,8 +43,8 @@ const Documents = () => {
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>Document Viewer - Resorts Offers</title>
-        <meta name="description" content="View and review documents without saving" />
+        <title>Download Center - Company Profile & Documents | Resorts Offers</title>
+        <meta name="description" content="Download Resorts Offers company profile and documents. Access our comprehensive travel consultancy information and service offerings." />
         <link rel="canonical" href="https://www.resortsoffers.com/documents" />
       </Helmet>
       <Navbar />
@@ -62,10 +62,10 @@ const Documents = () => {
         
         <div className="relative z-10 container-custom text-center">
           <h1 className="text-4xl md:text-6xl font-bold hero-text mb-6 animate-fade-in">
-            Document Center
+            Download Center
           </h1>
           <p className="text-xl md:text-2xl hero-text max-w-3xl mx-auto">
-            Secure document viewing and preview platform
+            Access and download our company documents and offers catalog
           </p>
         </div>
       </section>
@@ -77,11 +77,11 @@ const Documents = () => {
             <Card className="text-center hover:shadow-xl transition-all duration-300 animate-fade-in">
               <CardHeader>
                 <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-                  <Eye className="w-8 h-8 text-primary" />
+                  <Download className="w-8 h-8 text-primary" />
                 </div>
-                <CardTitle>Quick Preview</CardTitle>
+                <CardTitle>Easy Download</CardTitle>
                 <CardDescription>
-                  Instantly view documents without downloading or saving
+                  Download documents instantly with one click
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -119,38 +119,42 @@ const Documents = () => {
           <div className="max-w-5xl mx-auto">
             <Card className="shadow-2xl">
               <CardHeader className="bg-gradient-to-r from-primary/5 to-accent/5">
-                <CardTitle className="text-2xl">Document Viewer</CardTitle>
+                <CardTitle className="text-2xl">Company Documents</CardTitle>
                 <CardDescription className="text-base">
-                  Upload and preview documents securely. Files are displayed only and never stored on our servers.
+                  Download our company profile and offers catalog
                 </CardDescription>
               </CardHeader>
               <CardContent className="p-6">
                 {showCompanyDoc && !selectedFile ? (
                   <div className="space-y-6 animate-fade-in">
-                    <div className="flex items-center justify-between p-4 bg-gradient-to-r from-primary/10 to-accent/10 rounded-lg">
-                      <div>
-                        <h3 className="text-lg font-semibold flex items-center gap-2">
-                          <FileText className="w-5 h-5 text-primary" />
-                          Resorts Offers Company Profile
-                        </h3>
-                        <p className="text-sm text-muted-foreground mt-1">
-                          View our comprehensive company information and service offerings
-                        </p>
+                    <div className="p-6 bg-gradient-to-r from-primary/10 to-accent/10 rounded-lg">
+                      <div className="flex items-start gap-4 mb-4">
+                        <div className="w-16 h-16 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
+                          <FileText className="w-8 h-8 text-primary-foreground" />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="text-xl font-semibold mb-2">
+                            Resorts Offers Company Profile
+                          </h3>
+                          <p className="text-sm text-muted-foreground">
+                            View our comprehensive company information and service offerings. Download the PDF to keep for your records.
+                          </p>
+                        </div>
                       </div>
-                      <label className="cursor-pointer">
-                        <Button variant="default" size="lg" asChild>
-                          <span>
-                            <Upload size={18} className="mr-2" />
-                            Upload Your File
-                          </span>
+                      <div className="flex gap-3">
+                        <Button variant="default" size="lg" asChild className="flex-1">
+                          <a href="/Resorts_Offers_REP.pdf" download="Resorts_Offers_Company_Profile.pdf">
+                            <Download size={18} className="mr-2" />
+                            Download Company Profile
+                          </a>
                         </Button>
-                        <input
-                          type="file"
-                          className="hidden"
-                          onChange={handleFileSelect}
-                          accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png,.gif"
-                        />
-                      </label>
+                        <Button variant="outline" size="lg" asChild>
+                          <a href="/Resorts_Offers_REP.pdf" target="_blank" rel="noopener noreferrer">
+                            <Eye size={18} className="mr-2" />
+                            Preview
+                          </a>
+                        </Button>
+                      </div>
                     </div>
                     <div className="border-2 border-primary/20 rounded-xl overflow-hidden shadow-lg">
                       <iframe
@@ -158,14 +162,6 @@ const Documents = () => {
                         className="w-full h-[700px]"
                         title="Resorts Offers Company Profile"
                       />
-                    </div>
-                    <div className="flex justify-center">
-                      <Button variant="outline" size="lg" asChild>
-                        <a href="/Resorts_Offers_REP.pdf" download>
-                          <Download size={18} className="mr-2" />
-                          Download Company Profile
-                        </a>
-                      </Button>
                     </div>
                   </div>
                 ) : !selectedFile ? (
@@ -266,10 +262,10 @@ const Documents = () => {
       <section className="section-padding bg-primary text-primary-foreground">
         <div className="container-custom text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Need More Information?
+            Need Personalized Offers?
           </h2>
           <p className="text-lg mb-8 max-w-2xl mx-auto opacity-90">
-            Contact our team to receive detailed brochures, packages, and personalized resort recommendations.
+            Contact our team to receive detailed brochures, customized packages, and personalized resort recommendations.
           </p>
           <a href="/contact">
             <Button size="lg" variant="secondary" className="text-lg px-8">

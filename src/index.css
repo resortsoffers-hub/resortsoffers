@@ -17,16 +17,17 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 215 25% 15%;
 
-    --primary: 216 100% 29%;
+    /* Maroon/Burgundy theme inspired by Qatar Airways */
+    --primary: 345 65% 25%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 217 89% 61%;
+    --secondary: 345 55% 45%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 210 20% 96%;
     --muted-foreground: 215 15% 50%;
 
-    --accent: 215 85% 60%;
+    --accent: 28 80% 52%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -34,9 +35,9 @@ All colors MUST be HSL.
 
     --border: 215 20% 90%;
     --input: 215 20% 90%;
-    --ring: 215 90% 38%;
+    --ring: 345 65% 25%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
 

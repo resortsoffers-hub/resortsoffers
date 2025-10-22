@@ -3,18 +3,21 @@ import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Compass, Building2, Gift, Users, Calendar, MapPin, Percent } from "lucide-react";
+import { Compass, Building2, Gift, Users, Calendar, MapPin, Percent, Star } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import SearchBar from "@/components/SearchBar";
+import HeroCarousel from "@/components/HeroCarousel";
+import BookingTabs from "@/components/BookingTabs";
 import AddressSection from "@/components/AddressSection";
-import heroImage from "@/assets/resorts/bali-clifftop-resort.jpg";
 import maldivesWaldorf from "@/assets/maldives-waldorf.jpg";
 import santoriniGreece from "@/assets/santorini-greece.jpg";
 import dubaiFamily from "@/assets/dubai-family.jpg";
 import maldivesWaterVilla from "@/assets/resorts/maldives-water-villa.jpg";
 import maldivesVillaPool from "@/assets/resorts/maldives-villa-pool.jpg";
 import maldivesKandinma from "@/assets/resorts/maldives-kandinma-hq.jpg";
+import boraBora from "@/assets/resorts/bora-bora.jpg";
+import dubaiLuxury from "@/assets/resorts/dubai-luxury.jpg";
+import swissAlps from "@/assets/resorts/swiss-alps.jpg";
 import { useTranslation } from "react-i18next";
 
 const Index = () => {
@@ -26,6 +29,70 @@ const Index = () => {
     const message = `Hi! I'm interested in booking the "${offerTitle}" offer in ${destination}. Price: ${price}. Can you provide more details?`;
     return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
   };
+
+  // Hero Carousel Slides
+  const heroSlides = [
+    {
+      image: maldivesWaldorf,
+      title: "Maldives Paradise Awaits",
+      subtitle: "Overwater villas & exclusive island experiences",
+      buttonText: "Explore Offers",
+      buttonLink: "/offers"
+    },
+    {
+      image: dubaiLuxury,
+      title: "Dubai Luxury Escapes",
+      subtitle: "World-class hotels & unforgettable experiences",
+      buttonText: "View Packages",
+      buttonLink: "/resorts"
+    },
+    {
+      image: santoriniGreece,
+      title: "Romantic Santorini",
+      subtitle: "Sunset views & honeymoon dreams come true",
+      buttonText: "Book Now",
+      buttonLink: "/offers"
+    },
+    {
+      image: swissAlps,
+      title: "Swiss Alps Retreat",
+      subtitle: "Mountain luxury & winter wonderland",
+      buttonText: "Discover More",
+      buttonLink: "/resorts"
+    }
+  ];
+
+  // Featured Destinations
+  const featuredDestinations = [
+    {
+      name: "Maldives",
+      image: maldivesVillaPool,
+      resorts: "120+ resorts",
+      rating: 4.9,
+      startPrice: "$450"
+    },
+    {
+      name: "Dubai",
+      image: dubaiLuxury,
+      resorts: "85+ hotels",
+      rating: 4.8,
+      startPrice: "$320"
+    },
+    {
+      name: "Bora Bora",
+      image: boraBora,
+      resorts: "45+ resorts",
+      rating: 4.9,
+      startPrice: "$680"
+    },
+    {
+      name: "Santorini",
+      image: santoriniGreece,
+      resorts: "60+ hotels",
+      rating: 4.7,
+      startPrice: "$380"
+    }
+  ];
 
   // Featured Special Offers - these are marked as featured on the Offers page
   const featuredOffers = [
@@ -306,37 +373,114 @@ const Index = () => {
       </Helmet>
       <Navbar />
       
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden mt-16">
-        <div className="absolute inset-0">
-          <img 
-            src={heroImage} 
-            alt="Luxury clifftop resort with infinity pools overlooking turquoise ocean in Bali" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-primary/10" />
-        </div>
+      {/* Hero Carousel Section */}
+      <section className="mt-16">
+        <HeroCarousel slides={heroSlides} />
         
-        <div className="relative z-10 container-custom animate-fade-in">
-          <div className="text-center mb-8">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold hero-text mb-6">
-              {t('hero.title')}
-            </h1>
-            <p className="text-xl md:text-2xl hero-text mb-8 max-w-3xl mx-auto">
-              {t('hero.subtitle')}
-            </p>
-          </div>
+        {/* Booking Tabs Widget */}
+        <div className="container-custom">
+          <BookingTabs />
+        </div>
+      </section>
+
+      {/* What's New Section */}
+      <section className="section-padding">
+        <div className="container-custom">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-primary">What's new</h2>
           
-          {/* Search Bar */}
-          <SearchBar />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Card className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
+              <div className="relative h-48">
+                <img src={maldivesKandinma} alt="Summer Campaign" className="w-full h-full object-cover" />
+                <Badge className="absolute top-4 left-4 bg-accent">New</Badge>
+              </div>
+              <CardHeader>
+                <CardTitle>Winter Your Way</CardTitle>
+                <CardDescription>
+                  Discover exclusive winter escapes with up to 35% off luxury resorts worldwide
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
+              <div className="relative h-48">
+                <img src={dubaiFamily} alt="Family Packages" className="w-full h-full object-cover" />
+                <Badge className="absolute top-4 left-4 bg-secondary">Featured</Badge>
+              </div>
+              <CardHeader>
+                <CardTitle>Family Adventure Packages</CardTitle>
+                <CardDescription>
+                  Kids stay free + theme park tickets included in select Dubai hotels
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
+              <div className="relative h-48">
+                <img src={santoriniGreece} alt="Honeymoon Specials" className="w-full h-full object-cover" />
+                <Badge className="absolute top-4 left-4 bg-primary">Exclusive</Badge>
+              </div>
+              <CardHeader>
+                <CardTitle>Honeymoon Specials</CardTitle>
+                <CardDescription>
+                  Romantic packages with champagne, spa treatments & private dining
+                </CardDescription>
+              </CardHeader>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Destinations */}
+      <section className="section-padding bg-muted/30">
+        <div className="container-custom">
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold">Popular Destinations</h2>
+            <Link to="/resorts">
+              <Button variant="outline">View All</Button>
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {featuredDestinations.map((destination, index) => (
+              <Link key={index} to="/resorts">
+                <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 hover-scale cursor-pointer">
+                  <div className="relative h-56">
+                    <img 
+                      src={destination.image} 
+                      alt={destination.name}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <div className="absolute bottom-4 left-4 right-4 text-white">
+                      <h3 className="text-2xl font-bold mb-1">{destination.name}</h3>
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm">{destination.resorts}</span>
+                        <div className="flex items-center gap-1">
+                          <Star className="w-4 h-4 fill-accent text-accent" />
+                          <span className="text-sm">{destination.rating}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <CardContent className="pt-4">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm text-muted-foreground">Starting from</span>
+                      <span className="text-xl font-bold text-primary">{destination.startPrice}/night</span>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section className="section-padding bg-muted">
+      <section className="section-padding">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-primary">
               {t('about.title')}
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
@@ -347,17 +491,17 @@ const Index = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="section-padding">
+      <section className="section-padding bg-muted/30">
         <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">
             {t('services.title')}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => (
               <Link key={index} to={feature.link}>
-                <Card className="h-full hover:shadow-lg transition-shadow duration-300 cursor-pointer">
+                <Card className="h-full hover:shadow-xl transition-all duration-300 cursor-pointer border-2 hover:border-primary">
                   <CardHeader>
-                    <div className="mb-4">{feature.icon}</div>
+                    <div className="mb-4 p-3 bg-primary/10 rounded-lg w-fit">{feature.icon}</div>
                     <CardTitle className="text-xl">{feature.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
@@ -373,10 +517,10 @@ const Index = () => {
       </section>
 
       {/* Featured Offers Section */}
-      <section className="section-padding bg-muted/50">
+      <section className="section-padding">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Special Offers</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">Exclusive Special Offers</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Handpicked exclusive deals with savings up to 40% off. Limited availability - book your dream vacation today!
             </p>
@@ -384,7 +528,7 @@ const Index = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             {featuredOffers.map((offer, index) => (
-              <Card key={index} className="overflow-hidden hover:shadow-lg transition-all duration-300 animate-fade-in hover-scale">
+              <Card key={index} className="overflow-hidden hover:shadow-xl transition-all duration-300 animate-fade-in hover-scale border-2 hover:border-accent">
                 <div className="relative h-64 overflow-hidden">
                   <img 
                     src={offer.image} 
@@ -442,7 +586,7 @@ const Index = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <Button className="w-full">
+                      <Button className="w-full bg-accent hover:bg-accent/90">
                         Book Now
                       </Button>
                     </a>
@@ -454,7 +598,7 @@ const Index = () => {
 
           <div className="text-center">
             <Link to="/offers">
-              <Button size="lg" variant="outline" className="text-lg px-8">
+              <Button size="lg" className="text-lg px-8 bg-primary hover:bg-primary/90">
                 View All Offers
               </Button>
             </Link>

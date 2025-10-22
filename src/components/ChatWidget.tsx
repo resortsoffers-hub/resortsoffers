@@ -1,10 +1,18 @@
 import { useState, useRef, useEffect } from "react";
-import { MessageCircle, X, Send, Sparkles } from "lucide-react";
+import { MessageCircle, X, Send, Sparkles, Languages } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { useTranslation } from "react-i18next";
 
 interface Message {
   role: "user" | "assistant";
@@ -12,19 +20,86 @@ interface Message {
 }
 
 const ChatWidget = () => {
+  const { i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [language, setLanguage] = useState(i18n.language || "en");
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const quickPrompts = [
-    "Find me a honeymoon package",
-    "Best family resorts in Maldives",
-    "Last minute deals under $500",
-    "What's included in Early Bird offers?",
-    "Book a consultation",
-  ];
+  const quickPromptsMap: Record<string, string[]> = {
+    en: [
+      "Find me a honeymoon package",
+      "Best family resorts in Maldives",
+      "Last minute deals under $500",
+      "What's included in Early Bird offers?",
+      "Book a consultation",
+    ],
+    ar: [
+      "ابحث لي عن باقة شهر العسل",
+      "أفضل منتجعات العائلات في المالديف",
+      "عروض اللحظة الأخيرة أقل من 500 دولار",
+      "ما المتضمن في عروض الحجز المبكر؟",
+      "احجز استشارة",
+    ],
+    ru: [
+      "Найдите мне пакет для медового месяца",
+      "Лучшие семейные курорты на Мальдивах",
+      "Горящие предложения до $500",
+      "Что входит в предложения раннего бронирования?",
+      "Забронировать консультацию",
+    ],
+    zh: [
+      "为我找一个蜜月套餐",
+      "马尔代夫最佳家庭度假村",
+      "低于500美元的最后一刻优惠",
+      "早鸟优惠包括什么？",
+      "预约咨询",
+    ],
+  };
+
+  const welcomeMessages: Record<string, { greeting: string; bullets: string[] }> = {
+    en: {
+      greeting: "👋 Hello! I'm your AI travel assistant. I can help you:",
+      bullets: [
+        "Find perfect resort deals",
+        "Compare destinations",
+        "Book consultations",
+        "Answer travel questions"
+      ]
+    },
+    ar: {
+      greeting: "👋 مرحباً! أنا مساعدك السياحي بالذكاء الاصطناعي. يمكنني مساعدتك في:",
+      bullets: [
+        "العثور على أفضل عروض المنتجعات",
+        "مقارنة الوجهات",
+        "حجز الاستشارات",
+        "الإجابة على أسئلة السفر"
+      ]
+    },
+    ru: {
+      greeting: "👋 Здравствуйте! Я ваш AI-помощник по путешествиям. Я могу помочь вам:",
+      bullets: [
+        "Найти идеальные предложения курортов",
+        "Сравнить направления",
+        "Забронировать консультации",
+        "Ответить на вопросы о путешествиях"
+      ]
+    },
+    zh: {
+      greeting: "👋 您好！我是您的AI旅行助手。我可以帮助您：",
+      bullets: [
+        "找到完美的度假村优惠",
+        "比较目的地",
+        "预订咨询",
+        "回答旅行问题"
+      ]
+    }
+  };
+
+  const quickPrompts = quickPromptsMap[language] || quickPromptsMap.en;
+  const welcome = welcomeMessages[language] || welcomeMessages.en;
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -47,7 +122,7 @@ const ChatWidget = () => {
             "Content-Type": "application/json",
             Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
           },
-          body: JSON.stringify({ messages: newMessages }),
+          body: JSON.stringify({ messages: newMessages, language }),
         }
       );
 
@@ -139,22 +214,40 @@ const ChatWidget = () => {
       {isOpen && (
         <Card className="fixed bottom-6 right-6 w-96 h-[600px] shadow-2xl z-50 flex flex-col animate-scale-in">
           {/* Header */}
-          <div className="bg-primary text-primary-foreground p-4 rounded-t-lg flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <Sparkles className="h-5 w-5" />
-              <div>
-                <h3 className="font-semibold">Travel Assistant</h3>
-                <p className="text-xs opacity-90">Powered by AI</p>
+          <div className="bg-primary text-primary-foreground p-4 rounded-t-lg">
+            <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center gap-2">
+                <Sparkles className="h-5 w-5" />
+                <div>
+                  <h3 className="font-semibold">Travel Assistant</h3>
+                  <p className="text-xs opacity-90">Powered by AI</p>
+                </div>
               </div>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsOpen(false)}
+                className="text-primary-foreground hover:bg-primary-foreground/20"
+              >
+                <X className="h-5 w-5" />
+              </Button>
             </div>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsOpen(false)}
-              className="text-primary-foreground hover:bg-primary-foreground/20"
-            >
-              <X className="h-5 w-5" />
-            </Button>
+            
+            {/* Language Selector */}
+            <div className="flex items-center gap-2">
+              <Languages className="h-4 w-4" />
+              <Select value={language} onValueChange={(val) => { setLanguage(val); setMessages([]); }}>
+                <SelectTrigger className="h-8 bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="en">English</SelectItem>
+                  <SelectItem value="ar">العربية</SelectItem>
+                  <SelectItem value="ru">Русский</SelectItem>
+                  <SelectItem value="zh">中文</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
           </div>
 
           {/* Messages */}
@@ -163,17 +256,18 @@ const ChatWidget = () => {
               <div className="space-y-4">
                 <div className="bg-muted p-4 rounded-lg">
                   <p className="text-sm mb-3">
-                    👋 Hello! I'm your AI travel assistant. I can help you:
+                    {welcome.greeting}
                   </p>
                   <ul className="text-sm space-y-1 list-disc list-inside">
-                    <li>Find perfect resort deals</li>
-                    <li>Compare destinations</li>
-                    <li>Book consultations</li>
-                    <li>Answer travel questions</li>
+                    {welcome.bullets.map((bullet, i) => (
+                      <li key={i}>{bullet}</li>
+                    ))}
                   </ul>
                 </div>
                 <div>
-                  <p className="text-xs text-muted-foreground mb-2">Quick prompts:</p>
+                  <p className="text-xs text-muted-foreground mb-2">
+                    {language === "ar" ? "اقتراحات سريعة:" : language === "ru" ? "Быстрые подсказки:" : language === "zh" ? "快速提示：" : "Quick prompts:"}
+                  </p>
                   <div className="flex flex-wrap gap-2">
                     {quickPrompts.map((prompt, i) => (
                       <Badge

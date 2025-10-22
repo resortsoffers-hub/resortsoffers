@@ -918,6 +918,79 @@ const Resorts = () => {
       description: "Beach resort on Langkawi island, featuring overwater villas and exceptional family amenities.",
       features: ["Beach & Overwater Villas", "Family Amenities", "Geo Spa", "Water Sports"],
       website: "https://www.fourseasons.com/langkawi"
+    },
+    // London Partners
+    {
+      name: "The Savoy",
+      location: "London, UK",
+      region: "London",
+      rating: 5,
+      description: "Iconic luxury hotel on the River Thames, offering legendary service, Art Deco glamour, and world-class dining since 1889.",
+      features: ["Thames River Views", "American Bar", "Kaspar's Seafood Bar", "Afternoon Tea"],
+      website: "https://www.fairmont-savoy.com"
+    },
+    {
+      name: "Claridge's",
+      location: "London, UK",
+      region: "London",
+      rating: 5,
+      description: "Art Deco masterpiece in Mayfair, epitomizing British elegance with exceptional service and timeless luxury.",
+      features: ["Mayfair Location", "Art Deco Design", "The Fumoir Bar", "Michelin-Star Dining"],
+      website: "https://www.claridges.co.uk"
+    },
+    {
+      name: "The Ritz London",
+      location: "London, UK",
+      region: "London",
+      rating: 5,
+      description: "Quintessentially British luxury hotel on Piccadilly, famous for its legendary afternoon tea and regal grandeur.",
+      features: ["Piccadilly Location", "Afternoon Tea", "The Ritz Restaurant", "Palm Court"],
+      website: "https://www.theritzlondon.com"
+    },
+    {
+      name: "Mandarin Oriental Hyde Park",
+      location: "London, UK",
+      region: "London",
+      rating: 5,
+      description: "Contemporary luxury overlooking Hyde Park, combining Victorian elegance with modern sophistication.",
+      features: ["Hyde Park Views", "Dinner by Heston", "Mandarin Oriental Spa", "Knightsbridge Shopping"],
+      website: "https://www.mandarinoriental.com/en/london/hyde-park"
+    },
+    {
+      name: "The Connaught",
+      location: "London, UK",
+      region: "London",
+      rating: 5,
+      description: "Refined luxury in Mayfair, offering impeccable service, Michelin-starred dining, and timeless British elegance.",
+      features: ["Mayfair Elegance", "Hélène Darroze Restaurant", "Connaught Bar", "Aman Spa"],
+      website: "https://www.the-connaught.co.uk"
+    },
+    {
+      name: "The Langham London",
+      location: "London, UK",
+      region: "London",
+      rating: 5,
+      description: "Europe's first Grand Hotel, offering Victorian splendor, legendary afternoon tea, and prime West End location.",
+      features: ["Regent Street Location", "Palm Court Afternoon Tea", "Artesian Bar", "Chuan Spa"],
+      website: "https://www.langhamhotels.com/en/the-langham/london"
+    },
+    {
+      name: "Rosewood London",
+      location: "London, UK",
+      region: "London",
+      rating: 5,
+      description: "Belle Époque mansion in Holborn, featuring grand architecture, world-class dining, and sophisticated luxury.",
+      features: ["Edwardian Architecture", "Scarfes Bar", "Holborn Dining Room", "Sense Spa"],
+      website: "https://www.rosewoodhotels.com/en/london"
+    },
+    {
+      name: "Shangri-La The Shard",
+      location: "London, UK",
+      region: "London",
+      rating: 5,
+      description: "London's highest hotel offering breathtaking panoramic views from Western Europe's tallest building.",
+      features: ["Skyline Views", "Floors 34-52", "TĪNG Restaurant", "Infinity Pool"],
+      website: "https://www.shangri-la.com/london/shangrila"
     }
   ];
 
@@ -1059,10 +1132,10 @@ const Resorts = () => {
         
         <div className="absolute z-10 container-custom text-center pointer-events-none">
           <h1 className="text-4xl md:text-6xl font-bold hero-text mb-6 animate-fade-in">
-            Our Partner Resorts
+            Our Partner Resorts & Hotels
           </h1>
           <p className="text-xl md:text-2xl hero-text max-w-3xl mx-auto">
-            Discover our handpicked premium resort partners worldwide
+            Discover our handpicked premium resort and hotel partners worldwide
           </p>
         </div>
       </section>

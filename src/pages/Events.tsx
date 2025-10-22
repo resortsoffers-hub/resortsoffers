@@ -9,45 +9,45 @@ import packagesImage from "@/assets/packages.jpg";
 const Events = () => {
   const events = [
     {
-      name: "Arabian Travel Market (ATM) Dubai",
+      name: "World Travel Market (WTM) London 2025",
+      shortName: "WTM London",
+      date: "November 2025",
+      location: "ExCeL London, United Kingdom",
+      description: "Where Travel & Tourism Meet - The world's most influential travel and tourism event. WTM London is the premier three-day B2B event connecting the global travel trade to inspire and facilitate business opportunities.",
+      highlights: [
+        "50,000+ senior travel professionals",
+        "5,000+ exhibitors from 182 countries",
+        "Multi-billion-dollar deals negotiated",
+        "Shape the future of travel industry"
+      ],
+      website: "https://www.wtm.com/london",
+      category: "Trade Show"
+    },
+    {
+      name: "Arabian Travel Market (ATM) 2026",
       shortName: "ATM Dubai",
-      date: "April 2025",
+      date: "April 2026",
       location: "Dubai World Trade Centre, UAE",
-      description: "The leading global event for the Middle East travel and tourism industry. ATM Dubai brings together the world's leading travel and tourism professionals to conduct business and discover the latest innovations.",
+      description: "The leading travel & tourism trade show in the Middle East. ATM brings together the world's leading travel and tourism professionals to conduct business, discover innovations, and forge partnerships.",
       highlights: [
         "40,000+ attendees from 150+ countries",
         "2,500+ exhibiting companies",
-        "Industry networking opportunities",
+        "Exclusive Middle East market access",
         "Latest travel technology showcase"
       ],
       website: "https://www.wtm.com/atm",
       category: "Trade Show"
     },
     {
-      name: "World Travel Market (WTM) London",
-      shortName: "WTM London",
-      date: "November 2025",
-      location: "ExCeL London, United Kingdom",
-      description: "The leading global event for the travel industry. WTM London is a three-day B2B event connecting the travel trade to inspire and facilitate business opportunities.",
-      highlights: [
-        "50,000+ senior travel professionals",
-        "5,000+ exhibitors from 182 countries",
-        "Multi-billion-dollar deals negotiated",
-        "Key decision makers and buyers"
-      ],
-      website: "https://www.wtm.com/london",
-      category: "Trade Show"
-    },
-    {
-      name: "ILTM (International Luxury Travel Market) Cannes",
+      name: "ILTM Cannes - International Luxury Travel Market",
       shortName: "ILTM Cannes",
       date: "December 2025",
       location: "Palais des Festivals, Cannes, France",
-      description: "The ultimate marketplace for the luxury travel industry. ILTM Cannes connects luxury travel providers with the world's most influential travel buyers.",
+      description: "The flagship luxury travel event and ultimate marketplace for the luxury travel industry. ILTM Cannes connects the world's most prestigious luxury travel providers with elite travel buyers.",
       highlights: [
         "1,500+ luxury travel exhibitors",
-        "Pre-scheduled appointments",
-        "Exclusive networking events",
+        "Pre-scheduled one-on-one appointments",
+        "Exclusive networking events & dinners",
         "Ultra-high-net-worth clientele focus"
       ],
       website: "https://www.iltm.com/cannes",

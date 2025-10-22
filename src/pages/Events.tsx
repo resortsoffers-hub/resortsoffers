@@ -54,18 +54,18 @@ const Events = () => {
       category: "Luxury Travel"
     },
     {
-      name: "BRIDE Show Dubai",
-      shortName: "BRIDE Show",
-      date: "March 2025",
-      location: "Dubai World Trade Centre, UAE",
-      description: "The Middle East's premier wedding and lifestyle event. BRIDE showcases the latest trends in weddings, honeymoons, and luxury lifestyle experiences.",
+      name: "The Gulf Bride Show 2025",
+      shortName: "Gulf Bride Show",
+      date: "12-18 September 2025",
+      location: "Sheikh Maktoum Hall & Sheikh Rashid Hall, Dubai World Trade Centre, UAE",
+      description: "The region's largest and most anticipated bridal event, bringing together five specialised exhibitions: Jewellery, Fashion, Perfume, Beauty, and Interior Design & Furniture. Designed to offer a fully integrated experience for the modern bride and her family.",
       highlights: [
-        "200+ luxury wedding vendors",
-        "Honeymoon destination packages",
-        "Fashion shows and entertainment",
-        "Expert consultations available"
+        "5 specialised exhibitions in one venue",
+        "Latest wedding trends and innovations",
+        "Premium luxury brands showcase",
+        "Exclusive product launches and interactive zones"
       ],
-      website: "https://www.brideshow.com",
+      website: "https://gulfbrideshow.com/",
       category: "Wedding & Lifestyle"
     },
     {

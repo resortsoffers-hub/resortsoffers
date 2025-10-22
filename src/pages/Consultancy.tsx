@@ -87,6 +87,54 @@ const Consultancy = () => {
             }
           })}
         </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What does your travel consultancy service include?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Our consultancy service includes personalized destination recommendations, resort selection based on your preferences and budget, itinerary planning, booking management, and 24/7 support throughout your trip. We handle all details from flights to special requests."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is there a fee for consultation services?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Initial consultations are completely free. We offer a complimentary 15-minute discovery call to understand your travel needs. Our revenue comes from resort partnerships, allowing us to provide expert advice at no cost to you while often securing better rates than booking directly."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How long does it take to plan a custom vacation?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Custom vacation planning typically takes 3-7 days depending on complexity. Simple resort bookings can be arranged within 24-48 hours, while multi-destination itineraries with special requirements may need a week. We accommodate urgent requests whenever possible."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you handle group bookings and events?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes! We specialize in group travel including weddings, corporate retreats, family reunions, and celebration events. Our team coordinates all logistics, negotiates group rates, and ensures every guest has an exceptional experience."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What destinations do you specialize in?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We specialize in luxury destinations worldwide with particular expertise in the Maldives, UAE, Seychelles, Bali, Greece, and Italy. Our team has firsthand knowledge of premium resorts globally and maintains strong partnerships with leading hospitality brands."
+                }
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       <Navbar />
       

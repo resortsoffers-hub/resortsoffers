@@ -96,6 +96,62 @@ const Index = () => {
             }
           })}
         </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "How do I book a luxury resort through ResortsOffers.com?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Booking is simple: browse our exclusive resort offers, select your preferred package, and click 'Book Now' to contact our travel consultants via WhatsApp. We'll handle all arrangements including flights, transfers, and special requests to ensure your dream vacation."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What payment methods do you accept?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We accept Visa, Mastercard, American Express, Tabby, and Tamara for your convenience. Multiple payment options are available to make booking your luxury vacation as seamless as possible."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I get a custom travel package?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Absolutely! Our expert travel consultants specialize in creating personalized luxury vacation packages tailored to your preferences, budget, and travel dates. Contact us for a free consultation to design your perfect getaway."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What is your cancellation policy?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Cancellation policies vary by resort and booking type. Generally, cancellations made 30+ days before arrival receive full refunds, 15-30 days receive 50% refunds, and less than 15 days may be non-refundable. We'll provide specific terms during booking."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Are the prices shown final or do they include taxes?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Prices displayed are starting rates per night and may not include taxes, resort fees, or additional services. Our consultants will provide complete pricing including all applicable fees and taxes when you inquire about a specific offer."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you offer honeymoon packages?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes! We specialize in romantic honeymoon packages featuring overwater villas, couples spa treatments, private dining experiences, and special amenities. Our team can create the perfect honeymoon tailored to your romantic vision."
+                }
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       <Navbar />
       

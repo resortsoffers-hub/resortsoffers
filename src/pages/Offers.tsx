@@ -263,6 +263,54 @@ const Offers = () => {
             ]
           })}
         </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "How much can I save with these resort offers?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Our exclusive resort offers provide savings of up to 40% off regular rates. Discounts vary by destination, season, and booking advance time. Early bird bookings typically offer 25-30% savings, while last-minute deals can reach 40% off."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What is included in the resort packages?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Package inclusions vary by offer but typically include accommodation, daily breakfast, airport transfers, and resort credits. Premium packages may include spa treatments, excursions, and all-inclusive dining. Each offer clearly lists all included amenities."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "When is the best time to book resort deals?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "The best time to book is 60-90 days in advance for optimal selection and pricing. However, we also offer exceptional last-minute deals for flexible travelers. Subscribe to our newsletter to receive alerts on flash sales and limited-time offers."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Are these offers available for all travel dates?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Most offers have specific validity periods and blackout dates during peak seasons and holidays. Each offer displays its valid booking and travel dates. Contact our consultants to check availability for your preferred travel dates."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I combine multiple offers or discounts?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Generally, offers cannot be combined with other promotions. However, some resorts allow stacking of resort credits or loyalty benefits. Our consultants will help you find the best value option for your specific booking."
+                }
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       <Navbar />
       

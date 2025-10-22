@@ -31,6 +31,7 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Contact Us</h4>
             <ul className="space-y-2 text-sm">
+              <li className="font-semibold text-accent mb-2">Available 24/7 for Urgent Inquiries</li>
               <li className="flex items-center gap-2">
                 <MessageCircle size={16} />
                 <a href="https://wa.me/971567622484" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
@@ -47,6 +48,12 @@ const Footer = () => {
                 <MessageCircle size={16} />
                 <a href="https://wa.me/447500029091" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
                   +44 7500 029091 (UK)
+                </a>
+              </li>
+              <li className="flex items-center gap-2 mt-3 pt-2 border-t border-primary-foreground/20">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                <a href="mailto:vip@resortsoffers.com" className="hover:text-accent transition-colors">
+                  vip@resortsoffers.com
                 </a>
               </li>
               <li className="flex items-center gap-2">

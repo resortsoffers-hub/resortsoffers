@@ -82,9 +82,23 @@ const BookConsultation = () => {
           <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
             Book Your Free Consultation
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-4">
             15 minutes with our CEO Nora El Khalifi to discuss your luxury travel plans
           </p>
+          <div className="flex items-center justify-center gap-6 text-sm text-muted-foreground flex-wrap">
+            <div className="flex items-center gap-2">
+              <Calendar className="h-5 w-5 text-accent" />
+              <span>Calendar Invite Sent</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <MessageCircle className="h-5 w-5 text-accent" />
+              <span>WhatsApp Reminder</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Clock className="h-5 w-5 text-accent" />
+              <span>24/7 Support Available</span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -132,7 +146,23 @@ const BookConsultation = () => {
           <Card className="max-w-2xl mx-auto">
             <CardHeader>
               <CardTitle className="text-2xl">Schedule Your Consultation</CardTitle>
-              <CardDescription>Fill in your details and we'll send you a calendar invite</CardDescription>
+              <CardDescription>
+                Choose your preferred date and time - You'll receive:
+                <div className="mt-2 space-y-1 text-xs">
+                  <div className="flex items-center gap-2">
+                    <span className="text-accent">•</span>
+                    Calendar invite with meeting details
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-accent">•</span>
+                    WhatsApp confirmation and reminders
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-accent">•</span>
+                    Email notifications before your session
+                  </div>
+                </div>
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <Form {...form}>
@@ -265,9 +295,31 @@ const BookConsultation = () => {
                     {isSubmitting ? "Booking..." : "Book Free Consultation"}
                   </Button>
 
-                  <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-                    <MessageCircle className="h-4 w-4" />
-                    <span>You'll receive a WhatsApp confirmation and calendar invite</span>
+                  <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground bg-muted/50 p-3 rounded-lg">
+                    <MessageCircle className="h-4 w-4 text-accent" />
+                    <span>Automated calendar invites & WhatsApp reminders will be sent</span>
+                  </div>
+                  
+                  <div className="text-center pt-4 border-t">
+                    <p className="text-sm text-muted-foreground mb-2">Need immediate assistance?</p>
+                    <div className="flex flex-col gap-2">
+                      <a 
+                        href="https://wa.me/971567622484" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-sm text-accent hover:underline flex items-center justify-center gap-2"
+                      >
+                        <MessageCircle className="h-4 w-4" />
+                        WhatsApp 24/7: +971 567 622 484
+                      </a>
+                      <a 
+                        href="mailto:vip@resortsoffers.com"
+                        className="text-sm text-accent hover:underline flex items-center justify-center gap-2"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        Email: vip@resortsoffers.com
+                      </a>
+                    </div>
                   </div>
                 </form>
               </Form>

@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import noraPhoto from "@/assets/team/nora-el-khalifi.jpg";
 import michaelPhoto from "@/assets/team/michael-chen.jpg";
-import laylaPhoto from "@/assets/team/layla-hassan.jpg";
+import latifaPhoto from "@/assets/team/latifa-el-khalifi.jpg";
 import jamesPhoto from "@/assets/team/james-anderson.jpg";
 import fatimaPhoto from "@/assets/team/fatima-al-mahmoud.jpg";
 import davidPhoto from "@/assets/team/david-martinez.jpg";
@@ -29,12 +29,12 @@ const Team = () => {
       photo: michaelPhoto
     },
     {
-      name: "Layla Hassan",
-      position: "Director of Client Relations",
-      bio: "Layla specializes in building lasting partnerships with premium travel agencies and corporate clients throughout the region.",
-      email: "layla@resortsoffers.com",
+      name: "Latifa El Khalifi",
+      position: "Contract Manager",
+      bio: "Latifa manages all contractual agreements and partnerships with our premium resort properties across the region.",
+      email: "contracting@resortsoffers.com",
       linkedin: "https://www.linkedin.com/company/resortsoffers",
-      photo: laylaPhoto
+      photo: latifaPhoto
     },
     {
       name: "James Anderson",

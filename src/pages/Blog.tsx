@@ -5,6 +5,12 @@ import { Badge } from "@/components/ui/badge";
 import { Calendar, Clock, User } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import maldivesImage from "@/assets/blog/maldives-luxury-2025.jpg";
+import bookingTipsImage from "@/assets/blog/booking-tips.jpg";
+import seychellesMauritiusImage from "@/assets/blog/seychelles-mauritius.jpg";
+import sustainableLuxuryImage from "@/assets/blog/sustainable-luxury.jpg";
+import honeymoonImage from "@/assets/blog/honeymoon-2025.jpg";
+import resortDiningImage from "@/assets/blog/resort-dining.jpg";
 
 const Blog = () => {
   const blogPosts = [
@@ -16,7 +22,8 @@ const Blog = () => {
       author: "Nora El Khalifi",
       date: "2025-01-15",
       readTime: "8 min",
-      image: "/placeholder.svg"
+      image: maldivesImage,
+      alt: "Luxury overwater villas in Maldives at sunset with crystal clear turquoise water"
     },
     {
       id: "booking-luxury-resorts-tips",
@@ -26,7 +33,8 @@ const Blog = () => {
       author: "Travel Team",
       date: "2025-01-10",
       readTime: "6 min",
-      image: "/placeholder.svg"
+      image: bookingTipsImage,
+      alt: "Elegant luxury hotel lobby with premium concierge service desk"
     },
     {
       id: "seychelles-vs-mauritius",
@@ -36,7 +44,8 @@ const Blog = () => {
       author: "Nora El Khalifi",
       date: "2025-01-05",
       readTime: "10 min",
-      image: "/placeholder.svg"
+      image: seychellesMauritiusImage,
+      alt: "Tropical paradise islands Seychelles and Mauritius aerial view comparison"
     },
     {
       id: "sustainable-luxury-travel",
@@ -46,7 +55,8 @@ const Blog = () => {
       author: "Travel Team",
       date: "2024-12-28",
       readTime: "7 min",
-      image: "/placeholder.svg"
+      image: sustainableLuxuryImage,
+      alt: "Eco-luxury sustainable resort with natural architecture and tropical environment"
     },
     {
       id: "honeymoon-destinations-2025",
@@ -56,7 +66,8 @@ const Blog = () => {
       author: "Nora El Khalifi",
       date: "2024-12-20",
       readTime: "9 min",
-      image: "/placeholder.svg"
+      image: honeymoonImage,
+      alt: "Romantic beach dinner setup at sunset for honeymoon couples at luxury resort"
     },
     {
       id: "all-inclusive-vs-a-la-carte",
@@ -66,7 +77,8 @@ const Blog = () => {
       author: "Travel Team",
       date: "2024-12-15",
       readTime: "5 min",
-      image: "/placeholder.svg"
+      image: resortDiningImage,
+      alt: "Luxury resort fine dining experience with gourmet food presentation"
     }
   ];
 
@@ -113,7 +125,14 @@ const Blog = () => {
             {blogPosts.map((post) => (
               <Link key={post.id} to={`/blog/${post.id}`}>
                 <Card className="h-full hover:shadow-xl transition-all duration-300 overflow-hidden group">
-                  <div className="h-48 bg-gradient-to-br from-primary/20 to-accent/20 group-hover:scale-105 transition-transform duration-300" />
+                  <div className="h-48 overflow-hidden">
+                    <img 
+                      src={post.image} 
+                      alt={post.alt}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                  </div>
                   <CardHeader>
                     <Badge variant="secondary" className="w-fit mb-2">
                       {post.category}

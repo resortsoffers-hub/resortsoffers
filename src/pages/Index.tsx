@@ -62,24 +62,90 @@ const Index = () => {
         <meta name="twitter:description" content="Discover exclusive luxury resort deals worldwide. Save up to 40% on premium hotels." />
         <meta name="twitter:image" content="https://www.resortsoffers.com/og-image.jpg" />
         
-        {/* Structured Data */}
+        {/* Structured Data - Organization */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "TravelAgency",
+            "@type": "Organization",
             "name": "ResortsOffers.com",
-            "description": "Luxury resort deals and exclusive hotel offers worldwide",
+            "alternateName": "Resorts Offers",
             "url": "https://www.resortsoffers.com",
             "logo": "https://www.resortsoffers.com/logo.png",
+            "description": "Premium luxury travel agency specializing in exclusive resort deals, personalized vacation planning, and hospitality consultancy services worldwide.",
+            "foundingDate": "2020",
+            "telephone": ["+971567622484", "+966582360080", "+447500029091"],
+            "email": "info@resortsoffers.com",
+            "priceRange": "$$$",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Deira - Port Saeed",
+              "addressLocality": "Dubai",
+              "addressCountry": "AE"
+            },
+            "contactPoint": [
+              {
+                "@type": "ContactPoint",
+                "telephone": "+971567622484",
+                "contactType": "Customer Service",
+                "availableLanguage": ["English", "Arabic", "Chinese", "Russian"],
+                "areaServed": "Worldwide",
+                "hoursAvailable": "24/7"
+              }
+            ],
+            "sameAs": [
+              "https://www.instagram.com/resortsoffers",
+              "https://www.facebook.com/resortsoffers",
+              "https://www.linkedin.com/company/resortsoffers"
+            ],
+            "offers": {
+              "@type": "AggregateOffer",
+              "priceCurrency": "USD",
+              "lowPrice": "280",
+              "highPrice": "850",
+              "offerCount": "100+"
+            }
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "ResortsOffers.com",
+            "image": "https://www.resortsoffers.com/logo.png",
+            "@id": "https://www.resortsoffers.com",
+            "url": "https://www.resortsoffers.com",
             "telephone": "+971567622484",
             "priceRange": "$$$",
             "address": {
               "@type": "PostalAddress",
+              "streetAddress": "Deira - Port Saeed",
+              "addressLocality": "Dubai",
               "addressCountry": "AE"
             },
-            "sameAs": [
-              "https://www.instagram.com/resortsoffers",
-              "https://www.facebook.com/resortsoffers"
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 25.2532,
+              "longitude": 55.3307
+            },
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+              "opens": "00:00",
+              "closes": "23:59"
+            }
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.resortsoffers.com/"
+              }
             ]
           })}
         </script>

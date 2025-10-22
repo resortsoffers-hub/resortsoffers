@@ -50,9 +50,11 @@ const Consultancy = () => {
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.resortsoffers.com/consultancy" />
+        <meta property="og:site_name" content="ResortsOffers.com" />
         <meta property="og:title" content="Expert Travel Consultancy Services" />
         <meta property="og:description" content="Professional travel consultancy for luxury resorts. Free consultation available." />
         <meta property="og:image" content="https://www.resortsoffers.com/consultancy-og.jpg" />
+        <meta property="og:locale" content="en_US" />
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -61,7 +63,28 @@ const Consultancy = () => {
         <meta name="twitter:description" content="Professional travel consultancy for luxury resorts." />
         <meta name="twitter:image" content="https://www.resortsoffers.com/consultancy-og.jpg" />
         
-        {/* Structured Data */}
+        {/* Structured Data - Breadcrumb */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.resortsoffers.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Consultancy",
+                "item": "https://www.resortsoffers.com/consultancy"
+              }
+            ]
+          })}
+        </script>
+        {/* Structured Data - Service */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

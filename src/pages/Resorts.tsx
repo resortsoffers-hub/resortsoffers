@@ -938,9 +938,11 @@ const Resorts = () => {
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.resortsoffers.com/resorts" />
+        <meta property="og:site_name" content="ResortsOffers.com" />
         <meta property="og:title" content="Luxury Resorts Worldwide - Maldives, Dubai, Bali & More" />
         <meta property="og:description" content="Browse 100+ luxury resorts worldwide. Premium 5-star hotels and exclusive accommodations." />
         <meta property="og:image" content="https://www.resortsoffers.com/resorts-og.jpg" />
+        <meta property="og:locale" content="en_US" />
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -949,7 +951,28 @@ const Resorts = () => {
         <meta name="twitter:description" content="Browse 100+ luxury resorts - Maldives, Dubai, Bali & more." />
         <meta name="twitter:image" content="https://www.resortsoffers.com/resorts-og.jpg" />
         
-        {/* Structured Data */}
+        {/* Structured Data - Breadcrumb */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.resortsoffers.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Resorts",
+                "item": "https://www.resortsoffers.com/resorts"
+              }
+            ]
+          })}
+        </script>
+        {/* Structured Data - Resorts Collection */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -964,6 +987,46 @@ const Resorts = () => {
                   "@type": "Resort",
                   "name": "Maldives Luxury Resorts",
                   "description": "Overwater villas and private island resorts"
+                }
+              }
+            ]
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What types of luxury resorts do you feature?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We feature 100+ premium 5-star resorts worldwide including overwater villas in the Maldives, beachfront resorts in Dubai and Bali, ski resorts in Switzerland, private island retreats, and family-friendly luxury hotels. All properties are carefully selected for exceptional service and amenities."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do I choose the right resort for my vacation?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Consider your travel style: romantic honeymoons favor Maldives overwater villas; families prefer Dubai resorts with kids clubs; adventure seekers enjoy Bali and Bora Bora. Our consultants provide personalized recommendations based on your budget, dates, and preferences. Book a free consultation for expert guidance."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Are these resorts available for group bookings?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes! Most featured resorts accommodate group bookings for weddings, family reunions, and corporate events. We negotiate special group rates and handle all coordination. Private island resorts offer exclusive buyouts for ultimate privacy."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you offer resort packages with flights included?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Absolutely. We create comprehensive packages including flights, resort accommodations, airport transfers, and special amenities. Our consultants find the best flight options and negotiate exclusive resort perks for a seamless vacation experience."
                 }
               }
             ]

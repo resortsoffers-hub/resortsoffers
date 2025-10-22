@@ -229,9 +229,11 @@ const Offers = () => {
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.resortsoffers.com/offers" />
+        <meta property="og:site_name" content="ResortsOffers.com" />
         <meta property="og:title" content="Exclusive Resort Offers & Deals - Up to 40% OFF" />
         <meta property="og:description" content="Limited-time luxury resort offers! Save up to 40% on Maldives, Dubai, Bali & more." />
         <meta property="og:image" content="https://www.resortsoffers.com/offers-og.jpg" />
+        <meta property="og:locale" content="en_US" />
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -240,7 +242,28 @@ const Offers = () => {
         <meta name="twitter:description" content="Limited-time luxury resort offers! Save up to 40% on premium hotels." />
         <meta name="twitter:image" content="https://www.resortsoffers.com/offers-og.jpg" />
         
-        {/* Structured Data */}
+        {/* Structured Data - Breadcrumb */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.resortsoffers.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Offers",
+                "item": "https://www.resortsoffers.com/offers"
+              }
+            ]
+          })}
+        </script>
+        {/* Structured Data - Offers */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

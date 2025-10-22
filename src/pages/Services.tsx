@@ -85,16 +85,39 @@ const Services = () => {
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.resortsoffers.com/services" />
+        <meta property="og:site_name" content="ResortsOffers.com" />
         <meta property="og:title" content="Luxury Travel Services - Resort Booking & Planning" />
         <meta property="og:description" content="Comprehensive luxury travel services with 24/7 support." />
         <meta property="og:image" content="https://www.resortsoffers.com/services-og.jpg" />
+        <meta property="og:locale" content="en_US" />
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Luxury Travel Services" />
         <meta name="twitter:description" content="Resort booking, vacation planning & 24/7 support." />
         
-        {/* Structured Data */}
+        {/* Structured Data - Breadcrumb */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.resortsoffers.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Services",
+                "item": "https://www.resortsoffers.com/services"
+              }
+            ]
+          })}
+        </script>
+        {/* Structured Data - Services List */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

@@ -54,16 +54,39 @@ const Contact = () => {
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.resortsoffers.com/contact" />
+        <meta property="og:site_name" content="ResortsOffers.com" />
         <meta property="og:title" content="Contact Us - Luxury Travel Experts" />
         <meta property="og:description" content="Contact our luxury travel experts. Available 24/7 to help plan your vacation." />
         <meta property="og:image" content="https://www.resortsoffers.com/contact-og.jpg" />
+        <meta property="og:locale" content="en_US" />
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Contact Us - Luxury Travel Experts" />
         <meta name="twitter:description" content="Available 24/7 to help plan your perfect vacation." />
         
-        {/* Structured Data */}
+        {/* Structured Data - Breadcrumb */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.resortsoffers.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Contact",
+                "item": "https://www.resortsoffers.com/contact"
+              }
+            ]
+          })}
+        </script>
+        {/* Structured Data - Contact */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -72,12 +95,33 @@ const Contact = () => {
               "@type": "TravelAgency",
               "name": "ResortsOffers.com",
               "telephone": "+971567622484",
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "+971567622484",
-                "contactType": "Customer Service",
-                "availableLanguage": ["English", "Arabic", "Chinese", "Russian"]
-              }
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Deira - Port Saeed",
+                "addressLocality": "Dubai",
+                "addressCountry": "AE"
+              },
+              "contactPoint": [
+                {
+                  "@type": "ContactPoint",
+                  "telephone": "+971567622484",
+                  "contactType": "Customer Service",
+                  "availableLanguage": ["English", "Arabic", "Chinese", "Russian"],
+                  "areaServed": "Worldwide"
+                },
+                {
+                  "@type": "ContactPoint",
+                  "telephone": "+966582360080",
+                  "contactType": "Customer Service",
+                  "areaServed": "SA"
+                },
+                {
+                  "@type": "ContactPoint",
+                  "telephone": "+447500029091",
+                  "contactType": "Customer Service",
+                  "areaServed": "GB"
+                }
+              ]
             }
           })}
         </script>

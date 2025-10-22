@@ -44,6 +44,7 @@ const Index = () => {
       <Helmet>
         <title>Luxury Resort Deals & Exclusive Hotel Offers | ResortsOffers.com</title>
         <meta name="description" content="Discover exclusive luxury resort deals worldwide. Save up to 40% on premium hotels in Maldives, Dubai, Bali & more. Expert travel consultancy & personalized booking services." />
+        <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE_HERE" />
         <meta name="keywords" content="luxury resorts, hotel deals, resort offers, travel packages, Maldives resorts, Dubai hotels, luxury travel, honeymoon packages, beach resorts, exclusive deals" />
         <link rel="canonical" href="https://www.resortsoffers.com/" />
         

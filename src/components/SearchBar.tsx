@@ -52,15 +52,28 @@ const SearchBar = ({ selectedDestination = "All", onDestinationChange }: SearchB
           <label className="text-xs font-semibold text-gray-800 mb-1 block">
             Where are you going?
           </label>
-          <div className="relative">
-            <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#003B95]" />
-            <Input
-              placeholder="Destination"
-              value={destination}
-              onChange={(e) => setDestination(e.target.value)}
-              className="pl-10 h-14 border-2 border-gray-300 focus:border-[#003B95] bg-white text-gray-900 font-medium"
-            />
-          </div>
+          <Select value={destination || selectedDestination} onValueChange={(value) => {
+            setDestination(value);
+            onDestinationChange?.(value);
+          }}>
+            <SelectTrigger className="w-full h-14 border-2 border-gray-300 focus:border-[#003B95] bg-white text-gray-900 font-medium">
+              <div className="flex items-center">
+                <MapPin className="mr-2 w-5 h-5 text-[#003B95]" />
+                <SelectValue placeholder="Select destination" />
+              </div>
+            </SelectTrigger>
+            <SelectContent className="bg-white z-50 max-h-[300px]">
+              {destinations.map((dest) => (
+                <SelectItem 
+                  key={dest} 
+                  value={dest}
+                  className="cursor-pointer hover:bg-gray-100 focus:bg-gray-100"
+                >
+                  {dest}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
 
         {/* Check-in Date */}
@@ -238,26 +251,6 @@ const SearchBar = ({ selectedDestination = "All", onDestinationChange }: SearchB
         </Button>
       </div>
 
-      {/* Destination Filter Dropdown */}
-      <div className="mt-6 pt-6 border-t border-gray-200">
-        <label className="text-sm font-semibold text-gray-800 mb-3 block">Filter by Destination</label>
-        <Select value={selectedDestination} onValueChange={onDestinationChange}>
-          <SelectTrigger className="w-full md:w-64 h-12 border-2 border-gray-300 bg-white text-gray-900 font-medium">
-            <SelectValue placeholder="Select destination" />
-          </SelectTrigger>
-          <SelectContent className="bg-white z-50 max-h-[300px]">
-            {destinations.map((dest) => (
-              <SelectItem 
-                key={dest} 
-                value={dest}
-                className="cursor-pointer hover:bg-gray-100 focus:bg-gray-100"
-              >
-                {dest}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-      </div>
     </div>
   );
 };

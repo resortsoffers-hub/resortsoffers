@@ -2,16 +2,93 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Compass, Building2, Gift, Users } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Compass, Building2, Gift, Users, Calendar, MapPin, Percent } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SearchBar from "@/components/SearchBar";
 import AddressSection from "@/components/AddressSection";
 import heroImage from "@/assets/resorts/bali-clifftop-resort.jpg";
+import maldivesWaldorf from "@/assets/maldives-waldorf.jpg";
+import santoriniGreece from "@/assets/santorini-greece.jpg";
+import dubaiFamily from "@/assets/dubai-family.jpg";
+import maldivesWaterVilla from "@/assets/resorts/maldives-water-villa.jpg";
+import maldivesVillaPool from "@/assets/resorts/maldives-villa-pool.jpg";
+import maldivesKandinma from "@/assets/resorts/maldives-kandinma-hq.jpg";
 import { useTranslation } from "react-i18next";
 
 const Index = () => {
   const { t } = useTranslation();
+  
+  const whatsappNumber = "971567622484";
+  
+  const getWhatsAppUrl = (offerTitle: string, destination: string, price: string) => {
+    const message = `Hi! I'm interested in booking the "${offerTitle}" offer in ${destination}. Price: ${price}. Can you provide more details?`;
+    return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+  };
+
+  const featuredOffers = [
+    {
+      title: "Early Bird Summer Escape",
+      destination: "Maldives",
+      discount: 30,
+      validUntil: "2025-12-31",
+      description: "Book 90 days in advance and save 30% on your tropical paradise getaway with overwater villa accommodation.",
+      features: ["Free Airport Transfer", "Daily Breakfast", "Spa Credit $200"],
+      price: "from $450/night",
+      image: maldivesWaldorf
+    },
+    {
+      title: "Romantic Honeymoon Package",
+      destination: "Santorini, Greece",
+      discount: 25,
+      validUntil: "2026-03-31",
+      description: "Celebrate your love with champagne, couples spa treatment, and sunset dinner at our exclusive cliffside restaurant.",
+      features: ["Champagne on Arrival", "Couples Massage", "Private Dinner"],
+      price: "from $550/night",
+      image: santoriniGreece
+    },
+    {
+      title: "Family Adventure Package",
+      destination: "Dubai, UAE",
+      discount: 35,
+      validUntil: "2025-12-20",
+      description: "Ultimate family experience with theme park tickets, kids club access, and connecting rooms for maximum comfort.",
+      features: ["Kids Stay Free", "Theme Park Tickets", "Kids Club Access"],
+      price: "from $320/night",
+      image: dubaiFamily
+    },
+    {
+      title: "Luxury Water Villa Experience",
+      destination: "Maldives",
+      discount: 25,
+      validUntil: "2026-04-30",
+      description: "Stay in a stunning overwater villa with private pool, direct ocean access, and sunset views.",
+      features: ["Private Pool", "Ocean Access", "Butler Service"],
+      price: "from $680/night",
+      image: maldivesWaterVilla
+    },
+    {
+      title: "Exclusive Ocean Pool Villa",
+      destination: "Maldives",
+      discount: 20,
+      validUntil: "2026-05-31",
+      description: "Ultra-modern circular villa on stilts with infinity pool, direct ocean views, and contemporary design.",
+      features: ["Infinity Pool", "Modern Design", "Ocean Views"],
+      price: "from $850/night",
+      image: maldivesVillaPool
+    },
+    {
+      title: "Maldives Villa Collection",
+      destination: "Maldives",
+      discount: 35,
+      validUntil: "2026-06-30",
+      description: "Choose from our collection of overwater villas with private pools and direct lagoon access.",
+      features: ["Private Villas", "All-Inclusive Option", "Water Activities"],
+      price: "from $520/night",
+      image: maldivesKandinma
+    }
+  ];
   
   const features = [
     {
@@ -284,6 +361,95 @@ const Index = () => {
                 </Card>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Offers Section */}
+      <section className="section-padding bg-muted/50">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Exclusive Resort Offers</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Limited-time luxury resort deals with savings up to 40% off. Book your dream vacation today!
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            {featuredOffers.map((offer, index) => (
+              <Card key={index} className="overflow-hidden hover:shadow-lg transition-all duration-300 animate-fade-in hover-scale">
+                <div className="relative h-64 overflow-hidden">
+                  <img 
+                    src={offer.image} 
+                    alt={`${offer.title} - ${offer.destination}`}
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                  />
+                  <div className="absolute top-4 right-4">
+                    <Badge className="bg-accent text-accent-foreground text-lg px-3 py-1">
+                      <Percent className="w-4 h-4 mr-1 inline" />
+                      {offer.discount}% OFF
+                    </Badge>
+                  </div>
+                </div>
+                
+                <CardHeader>
+                  <div className="flex items-start justify-between mb-2">
+                    <CardTitle className="text-xl">{offer.title}</CardTitle>
+                  </div>
+                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-1">
+                      <MapPin className="w-4 h-4" />
+                      <span>{offer.destination}</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Calendar className="w-4 h-4" />
+                      <span>Until {new Date(offer.validUntil).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}</span>
+                    </div>
+                  </div>
+                </CardHeader>
+
+                <CardContent className="space-y-4">
+                  <CardDescription className="text-sm leading-relaxed">
+                    {offer.description}
+                  </CardDescription>
+                  
+                  <div className="space-y-2">
+                    <p className="font-semibold text-sm">Included:</p>
+                    <ul className="space-y-1">
+                      {offer.features.map((feature, fIndex) => (
+                        <li key={fIndex} className="text-sm text-muted-foreground flex items-center gap-2">
+                          <span className="text-accent">✓</span>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="pt-4 border-t">
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-2xl font-bold text-primary">{offer.price}</span>
+                    </div>
+                    <a
+                      href={getWhatsAppUrl(offer.title, offer.destination, offer.price)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Button className="w-full">
+                        Book Now
+                      </Button>
+                    </a>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Link to="/offers">
+              <Button size="lg" variant="outline" className="text-lg px-8">
+                View All Offers
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

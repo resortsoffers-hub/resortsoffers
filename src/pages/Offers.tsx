@@ -51,10 +51,9 @@ const Offers = () => {
     { src: maldivesVillaPool, alt: "Premium water villa with infinity pool overlooking turquoise Maldives lagoon" },
   ];
 
-  const handleBookNow = (offerTitle: string, destination: string, price: string) => {
+  const getWhatsAppUrl = (offerTitle: string, destination: string, price: string) => {
     const message = `Hi! I'm interested in booking the "${offerTitle}" offer in ${destination}. Price: ${price}. Can you provide more details?`;
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
   };
   
   const subFilters: Record<string, string[]> = {
@@ -486,10 +485,16 @@ const Offers = () => {
                       </div>
                       <Button 
                         size="lg"
-                        onClick={() => handleBookNow(offer.title, offer.destination, offer.price)}
+                        asChild
                         className="relative z-10 cursor-pointer pointer-events-auto"
                       >
-                        Book Now
+                        <a 
+                          href={getWhatsAppUrl(offer.title, offer.destination, offer.price)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Book Now
+                        </a>
                       </Button>
                     </div>
                   </div>

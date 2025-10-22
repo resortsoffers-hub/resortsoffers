@@ -5,10 +5,29 @@ import { Button } from "@/components/ui/button";
 import { MapPin, Star } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import packagesImage from "@/assets/packages.jpg";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import maldivesAerial1 from "@/assets/resorts/maldives-aerial-1.jpg";
+import maldivesAerial2 from "@/assets/resorts/maldives-aerial-2.jpg";
+import maldivesPoolDining from "@/assets/resorts/maldives-pool-dining.jpg";
+import maldivesWaterVilla from "@/assets/resorts/maldives-water-villa.jpg";
+import maldivesVillaPool from "@/assets/resorts/maldives-villa-pool.jpg";
 
 const Resorts = () => {
   const [selectedRegion, setSelectedRegion] = useState("All");
+
+  const heroImages = [
+    { src: maldivesAerial1, alt: "Aerial view of luxury Maldives resort with overwater villas and pristine turquoise lagoon" },
+    { src: maldivesAerial2, alt: "Stunning aerial perspective of Maldives island resort surrounded by crystal clear waters" },
+    { src: maldivesPoolDining, alt: "Luxury infinity pool with oceanfront dining at sunset in Maldives resort" },
+    { src: maldivesWaterVilla, alt: "Exclusive overwater villa with private pool and ocean access in Maldives" },
+    { src: maldivesVillaPool, alt: "Premium water villa with infinity pool overlooking turquoise Maldives lagoon" },
+  ];
 
   const resorts = [
     {
@@ -629,20 +648,31 @@ const Resorts = () => {
       </Helmet>
       <Navbar />
       
-      {/* Hero Section */}
-      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden mt-20">
-        <div className="absolute inset-0">
-          <img 
-            src={packagesImage} 
-            alt="Luxury resort paradise" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/70 to-primary/50" />
-        </div>
+      {/* Hero Section with Carousel */}
+      <section className="relative h-[70vh] flex items-center justify-center overflow-hidden mt-20">
+        <Carousel className="w-full h-full">
+          <CarouselContent>
+            {heroImages.map((image, index) => (
+              <CarouselItem key={index}>
+                <div className="relative h-[70vh]">
+                  <img 
+                    src={image.src} 
+                    alt={image.alt}
+                    className="w-full h-full object-cover"
+                    loading={index === 0 ? "eager" : "lazy"}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-primary/70 to-primary/50" />
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="left-4" />
+          <CarouselNext className="right-4" />
+        </Carousel>
         
-        <div className="relative z-10 container-custom text-center">
+        <div className="absolute z-10 container-custom text-center pointer-events-none">
           <h1 className="text-4xl md:text-6xl font-bold hero-text mb-6 animate-fade-in">
-            Resort Partners
+            Our Resort Partners
           </h1>
           <p className="text-xl md:text-2xl hero-text max-w-3xl mx-auto">
             Discover our handpicked premium resort partners worldwide

@@ -1011,7 +1011,7 @@ const Resorts = () => {
         
         <div className="absolute z-10 container-custom text-center pointer-events-none">
           <h1 className="text-4xl md:text-6xl font-bold hero-text mb-6 animate-fade-in">
-            Our Resort Partners
+            Our Partner Resorts
           </h1>
           <p className="text-xl md:text-2xl hero-text max-w-3xl mx-auto">
             Discover our handpicked premium resort partners worldwide

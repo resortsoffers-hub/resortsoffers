@@ -31,7 +31,6 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Contact Us</h4>
             <ul className="space-y-2 text-sm">
-              <li className="font-semibold text-accent mb-2">Available 24/7 for Urgent Inquiries</li>
               <li className="flex items-center gap-2">
                 <MessageCircle size={16} />
                 <a href="https://wa.me/971567622484" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">

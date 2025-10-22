@@ -221,6 +221,8 @@ const Offers = () => {
   return (
     <div className="min-h-screen">
       <Helmet>
+        <title>Resorts Offers - Exclusive Luxury Travel Deals | Special Packages</title>
+        <meta name="description" content="Discover exclusive resorts offers and luxury travel deals worldwide. Save up to 40% on premium hotels, beach escapes, and honeymoon packages." />
         <link rel="canonical" href="https://www.resortsoffers.com/offers" />
       </Helmet>
       <Navbar />
@@ -249,7 +251,7 @@ const Offers = () => {
         
         <div className="absolute z-10 container-custom text-center pointer-events-none">
           <h1 className="text-4xl md:text-6xl font-bold hero-text mb-6 animate-fade-in">
-            Special Offers
+            Resorts Offers
           </h1>
           <p className="text-xl md:text-2xl hero-text max-w-3xl mx-auto">
             Exclusive deals on luxury destinations worldwide - Limited time only
@@ -369,6 +371,7 @@ const Offers = () => {
                       <Button 
                         size="lg"
                         onClick={() => handleBookNow(offer.title, offer.destination, offer.price)}
+                        className="relative z-10 cursor-pointer pointer-events-auto"
                       >
                         Book Now
                       </Button>

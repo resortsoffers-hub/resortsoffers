@@ -12,6 +12,13 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import maldivesAerial1 from "@/assets/resorts/maldives-aerial-1.jpg";
 import maldivesAerial2 from "@/assets/resorts/maldives-aerial-2.jpg";
 import maldivesPoolDining from "@/assets/resorts/maldives-pool-dining.jpg";
@@ -683,17 +690,24 @@ const Resorts = () => {
       {/* Filter Section */}
       <section className="section-padding bg-muted">
         <div className="container-custom">
-          <div className="flex justify-center gap-4 flex-wrap mb-12">
-            {regions.map((region) => (
-              <Button
-                key={region}
-                variant={selectedRegion === region ? "default" : "outline"}
-                onClick={() => setSelectedRegion(region)}
-                size="lg"
-              >
-                {region}
-              </Button>
-            ))}
+          <div className="flex justify-center mb-12">
+            <div className="w-full max-w-md">
+              <label htmlFor="destination-select" className="block text-sm font-semibold text-foreground mb-3 text-center">
+                Select Destination
+              </label>
+              <Select value={selectedRegion} onValueChange={setSelectedRegion}>
+                <SelectTrigger id="destination-select" className="w-full bg-background border-2 h-12 text-base">
+                  <SelectValue placeholder="Select a destination" />
+                </SelectTrigger>
+                <SelectContent className="bg-background z-50">
+                  {regions.map((region) => (
+                    <SelectItem key={region} value={region} className="cursor-pointer">
+                      {region}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
           </div>
 
           {/* Resorts Grid */}

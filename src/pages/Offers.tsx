@@ -33,7 +33,7 @@ import bodrumBeach from "@/assets/bodrum-beach.jpg";
 const Offers = () => {
   const [selectedDestination, setSelectedDestination] = useState("All");
   const [selectedSubFilter, setSelectedSubFilter] = useState<string[]>([]);
-  const [sortBy, setSortBy] = useState("Featured");
+  const [sortBy, setSortBy] = useState("RO Preferred");
 
   const whatsappNumber = "971567622484";
   
@@ -213,7 +213,7 @@ const Offers = () => {
       });
 
   const sortedOffers = [...filteredOffers].sort((a, b) => {
-    if (sortBy === "Featured") return b.featured ? 1 : -1;
+    if (sortBy === "RO Preferred") return b.featured ? 1 : -1;
     if (sortBy === "Discount") return b.discount - a.discount;
     return 0;
   });
@@ -298,7 +298,7 @@ const Offers = () => {
           <div className="mb-12">
             <h2 className="text-sm font-semibold text-muted-foreground mb-3">Sort By</h2>
             <div className="flex gap-2">
-              {["Featured", "Discount"].map((sort) => (
+              {["RO Preferred", "Discount"].map((sort) => (
                 <Button
                   key={sort}
                   variant={sortBy === sort ? "default" : "outline"}
@@ -339,7 +339,7 @@ const Offers = () => {
                         {offer.discount}% OFF
                       </Badge>
                       {offer.featured && (
-                        <Badge variant="default">Featured</Badge>
+                        <Badge variant="default">RO Preferred</Badge>
                       )}
                     </div>
                   </div>

@@ -21,7 +21,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import maldivesAerial1 from "@/assets/resorts/maldives-aerial-1.jpg";
-import maldivesAerial2 from "@/assets/resorts/maldives-aerial-2.jpg";
 import maldivesPoolDining from "@/assets/resorts/maldives-pool-dining.jpg";
 import maldivesWaterVilla from "@/assets/resorts/maldives-water-villa.jpg";
 import maldivesVillaPool from "@/assets/resorts/maldives-villa-pool.jpg";
@@ -30,6 +29,7 @@ import maldivesPatina from "@/assets/maldives-patina.jpg";
 import maldivesOceanPool from "@/assets/maldives-ocean-pool.jpg";
 import maldivesRitz from "@/assets/maldives-ritz.jpg";
 import maldivesVillas from "@/assets/maldives-villas.jpg";
+import maldivesKandinma from "@/assets/resorts/maldives-kandinma-hq.jpg";
 import santoriniGreece from "@/assets/santorini-greece.jpg";
 import dolomitiSki from "@/assets/dolomiti-ski.jpg";
 import dubaiFamily from "@/assets/dubai-family.jpg";
@@ -45,10 +45,10 @@ const Offers = () => {
   
   const heroImages = [
     { src: maldivesAerial1, alt: "Aerial view of luxury Maldives resort with overwater villas and pristine turquoise lagoon" },
-    { src: maldivesAerial2, alt: "Stunning aerial perspective of Maldives island resort surrounded by crystal clear waters" },
-    { src: maldivesPoolDining, alt: "Luxury infinity pool with oceanfront dining at sunset in Maldives resort" },
+    { src: maldivesKandinma, alt: "Stunning luxury Maldives resort with white sand beaches and crystal clear turquoise waters" },
     { src: maldivesWaterVilla, alt: "Exclusive overwater villa with private pool and ocean access in Maldives" },
-    { src: maldivesVillaPool, alt: "Premium water villa with infinity pool overlooking turquoise Maldives lagoon" },
+    { src: santoriniGreece, alt: "Iconic white-washed buildings overlooking deep blue Aegean Sea in Santorini" },
+    { src: dubaiFamily, alt: "Luxurious Dubai beach resort with modern architecture and pristine waterfront" },
   ];
 
   const getWhatsAppUrl = (offerTitle: string, destination: string, price: string) => {
@@ -158,7 +158,7 @@ const Offers = () => {
       features: ["Private Pool", "Ocean Access", "Butler Service"],
       price: "from $680/night",
       featured: true,
-      image: maldivesPatina
+      image: maldivesWaterVilla
     },
     {
       title: "Exclusive Ocean Pool Villa",
@@ -170,7 +170,7 @@ const Offers = () => {
       features: ["Infinity Pool", "Modern Design", "Ocean Views"],
       price: "from $850/night",
       featured: true,
-      image: maldivesOceanPool
+      image: maldivesVillaPool
     },
     {
       title: "Ritz-Carlton Beach Paradise",
@@ -182,7 +182,7 @@ const Offers = () => {
       features: ["Beach Villa", "World-Class Service", "Water Sports"],
       price: "from $720/night",
       featured: true,
-      image: maldivesRitz
+      image: maldivesPoolDining
     },
     {
       title: "Maldives Villa Collection",
@@ -194,7 +194,7 @@ const Offers = () => {
       features: ["Private Villas", "All-Inclusive Option", "Water Activities"],
       price: "from $520/night",
       featured: true,
-      image: maldivesVillas
+      image: maldivesKandinma
     }
   ];
 

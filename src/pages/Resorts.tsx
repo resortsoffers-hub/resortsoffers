@@ -24,6 +24,14 @@ import maldivesAerial2 from "@/assets/resorts/maldives-aerial-2.jpg";
 import maldivesPoolDining from "@/assets/resorts/maldives-pool-dining.jpg";
 import maldivesWaterVilla from "@/assets/resorts/maldives-water-villa.jpg";
 import maldivesVillaPool from "@/assets/resorts/maldives-villa-pool.jpg";
+import luxuryVillaPool from "@/assets/resorts/luxury-villa-pool.jpg";
+import coupleBikes from "@/assets/resorts/couple-bikes.jpg";
+import poolAerial from "@/assets/resorts/pool-aerial.jpg";
+import weddingCeremony from "@/assets/resorts/wedding-ceremony.jpg";
+import weddingDance from "@/assets/resorts/wedding-dance.jpg";
+import weddingCoupleCart from "@/assets/resorts/wedding-couple-cart.jpg";
+import poolBreakfast from "@/assets/resorts/pool-breakfast.jpg";
+import waterVillasAerial from "@/assets/resorts/water-villas-aerial.jpg";
 
 const Resorts = () => {
   const [selectedRegion, setSelectedRegion] = useState("All");
@@ -31,6 +39,14 @@ const Resorts = () => {
   const heroImages = [
     { src: maldivesAerial1, alt: "Aerial view of luxury Maldives resort with overwater villas and pristine turquoise lagoon" },
     { src: maldivesAerial2, alt: "Stunning aerial perspective of Maldives island resort surrounded by crystal clear waters" },
+    { src: luxuryVillaPool, alt: "Luxury Maldives villa with private pool, wooden deck, and tropical palm trees" },
+    { src: coupleBikes, alt: "Romantic couple cycling along overwater walkway at Maldives luxury resort" },
+    { src: poolAerial, alt: "Aerial view of stunning infinity pool surrounded by lush tropical gardens and turquoise ocean" },
+    { src: weddingCeremony, alt: "Romantic Maldives beach wedding ceremony with traditional drummers at sunset" },
+    { src: weddingDance, alt: "Newlyweds dancing on pristine white sand beach in Maldives paradise" },
+    { src: weddingCoupleCart, alt: "Happy wedding couple with vintage golf cart on Maldives resort pathway" },
+    { src: poolBreakfast, alt: "Luxury oceanfront pool with gourmet breakfast setup overlooking crystal waters" },
+    { src: waterVillasAerial, alt: "Breathtaking aerial view of luxury overwater villas with private pools in Maldives" },
     { src: maldivesPoolDining, alt: "Luxury infinity pool with oceanfront dining at sunset in Maldives resort" },
     { src: maldivesWaterVilla, alt: "Exclusive overwater villa with private pool and ocean access in Maldives" },
     { src: maldivesVillaPool, alt: "Premium water villa with infinity pool overlooking turquoise Maldives lagoon" },
@@ -668,7 +684,7 @@ const Resorts = () => {
                     className="w-full h-full object-cover"
                     loading={index === 0 ? "eager" : "lazy"}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-b from-primary/70 to-primary/50" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-primary/20 to-primary/10" />
                 </div>
               </CarouselItem>
             ))}

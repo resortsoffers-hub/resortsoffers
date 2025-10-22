@@ -34,36 +34,9 @@ import poolBreakfast from "@/assets/resorts/pool-breakfast.jpg";
 import waterVillasAerial from "@/assets/resorts/water-villas-aerial.jpg";
 import luxuryInfinityPool from "@/assets/resorts/luxury-infinity-pool.jpg";
 import baliClifftopResort from "@/assets/resorts/bali-clifftop-resort.jpg";
-import ritzCarltonLogo from "@/assets/partners/ritz-carlton-logo.png";
-import fourSeasonsLogo from "@/assets/partners/four-seasons-logo.png";
-import oneAndOnlyLogo from "@/assets/partners/oneandonly-logo.png";
-import jumeirahLogo from "@/assets/partners/jumeirah-logo.png";
-import waldorfLogo from "@/assets/partners/waldorf-logo.png";
-import stRegisLogo from "@/assets/partners/stregis-logo.png";
-import mandarinOrientalLogo from "@/assets/partners/mandarin-oriental-logo.png";
-import bulgariLogo from "@/assets/partners/bulgari-logo.png";
-import atlantisLogo from "@/assets/partners/atlantis-logo.png";
-import anantaraLogo from "@/assets/partners/anantara-logo.png";
-import armaniLogo from "@/assets/partners/armani-logo.png";
-import rafflesLogo from "@/assets/partners/raffles-logo.png";
 
 const Resorts = () => {
   const [selectedRegion, setSelectedRegion] = useState("All");
-
-  const partnerLogos = [
-    { src: ritzCarltonLogo, name: "Ritz-Carlton" },
-    { src: fourSeasonsLogo, name: "Four Seasons" },
-    { src: oneAndOnlyLogo, name: "One&Only" },
-    { src: jumeirahLogo, name: "Jumeirah" },
-    { src: waldorfLogo, name: "Waldorf Astoria" },
-    { src: stRegisLogo, name: "St. Regis" },
-    { src: mandarinOrientalLogo, name: "Mandarin Oriental" },
-    { src: bulgariLogo, name: "Bulgari Hotels" },
-    { src: atlantisLogo, name: "Atlantis" },
-    { src: anantaraLogo, name: "Anantara" },
-    { src: armaniLogo, name: "Armani Hotels" },
-    { src: rafflesLogo, name: "Raffles" },
-  ];
 
   const heroImages = [
     { src: maldivesAerial1, alt: "Aerial view of luxury Maldives resort with overwater villas and pristine turquoise lagoon" },
@@ -957,56 +930,11 @@ const Resorts = () => {
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>Our Partner Resorts - Luxury Hotels Worldwide | Resorts Offers</title>
-        <meta name="description" content="Explore our exclusive partner resorts worldwide. We collaborate with the world's most prestigious hotel brands including Ritz-Carlton, Four Seasons, and more." />
+        <title>Resort Partners - Luxury Hotels Worldwide | Resorts Offers</title>
+        <meta name="description" content="Explore our exclusive resort partners across the globe - from Maldives to Dubai, Bora Bora to Switzerland. Premium hotels and luxury accommodations." />
         <link rel="canonical" href="https://www.resortsoffers.com/resorts" />
       </Helmet>
       <Navbar />
-      
-      {/* Partner Logos Ribbon Section */}
-      <section className="py-12 mt-20 bg-gradient-to-r from-background via-muted/20 to-background overflow-hidden">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-3">Our Luxury Partner Hotels & Resorts</h2>
-          <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto text-lg">
-            Trusted partnerships with the world's finest luxury hotel brands
-          </p>
-          
-          {/* Scrolling Logos Ribbon */}
-          <div className="relative">
-            <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10" />
-            <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10" />
-            
-            <Carousel 
-              className="w-full"
-              opts={{
-                align: "start",
-                loop: true,
-              }}
-            >
-              <CarouselContent className="-ml-4">
-                {partnerLogos.map((logo, index) => (
-                  <CarouselItem key={index} className="pl-4 basis-1/2 md:basis-1/3 lg:basis-1/6">
-                    <div className="flex items-center justify-center h-24 p-4 bg-background/80 backdrop-blur-sm rounded-xl border border-muted hover:border-accent/50 hover:shadow-xl transition-all duration-300 group">
-                      <img
-                        src={logo.src}
-                        alt={`${logo.name} - Partner Resort`}
-                        className="w-full h-full object-contain filter brightness-0 opacity-60 group-hover:brightness-100 group-hover:opacity-100 transition-all duration-300"
-                        loading="lazy"
-                      />
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious className="left-24" />
-              <CarouselNext className="right-24" />
-            </Carousel>
-          </div>
-          
-          <p className="text-center text-sm text-muted-foreground mt-6">
-            and many more exclusive partners worldwide
-          </p>
-        </div>
-      </section>
       
       {/* Hero Section with Carousel */}
       <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">

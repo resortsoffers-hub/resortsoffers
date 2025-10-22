@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import ChatWidget from "@/components/ChatWidget";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
 import Consultancy from "./pages/Consultancy";
@@ -47,6 +48,7 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
           </Routes>
           <WhatsAppButton />
+          <ChatWidget />
         </BrowserRouter>
       </TooltipProvider>
     </HelmetProvider>

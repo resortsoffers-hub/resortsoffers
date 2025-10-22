@@ -383,10 +383,238 @@ const Resorts = () => {
       description: "Beachfront sanctuary on Emerald Bay, offering elegant pavilions and villas with contemporary Thai design.",
       features: ["Beachfront Pavilions", "Asaya Wellness", "Seven Dining Venues", "Kids Club"],
       website: "https://www.rosewoodhotels.com/en/phuket"
+    },
+    // Dubai Partners
+    {
+      name: "Burj Al Arab Jumeirah",
+      location: "Dubai",
+      region: "Dubai",
+      rating: 5,
+      description: "The world's most luxurious hotel, an iconic sail-shaped landmark offering unparalleled service and opulent suites.",
+      features: ["Iconic Architecture", "Private Beach", "Michelin-Star Dining", "Butler Service"],
+      website: "https://www.jumeirah.com/en/stay/dubai/burj-al-arab-jumeirah"
+    },
+    {
+      name: "Atlantis The Royal",
+      location: "Dubai",
+      region: "Dubai",
+      rating: 5,
+      description: "Ultra-luxury beachfront resort on Palm Jumeirah featuring celebrity chef restaurants and breathtaking architecture.",
+      features: ["Beachfront Suites", "World-Class Dining", "Aquaventure Access", "Cloud 22 Beach Club"],
+      website: "https://www.atlantis.com/dubai/atlantis-the-royal"
+    },
+    // London Partners
+    {
+      name: "The Savoy",
+      location: "London",
+      region: "London",
+      rating: 5,
+      description: "Legendary luxury hotel on the River Thames, offering timeless elegance and impeccable British hospitality since 1889.",
+      features: ["River Thames Views", "Historic Luxury", "Michelin-Star Restaurant", "American Bar"],
+      website: "https://www.fairmont.com/savoy-london"
+    },
+    {
+      name: "Claridge's",
+      location: "London",
+      region: "London",
+      rating: 5,
+      description: "Art Deco masterpiece in Mayfair, epitomizing British elegance and world-class service.",
+      features: ["Mayfair Location", "Art Deco Design", "Afternoon Tea", "Michelin-Star Dining"],
+      website: "https://www.claridges.co.uk"
+    },
+    // Bora Bora Partners
+    {
+      name: "Four Seasons Resort Bora Bora",
+      location: "Bora Bora",
+      region: "Bora Bora",
+      rating: 5,
+      description: "Overwater bungalows with Mount Otemanu views, offering the ultimate French Polynesian luxury experience.",
+      features: ["Overwater Bungalows", "Mount Otemanu Views", "Lagoonarium", "Private Beach"],
+      website: "https://www.fourseasons.com/borabora"
+    },
+    {
+      name: "The St. Regis Bora Bora Resort",
+      location: "Bora Bora",
+      region: "Bora Bora",
+      rating: 5,
+      description: "Exclusive overwater villas with private pools and butlers, set in the turquoise lagoon.",
+      features: ["Overwater Villas", "Private Pools", "Butler Service", "Lagoon Restaurant"],
+      website: "https://www.marriott.com/hotels/travel/bobxr-the-st-regis-bora-bora-resort"
+    },
+    // Turkey Partners
+    {
+      name: "Six Senses Kaplankaya",
+      location: "Turkey",
+      region: "Turkey",
+      rating: 5,
+      description: "Hillside retreat on the Aegean coast, offering holistic wellness and stunning sea views.",
+      features: ["Aegean Sea Views", "Wellness Programs", "Private Beach", "Organic Cuisine"],
+      website: "https://www.sixsenses.com/en/resorts/kaplankaya"
+    },
+    {
+      name: "Mandarin Oriental Bodrum",
+      location: "Turkey",
+      region: "Turkey",
+      rating: 5,
+      description: "Luxury resort in Bodrum's Paradise Bay, featuring private beaches and contemporary Turkish hospitality.",
+      features: ["Paradise Bay", "Private Beach", "Turkish Spa", "Gourmet Dining"],
+      website: "https://www.mandarinoriental.com/en/bodrum/paradise-bay"
+    },
+    // Morocco Partners
+    {
+      name: "La Mamounia",
+      location: "Morocco",
+      region: "Morocco",
+      rating: 5,
+      description: "Legendary palace hotel in Marrakech, surrounded by magnificent gardens and featuring Moroccan luxury.",
+      features: ["Palace Architecture", "Magnificent Gardens", "Moroccan Spa", "Fine Dining"],
+      website: "https://www.mamounia.com"
+    },
+    {
+      name: "Royal Mansour Marrakech",
+      location: "Morocco",
+      region: "Morocco",
+      rating: 5,
+      description: "Palatial resort featuring private riads with rooftop terraces, exemplifying Moroccan craftsmanship.",
+      features: ["Private Riads", "Rooftop Terraces", "Three Restaurants", "Spa by Guerlain"],
+      website: "https://www.royalmansour.com/en"
+    },
+    // Switzerland Partners
+    {
+      name: "The Chedi Andermatt",
+      location: "Switzerland",
+      region: "Switzerland",
+      rating: 5,
+      description: "Alpine luxury resort blending Swiss tradition with Asian design, featuring Europe's largest private spa.",
+      features: ["Alpine Location", "Europe's Largest Spa", "Michelin-Star Dining", "Ski-In/Ski-Out"],
+      website: "https://www.thechediandermatt.com"
+    },
+    {
+      name: "Badrutt's Palace Hotel",
+      location: "Switzerland",
+      region: "Switzerland",
+      rating: 5,
+      description: "Legendary St. Moritz hotel offering timeless elegance and world-class skiing since 1896.",
+      features: ["St. Moritz Location", "Historic Luxury", "Michelin Dining", "Private Ski Lessons"],
+      website: "https://www.badruttspalace.com"
+    },
+    // Italy Partners
+    {
+      name: "Belmond Hotel Caruso",
+      location: "Italy",
+      region: "Italy",
+      rating: 5,
+      description: "Perched high on the cliffs of Ravello, featuring an infinity pool overlooking the Amalfi Coast.",
+      features: ["Amalfi Coast Views", "Infinity Pool", "Historic Building", "Michelin-Star Restaurant"],
+      website: "https://www.belmond.com/hotels/europe/italy/amalfi-coast/belmond-hotel-caruso"
+    },
+    {
+      name: "Passalacqua",
+      location: "Italy",
+      region: "Italy",
+      rating: 5,
+      description: "18th-century villa on Lake Como, offering unparalleled luxury and Italian elegance.",
+      features: ["Lake Como", "Historic Villa", "Private Gardens", "Boat Service"],
+      website: "https://www.passalacqua.it"
+    },
+    // Amsterdam Partners
+    {
+      name: "Waldorf Astoria Amsterdam",
+      location: "Amsterdam",
+      region: "Amsterdam",
+      rating: 5,
+      description: "Six 17th-century canal palaces transformed into a luxury hotel, featuring elegant rooms and Michelin-star dining.",
+      features: ["Canal Views", "Historic Palaces", "Michelin-Star Restaurant", "Guerlain Spa"],
+      website: "https://www.hilton.com/en/hotels/amsw aldorf-astoria-amsterdam"
+    },
+    {
+      name: "The Dylan Amsterdam",
+      location: "Amsterdam",
+      region: "Amsterdam",
+      rating: 5,
+      description: "Boutique luxury hotel on Keizersgracht canal, offering intimate elegance in the heart of Amsterdam.",
+      features: ["Canal Location", "Boutique Luxury", "Michelin-Star Dining", "Intimate Atmosphere"],
+      website: "https://www.dylanamsterdam.com"
+    },
+    // Finland Partners
+    {
+      name: "Arctic TreeHouse Hotel",
+      location: "Finland",
+      region: "Finland",
+      rating: 5,
+      description: "Unique glass-walled suites elevated among trees, offering Northern Lights views in Lapland.",
+      features: ["Northern Lights", "Glass Suites", "Arctic Location", "Lapland Experience"],
+      website: "https://arctictreehousehotel.com"
+    },
+    {
+      name: "Kakslauttanen Arctic Resort",
+      location: "Finland",
+      region: "Finland",
+      rating: 5,
+      description: "Famous glass igloos and log cabins in the Arctic wilderness, perfect for aurora viewing.",
+      features: ["Glass Igloos", "Aurora Views", "Arctic Activities", "Ice Restaurant"],
+      website: "https://www.kakslauttanen.fi"
+    },
+    // China Partners
+    {
+      name: "Aman Summer Palace Beijing",
+      location: "China",
+      region: "China",
+      rating: 5,
+      description: "Exclusive retreat within the UNESCO World Heritage Summer Palace grounds, offering serene luxury.",
+      features: ["Summer Palace Grounds", "Historic Setting", "Aman Spa", "Fine Dining"],
+      website: "https://www.aman.com/resorts/aman-summer-palace"
+    },
+    {
+      name: "The Peninsula Shanghai",
+      location: "China",
+      region: "China",
+      rating: 5,
+      description: "Art Deco masterpiece on the Bund, offering legendary Peninsula service and stunning river views.",
+      features: ["The Bund Location", "Art Deco Design", "Peninsula Spa", "Rooftop Bar"],
+      website: "https://www.peninsula.com/en/shanghai/5-star-luxury-hotel-bund"
+    },
+    // Vietnam Partners
+    {
+      name: "Six Senses Ninh Van Bay",
+      location: "Vietnam",
+      region: "Vietnam",
+      rating: 5,
+      description: "Secluded beachfront resort accessible only by boat, offering pristine nature and holistic wellness.",
+      features: ["Private Bay", "Boat Access Only", "Six Senses Spa", "Organic Dining"],
+      website: "https://www.sixsenses.com/en/resorts/ninh-van-bay"
+    },
+    {
+      name: "Amanoi",
+      location: "Vietnam",
+      region: "Vietnam",
+      rating: 5,
+      description: "Clifftop resort overlooking Vinh Hy Bay, combining Vietnamese culture with Aman's signature luxury.",
+      features: ["Clifftop Villas", "Vinh Hy Bay Views", "Aman Spa", "Vietnamese Cuisine"],
+      website: "https://www.aman.com/resorts/amanoi"
+    },
+    // Malaysia Partners
+    {
+      name: "The Datai Langkawi",
+      location: "Malaysia",
+      region: "Malaysia",
+      rating: 5,
+      description: "Rainforest resort on pristine beach, offering unparalleled nature immersion and luxury.",
+      features: ["Rainforest Setting", "Private Beach", "Nature Excursions", "Spa Treatments"],
+      website: "https://www.thedatai.com"
+    },
+    {
+      name: "Four Seasons Resort Langkawi",
+      location: "Malaysia",
+      region: "Malaysia",
+      rating: 5,
+      description: "Beach resort on Langkawi island, featuring overwater villas and exceptional family amenities.",
+      features: ["Beach & Overwater Villas", "Family Amenities", "Geo Spa", "Water Sports"],
+      website: "https://www.fourseasons.com/langkawi"
     }
   ];
 
-  const regions = ["All", "Maldives", "Seychelles", "Mauritius", "Bali", "Phuket"];
+  const regions = ["All", "Maldives", "Seychelles", "Mauritius", "Bali", "Phuket", "Dubai", "London", "Bora Bora", "Turkey", "Morocco", "Switzerland", "Italy", "Amsterdam", "Finland", "China", "Vietnam", "Malaysia"];
 
   const filteredResorts = selectedRegion === "All" 
     ? resorts 
@@ -395,6 +623,8 @@ const Resorts = () => {
   return (
     <div className="min-h-screen">
       <Helmet>
+        <title>Resort Partners - Luxury Hotels Worldwide | Resorts Offers</title>
+        <meta name="description" content="Explore our exclusive resort partners across the globe - from Maldives to Dubai, Bora Bora to Switzerland. Premium hotels and luxury accommodations." />
         <link rel="canonical" href="https://www.resortsoffers.com/resorts" />
       </Helmet>
       <Navbar />
@@ -412,10 +642,10 @@ const Resorts = () => {
         
         <div className="relative z-10 container-custom text-center">
           <h1 className="text-4xl md:text-6xl font-bold hero-text mb-6 animate-fade-in">
-            Our Partners - Luxury Resorts
+            Resort Partners
           </h1>
           <p className="text-xl md:text-2xl hero-text max-w-3xl mx-auto">
-            Discover our curated collection of the world's finest luxury properties
+            Discover our handpicked premium resort partners worldwide
           </p>
         </div>
       </section>

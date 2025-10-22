@@ -3,11 +3,32 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Calendar, MapPin, Users, ExternalLink } from "lucide-react";
+import { Calendar, MapPin, Users, ExternalLink, Images } from "lucide-react";
 import packagesImage from "@/assets/packages.jpg";
+import ttmMaldivesImage from "@/assets/events/ttm-maldives.jpg";
+import wtmLondonImage from "@/assets/events/wtm-london.jpg";
+import atmDubaiImage from "@/assets/events/atm-dubai.jpg";
+import iltmCannesImage from "@/assets/events/iltm-cannes.jpg";
+import gulfBrideImage from "@/assets/events/gulf-bride.jpg";
 
 const Events = () => {
   const events = [
+    {
+      name: "Travel Trade Mission (TTM) Maldives 2025",
+      shortName: "TTM Maldives",
+      date: "March 2025",
+      location: "Maldives",
+      description: "The premier travel trade mission bringing together international buyers and Maldivian resort properties. Network with key decision-makers and discover exclusive resort partnerships.",
+      highlights: [
+        "Direct resort property visits",
+        "Exclusive buyer-seller meetings",
+        "Maldives tourism board support",
+        "Island-hopping experiences"
+      ],
+      website: "https://www.visitmaldives.com",
+      category: "Trade Mission",
+      image: ttmMaldivesImage
+    },
     {
       name: "World Travel Market (WTM) London 2025",
       shortName: "WTM London",
@@ -21,7 +42,8 @@ const Events = () => {
         "Shape the future of travel industry"
       ],
       website: "https://www.wtm.com/london",
-      category: "Trade Show"
+      category: "Trade Show",
+      image: wtmLondonImage
     },
     {
       name: "Arabian Travel Market (ATM) 2026",
@@ -36,7 +58,8 @@ const Events = () => {
         "Latest travel technology showcase"
       ],
       website: "https://www.wtm.com/atm",
-      category: "Trade Show"
+      category: "Trade Show",
+      image: atmDubaiImage
     },
     {
       name: "ILTM Cannes - International Luxury Travel Market",
@@ -51,7 +74,8 @@ const Events = () => {
         "Ultra-high-net-worth clientele focus"
       ],
       website: "https://www.iltm.com/cannes",
-      category: "Luxury Travel"
+      category: "Luxury Travel",
+      image: iltmCannesImage
     },
     {
       name: "The Gulf Bride Show 2025",
@@ -66,22 +90,8 @@ const Events = () => {
         "Exclusive product launches and interactive zones"
       ],
       website: "https://gulfbrideshow.com/",
-      category: "Wedding & Lifestyle"
-    },
-    {
-      name: "Gulf Cooperation Council Tourism Exhibition (GCCTE)",
-      shortName: "GCCTE",
-      date: "May 2025",
-      location: "Riyadh International Convention Center, Saudi Arabia",
-      description: "The region's leading tourism and hospitality exhibition focusing on GCC markets. GCCTE connects regional tourism authorities with international travel providers.",
-      highlights: [
-        "GCC tourism authorities",
-        "Regional market insights",
-        "Investment opportunities",
-        "Cultural exchange programs"
-      ],
-      website: "#",
-      category: "Regional Tourism"
+      category: "Wedding & Lifestyle",
+      image: gulfBrideImage
     }
   ];
 
@@ -138,6 +148,20 @@ const Events = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {events.map((event, index) => (
               <Card key={index} className="hover:shadow-2xl transition-all duration-300 overflow-hidden group animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                {event.image && (
+                  <div className="h-64 overflow-hidden relative">
+                    <img 
+                      src={event.image} 
+                      alt={event.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-lg flex items-center gap-2 text-sm font-medium">
+                      <Images size={16} className="text-primary" />
+                      View Gallery
+                    </div>
+                  </div>
+                )}
                 <div className="h-2 bg-gradient-to-r from-primary to-accent" />
                 <CardHeader>
                   <div className="flex items-start justify-between mb-2">

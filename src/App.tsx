@@ -8,7 +8,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import ChatWidget from "@/components/ChatWidget";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
-import Consultancy from "./pages/Consultancy";
+import AboutUs from "./pages/AboutUs";
 import Resorts from "./pages/Resorts";
 import Offers from "./pages/Offers";
 import Team from "./pages/Team";
@@ -32,8 +32,8 @@ const App = () => (
         <BrowserRouter>
           <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/about-us" element={<AboutUs />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/consultancy" element={<Consultancy />} />
           <Route path="/resorts" element={<Resorts />} />
           <Route path="/offers" element={<Offers />} />
           <Route path="/team" element={<Team />} />

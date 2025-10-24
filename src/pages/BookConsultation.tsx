@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { Calendar, Clock, MessageCircle } from "lucide-react";
+import { Calendar, Clock, MessageCircle, Linkedin, Instagram } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -110,12 +110,42 @@ const BookConsultation = () => {
             <CardHeader>
               <div className="flex items-center gap-4">
                 <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary/20 to-accent/20" />
-                <div>
+                <div className="flex-1">
                   <CardTitle className="text-2xl">Nora El Khalifi</CardTitle>
                   <CardDescription className="text-lg">CEO & Managing Director</CardDescription>
                   <CardDescription className="text-sm mt-1">Member of Dubai Business Women Council</CardDescription>
                   <CardDescription className="text-sm">Master's in Hotel & Hospitality Management</CardDescription>
                   <CardDescription className="text-sm">Fluent in English, Arabic, French & Spanish</CardDescription>
+                  
+                  <div className="flex items-center gap-3 mt-3">
+                    <a 
+                      href="https://www.linkedin.com/in/noraelkhalifi" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-accent hover:text-accent/80 transition-colors"
+                      aria-label="LinkedIn"
+                    >
+                      <Linkedin size={20} />
+                    </a>
+                    <a 
+                      href="https://www.instagram.com/nananoritaaa" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-accent hover:text-accent/80 transition-colors"
+                      aria-label="Instagram"
+                    >
+                      <Instagram size={20} />
+                    </a>
+                    <a 
+                      href="https://www.snapchat.com/add/nananoritaaa" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-accent hover:text-accent/80 transition-colors font-bold text-xl"
+                      aria-label="Snapchat"
+                    >
+                      👻
+                    </a>
+                  </div>
                 </div>
               </div>
             </CardHeader>

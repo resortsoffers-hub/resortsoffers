@@ -270,7 +270,7 @@ const BookConsultation = () => {
                   </div>
                   
                   <div className="text-center pt-4 border-t">
-                    <p className="text-sm font-semibold mb-3">Or Email Us Directly</p>
+                    <p className="text-sm font-semibold mb-3">Email Us</p>
                     <div className="flex flex-col gap-2">
                       <a 
                         href="mailto:vip@resortsoffers.com"
@@ -279,10 +279,22 @@ const BookConsultation = () => {
                         <span className="font-medium">vip@resortsoffers.com</span>
                       </a>
                       <a 
-                        href="mailto:info@resortsoffers.com"
+                        href="mailto:finance@resortsoffers.com"
                         className="flex items-center justify-center gap-2 p-3 bg-accent/10 hover:bg-accent/20 rounded-lg transition-colors"
                       >
-                        <span className="font-medium">info@resortsoffers.com</span>
+                        <span className="font-medium">finance@resortsoffers.com</span>
+                      </a>
+                      <a 
+                        href="mailto:marketing@resortsoffers.com"
+                        className="flex items-center justify-center gap-2 p-3 bg-accent/10 hover:bg-accent/20 rounded-lg transition-colors"
+                      >
+                        <span className="font-medium">marketing@resortsoffers.com</span>
+                      </a>
+                      <a 
+                        href="mailto:reservations@resortsoffers.com"
+                        className="flex items-center justify-center gap-2 p-3 bg-accent/10 hover:bg-accent/20 rounded-lg transition-colors"
+                      >
+                        <span className="font-medium">reservations@resortsoffers.com</span>
                       </a>
                     </div>
                   </div>

@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { Calendar, Clock, MessageCircle, Linkedin, Instagram } from "lucide-react";
+import { Calendar, Clock, MessageCircle, Linkedin, Instagram, Languages } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -115,36 +115,57 @@ const BookConsultation = () => {
                   <CardDescription className="text-lg">CEO & Managing Director</CardDescription>
                   <CardDescription className="text-sm mt-1">Member of Dubai Business Women Council</CardDescription>
                   <CardDescription className="text-sm">Master's in Hotel & Hospitality Management</CardDescription>
-                  <CardDescription className="text-sm">Fluent in English, Arabic, French & Spanish</CardDescription>
+                  <CardDescription className="text-sm flex items-center gap-1.5">
+                    <Languages size={14} className="text-accent" />
+                    <span>Multilingual Speaker: English, Arabic, French & Spanish</span>
+                  </CardDescription>
                   
                   <div className="flex items-center gap-3 mt-3">
-                    <a 
-                      href="https://www.linkedin.com/in/noraelkhalifi" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-accent hover:text-accent/80 transition-colors"
-                      aria-label="LinkedIn"
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="h-8 w-8 p-0"
+                      asChild
                     >
-                      <Linkedin size={20} />
-                    </a>
-                    <a 
-                      href="https://www.instagram.com/nananoritaaa" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-accent hover:text-accent/80 transition-colors"
-                      aria-label="Instagram"
+                      <a 
+                        href="https://www.linkedin.com/in/noraelkhalifi" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        aria-label="LinkedIn"
+                      >
+                        <Linkedin size={18} />
+                      </a>
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="h-8 w-8 p-0"
+                      asChild
                     >
-                      <Instagram size={20} />
-                    </a>
-                    <a 
-                      href="https://www.snapchat.com/add/nananoritaaa" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-accent hover:text-accent/80 transition-colors flex items-center justify-center"
-                      aria-label="Snapchat"
+                      <a 
+                        href="https://www.instagram.com/nananoritaaa" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        aria-label="Instagram"
+                      >
+                        <Instagram size={18} />
+                      </a>
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="h-8 w-8 p-0"
+                      asChild
                     >
-                      <span className="text-[20px] leading-none">👻</span>
-                    </a>
+                      <a 
+                        href="https://www.snapchat.com/add/nananoritaaa" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        aria-label="Snapchat"
+                      >
+                        <span className="text-[18px] leading-none">👻</span>
+                      </a>
+                    </Button>
                   </div>
                 </div>
               </div>

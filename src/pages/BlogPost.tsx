@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Calendar, Clock, User, ArrowLeft, Share2 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import DOMPurify from "dompurify";
 
 const BlogPost = () => {
   const { slug } = useParams();
@@ -103,10 +104,10 @@ const BlogPost = () => {
           </header>
 
           {/* Article Content */}
-          <div 
-            className="prose prose-lg max-w-none"
-            dangerouslySetInnerHTML={{ __html: post.content }}
-          />
+              <div 
+                className="prose prose-lg max-w-none"
+                dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.content) }}
+              />
 
           {/* Author Bio */}
           <div className="mt-12 p-6 bg-muted rounded-lg">

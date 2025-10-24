@@ -5,13 +5,75 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
+// Simple in-memory rate limiting (resets on function restart)
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+const RATE_LIMIT = 20; // Max 20 messages per hour per IP
+const RATE_WINDOW = 60 * 60 * 1000; // 1 hour in milliseconds
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now();
+  const record = rateLimitMap.get(ip);
+  
+  if (!record || now > record.resetTime) {
+    rateLimitMap.set(ip, { count: 1, resetTime: now + RATE_WINDOW });
+    return true;
+  }
+  
+  if (record.count >= RATE_LIMIT) {
+    return false;
+  }
+  
+  record.count++;
+  return true;
+}
+
 serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
+  
+  // Rate limiting by IP
+  const ip = req.headers.get('x-forwarded-for') || req.headers.get('cf-connecting-ip') || 'unknown';
+  if (!checkRateLimit(ip)) {
+    console.warn(`Rate limit exceeded for IP: ${ip}`);
+    return new Response(
+      JSON.stringify({ error: 'Too many chat requests. Please try again later.' }),
+      {
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        status: 429,
+      }
+    );
+  }
 
   try {
     const { messages, language = "en" } = await req.json();
+    
+    // Input validation
+    if (!Array.isArray(messages) || messages.length === 0) {
+      console.error('Invalid messages format');
+      return new Response(
+        JSON.stringify({ error: 'Invalid messages format' }),
+        {
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+          status: 400,
+        }
+      );
+    }
+    
+    // Limit message content size
+    const MAX_MESSAGE_LENGTH = 2000;
+    for (const msg of messages) {
+      if (msg.content && msg.content.length > MAX_MESSAGE_LENGTH) {
+        console.error('Message too long:', msg.content.length);
+        return new Response(
+          JSON.stringify({ error: 'Message too long. Please keep messages under 2000 characters.' }),
+          {
+            headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+            status: 400,
+          }
+        );
+      }
+    }
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     
     if (!LOVABLE_API_KEY) {

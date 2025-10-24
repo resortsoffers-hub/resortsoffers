@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/select";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { useTranslation } from "react-i18next";
+import DOMPurify from "dompurify";
 
 interface Message {
   role: "user" | "assistant";
@@ -158,7 +159,12 @@ const ChatWidget = () => {
             const parsed = JSON.parse(jsonStr);
             const content = parsed.choices?.[0]?.delta?.content;
             if (content) {
-              assistantContent += content;
+              // Sanitize content before adding
+              const sanitizedContent = DOMPurify.sanitize(content, {
+                ALLOWED_TAGS: [], // Strip all HTML
+                ALLOWED_ATTR: []
+              });
+              assistantContent += sanitizedContent;
               setMessages((prev) => {
                 const last = prev[prev.length - 1];
                 if (last?.role === "assistant") {

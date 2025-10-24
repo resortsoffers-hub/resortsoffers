@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Heart, Target, Lightbulb } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import consultancyImage from "@/assets/consultancy.jpg";
+import heroImage from "@/assets/resorts/luxury-infinity-pool.jpg";
 
 const AboutUs = () => {
   return (
@@ -69,8 +69,8 @@ const AboutUs = () => {
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden mt-20">
         <div className="absolute inset-0">
           <img 
-            src={consultancyImage} 
-            alt="Luxury hotel consultancy" 
+            src={heroImage} 
+            alt="Luxury resort infinity pool with ocean views" 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-primary/70" />

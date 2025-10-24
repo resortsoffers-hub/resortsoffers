@@ -114,6 +114,8 @@ const BookConsultation = () => {
                   <CardTitle className="text-2xl">Nora El Khalifi</CardTitle>
                   <CardDescription className="text-lg">CEO & Managing Director</CardDescription>
                   <CardDescription className="text-sm mt-1">Member of Dubai Business Women Council</CardDescription>
+                  <CardDescription className="text-sm">Master's in Hotel & Hospitality Management</CardDescription>
+                  <CardDescription className="text-sm">Fluent in English, Arabic, French & Spanish</CardDescription>
                 </div>
               </div>
             </CardHeader>

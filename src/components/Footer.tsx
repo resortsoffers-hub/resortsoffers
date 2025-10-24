@@ -92,12 +92,42 @@ const Footer = () => {
                 <LinkIcon size={20} />
               </a>
             </div>
-            <Link to="/book-consultation">
-              <button className="w-full flex items-center justify-center gap-2 bg-secondary hover:bg-secondary/90 text-secondary-foreground px-4 py-2 rounded-lg transition-colors text-sm font-semibold">
-                <Calendar size={16} />
-                Book Free Consultation
-              </button>
-            </Link>
+            
+            <div className="mt-6 pt-4 border-t border-primary-foreground/20">
+              <h5 className="font-semibold mb-3 text-sm">Prefer WhatsApp? Skip the form!</h5>
+              <div className="space-y-2">
+                <a 
+                  href="https://wa.me/971567622484" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm hover:text-[#25D366] transition-colors"
+                >
+                  <MessageCircle size={16} className="text-[#25D366]" />
+                  <span className="text-xl">🇦🇪</span>
+                  <span>+971 56 762 2484</span>
+                </a>
+                <a 
+                  href="https://wa.me/966582360080" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm hover:text-[#25D366] transition-colors"
+                >
+                  <MessageCircle size={16} className="text-[#25D366]" />
+                  <span className="text-xl">🇸🇦</span>
+                  <span>+966 582 360 080</span>
+                </a>
+                <a 
+                  href="https://wa.me/447500029091" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm hover:text-[#25D366] transition-colors"
+                >
+                  <MessageCircle size={16} className="text-[#25D366]" />
+                  <span className="text-xl">🇬🇧</span>
+                  <span>+44 7500 029091</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 

@@ -17,7 +17,7 @@ import Terms from "./pages/Terms";
 import BookConsultation from "./pages/BookConsultation";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
-import Documents from "./pages/Documents";
+import FAQ from "./pages/FAQ";
 import Events from "./pages/Events";
 import NotFound from "./pages/NotFound";
 
@@ -42,7 +42,7 @@ const App = () => (
           <Route path="/book-consultation" element={<BookConsultation />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
-          <Route path="/documents" element={<Documents />} />
+          <Route path="/faq" element={<FAQ />} />
           <Route path="/events" element={<Events />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

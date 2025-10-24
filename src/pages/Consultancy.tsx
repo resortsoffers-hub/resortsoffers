@@ -174,10 +174,10 @@ const Consultancy = () => {
         
         <div className="relative z-10 container-custom text-center">
           <h1 className="text-4xl md:text-6xl font-bold hero-text mb-6 animate-fade-in">
-            Tourism Consultancy
+            Sales, PR, Marketing & Social Media Agency for Luxury Hotels & Travel Brands
           </h1>
           <p className="text-xl md:text-2xl hero-text max-w-3xl mx-auto">
-            Strategic expertise to transform your hospitality vision into reality
+            Welcome to The Resorts Offers Portfolio - a Representation Company that offers strategies in Sales, PR, Marketing, and Social Media across the GCC
           </p>
         </div>
       </section>
@@ -187,13 +187,12 @@ const Consultancy = () => {
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              Expert Hospitality Consulting
+              The Resorts Offers Portfolio
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              With decades of combined experience in luxury hospitality, our consultancy team provides 
-              strategic insights and actionable solutions to help properties and destinations achieve 
-              excellence in the competitive Middle East market. We bridge the gap between international 
-              hospitality standards and regional market expectations.
+              The Travel Portfolio is a sales and marketing representation company, specialising in promoting 
+              unique luxury hotels, resorts and cruises to travellers from the Arabian Gulf. We offer comprehensive 
+              regional sales and marketing solutions within the GCC countries.
             </p>
           </div>
 

@@ -149,8 +149,10 @@ const SearchBar = ({ selectedDestination = "All", onDestinationChange }: SearchB
                 variant="outline"
                 className="w-full h-14 justify-start text-left font-medium border-2 border-gray-300 hover:border-[#003B95] bg-white text-gray-900"
               >
-                <Users className="mr-2 h-5 w-5 text-[#003B95]" />
-                {adults} adults · {children} children · {rooms} room{rooms > 1 ? 's' : ''}
+                <Users className="mr-2 h-5 w-5 flex-shrink-0 text-[#003B95]" />
+                <span className="truncate text-sm">
+                  {adults} adults · {children} children · {rooms} room{rooms > 1 ? 's' : ''}
+                </span>
               </Button>
             </PopoverTrigger>
             <PopoverContent className="w-80 p-4 bg-white border-2 border-[#003B95]" align="start">

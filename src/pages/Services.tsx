@@ -1,8 +1,14 @@
 import { Helmet } from "react-helmet-async";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Building2, Users, TrendingUp, Globe, Award, HeadphonesIcon } from "lucide-react";
+import { Building2, Users, TrendingUp, Globe, Award, HeadphonesIcon, Mail } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import consultancyImg from "@/assets/consultancy.jpg";
+import packagesImg from "@/assets/packages.jpg";
+import maldivesVillasImg from "@/assets/maldives-villas.jpg";
+import dubaiLuxuryImg from "@/assets/resorts/dubai-luxury.jpg";
+import luxuryPoolImg from "@/assets/resorts/luxury-infinity-pool.jpg";
+import weddingCeremonyImg from "@/assets/resorts/wedding-ceremony.jpg";
 
 const Services = () => {
   const services = [
@@ -10,6 +16,7 @@ const Services = () => {
       icon: <Building2 className="w-12 h-12 text-accent" />,
       title: "Hotel Representation",
       description: "Comprehensive sales and marketing representation for luxury hotels and resorts across the Middle East region.",
+      image: consultancyImg,
       features: [
         "Strategic market positioning",
         "Sales team extension",
@@ -21,6 +28,7 @@ const Services = () => {
       icon: <Users className="w-12 h-12 text-accent" />,
       title: "Client Relations",
       description: "Building and maintaining strong relationships with travel agencies, corporate clients, and tour operators.",
+      image: maldivesVillasImg,
       features: [
         "B2B partnerships",
         "Corporate accounts",
@@ -32,6 +40,7 @@ const Services = () => {
       icon: <TrendingUp className="w-12 h-12 text-accent" />,
       title: "Revenue Management",
       description: "Strategic pricing and inventory management to maximize revenue and occupancy rates.",
+      image: packagesImg,
       features: [
         "Dynamic pricing strategies",
         "Market analysis",
@@ -43,6 +52,7 @@ const Services = () => {
       icon: <Globe className="w-12 h-12 text-accent" />,
       title: "Market Development",
       description: "Identifying and developing new market opportunities throughout the Middle East region.",
+      image: dubaiLuxuryImg,
       features: [
         "Market research",
         "Competitor analysis",
@@ -54,6 +64,7 @@ const Services = () => {
       icon: <Award className="w-12 h-12 text-accent" />,
       title: "Brand Management",
       description: "Protecting and enhancing your property's brand image and reputation in the market.",
+      image: luxuryPoolImg,
       features: [
         "Brand positioning",
         "Reputation management",
@@ -65,6 +76,7 @@ const Services = () => {
       icon: <HeadphonesIcon className="w-12 h-12 text-accent" />,
       title: "24/7 Support",
       description: "Round-the-clock support for all your sales and marketing needs in the region.",
+      image: weddingCeremonyImg,
       features: [
         "Dedicated account management",
         "Emergency support",
@@ -72,6 +84,13 @@ const Services = () => {
         "Consultative services"
       ]
     }
+  ];
+
+  const emails = [
+    { label: "VIP Services", email: "VIP@resortsoffers.com" },
+    { label: "Marketing", email: "Marketing@resortsoffers.com" },
+    { label: "Finance", email: "Finance@resortsoffers.com" },
+    { label: "CEO", email: "ceo@resortsoffers.com" }
   ];
 
   return (
@@ -165,7 +184,14 @@ const Services = () => {
         <div className="container-custom">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <Card key={index} className="hover:shadow-xl transition-shadow duration-300">
+              <Card key={index} className="hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+                <div className="h-48 overflow-hidden">
+                  <img 
+                    src={service.image} 
+                    alt={service.title}
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
                 <CardHeader>
                   <div className="mb-4">{service.icon}</div>
                   <CardTitle className="text-2xl mb-2">{service.title}</CardTitle>
@@ -182,6 +208,31 @@ const Services = () => {
                       </li>
                     ))}
                   </ul>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Get in Touch Section */}
+      <section className="section-padding bg-gradient-to-br from-primary/10 to-accent/10">
+        <div className="container-custom">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Get in Touch</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            {emails.map((contact, index) => (
+              <Card key={index} className="hover:shadow-xl transition-shadow duration-300">
+                <CardHeader>
+                  <Mail className="w-8 h-8 text-accent mb-2" />
+                  <CardTitle className="text-lg">{contact.label}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <a 
+                    href={`mailto:${contact.email}`}
+                    className="text-sm text-muted-foreground hover:text-accent transition-colors break-all"
+                  >
+                    {contact.email}
+                  </a>
                 </CardContent>
               </Card>
             ))}

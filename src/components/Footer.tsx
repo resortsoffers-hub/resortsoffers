@@ -56,6 +56,24 @@ const Footer = () => {
                   vip@resortsoffers.com
                 </a>
               </li>
+              <li className="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                <a href="mailto:finance@resortsoffers.com" className="hover:text-accent transition-colors">
+                  finance@resortsoffers.com
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                <a href="mailto:marketing@resortsoffers.com" className="hover:text-accent transition-colors">
+                  marketing@resortsoffers.com
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                <a href="mailto:reservations@resortsoffers.com" className="hover:text-accent transition-colors">
+                  reservations@resortsoffers.com
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -94,39 +112,13 @@ const Footer = () => {
             </div>
             
             <div className="mt-6 pt-4 border-t border-primary-foreground/20">
-              <h5 className="font-semibold mb-3 text-sm">Prefer WhatsApp? Skip the form!</h5>
-              <div className="space-y-2">
-                <a 
-                  href="https://wa.me/971567622484" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm hover:text-[#25D366] transition-colors"
-                >
-                  <MessageCircle size={16} className="text-[#25D366]" />
-                  <span className="text-xl">🇦🇪</span>
-                  <span>+971 56 762 2484</span>
-                </a>
-                <a 
-                  href="https://wa.me/966582360080" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm hover:text-[#25D366] transition-colors"
-                >
-                  <MessageCircle size={16} className="text-[#25D366]" />
-                  <span className="text-xl">🇸🇦</span>
-                  <span>+966 582 360 080</span>
-                </a>
-                <a 
-                  href="https://wa.me/447500029091" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm hover:text-[#25D366] transition-colors"
-                >
-                  <MessageCircle size={16} className="text-[#25D366]" />
-                  <span className="text-xl">🇬🇧</span>
-                  <span>+44 7500 029091</span>
-                </a>
-              </div>
+              <Link 
+                to="/book-consultation"
+                className="flex items-center gap-2 text-sm hover:text-accent transition-colors font-semibold"
+              >
+                <Calendar size={16} className="text-accent" />
+                <span>Book Free Consultation</span>
+              </Link>
             </div>
           </div>
         </div>

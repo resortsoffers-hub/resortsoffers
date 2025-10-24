@@ -140,10 +140,10 @@ const BookConsultation = () => {
                       href="https://www.snapchat.com/add/nananoritaaa" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-accent hover:text-accent/80 transition-colors font-bold text-xl"
+                      className="text-accent hover:text-accent/80 transition-colors flex items-center justify-center"
                       aria-label="Snapchat"
                     >
-                      👻
+                      <span className="text-[20px] leading-none">👻</span>
                     </a>
                   </div>
                 </div>

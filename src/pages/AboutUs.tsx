@@ -1,67 +1,34 @@
 import { Helmet } from "react-helmet-async";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { MapPin, Users, Target, Lightbulb, BarChart, Shield } from "lucide-react";
+import { Heart, Target, Lightbulb } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import consultancyImage from "@/assets/consultancy.jpg";
 
-const Consultancy = () => {
-  const consultancyServices = [
-    {
-      icon: <MapPin className="w-10 h-10 text-accent" />,
-      title: "Destination Consulting",
-      description: "Expert guidance on destination development and positioning strategies for luxury tourism markets."
-    },
-    {
-      icon: <Users className="w-10 h-10 text-accent" />,
-      title: "Stakeholder Engagement",
-      description: "Building strategic partnerships with key tourism stakeholders and industry leaders."
-    },
-    {
-      icon: <Target className="w-10 h-10 text-accent" />,
-      title: "Market Entry Strategy",
-      description: "Comprehensive planning for successful market entry into the Middle East region."
-    },
-    {
-      icon: <Lightbulb className="w-10 h-10 text-accent" />,
-      title: "Product Development",
-      description: "Creating innovative tourism products tailored to luxury market demands."
-    },
-    {
-      icon: <BarChart className="w-10 h-10 text-accent" />,
-      title: "Performance Analysis",
-      description: "In-depth analysis of market performance and competitive positioning."
-    },
-    {
-      icon: <Shield className="w-10 h-10 text-accent" />,
-      title: "Quality Assurance",
-      description: "Ensuring service excellence and maintaining luxury standards across operations."
-    }
-  ];
-
+const AboutUs = () => {
   return (
     <div className="min-h-screen">
       <Helmet>
-        <title>Expert Travel Consultancy Services - Personalized Vacation Planning | ResortsOffers.com</title>
-        <meta name="description" content="Professional travel consultancy services. Get expert advice on luxury resort selection, destination planning, and personalized itineraries. Free consultation available." />
-        <meta name="keywords" content="travel consultancy, vacation planning, luxury travel advisor, resort consultant, destination expert, travel planning services, honeymoon planning" />
-        <link rel="canonical" href="https://www.resortsoffers.com/consultancy" />
+        <title>About Us - Sales & Marketing Representation for Luxury Hotels | ResortsOffers.com</title>
+        <meta name="description" content="The Resorts Offers Portfolio specializes in promoting unique luxury hotels, resorts and cruises to travellers from the Arabian Gulf. Comprehensive regional sales and marketing solutions within the GCC countries." />
+        <meta name="keywords" content="hotel representation, luxury hotel marketing, GCC travel, Arabian Gulf resorts, hotel sales agency, travel portfolio, luxury hospitality marketing" />
+        <link rel="canonical" href="https://www.resortsoffers.com/about-us" />
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.resortsoffers.com/consultancy" />
+        <meta property="og:url" content="https://www.resortsoffers.com/about-us" />
         <meta property="og:site_name" content="ResortsOffers.com" />
-        <meta property="og:title" content="Expert Travel Consultancy Services" />
-        <meta property="og:description" content="Professional travel consultancy for luxury resorts. Free consultation available." />
-        <meta property="og:image" content="https://www.resortsoffers.com/consultancy-og.jpg" />
+        <meta property="og:title" content="About Us - Luxury Hotel Representation" />
+        <meta property="og:description" content="Sales and marketing representation company specialising in luxury hotels, resorts and cruises for the Arabian Gulf market." />
+        <meta property="og:image" content="https://www.resortsoffers.com/about-og.jpg" />
         <meta property="og:locale" content="en_US" />
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:url" content="https://www.resortsoffers.com/consultancy" />
-        <meta name="twitter:title" content="Expert Travel Consultancy Services" />
-        <meta name="twitter:description" content="Professional travel consultancy for luxury resorts." />
-        <meta name="twitter:image" content="https://www.resortsoffers.com/consultancy-og.jpg" />
+        <meta name="twitter:url" content="https://www.resortsoffers.com/about-us" />
+        <meta name="twitter:title" content="About Us - Luxury Hotel Representation" />
+        <meta name="twitter:description" content="Sales and marketing representation for luxury hotels in the GCC region." />
+        <meta name="twitter:image" content="https://www.resortsoffers.com/about-og.jpg" />
         
         {/* Structured Data - Breadcrumb */}
         <script type="application/ld+json">
@@ -78,84 +45,21 @@ const Consultancy = () => {
               {
                 "@type": "ListItem",
                 "position": 2,
-                "name": "Consultancy",
-                "item": "https://www.resortsoffers.com/consultancy"
+                "name": "About Us",
+                "item": "https://www.resortsoffers.com/about-us"
               }
             ]
           })}
         </script>
-        {/* Structured Data - Service */}
+        {/* Structured Data - Organization */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Service",
-            "serviceType": "Travel Consultancy",
-            "provider": {
-              "@type": "TravelAgency",
-              "name": "ResortsOffers.com"
-            },
-            "areaServed": "Worldwide",
-            "hasOfferCatalog": {
-              "@type": "OfferCatalog",
-              "name": "Travel Planning Services",
-              "itemListElement": [
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Free 15-Minute Consultation"
-                  }
-                }
-              ]
-            }
-          })}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "What does your travel consultancy service include?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Our consultancy service includes personalized destination recommendations, resort selection based on your preferences and budget, itinerary planning, booking management, and 24/7 support throughout your trip. We handle all details from flights to special requests."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Is there a fee for consultation services?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Initial consultations are completely free. We offer a complimentary 15-minute discovery call to understand your travel needs. Our revenue comes from resort partnerships, allowing us to provide expert advice at no cost to you while often securing better rates than booking directly."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How long does it take to plan a custom vacation?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Custom vacation planning typically takes 3-7 days depending on complexity. Simple resort bookings can be arranged within 24-48 hours, while multi-destination itineraries with special requirements may need a week. We accommodate urgent requests whenever possible."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Do you handle group bookings and events?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes! We specialize in group travel including weddings, corporate retreats, family reunions, and celebration events. Our team coordinates all logistics, negotiates group rates, and ensures every guest has an exceptional experience."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What destinations do you specialize in?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "We specialize in luxury destinations worldwide with particular expertise in the Maldives, UAE, Seychelles, Bali, Greece, and Italy. Our team has firsthand knowledge of premium resorts globally and maintains strong partnerships with leading hospitality brands."
-                }
-              }
-            ]
+            "@type": "Organization",
+            "name": "ResortsOffers.com",
+            "description": "Sales and marketing representation company specialising in promoting unique luxury hotels, resorts and cruises to travellers from the Arabian Gulf",
+            "areaServed": ["UAE", "Saudi Arabia", "Kuwait", "Qatar", "Bahrain", "Oman"],
+            "url": "https://www.resortsoffers.com"
           })}
         </script>
       </Helmet>
@@ -174,66 +78,86 @@ const Consultancy = () => {
         
         <div className="relative z-10 container-custom text-center">
           <h1 className="text-4xl md:text-6xl font-bold hero-text mb-6 animate-fade-in">
-            Sales, PR, Marketing & Social Media Agency for Luxury Hotels & Travel Brands
+            About Us
           </h1>
           <p className="text-xl md:text-2xl hero-text max-w-3xl mx-auto">
-            Welcome to The Resorts Offers Portfolio - a Representation Company that offers strategies in Sales, PR, Marketing, and Social Media across the GCC
+            Sales, PR, Marketing & Social Media Agency for Luxury Hotels & Travel Brands
           </p>
         </div>
       </section>
 
-      {/* About Section */}
+      {/* Who We Are Section */}
       <section className="section-padding">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              The Resorts Offers Portfolio
+              Who We Are
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              The Travel Portfolio is a sales and marketing representation company, specialising in promoting 
-              unique luxury hotels, resorts and cruises to travellers from the Arabian Gulf. We offer comprehensive 
-              regional sales and marketing solutions within the GCC countries.
+            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+              The Resorts Offers Portfolio is a sales and marketing representation company, specialising in promoting 
+              unique luxury hotels, resorts and cruises to travellers from the Arabian Gulf.
             </p>
-          </div>
-
-          {/* Services Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {consultancyServices.map((service, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
-                <CardHeader>
-                  <div className="mb-4">{service.icon}</div>
-                  <CardTitle className="text-xl">{service.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base">
-                    {service.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            ))}
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              We operate out of offices in United Arab Emirates (Dubai and Abu Dhabi) and Saudi Arabia (Jeddah and Riyadh), 
+              and we offer comprehensive regional sales and marketing solutions within the GCC countries. We have an in depth 
+              knowledge of our portfolio, having individually visited the properties and built strong relationships with each 
+              of our partners.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Process Section */}
+      {/* Values Section */}
       <section className="section-padding bg-muted">
         <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            Our Consulting Process
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {[
-              { step: "01", title: "Discovery", desc: "Understanding your goals and challenges" },
-              { step: "02", title: "Analysis", desc: "Market research and competitive assessment" },
-              { step: "03", title: "Strategy", desc: "Developing tailored solutions" },
-              { step: "04", title: "Implementation", desc: "Execution and ongoing support" }
-            ].map((phase, index) => (
-              <div key={index} className="text-center">
-                <div className="text-5xl font-bold text-accent mb-4">{phase.step}</div>
-                <h3 className="text-xl font-semibold mb-2">{phase.title}</h3>
-                <p className="text-muted-foreground">{phase.desc}</p>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <Card className="text-center">
+              <CardHeader>
+                <div className="flex justify-center mb-4">
+                  <Heart className="w-12 h-12 text-accent" />
+                </div>
+                <CardTitle className="text-2xl mb-4">Our Value</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-base">
+                  Our values of communication, connection, creation, professionalism, knowledge, and influence 
+                  are at the heart and passion of what we offer and in all the work we do.
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center">
+              <CardHeader>
+                <div className="flex justify-center mb-4">
+                  <Target className="w-12 h-12 text-accent" />
+                </div>
+                <CardTitle className="text-2xl mb-4">Our Objective</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-base">
+                  Representing bespoke, individual and luxurious travel partners from across the world in the GCC region. 
+                  We aim to spearhead our partners strategic marketing and sales communications, to achieve a measurable 
+                  and effective return on their investments.
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center">
+              <CardHeader>
+                <div className="flex justify-center mb-4">
+                  <Lightbulb className="w-12 h-12 text-accent" />
+                </div>
+                <CardTitle className="text-2xl mb-4">Our Purpose</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-base">
+                  We are driven by our passion, and commitment to identifying and delivering results. Our team's strength 
+                  of knowledge and strong relationships with the Travel Professionals in the region ensure strategic marketing 
+                  plans are achieved. We analyse the current and potential market trends, to effectively promote our partners 
+                  brand image and establish an excellent positioning within the defined markets.
+                </CardDescription>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
@@ -242,16 +166,24 @@ const Consultancy = () => {
       <section className="section-padding">
         <div className="container-custom text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Transform Your Tourism Vision
+            Ready to Partner With Us?
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Schedule a consultation with our experts to discover how we can elevate your property or destination.
+            Discover how we can elevate your property's presence in the GCC market and connect you with 
+            discerning travelers from the Arabian Gulf.
           </p>
-          <a href="/contact">
-            <button className="bg-primary text-primary-foreground px-8 py-3 rounded-lg text-lg font-semibold hover:bg-primary/90 transition-colors">
-              Schedule Consultation
-            </button>
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/contact">
+              <button className="bg-primary text-primary-foreground px-8 py-3 rounded-lg text-lg font-semibold hover:bg-primary/90 transition-colors">
+                Contact Us
+              </button>
+            </a>
+            <a href="/team">
+              <button className="bg-secondary text-secondary-foreground px-8 py-3 rounded-lg text-lg font-semibold hover:bg-secondary/90 transition-colors">
+                Meet The Team
+              </button>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -260,4 +192,4 @@ const Consultancy = () => {
   );
 };
 
-export default Consultancy;
+export default AboutUs;

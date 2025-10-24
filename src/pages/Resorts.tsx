@@ -1,10 +1,18 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MapPin, Star } from "lucide-react";
+import { MapPin, Star, CheckCircle2 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import {
   Carousel,
   CarouselContent,
@@ -37,6 +45,8 @@ import baliClifftopResort from "@/assets/resorts/bali-clifftop-resort.jpg";
 
 const Resorts = () => {
   const [selectedRegion, setSelectedRegion] = useState("All");
+  const [selectedResort, setSelectedResort] = useState<typeof resorts[0] | null>(null);
+  const navigate = useNavigate();
 
   const heroImages = [
     { src: maldivesAerial1, alt: "Aerial view of luxury Maldives resort with overwater villas and pristine turquoise lagoon" },
@@ -1198,10 +1208,9 @@ const Resorts = () => {
                   </div>
                   <Button 
                     className="w-full" 
-                    variant="outline"
-                    onClick={() => window.open(resort.website, '_blank')}
+                    onClick={() => setSelectedResort(resort)}
                   >
-                    Visit Website
+                    View Details & Book
                   </Button>
                 </CardContent>
               </Card>
@@ -1226,6 +1235,79 @@ const Resorts = () => {
           </a>
         </div>
       </section>
+
+      {/* Resort Details Dialog */}
+      <Dialog open={!!selectedResort} onOpenChange={(open) => !open && setSelectedResort(null)}>
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+          {selectedResort && (
+            <>
+              <DialogHeader>
+                <DialogTitle className="text-2xl flex items-start justify-between">
+                  <span>{selectedResort.name}</span>
+                  <div className="flex items-center gap-1 text-accent">
+                    {[...Array(selectedResort.rating)].map((_, i) => (
+                      <Star key={i} size={18} fill="currentColor" />
+                    ))}
+                  </div>
+                </DialogTitle>
+                <DialogDescription className="flex items-center text-base">
+                  <MapPin size={16} className="mr-1" />
+                  {selectedResort.location}
+                </DialogDescription>
+              </DialogHeader>
+
+              <div className="space-y-6 mt-4">
+                <div className="h-64 bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg" />
+                
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">About This Resort</h3>
+                  <p className="text-muted-foreground">{selectedResort.description}</p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold mb-3">Resort Features</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {selectedResort.features.map((feature, i) => (
+                      <div key={i} className="flex items-center gap-2">
+                        <CheckCircle2 size={18} className="text-primary flex-shrink-0" />
+                        <span className="text-sm">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex gap-3 pt-4 border-t">
+                  <Button 
+                    size="lg" 
+                    className="flex-1"
+                    onClick={() => navigate('/book-consultation', { 
+                      state: { 
+                        resort: selectedResort.name,
+                        destination: selectedResort.location 
+                      } 
+                    })}
+                  >
+                    Book This Resort
+                  </Button>
+                  <Button 
+                    size="lg" 
+                    variant="outline"
+                    className="flex-1"
+                    onClick={() => navigate('/contact', { 
+                      state: { 
+                        resort: selectedResort.name,
+                        destination: selectedResort.location 
+                      } 
+                    })}
+                  >
+                    Contact Us
+                  </Button>
+                </div>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
 
       <Footer />
     </div>

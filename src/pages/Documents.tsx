@@ -50,7 +50,7 @@ const Documents = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative h-[50vh] flex items-center justify-center overflow-hidden mt-20">
+      <section className="relative h-[50vh] flex items-center justify-center overflow-hidden mt-24">
         <div className="absolute inset-0">
           <img 
             src={packagesImage} 
@@ -71,7 +71,7 @@ const Documents = () => {
       </section>
 
       {/* Features Section */}
-      <section className="section-padding bg-muted">
+      <section className="py-20 md:py-32 bg-muted">
         <div className="container-custom">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             <Card className="text-center hover:shadow-xl transition-all duration-300 animate-fade-in">

@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { Calendar, Clock, Video, Phone, MessageCircle } from "lucide-react";
+import { Calendar, Clock, MessageCircle } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -19,8 +19,12 @@ const bookingSchema = z.object({
   email: z.string().email("Please enter a valid email"),
   phone: z.string().min(10, "Please enter a valid phone number with country code"),
   preferredDate: z.string().min(1, "Please select a date"),
-  preferredTime: z.string().min(1, "Please select a time"),
-  consultationType: z.enum(["video", "phone"]),
+  preferredTime: z.string().min(1, "Please select a time (11:00 AM - 10:00 PM UAE time)").refine((time) => {
+    const [hours] = time.split(':').map(Number);
+    return hours >= 11 && hours < 22;
+  }, {
+    message: "Time must be between 11:00 AM and 10:00 PM UAE time"
+  }),
   message: z.string().optional(),
 });
 
@@ -32,9 +36,6 @@ const BookConsultation = () => {
 
   const form = useForm<BookingFormData>({
     resolver: zodResolver(bookingSchema),
-    defaultValues: {
-      consultationType: "video",
-    },
   });
 
   const onSubmit = async (data: BookingFormData) => {
@@ -83,20 +84,20 @@ const BookConsultation = () => {
             Book Your Free Consultation
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-4">
-            15 minutes with our CEO Nora El Khalifi to discuss your luxury travel plans
+            15-minute online session with CEO Nora El Khalifi to discuss your luxury travel plans
           </p>
           <div className="flex items-center justify-center gap-6 text-sm text-muted-foreground flex-wrap">
             <div className="flex items-center gap-2">
+              <Clock className="h-5 w-5 text-accent" />
+              <span>15 Minutes Duration</span>
+            </div>
+            <div className="flex items-center gap-2">
               <Calendar className="h-5 w-5 text-accent" />
-              <span>Calendar Invite Sent</span>
+              <span>Available 11 AM - 10 PM UAE</span>
             </div>
             <div className="flex items-center gap-2">
               <MessageCircle className="h-5 w-5 text-accent" />
-              <span>WhatsApp Reminder</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Clock className="h-5 w-5 text-accent" />
-              <span>24/7 Support Available</span>
+              <span>Online Session</span>
             </div>
           </div>
         </div>
@@ -229,9 +230,9 @@ const BookConsultation = () => {
                       name="preferredTime"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Preferred Time</FormLabel>
+                          <FormLabel>Preferred Time (11 AM - 10 PM UAE)</FormLabel>
                           <FormControl>
-                            <Input type="time" {...field} />
+                            <Input type="time" {...field} min="11:00" max="22:00" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -239,38 +240,6 @@ const BookConsultation = () => {
                     />
                   </div>
 
-                  <FormField
-                    control={form.control}
-                    name="consultationType"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Consultation Type</FormLabel>
-                        <FormControl>
-                          <div className="flex gap-4">
-                            <Button
-                              type="button"
-                              variant={field.value === "video" ? "default" : "outline"}
-                              onClick={() => field.onChange("video")}
-                              className="flex-1"
-                            >
-                              <Video className="mr-2 h-4 w-4" />
-                              Video Call
-                            </Button>
-                            <Button
-                              type="button"
-                              variant={field.value === "phone" ? "default" : "outline"}
-                              onClick={() => field.onChange("phone")}
-                              className="flex-1"
-                            >
-                              <Phone className="mr-2 h-4 w-4" />
-                              Phone Call
-                            </Button>
-                          </div>
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
 
                   <FormField
                     control={form.control}

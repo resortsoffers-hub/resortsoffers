@@ -221,7 +221,7 @@ const ChatWidget = () => {
 
       {/* Chat Window */}
       {isOpen && (
-        <Card className="fixed bottom-24 right-6 w-96 h-[600px] shadow-2xl z-[60] flex flex-col animate-scale-in">
+        <Card className="fixed bottom-24 right-4 left-4 md:left-auto md:right-6 md:w-96 max-w-md h-[600px] shadow-2xl z-[60] flex flex-col animate-scale-in mx-auto md:mx-0">
           {/* Header */}
           <div className="bg-primary text-primary-foreground p-4 rounded-t-lg">
             <div className="flex items-center justify-between mb-3">

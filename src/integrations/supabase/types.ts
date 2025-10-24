@@ -134,6 +134,48 @@ export type Database = {
         }
         Relationships: []
       }
+      resort_documents: {
+        Row: {
+          category: string
+          created_at: string | null
+          description: string | null
+          display_order: number | null
+          file_path: string
+          file_type: string
+          id: string
+          is_active: boolean | null
+          resort_name: string | null
+          title: string
+          updated_at: string | null
+        }
+        Insert: {
+          category?: string
+          created_at?: string | null
+          description?: string | null
+          display_order?: number | null
+          file_path: string
+          file_type: string
+          id?: string
+          is_active?: boolean | null
+          resort_name?: string | null
+          title: string
+          updated_at?: string | null
+        }
+        Update: {
+          category?: string
+          created_at?: string | null
+          description?: string | null
+          display_order?: number | null
+          file_path?: string
+          file_type?: string
+          id?: string
+          is_active?: boolean | null
+          resort_name?: string | null
+          title?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string | null

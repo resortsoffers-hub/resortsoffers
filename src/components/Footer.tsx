@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, Twitter, MapPin, MessageCircle, Link as LinkIcon, Youtube, Linkedin } from "lucide-react";
+import { Facebook, Instagram, Twitter, MapPin, MessageCircle, Link as LinkIcon, Youtube, Linkedin, Calendar } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -33,21 +33,21 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Contact Us</h4>
             <ul className="space-y-2 text-sm">
               <li className="flex items-center gap-2">
-                <MessageCircle size={16} />
-                <a href="https://wa.me/971567622484" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
-                  +971 567 622 484 (UAE)
+                <MessageCircle size={16} className="text-[#25D366]" />
+                <a href="https://wa.me/971567622484" target="_blank" rel="noopener noreferrer" className="hover:text-[#25D366] transition-colors">
+                  🇦🇪 +971 567 622 484
                 </a>
               </li>
               <li className="flex items-center gap-2">
-                <MessageCircle size={16} />
-                <a href="https://wa.me/966582360080" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
-                  +966 582 360 080 (KSA)
+                <MessageCircle size={16} className="text-[#25D366]" />
+                <a href="https://wa.me/966582360080" target="_blank" rel="noopener noreferrer" className="hover:text-[#25D366] transition-colors">
+                  🇸🇦 +966 582 360 080
                 </a>
               </li>
               <li className="flex items-center gap-2">
-                <MessageCircle size={16} />
-                <a href="https://wa.me/447500029091" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
-                  +44 7500 029091 (UK)
+                <MessageCircle size={16} className="text-[#25D366]" />
+                <a href="https://wa.me/447500029091" target="_blank" rel="noopener noreferrer" className="hover:text-[#25D366] transition-colors">
+                  🇬🇧 +44 7500 029091
                 </a>
               </li>
               <li className="flex items-center gap-2 mt-3 pt-2 border-t border-primary-foreground/20">
@@ -62,7 +62,7 @@ const Footer = () => {
           {/* Social Media */}
           <div>
             <h4 className="font-semibold mb-4">Follow Us</h4>
-            <div className="flex gap-4 flex-wrap">
+            <div className="flex gap-4 flex-wrap mb-4">
               <a href="https://www.facebook.com/Resortsoffers/" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Facebook">
                 <Facebook size={20} />
               </a>
@@ -92,6 +92,12 @@ const Footer = () => {
                 <LinkIcon size={20} />
               </a>
             </div>
+            <Link to="/book-consultation">
+              <button className="w-full flex items-center justify-center gap-2 bg-secondary hover:bg-secondary/90 text-secondary-foreground px-4 py-2 rounded-lg transition-colors text-sm font-semibold">
+                <Calendar size={16} />
+                Book Free Consultation
+              </button>
+            </Link>
           </div>
         </div>
 

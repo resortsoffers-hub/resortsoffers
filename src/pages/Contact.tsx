@@ -22,7 +22,7 @@ const Contact = () => {
       details: ["Deira - Port Saeed - Dubai - United Arab Emirates"]
     },
     {
-      icon: <MessageCircle className="w-6 h-6 text-accent" />,
+      icon: <MessageCircle className="w-6 h-6 text-[#25D366]" />,
       title: "WhatsApp Business - Available 24/7",
       details: [
         { text: "🇦🇪 +971 56 762 2484", link: "https://wa.me/971567622484" },
@@ -156,7 +156,7 @@ const Contact = () => {
                 <Card className="bg-accent/5 border-accent/20">
                   <CardContent className="p-4">
                     <p className="text-sm font-semibold mb-3 flex items-center gap-2">
-                      <MessageCircle className="h-4 w-4 text-accent" />
+                      <MessageCircle className="h-4 w-4 text-[#25D366]" />
                       Prefer instant chat? Contact us on WhatsApp!
                     </p>
                     <div className="flex flex-wrap gap-2">
@@ -164,7 +164,7 @@ const Contact = () => {
                         href="https://wa.me/971567622484" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-2 bg-accent/10 hover:bg-accent/20 rounded-md text-xl transition-colors"
+                        className="inline-flex items-center gap-1.5 px-3 py-2 bg-[#25D366]/10 hover:bg-[#25D366]/20 border border-[#25D366]/30 rounded-md text-xl transition-colors"
                         title="WhatsApp UAE"
                       >
                         <span>🇦🇪</span>
@@ -173,7 +173,7 @@ const Contact = () => {
                         href="https://wa.me/966582360080" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-2 bg-accent/10 hover:bg-accent/20 rounded-md text-xl transition-colors"
+                        className="inline-flex items-center gap-1.5 px-3 py-2 bg-[#25D366]/10 hover:bg-[#25D366]/20 border border-[#25D366]/30 rounded-md text-xl transition-colors"
                         title="WhatsApp KSA"
                       >
                         <span>🇸🇦</span>
@@ -182,7 +182,7 @@ const Contact = () => {
                         href="https://wa.me/447500029091" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-2 bg-accent/10 hover:bg-accent/20 rounded-md text-xl transition-colors"
+                        className="inline-flex items-center gap-1.5 px-3 py-2 bg-[#25D366]/10 hover:bg-[#25D366]/20 border border-[#25D366]/30 rounded-md text-xl transition-colors"
                         title="WhatsApp UK"
                       >
                         <span>🇬🇧</span>

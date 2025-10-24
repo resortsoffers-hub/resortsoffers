@@ -48,15 +48,6 @@ const Navbar = () => {
                 </Button>
               </Link>
             ))}
-            <Link to="/book-consultation">
-              <Button 
-                variant="secondary"
-                size="sm"
-                className="ml-2"
-              >
-                {t('nav.bookConsultation')}
-              </Button>
-            </Link>
             <LanguageSwitcher />
           </div>
 
@@ -89,14 +80,6 @@ const Navbar = () => {
                 </Button>
               </Link>
             ))}
-            <Link to="/book-consultation" onClick={() => setIsOpen(false)}>
-              <Button 
-                variant="secondary"
-                className="w-full justify-start mb-2"
-              >
-                {t('nav.bookConsultation')}
-              </Button>
-            </Link>
             <div className="px-2 mt-2">
               <LanguageSwitcher />
             </div>

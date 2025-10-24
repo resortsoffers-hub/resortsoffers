@@ -25,9 +25,9 @@ const Contact = () => {
       icon: <MessageCircle className="w-6 h-6 text-accent" />,
       title: "WhatsApp Business - Available 24/7",
       details: [
-        { text: "+971 56 762 2484 (UAE)", link: "https://wa.me/971567622484" },
-        { text: "+966 582 360 080 (KSA)", link: "https://wa.me/966582360080" },
-        { text: "+44 7500 029091 (UK)", link: "https://wa.me/447500029091" }
+        { text: "🇦🇪 +971 56 762 2484 (UAE)", link: "https://wa.me/971567622484" },
+        { text: "🇸🇦 +966 582 360 080 (KSA)", link: "https://wa.me/966582360080" },
+        { text: "🇬🇧 +44 7500 029091 (UK)", link: "https://wa.me/447500029091" }
       ],
       badge: "24/7"
     },
@@ -146,7 +146,46 @@ const Contact = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <div>
-              <h2 className="text-3xl font-bold mb-6">Send Us a Message</h2>
+              <div className="mb-8">
+                <h2 className="text-3xl font-bold mb-4">Send Us a Message</h2>
+                <Card className="bg-accent/5 border-accent/20">
+                  <CardContent className="p-4">
+                    <p className="text-sm font-semibold mb-3 flex items-center gap-2">
+                      <MessageCircle className="h-4 w-4 text-accent" />
+                      Prefer instant chat? Contact us on WhatsApp!
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      <a 
+                        href="https://wa.me/971567622484" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-accent/10 hover:bg-accent/20 rounded-md text-sm transition-colors"
+                      >
+                        <span>🇦🇪</span>
+                        <span className="font-medium">UAE</span>
+                      </a>
+                      <a 
+                        href="https://wa.me/966582360080" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-accent/10 hover:bg-accent/20 rounded-md text-sm transition-colors"
+                      >
+                        <span>🇸🇦</span>
+                        <span className="font-medium">KSA</span>
+                      </a>
+                      <a 
+                        href="https://wa.me/447500029091" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-accent/10 hover:bg-accent/20 rounded-md text-sm transition-colors"
+                      >
+                        <span>🇬🇧</span>
+                        <span className="font-medium">UK</span>
+                      </a>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
@@ -218,15 +257,22 @@ const Contact = () => {
                     </CardHeader>
                     <CardContent>
                       {info.details.map((detail, i) => (
-                        <p key={i} className="text-muted-foreground">
+                        <div key={i} className="mb-2 last:mb-0">
                           {typeof detail === 'string' ? (
-                            detail
+                            <p className="text-muted-foreground">{detail}</p>
                           ) : (
-                            <a href={detail.link} target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
-                              {detail.text}
+                            <a 
+                              href={detail.link} 
+                              target="_blank" 
+                              rel="noopener noreferrer" 
+                              className="flex items-center gap-2 p-2 hover:bg-accent/10 rounded-lg transition-colors group"
+                            >
+                              <span className="text-base font-medium group-hover:text-accent transition-colors">
+                                {detail.text}
+                              </span>
                             </a>
                           )}
-                        </p>
+                        </div>
                       ))}
                     </CardContent>
                   </Card>

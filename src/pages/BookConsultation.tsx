@@ -270,37 +270,19 @@ const BookConsultation = () => {
                   </div>
                   
                   <div className="text-center pt-4 border-t">
-                    <p className="text-sm font-semibold mb-3">Prefer WhatsApp? Skip the form!</p>
+                    <p className="text-sm font-semibold mb-3">Or Email Us Directly</p>
                     <div className="flex flex-col gap-2">
                       <a 
-                        href="https://wa.me/971567622484" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
+                        href="mailto:vip@resortsoffers.com"
                         className="flex items-center justify-center gap-2 p-3 bg-accent/10 hover:bg-accent/20 rounded-lg transition-colors"
                       >
-                        <span className="text-2xl">🇦🇪</span>
-                        <MessageCircle className="h-4 w-4 text-accent" />
-                        <span className="font-medium">+971 56 762 2484 (UAE)</span>
+                        <span className="font-medium">vip@resortsoffers.com</span>
                       </a>
                       <a 
-                        href="https://wa.me/966582360080" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
+                        href="mailto:info@resortsoffers.com"
                         className="flex items-center justify-center gap-2 p-3 bg-accent/10 hover:bg-accent/20 rounded-lg transition-colors"
                       >
-                        <span className="text-2xl">🇸🇦</span>
-                        <MessageCircle className="h-4 w-4 text-accent" />
-                        <span className="font-medium">+966 582 360 080 (KSA)</span>
-                      </a>
-                      <a 
-                        href="https://wa.me/447500029091" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-2 p-3 bg-accent/10 hover:bg-accent/20 rounded-lg transition-colors"
-                      >
-                        <span className="text-2xl">🇬🇧</span>
-                        <MessageCircle className="h-4 w-4 text-accent" />
-                        <span className="font-medium">+44 7500 029091 (UK)</span>
+                        <span className="font-medium">info@resortsoffers.com</span>
                       </a>
                     </div>
                   </div>

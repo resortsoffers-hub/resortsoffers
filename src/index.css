@@ -17,17 +17,17 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 215 25% 15%;
 
-    /* Maroon/Burgundy theme inspired by Qatar Airways */
-    --primary: 345 65% 25%;
+    /* Blue theme - White and Blue only */
+    --primary: 213 94% 29%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 345 55% 45%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 213 100% 97%;
+    --secondary-foreground: 213 94% 29%;
 
-    --muted: 210 20% 96%;
-    --muted-foreground: 215 15% 50%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
 
-    --accent: 28 80% 52%;
+    --accent: 213 94% 40%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -35,7 +35,7 @@ All colors MUST be HSL.
 
     --border: 215 20% 90%;
     --input: 215 20% 90%;
-    --ring: 345 65% 25%;
+    --ring: 213 94% 29%;
 
     --radius: 0.5rem;
 
@@ -66,16 +66,16 @@ All colors MUST be HSL.
     --popover: 215 40% 15%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 215 90% 45%;
+    --primary: 213 94% 45%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 215 85% 60%;
+    --secondary: 213 50% 30%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 215 30% 22%;
     --muted-foreground: 215 10% 70%;
 
-    --accent: 215 85% 60%;
+    --accent: 213 94% 55%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 50%;
@@ -83,7 +83,7 @@ All colors MUST be HSL.
 
     --border: 215 30% 25%;
     --input: 215 30% 25%;
-    --ring: 215 90% 45%;
+    --ring: 213 94% 45%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;

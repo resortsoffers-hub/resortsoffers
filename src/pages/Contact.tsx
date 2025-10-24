@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { MapPin, Clock, MessageCircle, Globe, Send, Facebook, Instagram, Twitter, Star, Youtube, Linkedin, Calendar, Bell } from "lucide-react";
+import { MapPin, Clock, MessageCircle, Mail, Send, Facebook, Instagram, Twitter, Star, Youtube, Linkedin, Calendar, Bell } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { toast } from "sonner";
@@ -25,16 +25,21 @@ const Contact = () => {
       icon: <MessageCircle className="w-6 h-6 text-accent" />,
       title: "WhatsApp Business - Available 24/7",
       details: [
-        { text: "🇦🇪 +971 56 762 2484 (UAE)", link: "https://wa.me/971567622484" },
-        { text: "🇸🇦 +966 582 360 080 (KSA)", link: "https://wa.me/966582360080" },
-        { text: "🇬🇧 +44 7500 029091 (UK)", link: "https://wa.me/447500029091" }
+        { text: "🇦🇪 +971 56 762 2484", link: "https://wa.me/971567622484" },
+        { text: "🇸🇦 +966 582 360 080", link: "https://wa.me/966582360080" },
+        { text: "🇬🇧 +44 7500 029091", link: "https://wa.me/447500029091" }
       ],
       badge: "24/7"
     },
     {
-      icon: <Globe className="w-6 h-6 text-accent" />,
-      title: "Website",
-      details: [{ text: "www.resortsoffers.com", link: "https://www.resortsoffers.com" }]
+      icon: <Mail className="w-6 h-6 text-accent" />,
+      title: "Email Us",
+      details: [
+        { text: "VIP@resortsoffers.com", link: "mailto:VIP@resortsoffers.com" },
+        { text: "Marketing@resortsoffers.com", link: "mailto:Marketing@resortsoffers.com" },
+        { text: "Finance@resortsoffers.com", link: "mailto:Finance@resortsoffers.com" },
+        { text: "ceo@resortsoffers.com", link: "mailto:ceo@resortsoffers.com" }
+      ]
     },
     {
       icon: <Star className="w-6 h-6 text-accent" />,
@@ -159,28 +164,28 @@ const Contact = () => {
                         href="https://wa.me/971567622484" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-accent/10 hover:bg-accent/20 rounded-md text-sm transition-colors"
+                        className="inline-flex items-center gap-1.5 px-3 py-2 bg-accent/10 hover:bg-accent/20 rounded-md text-xl transition-colors"
+                        title="WhatsApp UAE"
                       >
                         <span>🇦🇪</span>
-                        <span className="font-medium">UAE</span>
                       </a>
                       <a 
                         href="https://wa.me/966582360080" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-accent/10 hover:bg-accent/20 rounded-md text-sm transition-colors"
+                        className="inline-flex items-center gap-1.5 px-3 py-2 bg-accent/10 hover:bg-accent/20 rounded-md text-xl transition-colors"
+                        title="WhatsApp KSA"
                       >
                         <span>🇸🇦</span>
-                        <span className="font-medium">KSA</span>
                       </a>
                       <a 
                         href="https://wa.me/447500029091" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-accent/10 hover:bg-accent/20 rounded-md text-sm transition-colors"
+                        className="inline-flex items-center gap-1.5 px-3 py-2 bg-accent/10 hover:bg-accent/20 rounded-md text-xl transition-colors"
+                        title="WhatsApp UK"
                       >
                         <span>🇬🇧</span>
-                        <span className="font-medium">UK</span>
                       </a>
                     </div>
                   </CardContent>

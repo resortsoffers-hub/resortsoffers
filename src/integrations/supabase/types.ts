@@ -47,6 +47,48 @@ export type Database = {
         }
         Relationships: []
       }
+      consultation_bookings: {
+        Row: {
+          consultation_type: string
+          created_at: string
+          email: string
+          id: string
+          message: string | null
+          name: string
+          phone: string
+          preferred_date: string
+          preferred_time: string
+          status: Database["public"]["Enums"]["booking_status"]
+          updated_at: string
+        }
+        Insert: {
+          consultation_type: string
+          created_at?: string
+          email: string
+          id?: string
+          message?: string | null
+          name: string
+          phone: string
+          preferred_date: string
+          preferred_time: string
+          status?: Database["public"]["Enums"]["booking_status"]
+          updated_at?: string
+        }
+        Update: {
+          consultation_type?: string
+          created_at?: string
+          email?: string
+          id?: string
+          message?: string | null
+          name?: string
+          phone?: string
+          preferred_date?: string
+          preferred_time?: string
+          status?: Database["public"]["Enums"]["booking_status"]
+          updated_at?: string
+        }
+        Relationships: []
+      }
       offers: {
         Row: {
           category: string | null
@@ -128,6 +170,7 @@ export type Database = {
     }
     Enums: {
       app_role: "admin" | "user"
+      booking_status: "pending" | "confirmed" | "cancelled" | "completed"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -256,6 +299,7 @@ export const Constants = {
   public: {
     Enums: {
       app_role: ["admin", "user"],
+      booking_status: ["pending", "confirmed", "cancelled", "completed"],
     },
   },
 } as const

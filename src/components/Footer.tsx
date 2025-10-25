@@ -130,7 +130,7 @@ const Footer = () => {
             <div className="bg-primary-foreground/10 p-4 rounded-lg">
               <div className="flex mb-2">
                 {[...Array(5)].map((_, i) => (
-                  <span key={i} className="text-accent">★</span>
+                  <span key={i} className="text-white">★</span>
                 ))}
               </div>
               <p className="text-sm mb-2">"Exceptional service! They found us the perfect honeymoon resort in Maldives."</p>
@@ -139,7 +139,7 @@ const Footer = () => {
             <div className="bg-primary-foreground/10 p-4 rounded-lg">
               <div className="flex mb-2">
                 {[...Array(5)].map((_, i) => (
-                  <span key={i} className="text-accent">★</span>
+                  <span key={i} className="text-white">★</span>
                 ))}
               </div>
               <p className="text-sm mb-2">"Best travel consultancy in Dubai! Professional and responsive team."</p>
@@ -148,7 +148,7 @@ const Footer = () => {
             <div className="bg-primary-foreground/10 p-4 rounded-lg">
               <div className="flex mb-2">
                 {[...Array(5)].map((_, i) => (
-                  <span key={i} className="text-accent">★</span>
+                  <span key={i} className="text-white">★</span>
                 ))}
               </div>
               <p className="text-sm mb-2">"Amazing deals and unforgettable experience. Highly recommended!"</p>

@@ -44,7 +44,7 @@ const Contact = () => {
     {
       icon: <Star className="w-6 h-6 text-accent" />,
       title: "Google Reviews",
-      details: [{ text: "Leave us a review ⭐", link: "https://g.page/r/CfJvRGYBkj4NEBM/review" }]
+      details: [{ text: "Leave us a review ⭐", link: "https://g.page/r/Cf7HhHgF8dCpEBM/review" }]
     }
   ];
 

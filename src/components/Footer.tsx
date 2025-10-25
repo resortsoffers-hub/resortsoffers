@@ -157,7 +157,7 @@ const Footer = () => {
           </div>
           <div className="text-center mt-6">
             <a 
-              href="https://g.page/r/YOUR_GOOGLE_BUSINESS_ID/review" 
+              href="https://g.page/r/Cf7HhHgF8dCpEBM/review" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="inline-flex items-center gap-2 bg-primary-foreground/10 hover:bg-primary-foreground/20 px-6 py-3 rounded-lg transition-colors"

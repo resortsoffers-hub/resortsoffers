@@ -11,6 +11,7 @@ const Navbar = () => {
   const { t } = useTranslation();
 
   const navItems = [
+    { name: t('nav.destinations'), path: "/destinations" },
     { name: t('nav.resorts'), path: "/resorts" },
     { name: t('nav.offers'), path: "/offers" },
     { name: t('nav.aboutUs'), path: "/about-us" },

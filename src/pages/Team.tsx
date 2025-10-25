@@ -14,8 +14,8 @@ const Team = () => {
   const teamMembers = [
     {
       name: "Nora El Khalifi",
-      position: "Managing Director",
-      bio: "With over 20 years in luxury hospitality, Nora leads our regional operations with strategic vision and industry expertise.",
+      position: "CEO & Managing Director",
+      bio: "Member of Dubai Business Women Council. Master's in Hotel & Hospitality Management. Multilingual Speaker: English, Arabic, French & Spanish.",
       email: "ceo@resortsoffers.com",
       linkedin: "https://www.linkedin.com/in/noraelkhalifi",
       photo: noraPhoto
@@ -115,7 +115,7 @@ const Team = () => {
               {
                 "@type": "Person",
                 "name": "Nora El Khalifi",
-                "jobTitle": "Managing Director",
+                "jobTitle": "CEO & Managing Director",
                 "email": "ceo@resortsoffers.com",
                 "worksFor": {
                   "@type": "Organization",

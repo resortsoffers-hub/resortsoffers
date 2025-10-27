@@ -519,7 +519,7 @@ export const destinationsData: Record<string, DestinationData> = {
     name: "Switzerland",
     arabicName: "سويسرا",
     slug: "switzerland",
-    heroImage: "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=1600&q=80",
+    heroImage: "/src/assets/destinations/switzerland-hero.jpg",
     description: "Alpine luxury, pristine mountains, and world-renowned hospitality",
     arabicDescription: "الرفاهية الألبية والجبال النقية والضيافة ذات الشهرة العالمية",
     bestTimeToVisit: {
@@ -692,7 +692,7 @@ export const destinationsData: Record<string, DestinationData> = {
     name: "Norway",
     arabicName: "النرويج",
     slug: "norway",
-    heroImage: "https://images.unsplash.com/photo-1601439678777-b2d2d6fd6333?w=1600&q=80",
+    heroImage: "/src/assets/destinations/norway-hero.jpg",
     description: "Dramatic fjords, Northern Lights, and Scandinavian elegance",
     arabicDescription: "المضايق الدرامية والأضواء الشمالية والأناقة الاسكندنافية",
     bestTimeToVisit: {
@@ -778,7 +778,7 @@ export const destinationsData: Record<string, DestinationData> = {
     name: "Finland",
     arabicName: "فنلندا",
     slug: "finland",
-    heroImage: "https://images.unsplash.com/photo-1517680944537-5d994a1ebf32?w=1600&q=80",
+    heroImage: "/src/assets/destinations/finland-hero.jpg",
     description: "Arctic wilderness, glass igloos, and the magical Northern Lights experience",
     arabicDescription: "البرية القطبية والأكواخ الزجاجية وتجربة الأضواء الشمالية السحرية",
     bestTimeToVisit: {
@@ -1385,7 +1385,7 @@ export const destinationsData: Record<string, DestinationData> = {
     name: "Seychelles",
     arabicName: "سيشيل",
     slug: "seychelles",
-    heroImage: "https://images.unsplash.com/photo-1589197331516-3c5d6e961f6c?w=1600&q=80",
+    heroImage: "/src/assets/destinations/seychelles-hero.jpg",
     description: "Pristine beaches, granite boulders, and exclusive island resorts in the Indian Ocean",
     arabicDescription: "شواطئ نقية وصخور جرانيتية ومنتجعات جزر حصرية في المحيط الهندي",
     bestTimeToVisit: {
@@ -1472,7 +1472,7 @@ export const destinationsData: Record<string, DestinationData> = {
     name: "Mauritius",
     arabicName: "موريشيوس",
     slug: "mauritius",
-    heroImage: "https://images.unsplash.com/photo-1535189043414-47a3c49a0fa5?w=1600&q=80",
+    heroImage: "/src/assets/destinations/mauritius-hero.jpg",
     description: "Tropical paradise offering diverse landscapes, luxury resorts, and vibrant culture",
     arabicDescription: "جنة استوائية تقدم مناظر طبيعية متنوعة ومنتجعات فاخرة وثقافة نابضة بالحياة",
     bestTimeToVisit: {

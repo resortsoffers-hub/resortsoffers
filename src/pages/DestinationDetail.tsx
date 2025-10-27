@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useParams, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -12,6 +13,8 @@ import { destinationsData } from "@/data/destinationsData";
 const DestinationDetail = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
+  const { i18n } = useTranslation();
+  const isArabic = i18n.language === 'ar';
 
   const destination = slug ? destinationsData[slug] : null;
 
@@ -57,13 +60,10 @@ const DestinationDetail = () => {
           <div className="absolute inset-0 bg-black/50" />
           <div className="relative z-10 text-center text-white px-4">
             <h1 className="text-5xl md:text-7xl font-bold mb-4">
-              {destination.name}
+              {isArabic ? destination.arabicName : destination.name}
             </h1>
-            <p className="text-xl md:text-2xl mb-2">
-              {destination.arabicName}
-            </p>
             <p className="text-lg md:text-xl max-w-3xl mx-auto mt-6">
-              {destination.description}
+              {isArabic ? destination.arabicDescription : destination.description}
             </p>
           </div>
         </section>
@@ -74,12 +74,11 @@ const DestinationDetail = () => {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Calendar className="h-6 w-6 text-primary" />
-                Best Time to Visit | أفضل وقت للزيارة
+                {isArabic ? "أفضل وقت للزيارة" : "Best Time to Visit"}
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-lg mb-2">{destination.bestTimeToVisit.en}</p>
-              <p className="text-lg text-muted-foreground">{destination.bestTimeToVisit.ar}</p>
+              <p className="text-lg">{isArabic ? destination.bestTimeToVisit.ar : destination.bestTimeToVisit.en}</p>
             </CardContent>
           </Card>
         </section>
@@ -87,7 +86,7 @@ const DestinationDetail = () => {
         {/* Regions */}
         <section className="container-custom py-16">
           <h2 className="text-4xl font-bold text-center mb-12">
-            Popular Regions | المناطق الشهيرة
+            {isArabic ? "المناطق الشهيرة" : "Popular Regions"}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {destination.regions.map((region) => (
@@ -95,13 +94,12 @@ const DestinationDetail = () => {
                 <div className="relative h-48 overflow-hidden">
                   <img 
                     src={region.image} 
-                    alt={region.name}
+                    alt={isArabic ? region.arabicName : region.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
                 <CardContent className="p-6">
-                  <h3 className="text-2xl font-bold mb-2">{region.name}</h3>
-                  <p className="text-sm text-muted-foreground mb-3">{region.arabicName}</p>
+                  <h3 className="text-2xl font-bold mb-2">{isArabic ? region.arabicName : region.name}</h3>
                   <p className="text-muted-foreground">{region.description}</p>
                 </CardContent>
               </Card>
@@ -112,7 +110,7 @@ const DestinationDetail = () => {
         {/* Top Attractions */}
         <section className="container-custom py-16 bg-accent/10">
           <h2 className="text-4xl font-bold text-center mb-12">
-            Top Attractions | أفضل المعالم السياحية
+            {isArabic ? "أفضل المعالم السياحية" : "Top Attractions"}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {destination.topAttractions.map((attraction, index) => (
@@ -121,8 +119,7 @@ const DestinationDetail = () => {
                   <div className="flex items-start gap-3">
                     <MapPin className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
                     <div>
-                      <h3 className="font-bold text-lg mb-1">{attraction.title}</h3>
-                      <p className="text-sm text-muted-foreground mb-2">{attraction.titleAr}</p>
+                      <h3 className="font-bold text-lg mb-1">{isArabic ? attraction.titleAr : attraction.title}</h3>
                       <p className="text-sm">{attraction.description}</p>
                     </div>
                   </div>
@@ -135,7 +132,7 @@ const DestinationDetail = () => {
         {/* Activities */}
         <section className="container-custom py-16">
           <h2 className="text-4xl font-bold text-center mb-12">
-            Activities & Experiences | الأنشطة والتجارب
+            {isArabic ? "الأنشطة والتجارب" : "Activities & Experiences"}
           </h2>
           <Card>
             <CardContent className="p-8">
@@ -154,7 +151,7 @@ const DestinationDetail = () => {
         {/* Cuisine */}
         <section className="container-custom py-16 bg-accent/10">
           <h2 className="text-4xl font-bold text-center mb-12">
-            Must-Try Cuisine | الأطباق التي يجب تجربتها
+            {isArabic ? "الأطباق التي يجب تجربتها" : "Must-Try Cuisine"}
           </h2>
           <Card>
             <CardContent className="p-8">
@@ -173,21 +170,17 @@ const DestinationDetail = () => {
         {/* FAQ Section */}
         <section className="container-custom py-16">
           <h2 className="text-4xl font-bold text-center mb-12">
-            Frequently Asked Questions | الأسئلة الشائعة
+            {isArabic ? "الأسئلة الشائعة" : "Frequently Asked Questions"}
           </h2>
           <Accordion type="single" collapsible className="max-w-4xl mx-auto">
             {destination.faqs.map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`}>
                 <AccordionTrigger className="text-left">
-                  <div>
-                    <div className="font-semibold">{faq.question}</div>
-                    <div className="text-sm text-muted-foreground mt-1">{faq.questionAr}</div>
-                  </div>
+                  <div className="font-semibold">{isArabic ? faq.questionAr : faq.question}</div>
                 </AccordionTrigger>
                 <AccordionContent>
-                  <div className="space-y-2 pt-2">
-                    <p>{faq.answer}</p>
-                    <p className="text-muted-foreground">{faq.answerAr}</p>
+                  <div className="pt-2">
+                    <p>{isArabic ? faq.answerAr : faq.answer}</p>
                   </div>
                 </AccordionContent>
               </AccordionItem>
@@ -198,9 +191,11 @@ const DestinationDetail = () => {
         {/* CTA Section */}
         <section className="bg-primary text-white py-16">
           <div className="container-custom text-center">
-            <h2 className="text-4xl font-bold mb-6">Ready to Explore {destination.name}?</h2>
+            <h2 className="text-4xl font-bold mb-6">
+              {isArabic ? `هل أنت مستعد لاستكشاف ${destination.arabicName}؟` : `Ready to Explore ${destination.name}?`}
+            </h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto">
-              Contact our experts for personalized resort recommendations and exclusive offers
+              {isArabic ? "تواصل مع خبرائنا للحصول على توصيات منتجعات مخصصة وعروض حصرية" : "Contact our experts for personalized resort recommendations and exclusive offers"}
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Button 
@@ -208,7 +203,7 @@ const DestinationDetail = () => {
                 variant="secondary"
                 onClick={() => navigate("/resorts")}
               >
-                View Resorts
+                {isArabic ? "عرض المنتجعات" : "View Resorts"}
               </Button>
               <Button 
                 size="lg" 
@@ -216,7 +211,7 @@ const DestinationDetail = () => {
                 className="bg-white/10 text-white hover:bg-white/20"
                 onClick={() => navigate("/book-consultation")}
               >
-                Book Consultation
+                {isArabic ? "حجز استشارة" : "Book Consultation"}
               </Button>
             </div>
           </div>

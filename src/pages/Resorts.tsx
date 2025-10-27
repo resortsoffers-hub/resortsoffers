@@ -1208,7 +1208,7 @@ const Resorts = () => {
                   </div>
                   <Button 
                     className="w-full" 
-                    onClick={() => setSelectedResort(resort)}
+                    onClick={() => navigate(`/resorts/${resort.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`)}
                   >
                     View Details & Book
                   </Button>

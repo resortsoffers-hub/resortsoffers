@@ -21,6 +21,7 @@ import FAQ from "./pages/FAQ";
 import Events from "./pages/Events";
 import Destinations from "./pages/Destinations";
 import DestinationDetail from "./pages/DestinationDetail";
+import ResortDetail from "./pages/ResortDetail";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -37,6 +38,7 @@ const App = () => (
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/services" element={<Services />} />
           <Route path="/resorts" element={<Resorts />} />
+          <Route path="/resorts/:slug" element={<ResortDetail />} />
           <Route path="/destinations" element={<Destinations />} />
           <Route path="/destinations/:slug" element={<DestinationDetail />} />
           <Route path="/offers" element={<Offers />} />

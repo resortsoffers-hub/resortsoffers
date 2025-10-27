@@ -1553,5 +1553,128 @@ export const destinationsData: Record<string, DestinationData> = {
         answerAr: "لا حاجة لتأشيرة للسياح. يتم إصدار تصريح دخول مجاني عند الوصول لمدة تصل إلى 60 يومًا."
       }
     ]
+  },
+
+  tahiti: {
+    name: "Tahiti & French Polynesia",
+    arabicName: "تاهيتي وبولينيزيا الفرنسية",
+    slug: "tahiti",
+    heroImage: "https://images.unsplash.com/photo-1589197331516-3c5d6e961f6c?w=1600&q=80",
+    description: "Overwater bungalows, turquoise lagoons, and pristine coral reefs in the heart of the South Pacific. French Polynesia offers unparalleled luxury and natural beauty across 118 islands.",
+    arabicDescription: "أكواخ فوق الماء وبحيرات فيروزية وشعاب مرجانية نقية في قلب جنوب المحيط الهادئ. توفر بولينيزيا الفرنسية رفاهية وجمالًا طبيعيًا لا مثيل لهما عبر 118 جزيرة.",
+    bestTimeToVisit: {
+      en: "May to October - Dry season with perfect weather (24-28°C), ideal for water activities and less humidity",
+      ar: "مايو إلى أكتوبر - موسم جاف مع طقس مثالي (24-28 درجة مئوية)، مثالي للأنشطة المائية ورطوبة أقل"
+    },
+    regions: [
+      {
+        name: "Tahiti",
+        arabicName: "تاهيتي",
+        description: "Main island with vibrant markets, black sand beaches, and Papeete city",
+        image: "https://images.unsplash.com/photo-1540202404-d0c7fe46a087?w=800&q=80"
+      },
+      {
+        name: "Bora Bora",
+        arabicName: "بورا بورا",
+        description: "Legendary island with iconic overwater bungalows and Mount Otemanu",
+        image: "https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?w=800&q=80"
+      },
+      {
+        name: "Moorea",
+        arabicName: "موريا",
+        description: "Heart-shaped island with dramatic peaks and pristine bays",
+        image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80"
+      },
+      {
+        name: "Rangiroa",
+        arabicName: "رانجيروا",
+        description: "World's second-largest atoll, perfect for diving with dolphins and sharks",
+        image: "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=800&q=80"
+      }
+    ],
+    topAttractions: [
+      {
+        title: "Overwater Bungalows",
+        titleAr: "أكواخ فوق الماء",
+        description: "Iconic luxury accommodations with glass floors and direct lagoon access"
+      },
+      {
+        title: "Lagoonarium",
+        titleAr: "متحف البحيرة",
+        description: "Natural aquarium to swim with rays, sharks, and tropical fish"
+      },
+      {
+        title: "Mount Otemanu",
+        titleAr: "جبل أوتيمانو",
+        description: "Extinct volcano providing stunning backdrop to Bora Bora"
+      },
+      {
+        title: "Coral Gardens",
+        titleAr: "حدائق المرجان",
+        description: "World-class snorkeling spots with vibrant marine life"
+      },
+      {
+        title: "Black Pearl Farms",
+        titleAr: "مزارع اللؤلؤ الأسود",
+        description: "Visit farms producing famous Tahitian black pearls"
+      },
+      {
+        title: "Matira Beach",
+        titleAr: "شاطئ ماتيرا",
+        description: "One of the most beautiful public beaches in the South Pacific"
+      }
+    ],
+    activities: [
+      "Snorkeling and scuba diving",
+      "Shark and ray feeding tours",
+      "Lagoon boat tours",
+      "Jet ski safaris",
+      "Sunset sailing cruises",
+      "Traditional Polynesian dance shows",
+      "Pearl farm visits",
+      "Island hopping adventures",
+      "Helicopter tours",
+      "4WD mountain safaris"
+    ],
+    cuisine: [
+      "Poisson Cru - Raw fish in coconut milk",
+      "Ma'a Tahiti - Traditional feast",
+      "Fresh tropical fruits",
+      "Grilled mahi-mahi",
+      "Fafaru - Fermented fish",
+      "French pastries and breads"
+    ],
+    faqs: [
+      {
+        question: "Do I need a visa for Tahiti and French Polynesia?",
+        questionAr: "هل أحتاج إلى تأشيرة لتاهيتي وبولينيزيا الفرنسية؟",
+        answer: "No visa required for most nationalities (including US, Canada, EU, GCC countries) for stays up to 90 days. As French Polynesia is a French overseas territory, visa requirements follow French regulations. Valid passport required for 6 months beyond stay.",
+        answerAr: "لا حاجة لتأشيرة لمعظم الجنسيات (بما في ذلك الولايات المتحدة وكندا والاتحاد الأوروبي ودول مجلس التعاون الخليجي) للإقامة حتى 90 يومًا. جواز سفر ساري المفعول مطلوب لمدة 6 أشهر بعد الإقامة."
+      },
+      {
+        question: "What currency is used in Tahiti?",
+        questionAr: "ما هي العملة المستخدمة في تاهيتي؟",
+        answer: "CFP Franc (XPF). Credit cards widely accepted at resorts and restaurants. ATMs available in main islands. 1 USD ≈ 100 XPF.",
+        answerAr: "الفرنك الباسيفيكي (XPF). بطاقات الائتمان مقبولة على نطاق واسع في المنتجعات والمطاعم. أجهزة الصراف الآلي متوفرة في الجزر الرئيسية."
+      },
+      {
+        question: "How do I get between islands?",
+        questionAr: "كيف أنتقل بين الجزر؟",
+        answer: "Air Tahiti operates domestic flights between islands (15-50 min). Ferry services available for nearby islands like Moorea. Many resorts arrange transfers and island-hopping packages.",
+        answerAr: "تشغل طيران تاهيتي رحلات محلية بين الجزر (15-50 دقيقة). خدمات العبارات متاحة للجزر القريبة مثل موريا. العديد من المنتجعات ترتب النقل وباقات التنقل بين الجزر."
+      },
+      {
+        question: "What language is spoken?",
+        questionAr: "ما هي اللغة المستخدمة؟",
+        answer: "French and Tahitian are official languages. English is widely spoken in tourist areas, resorts, and by tour operators. Many staff are multilingual.",
+        answerAr: "الفرنسية والتاهيتية هي اللغات الرسمية. الإنجليزية مستخدمة على نطاق واسع في المناطق السياحية والمنتجعات ومن قبل منظمي الرحلات."
+      },
+      {
+        question: "Is Tahiti expensive?",
+        questionAr: "هل تاهيتي غالية؟",
+        answer: "Tahiti is a luxury destination with higher prices, especially for resorts and dining. However, all-inclusive packages offer good value. Budget options exist on main islands. Water activities and natural attractions are moderately priced.",
+        answerAr: "تاهيتي وجهة فاخرة بأسعار أعلى، خاصة للمنتجعات والطعام. ومع ذلك، الباقات الشاملة تقدم قيمة جيدة. توجد خيارات ميزانية في الجزر الرئيسية."
+      }
+    ]
   }
 };

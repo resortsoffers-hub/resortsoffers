@@ -11,6 +11,7 @@ import seychellesMauritiusImage from "@/assets/blog/seychelles-mauritius.jpg";
 import sustainableLuxuryImage from "@/assets/blog/sustainable-luxury.jpg";
 import honeymoonImage from "@/assets/blog/honeymoon-2025.jpg";
 import resortDiningImage from "@/assets/blog/resort-dining.jpg";
+import blogHeroImg from "@/assets/blog-hero.jpg";
 
 const Blog = () => {
   const blogPosts = [
@@ -160,12 +161,13 @@ const Blog = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="section-padding mt-20 bg-gradient-to-br from-primary/10 to-accent/10">
-        <div className="container-custom text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
+      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden mt-20" style={{ backgroundImage: `url(${blogHeroImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-primary/60" />
+        <div className="relative z-10 container-custom text-center">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 animate-fade-in">
             Travel Insights & Guides
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-white max-w-3xl mx-auto">
             Expert advice and inspiration for your next luxury escape
           </p>
         </div>

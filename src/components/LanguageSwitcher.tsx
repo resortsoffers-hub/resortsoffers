@@ -7,6 +7,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useTranslation } from "react-i18next";
+import { useEffect } from "react";
 
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
@@ -18,16 +19,23 @@ const LanguageSwitcher = () => {
     { code: "ru", name: "Русский", flag: "🇷🇺" },
   ];
 
+  // Set direction on component mount and language change
+  useEffect(() => {
+    const currentLang = i18n.language;
+    if (currentLang === 'ar') {
+      document.documentElement.dir = 'rtl';
+      document.documentElement.lang = 'ar';
+    } else {
+      document.documentElement.dir = 'ltr';
+      document.documentElement.lang = currentLang;
+    }
+  }, [i18n.language]);
+
   const currentLanguage = languages.find((lang) => lang.code === i18n.language) || languages[0];
 
   const changeLanguage = (langCode: string) => {
     i18n.changeLanguage(langCode);
-    // Set direction for RTL languages
-    if (langCode === 'ar') {
-      document.documentElement.dir = 'rtl';
-    } else {
-      document.documentElement.dir = 'ltr';
-    }
+    // Direction will be set by useEffect
   };
 
   return (

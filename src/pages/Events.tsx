@@ -10,6 +10,7 @@ import wtmLondonImage from "@/assets/events/wtm-london.jpg";
 import atmDubaiImage from "@/assets/events/atm-dubai.jpg";
 import iltmCannesImage from "@/assets/events/iltm-cannes.jpg";
 import gulfBrideImage from "@/assets/events/gulf-bride.jpg";
+import eventsHeroImg from "@/assets/events-hero.jpg";
 
 const Events = () => {
   const events = [
@@ -200,21 +201,13 @@ const Events = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden mt-20">
-        <div className="absolute inset-0">
-          <img 
-            src={packagesImage} 
-            alt="Travel industry events" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/80 to-primary/60" />
-        </div>
-        
+      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden mt-20" style={{ backgroundImage: `url(${eventsHeroImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-primary/60" />
         <div className="relative z-10 container-custom text-center">
-          <h1 className="text-4xl md:text-6xl font-bold hero-text mb-6 animate-fade-in">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 animate-fade-in">
             Travel Industry Events
           </h1>
-          <p className="text-xl md:text-2xl hero-text max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-white max-w-3xl mx-auto">
             Meet us at the world's leading travel and tourism exhibitions
           </p>
         </div>

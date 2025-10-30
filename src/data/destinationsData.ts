@@ -704,25 +704,25 @@ export const destinationsData: Record<string, DestinationData> = {
         name: "Oslo",
         arabicName: "أوسلو",
         description: "Modern capital with Viking history and museums",
-        image: "https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=800&q=80"
+        image: "/src/assets/destinations/norway-oslo.jpg"
       },
       {
         name: "Bergen",
         arabicName: "بيرغن",
         description: "Gateway to the fjords with colorful Bryggen wharf",
-        image: "https://images.unsplash.com/photo-1601439678777-b2d2d6fd6333?w=800&q=80"
+        image: "/src/assets/destinations/norway-bergen.jpg"
       },
       {
         name: "Tromsø",
         arabicName: "ترومسو",
         description: "Arctic city perfect for Northern Lights viewing",
-        image: "https://images.unsplash.com/photo-1579033461380-adb47c3eb938?w=800&q=80"
+        image: "/src/assets/destinations/norway-tromso.jpg"
       },
       {
         name: "Lofoten",
         arabicName: "لوفوتين",
         description: "Dramatic islands with fishing villages and mountains",
-        image: "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800&q=80"
+        image: "/src/assets/destinations/norway-lofoten.jpg"
       }
     ],
     topAttractions: [

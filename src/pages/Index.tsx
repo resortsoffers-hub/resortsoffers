@@ -113,8 +113,8 @@ const Index = () => {
       type: "Package",
       discount: 25,
       validUntil: "2026-03-31",
-      description: "Celebrate your love with champagne, couples spa treatment, and sunset dinner at our exclusive cliffside restaurant.",
-      features: ["Champagne on Arrival", "Couples Massage", "Private Dinner"],
+        description: "Celebrate your love with romantic welcome amenities, couples spa treatment, and sunset dinner at our exclusive cliffside restaurant.",
+        features: ["Romantic Welcome", "Couples Massage", "Private Dinner"],
       price: "from $550/night",
       image: santoriniGreece
     },
@@ -423,7 +423,7 @@ const Index = () => {
               <CardHeader>
                 <CardTitle>Honeymoon Specials</CardTitle>
                 <CardDescription>
-                  Romantic packages with champagne, spa treatments & private dining
+                  Romantic packages with spa treatments & private dining
                 </CardDescription>
               </CardHeader>
             </Card>

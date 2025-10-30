@@ -69,10 +69,10 @@ const FAQ = () => {
           q: "How do I choose the right resort for my family?",
           a: "For families, prioritize resorts with kids clubs, family villas with multiple bedrooms, and shallow beach areas safe for children. Dubai excels for families with theme parks and attractions nearby. Maldives resorts with speedboat transfers (under 30 minutes) are better for young children than seaplane transfers. Look for all-inclusive options to manage costs and resorts with babysitting services for parents' alone time. Check age restrictions—some Maldives resorts are adults-only or have minimum age requirements."
         },
-        {
-          q: "Which destinations are best for honeymoons?",
-          a: "The Maldives tops honeymoon choices with private overwater villas, romantic dining experiences, and complete seclusion. Seychelles offers more adventurous honeymoons combining beach luxury with nature exploration. Santorini, Greece provides stunning sunsets, charming villages, and Mediterranean cuisine. Bali blends romance with culture, offering private villa resorts and spiritual experiences. Many resorts offer honeymoon packages including champagne, couples spa treatments, sunset cruises, and special dining arrangements."
-        }
+         {
+           q: "Which destinations are best for honeymoons?",
+           a: "The Maldives tops honeymoon choices with private overwater villas, romantic dining experiences, and complete seclusion. Seychelles offers more adventurous honeymoons combining beach luxury with nature exploration. Santorini, Greece provides stunning sunsets, charming villages, and Mediterranean cuisine. Bali blends romance with culture, offering private villa resorts and spiritual experiences. Many resorts offer honeymoon packages including romantic welcome amenities, couples spa treatments, sunset cruises, and special dining arrangements."
+         }
       ]
     },
     {

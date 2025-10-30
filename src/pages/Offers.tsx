@@ -169,18 +169,6 @@ const Offers = () => {
       image: maldivesVillaPool
     },
     {
-      title: "Ritz-Carlton Beach Paradise",
-      destination: "Maldives",
-      type: "Luxury",
-      discount: 30,
-      validUntil: "2026-03-31",
-      description: "Signature Ritz-Carlton service in pristine beach villas surrounded by turquoise waters and white sand.",
-      features: ["Beach Villa", "World-Class Service", "Water Sports"],
-      price: "from $720/night",
-      featured: true,
-      image: maldivesPoolDining
-    },
-    {
       title: "Maldives Villa Collection",
       destination: "Maldives",
       type: "Package",

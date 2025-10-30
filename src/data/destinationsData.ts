@@ -1136,25 +1136,25 @@ export const destinationsData: Record<string, DestinationData> = {
         name: "Santorini",
         arabicName: "سانتوريني",
         description: "Iconic white-washed buildings with blue domes and stunning sunsets",
-        image: "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=800&q=80"
+        image: "/src/assets/destinations/greece-santorini.jpg"
       },
       {
         name: "Mykonos",
         arabicName: "ميكونوس",
         description: "Glamorous island with beaches, nightlife, and windmills",
-        image: "https://images.unsplash.com/photo-1601581987809-a874a81309c9?w=800&q=80"
+        image: "/src/assets/destinations/greece-mykonos.jpg"
       },
       {
         name: "Crete",
         arabicName: "كريت",
         description: "Largest island with ancient ruins, beaches, and mountains",
-        image: "https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=800&q=80"
+        image: "/src/assets/destinations/greece-crete.jpg"
       },
       {
         name: "Athens",
         arabicName: "أثينا",
         description: "Historic capital with Acropolis and ancient monuments",
-        image: "https://images.unsplash.com/photo-1555993539-1732b0258235?w=800&q=80"
+        image: "/src/assets/destinations/greece-athens.jpg"
       }
     ],
     topAttractions: [
@@ -1397,25 +1397,25 @@ export const destinationsData: Record<string, DestinationData> = {
         name: "Mahé",
         arabicName: "ماهي",
         description: "Main island with capital Victoria and stunning beaches",
-        image: "https://images.unsplash.com/photo-1589197331516-3c5d6e961f6c?w=800&q=80"
+        image: "/src/assets/destinations/seychelles-mahe.jpg"
       },
       {
         name: "Praslin",
         arabicName: "براسلين",
         description: "Home to Vallée de Mai UNESCO site and Anse Lazio beach",
-        image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80"
+        image: "/src/assets/destinations/seychelles-praslin.jpg"
       },
       {
         name: "La Digue",
         arabicName: "لا ديغ",
         description: "Tranquil island with iconic Anse Source d'Argent beach",
-        image: "https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=800&q=80"
+        image: "/src/assets/destinations/seychelles-la-digue.jpg"
       },
       {
         name: "Silhouette",
         arabicName: "سيلويت",
         description: "Mountainous island with luxury eco-resorts",
-        image: "https://images.unsplash.com/photo-1540202404-d0c7fe46a087?w=800&q=80"
+        image: "/src/assets/destinations/seychelles-silhouette.jpg"
       }
     ],
     topAttractions: [
@@ -1484,25 +1484,25 @@ export const destinationsData: Record<string, DestinationData> = {
         name: "North",
         arabicName: "الشمال",
         description: "Grand Baie area with beaches, shopping, and nightlife",
-        image: "https://images.unsplash.com/photo-1535189043414-47a3c49a0fa5?w=800&q=80"
+        image: "/src/assets/destinations/mauritius-north.jpg"
       },
       {
         name: "South",
         arabicName: "الجنوب",
         description: "Dramatic cliffs, waterfalls, and natural beauty",
-        image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80"
+        image: "/src/assets/destinations/mauritius-south.jpg"
       },
       {
         name: "East",
         arabicName: "الشرق",
         description: "Belle Mare beach and luxury resorts",
-        image: "https://images.unsplash.com/photo-1540202404-d0c7fe46a087?w=800&q=80"
+        image: "/src/assets/destinations/mauritius-east.jpg"
       },
       {
         name: "West",
         arabicName: "الغرب",
         description: "Flic en Flac beach and Le Morne mountain",
-        image: "https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=800&q=80"
+        image: "/src/assets/destinations/mauritius-west.jpg"
       }
     ],
     topAttractions: [

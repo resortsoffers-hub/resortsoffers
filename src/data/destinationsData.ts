@@ -1559,7 +1559,7 @@ const rawDestinationsData: Record<string, DestinationData> = {
     name: "Tahiti & French Polynesia",
     arabicName: "تاهيتي وبولينيزيا الفرنسية",
     slug: "tahiti",
-    heroImage: "https://images.unsplash.com/photo-1589197331516-3c5d6e961f6c?w=1600&q=80",
+    heroImage: "/src/assets/resorts/bora-bora.jpg",
     description: "Overwater bungalows, turquoise lagoons, and pristine coral reefs in the heart of the South Pacific. French Polynesia offers unparalleled luxury and natural beauty across 118 islands.",
     arabicDescription: "أكواخ فوق الماء وبحيرات فيروزية وشعاب مرجانية نقية في قلب جنوب المحيط الهادئ. توفر بولينيزيا الفرنسية رفاهية وجمالًا طبيعيًا لا مثيل لهما عبر 118 جزيرة.",
     bestTimeToVisit: {
@@ -1571,13 +1571,13 @@ const rawDestinationsData: Record<string, DestinationData> = {
         name: "Tahiti",
         arabicName: "تاهيتي",
         description: "Main island with vibrant markets, black sand beaches, and Papeete city",
-        image: "https://images.unsplash.com/photo-1540202404-d0c7fe46a087?w=800&q=80"
+        image: "/src/assets/resorts/bora-bora.jpg"
       },
       {
         name: "Bora Bora",
         arabicName: "بورا بورا",
         description: "Legendary island with iconic overwater bungalows and Mount Otemanu",
-        image: "https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?w=800&q=80"
+        image: "/src/assets/resorts/bora-bora.jpg"
       },
       {
         name: "Moorea",
@@ -1680,10 +1680,11 @@ const rawDestinationsData: Record<string, DestinationData> = {
 };
 
 // Resolve local destination images from src/assets for production builds
-const destImages = import.meta.glob('../assets/destinations/*.{png,jpg,jpeg,webp}', {
-  eager: true,
-  as: 'url',
-}) as Record<string, string>;
+const destImages = {
+  ...import.meta.glob('../assets/destinations/*.{png,jpg,jpeg,webp}', { eager: true, as: 'url' }),
+  ...import.meta.glob('../assets/resorts/*.{png,jpg,jpeg,webp}', { eager: true, as: 'url' }),
+  ...import.meta.glob('../assets/*.{png,jpg,jpeg,webp}', { eager: true, as: 'url' }),
+} as Record<string, string>;
 
 const resolveAsset = (p: string): string => {
   if (!p) return p;

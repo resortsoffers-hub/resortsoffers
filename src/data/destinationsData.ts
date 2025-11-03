@@ -30,7 +30,7 @@ export interface DestinationData {
   }>;
 }
 
-export const destinationsData: Record<string, DestinationData> = {
+const rawDestinationsData: Record<string, DestinationData> = {
   maldives: {
     name: "Maldives",
     arabicName: "المالديف",
@@ -1678,3 +1678,29 @@ export const destinationsData: Record<string, DestinationData> = {
     ]
   }
 };
+
+// Resolve local destination images from src/assets for production builds
+const destImages = import.meta.glob('../assets/destinations/*.{png,jpg,jpeg,webp}', {
+  eager: true,
+  as: 'url',
+}) as Record<string, string>;
+
+const resolveAsset = (p: string): string => {
+  if (!p) return p;
+  if (p.startsWith('http')) return p;
+  // Normalize '/src/...' paths to match glob keys '../...'
+  const normalized = p.replace(/^\/src\//, '../');
+  return destImages[normalized] ?? p;
+};
+
+export const destinationsData: Record<string, DestinationData> = Object.fromEntries(
+  Object.entries(rawDestinationsData).map(([slug, d]) => [
+    slug,
+    {
+      ...d,
+      heroImage: resolveAsset(d.heroImage),
+      regions: d.regions.map((r) => ({ ...r, image: resolveAsset(r.image) })),
+    },
+  ]),
+);
+

@@ -152,7 +152,7 @@ const rawDestinationsData: Record<string, DestinationData> = {
     name: "Dubai",
     arabicName: "دبي",
     slug: "dubai",
-    heroImage: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1600&q=80",
+    heroImage: "/src/assets/resorts/dubai-luxury.jpg",
     description: "Futuristic luxury, desert adventures, and world-class shopping in the heart of the UAE. Dubai combines modern architecture with traditional Arabian hospitality and endless entertainment options.",
     arabicDescription: "الرفاهية المستقبلية ومغامرات الصحراء والتسوق العالمي في قلب الإمارات العربية المتحدة. تجمع دبي بين العمارة الحديثة والضيافة العربية التقليدية وخيارات الترفيه اللامتناهية.",
     bestTimeToVisit: {
@@ -164,25 +164,25 @@ const rawDestinationsData: Record<string, DestinationData> = {
         name: "Downtown Dubai",
         arabicName: "وسط مدينة دبي",
         description: "Home to Burj Khalifa, Dubai Mall, and the Dubai Fountain",
-        image: "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=800&q=80"
+        image: "/src/assets/resorts/dubai-luxury.jpg"
       },
       {
         name: "Palm Jumeirah",
         arabicName: "نخلة جميرا",
         description: "Iconic man-made island with ultra-luxury resorts and residences",
-        image: "https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?w=800&q=80"
+        image: "/src/assets/resorts/dubai-luxury.jpg"
       },
       {
         name: "Dubai Marina",
         arabicName: "مرسى دبي",
         description: "Waterfront living with stunning skyscrapers and dining",
-        image: "https://images.unsplash.com/photo-1559628376-f3fe5f782a2e?w=800&q=80"
+        image: "/src/assets/resorts/dubai-luxury.jpg"
       },
       {
         name: "Jumeirah Beach",
         arabicName: "شاطئ جميرا",
         description: "Pristine beaches with views of Burj Al Arab",
-        image: "https://images.unsplash.com/photo-1580837119756-563d608dd119?w=800&q=80"
+        image: "/src/assets/resorts/dubai-luxury.jpg"
       }
     ],
     topAttractions: [
@@ -531,7 +531,7 @@ const rawDestinationsData: Record<string, DestinationData> = {
         name: "Zermatt",
         arabicName: "زيرمات",
         description: "Car-free alpine village at the foot of the Matterhorn",
-        image: "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800&q=80"
+        image: "/src/assets/resorts/swiss-alps.jpg"
       },
       {
         name: "St. Moritz",
@@ -549,7 +549,7 @@ const rawDestinationsData: Record<string, DestinationData> = {
         name: "Geneva",
         arabicName: "جنيف",
         description: "Cosmopolitan city on Lake Geneva with international flair",
-        image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?w=800&q=80"
+        image: "/src/assets/destinations/switzerland-hero.jpg"
       }
     ],
     topAttractions: [
@@ -635,7 +635,7 @@ const rawDestinationsData: Record<string, DestinationData> = {
         name: "Sicily",
         arabicName: "صقلية",
         description: "Mediterranean island with ancient ruins and beaches",
-        image: "https://images.unsplash.com/photo-1555992336-fb0d29498b13?w=800&q=80"
+        image: "/src/assets/resorts/italy-villa.jpg"
       }
     ],
     topAttractions: [
@@ -790,7 +790,7 @@ const rawDestinationsData: Record<string, DestinationData> = {
         name: "Lapland",
         arabicName: "لابلاند",
         description: "Arctic region with Santa Claus Village and Northern Lights",
-        image: "https://images.unsplash.com/photo-1517680944537-5d994a1ebf32?w=800&q=80"
+        image: "/src/assets/resorts/finland-northern-lights.jpg"
       },
       {
         name: "Helsinki",
@@ -1038,7 +1038,7 @@ const rawDestinationsData: Record<string, DestinationData> = {
     name: "Malaysia",
     arabicName: "ماليزيا",
     slug: "malaysia",
-    heroImage: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=1600&q=80",
+    heroImage: "/src/assets/resorts/malaysia-beach.jpg",
     description: "Tropical rainforests, pristine islands, and multicultural urban experiences",
     arabicDescription: "الغابات الاستوائية المطيرة والجزر النقية والتجارب الحضرية متعددة الثقافات",
     bestTimeToVisit: {
@@ -1065,10 +1065,10 @@ const rawDestinationsData: Record<string, DestinationData> = {
         image: "https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=800&q=80"
       },
       {
-        name: "Borneo",
-        arabicName: "بورنيو",
-        description: "Rainforest adventures with orangutans and diving",
-        image: "https://images.unsplash.com/photo-1551244072-5d12893278ab?w=800&q=80"
+        name: "Sunway Lagoon",
+        arabicName: "صنواي لاجون",
+        description: "Water park and resort complex in Kuala Lumpur",
+        image: "/src/assets/resorts/malaysia-beach.jpg"
       }
     ],
     topAttractions: [

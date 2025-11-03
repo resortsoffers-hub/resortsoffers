@@ -29,7 +29,7 @@ const Services = () => {
       icon: <Users className="w-12 h-12 text-accent" />,
       title: "Client Relations",
       description: "Building and maintaining strong relationships with travel agencies, corporate clients, and tour operators.",
-      image: maldivesVillasImg,
+      image: luxuryPoolImg,
       features: [
         "B2B partnerships",
         "Corporate accounts",
@@ -65,7 +65,7 @@ const Services = () => {
       icon: <Award className="w-12 h-12 text-accent" />,
       title: "Brand Management",
       description: "Protecting and enhancing your property's brand image and reputation in the market.",
-      image: luxuryPoolImg,
+      image: maldivesVillasImg,
       features: [
         "Brand positioning",
         "Reputation management",

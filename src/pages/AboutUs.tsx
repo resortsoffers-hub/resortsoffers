@@ -4,6 +4,7 @@ import { Heart, Target, Lightbulb } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import heroImage from "@/assets/resorts/luxury-infinity-pool.jpg";
+import noraCEO from "@/assets/team/nora-ceo.jpg";
 
 const AboutUs = () => {
   return (
@@ -115,7 +116,7 @@ const AboutUs = () => {
               <div className="grid md:grid-cols-2 gap-0">
                 <div className="relative h-64 md:h-auto">
                   <img 
-                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80"
+                    src={noraCEO}
                     alt="Nora El Khalifi - CEO & Founder" 
                     className="w-full h-full object-cover"
                   />

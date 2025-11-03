@@ -36,36 +36,36 @@ const rawDestinationsData: Record<string, DestinationData> = {
     arabicName: "المالديف",
     slug: "maldives",
     heroImage: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=1600&q=80",
-    description: "Paradise islands with overwater villas, crystal-clear waters, and world-class luxury resorts. The Maldives offers an unparalleled tropical escape with pristine beaches, vibrant coral reefs, and exceptional hospitality.",
-    arabicDescription: "جزر الجنة مع فيلات فوق الماء ومياه صافية كالكريستال ومنتجعات فاخرة عالمية المستوى. توفر المالديف ملاذًا استوائيًا لا مثيل له مع شواطئ نقية وشعاب مرجانية نابضة بالحياة وضيافة استثنائية.",
+    description: "Paradise islands perfect for honeymooners seeking romance in private water villas, families enjoying safe lagoons and kids clubs, and couples escaping to secluded luxury. World-class resorts offer halal-certified dining, overwater bungalows with direct ocean access, and exceptional hospitality in crystal-clear tropical waters.",
+    arabicDescription: "جزر الجنة المثالية لشهر العسل في فيلات خاصة فوق الماء، والعائلات التي تستمتع بالبحيرات الآمنة ونوادي الأطفال، والأزواج الذين يبحثون عن الرفاهية المنعزلة. تقدم المنتجعات العالمية طعامًا حلالًا معتمدًا، وأكواخًا فوق الماء مع الوصول المباشر للمحيط، وضيافة استثنائية في المياه الاستوائية الصافية.",
     bestTimeToVisit: {
       en: "November to April - Dry season with excellent visibility for diving and perfect beach weather (25-30°C)",
       ar: "نوفمبر إلى أبريل - الموسم الجاف مع رؤية ممتازة للغوص وطقس شاطئي مثالي (25-30 درجة مئوية)"
     },
     regions: [
       {
-        name: "North Malé Atoll",
-        arabicName: "جزيرة مالي الشمالية",
-        description: "Home to luxury resorts and easy access from the international airport",
-        image: "https://images.unsplash.com/photo-1589197331516-3c5d6e961f6c?w=800&q=80"
+        name: "Honeymoon Escapes",
+        arabicName: "ملاذات شهر العسل",
+        description: "Romantic overwater villas with private infinity pools, sunset views, and couples spa treatments",
+        image: "/src/assets/maldives-ocean-pool.jpg"
       },
       {
-        name: "South Malé Atoll",
-        arabicName: "جزيرة مالي الجنوبية",
-        description: "Secluded resorts with pristine diving sites and vibrant marine life",
-        image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80"
+        name: "Family Resorts",
+        arabicName: "منتجعات عائلية",
+        description: "Kids clubs, family water villas, safe shallow lagoons, and activities for all ages",
+        image: "/src/assets/resorts/maldives-villa-pool.jpg"
       },
       {
-        name: "Ari Atoll",
-        arabicName: "جزيرة آري",
-        description: "Famous for whale shark encounters and luxury island resorts",
-        image: "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=800&q=80"
+        name: "Private Water Villas",
+        arabicName: "فيلات خاصة فوق الماء",
+        description: "Exclusive overwater bungalows with direct ocean access, glass floors, and butler service",
+        image: "/src/assets/resorts/maldives-water-villa.jpg"
       },
       {
-        name: "Baa Atoll",
-        arabicName: "جزيرة با",
-        description: "UNESCO Biosphere Reserve with spectacular manta ray diving",
-        image: "https://images.unsplash.com/photo-1540202404-d0c7fe46a087?w=800&q=80"
+        name: "Halal Luxury",
+        arabicName: "الفخامة الحلال",
+        description: "Resorts offering halal-certified dining, alcohol-free options, and Muslim-friendly amenities",
+        image: "/src/assets/maldives-patina.jpg"
       }
     ],
     topAttractions: [
@@ -463,7 +463,7 @@ const rawDestinationsData: Record<string, DestinationData> = {
         name: "Hokkaido",
         arabicName: "هوكايدو",
         description: "Northern island with ski resorts, hot springs, and natural beauty",
-        image: "https://images.unsplash.com/photo-1605124436531-bf39e3a0c3e5?w=800&q=80"
+        image: "/src/assets/resorts/china-luxury.jpg"
       }
     ],
     topAttractions: [

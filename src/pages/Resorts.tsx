@@ -74,7 +74,8 @@ const Resorts = () => {
       rating: 5,
       description: "Be surrounded by azure sky and ocean at The Ritz-Carlton Maldives, Fari Islands, featuring luxury villas and world-class amenities.",
       features: ["Overwater Villas", "Kids Club", "Spa & Wellness", "Multiple Restaurants"],
-      website: "https://www.ritzcarlton.com/en/hotels/maldives"
+      website: "https://www.ritzcarlton.com/en/hotels/maldives",
+      image: maldivesAerial1
     },
     {
       name: "Patina Maldives",
@@ -83,7 +84,8 @@ const Resorts = () => {
       rating: 5,
       description: "A 42-hectare island haven of freedom and wonder, offering perpetual flow of inspiration with world-class dining destinations.",
       features: ["Beach & Overwater Villas", "Multiple Dining", "Wellness Center", "Cultural Events"],
-      website: "https://www.patinamaldives.com"
+      website: "https://www.patinamaldives.com",
+      image: maldivesVillaPool
     },
     {
       name: "One&Only Reethi Rah",
@@ -92,7 +94,8 @@ const Resorts = () => {
       rating: 5,
       description: "Surrounded by azure sky and ocean, immersed in iconic over-water villas with eight restaurants and five bars.",
       features: ["Overwater Villas", "8 Restaurants", "5 Bars", "Private Beach"],
-      website: "https://www.oneandonlyresorts.com/one-and-only-reethi-rah-maldives"
+      website: "https://www.oneandonlyresorts.com/one-and-only-reethi-rah-maldives",
+      image: maldivesWaterVilla
     },
     {
       name: "Four Seasons Landaa Giraavaru",
@@ -101,7 +104,8 @@ const Resorts = () => {
       rating: 5,
       description: "UNESCO Biosphere Reserve luxury resort offering pristine natural beauty and world-class hospitality.",
       features: ["Beach Villas", "Marine Discovery", "Spa Retreat", "Fine Dining"],
-      website: "https://www.fourseasons.com/maldiveslg"
+      website: "https://www.fourseasons.com/maldiveslg",
+      image: maldivesPoolDining
     },
     {
       name: "Jumeirah Maldives",
@@ -110,7 +114,8 @@ const Resorts = () => {
       rating: 5,
       description: "Experience luxury in the Maldives with Jumeirah's signature hospitality, featuring elegant villas and exceptional dining.",
       features: ["Water Villas", "Spa Services", "Water Sports", "Kids Club"],
-      website: "https://www.jumeirah.com/en/stay/maldives"
+      website: "https://www.jumeirah.com/en/stay/maldives",
+      image: waterVillasAerial
     },
     {
       name: "OZEN Reserve Bolifushi",
@@ -119,7 +124,8 @@ const Resorts = () => {
       rating: 5,
       description: "Your intimate escape into luxury where opulence meets meaningful connection. Cultural immersion with Maldivian-inspired cuisine.",
       features: ["All-Inclusive", "Wellness Journey", "Cultural Immersion", "Private Pool Villas"],
-      website: "https://ozenreserve.com"
+      website: "https://ozenreserve.com",
+      image: poolBreakfast
     },
     {
       name: "Waldorf Astoria Maldives",
@@ -128,7 +134,8 @@ const Resorts = () => {
       rating: 5,
       description: "Iconic luxury resort in the Maldives offering exceptional service and pristine natural beauty in an exclusive setting.",
       features: ["Reef & Beach Villas", "Spa Sanctuary", "Multiple Dining", "Water Sports"],
-      website: "https://www.waldorfastoriamaldives.com"
+      website: "https://www.waldorfastoriamaldives.com",
+      image: maldivesAerial2
     },
     {
       name: "Villa Private Island",
@@ -137,7 +144,8 @@ const Resorts = () => {
       rating: 5,
       description: "Ultimate privacy and luxury in exclusive private island villas with personalized service and bespoke experiences.",
       features: ["Private Islands", "Butler Service", "Yacht Excursions", "Exclusive Dining"],
-      website: "https://www.villahotels.com"
+      website: "https://www.villahotels.com",
+      image: poolAerial
     },
     {
       name: "Cheval Blanc Randheli",
@@ -146,7 +154,8 @@ const Resorts = () => {
       rating: 5,
       description: "A new contemporary vision of hospitality promoting French craftsmanship and Art de Vivre à la française in the Maldives.",
       features: ["Luxury Villas", "French Cuisine", "Spa by Guerlain", "Private Island"],
-      website: "https://www.chevalblanc.com/en/maison/maldives-randheli"
+      website: "https://www.chevalblanc.com/en/maison/maldives-randheli",
+      image: luxuryInfinityPool
     },
     {
       name: "Joali Maldives",
@@ -155,7 +164,8 @@ const Resorts = () => {
       rating: 5,
       description: "An immersive luxury experience where art meets nature. Discover bespoke design, world-class dining, and unparalleled service.",
       features: ["Art Gallery", "Private Beaches", "Underwater Restaurant", "Spa Sanctuary"],
-      website: "https://www.joali.com"
+      website: "https://www.joali.com",
+      image: coupleBikes
     },
     {
       name: "Soneva Fushi",
@@ -164,7 +174,8 @@ const Resorts = () => {
       rating: 5,
       description: "Barefoot luxury in a pristine tropical paradise. Experience sustainable sophistication with oversized villas and exceptional dining.",
       features: ["Eco-Luxury Villas", "Observatory", "Outdoor Cinema", "Organic Cuisine"],
-      website: "https://www.soneva.com/soneva-fushi"
+      website: "https://www.soneva.com/soneva-fushi",
+      image: weddingCeremony
     },
     {
       name: "JW Marriott Maldives",
@@ -173,7 +184,8 @@ const Resorts = () => {
       rating: 5,
       description: "Sophisticated island sanctuary offering contemporary luxury with stunning overwater and beach villas in the heart of the Maldives.",
       features: ["Overwater Pool Villas", "Multiple Restaurants", "Spa & Wellness", "Water Sports Center"],
-      website: "https://www.marriott.com/hotels/travel/mlejw-jw-marriott-maldives-resort-and-spa"
+      website: "https://www.marriott.com/hotels/travel/mlejw-jw-marriott-maldives-resort-and-spa",
+      image: weddingDance
     },
     {
       name: "SO/ Maldives",
@@ -182,7 +194,8 @@ const Resorts = () => {
       rating: 5,
       description: "Bold, playful, and avant-garde luxury resort inspired by fashion and design. Experience the extraordinary with vibrant energy.",
       features: ["Designer Villas", "Fashion Events", "Gourmet Dining", "Beach Club"],
-      website: "https://www.so-maldives.com"
+      website: "https://www.so-maldives.com",
+      image: weddingCoupleCart
     },
     {
       name: "Kuda Villingili Resort",
@@ -191,7 +204,8 @@ const Resorts = () => {
       rating: 5,
       description: "Tropical island paradise combining natural beauty with refined luxury. Enjoy pristine beaches and exceptional personalized service.",
       features: ["Beach & Water Villas", "Infinity Pools", "Spa Treatments", "Water Activities"],
-      website: "https://www.kudavillingili.com"
+      website: "https://www.kudavillingili.com",
+      image: baliClifftopResort
     },
     {
       name: "Niyama Private Islands",
@@ -1177,7 +1191,13 @@ const Resorts = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredResorts.map((resort, index) => (
               <Card key={index} className="hover:shadow-xl transition-all duration-300 overflow-hidden group">
-                <div className="h-48 bg-gradient-to-br from-primary/20 to-accent/20 group-hover:scale-105 transition-transform duration-300" />
+                <div className="h-48 overflow-hidden">
+                  <img 
+                    src={resort.image || luxuryVillaPool} 
+                    alt={`${resort.name} - Luxury resort in ${resort.location}`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
                 <CardHeader>
                   <div className="flex items-start justify-between mb-2">
                     <CardTitle className="text-xl">{resort.name}</CardTitle>
@@ -1257,7 +1277,13 @@ const Resorts = () => {
               </DialogHeader>
 
               <div className="space-y-6 mt-4">
-                <div className="h-64 bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg" />
+                <div className="h-64 rounded-lg overflow-hidden">
+                  <img 
+                    src={selectedResort.image || luxuryVillaPool} 
+                    alt={`${selectedResort.name} resort view`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 
                 <div>
                   <h3 className="text-lg font-semibold mb-2">About This Resort</h3>

@@ -42,6 +42,55 @@ import poolBreakfast from "@/assets/resorts/pool-breakfast.jpg";
 import waterVillasAerial from "@/assets/resorts/water-villas-aerial.jpg";
 import luxuryInfinityPool from "@/assets/resorts/luxury-infinity-pool.jpg";
 import baliClifftopResort from "@/assets/resorts/bali-clifftop-resort.jpg";
+import boraBora from "@/assets/resorts/bora-bora.jpg";
+import dubaiLuxury from "@/assets/resorts/dubai-luxury.jpg";
+import moroccoRiad from "@/assets/resorts/morocco-riad.jpg";
+import swissAlps from "@/assets/resorts/swiss-alps.jpg";
+import turkeyResort from "@/assets/resorts/turkey-resort.jpg";
+import vietnamHalong from "@/assets/resorts/vietnam-halong.jpg";
+import amsterdamCanal from "@/assets/resorts/amsterdam-canal.jpg";
+import londonLuxury from "@/assets/resorts/london-luxury.jpg";
+import italyVilla from "@/assets/resorts/italy-villa.jpg";
+import chinaLuxury from "@/assets/resorts/china-luxury.jpg";
+import malaysiaBeach from "@/assets/resorts/malaysia-beach.jpg";
+import finlandNorthernLights from "@/assets/resorts/finland-northern-lights.jpg";
+
+const getFallbackImageByRegion = (region: string) => {
+  switch (region.toLowerCase()) {
+    case "maldives":
+      return waterVillasAerial;
+    case "seychelles":
+      return poolAerial;
+    case "mauritius":
+      return maldivesVillaPool;
+    case "dubai":
+      return dubaiLuxury;
+    case "bora bora":
+      return boraBora;
+    case "turkey":
+      return turkeyResort;
+    case "morocco":
+      return moroccoRiad;
+    case "switzerland":
+      return swissAlps;
+    case "italy":
+      return italyVilla;
+    case "amsterdam":
+      return amsterdamCanal;
+    case "london":
+      return londonLuxury;
+    case "malaysia":
+      return malaysiaBeach;
+    case "china":
+      return chinaLuxury;
+    case "finland":
+      return finlandNorthernLights;
+    case "vietnam":
+      return vietnamHalong;
+    default:
+      return luxuryInfinityPool;
+  }
+};
 
 const Resorts = () => {
   const [selectedRegion, setSelectedRegion] = useState("All");
@@ -1193,9 +1242,12 @@ const Resorts = () => {
               <Card key={index} className="hover:shadow-xl transition-all duration-300 overflow-hidden group">
                 <div className="h-48 overflow-hidden">
                   <img 
-                    src={resort.image || luxuryVillaPool} 
+                    src={resort.image || getFallbackImageByRegion(resort.region)}
                     alt={`${resort.name} - Luxury resort in ${resort.location}`}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                    decoding="async"
+                    sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
                   />
                 </div>
                 <CardHeader>
@@ -1279,9 +1331,11 @@ const Resorts = () => {
               <div className="space-y-6 mt-4">
                 <div className="h-64 rounded-lg overflow-hidden">
                   <img 
-                    src={selectedResort.image || luxuryVillaPool} 
+                    src={selectedResort.image || getFallbackImageByRegion(selectedResort.region)} 
                     alt={`${selectedResort.name} resort view`}
                     className="w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 

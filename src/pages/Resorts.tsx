@@ -497,6 +497,26 @@ const Resorts = () => {
       website: "https://www.hilton.com/en/hotels/sezhihi-hilton-seychelles-northolme-resort-and-spa",
       image: poolAerial
     },
+    {
+      name: "Astoria Seychelles",
+      location: "Seychelles",
+      region: "Seychelles",
+      rating: 5,
+      description: "Contemporary luxury resort offering modern design, pristine beaches, and personalized service in paradise.",
+      features: ["Modern Design", "Private Beach", "Spa & Wellness", "Fine Dining"],
+      website: "https://www.astoriaseychelles.com",
+      image: weddingCoupleCart
+    },
+    {
+      name: "Hilton Seychelles Labriz Canopy",
+      location: "Seychelles",
+      region: "Seychelles",
+      rating: 5,
+      description: "Eco-luxury resort on Silhouette Island with untouched nature, sustainable design, and island adventures.",
+      features: ["Island Retreat", "Eco-Friendly", "Nature Trails", "Water Sports"],
+      website: "https://www.hilton.com/en/hotels/sezsipy-canopy-seychelles",
+      image: finlandNorthernLights
+    },
     // Mauritius Hotels
     {
       name: "One&Only Le Saint Géran",
@@ -934,6 +954,16 @@ const Resorts = () => {
       website: "https://www.maxxroyal.com/belek",
       image: maldivesPoolDining
     },
+    {
+      name: "MGallery Bodrum",
+      location: "Bodrum, Turkey",
+      region: "Turkey",
+      rating: 5,
+      description: "Boutique luxury hotel in Bodrum featuring elegant design, Aegean Sea views, and authentic Turkish hospitality.",
+      features: ["Boutique Luxury", "Sea Views", "Rooftop Pool", "Turkish Cuisine"],
+      website: "https://www.accor.com/mgallery",
+      image: vietnamHalong
+    },
     // Morocco Partners
     {
       name: "La Mamounia",
@@ -1286,6 +1316,16 @@ const Resorts = () => {
       features: ["All-Inclusive", "Private Beach", "Water Park", "Spa & Wellness"],
       website: "https://www.rixos.com/premiumbelek",
       image: chinaLuxury
+    },
+    {
+      name: "Land of Legends Kingdom Hotel",
+      location: "Antalya, Turkey",
+      region: "Antalya",
+      rating: 5,
+      description: "Ultimate entertainment resort featuring Europe's largest theme park, luxury accommodations, and world-class amenities.",
+      features: ["Theme Park Access", "Water Park", "Shopping Avenue", "Family Entertainment"],
+      website: "https://www.thelandoflegends.com",
+      image: amsterdamCanal
     }
   ];
 

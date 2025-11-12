@@ -263,7 +263,8 @@ const Resorts = () => {
       rating: 5,
       description: "Two stunning private islands offering ultimate freedom and bespoke experiences. Redefine luxury with underwater restaurants and more.",
       features: ["Private Islands", "Underwater Nightclub", "Surf School", "Spa by Drift"],
-      website: "https://www.niyama.com"
+      website: "https://www.niyama.com",
+      image: maldivesAerial1
     },
     {
       name: "W Maldives",
@@ -272,7 +273,8 @@ const Resorts = () => {
       rating: 5,
       description: "Contemporary luxury meets island paradise. Experience vibrant energy, innovative design, and world-class entertainment.",
       features: ["Overwater Bungalows", "Beach Club", "AWAY Spa", "Water Sports"],
-      website: "https://www.marriott.com/hotels/travel/mlewh-w-maldives"
+      website: "https://www.marriott.com/hotels/travel/mlewh-w-maldives",
+      image: luxuryVillaPool
     },
     {
       name: "Hilton Maldives Amingiri",
@@ -281,7 +283,8 @@ const Resorts = () => {
       rating: 5,
       description: "Intimate island resort featuring pristine beaches, turquoise lagoons, and sophisticated accommodation with modern amenities.",
       features: ["Beach & Overwater Villas", "All-Inclusive Options", "Spa Wellness", "Kids Club"],
-      website: "https://www.hilton.com/en/hotels/mleaahh-hilton-maldives-amingiri-resort-and-spa"
+      website: "https://www.hilton.com/en/hotels/mleaahh-hilton-maldives-amingiri-resort-and-spa",
+      image: maldivesPoolDining
     },
     {
       name: "Hard Rock Hotel Maldives",
@@ -290,7 +293,8 @@ const Resorts = () => {
       rating: 5,
       description: "Rock star luxury in paradise. Enjoy music-inspired experiences, legendary service, and world-class entertainment.",
       features: ["Rock Spa", "Live Music", "Overwater Villas", "Signature Dining"],
-      website: "https://www.hardrockhotels.com/maldives"
+      website: "https://www.hardrockhotels.com/maldives",
+      image: maldivesWaterVilla
     },
     {
       name: "Dusit Thani Maldives",
@@ -299,7 +303,8 @@ const Resorts = () => {
       rating: 5,
       description: "Thai-inspired luxury resort combining warm hospitality with stunning natural beauty. Experience authentic Thai wellness and cuisine.",
       features: ["Thai Spa", "Authentic Cuisine", "Beach & Ocean Villas", "Dive Center"],
-      website: "https://www.dusit.com/dusitthani-maldives"
+      website: "https://www.dusit.com/dusitthani-maldives",
+      image: waterVillasAerial
     },
     {
       name: "Siyam World Maldives",
@@ -308,7 +313,8 @@ const Resorts = () => {
       rating: 5,
       description: "The ultimate playground for adventure seekers and families. Experience thrilling water sports, entertainment, and luxury accommodations.",
       features: ["Water Park", "Adventure Sports", "Family Villas", "Multiple Restaurants"],
-      website: "https://www.siyam.com/siyamworld"
+      website: "https://www.siyam.com/siyamworld",
+      image: poolAerial
     },
     {
       name: "Joy Island Maldives",
@@ -317,7 +323,8 @@ const Resorts = () => {
       rating: 5,
       description: "Contemporary island retreat offering modern luxury and genuine Maldivian hospitality in a vibrant tropical setting.",
       features: ["Modern Villas", "Beach Access", "Spa Services", "Water Activities"],
-      website: "https://www.joyislandmaldives.com"
+      website: "https://www.joyislandmaldives.com",
+      image: coupleBikes
     },
     {
       name: "Velaa Private Island",
@@ -326,7 +333,8 @@ const Resorts = () => {
       rating: 5,
       description: "Ultra-exclusive private island offering unmatched luxury with personal butlers, world-class spa, and Michelin-starred dining.",
       features: ["Private Island", "Golf Academy", "Michelin Dining", "Velaa Spa"],
-      website: "https://www.velaaprivateisland.com"
+      website: "https://www.velaaprivateisland.com",
+      image: luxuryInfinityPool
     },
     {
       name: "Anantara Kihavah Villas",
@@ -335,7 +343,8 @@ const Resorts = () => {
       rating: 5,
       description: "Luxurious resort featuring underwater restaurant SEA, infinity pools, and pristine beaches in the UNESCO Biosphere Reserve.",
       features: ["Underwater Restaurant", "Overwater Spa", "Observatory", "Private Villas"],
-      website: "https://www.anantara.com/en/kihavah-maldives"
+      website: "https://www.anantara.com/en/kihavah-maldives",
+      image: maldivesVillaPool
     },
     {
       name: "Vakkaru Maldives",
@@ -344,7 +353,8 @@ const Resorts = () => {
       rating: 5,
       description: "Secluded island paradise offering barefoot luxury with spacious villas, pristine beaches, and exceptional personalized service.",
       features: ["Beach & Water Villas", "Merana Spa", "Marine Discovery", "Kids Club"],
-      website: "https://www.vakkarumaldives.com"
+      website: "https://www.vakkarumaldives.com",
+      image: weddingCeremony
     },
     {
       name: "Fairmont Maldives Sirru Fen Fushi",
@@ -353,7 +363,8 @@ const Resorts = () => {
       rating: 5,
       description: "Secluded sanctuary in the Shaviyani Atoll offering pristine nature, underwater sculpture gallery, and luxurious accommodations.",
       features: ["Coralarium", "Willow Stream Spa", "Water Sports", "Turtle Rehabilitation"],
-      website: "https://www.fairmont-maldives.com"
+      website: "https://www.fairmont-maldives.com",
+      image: weddingDance
     },
     {
       name: "Gili Lankanfushi",
@@ -383,7 +394,8 @@ const Resorts = () => {
       rating: 5,
       description: "Nestled on a hillside overlooking Petite Anse Bay, featuring luxurious tree-house villas with panoramic ocean views.",
       features: ["Hillside Villas", "Private Beach", "Spa Sanctuary", "Gourmet Dining"],
-      website: "https://www.fourseasons.com/seychelles"
+      website: "https://www.fourseasons.com/seychelles",
+      image: poolBreakfast
     },
     {
       name: "Six Senses Zil Pasyon",
@@ -392,16 +404,18 @@ const Resorts = () => {
       rating: 5,
       description: "Private island resort featuring expansive villas, pristine beaches, and sustainable luxury in a breathtaking natural setting.",
       features: ["Private Island", "Eco-Luxury Villas", "Organic Spa", "Cinema Paradiso"],
-      website: "https://www.sixsenses.com/en/resorts/zil-pasyon"
+      website: "https://www.sixsenses.com/en/resorts/zil-pasyon",
+      image: weddingCoupleCart
     },
     {
       name: "North Island Seychelles",
-      location: "Seychelles",
+      location: "Maldives",
       region: "Seychelles",
       rating: 5,
       description: "Ultra-exclusive private island resort with only 11 villas, offering unparalleled privacy and bespoke luxury experiences.",
       features: ["Ultra-Luxury Villas", "Private Island", "Conservation Program", "Butler Service"],
-      website: "https://www.north-island.com"
+      website: "https://www.north-island.com",
+      image: maldivesVillaPool
     },
     {
       name: "Constance Ephelia Seychelles",
@@ -410,7 +424,8 @@ const Resorts = () => {
       rating: 5,
       description: "Seychelles' largest resort spanning 120 hectares, featuring two pristine beaches and lush tropical gardens.",
       features: ["Two Beaches", "Spa Village", "Zip Line", "Kids Club"],
-      website: "https://www.ephelia.com"
+      website: "https://www.ephelia.com",
+      image: maldivesAerial1
     },
     {
       name: "Raffles Seychelles",
@@ -419,7 +434,8 @@ const Resorts = () => {
       rating: 5,
       description: "Perched on a hillside with stunning ocean views, offering spacious villas with private plunge pools and butler service.",
       features: ["Hillside Villas", "Private Pools", "Curieuse Marine Park", "Spa by Raffles"],
-      website: "https://www.raffles.com/seychelles"
+      website: "https://www.raffles.com/seychelles",
+      image: luxuryVillaPool
     },
     {
       name: "Hilton Seychelles Labriz Resort & Spa",
@@ -428,7 +444,8 @@ const Resorts = () => {
       rating: 5,
       description: "Beachfront paradise on Silhouette Island featuring spacious villas, pristine nature, and world-class wellness facilities.",
       features: ["Island Paradise", "Eforea Spa", "Seven Restaurants", "Marine Activities"],
-      website: "https://www.hilton.com/en/hotels/sezhihi-hilton-seychelles-labriz-resort-and-spa"
+      website: "https://www.hilton.com/en/hotels/sezhihi-hilton-seychelles-labriz-resort-and-spa",
+      image: waterVillasAerial
     },
     {
       name: "Anantara Maia Seychelles Villas",
@@ -437,7 +454,8 @@ const Resorts = () => {
       rating: 5,
       description: "Ultra-luxurious all-villa resort on a private peninsula offering complete seclusion and personalized service.",
       features: ["Private Pool Villas", "Butler Service", "Spa", "Gourmet Dining"],
-      website: "https://www.anantara.com/en/maia-seychelles"
+      website: "https://www.anantara.com/en/maia-seychelles",
+      image: coupleBikes
     },
     {
       name: "Kempinski Seychelles Resort",
@@ -446,7 +464,8 @@ const Resorts = () => {
       rating: 5,
       description: "Luxury beachfront resort on Baie Lazare offering elegant rooms, exceptional dining, and stunning Indian Ocean views.",
       features: ["Beachfront Villas", "European Elegance", "Spa by Resense", "Water Sports"],
-      website: "https://www.kempinski.com/en/seychelles/baie-lazare"
+      website: "https://www.kempinski.com/en/seychelles/baie-lazare",
+      image: maldivesWaterVilla
     },
     {
       name: "Mango House Seychelles",
@@ -486,7 +505,8 @@ const Resorts = () => {
       rating: 5,
       description: "Legendary beachfront resort on a private peninsula, offering timeless elegance and world-class service.",
       features: ["Private Peninsula", "Championship Golf", "Kids Only Club", "Water Sports"],
-      website: "https://www.oneandonlyresorts.com/le-saint-geran-mauritius"
+      website: "https://www.oneandonlyresorts.com/le-saint-geran-mauritius",
+      image: maldivesPoolDining
     },
     {
       name: "The Oberoi Mauritius",
@@ -495,7 +515,8 @@ const Resorts = () => {
       rating: 5,
       description: "Subtropical paradise featuring elegant villas and pavilions with private gardens and ocean views.",
       features: ["Ocean Villas", "Private Gardens", "Spa by Oberoi", "Fine Dining"],
-      website: "https://www.oberoihotels.com/hotels-in-mauritius"
+      website: "https://www.oberoihotels.com/hotels-in-mauritius",
+      image: weddingDance
     },
     {
       name: "Shangri-La Le Touessrok",
@@ -504,7 +525,8 @@ const Resorts = () => {
       rating: 5,
       description: "Beachfront resort with exclusive private island access, offering world-class golf and dining experiences.",
       features: ["Private Island Access", "Championship Golf", "CHI Spa", "Beachfront Suites"],
-      website: "https://www.shangri-la.com/mauritius/letouessrokresort"
+      website: "https://www.shangri-la.com/mauritius/letouessrokresort",
+      image: luxuryInfinityPool
     },
     {
       name: "Four Seasons Resort Mauritius",
@@ -513,7 +535,8 @@ const Resorts = () => {
       rating: 5,
       description: "Luxury resort on Anahita Golf Estate, featuring spacious villas and world-class amenities.",
       features: ["Golf Course Villas", "Spa Sanctuary", "Kids For All Seasons", "Water Sports"],
-      website: "https://www.fourseasons.com/mauritius"
+      website: "https://www.fourseasons.com/mauritius",
+      image: poolAerial
     },
     {
       name: "Constance Prince Maurice",
@@ -522,7 +545,8 @@ const Resorts = () => {
       rating: 5,
       description: "Secluded sanctuary on the east coast, offering overwater suites and romantic luxury experiences.",
       features: ["Overwater Suites", "Private Beach", "U Spa by Constance", "Gourmet Dining"],
-      website: "https://www.princemaurice.com"
+      website: "https://www.princemaurice.com",
+      image: baliClifftopResort
     },
     {
       name: "Lux* Belle Mare",
@@ -531,7 +555,8 @@ const Resorts = () => {
       rating: 5,
       description: "Beachfront resort on the east coast offering contemporary luxury, world-class dining, and extensive wellness facilities.",
       features: ["Beachfront Suites", "LUX* Me Spa", "Multiple Restaurants", "Water Sports"],
-      website: "https://www.luxresorts.com/en/mauritius/lux-belle-mare"
+      website: "https://www.luxresorts.com/en/mauritius/lux-belle-mare",
+      image: poolBreakfast
     },
     {
       name: "Constance Belle Mare Plage",
@@ -540,7 +565,8 @@ const Resorts = () => {
       rating: 5,
       description: "Expansive beachfront resort featuring two championship golf courses, multiple restaurants, and family-friendly amenities.",
       features: ["Two Golf Courses", "Seven Restaurants", "U Spa", "Kids Club"],
-      website: "https://www.bellemareplage.com"
+      website: "https://www.bellemareplage.com",
+      image: weddingCeremony
     },
     {
       name: "The St. Regis Mauritius Resort",
@@ -549,7 +575,8 @@ const Resorts = () => {
       rating: 5,
       description: "Sophisticated beachfront resort offering bespoke butler service, luxurious accommodations, and refined dining experiences.",
       features: ["Butler Service", "Iridium Spa", "Private Beach", "Fine Dining"],
-      website: "https://www.marriott.com/hotels/travel/mruse-the-st-regis-mauritius-resort"
+      website: "https://www.marriott.com/hotels/travel/mruse-the-st-regis-mauritius-resort",
+      image: maldivesAerial2
     },
     // Bali Hotels
     {
@@ -559,7 +586,8 @@ const Resorts = () => {
       rating: 5,
       description: "Riverside sanctuary in Ubud's jungle, featuring dramatic architecture and holistic wellness experiences.",
       features: ["Jungle Villas", "Sacred River Spa", "Yoga Programs", "Balinese Culture"],
-      website: "https://www.fourseasons.com/sayan"
+      website: "https://www.fourseasons.com/sayan",
+      image: maldivesVillaPool
     },
     {
       name: "The Mulia Bali",
@@ -568,7 +596,8 @@ const Resorts = () => {
       rating: 5,
       description: "Ultra-luxury beachfront resort in Nusa Dua, offering opulent suites and exceptional dining experiences.",
       features: ["Beachfront Suites", "Nine Restaurants", "Spa by Mulia", "Aqua Park"],
-      website: "https://www.themulia.com"
+      website: "https://www.themulia.com",
+      image: luxuryVillaPool
     },
     {
       name: "Bulgari Resort Bali",
@@ -577,7 +606,8 @@ const Resorts = () => {
       rating: 5,
       description: "Clifftop resort in Uluwatu combining Italian luxury with Balinese hospitality and breathtaking ocean views.",
       features: ["Clifftop Villas", "Bulgari Spa", "Private Beach", "Italian Cuisine"],
-      website: "https://www.bulgarihotels.com/en_US/bali"
+      website: "https://www.bulgarihotels.com/en_US/bali",
+      image: baliClifftopResort
     },
     {
       name: "Mandapa, a Ritz-Carlton Reserve",
@@ -586,7 +616,8 @@ const Resorts = () => {
       rating: 5,
       description: "Luxury riverside retreat in Ubud, offering authentic Balinese experiences and serene natural beauty.",
       features: ["Riverside Villas", "Cultural Experiences", "Spa Sanctuary", "Organic Cuisine"],
-      website: "https://www.ritzcarlton.com/en/hotels/mandapa-bali"
+      website: "https://www.ritzcarlton.com/en/hotels/mandapa-bali",
+      image: waterVillasAerial
     },
     {
       name: "Amankila Bali",
@@ -595,7 +626,8 @@ const Resorts = () => {
       rating: 5,
       description: "Hillside resort overlooking Lombok Strait, featuring traditional Balinese architecture and world-class service.",
       features: ["Beach Club", "Infinity Pools", "Aman Spa", "Private Beach"],
-      website: "https://www.aman.com/resorts/amankila"
+      website: "https://www.aman.com/resorts/amankila",
+      image: poolAerial
     },
     {
       name: "COMO Shambhala Estate",
@@ -604,7 +636,8 @@ const Resorts = () => {
       rating: 5,
       description: "Holistic wellness retreat in Ubud's jungle offering transformative programs, yoga, and integrative health.",
       features: ["Wellness Programs", "Yoga Pavilion", "Organic Cuisine", "Jungle Villas"],
-      website: "https://www.comohotels.com/bali/como-shambhala-estate"
+      website: "https://www.comohotels.com/bali/como-shambhala-estate",
+      image: maldivesPoolDining
     },
     {
       name: "Alila Villas Uluwatu",
@@ -613,7 +646,8 @@ const Resorts = () => {
       rating: 5,
       description: "Contemporary clifftop resort offering sustainable luxury with stunning ocean views and innovative architecture.",
       features: ["Clifftop Villas", "Infinity Pool", "Spa Alila", "Sustainable Design"],
-      website: "https://www.alilahotels.com/uluwatu"
+      website: "https://www.alilahotels.com/uluwatu",
+      image: weddingCoupleCart
     },
     {
       name: "AYANA Resort and Spa Bali",
@@ -622,7 +656,8 @@ const Resorts = () => {
       rating: 5,
       description: "Sprawling clifftop resort featuring multiple pools, world-famous Rock Bar, and extensive spa facilities.",
       features: ["Rock Bar", "Multiple Pools", "Aquatonic Spa", "12 Restaurants"],
-      website: "https://www.ayana.com/bali"
+      website: "https://www.ayana.com/bali",
+      image: luxuryInfinityPool
     },
     // Phuket Hotels
     {
@@ -632,7 +667,8 @@ const Resorts = () => {
       rating: 5,
       description: "Thailand's first Aman resort, offering serene luxury on a pristine peninsula with private beach access.",
       features: ["Private Pavilions", "Beach Club", "Aman Spa", "Yacht Charter"],
-      website: "https://www.aman.com/resorts/amanpuri"
+      website: "https://www.aman.com/resorts/amanpuri",
+      image: coupleBikes
     },
     {
       name: "Anantara Layan Phuket Resort",
@@ -641,7 +677,8 @@ const Resorts = () => {
       rating: 5,
       description: "Secluded beachfront resort on Layan Beach, offering contemporary Thai luxury and personalized service.",
       features: ["Beach Access", "Anantara Spa", "Infinity Pools", "Thai Cuisine"],
-      website: "https://www.anantara.com/en/layan-phuket"
+      website: "https://www.anantara.com/en/layan-phuket",
+      image: weddingDance
     },
     {
       name: "Trisara Phuket",
@@ -650,7 +687,8 @@ const Resorts = () => {
       rating: 5,
       description: "Ultra-exclusive resort featuring private pool villas with stunning ocean views and personalized service.",
       features: ["Private Pool Villas", "Private Beach", "Jara Spa", "Seafood Restaurant"],
-      website: "https://www.trisara.com"
+      website: "https://www.trisara.com",
+      image: maldivesAerial1
     },
     {
       name: "The Slate Phuket",
@@ -659,7 +697,8 @@ const Resorts = () => {
       rating: 5,
       description: "Unique heritage-inspired resort on Nai Yang Beach, celebrating Phuket's tin-mining history with bold design.",
       features: ["Heritage Design", "Beach Club", "Coqoon Spa", "Multiple Dining"],
-      website: "https://www.theslatephuket.com"
+      website: "https://www.theslatephuket.com",
+      image: maldivesWaterVilla
     },
     {
       name: "Keemala Phuket",
@@ -668,7 +707,8 @@ const Resorts = () => {
       rating: 5,
       description: "Enchanting rainforest resort featuring unique clay cottage and tree house villas with innovative design and holistic wellness.",
       features: ["Unique Villas", "Mala Spa", "Rainforest Setting", "Organic Cuisine"],
-      website: "https://www.keemala.com"
+      website: "https://www.keemala.com",
+      image: poolBreakfast
     },
     {
       name: "Point Yamu by COMO",
@@ -677,7 +717,8 @@ const Resorts = () => {
       rating: 5,
       description: "Contemporary resort on Cape Yamu peninsula, offering wellness-focused luxury with stunning Phang Nga Bay views.",
       features: ["Peninsula Location", "COMO Shambhala", "Infinity Pool", "Italian Cuisine"],
-      website: "https://www.comohotels.com/phuket"
+      website: "https://www.comohotels.com/phuket",
+      image: weddingCeremony
     },
     // Dubai Partners
     {
@@ -687,7 +728,8 @@ const Resorts = () => {
       rating: 5,
       description: "The world's most luxurious hotel, an iconic sail-shaped landmark offering unparalleled service and opulent suites.",
       features: ["Iconic Architecture", "Private Beach", "Michelin-Star Dining", "Butler Service"],
-      website: "https://www.jumeirah.com/en/stay/dubai/burj-al-arab-jumeirah"
+      website: "https://www.jumeirah.com/en/stay/dubai/burj-al-arab-jumeirah",
+      image: dubaiLuxury
     },
     {
       name: "Atlantis The Royal",
@@ -696,7 +738,8 @@ const Resorts = () => {
       rating: 5,
       description: "Ultra-luxury beachfront resort on Palm Jumeirah featuring celebrity chef restaurants and breathtaking architecture.",
       features: ["Beachfront Suites", "World-Class Dining", "Aquaventure Access", "Cloud 22 Beach Club"],
-      website: "https://www.atlantis.com/dubai/atlantis-the-royal"
+      website: "https://www.atlantis.com/dubai/atlantis-the-royal",
+      image: luxuryInfinityPool
     },
     {
       name: "Bulgari Resort Dubai",
@@ -705,7 +748,8 @@ const Resorts = () => {
       rating: 5,
       description: "Ultra-luxurious seahorse-shaped island resort featuring Italian elegance and stunning marina views.",
       features: ["Private Island", "Bulgari Spa", "Yacht Club", "Italian Dining"],
-      website: "https://www.bulgarihotels.com/en_US/dubai"
+      website: "https://www.bulgarihotels.com/en_US/dubai",
+      image: italyVilla
     },
     {
       name: "One&Only The Palm",
@@ -714,7 +758,8 @@ const Resorts = () => {
       rating: 5,
       description: "Beachfront sanctuary on Palm Jumeirah offering Moorish architecture and world-class dining experiences.",
       features: ["Private Beach", "Moorish Design", "Guerlain Spa", "Celebrity Chef Restaurants"],
-      website: "https://www.oneandonlyresorts.com/one-and-only-the-palm-dubai"
+      website: "https://www.oneandonlyresorts.com/one-and-only-the-palm-dubai",
+      image: moroccoRiad
     },
     {
       name: "Jumeirah Al Naseem",
@@ -723,7 +768,8 @@ const Resorts = () => {
       rating: 5,
       description: "Contemporary beachfront resort at Madinat Jumeirah with Burj Al Arab views and family-friendly luxury.",
       features: ["Burj Al Arab Views", "Private Beach", "Talise Spa", "Multiple Pools"],
-      website: "https://www.jumeirah.com/en/stay/dubai/madinat-jumeirah/jumeirah-al-naseem"
+      website: "https://www.jumeirah.com/en/stay/dubai/madinat-jumeirah/jumeirah-al-naseem",
+      image: boraBora
     },
     {
       name: "Palazzo Versace Dubai",
@@ -732,7 +778,8 @@ const Resorts = () => {
       rating: 5,
       description: "Italian opulence meets Arabian luxury on Culture Village waterfront with signature Versace design throughout.",
       features: ["Versace Design", "Marina Views", "Italian Cuisine", "Spa"],
-      website: "https://www.palazzoversace.ae"
+      website: "https://www.palazzoversace.ae",
+      image: amsterdamCanal
     },
     {
       name: "Armani Hotel Dubai",
@@ -741,7 +788,8 @@ const Resorts = () => {
       rating: 5,
       description: "Sophisticated hotel in Burj Khalifa designed by Giorgio Armani, offering minimalist elegance and world-class service.",
       features: ["Burj Khalifa", "Armani Design", "Fine Dining", "Armani/SPA"],
-      website: "https://www.armanihotels.com/dubai"
+      website: "https://www.armanihotels.com/dubai",
+      image: chinaLuxury
     },
     {
       name: "Address Downtown Dubai",
@@ -750,7 +798,8 @@ const Resorts = () => {
       rating: 5,
       description: "Modern luxury hotel adjacent to Dubai Mall with stunning Burj Khalifa and fountain views.",
       features: ["Fountain Views", "Rooftop Pool", "Dubai Mall Access", "Multiple Restaurants"],
-      website: "https://www.addresshotels.com/en/hotels/address-downtown"
+      website: "https://www.addresshotels.com/en/hotels/address-downtown",
+      image: malaysiaBeach
     },
     {
       name: "Mandarin Oriental Jumeira",
@@ -759,7 +808,8 @@ const Resorts = () => {
       rating: 5,
       description: "Beachfront luxury resort featuring contemporary Arabian design and Mandarin Oriental's legendary service.",
       features: ["Private Beach", "Skyline Views", "The Spa", "Eight Restaurants"],
-      website: "https://www.mandarinoriental.com/en/dubai/jumeira-beach"
+      website: "https://www.mandarinoriental.com/en/dubai/jumeira-beach",
+      image: finlandNorthernLights
     },
     // London Partners
     {
@@ -769,7 +819,8 @@ const Resorts = () => {
       rating: 5,
       description: "Legendary luxury hotel on the River Thames, offering timeless elegance and impeccable British hospitality since 1889.",
       features: ["River Thames Views", "Historic Luxury", "Michelin-Star Restaurant", "American Bar"],
-      website: "https://www.fairmont.com/savoy-london"
+      website: "https://www.fairmont.com/savoy-london",
+      image: londonLuxury
     },
     {
       name: "Claridge's",
@@ -778,7 +829,8 @@ const Resorts = () => {
       rating: 5,
       description: "Art Deco masterpiece in Mayfair, epitomizing British elegance and world-class service.",
       features: ["Mayfair Location", "Art Deco Design", "Afternoon Tea", "Michelin-Star Dining"],
-      website: "https://www.claridges.co.uk"
+      website: "https://www.claridges.co.uk",
+      image: swissAlps
     },
     {
       name: "The Connaught",
@@ -787,7 +839,8 @@ const Resorts = () => {
       rating: 5,
       description: "Refined Mayfair hotel blending tradition with contemporary luxury and world-renowned dining.",
       features: ["Mayfair Location", "Michelin Stars", "Aman Spa", "Traditional Elegance"],
-      website: "https://www.the-connaught.co.uk"
+      website: "https://www.the-connaught.co.uk",
+      image: turkeyResort
     },
     {
       name: "The Langham London",
@@ -796,7 +849,8 @@ const Resorts = () => {
       rating: 5,
       description: "Europe's first grand hotel, offering Victorian elegance and modern luxury near Regent Street.",
       features: ["Historic Property", "Artesian Bar", "Chuan Spa", "Afternoon Tea"],
-      website: "https://www.langhamhotels.com/en/the-langham/london"
+      website: "https://www.langhamhotels.com/en/the-langham/london",
+      image: vietnamHalong
     },
     // Bora Bora Partners
     {
@@ -806,7 +860,8 @@ const Resorts = () => {
       rating: 5,
       description: "Overwater bungalows with Mount Otemanu views, offering the ultimate French Polynesian luxury experience.",
       features: ["Overwater Bungalows", "Mount Otemanu Views", "Lagoonarium", "Private Beach"],
-      website: "https://www.fourseasons.com/borabora"
+      website: "https://www.fourseasons.com/borabora",
+      image: boraBora
     },
     {
       name: "The St. Regis Bora Bora Resort",
@@ -815,7 +870,8 @@ const Resorts = () => {
       rating: 5,
       description: "Exclusive overwater villas with private pools and butlers, set in the turquoise lagoon.",
       features: ["Overwater Villas", "Private Pools", "Butler Service", "Lagoon Restaurant"],
-      website: "https://www.marriott.com/hotels/travel/bobxr-the-st-regis-bora-bora-resort"
+      website: "https://www.marriott.com/hotels/travel/bobxr-the-st-regis-bora-bora-resort",
+      image: waterVillasAerial
     },
     {
       name: "Conrad Bora Bora Nui",
@@ -824,7 +880,8 @@ const Resorts = () => {
       rating: 5,
       description: "Luxury resort on private island offering overwater villas and hillside pool villas with spectacular lagoon views.",
       features: ["Private Island", "Overwater Villas", "Hillside Villas", "Hina Spa"],
-      website: "https://www.hilton.com/en/hotels/bobpfci-conrad-bora-bora-nui"
+      website: "https://www.hilton.com/en/hotels/bobpfci-conrad-bora-bora-nui",
+      image: poolAerial
     },
     {
       name: "InterContinental Bora Bora Resort",
@@ -833,7 +890,8 @@ const Resorts = () => {
       rating: 5,
       description: "Iconic resort featuring overwater bungalows and beach villas with Mount Otemanu backdrop.",
       features: ["Overwater Bungalows", "Beach Villas", "Thalasso Spa", "Multiple Restaurants"],
-      website: "https://www.ihg.com/intercontinental/hotels/us/en/bora-bora"
+      website: "https://www.ihg.com/intercontinental/hotels/us/en/bora-bora",
+      image: maldivesAerial1
     },
     // Turkey Partners
     {
@@ -843,7 +901,8 @@ const Resorts = () => {
       rating: 5,
       description: "Hillside retreat on the Aegean coast, offering holistic wellness and stunning sea views.",
       features: ["Aegean Sea Views", "Wellness Programs", "Private Beach", "Organic Cuisine"],
-      website: "https://www.sixsenses.com/en/resorts/kaplankaya"
+      website: "https://www.sixsenses.com/en/resorts/kaplankaya",
+      image: turkeyResort
     },
     {
       name: "Mandarin Oriental Bodrum",
@@ -852,7 +911,8 @@ const Resorts = () => {
       rating: 5,
       description: "Luxury resort in Bodrum's Paradise Bay, featuring private beaches and contemporary Turkish hospitality.",
       features: ["Paradise Bay", "Private Beach", "Turkish Spa", "Gourmet Dining"],
-      website: "https://www.mandarinoriental.com/en/bodrum/paradise-bay"
+      website: "https://www.mandarinoriental.com/en/bodrum/paradise-bay",
+      image: baliClifftopResort
     },
     {
       name: "D-Hotel Maris",
@@ -861,7 +921,8 @@ const Resorts = () => {
       rating: 5,
       description: "Design-focused luxury resort on pristine beach, featuring stunning architecture and exceptional service.",
       features: ["Beach Access", "Contemporary Design", "Nu Teras Restaurant", "Private Marina"],
-      website: "https://www.dhotel.com.tr"
+      website: "https://www.dhotel.com.tr",
+      image: luxuryVillaPool
     },
     {
       name: "Maxx Royal Belek",
@@ -870,7 +931,8 @@ const Resorts = () => {
       rating: 5,
       description: "Ultra-all-inclusive resort in Belek offering world-class facilities and personalized luxury service.",
       features: ["All-Inclusive Luxury", "Multiple Pools", "Private Beach", "Kids Club"],
-      website: "https://www.maxxroyal.com/belek"
+      website: "https://www.maxxroyal.com/belek",
+      image: maldivesPoolDining
     },
     // Morocco Partners
     {
@@ -880,7 +942,8 @@ const Resorts = () => {
       rating: 5,
       description: "Legendary palace hotel in Marrakech, surrounded by magnificent gardens and featuring Moroccan luxury.",
       features: ["Palace Architecture", "Magnificent Gardens", "Moroccan Spa", "Fine Dining"],
-      website: "https://www.mamounia.com"
+      website: "https://www.mamounia.com",
+      image: moroccoRiad
     },
     {
       name: "Royal Mansour Marrakech",
@@ -889,7 +952,8 @@ const Resorts = () => {
       rating: 5,
       description: "Palatial resort featuring private riads with rooftop terraces, exemplifying Moroccan craftsmanship.",
       features: ["Private Riads", "Rooftop Terraces", "Three Restaurants", "Spa by Guerlain"],
-      website: "https://www.royalmansour.com/en"
+      website: "https://www.royalmansour.com/en",
+      image: luxuryInfinityPool
     },
     {
       name: "Four Seasons Resort Marrakech",
@@ -898,7 +962,8 @@ const Resorts = () => {
       rating: 5,
       description: "Palatial resort surrounded by gardens and palm groves, offering Moroccan elegance and modern luxury.",
       features: ["Garden Setting", "Moroccan Design", "Spa", "Multiple Pools"],
-      website: "https://www.fourseasons.com/marrakech"
+      website: "https://www.fourseasons.com/marrakech",
+      image: poolAerial
     },
     // Switzerland Partners
     {
@@ -908,7 +973,8 @@ const Resorts = () => {
       rating: 5,
       description: "Alpine luxury resort blending Swiss tradition with Asian design, featuring Europe's largest private spa.",
       features: ["Alpine Location", "Europe's Largest Spa", "Michelin-Star Dining", "Ski-In/Ski-Out"],
-      website: "https://www.thechediandermatt.com"
+      website: "https://www.thechediandermatt.com",
+      image: swissAlps
     },
     {
       name: "Badrutt's Palace Hotel",
@@ -917,7 +983,8 @@ const Resorts = () => {
       rating: 5,
       description: "Legendary St. Moritz hotel offering timeless elegance and world-class skiing since 1896.",
       features: ["St. Moritz Location", "Historic Luxury", "Michelin Dining", "Private Ski Lessons"],
-      website: "https://www.badruttspalace.com"
+      website: "https://www.badruttspalace.com",
+      image: finlandNorthernLights
     },
     // Italy Partners
     {
@@ -927,7 +994,8 @@ const Resorts = () => {
       rating: 5,
       description: "Perched high on the cliffs of Ravello, featuring an infinity pool overlooking the Amalfi Coast.",
       features: ["Amalfi Coast Views", "Infinity Pool", "Historic Building", "Michelin-Star Restaurant"],
-      website: "https://www.belmond.com/hotels/europe/italy/amalfi-coast/belmond-hotel-caruso"
+      website: "https://www.belmond.com/hotels/europe/italy/amalfi-coast/belmond-hotel-caruso",
+      image: italyVilla
     },
     {
       name: "Passalacqua",
@@ -936,7 +1004,8 @@ const Resorts = () => {
       rating: 5,
       description: "18th-century villa on Lake Como, offering unparalleled luxury and Italian elegance.",
       features: ["Lake Como", "Historic Villa", "Private Gardens", "Boat Service"],
-      website: "https://www.passalacqua.it"
+      website: "https://www.passalacqua.it",
+      image: baliClifftopResort
     },
     // Amsterdam Partners
     {
@@ -946,7 +1015,8 @@ const Resorts = () => {
       rating: 5,
       description: "Six 17th-century canal palaces transformed into a luxury hotel, featuring elegant rooms and Michelin-star dining.",
       features: ["Canal Views", "Historic Palaces", "Michelin-Star Restaurant", "Guerlain Spa"],
-      website: "https://www.hilton.com/en/hotels/amsw aldorf-astoria-amsterdam"
+      website: "https://www.hilton.com/en/hotels/amsw aldorf-astoria-amsterdam",
+      image: amsterdamCanal
     },
     {
       name: "The Dylan Amsterdam",
@@ -955,7 +1025,8 @@ const Resorts = () => {
       rating: 5,
       description: "Boutique luxury hotel on Keizersgracht canal, offering intimate elegance in the heart of Amsterdam.",
       features: ["Canal Location", "Boutique Luxury", "Michelin-Star Dining", "Intimate Atmosphere"],
-      website: "https://www.dylanamsterdam.com"
+      website: "https://www.dylanamsterdam.com",
+      image: luxuryVillaPool
     },
     // Finland Partners
     {
@@ -965,7 +1036,8 @@ const Resorts = () => {
       rating: 5,
       description: "Unique glass-walled suites elevated among trees, offering Northern Lights views in Lapland.",
       features: ["Northern Lights", "Glass Suites", "Arctic Location", "Lapland Experience"],
-      website: "https://arctictreehousehotel.com"
+      website: "https://arctictreehousehotel.com",
+      image: finlandNorthernLights
     },
     {
       name: "Kakslauttanen Arctic Resort",
@@ -974,7 +1046,8 @@ const Resorts = () => {
       rating: 5,
       description: "Famous glass igloos and log cabins in the Arctic wilderness, perfect for aurora viewing.",
       features: ["Glass Igloos", "Aurora Views", "Arctic Activities", "Ice Restaurant"],
-      website: "https://www.kakslauttanen.fi"
+      website: "https://www.kakslauttanen.fi",
+      image: weddingCeremony
     },
     // China Partners
     {
@@ -984,7 +1057,8 @@ const Resorts = () => {
       rating: 5,
       description: "Exclusive retreat within the UNESCO World Heritage Summer Palace grounds, offering serene luxury.",
       features: ["Summer Palace Grounds", "Historic Setting", "Aman Spa", "Fine Dining"],
-      website: "https://www.aman.com/resorts/aman-summer-palace"
+      website: "https://www.aman.com/resorts/aman-summer-palace",
+      image: chinaLuxury
     },
     {
       name: "The Peninsula Shanghai",
@@ -993,7 +1067,8 @@ const Resorts = () => {
       rating: 5,
       description: "Art Deco masterpiece on the Bund, offering legendary Peninsula service and stunning river views.",
       features: ["The Bund Location", "Art Deco Design", "Peninsula Spa", "Rooftop Bar"],
-      website: "https://www.peninsula.com/en/shanghai/5-star-luxury-hotel-bund"
+      website: "https://www.peninsula.com/en/shanghai/5-star-luxury-hotel-bund",
+      image: coupleBikes
     },
     // Vietnam Partners
     {
@@ -1003,7 +1078,8 @@ const Resorts = () => {
       rating: 5,
       description: "Secluded beachfront resort accessible only by boat, offering pristine nature and holistic wellness.",
       features: ["Private Bay", "Boat Access Only", "Six Senses Spa", "Organic Dining"],
-      website: "https://www.sixsenses.com/en/resorts/ninh-van-bay"
+      website: "https://www.sixsenses.com/en/resorts/ninh-van-bay",
+      image: vietnamHalong
     },
     {
       name: "Amanoi",
@@ -1012,7 +1088,8 @@ const Resorts = () => {
       rating: 5,
       description: "Clifftop resort overlooking Vinh Hy Bay, combining Vietnamese culture with Aman's signature luxury.",
       features: ["Clifftop Villas", "Vinh Hy Bay Views", "Aman Spa", "Vietnamese Cuisine"],
-      website: "https://www.aman.com/resorts/amanoi"
+      website: "https://www.aman.com/resorts/amanoi",
+      image: poolBreakfast
     },
     // Malaysia Partners
     {
@@ -1022,7 +1099,8 @@ const Resorts = () => {
       rating: 5,
       description: "Rainforest resort on pristine beach, offering unparalleled nature immersion and luxury.",
       features: ["Rainforest Setting", "Private Beach", "Nature Excursions", "Spa Treatments"],
-      website: "https://www.thedatai.com"
+      website: "https://www.thedatai.com",
+      image: malaysiaBeach
     },
     {
       name: "Four Seasons Resort Langkawi",
@@ -1031,7 +1109,8 @@ const Resorts = () => {
       rating: 5,
       description: "Beach resort on Langkawi island, featuring overwater villas and exceptional family amenities.",
       features: ["Beach & Overwater Villas", "Family Amenities", "Geo Spa", "Water Sports"],
-      website: "https://www.fourseasons.com/langkawi"
+      website: "https://www.fourseasons.com/langkawi",
+      image: waterVillasAerial
     },
     // London Partners
     {

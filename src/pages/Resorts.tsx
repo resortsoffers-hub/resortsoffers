@@ -362,7 +362,18 @@ const Resorts = () => {
       rating: 5,
       description: "Sustainable luxury resort offering rustic sophistication with overwater villas, organic dining, and barefoot elegance.",
       features: ["Eco-Luxury", "Private Water Reserves", "Organic Spa", "Barefoot Experience"],
-      website: "https://www.gili-lankanfushi.com"
+      website: "https://www.gili-lankanfushi.com",
+      image: poolBreakfast
+    },
+    {
+      name: "Heritance Aarah",
+      location: "Maldives",
+      region: "Maldives",
+      rating: 5,
+      description: "All-inclusive luxury resort in the heart of Raa Atoll featuring pristine beaches, overwater villas, and world-class diving.",
+      features: ["All-Inclusive Luxury", "Overwater Villas", "Dive Center", "Multiple Restaurants"],
+      website: "https://www.heritancehotels.com/aarah",
+      image: luxuryInfinityPool
     },
     // Seychelles Hotels
     {
@@ -436,6 +447,36 @@ const Resorts = () => {
       description: "Luxury beachfront resort on Baie Lazare offering elegant rooms, exceptional dining, and stunning Indian Ocean views.",
       features: ["Beachfront Villas", "European Elegance", "Spa by Resense", "Water Sports"],
       website: "https://www.kempinski.com/en/seychelles/baie-lazare"
+    },
+    {
+      name: "Mango House Seychelles",
+      location: "Seychelles",
+      region: "Seychelles",
+      rating: 5,
+      description: "Exclusive boutique hotel on Mahé with stunning hillside views, infinity pools, and intimate luxury experience.",
+      features: ["Boutique Luxury", "Infinity Pools", "Ocean Views", "Personalized Service"],
+      website: "https://www.mangohouse-seychelles.com",
+      image: baliClifftopResort
+    },
+    {
+      name: "Adora La Palme Island",
+      location: "Seychelles",
+      region: "Seychelles",
+      rating: 5,
+      description: "Private island resort offering ultimate seclusion with pristine beaches and barefoot luxury in untouched nature.",
+      features: ["Private Island", "Barefoot Luxury", "Pristine Beaches", "Eco-Friendly"],
+      website: "https://www.adoralapalme.com",
+      image: maldivesAerial2
+    },
+    {
+      name: "Hilton Seychelles Northolme Resort & Spa",
+      location: "Seychelles",
+      region: "Seychelles",
+      rating: 5,
+      description: "Perched on a scenic hillside overlooking Beau Vallon Bay, featuring elegant villas and Eforea Spa.",
+      features: ["Hillside Villas", "Eforea Spa", "Ocean Views", "Infinity Pool"],
+      website: "https://www.hilton.com/en/hotels/sezhihi-hilton-seychelles-northolme-resort-and-spa",
+      image: poolAerial
     },
     // Mauritius Hotels
     {
@@ -1064,10 +1105,112 @@ const Resorts = () => {
       description: "London's highest hotel offering breathtaking panoramic views from Western Europe's tallest building.",
       features: ["Skyline Views", "Floors 34-52", "TĪNG Restaurant", "Infinity Pool"],
       website: "https://www.shangri-la.com/london/shangrila"
+    },
+    {
+      name: "The Peninsula London",
+      location: "London, UK",
+      region: "London",
+      rating: 5,
+      description: "Brand new luxury hotel in Belgravia offering refined elegance, exceptional service, and world-class dining.",
+      features: ["Belgravia Location", "Rooftop Restaurant", "Peninsula Spa", "Modern Luxury"],
+      website: "https://www.peninsula.com/en/london",
+      image: londonLuxury
+    },
+    {
+      name: "Bulgari Hotel London",
+      location: "London, UK",
+      region: "London",
+      rating: 5,
+      description: "Italian luxury in Knightsbridge featuring contemporary design, Bulgari Spa, and Michelin-starred dining.",
+      features: ["Knightsbridge", "Bulgari Spa", "Il Ristorante", "Private Cinema"],
+      website: "https://www.bulgarihotels.com/en_US/london",
+      image: italyVilla
+    },
+    {
+      name: "The Dorchester",
+      location: "London, UK",
+      region: "London",
+      rating: 5,
+      description: "Legendary Park Lane hotel offering timeless British luxury, Michelin-starred restaurants, and royal hospitality.",
+      features: ["Park Lane", "Alain Ducasse Restaurant", "The Promenade", "Spa"],
+      website: "https://www.dorchestercollection.com/en/london/the-dorchester",
+      image: amsterdamCanal
+    },
+    {
+      name: "Mandarin Oriental Hyde Park",
+      location: "London, UK",
+      region: "London",
+      rating: 5,
+      description: "Edwardian elegance overlooking Hyde Park with two Michelin-starred restaurants and award-winning spa.",
+      features: ["Hyde Park Views", "Dinner by Heston", "Mandarin Bar", "Spa"],
+      website: "https://www.mandarinoriental.com/en/london/hyde-park",
+      image: luxuryVillaPool
+    },
+    // Istanbul Hotels
+    {
+      name: "Four Seasons Sultanahmet",
+      location: "Istanbul, Turkey",
+      region: "Istanbul",
+      rating: 5,
+      description: "Ottoman palace hotel in the heart of historic Sultanahmet, steps from Hagia Sophia and Blue Mosque.",
+      features: ["Historic Location", "Ottoman Architecture", "Rooftop Terrace", "Turkish Bath"],
+      website: "https://www.fourseasons.com/istanbul",
+      image: turkeyResort
+    },
+    {
+      name: "Ciragan Palace Kempinski",
+      location: "Istanbul, Turkey",
+      region: "Istanbul",
+      rating: 5,
+      description: "Former Ottoman palace on the Bosphorus offering royal luxury, infinity pool, and stunning waterfront views.",
+      features: ["Bosphorus Views", "Palace Suites", "Infinity Pool", "Turkish Spa"],
+      website: "https://www.kempinski.com/en/istanbul/ciragan-palace",
+      image: moroccoRiad
+    },
+    {
+      name: "Raffles Istanbul",
+      location: "Istanbul, Turkey",
+      region: "Istanbul",
+      rating: 5,
+      description: "Luxurious hotel in Zorlu Center featuring panoramic city views, rooftop terrace, and exceptional dining.",
+      features: ["City Views", "Rooftop Pool", "Fine Dining", "Raffles Spa"],
+      website: "https://www.raffles.com/istanbul",
+      image: swissAlps
+    },
+    // Antalya Hotels
+    {
+      name: "Maxx Royal Belek",
+      location: "Antalya, Turkey",
+      region: "Antalya",
+      rating: 5,
+      description: "Ultra-luxury all-inclusive resort in Belek with private beach, world-class golf, and exceptional service.",
+      features: ["All-Inclusive Luxury", "Private Beach", "Golf Course", "Kids Club"],
+      website: "https://www.maxxroyal.com/belek",
+      image: dubaiLuxury
+    },
+    {
+      name: "Regnum Carya Golf & Spa Resort",
+      location: "Antalya, Turkey",
+      region: "Antalya",
+      rating: 5,
+      description: "Award-winning luxury resort featuring championship golf course, pristine beach, and extensive spa facilities.",
+      features: ["Golf Course", "Beach Club", "Luxury Spa", "Multiple Pools"],
+      website: "https://www.regnumcarya.com",
+      image: malaysiaBeach
+    },
+    {
+      name: "Rixos Premium Belek",
+      location: "Antalya, Turkey",
+      region: "Antalya",
+      rating: 5,
+      description: "All-inclusive beachfront resort offering Turkish hospitality, water sports, and family-friendly luxury.",
+      features: ["All-Inclusive", "Private Beach", "Water Park", "Spa & Wellness"],
+      website: "https://www.rixos.com/premiumbelek",
+      image: chinaLuxury
     }
   ];
 
-  const regions = ["All", "Maldives", "Seychelles", "Mauritius", "Bali", "Phuket", "Dubai", "London", "Bora Bora", "Turkey", "Morocco", "Switzerland", "Italy", "Amsterdam", "Finland", "China", "Vietnam", "Malaysia"];
+  const regions = ["All", "Maldives", "Seychelles", "Mauritius", "Bali", "Phuket", "Dubai", "London", "Bora Bora", "Turkey", "Morocco", "Switzerland", "Italy", "Amsterdam", "Finland", "China", "Vietnam", "Malaysia", "Istanbul", "Antalya"];
 
   const filteredResorts = selectedRegion === "All" 
     ? resorts 

@@ -116,33 +116,28 @@ const Index = () => {
       type: "Flash Sale",
       discount: 35,
       validUntil: "2025-11-20",
-      urgency: "Ends in 48 Hours!",
-        description: "Celebrate your love with romantic welcome amenities, couples spa treatment, and sunset dinner at our exclusive cliffside restaurant.",
-        features: ["Romantic Welcome", "Couples Massage", "Private Dinner"],
-      price: "from $550/night",
-      image: santoriniGreece
+      description: "7-night stay at the world's most luxurious hotel with gold-plated interiors, personal butler, and Rolls-Royce transfers.",
+      features: ["24/7 Butler Service", "Rolls-Royce Transfers", "Gold Suite", "Private Beach Access", "Fine Dining Credits"],
+      price: "$2,850/night",
+      originalPrice: "$4,385",
+      image: dubaiLuxury,
+      featured: true
     },
     {
-      title: "Family Adventure Package",
-      destination: "Dubai, UAE",
-      type: "Package",
-      discount: 35,
-      validUntil: "2025-12-20",
-      description: "Ultimate family experience with theme park tickets, kids club access, and connecting rooms for maximum comfort.",
-      features: ["Kids Stay Free", "Theme Park Tickets", "Kids Club Access"],
-      price: "from $320/night",
-      image: dubaiFamily
-    },
-    {
-      title: "Last Minute Beach Escape",
-      destination: "Bodrum, Turkey",
-      type: "Last Minute",
-      discount: 40,
-      validUntil: "2025-11-30",
-      description: "Book within 14 days of arrival for exclusive savings on all-inclusive beach resort experience.",
-      features: ["All-Inclusive", "Water Sports", "Beach Club Access"],
-      price: "from $280/night",
-      image: maldivesWaterVilla
+      title: "Santorini Honeymoon Special",
+      destination: "Santorini - Cave Suite",
+      type: "Romantic Package",
+      discount: 30,
+      validUntil: "2025-12-31",
+      urgency: "Book by Nov 30!",
+      description: "Luxury cave suite with caldera views, private infinity pool, couples spa, champagne sunset cruise, and romantic dinners.",
+      features: ["Cave Suite with Pool", "Sunset Cruise", "Couples Spa Package", "Champagne Welcome", "5 Romantic Dinners"],
+      price: "$520/night",
+      originalPrice: "$743",
+      image: santoriniGreece,
+      featured: true
+    }
+  ];
     },
     {
       title: "Luxury Water Villa Experience",

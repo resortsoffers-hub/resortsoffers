@@ -97,22 +97,26 @@ const Index = () => {
   // Featured Special Offers - these are marked as featured on the Offers page
   const featuredOffers = [
     {
-      title: "Early Bird Summer Escape",
-      destination: "Maldives",
-      type: "Seasonal",
-      discount: 30,
-      validUntil: "2025-12-31",
-      description: "Book 90 days in advance and save 30% on your tropical paradise getaway with overwater villa accommodation.",
-      features: ["Free Airport Transfer", "Daily Breakfast", "Spa Credit $200"],
-      price: "from $450/night",
-      image: maldivesWaldorf
+      title: "Maldives Overwater Paradise",
+      destination: "Maldives - Waldorf Astoria",
+      type: "Limited Time",
+      discount: 40,
+      validUntil: "2025-12-15",
+      urgency: "Only 3 Villas Left!",
+      description: "Exclusive 40% off overwater villas with private infinity pools, butler service, and sunset views.",
+      features: ["Private Pool Villa", "Butler Service 24/7", "Seaplane Transfer Included", "Spa Credit $500", "Complimentary Excursions"],
+      price: "$680/night",
+      originalPrice: "$1,133",
+      image: maldivesWaldorf,
+      featured: true
     },
     {
-      title: "Romantic Honeymoon Package",
-      destination: "Santorini, Greece",
-      type: "Package",
-      discount: 25,
-      validUntil: "2026-03-31",
+      title: "Dubai Ultra Luxury Week",
+      destination: "Dubai - Burj Al Arab",
+      type: "Flash Sale",
+      discount: 35,
+      validUntil: "2025-11-20",
+      urgency: "Ends in 48 Hours!",
         description: "Celebrate your love with romantic welcome amenities, couples spa treatment, and sunset dinner at our exclusive cliffside restaurant.",
         features: ["Romantic Welcome", "Couples Massage", "Private Dinner"],
       price: "from $550/night",
@@ -383,50 +387,133 @@ const Index = () => {
         </div>
       </section>
 
-      {/* What's New Section */}
-      <section className="section-padding">
+      {/* FEATURED OFFERS - HERO SECTION (Moved to top for maximum visibility) */}
+      <section className="section-padding bg-gradient-to-b from-background via-accent/5 to-background">
         <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-primary">What's new</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
-              <div className="relative h-48">
-                <img src={maldivesKandinma} alt="Summer Campaign" className="w-full h-full object-cover" />
-                <Badge className="absolute top-4 left-4 bg-accent">New</Badge>
-              </div>
-              <CardHeader>
-                <CardTitle>Winter Your Way</CardTitle>
-                <CardDescription>
-                  Discover exclusive winter escapes with up to 35% off luxury resorts worldwide
-                </CardDescription>
-              </CardHeader>
-            </Card>
+          <div className="text-center mb-12 animate-fade-in">
+            <Badge className="mb-4 px-6 py-2 text-base bg-accent/20 text-accent border-2 border-accent">
+              🔥 HOT DEALS - LIMITED TIME ONLY
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+              Exclusive Luxury Offers
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Save up to 40% on handpicked luxury resorts. Book now before they're gone!
+            </p>
+          </div>
 
-            <Card className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
-              <div className="relative h-48">
-                <img src={dubaiFamily} alt="Family Packages" className="w-full h-full object-cover" />
-                <Badge className="absolute top-4 left-4 bg-secondary">Featured</Badge>
-              </div>
-              <CardHeader>
-                <CardTitle>Family Adventure Packages</CardTitle>
-                <CardDescription>
-                  Kids stay free + theme park tickets included in select Dubai hotels
-                </CardDescription>
-              </CardHeader>
-            </Card>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+            {featuredOffers.map((offer, index) => (
+              <Card 
+                key={index} 
+                className="group overflow-hidden hover:shadow-2xl transition-all duration-500 border-2 hover:border-accent relative animate-fade-in"
+                style={{ animationDelay: `${index * 150}ms` }}
+              >
+                {/* Urgency Banner */}
+                {offer.urgency && (
+                  <div className="absolute top-0 left-0 right-0 bg-destructive text-destructive-foreground text-center py-2 px-4 text-sm font-bold z-10 animate-pulse">
+                    ⚡ {offer.urgency}
+                  </div>
+                )}
 
-            <Card className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
-              <div className="relative h-48">
-                <img src={santoriniGreece} alt="Honeymoon Specials" className="w-full h-full object-cover" />
-                <Badge className="absolute top-4 left-4 bg-primary">Exclusive</Badge>
-              </div>
-              <CardHeader>
-                <CardTitle>Honeymoon Specials</CardTitle>
-                <CardDescription>
-                  Romantic packages with spa treatments & private dining
-                </CardDescription>
-              </CardHeader>
-            </Card>
+                {/* Image */}
+                <div className="relative h-72 overflow-hidden">
+                  <img 
+                    src={offer.image} 
+                    alt={`${offer.title} - ${offer.destination}`}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  
+                  {/* Discount Badge */}
+                  <div className="absolute top-16 right-4">
+                    <div className="bg-accent text-accent-foreground rounded-full w-24 h-24 flex flex-col items-center justify-center shadow-2xl animate-pulse border-4 border-background">
+                      <span className="text-3xl font-black">{offer.discount}%</span>
+                      <span className="text-xs font-bold">OFF</span>
+                    </div>
+                  </div>
+
+                  {/* Type Badge */}
+                  <Badge className="absolute top-20 left-4 bg-primary text-primary-foreground px-4 py-1 text-sm font-bold">
+                    {offer.type}
+                  </Badge>
+
+                  {/* Bottom info overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                    <h3 className="text-2xl font-bold mb-1">{offer.title}</h3>
+                    <div className="flex items-center gap-2 text-sm">
+                      <MapPin className="w-4 h-4" />
+                      <span>{offer.destination}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <CardContent className="p-6 space-y-4">
+                  {/* Valid Until */}
+                  <div className="flex items-center justify-between text-sm pb-3 border-b">
+                    <div className="flex items-center gap-2 text-muted-foreground">
+                      <Calendar className="w-4 h-4" />
+                      <span>Valid until {new Date(offer.validUntil).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                    </div>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {offer.description}
+                  </p>
+
+                  {/* Features */}
+                  <div className="space-y-2 pb-4 border-b">
+                    <p className="font-bold text-sm text-foreground">What's Included:</p>
+                    <ul className="grid grid-cols-1 gap-1.5">
+                      {offer.features.slice(0, 3).map((feature, fIndex) => (
+                        <li key={fIndex} className="text-xs text-muted-foreground flex items-start gap-2">
+                          <span className="text-accent font-bold text-base">✓</span>
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    {offer.features.length > 3 && (
+                      <p className="text-xs text-accent font-semibold">+ {offer.features.length - 3} more benefits</p>
+                    )}
+                  </div>
+
+                  {/* Pricing */}
+                  <div className="space-y-3">
+                    <div className="flex items-baseline gap-3">
+                      {offer.originalPrice && (
+                        <span className="text-lg text-muted-foreground line-through">{offer.originalPrice}</span>
+                      )}
+                      <span className="text-3xl font-black text-primary">{offer.price}</span>
+                    </div>
+                    
+                    {/* CTA Button */}
+                    <a
+                      href={getWhatsAppUrl(offer.title, offer.destination, offer.price)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block"
+                    >
+                      <Button className="w-full h-12 text-base font-bold bg-accent hover:bg-accent/90 shadow-lg hover:shadow-xl transition-all">
+                        🎉 Book This Deal Now
+                      </Button>
+                    </a>
+                    <p className="text-center text-xs text-muted-foreground">
+                      💬 Instant WhatsApp confirmation
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* View All CTA */}
+          <div className="text-center">
+            <Link to="/offers">
+              <Button size="lg" className="text-lg px-12 h-14 bg-primary hover:bg-primary/90 shadow-xl hover:shadow-2xl transition-all font-bold">
+                🔍 Explore All 50+ Exclusive Offers
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -516,91 +603,121 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Featured Offers Section */}
-      <section className="section-padding">
+      {/* What's New - Now with REAL OFFERS */}
+      <section className="section-padding bg-muted/30">
         <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">Exclusive Special Offers</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Handpicked exclusive deals with savings up to 40% off. Limited availability - book your dream vacation today!
-            </p>
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold mb-3 text-primary">What's New This Week</h2>
+            <p className="text-lg text-muted-foreground">Fresh deals just added - grab them before they're gone!</p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            {featuredOffers.map((offer, index) => (
-              <Card key={index} className="overflow-hidden hover:shadow-xl transition-all duration-300 animate-fade-in hover-scale border-2 hover:border-accent">
-                <div className="relative h-64 overflow-hidden">
-                  <img 
-                    src={offer.image} 
-                    alt={`${offer.title} - ${offer.destination}`}
-                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-                  />
-                  <div className="absolute top-4 right-4">
-                    <Badge className="bg-accent text-accent-foreground text-lg px-3 py-1">
-                      <Percent className="w-4 h-4 mr-1 inline" />
-                      {offer.discount}% OFF
-                    </Badge>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Offer 1 */}
+            <Link to="/offers">
+              <Card className="overflow-hidden hover:shadow-2xl transition-all duration-300 cursor-pointer group border-2 hover:border-accent">
+                <div className="relative h-56 overflow-hidden">
+                  <img src={maldivesKandinma} alt="Maldives All-Inclusive" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                  <Badge className="absolute top-4 right-4 bg-destructive text-destructive-foreground px-3 py-1.5 text-sm font-bold">
+                    NEW 🔥
+                  </Badge>
+                  <div className="absolute top-4 left-4 bg-accent text-accent-foreground rounded-full w-16 h-16 flex flex-col items-center justify-center">
+                    <span className="text-2xl font-black">35%</span>
+                    <span className="text-xs">OFF</span>
+                  </div>
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <h3 className="text-xl font-bold">Maldives All-Inclusive</h3>
+                    <p className="text-sm opacity-90">5 nights + flights</p>
                   </div>
                 </div>
-                
-                <CardHeader>
-                  <div className="flex items-start justify-between mb-2">
-                    <CardTitle className="text-xl">{offer.title}</CardTitle>
-                  </div>
-                  <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
-                    <Badge variant="secondary" className="text-xs">{offer.type}</Badge>
-                    <div className="flex items-center gap-1">
-                      <MapPin className="w-4 h-4" />
-                      <span>{offer.destination}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Calendar className="w-4 h-4" />
-                      <span>Until {new Date(offer.validUntil).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}</span>
+                <CardContent className="p-5">
+                  <div className="flex items-baseline justify-between mb-3">
+                    <div>
+                      <span className="text-sm text-muted-foreground line-through mr-2">$2,850</span>
+                      <span className="text-2xl font-black text-primary">$1,850</span>
+                      <span className="text-sm text-muted-foreground">/person</span>
                     </div>
                   </div>
-                </CardHeader>
-
-                <CardContent className="space-y-4">
-                  <CardDescription className="text-sm leading-relaxed">
-                    {offer.description}
-                  </CardDescription>
-                  
-                  <div className="space-y-2">
-                    <p className="font-semibold text-sm">Included:</p>
-                    <ul className="space-y-1">
-                      {offer.features.map((feature, fIndex) => (
-                        <li key={fIndex} className="text-sm text-muted-foreground flex items-center gap-2">
-                          <span className="text-accent">✓</span>
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="pt-4 border-t">
-                    <div className="flex items-center justify-between mb-3">
-                      <span className="text-2xl font-bold text-primary">{offer.price}</span>
-                    </div>
-                    <a
-                      href={getWhatsAppUrl(offer.title, offer.destination, offer.price)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Button className="w-full bg-accent hover:bg-accent/90">
-                        Book Now
-                      </Button>
-                    </a>
-                  </div>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Luxury resort with all meals, drinks, water sports & spa included. Limited to 10 bookings.
+                  </p>
+                  <Button className="w-full bg-accent hover:bg-accent/90 font-bold">
+                    Book Now - 3 Spots Left!
+                  </Button>
                 </CardContent>
               </Card>
-            ))}
-          </div>
+            </Link>
 
-          <div className="text-center">
+            {/* Offer 2 */}
             <Link to="/offers">
-              <Button size="lg" className="text-lg px-8 bg-primary hover:bg-primary/90">
-                View All Offers
-              </Button>
+              <Card className="overflow-hidden hover:shadow-2xl transition-all duration-300 cursor-pointer group border-2 hover:border-accent">
+                <div className="relative h-56 overflow-hidden">
+                  <img src={dubaiFamily} alt="Dubai Family Week" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                  <Badge className="absolute top-4 right-4 bg-destructive text-destructive-foreground px-3 py-1.5 text-sm font-bold">
+                    NEW 🔥
+                  </Badge>
+                  <div className="absolute top-4 left-4 bg-accent text-accent-foreground rounded-full w-16 h-16 flex flex-col items-center justify-center">
+                    <span className="text-2xl font-black">40%</span>
+                    <span className="text-xs">OFF</span>
+                  </div>
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <h3 className="text-xl font-bold">Dubai Family Adventure</h3>
+                    <p className="text-sm opacity-90">7 nights + theme parks</p>
+                  </div>
+                </div>
+                <CardContent className="p-5">
+                  <div className="flex items-baseline justify-between mb-3">
+                    <div>
+                      <span className="text-sm text-muted-foreground line-through mr-2">$3,200</span>
+                      <span className="text-2xl font-black text-primary">$1,920</span>
+                      <span className="text-sm text-muted-foreground">/family</span>
+                    </div>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    5-star hotel + unlimited theme park access for 2 adults & 2 kids. Kids eat free!
+                  </p>
+                  <Button className="w-full bg-accent hover:bg-accent/90 font-bold">
+                    Book Now - Ends Nov 30!
+                  </Button>
+                </CardContent>
+              </Card>
+            </Link>
+
+            {/* Offer 3 */}
+            <Link to="/offers">
+              <Card className="overflow-hidden hover:shadow-2xl transition-all duration-300 cursor-pointer group border-2 hover:border-accent">
+                <div className="relative h-56 overflow-hidden">
+                  <img src={santoriniGreece} alt="Santorini Romance" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                  <Badge className="absolute top-4 right-4 bg-destructive text-destructive-foreground px-3 py-1.5 text-sm font-bold">
+                    NEW 🔥
+                  </Badge>
+                  <div className="absolute top-4 left-4 bg-accent text-accent-foreground rounded-full w-16 h-16 flex flex-col items-center justify-center">
+                    <span className="text-2xl font-black">30%</span>
+                    <span className="text-xs">OFF</span>
+                  </div>
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <h3 className="text-xl font-bold">Santorini Honeymoon</h3>
+                    <p className="text-sm opacity-90">6 nights romance package</p>
+                  </div>
+                </div>
+                <CardContent className="p-5">
+                  <div className="flex items-baseline justify-between mb-3">
+                    <div>
+                      <span className="text-sm text-muted-foreground line-through mr-2">$3,600</span>
+                      <span className="text-2xl font-black text-primary">$2,520</span>
+                      <span className="text-sm text-muted-foreground">/couple</span>
+                    </div>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Cave suite with pool, couples spa, sunset cruise & romantic dinners included.
+                  </p>
+                  <Button className="w-full bg-accent hover:bg-accent/90 font-bold">
+                    Book Now - 5 Suites Left!
+                  </Button>
+                </CardContent>
+              </Card>
             </Link>
           </div>
         </div>

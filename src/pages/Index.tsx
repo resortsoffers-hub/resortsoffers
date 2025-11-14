@@ -138,31 +138,8 @@ const Index = () => {
       featured: true
     }
   ];
-    },
-    {
-      title: "Luxury Water Villa Experience",
-      destination: "Maldives",
-      type: "Package",
-      discount: 25,
-      validUntil: "2026-04-30",
-      description: "Stay in a stunning overwater villa with private pool, direct ocean access, and sunset views.",
-      features: ["Private Pool", "Ocean Access", "Butler Service"],
-      price: "from $680/night",
-      image: maldivesVillaPool
-    },
-    {
-      title: "Exclusive Ocean Pool Villa",
-      destination: "Maldives",
-      type: "Luxury",
-      discount: 20,
-      validUntil: "2026-05-31",
-      description: "Ultra-modern circular villa on stilts with infinity pool, direct ocean views, and contemporary design.",
-      features: ["Infinity Pool", "Modern Design", "Ocean Views"],
-      price: "from $850/night",
-      image: maldivesKandinma
-    }
-  ];
-  
+
+  // Features section data
   const features = [
     {
       icon: <Compass className="w-8 h-8 text-accent" />,

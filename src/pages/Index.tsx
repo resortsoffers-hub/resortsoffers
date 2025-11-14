@@ -545,7 +545,7 @@ const Index = () => {
                 
                 <CardHeader>
                   <div className="flex items-start justify-between mb-2">
-                    <CardTitle className="text-xl">{offer.title}</CardTitle>
+                    <CardTitle className="text-xl text-foreground">{offer.title}</CardTitle>
                   </div>
                   <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
                     <Badge variant="secondary" className="text-xs">{offer.type}</Badge>

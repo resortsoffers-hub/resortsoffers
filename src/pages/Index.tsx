@@ -31,6 +31,7 @@ import moroccoHero from "@/assets/destinations/morocco-hero.jpg";
 import spainHero from "@/assets/destinations/spain-hero.jpg";
 import italyHero from "@/assets/destinations/italy-hero.jpg";
 import courchevelHero from "@/assets/destinations/courchevel-hero.jpg";
+import zanzibarHero from "@/assets/destinations/zanzibar-hero.jpg";
 import { useTranslation } from "react-i18next";
 
 const Index = () => {
@@ -135,6 +136,13 @@ const Index = () => {
       subtitle: "Premier ski destination & mountain luxury",
       buttonText: "Explore Switzerland",
       buttonLink: "/destinations/switzerland"
+    },
+    {
+      image: zanzibarHero,
+      title: "Zanzibar Island Paradise",
+      subtitle: "Exotic beaches & Swahili culture in Tanzania",
+      buttonText: "Discover Zanzibar",
+      buttonLink: "/destinations/zanzibar"
     },
     {
       image: heroDroneResort,

@@ -123,7 +123,7 @@ const AboutUs = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent md:bg-gradient-to-r" />
                 </div>
                 <CardContent className="p-8 md:p-12 flex flex-col justify-center">
-                  <h3 className="text-3xl md:text-4xl font-bold mb-2">Nora El Khalifi</h3>
+                  <h3 className="text-3xl md:text-4xl font-bold mb-2">Dr. Nora El Khalifi, Dr.SBBI</h3>
                   <p className="text-xl text-primary font-semibold mb-4">CEO & Founder</p>
                   <div className="space-y-3 text-muted-foreground mb-6">
                     <p className="flex items-start gap-2">
@@ -132,15 +132,15 @@ const AboutUs = () => {
                     </p>
                     <p className="flex items-start gap-2">
                       <span className="text-accent mt-1">•</span>
-                      <span>Doctor of Strategic Branding and Business Intelligence (Dr.SBBI)</span>
+                      <span>Doctor of Strategic Branding and Business Intelligence (Dr.SBBI) from <a href="https://eiu.ac/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">European International University</a></span>
                     </p>
                     <p className="flex items-start gap-2">
                       <span className="text-accent mt-1">•</span>
-                      <span>European International University Graduate</span>
+                      <span>Member of <a href="https://www.dbwc.ae/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">DBWC | Dubai Business Women Council</a></span>
                     </p>
                     <p className="flex items-start gap-2">
                       <span className="text-accent mt-1">•</span>
-                      <span>Member of DBWC | Dubai Business Women Council</span>
+                      <span>Member of <a href="https://dubailadiesclub.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Dubai Ladies Club</a></span>
                     </p>
                     <p className="flex items-start gap-2">
                       <span className="text-accent mt-1">•</span>

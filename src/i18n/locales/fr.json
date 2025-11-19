@@ -1,0 +1,38 @@
+{
+  "nav": {
+    "destinations": "Destinations",
+    "resorts": "Resorts",
+    "offers": "Offres",
+    "aboutUs": "À Propos",
+    "services": "Services",
+    "events": "Événements",
+    "blog": "Blog",
+    "team": "Notre Équipe",
+    "contact": "Contact",
+    "bookConsultation": "Réserver une Consultation Gratuite"
+  },
+  "hero": {
+    "title": "Expériences de Resort de Luxe",
+    "subtitle": "Découvrez les meilleurs resorts du monde avec des offres imbattables"
+  },
+  "about": {
+    "title": "Votre Porte d'Entrée vers le Voyage de Luxe",
+    "description": "Chez ResortsOffers.com, nous nous spécialisons dans la création d'expériences exceptionnelles de resorts dans le monde entier. Notre équipe d'experts travaille en étroite collaboration avec des partenaires de resorts premium pour vous offrir des forfaits exclusifs, des offres imbattables et des conseils de voyage personnalisés. Avec des années d'expérience dans le voyage de luxe, nous nous engageons à faire de vos vacances de rêve une réalité."
+  },
+  "services": {
+    "title": "Ce Que Nous Faisons",
+    "travelConsultancy": "Conseil en Voyage",
+    "travelConsultancyDesc": "Conseils d'experts pour vous aider à trouver le resort parfait pour vos vacances de rêve.",
+    "luxuryResorts": "Resorts de Luxe",
+    "luxuryResortsDesc": "Resorts et hôtels premium soigneusement sélectionnés du monde entier.",
+    "specialOffers": "Offres Spéciales",
+    "specialOffersDesc": "Forfaits de resorts exclusifs et offres à durée limitée que vous ne trouverez nulle part ailleurs.",
+    "expertTeam": "Équipe d'Experts",
+    "expertTeamDesc": "Spécialistes du voyage dévoués avec des années d'expérience dans l'industrie hôtelière."
+  },
+  "cta": {
+    "title": "Prêt à Réserver Vos Vacances de Rêve?",
+    "description": "Contactez-nous aujourd'hui et laissez nos experts vous aider à trouver l'expérience de resort parfaite.",
+    "button": "Nous Contacter"
+  }
+}

@@ -13,12 +13,17 @@ import davidPhoto from "@/assets/team/david-martinez.jpg";
 const Team = () => {
   const teamMembers = [
     {
-      name: "Nora El Khalifi",
+      name: "Dr. Nora El Khalifi, Dr.SBBI",
       position: "CEO & Managing Director",
-      bio: "Member of Dubai Business Women Council. Master's in Hotel & Hospitality Management. Multilingual Speaker: English, Arabic, French & Spanish.",
+      bio: "Doctor of Strategic Branding and Business Intelligence (Dr.SBBI) from European International University. Member of Dubai Business Women Council and Dubai Ladies Club. Multilingual Speaker: English, Arabic, French & Spanish.",
       email: "ceo@resortsoffers.com",
       linkedin: "https://www.linkedin.com/in/noraelkhalifi",
-      photo: noraPhoto
+      photo: noraPhoto,
+      links: [
+        { label: "EIU University", url: "https://eiu.ac/" },
+        { label: "DBWC", url: "https://www.dbwc.ae/" },
+        { label: "Dubai Ladies Club", url: "https://dubailadiesclub.com/" }
+      ]
     },
     {
       name: "Michael Chen",

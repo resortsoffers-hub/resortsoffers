@@ -49,35 +49,35 @@ const Index = () => {
       image: maldivesWaldorf,
       title: "Maldives Paradise Awaits",
       subtitle: "Overwater villas & exclusive island experiences",
-      buttonText: "Explore Offers",
-      buttonLink: "/offers"
+      buttonText: "Explore Maldives",
+      buttonLink: "/destinations/maldives"
     },
     {
       image: mauritiusHero,
       title: "Mauritius Island Paradise",
       subtitle: "Pristine beaches & luxury resorts in the Indian Ocean",
-      buttonText: "View Mauritius",
+      buttonText: "Discover Mauritius",
       buttonLink: "/destinations/mauritius"
     },
     {
       image: seychellesHero,
       title: "Seychelles Luxury",
       subtitle: "Exclusive private islands & untouched beaches",
-      buttonText: "Discover Seychelles",
+      buttonText: "Explore Seychelles",
       buttonLink: "/destinations/seychelles"
     },
     {
       image: chinaHero,
       title: "China Heritage & Luxury",
       subtitle: "Ancient wonders meet modern elegance",
-      buttonText: "Explore China",
-      buttonLink: "/resorts"
+      buttonText: "Discover China",
+      buttonLink: "/destinations/china"
     },
     {
       image: vietnamHero,
       title: "Vietnam Coastal Beauty",
       subtitle: "Ha Long Bay cruises & coastal luxury",
-      buttonText: "Discover Vietnam",
+      buttonText: "View Resorts",
       buttonLink: "/resorts"
     },
     {
@@ -85,41 +85,41 @@ const Index = () => {
       title: "Japan Cultural Retreat",
       subtitle: "Traditional ryokans & modern luxury",
       buttonText: "Explore Japan",
-      buttonLink: "/resorts"
+      buttonLink: "/destinations/japan"
     },
     {
       image: koreaHero,
       title: "South Korea Modern Elegance",
       subtitle: "Where tradition meets contemporary luxury",
-      buttonText: "Discover Korea",
+      buttonText: "View Resorts",
       buttonLink: "/resorts"
     },
     {
       image: londonHero,
       title: "London Luxury Experience",
       subtitle: "Iconic landmarks & world-class hotels",
-      buttonText: "Explore London",
-      buttonLink: "/resorts"
+      buttonText: "Discover UK",
+      buttonLink: "/destinations/uk"
     },
     {
       image: cruiseHero,
       title: "Luxury Cruise Adventures",
       subtitle: "Sail the Mediterranean in style",
-      buttonText: "View Cruises",
+      buttonText: "View Offers",
       buttonLink: "/offers"
     },
     {
       image: moroccoHero,
       title: "Morocco Exotic Escapes",
       subtitle: "Riads & desert luxury experiences",
-      buttonText: "Discover Morocco",
+      buttonText: "View Resorts",
       buttonLink: "/resorts"
     },
     {
       image: spainHero,
       title: "Spain Coastal Paradise",
       subtitle: "Mediterranean beaches & luxury resorts",
-      buttonText: "Explore Spain",
+      buttonText: "View Resorts",
       buttonLink: "/resorts"
     },
     {
@@ -127,20 +127,20 @@ const Index = () => {
       title: "Italy Amalfi Coast",
       subtitle: "Cliffside villages & Mediterranean luxury",
       buttonText: "Discover Italy",
-      buttonLink: "/resorts"
+      buttonLink: "/destinations/italy"
     },
     {
       image: courchevelHero,
       title: "Courchevel Alps Resort",
       subtitle: "Premier ski destination & mountain luxury",
-      buttonText: "View Courchevel",
-      buttonLink: "/resorts"
+      buttonText: "Explore Switzerland",
+      buttonLink: "/destinations/switzerland"
     },
     {
       image: heroDroneResort,
       title: "Exclusive Island Resorts",
       subtitle: "Private beaches & luxury accommodations",
-      buttonText: "Explore Resorts",
+      buttonText: "View All Resorts",
       buttonLink: "/resorts"
     }
   ];

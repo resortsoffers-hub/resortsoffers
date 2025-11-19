@@ -18,6 +18,19 @@ import maldivesKandinma from "@/assets/resorts/maldives-kandinma-hq.jpg";
 import boraBora from "@/assets/resorts/bora-bora.jpg";
 import dubaiLuxury from "@/assets/resorts/dubai-luxury.jpg";
 import swissAlps from "@/assets/resorts/swiss-alps.jpg";
+import heroDroneResort from "@/assets/hero-drone-resort.jpg";
+import mauritiusHero from "@/assets/destinations/mauritius-hero.jpg";
+import seychellesHero from "@/assets/destinations/seychelles-hero.jpg";
+import chinaHero from "@/assets/destinations/china-hero.jpg";
+import vietnamHero from "@/assets/destinations/vietnam-hero.jpg";
+import japanHero from "@/assets/destinations/japan-hero.jpg";
+import koreaHero from "@/assets/destinations/korea-hero.jpg";
+import londonHero from "@/assets/destinations/london-hero.jpg";
+import cruiseHero from "@/assets/destinations/cruise-hero.jpg";
+import moroccoHero from "@/assets/destinations/morocco-hero.jpg";
+import spainHero from "@/assets/destinations/spain-hero.jpg";
+import italyHero from "@/assets/destinations/italy-hero.jpg";
+import courchevelHero from "@/assets/destinations/courchevel-hero.jpg";
 import { useTranslation } from "react-i18next";
 
 const Index = () => {
@@ -40,24 +53,94 @@ const Index = () => {
       buttonLink: "/offers"
     },
     {
-      image: dubaiLuxury,
-      title: "Dubai Luxury Escapes",
-      subtitle: "World-class hotels & unforgettable experiences",
-      buttonText: "View Packages",
+      image: mauritiusHero,
+      title: "Mauritius Island Paradise",
+      subtitle: "Pristine beaches & luxury resorts in the Indian Ocean",
+      buttonText: "View Mauritius",
+      buttonLink: "/destinations/mauritius"
+    },
+    {
+      image: seychellesHero,
+      title: "Seychelles Luxury",
+      subtitle: "Exclusive private islands & untouched beaches",
+      buttonText: "Discover Seychelles",
+      buttonLink: "/destinations/seychelles"
+    },
+    {
+      image: chinaHero,
+      title: "China Heritage & Luxury",
+      subtitle: "Ancient wonders meet modern elegance",
+      buttonText: "Explore China",
       buttonLink: "/resorts"
     },
     {
-      image: santoriniGreece,
-      title: "Romantic Santorini",
-      subtitle: "Sunset views & honeymoon dreams come true",
-      buttonText: "Book Now",
+      image: vietnamHero,
+      title: "Vietnam Coastal Beauty",
+      subtitle: "Ha Long Bay cruises & coastal luxury",
+      buttonText: "Discover Vietnam",
+      buttonLink: "/resorts"
+    },
+    {
+      image: japanHero,
+      title: "Japan Cultural Retreat",
+      subtitle: "Traditional ryokans & modern luxury",
+      buttonText: "Explore Japan",
+      buttonLink: "/resorts"
+    },
+    {
+      image: koreaHero,
+      title: "South Korea Modern Elegance",
+      subtitle: "Where tradition meets contemporary luxury",
+      buttonText: "Discover Korea",
+      buttonLink: "/resorts"
+    },
+    {
+      image: londonHero,
+      title: "London Luxury Experience",
+      subtitle: "Iconic landmarks & world-class hotels",
+      buttonText: "Explore London",
+      buttonLink: "/resorts"
+    },
+    {
+      image: cruiseHero,
+      title: "Luxury Cruise Adventures",
+      subtitle: "Sail the Mediterranean in style",
+      buttonText: "View Cruises",
       buttonLink: "/offers"
     },
     {
-      image: swissAlps,
-      title: "Swiss Alps Retreat",
-      subtitle: "Mountain luxury & winter wonderland",
-      buttonText: "Discover More",
+      image: moroccoHero,
+      title: "Morocco Exotic Escapes",
+      subtitle: "Riads & desert luxury experiences",
+      buttonText: "Discover Morocco",
+      buttonLink: "/resorts"
+    },
+    {
+      image: spainHero,
+      title: "Spain Coastal Paradise",
+      subtitle: "Mediterranean beaches & luxury resorts",
+      buttonText: "Explore Spain",
+      buttonLink: "/resorts"
+    },
+    {
+      image: italyHero,
+      title: "Italy Amalfi Coast",
+      subtitle: "Cliffside villages & Mediterranean luxury",
+      buttonText: "Discover Italy",
+      buttonLink: "/resorts"
+    },
+    {
+      image: courchevelHero,
+      title: "Courchevel Alps Resort",
+      subtitle: "Premier ski destination & mountain luxury",
+      buttonText: "View Courchevel",
+      buttonLink: "/resorts"
+    },
+    {
+      image: heroDroneResort,
+      title: "Exclusive Island Resorts",
+      subtitle: "Private beaches & luxury accommodations",
+      buttonText: "Explore Resorts",
       buttonLink: "/resorts"
     }
   ];

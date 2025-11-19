@@ -86,6 +86,40 @@ const AddressSection = () => {
                 </div>
               </div>
             </div>
+
+            <div className="bg-card p-6 rounded-lg shadow-sm border">
+              <div className="flex items-start gap-4">
+                <div className="bg-primary/10 p-3 rounded-lg">
+                  <svg className="text-primary" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-semibold text-lg mb-3">Business Hours</h3>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Monday - Friday:</span>
+                      <span className="font-medium">9:00 AM - 6:00 PM</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Saturday:</span>
+                      <span className="font-medium">10:00 AM - 4:00 PM</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Sunday:</span>
+                      <span className="font-medium">Closed</span>
+                    </div>
+                    <div className="mt-3 pt-3 border-t">
+                      <p className="text-xs text-muted-foreground">
+                        <span className="font-semibold text-foreground">Special Event Hours:</span><br />
+                        Extended hours during major events and trade shows. 24/7 WhatsApp support available.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Google Maps Embed */}

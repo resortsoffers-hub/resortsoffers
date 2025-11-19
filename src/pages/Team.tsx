@@ -190,6 +190,21 @@ const Team = () => {
                   <p className="text-muted-foreground text-sm mb-4 text-center">
                     {member.bio}
                   </p>
+                  {member.links && (
+                    <div className="flex flex-wrap justify-center gap-2 mb-4">
+                      {member.links.map((link, idx) => (
+                        <a
+                          key={idx}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-xs bg-primary/10 hover:bg-primary/20 text-primary px-3 py-1 rounded-full transition-colors"
+                        >
+                          {link.label}
+                        </a>
+                      ))}
+                    </div>
+                  )}
                   <div className="text-center mb-4">
                     <a 
                       href={`mailto:${member.email}`} 

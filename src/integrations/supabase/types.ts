@@ -89,6 +89,51 @@ export type Database = {
         }
         Relationships: []
       }
+      customer_reviews: {
+        Row: {
+          created_at: string
+          customer_name: string
+          destination: string
+          hotel_name: string
+          id: string
+          is_approved: boolean | null
+          media_urls: Json | null
+          rating: number
+          review_text: string
+          travel_end_date: string
+          travel_start_date: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          customer_name: string
+          destination: string
+          hotel_name: string
+          id?: string
+          is_approved?: boolean | null
+          media_urls?: Json | null
+          rating: number
+          review_text: string
+          travel_end_date: string
+          travel_start_date: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          customer_name?: string
+          destination?: string
+          hotel_name?: string
+          id?: string
+          is_approved?: boolean | null
+          media_urls?: Json | null
+          rating?: number
+          review_text?: string
+          travel_end_date?: string
+          travel_start_date?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       offers: {
         Row: {
           category: string | null
@@ -131,6 +176,45 @@ export type Database = {
           price?: number | null
           title?: string
           updated_at?: string | null
+        }
+        Relationships: []
+      }
+      partner_testimonials: {
+        Row: {
+          contact_person: string | null
+          created_at: string
+          display_order: number | null
+          id: string
+          is_approved: boolean | null
+          partner_logo_url: string | null
+          partner_name: string
+          partner_type: string
+          testimonial_text: string
+          updated_at: string
+        }
+        Insert: {
+          contact_person?: string | null
+          created_at?: string
+          display_order?: number | null
+          id?: string
+          is_approved?: boolean | null
+          partner_logo_url?: string | null
+          partner_name: string
+          partner_type: string
+          testimonial_text: string
+          updated_at?: string
+        }
+        Update: {
+          contact_person?: string | null
+          created_at?: string
+          display_order?: number | null
+          id?: string
+          is_approved?: boolean | null
+          partner_logo_url?: string | null
+          partner_name?: string
+          partner_type?: string
+          testimonial_text?: string
+          updated_at?: string
         }
         Relationships: []
       }

@@ -98,6 +98,7 @@ export type Database = {
           id: string
           is_approved: boolean | null
           media_urls: Json | null
+          nationality: string | null
           rating: number
           review_text: string
           travel_end_date: string
@@ -112,6 +113,7 @@ export type Database = {
           id?: string
           is_approved?: boolean | null
           media_urls?: Json | null
+          nationality?: string | null
           rating: number
           review_text: string
           travel_end_date: string
@@ -126,6 +128,7 @@ export type Database = {
           id?: string
           is_approved?: boolean | null
           media_urls?: Json | null
+          nationality?: string | null
           rating?: number
           review_text?: string
           travel_end_date?: string

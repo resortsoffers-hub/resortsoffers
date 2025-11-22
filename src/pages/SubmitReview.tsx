@@ -11,8 +11,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
-import { Star, Upload, Send, Loader2 } from "lucide-react";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Star, Send, Loader2 } from "lucide-react";
 
 const reviewSchema = z.object({
   customerName: z.string().min(2, "Name must be at least 2 characters"),
@@ -24,34 +23,19 @@ const reviewSchema = z.object({
   reviewText: z.string().min(10, "Review must be at least 10 characters"),
 });
 
-const surveySchema = z.object({
-  name: z.string().min(2, "Name is required"),
-  email: z.string().email("Valid email required"),
-  interestedDestination: z.string().min(2, "Please select a destination"),
-  travelType: z.string().min(2, "Please select travel type"),
-  budget: z.string().min(1, "Please select your budget range"),
-  message: z.string().optional(),
-});
-
 type ReviewFormData = z.infer<typeof reviewSchema>;
-type SurveyFormData = z.infer<typeof surveySchema>;
 
 export default function SubmitReview() {
   const [rating, setRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
   const [uploading, setUploading] = useState(false);
   const [uploadedFiles, setUploadedFiles] = useState<string[]>([]);
-  const [submitTab, setSubmitTab] = useState<"review" | "survey">("review");
 
   const reviewForm = useForm<ReviewFormData>({
     resolver: zodResolver(reviewSchema),
     defaultValues: {
       rating: 0,
     },
-  });
-
-  const surveyForm = useForm<SurveyFormData>({
-    resolver: zodResolver(surveySchema),
   });
 
   const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -114,18 +98,6 @@ export default function SubmitReview() {
     }
   };
 
-  const onSurveySubmit = async (data: SurveyFormData) => {
-    try {
-      // For now, we'll just show a success message
-      // You can later create a survey responses table if needed
-      console.log("Survey data:", data);
-      toast.success("Thank you! We'll send you personalized offers soon.");
-      surveyForm.reset();
-    } catch (error: any) {
-      toast.error("Error submitting survey: " + error.message);
-    }
-  };
-
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -137,31 +109,11 @@ export default function SubmitReview() {
               Share Your Experience
             </h1>
             <p className="text-lg text-muted-foreground">
-              We'd love to hear about your journey and help you plan your next adventure
+              Tell us about your wonderful travel experience
             </p>
           </div>
 
-          {/* Tab Selection */}
-          <div className="flex gap-4 mb-8 justify-center">
-            <Button
-              variant={submitTab === "review" ? "default" : "outline"}
-              onClick={() => setSubmitTab("review")}
-              className="min-w-[150px]"
-            >
-              Submit Review
-            </Button>
-            <Button
-              variant={submitTab === "survey" ? "default" : "outline"}
-              onClick={() => setSubmitTab("survey")}
-              className="min-w-[150px]"
-            >
-              Travel Survey
-            </Button>
-          </div>
-
-          {/* Review Form */}
-          {submitTab === "review" && (
-            <Card className="border-2">
+          <Card className="border-2">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Star className="h-6 w-6 text-primary" />
@@ -316,136 +268,6 @@ export default function SubmitReview() {
                 </form>
               </CardContent>
             </Card>
-          )}
-
-          {/* Survey Form */}
-          {submitTab === "survey" && (
-            <Card className="border-2">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Send className="h-6 w-6 text-primary" />
-                  Travel Preferences Survey
-                </CardTitle>
-                <CardDescription>
-                  Help us create your perfect travel package
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={surveyForm.handleSubmit(onSurveySubmit)} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="surveyName">Your Name *</Label>
-                      <Input
-                        id="surveyName"
-                        {...surveyForm.register("name")}
-                        placeholder="John Doe"
-                      />
-                      {surveyForm.formState.errors.name && (
-                        <p className="text-sm text-destructive">
-                          {surveyForm.formState.errors.name.message}
-                        </p>
-                      )}
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="surveyEmail">Email *</Label>
-                      <Input
-                        id="surveyEmail"
-                        type="email"
-                        {...surveyForm.register("email")}
-                        placeholder="john@example.com"
-                      />
-                      {surveyForm.formState.errors.email && (
-                        <p className="text-sm text-destructive">
-                          {surveyForm.formState.errors.email.message}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="interestedDestination">Destination of Interest *</Label>
-                    <Select onValueChange={(value) => surveyForm.setValue("interestedDestination", value)}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select a destination" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="maldives">Maldives</SelectItem>
-                        <SelectItem value="seychelles">Seychelles</SelectItem>
-                        <SelectItem value="mauritius">Mauritius</SelectItem>
-                        <SelectItem value="greece">Greece</SelectItem>
-                        <SelectItem value="italy">Italy</SelectItem>
-                        <SelectItem value="switzerland">Switzerland</SelectItem>
-                        <SelectItem value="norway">Norway</SelectItem>
-                        <SelectItem value="japan">Japan</SelectItem>
-                        <SelectItem value="other">Other</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="travelType">Travel Type *</Label>
-                    <Select onValueChange={(value) => surveyForm.setValue("travelType", value)}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select travel type" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="honeymoon">Honeymoon</SelectItem>
-                        <SelectItem value="family">Family Vacation</SelectItem>
-                        <SelectItem value="group">Group Travel</SelectItem>
-                        <SelectItem value="solo">Solo Adventure</SelectItem>
-                        <SelectItem value="business">Business & Leisure</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="budget">Budget Range *</Label>
-                    <Select onValueChange={(value) => surveyForm.setValue("budget", value)}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select budget range" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="budget">Budget ($1,000 - $3,000)</SelectItem>
-                        <SelectItem value="moderate">Moderate ($3,000 - $7,000)</SelectItem>
-                        <SelectItem value="luxury">Luxury ($7,000 - $15,000)</SelectItem>
-                        <SelectItem value="ultra-luxury">Ultra Luxury ($15,000+)</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="surveyMessage">Additional Information</Label>
-                    <Textarea
-                      id="surveyMessage"
-                      {...surveyForm.register("message")}
-                      placeholder="Tell us about your travel preferences, special requests, or any questions..."
-                      rows={4}
-                      className="resize-none"
-                    />
-                  </div>
-
-                  <Button
-                    type="submit"
-                    className="w-full"
-                    disabled={surveyForm.formState.isSubmitting}
-                  >
-                    {surveyForm.formState.isSubmitting ? (
-                      <>
-                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                        Submitting...
-                      </>
-                    ) : (
-                      <>
-                        <Send className="mr-2 h-4 w-4" />
-                        Submit Survey
-                      </>
-                    )}
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
-          )}
         </div>
       </main>
 

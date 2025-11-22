@@ -20,7 +20,7 @@ const Navbar = () => {
     { name: t('nav.blog'), path: "/blog" },
     { name: t('nav.team'), path: "/team" },
     { name: t('nav.contact'), path: "/contact" },
-    { name: t('nav.submitReview'), path: "/submit-review" },
+    { name: t('nav.reviews'), path: "/reviews" },
   ];
 
   const isActive = (path: string) => location.pathname === path;

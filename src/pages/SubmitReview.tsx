@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -9,19 +9,31 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { Star, Send, Loader2 } from "lucide-react";
+import { getAllDestinations } from "@/data/destinationsData";
+import { getAllResorts } from "@/data/resortsData";
+
+// Main nationalities list
+const NATIONALITIES = [
+  "Emirati", "Saudi Arabian", "Kuwaiti", "Qatari", "Bahraini", "Omani",
+  "American", "British", "Canadian", "Australian", "French", "German",
+  "Italian", "Spanish", "Russian", "Chinese", "Indian", "Japanese",
+  "Korean", "Malaysian", "Singaporean", "Egyptian", "Jordanian", "Lebanese"
+];
 
 const reviewSchema = z.object({
   customerName: z.string().min(2, "Name must be at least 2 characters"),
-  destination: z.string().min(2, "Please enter your destination"),
-  hotelName: z.string().min(2, "Please enter the hotel name"),
-  nationality: z.string().optional(),
+  destination: z.string().min(1, "Please select your destination"),
+  hotelName: z.string().min(2, "Please select or enter the hotel name"),
+  nationality: z.string().min(1, "Please select your nationality"),
   stayMonth: z.string().min(1, "Please select the month of your stay"),
   stayYear: z.string().min(4, "Please enter the year"),
   rating: z.number().min(1).max(5),
   reviewText: z.string().min(10, "Review must be at least 10 characters"),
+  reviewLanguage: z.enum(["en", "ar"]),
 });
 
 type ReviewFormData = z.infer<typeof reviewSchema>;
@@ -31,11 +43,21 @@ export default function SubmitReview() {
   const [hoverRating, setHoverRating] = useState(0);
   const [uploading, setUploading] = useState(false);
   const [uploadedFiles, setUploadedFiles] = useState<string[]>([]);
+  const [selectedDestination, setSelectedDestination] = useState("");
+
+  const destinations = useMemo(() => getAllDestinations(), []);
+  const allResorts = useMemo(() => getAllResorts(), []);
+  
+  const filteredHotels = useMemo(() => {
+    if (!selectedDestination) return allResorts;
+    return allResorts.filter(resort => resort.region === selectedDestination);
+  }, [selectedDestination, allResorts]);
 
   const reviewForm = useForm<ReviewFormData>({
     resolver: zodResolver(reviewSchema),
     defaultValues: {
       rating: 0,
+      reviewLanguage: "en",
     },
   });
 
@@ -110,25 +132,29 @@ export default function SubmitReview() {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       
-      <main className="flex-1 section-padding bg-gradient-to-b from-background to-muted">
-        <div className="container-custom max-w-4xl">
+      <main className="flex-1 section-padding relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5" />
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80')] opacity-5 bg-cover bg-center" />
+        <div className="container-custom max-w-4xl relative z-10">
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-in fade-in slide-in-from-bottom-4 duration-700">
               Share Your Experience
             </h1>
-            <p className="text-lg text-muted-foreground">
-              Tell us about your wonderful travel experience
+            <p className="text-lg text-muted-foreground animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
+              We'd love to hear about your wonderful travel experience
             </p>
           </div>
 
-          <Card className="border-2">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Star className="h-6 w-6 text-primary" />
+          <Card className="border-2 shadow-2xl backdrop-blur-sm bg-background/95 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-200">
+              <CardHeader className="space-y-1 pb-8">
+                <CardTitle className="flex items-center gap-3 text-2xl">
+                  <div className="p-2 rounded-lg bg-primary/10">
+                    <Star className="h-6 w-6 text-primary" />
+                  </div>
                   Submit Your Review
                 </CardTitle>
-                <CardDescription>
-                  Tell us about your wonderful experience at your destination
+                <CardDescription className="text-base">
+                  Share your experience and help other travelers make informed decisions
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -150,11 +176,25 @@ export default function SubmitReview() {
 
                     <div className="space-y-2">
                       <Label htmlFor="destination">Destination *</Label>
-                      <Input
-                        id="destination"
-                        {...reviewForm.register("destination")}
-                        placeholder="Maldives"
-                      />
+                      <Select
+                        value={reviewForm.watch("destination")}
+                        onValueChange={(value) => {
+                          reviewForm.setValue("destination", value);
+                          setSelectedDestination(value);
+                          reviewForm.setValue("hotelName", ""); // Reset hotel when destination changes
+                        }}
+                      >
+                        <SelectTrigger id="destination">
+                          <SelectValue placeholder="Select destination" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {destinations.map((dest) => (
+                            <SelectItem key={dest.slug} value={dest.name}>
+                              {dest.name}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
                       {reviewForm.formState.errors.destination && (
                         <p className="text-sm text-destructive">
                           {reviewForm.formState.errors.destination.message}
@@ -165,11 +205,22 @@ export default function SubmitReview() {
 
                   <div className="space-y-2">
                     <Label htmlFor="hotelName">Hotel/Resort Name *</Label>
-                    <Input
-                      id="hotelName"
-                      {...reviewForm.register("hotelName")}
-                      placeholder="Four Seasons Resort"
-                    />
+                    <Select
+                      value={reviewForm.watch("hotelName")}
+                      onValueChange={(value) => reviewForm.setValue("hotelName", value)}
+                      disabled={!selectedDestination}
+                    >
+                      <SelectTrigger id="hotelName">
+                        <SelectValue placeholder={selectedDestination ? "Select hotel/resort" : "Select destination first"} />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {filteredHotels.map((hotel) => (
+                          <SelectItem key={hotel.slug} value={hotel.name}>
+                            {hotel.name}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                     {reviewForm.formState.errors.hotelName && (
                       <p className="text-sm text-destructive">
                         {reviewForm.formState.errors.hotelName.message}
@@ -178,12 +229,27 @@ export default function SubmitReview() {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="nationality">Nationality (Optional)</Label>
-                    <Input
-                      id="nationality"
-                      {...reviewForm.register("nationality")}
-                      placeholder="e.g., American, British, UAE"
-                    />
+                    <Label htmlFor="nationality">Nationality *</Label>
+                    <Select
+                      value={reviewForm.watch("nationality")}
+                      onValueChange={(value) => reviewForm.setValue("nationality", value)}
+                    >
+                      <SelectTrigger id="nationality">
+                        <SelectValue placeholder="Select nationality" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {NATIONALITIES.map((nationality) => (
+                          <SelectItem key={nationality} value={nationality}>
+                            {nationality}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    {reviewForm.formState.errors.nationality && (
+                      <p className="text-sm text-destructive">
+                        {reviewForm.formState.errors.nationality.message}
+                      </p>
+                    )}
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-6">
@@ -256,13 +322,30 @@ export default function SubmitReview() {
                   </div>
 
                   <div className="space-y-2">
+                    <Label htmlFor="reviewLanguage">Review Language *</Label>
+                    <Select
+                      value={reviewForm.watch("reviewLanguage")}
+                      onValueChange={(value: "en" | "ar") => reviewForm.setValue("reviewLanguage", value)}
+                    >
+                      <SelectTrigger id="reviewLanguage">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="en">English</SelectItem>
+                        <SelectItem value="ar">Arabic - العربية</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div className="space-y-2">
                     <Label htmlFor="reviewText">Your Review *</Label>
                     <Textarea
                       id="reviewText"
                       {...reviewForm.register("reviewText")}
-                      placeholder="Share your experience with us..."
+                      placeholder={reviewForm.watch("reviewLanguage") === "ar" ? "شارك تجربتك معنا..." : "Share your experience with us..."}
                       rows={6}
                       className="resize-none"
+                      dir={reviewForm.watch("reviewLanguage") === "ar" ? "rtl" : "ltr"}
                     />
                     {reviewForm.formState.errors.reviewText && (
                       <p className="text-sm text-destructive">
@@ -294,21 +377,24 @@ export default function SubmitReview() {
 
                   <Button
                     type="submit"
-                    className="w-full"
+                    className="w-full h-12 text-base font-semibold"
                     disabled={reviewForm.formState.isSubmitting}
                   >
                     {reviewForm.formState.isSubmitting ? (
                       <>
-                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                        Submitting...
+                        <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                        Submitting Your Review...
                       </>
                     ) : (
                       <>
-                        <Send className="mr-2 h-4 w-4" />
+                        <Send className="mr-2 h-5 w-5" />
                         Submit Review
                       </>
                     )}
                   </Button>
+                  <p className="text-sm text-center text-muted-foreground">
+                    Your review will be published after approval
+                  </p>
                 </form>
               </CardContent>
             </Card>

@@ -19,7 +19,7 @@ interface Review {
   travel_start_date: string;
   rating: number;
   review_text: string;
-  media_urls: string[];
+  media_urls: any;
   created_at: string;
 }
 

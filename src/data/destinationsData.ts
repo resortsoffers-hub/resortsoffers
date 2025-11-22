@@ -1705,3 +1705,7 @@ export const destinationsData: Record<string, DestinationData> = Object.fromEntr
   ]),
 );
 
+export const getAllDestinations = (): DestinationData[] => {
+  return Object.values(destinationsData);
+};
+

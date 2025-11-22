@@ -17,8 +17,9 @@ const reviewSchema = z.object({
   customerName: z.string().min(2, "Name must be at least 2 characters"),
   destination: z.string().min(2, "Please enter your destination"),
   hotelName: z.string().min(2, "Please enter the hotel name"),
-  travelStartDate: z.string(),
-  travelEndDate: z.string(),
+  nationality: z.string().optional(),
+  stayMonth: z.string().min(1, "Please select the month of your stay"),
+  stayYear: z.string().min(4, "Please enter the year"),
   rating: z.number().min(1).max(5),
   reviewText: z.string().min(10, "Review must be at least 10 characters"),
 });
@@ -75,12 +76,19 @@ export default function SubmitReview() {
 
   const onReviewSubmit = async (data: ReviewFormData) => {
     try {
+      // Create date from month and year (first day of the month)
+      const startDate = `${data.stayYear}-${data.stayMonth}-01`;
+      // Create end date (last day of the month)
+      const daysInMonth = new Date(parseInt(data.stayYear), parseInt(data.stayMonth), 0).getDate();
+      const endDate = `${data.stayYear}-${data.stayMonth}-${daysInMonth}`;
+
       const { error } = await supabase.from("customer_reviews").insert({
         customer_name: data.customerName,
         destination: data.destination,
         hotel_name: data.hotelName,
-        travel_start_date: data.travelStartDate,
-        travel_end_date: data.travelEndDate,
+        nationality: data.nationality || null,
+        travel_start_date: startDate,
+        travel_end_date: endDate,
         rating: data.rating,
         review_text: data.reviewText,
         media_urls: uploadedFiles,
@@ -169,23 +177,59 @@ export default function SubmitReview() {
                     )}
                   </div>
 
+                  <div className="space-y-2">
+                    <Label htmlFor="nationality">Nationality (Optional)</Label>
+                    <Input
+                      id="nationality"
+                      {...reviewForm.register("nationality")}
+                      placeholder="e.g., American, British, UAE"
+                    />
+                  </div>
+
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <Label htmlFor="travelStartDate">Check-in Date *</Label>
-                      <Input
-                        id="travelStartDate"
-                        type="date"
-                        {...reviewForm.register("travelStartDate")}
-                      />
+                      <Label htmlFor="stayMonth">Month of Stay *</Label>
+                      <select
+                        id="stayMonth"
+                        {...reviewForm.register("stayMonth")}
+                        className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                      >
+                        <option value="">Select month</option>
+                        <option value="01">January</option>
+                        <option value="02">February</option>
+                        <option value="03">March</option>
+                        <option value="04">April</option>
+                        <option value="05">May</option>
+                        <option value="06">June</option>
+                        <option value="07">July</option>
+                        <option value="08">August</option>
+                        <option value="09">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                      </select>
+                      {reviewForm.formState.errors.stayMonth && (
+                        <p className="text-sm text-destructive">
+                          {reviewForm.formState.errors.stayMonth.message}
+                        </p>
+                      )}
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="travelEndDate">Check-out Date *</Label>
+                      <Label htmlFor="stayYear">Year *</Label>
                       <Input
-                        id="travelEndDate"
-                        type="date"
-                        {...reviewForm.register("travelEndDate")}
+                        id="stayYear"
+                        type="number"
+                        min="2020"
+                        max="2025"
+                        {...reviewForm.register("stayYear")}
+                        placeholder="2024"
                       />
+                      {reviewForm.formState.errors.stayYear && (
+                        <p className="text-sm text-destructive">
+                          {reviewForm.formState.errors.stayYear.message}
+                        </p>
+                      )}
                     </div>
                   </div>
 

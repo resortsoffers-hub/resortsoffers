@@ -16,10 +16,11 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 
 const reviewSchema = z.object({
   customerName: z.string().min(2, "Name must be at least 2 characters"),
+  nationality: z.string().min(2, "Please enter your nationality"),
   destination: z.string().min(2, "Please enter your destination"),
   hotelName: z.string().min(2, "Please enter the hotel name"),
-  travelStartDate: z.string(),
-  travelEndDate: z.string(),
+  travelMonth: z.string(),
+  travelYear: z.string(),
   rating: z.number().min(1).max(5),
   reviewText: z.string().min(10, "Review must be at least 10 characters"),
 });
@@ -91,12 +92,16 @@ export default function SubmitReview() {
 
   const onReviewSubmit = async (data: ReviewFormData) => {
     try {
+      // Create date from month/year (first day of the month)
+      const travelDate = `${data.travelYear}-${data.travelMonth.padStart(2, '0')}-01`;
+      
       const { error } = await supabase.from("customer_reviews").insert({
         customer_name: data.customerName,
+        nationality: data.nationality,
         destination: data.destination,
         hotel_name: data.hotelName,
-        travel_start_date: data.travelStartDate,
-        travel_end_date: data.travelEndDate,
+        travel_start_date: travelDate,
+        travel_end_date: travelDate,
         rating: data.rating,
         review_text: data.reviewText,
         media_urls: uploadedFiles,
@@ -189,6 +194,22 @@ export default function SubmitReview() {
                     </div>
 
                     <div className="space-y-2">
+                      <Label htmlFor="nationality">Nationality *</Label>
+                      <Input
+                        id="nationality"
+                        {...reviewForm.register("nationality")}
+                        placeholder="American, British, etc."
+                      />
+                      {reviewForm.formState.errors.nationality && (
+                        <p className="text-sm text-destructive">
+                          {reviewForm.formState.errors.nationality.message}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
                       <Label htmlFor="destination">Destination *</Label>
                       <Input
                         id="destination"
@@ -201,39 +222,60 @@ export default function SubmitReview() {
                         </p>
                       )}
                     </div>
-                  </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="hotelName">Hotel/Resort Name *</Label>
-                    <Input
-                      id="hotelName"
-                      {...reviewForm.register("hotelName")}
-                      placeholder="Four Seasons Resort"
-                    />
-                    {reviewForm.formState.errors.hotelName && (
-                      <p className="text-sm text-destructive">
-                        {reviewForm.formState.errors.hotelName.message}
-                      </p>
-                    )}
+                    <div className="space-y-2">
+                      <Label htmlFor="hotelName">Hotel/Resort Name *</Label>
+                      <Input
+                        id="hotelName"
+                        {...reviewForm.register("hotelName")}
+                        placeholder="Four Seasons Resort"
+                      />
+                      {reviewForm.formState.errors.hotelName && (
+                        <p className="text-sm text-destructive">
+                          {reviewForm.formState.errors.hotelName.message}
+                        </p>
+                      )}
+                    </div>
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <Label htmlFor="travelStartDate">Check-in Date *</Label>
-                      <Input
-                        id="travelStartDate"
-                        type="date"
-                        {...reviewForm.register("travelStartDate")}
-                      />
+                      <Label htmlFor="travelMonth">Travel Month *</Label>
+                      <Select onValueChange={(value) => reviewForm.setValue("travelMonth", value)}>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select month" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="1">January</SelectItem>
+                          <SelectItem value="2">February</SelectItem>
+                          <SelectItem value="3">March</SelectItem>
+                          <SelectItem value="4">April</SelectItem>
+                          <SelectItem value="5">May</SelectItem>
+                          <SelectItem value="6">June</SelectItem>
+                          <SelectItem value="7">July</SelectItem>
+                          <SelectItem value="8">August</SelectItem>
+                          <SelectItem value="9">September</SelectItem>
+                          <SelectItem value="10">October</SelectItem>
+                          <SelectItem value="11">November</SelectItem>
+                          <SelectItem value="12">December</SelectItem>
+                        </SelectContent>
+                      </Select>
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="travelEndDate">Check-out Date *</Label>
-                      <Input
-                        id="travelEndDate"
-                        type="date"
-                        {...reviewForm.register("travelEndDate")}
-                      />
+                      <Label htmlFor="travelYear">Travel Year *</Label>
+                      <Select onValueChange={(value) => reviewForm.setValue("travelYear", value)}>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select year" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {Array.from({ length: 10 }, (_, i) => new Date().getFullYear() - i).map((year) => (
+                            <SelectItem key={year} value={year.toString()}>
+                              {year}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
                     </div>
                   </div>
 

@@ -19,6 +19,8 @@ export default function ViewReviews() {
   const [searchQuery, setSearchQuery] = useState("");
   const [destinationFilter, setDestinationFilter] = useState("all");
   const [ratingFilter, setRatingFilter] = useState("all");
+  const [nationalityFilter, setNationalityFilter] = useState("all");
+  const [hotelFilter, setHotelFilter] = useState("all");
 
   useEffect(() => {
     fetchReviews();
@@ -58,11 +60,27 @@ export default function ViewReviews() {
       (ratingFilter === "4" && review.rating >= 4) ||
       (ratingFilter === "3" && review.rating >= 3);
 
-    return matchesSearch && matchesDestination && matchesRating;
+    const matchesNationality =
+      nationalityFilter === "all" ||
+      (review.nationality && review.nationality === nationalityFilter);
+
+    const matchesHotel =
+      hotelFilter === "all" ||
+      review.hotel_name === hotelFilter;
+
+    return matchesSearch && matchesDestination && matchesRating && matchesNationality && matchesHotel;
   });
 
   const uniqueDestinations = Array.from(
     new Set(reviews.map((r) => r.destination))
+  );
+
+  const uniqueNationalities = Array.from(
+    new Set(reviews.map((r) => r.nationality).filter((n): n is string => Boolean(n)))
+  );
+
+  const uniqueHotels = Array.from(
+    new Set(reviews.map((r) => r.hotel_name))
   );
 
   return (

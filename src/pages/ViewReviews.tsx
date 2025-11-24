@@ -1,15 +1,44 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { supabase } from "@/integrations/supabase/client";
-import { Star, Search, Filter, MapPin, Hotel, Globe } from "lucide-react";
+import { Star, Search, Filter, MapPin, Hotel, Globe, Send, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { format } from "date-fns";
 import type { Database } from "@/integrations/supabase/types";
+import { getAllDestinations } from "@/data/destinationsData";
+import { getAllResorts } from "@/data/resortsData";
+
+// Main nationalities list
+const NATIONALITIES = [
+  "Emirati", "Saudi Arabian", "Kuwaiti", "Qatari", "Bahraini", "Omani",
+  "American", "British", "Canadian", "Australian", "French", "German",
+  "Italian", "Spanish", "Russian", "Chinese", "Indian", "Japanese",
+  "Korean", "Malaysian", "Singaporean", "Egyptian", "Jordanian", "Lebanese"
+];
+
+const reviewSchema = z.object({
+  customerName: z.string().min(2, "Name must be at least 2 characters"),
+  destination: z.string().min(1, "Please select your destination"),
+  hotelName: z.string().min(2, "Please select or enter the hotel name"),
+  nationality: z.string().min(1, "Please select your nationality"),
+  stayMonth: z.string().min(1, "Please select the month of your stay"),
+  stayYear: z.string().min(4, "Please enter the year"),
+  rating: z.number().min(1).max(5),
+  reviewText: z.string().min(10, "Review must be at least 10 characters"),
+  reviewLanguage: z.enum(["en", "ar"]),
+});
+
+type ReviewFormData = z.infer<typeof reviewSchema>;
 
 type ReviewRow = Database["public"]["Tables"]["customer_reviews"]["Row"];
 
@@ -21,6 +50,27 @@ export default function ViewReviews() {
   const [ratingFilter, setRatingFilter] = useState("all");
   const [nationalityFilter, setNationalityFilter] = useState("all");
   const [hotelFilter, setHotelFilter] = useState("all");
+  const [rating, setRating] = useState(0);
+  const [hoverRating, setHoverRating] = useState(0);
+  const [uploading, setUploading] = useState(false);
+  const [uploadedFiles, setUploadedFiles] = useState<string[]>([]);
+  const [selectedDestination, setSelectedDestination] = useState("");
+
+  const destinations = useMemo(() => getAllDestinations(), []);
+  const allResorts = useMemo(() => getAllResorts(), []);
+  
+  const filteredHotels = useMemo(() => {
+    if (!selectedDestination) return allResorts;
+    return allResorts.filter(resort => resort.region === selectedDestination);
+  }, [selectedDestination, allResorts]);
+
+  const reviewForm = useForm<ReviewFormData>({
+    resolver: zodResolver(reviewSchema),
+    defaultValues: {
+      rating: 0,
+      reviewLanguage: "en",
+    },
+  });
 
   useEffect(() => {
     fetchReviews();
@@ -40,6 +90,72 @@ export default function ViewReviews() {
       toast.error("Error loading reviews: " + error.message);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const files = event.target.files;
+    if (!files || files.length === 0) return;
+
+    setUploading(true);
+    const uploadedUrls: string[] = [];
+
+    try {
+      for (const file of Array.from(files)) {
+        const fileExt = file.name.split(".").pop();
+        const fileName = `${Math.random()}.${fileExt}`;
+        const filePath = `${fileName}`;
+
+        const { error: uploadError } = await supabase.storage
+          .from("review-media")
+          .upload(filePath, file);
+
+        if (uploadError) throw uploadError;
+
+        const { data: { publicUrl } } = supabase.storage
+          .from("review-media")
+          .getPublicUrl(filePath);
+
+        uploadedUrls.push(publicUrl);
+      }
+
+      setUploadedFiles([...uploadedFiles, ...uploadedUrls]);
+      toast.success(`${files.length} file(s) uploaded successfully!`);
+    } catch (error: any) {
+      toast.error("Error uploading files: " + error.message);
+    } finally {
+      setUploading(false);
+    }
+  };
+
+  const onReviewSubmit = async (data: ReviewFormData) => {
+    try {
+      const startDate = `${data.stayYear}-${data.stayMonth}-01`;
+      const daysInMonth = new Date(parseInt(data.stayYear), parseInt(data.stayMonth), 0).getDate();
+      const endDate = `${data.stayYear}-${data.stayMonth}-${daysInMonth}`;
+
+      const { error } = await supabase.from("customer_reviews").insert({
+        customer_name: data.customerName,
+        destination: data.destination,
+        hotel_name: data.hotelName,
+        nationality: data.nationality || null,
+        travel_start_date: startDate,
+        travel_end_date: endDate,
+        rating: data.rating,
+        review_text: data.reviewText,
+        media_urls: uploadedFiles,
+        is_approved: false,
+      });
+
+      if (error) throw error;
+
+      toast.success("Thank you! Your review has been submitted for approval.");
+      reviewForm.reset();
+      setRating(0);
+      setUploadedFiles([]);
+      setSelectedDestination("");
+    } catch (error: any) {
+      toast.error("Error submitting review: " + error.message);
     }
   };
 
@@ -94,15 +210,286 @@ export default function ViewReviews() {
         <div className="container-custom max-w-7xl relative z-10">
           <div className="text-center mb-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-              Customer Reviews
+              Share Your Experience
             </h1>
             <p className="text-lg text-muted-foreground">
-              Authentic experiences from travelers who explored the world with us
+              Submit your review and see what others are saying
             </p>
           </div>
 
+          {/* Review Submission Form */}
+          <Card className="mb-12 border-2 shadow-2xl backdrop-blur-sm bg-background/95 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100">
+            <CardHeader className="space-y-1 pb-6">
+              <CardTitle className="flex items-center gap-3 text-2xl">
+                <div className="p-2 rounded-lg bg-primary/10">
+                  <Star className="h-6 w-6 text-primary" />
+                </div>
+                Submit Your Review
+              </CardTitle>
+              <CardDescription className="text-base">
+                Share your travel experience and help other travelers make informed decisions
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={reviewForm.handleSubmit(onReviewSubmit)} className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="customerName">Your Name *</Label>
+                    <Input
+                      id="customerName"
+                      {...reviewForm.register("customerName")}
+                      placeholder="John Doe"
+                    />
+                    {reviewForm.formState.errors.customerName && (
+                      <p className="text-sm text-destructive">
+                        {reviewForm.formState.errors.customerName.message}
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="destination">Destination *</Label>
+                    <Select
+                      value={reviewForm.watch("destination")}
+                      onValueChange={(value) => {
+                        reviewForm.setValue("destination", value);
+                        setSelectedDestination(value);
+                        reviewForm.setValue("hotelName", "");
+                      }}
+                    >
+                      <SelectTrigger id="destination">
+                        <SelectValue placeholder="Select destination" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {destinations.map((dest) => (
+                          <SelectItem key={dest.slug} value={dest.name}>
+                            {dest.name}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    {reviewForm.formState.errors.destination && (
+                      <p className="text-sm text-destructive">
+                        {reviewForm.formState.errors.destination.message}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="hotelName">Hotel/Resort Name *</Label>
+                  <Select
+                    value={reviewForm.watch("hotelName")}
+                    onValueChange={(value) => reviewForm.setValue("hotelName", value)}
+                    disabled={!selectedDestination}
+                  >
+                    <SelectTrigger id="hotelName">
+                      <SelectValue placeholder={selectedDestination ? "Select hotel/resort" : "Select destination first"} />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {filteredHotels.map((hotel) => (
+                        <SelectItem key={hotel.slug} value={hotel.name}>
+                          {hotel.name}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  {reviewForm.formState.errors.hotelName && (
+                    <p className="text-sm text-destructive">
+                      {reviewForm.formState.errors.hotelName.message}
+                    </p>
+                  )}
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="nationality">Nationality *</Label>
+                  <Select
+                    value={reviewForm.watch("nationality")}
+                    onValueChange={(value) => reviewForm.setValue("nationality", value)}
+                  >
+                    <SelectTrigger id="nationality">
+                      <SelectValue placeholder="Select nationality" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {NATIONALITIES.map((nationality) => (
+                        <SelectItem key={nationality} value={nationality}>
+                          {nationality}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  {reviewForm.formState.errors.nationality && (
+                    <p className="text-sm text-destructive">
+                      {reviewForm.formState.errors.nationality.message}
+                    </p>
+                  )}
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="stayMonth">Month of Stay *</Label>
+                    <Select
+                      value={reviewForm.watch("stayMonth")}
+                      onValueChange={(value) => reviewForm.setValue("stayMonth", value)}
+                    >
+                      <SelectTrigger id="stayMonth">
+                        <SelectValue placeholder="Select month" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="01">January</SelectItem>
+                        <SelectItem value="02">February</SelectItem>
+                        <SelectItem value="03">March</SelectItem>
+                        <SelectItem value="04">April</SelectItem>
+                        <SelectItem value="05">May</SelectItem>
+                        <SelectItem value="06">June</SelectItem>
+                        <SelectItem value="07">July</SelectItem>
+                        <SelectItem value="08">August</SelectItem>
+                        <SelectItem value="09">September</SelectItem>
+                        <SelectItem value="10">October</SelectItem>
+                        <SelectItem value="11">November</SelectItem>
+                        <SelectItem value="12">December</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    {reviewForm.formState.errors.stayMonth && (
+                      <p className="text-sm text-destructive">
+                        {reviewForm.formState.errors.stayMonth.message}
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="stayYear">Year of Stay *</Label>
+                    <Select
+                      value={reviewForm.watch("stayYear")}
+                      onValueChange={(value) => reviewForm.setValue("stayYear", value)}
+                    >
+                      <SelectTrigger id="stayYear">
+                        <SelectValue placeholder="Select year" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="2024">2024</SelectItem>
+                        <SelectItem value="2023">2023</SelectItem>
+                        <SelectItem value="2022">2022</SelectItem>
+                        <SelectItem value="2021">2021</SelectItem>
+                        <SelectItem value="2020">2020</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    {reviewForm.formState.errors.stayYear && (
+                      <p className="text-sm text-destructive">
+                        {reviewForm.formState.errors.stayYear.message}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label>Your Rating *</Label>
+                  <div className="flex gap-2">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <Star
+                        key={star}
+                        className={`h-10 w-10 cursor-pointer transition-colors ${
+                          star <= (hoverRating || rating)
+                            ? "fill-primary text-primary"
+                            : "text-muted-foreground"
+                        }`}
+                        onClick={() => {
+                          setRating(star);
+                          reviewForm.setValue("rating", star);
+                        }}
+                        onMouseEnter={() => setHoverRating(star)}
+                        onMouseLeave={() => setHoverRating(0)}
+                      />
+                    ))}
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="reviewLanguage">Review Language *</Label>
+                  <Select
+                    value={reviewForm.watch("reviewLanguage")}
+                    onValueChange={(value: "en" | "ar") => reviewForm.setValue("reviewLanguage", value)}
+                  >
+                    <SelectTrigger id="reviewLanguage">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="en">English</SelectItem>
+                      <SelectItem value="ar">Arabic - العربية</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="reviewText">Your Review *</Label>
+                  <Textarea
+                    id="reviewText"
+                    {...reviewForm.register("reviewText")}
+                    placeholder={reviewForm.watch("reviewLanguage") === "ar" ? "شارك تجربتك معنا..." : "Share your experience with us..."}
+                    rows={6}
+                    className="resize-none"
+                    dir={reviewForm.watch("reviewLanguage") === "ar" ? "rtl" : "ltr"}
+                  />
+                  {reviewForm.formState.errors.reviewText && (
+                    <p className="text-sm text-destructive">
+                      {reviewForm.formState.errors.reviewText.message}
+                    </p>
+                  )}
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="media">Upload Photos/Videos (Optional)</Label>
+                  <div className="flex items-center gap-4">
+                    <Input
+                      id="media"
+                      type="file"
+                      multiple
+                      accept="image/*,video/*"
+                      onChange={handleFileUpload}
+                      disabled={uploading}
+                      className="flex-1"
+                    />
+                    {uploading && <Loader2 className="h-5 w-5 animate-spin" />}
+                  </div>
+                  {uploadedFiles.length > 0 && (
+                    <p className="text-sm text-muted-foreground">
+                      {uploadedFiles.length} file(s) uploaded
+                    </p>
+                  )}
+                </div>
+
+                <Button
+                  type="submit"
+                  className="w-full h-12 text-base font-semibold"
+                  disabled={reviewForm.formState.isSubmitting}
+                >
+                  {reviewForm.formState.isSubmitting ? (
+                    <>
+                      <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                      Submitting Your Review...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="mr-2 h-5 w-5" />
+                      Submit Review
+                    </>
+                  )}
+                </Button>
+                <p className="text-sm text-center text-muted-foreground">
+                  Your review will be published after approval
+                </p>
+              </form>
+            </CardContent>
+          </Card>
+
+          {/* Browse Reviews Section */}
+          <div className="text-center mb-8 mt-16">
+            <h2 className="text-3xl font-bold mb-2">Browse Customer Reviews</h2>
+            <p className="text-muted-foreground">See what other travelers are saying about their experiences</p>
+          </div>
+
           {/* Enhanced Search and Filter Bar */}
-          <Card className="mb-8 border-2 shadow-lg backdrop-blur-sm bg-background/95 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100">
+          <Card className="mb-8 border-2 shadow-lg backdrop-blur-sm bg-background/95 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300">
             <CardContent className="p-6">
               <div className="flex items-center gap-2 mb-6">
                 <Filter className="h-5 w-5 text-primary" />

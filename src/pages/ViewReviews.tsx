@@ -5,15 +5,18 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
-import { Star, Search, Filter, MapPin, Hotel, Globe } from "lucide-react";
+import { Star, Search, Filter, MapPin, Hotel, Globe, PlusCircle, MessageSquare } from "lucide-react";
 import { toast } from "sonner";
 import { format } from "date-fns";
+import { useNavigate } from "react-router-dom";
 import type { Database } from "@/integrations/supabase/types";
 
 type ReviewRow = Database["public"]["Tables"]["customer_reviews"]["Row"];
 
 export default function ViewReviews() {
+  const navigate = useNavigate();
   const [reviews, setReviews] = useState<ReviewRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
@@ -92,7 +95,7 @@ export default function ViewReviews() {
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1600&q=80')] opacity-5 bg-cover bg-center" />
         
         <div className="container-custom max-w-7xl relative z-10">
-          <div className="text-center mb-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
+          <div className="text-center mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
               Customer Reviews
             </h1>
@@ -100,6 +103,33 @@ export default function ViewReviews() {
               Authentic experiences from travelers who explored the world with us
             </p>
           </div>
+
+          {/* Call to Action - Submit Your Review */}
+          <Card className="mb-8 border-2 border-primary/20 shadow-xl backdrop-blur-sm bg-gradient-to-br from-primary/10 via-background to-accent/10 animate-in fade-in slide-in-from-top-4 duration-700">
+            <CardContent className="p-8">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div className="flex items-start gap-4 flex-1">
+                  <div className="p-3 rounded-full bg-primary/10 shrink-0">
+                    <MessageSquare className="h-8 w-8 text-primary" />
+                  </div>
+                  <div className="space-y-2">
+                    <h2 className="text-2xl font-bold">Share Your Experience</h2>
+                    <p className="text-muted-foreground">
+                      Traveled with us? Help others by sharing your story! Submit your review with photos and videos.
+                    </p>
+                  </div>
+                </div>
+                <Button 
+                  size="lg"
+                  onClick={() => navigate('/submit-review')}
+                  className="shrink-0 gap-2 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                >
+                  <PlusCircle className="h-5 w-5 group-hover:rotate-90 transition-transform duration-300" />
+                  Submit Your Review
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
 
           {/* Enhanced Search and Filter Bar */}
           <Card className="mb-8 border-2 shadow-lg backdrop-blur-sm bg-background/95 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100">

@@ -278,22 +278,20 @@ export default function ViewReviews() {
 
                 <div className="space-y-2">
                   <Label htmlFor="hotelName">Hotel/Resort Name *</Label>
-                  <Select
-                    value={reviewForm.watch("hotelName")}
-                    onValueChange={(value) => reviewForm.setValue("hotelName", value)}
-                    disabled={!selectedDestination}
-                  >
-                    <SelectTrigger id="hotelName">
-                      <SelectValue placeholder={selectedDestination ? "Select hotel/resort" : "Select destination first"} />
-                    </SelectTrigger>
-                    <SelectContent>
+                  <div className="relative">
+                    <Input
+                      id="hotelName"
+                      {...reviewForm.register("hotelName")}
+                      placeholder={selectedDestination ? "Type or select hotel/resort" : "Select destination first"}
+                      disabled={!selectedDestination}
+                      list="hotels-list"
+                    />
+                    <datalist id="hotels-list">
                       {filteredHotels.map((hotel) => (
-                        <SelectItem key={hotel.slug} value={hotel.name}>
-                          {hotel.name}
-                        </SelectItem>
+                        <option key={hotel.slug} value={hotel.name} />
                       ))}
-                    </SelectContent>
-                  </Select>
+                    </datalist>
+                  </div>
                   {reviewForm.formState.errors.hotelName && (
                     <p className="text-sm text-destructive">
                       {reviewForm.formState.errors.hotelName.message}

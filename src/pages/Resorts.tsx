@@ -1326,10 +1326,91 @@ const Resorts = () => {
       features: ["Theme Park Access", "Water Park", "Shopping Avenue", "Family Entertainment"],
       website: "https://www.thelandoflegends.com",
       image: amsterdamCanal
+    },
+    // Club Med Resorts
+    {
+      name: "Club Med Valmorel",
+      location: "France",
+      region: "Club Med",
+      rating: 4,
+      description: "Nestled behind spruce trees at 1,460 metres, offering family fun activities like sledding, skiing, and snowshoeing. Enjoy indoor pool and gourmet Savoyard dishes.",
+      features: ["All-Inclusive", "Ski-In/Ski-Out", "Kids Club", "Spa & Wellness"],
+      website: "https://www.clubmed.com/r/valmorel",
+      image: swissAlps
+    },
+    {
+      name: "Club Med Grand Massif Samoëns Morillon",
+      location: "France",
+      region: "Club Med",
+      rating: 4,
+      description: "On the Saix plateau at 1,600 metres offering 360° panoramic views and ski-in ski-out to the Grand Massif, the 4th largest ski area in France with 265 kilometres of slopes.",
+      features: ["All-Inclusive", "Premium Accommodation", "Ski Lessons", "All Meals Daily"],
+      website: "https://www.clubmed.com/r/grand-massif-samoens-morillon",
+      image: swissAlps
+    },
+    {
+      name: "Club Med La Rosière",
+      location: "France",
+      region: "Club Med",
+      rating: 4,
+      description: "Enjoy a ski holiday on a pristine mountain perched at 1,950 metres above sea level with an exceptional 180° panoramic south-facing view of the Tarentaise Valley.",
+      features: ["All-Inclusive", "Unlimited Refreshments", "Ski & Lift Passes", "Après-Ski Entertainment"],
+      website: "https://www.clubmed.com/r/la-rosiere",
+      image: swissAlps
+    },
+    {
+      name: "Club Med Maldives Kani",
+      location: "Maldives",
+      region: "Club Med",
+      rating: 4,
+      description: "An idyllic island paradise in the Maldives offering all-inclusive luxury with overwater bungalows, world-class diving, and stunning coral reefs.",
+      features: ["All-Inclusive", "Overwater Bungalows", "Water Sports", "Spa"],
+      website: "https://www.clubmed.com/r/kani",
+      image: waterVillasAerial
+    },
+    {
+      name: "Club Med Finolhu Villas",
+      location: "Maldives",
+      region: "Club Med",
+      rating: 5,
+      description: "Ultra-premium eco-chic villas in the Maldives featuring sunrise and sunset villas with private pools and exclusive services.",
+      features: ["Private Pool Villas", "All-Inclusive", "Premium Experience", "Butler Service"],
+      website: "https://www.clubmed.com/r/finolhu-villas",
+      image: maldivesVillaPool
+    },
+    {
+      name: "Club Med Bali",
+      location: "Bali",
+      region: "Club Med",
+      rating: 4,
+      description: "Tropical paradise on Nusa Dua beach offering authentic Balinese culture, water sports, and family-friendly all-inclusive experiences.",
+      features: ["All-Inclusive", "Beach Resort", "Kids Club", "Water Sports"],
+      website: "https://www.clubmed.com/r/bali",
+      image: baliClifftopResort
+    },
+    {
+      name: "Club Med Phuket",
+      location: "Phuket",
+      region: "Club Med",
+      rating: 4,
+      description: "Set on Kata Beach in Phuket, this tropical resort offers Thai hospitality, flying trapeze, and stunning Andaman Sea views.",
+      features: ["All-Inclusive", "Flying Trapeze", "Thai Cuisine", "Beach Access"],
+      website: "https://www.clubmed.com/r/phuket",
+      image: poolBreakfast
+    },
+    {
+      name: "Club Med Seychelles",
+      location: "Seychelles",
+      region: "Club Med",
+      rating: 4,
+      description: "Eco-friendly resort on the island of Sainte Anne, surrounded by marine national park with exceptional snorkeling and diving.",
+      features: ["All-Inclusive", "Marine Park", "Eco-Resort", "Water Activities"],
+      website: "https://www.clubmed.com/r/seychelles",
+      image: poolAerial
     }
   ];
 
-  const regions = ["All", "Maldives", "Seychelles", "Mauritius", "Bali", "Phuket", "Dubai", "London", "Bora Bora", "Turkey", "Morocco", "Switzerland", "Italy", "Amsterdam", "Finland", "China", "Vietnam", "Malaysia", "Istanbul", "Antalya"];
+  const regions = ["All", "Maldives", "Seychelles", "Mauritius", "Bali", "Phuket", "Dubai", "London", "Bora Bora", "Turkey", "Morocco", "Switzerland", "Italy", "Amsterdam", "Finland", "China", "Vietnam", "Malaysia", "Istanbul", "Antalya", "Club Med"];
 
   const filteredResorts = selectedRegion === "All" 
     ? resorts 

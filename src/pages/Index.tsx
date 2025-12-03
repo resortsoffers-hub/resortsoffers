@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import HeroCarousel from "@/components/HeroCarousel";
 import BookingTabs from "@/components/BookingTabs";
 import AddressSection from "@/components/AddressSection";
+import WhyBookWithUs from "@/components/WhyBookWithUs";
 import maldivesWaldorf from "@/assets/maldives-waldorf.jpg";
 import santoriniGreece from "@/assets/santorini-greece.jpg";
 import dubaiFamily from "@/assets/dubai-family.jpg";
@@ -696,6 +697,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Why Book With Us Section */}
+      <WhyBookWithUs />
 
       {/* CTA Section */}
       <section className="section-padding bg-primary text-primary-foreground">

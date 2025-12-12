@@ -13,14 +13,6 @@ import WhyBookWithUs from "@/components/WhyBookWithUs";
 import maldivesWaldorf from "@/assets/maldives-waldorf.jpg";
 import santoriniGreece from "@/assets/santorini-greece.jpg";
 import dubaiFamily from "@/assets/dubai-family.jpg";
-import fourSeasonsLogo from "@/assets/partners/four-seasons-logo.png";
-import ritzCarltonLogo from "@/assets/partners/ritz-carlton-logo.png";
-import waldorfLogo from "@/assets/partners/waldorf-logo.png";
-import oneAndOnlyLogo from "@/assets/partners/oneandonly-logo.png";
-import jumeirahLogo from "@/assets/partners/jumeirah-logo.png";
-import anantaraLogo from "@/assets/partners/anantara-logo.png";
-import mandarinOrientalLogo from "@/assets/partners/mandarin-oriental-logo.png";
-import clubMedLogo from "@/assets/partners/clubmed-logo.png";
 import maldivesWaterVilla from "@/assets/resorts/maldives-water-villa.jpg";
 import maldivesVillaPool from "@/assets/resorts/maldives-villa-pool.jpg";
 import maldivesKandinma from "@/assets/resorts/maldives-kandinma-hq.jpg";
@@ -706,46 +698,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Partner Resorts Section */}
-      <section className="section-padding bg-muted/30">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">Our Preferred Partners</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We work with the world's most prestigious hospitality brands to bring you exclusive rates and exceptional experiences
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-8 items-center justify-items-center">
-            {[
-              { src: fourSeasonsLogo, name: "Four Seasons" },
-              { src: ritzCarltonLogo, name: "The Ritz-Carlton" },
-              { src: waldorfLogo, name: "Waldorf Astoria" },
-              { src: oneAndOnlyLogo, name: "One&Only" },
-              { src: jumeirahLogo, name: "Jumeirah" },
-              { src: anantaraLogo, name: "Anantara" },
-              { src: mandarinOrientalLogo, name: "Mandarin Oriental" },
-              { src: clubMedLogo, name: "Club Med" },
-            ].map((partner, index) => (
-              <div key={index} className="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow w-full h-24">
-                <img 
-                  src={partner.src} 
-                  alt={partner.name}
-                  className="max-h-16 max-w-full object-contain filter grayscale hover:grayscale-0 transition-all"
-                />
-              </div>
-            ))}
-          </div>
-          
-          <div className="text-center mt-8">
-            <Link to="/resorts">
-              <Button variant="outline" size="lg">
-                View All Partner Resorts
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
 
       {/* Why Book With Us Section */}
       <WhyBookWithUs />

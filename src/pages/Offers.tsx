@@ -426,7 +426,7 @@ const Offers = () => {
                 <CardHeader>
                   <div className="flex items-start justify-between mb-2">
                     <div className="flex-1">
-                      <CardTitle className="text-2xl mb-2">{offer.title}</CardTitle>
+                      <CardTitle className="text-2xl mb-2 text-primary">{offer.title}</CardTitle>
                       <div className="flex items-center text-muted-foreground mb-2">
                         <MapPin size={16} className="mr-1" />
                         <span className="text-sm">{offer.destination}</span>

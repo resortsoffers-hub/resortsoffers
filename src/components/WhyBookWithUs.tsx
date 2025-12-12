@@ -12,7 +12,8 @@ import {
   Percent,
   Calendar,
   Crown,
-  Heart
+  Heart,
+  CreditCard
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -30,6 +31,17 @@ const WhyBookWithUs = () => {
     { icon: Hotel, label: "HOTEL STAYS" },
   ];
 
+  const paymentMethods = [
+    { name: "Visa", color: "bg-blue-600" },
+    { name: "Mastercard", color: "bg-red-500" },
+    { name: "Apple Pay", color: "bg-black" },
+    { name: "Google Pay", color: "bg-white border border-gray-300" },
+    { name: "Checkout", color: "bg-green-600" },
+    { name: "Amazon Pay", color: "bg-amber-500" },
+    { name: "Tabby", color: "bg-teal-500" },
+    { name: "Tamara", color: "bg-purple-600" },
+  ];
+
   return (
     <section className="py-0">
       {/* Why Book Section - Dark Background */}
@@ -42,7 +54,7 @@ const WhyBookWithUs = () => {
         <div className="container-custom relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              WHY BOOK WITH RESORTS OFFERS DUBAI MAIN OFFICE?
+              WHY BOOK WITH RESORTS OFFERS?
             </h2>
             <p className="text-lg text-gray-300 max-w-3xl mx-auto">
               We offer a huge range of travel options across the world and because we only work with hotels, 
@@ -63,7 +75,7 @@ const WhyBookWithUs = () => {
             </div>
             <div className="flex items-center gap-2">
               <span className="text-accent">📍</span>
-              <span>Visit our Dubai Office</span>
+              <span>Visit our Office</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="text-gray-400">Follow us</span>
@@ -95,6 +107,32 @@ const WhyBookWithUs = () => {
               </div>
               <span className="text-xs font-medium tracking-wider">DISCOVER MORE</span>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Accepted Payment Methods Section */}
+      <div className="bg-slate-100 py-10">
+        <div className="container-custom">
+          <div className="text-center mb-8">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <CreditCard className="w-8 h-8 text-primary" />
+              <h3 className="text-2xl font-bold text-primary">ACCEPTED PAYMENT METHODS</h3>
+            </div>
+            <p className="text-muted-foreground">We accept multiple payment options for your convenience</p>
+          </div>
+          
+          <div className="flex flex-wrap justify-center gap-4">
+            {paymentMethods.map((method, index) => (
+              <div 
+                key={index} 
+                className={`${method.color} px-6 py-3 rounded-lg shadow-md flex items-center justify-center min-w-[120px] hover:scale-105 transition-transform`}
+              >
+                <span className={`font-semibold text-sm ${method.name === 'Google Pay' ? 'text-gray-800' : 'text-white'}`}>
+                  {method.name}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </div>

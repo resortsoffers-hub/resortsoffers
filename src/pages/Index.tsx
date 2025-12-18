@@ -1,12 +1,14 @@
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { MapPin, Star, Phone, MessageCircle, ArrowRight, Clock, CreditCard, Calendar, Leaf, Headphones } from "lucide-react";
+import { MapPin, Star, Phone, MessageCircle, ArrowRight, CreditCard, Calendar, Leaf, Headphones } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HeroCarousel from "@/components/HeroCarousel";
 import BookingTabs from "@/components/BookingTabs";
+import OfferDetailModal from "@/components/OfferDetailModal";
 import maldivesWaldorf from "@/assets/maldives-waldorf.jpg";
 import santoriniGreece from "@/assets/santorini-greece.jpg";
 import dubaiFamily from "@/assets/dubai-family.jpg";
@@ -18,17 +20,33 @@ import seychellesHero from "@/assets/destinations/seychelles-hero.jpg";
 import moroccoHero from "@/assets/destinations/morocco-hero.jpg";
 import baliResort from "@/assets/resorts/bali-clifftop-resort.jpg";
 
+interface Offer {
+  title: string;
+  destination: string;
+  discount: number;
+  originalPrice: string;
+  price: string;
+  description: string;
+  features: string[];
+  image: string;
+  rating: number;
+  reviews: number;
+}
+
 const Index = () => {
+  const [selectedOffer, setSelectedOffer] = useState<Offer | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const whatsappNumber = "971567622484";
-  
-  const getWhatsAppUrl = (offerTitle: string, destination: string, price: string) => {
-    const message = `Hi! I am interested in "${offerTitle}" in ${destination}. Price: ${price}. Please send me availability and booking details.`;
-    return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-  };
 
   const getDestinationWhatsApp = (destination: string) => {
     const message = `Hi! I want to book a holiday in ${destination}. Please send me the best offers.`;
     return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+  };
+
+  const openOfferDetail = (offer: Offer) => {
+    setSelectedOffer(offer);
+    setIsModalOpen(true);
   };
 
   const heroSlides = [
@@ -77,15 +95,15 @@ const Index = () => {
     { name: "Mauritius", image: mauritiusHero, tagline: "Island Paradise" }
   ];
 
-  const featuredOffers = [
+  const featuredOffers: Offer[] = [
     {
       title: "Maldives Overwater Villa",
       destination: "Maldives",
       discount: 30,
       originalPrice: "$650",
       price: "$450",
-      description: "Luxury overwater villa with private pool and butler service.",
-      features: ["Private Pool", "Butler Service", "Free Transfers"],
+      description: "Experience ultimate luxury in our stunning overwater villa featuring a private infinity pool, direct ocean access, personal butler service, and breathtaking sunset views. Wake up to crystal-clear waters and fall asleep to the gentle sounds of the ocean.",
+      features: ["Private Pool", "Butler Service", "Free Transfers", "Daily Breakfast", "Spa Credit", "Sunset Cruise"],
       image: maldivesVillaPool,
       rating: 4.9,
       reviews: 234
@@ -96,8 +114,8 @@ const Index = () => {
       discount: 35,
       originalPrice: "$490",
       price: "$320",
-      description: "5-star hotel with theme park tickets and kids club.",
-      features: ["Kids Stay Free", "Theme Park Tickets", "Pool Access"],
+      description: "The perfect family getaway in Dubai featuring a luxurious 5-star hotel, theme park tickets for the whole family, kids club access, and connecting rooms for maximum comfort. Create unforgettable memories in the city of dreams.",
+      features: ["Kids Stay Free", "Theme Park Tickets", "Kids Club", "Pool Access", "Free WiFi", "Family Suite"],
       image: dubaiLuxury,
       rating: 4.8,
       reviews: 189
@@ -108,8 +126,8 @@ const Index = () => {
       discount: 25,
       originalPrice: "$560",
       price: "$420",
-      description: "Cliffside suite with caldera views and couples spa.",
-      features: ["Caldera Views", "Couples Spa", "Sunset Dinner"],
+      description: "Celebrate your love in the most romantic destination on Earth. Our honeymoon package includes a cliffside suite with stunning caldera views, couples spa treatment, private sunset dinner, and wine tasting experience.",
+      features: ["Caldera Views", "Couples Spa", "Sunset Dinner", "Wine Tasting", "Romantic Setup", "Private Transfer"],
       image: santoriniGreece,
       rating: 4.9,
       reviews: 156
@@ -120,8 +138,8 @@ const Index = () => {
       discount: 28,
       originalPrice: "$530",
       price: "$380",
-      description: "All-inclusive beachfront resort with water sports.",
-      features: ["All-Inclusive", "Water Sports", "Spa Access"],
+      description: "Escape to paradise at this all-inclusive beachfront resort. Enjoy unlimited water sports, rejuvenating spa treatments, world-class golf, and pristine white sand beaches. Everything you need for the perfect island vacation.",
+      features: ["All-Inclusive", "Water Sports", "Spa Access", "Golf Course", "Beach Club", "Kids Activities"],
       image: mauritiusHero,
       rating: 4.7,
       reviews: 198
@@ -132,8 +150,8 @@ const Index = () => {
       discount: 25,
       originalPrice: "$690",
       price: "$520",
-      description: "Exclusive private island villa with personal chef.",
-      features: ["Private Beach", "Personal Chef", "Yacht Tours"],
+      description: "Experience exclusivity at its finest on your own private island villa. Includes a personal chef preparing gourmet meals, private yacht excursions, world-class diving, and untouched pristine beaches.",
+      features: ["Private Beach", "Personal Chef", "Yacht Tours", "Diving", "Nature Walks", "Spa Villa"],
       image: seychellesHero,
       rating: 4.9,
       reviews: 87
@@ -144,8 +162,8 @@ const Index = () => {
       discount: 20,
       originalPrice: "$850",
       price: "$680",
-      description: "Iconic overwater bungalow with glass floor.",
-      features: ["Glass Floor", "Mountain Views", "Snorkeling"],
+      description: "Stay in the iconic overwater bungalow with a glass floor panel for underwater viewing. Wake up to Mount Otemanu views, enjoy canoe breakfast delivery, and snorkel right from your private deck.",
+      features: ["Glass Floor", "Mountain Views", "Canoe Breakfast", "Snorkeling", "Lagoon Access", "Sunset Bar"],
       image: boraBora,
       rating: 4.9,
       reviews: 145
@@ -170,7 +188,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Trust Badges - dnata style */}
+      {/* Trust Badges */}
       <section className="py-10 mt-8">
         <div className="container-custom">
           <div className="flex flex-wrap justify-center md:justify-between items-center gap-6 md:gap-4">
@@ -190,7 +208,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Switch off section - dnata style */}
+      {/* Switch off section */}
       <section className="py-16">
         <div className="container-custom">
           <div className="text-center mb-12">
@@ -241,7 +259,7 @@ const Index = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {featuredOffers.map((offer, index) => (
-              <Card key={index} className="overflow-hidden hover:shadow-xl transition-all duration-300 bg-white">
+              <Card key={index} className="overflow-hidden hover:shadow-xl transition-all duration-300 bg-white cursor-pointer" onClick={() => openOfferDetail(offer)}>
                 <div className="relative h-48 overflow-hidden">
                   <img src={offer.image} alt={offer.title} className="w-full h-full object-cover" />
                   <div className="absolute top-3 left-3">
@@ -264,10 +282,10 @@ const Index = () => {
                 </CardHeader>
 
                 <CardContent className="space-y-3">
-                  <CardDescription className="text-sm">{offer.description}</CardDescription>
+                  <CardDescription className="text-sm line-clamp-2">{offer.description}</CardDescription>
                   
                   <div className="flex flex-wrap gap-1">
-                    {offer.features.map((feature, i) => (
+                    {offer.features.slice(0, 3).map((feature, i) => (
                       <Badge key={i} variant="secondary" className="text-xs bg-gray-100">{feature}</Badge>
                     ))}
                   </div>
@@ -280,11 +298,9 @@ const Index = () => {
                         <span className="text-sm text-gray-500">/night</span>
                       </div>
                     </div>
-                    <a href={getWhatsAppUrl(offer.title, offer.destination, offer.price)} target="_blank" rel="noopener noreferrer" className="block">
-                      <Button className="w-full bg-[#00A4E4] hover:bg-[#0090c9] text-white font-semibold">
-                        View deal
-                      </Button>
-                    </a>
+                    <Button className="w-full bg-[#00A4E4] hover:bg-[#0090c9] text-white font-semibold">
+                      View details
+                    </Button>
                   </div>
                 </CardContent>
               </Card>
@@ -318,6 +334,13 @@ const Index = () => {
       </section>
 
       <Footer />
+
+      {/* Offer Detail Modal */}
+      <OfferDetailModal 
+        offer={selectedOffer} 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </div>
   );
 };

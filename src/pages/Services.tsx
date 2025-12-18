@@ -236,10 +236,10 @@ const Services = () => {
       <section className="section-padding bg-muted">
         <div className="container-custom text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Partner With Us?
+            Let's Work Together
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Let's discuss how we can help your property achieve its full potential in the Middle East market.
+            Let's discuss how we can help your property achieve its full potential in the Middle East and Europe markets.
           </p>
           <a href="/contact" className="inline-block">
             <button className="bg-primary text-primary-foreground px-8 py-3 rounded-lg text-lg font-semibold hover:bg-primary/90 transition-colors">

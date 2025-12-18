@@ -87,12 +87,6 @@ const Services = () => {
     }
   ];
 
-  const emails = [
-    { label: "VIP Services", email: "VIP@resortsoffers.com" },
-    { label: "Marketing", email: "Marketing@resortsoffers.com" },
-    { label: "Finance", email: "Finance@resortsoffers.com" },
-    { label: "CEO", email: "ceo@resortsoffers.com" }
-  ];
 
   return (
     <div className="min-h-screen">
@@ -219,26 +213,22 @@ const Services = () => {
 
       {/* Get in Touch Section */}
       <section className="section-padding bg-gradient-to-br from-primary/10 to-accent/10">
-        <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Get in Touch</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-            {emails.map((contact, index) => (
-              <Card key={index} className="hover:shadow-xl transition-shadow duration-300">
-                <CardHeader>
-                  <Mail className="w-8 h-8 text-accent mb-2" />
-                  <CardTitle className="text-lg">{contact.label}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <a 
-                    href={`mailto:${contact.email}`}
-                    className="text-sm text-muted-foreground hover:text-accent transition-colors break-all"
-                  >
-                    {contact.email}
-                  </a>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+        <div className="container-custom text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Get in Touch</h2>
+          <Card className="max-w-md mx-auto hover:shadow-xl transition-shadow duration-300">
+            <CardHeader>
+              <Mail className="w-10 h-10 text-accent mx-auto mb-2" />
+              <CardTitle className="text-xl">Email Us</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <a 
+                href="mailto:info@resortsoffers.com"
+                className="text-lg text-primary hover:text-accent transition-colors font-medium"
+              >
+                info@resortsoffers.com
+              </a>
+            </CardContent>
+          </Card>
         </div>
       </section>
 

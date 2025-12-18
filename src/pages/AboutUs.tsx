@@ -132,7 +132,7 @@ const AboutUs = () => {
                     </p>
                     <p className="flex items-start gap-2">
                       <span className="text-accent mt-1">•</span>
-                      <span>Doctor of Strategic Branding and Business Intelligence (Dr.SBBI)</span>
+                      <span>Master of Strategic Branding and Business Intelligence (Dr.SBBI)</span>
                     </p>
                     <p className="flex items-start gap-2">
                       <span className="text-accent mt-1">•</span>
@@ -253,9 +253,9 @@ const AboutUs = () => {
                 Contact Us
               </button>
             </a>
-            <a href="/team">
+            <a href="/services">
               <button className="bg-secondary text-secondary-foreground px-8 py-3 rounded-lg text-lg font-semibold hover:bg-secondary/90 transition-colors">
-                Meet The Team
+                Our Services
               </button>
             </a>
           </div>

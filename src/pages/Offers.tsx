@@ -1,12 +1,10 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, Users, Percent, MapPin, FileText, Download } from "lucide-react";
+import { Calendar, MapPin, Star, Check, Heart, Plane, Utensils, Waves } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import SearchBar from "@/components/SearchBar";
 import {
   Carousel,
   CarouselContent,
@@ -15,331 +13,268 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import maldivesAerial1 from "@/assets/resorts/maldives-aerial-1.jpg";
-import maldivesPoolDining from "@/assets/resorts/maldives-pool-dining.jpg";
 import maldivesWaterVilla from "@/assets/resorts/maldives-water-villa.jpg";
 import maldivesVillaPool from "@/assets/resorts/maldives-villa-pool.jpg";
 import maldivesWaldorf from "@/assets/maldives-waldorf.jpg";
 import maldivesPatina from "@/assets/maldives-patina.jpg";
 import maldivesOceanPool from "@/assets/maldives-ocean-pool.jpg";
 import maldivesRitz from "@/assets/maldives-ritz.jpg";
-import maldivesVillas from "@/assets/maldives-villas.jpg";
 import maldivesKandinma from "@/assets/resorts/maldives-kandinma-hq.jpg";
 import santoriniGreece from "@/assets/santorini-greece.jpg";
 import dolomitiSki from "@/assets/dolomiti-ski.jpg";
 import dubaiFamily from "@/assets/dubai-family.jpg";
 import lakeGardaWellness from "@/assets/lake-garda-wellness.jpg";
 import bodrumBeach from "@/assets/bodrum-beach.jpg";
+import anantaraKihavah from "@/assets/resorts/anantara-kihavah.jpg";
+import chevalBlanc from "@/assets/resorts/cheval-blanc-randheli.jpg";
+import sonevaFushi from "@/assets/resorts/soneva-fushi.jpg";
+import waldorfAstoria from "@/assets/resorts/waldorf-astoria-maldives.jpg";
 
 const Offers = () => {
-  const [selectedDestination, setSelectedDestination] = useState("All");
-  const [selectedSubFilter, setSelectedSubFilter] = useState<string[]>([]);
-  const [sortBy, setSortBy] = useState("RO Preferred");
+  const [selectedCategory, setSelectedCategory] = useState("All Deals");
+  const [favorites, setFavorites] = useState<string[]>([]);
 
   const whatsappNumber = "971567622484";
   
   const heroImages = [
-    { src: maldivesAerial1, alt: "Aerial view of luxury Maldives resort with overwater villas and pristine turquoise lagoon" },
-    { src: maldivesKandinma, alt: "Stunning luxury Maldives resort with white sand beaches and crystal clear turquoise waters" },
-    { src: maldivesWaterVilla, alt: "Exclusive overwater villa with private pool and ocean access in Maldives" },
-    { src: santoriniGreece, alt: "Iconic white-washed buildings overlooking deep blue Aegean Sea in Santorini" },
-    { src: dubaiFamily, alt: "Luxurious Dubai beach resort with modern architecture and pristine waterfront" },
+    { src: maldivesAerial1, alt: "Aerial view of luxury Maldives resort" },
+    { src: maldivesKandinma, alt: "Stunning luxury Maldives resort" },
+    { src: maldivesWaterVilla, alt: "Exclusive overwater villa" },
+    { src: santoriniGreece, alt: "Santorini Greece sunset" },
+    { src: dubaiFamily, alt: "Dubai beach resort" },
   ];
 
-  const getWhatsAppUrl = (offerTitle: string, destination: string, price: string) => {
-    const message = `Hi! I'm interested in booking the "${offerTitle}" offer in ${destination}. Price: ${price}. Can you provide more details?`;
+  const getWhatsAppUrl = (offerTitle: string, price: string) => {
+    const message = `Hi! I'm interested in "${offerTitle}" (${price}). Can you help me book?`;
     return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
   };
-  
-  const subFilters: Record<string, string[]> = {
-    "Maldives": [
-      "Sea plane",
-      "Domestic flight",
-      "Speed boat",
-      "Honeymooners",
-      "Families",
-      "Ladies",
-      "All inclusive",
-      "Water pool villa"
-    ],
-    "Seychelles": [
-      "Prasline island",
-      "Mahe",
-      "La digue",
-      "Private island"
-    ]
-  };
 
-  const offers = [
-    {
-      title: "Early Bird Summer Escape",
-      destination: "Maldives",
-      type: "Seasonal",
-      discount: 30,
-      validUntil: "2025-12-31",
-      description: "Book 90 days in advance and save 30% on your tropical paradise getaway with overwater villa accommodation.",
-      features: ["Free Airport Transfer", "Daily Breakfast", "Spa Credit $200"],
-      price: "from $450/night",
-      featured: true,
-      image: maldivesWaldorf,
-      documents: ["fact-sheet", "all-inclusive"]
-    },
-      {
-      title: "Romantic Honeymoon Package",
-      destination: "Santorini, Greece",
-      type: "Package",
-      discount: 25,
-      validUntil: "2026-03-31",
-       description: "Celebrate your love with romantic welcome amenities, couples spa treatment, and sunset dinner at our exclusive cliffside restaurant.",
-       features: ["Romantic Welcome", "Couples Massage", "Private Dinner"],
-      price: "from $550/night",
-      featured: true,
-      image: santoriniGreece,
-      documents: ["fact-sheet"]
-    },
-    {
-      title: "Ski Season Special",
-      destination: "Dolomiti, Italy",
-      type: "Seasonal",
-      discount: 20,
-      validUntil: "2026-03-15",
-      description: "Hit the slopes with our winter special including ski pass, equipment rental, and après-ski wellness treatments.",
-      features: ["Ski Pass Included", "Equipment Rental", "Daily Spa Access"],
-      price: "from $380/night",
-      featured: false,
-      image: dolomitiSki
-    },
-    {
-      title: "Family Adventure Package",
-      destination: "Dubai, UAE",
-      type: "Package",
-      discount: 35,
-      validUntil: "2025-12-20",
-      description: "Ultimate family experience with theme park tickets, kids club access, and connecting rooms for maximum comfort.",
-      features: ["Kids Stay Free", "Theme Park Tickets", "Kids Club Access"],
-      price: "from $320/night",
-      featured: true,
-      image: dubaiFamily
-    },
-    {
-      title: "Wellness Retreat Offer",
-      destination: "Lake Garda, Italy",
-      type: "Wellness",
-      discount: 15,
-      validUntil: "2026-06-30",
-      description: "5-night wellness program including daily yoga, meditation, spa treatments, and organic gourmet cuisine.",
-      features: ["Daily Yoga", "Spa Treatments", "Wellness Menu"],
-      price: "from $420/night",
-      featured: false,
-      image: lakeGardaWellness
-    },
-    {
-      title: "Last Minute Beach Escape",
-      destination: "Bodrum, Turkey",
-      type: "Last Minute",
-      discount: 40,
-      validUntil: "2025-11-30",
-      description: "Book within 14 days of arrival for exclusive savings on all-inclusive beach resort experience.",
-      features: ["All-Inclusive", "Water Sports", "Beach Club Access"],
-      price: "from $280/night",
-      featured: true,
-      image: bodrumBeach
-    },
-    {
-      title: "Luxury Water Villa Experience",
-      destination: "Maldives",
-      type: "Package",
-      discount: 25,
-      validUntil: "2026-04-30",
-      description: "Stay in a stunning overwater villa with private pool, direct ocean access, and sunset views.",
-      features: ["Private Pool", "Ocean Access", "Butler Service"],
-      price: "from $680/night",
-      featured: true,
-      image: maldivesWaterVilla
-    },
-    {
-      title: "Exclusive Ocean Pool Villa",
-      destination: "Maldives",
-      type: "Luxury",
-      discount: 20,
-      validUntil: "2026-05-31",
-      description: "Ultra-modern circular villa on stilts with infinity pool, direct ocean views, and contemporary design.",
-      features: ["Infinity Pool", "Modern Design", "Ocean Views"],
-      price: "from $850/night",
-      featured: true,
-      image: maldivesVillaPool
-    },
-    {
-      title: "Maldives Villa Collection",
-      destination: "Maldives",
-      type: "Package",
-      discount: 35,
-      validUntil: "2026-06-30",
-      description: "Choose from our collection of overwater villas with private pools and direct lagoon access.",
-      features: ["Private Villas", "All-Inclusive Option", "Water Activities"],
-      price: "from $520/night",
-      featured: true,
-      image: maldivesKandinma
-    }
-  ];
-
-  const toggleSubFilter = (filter: string) => {
-    setSelectedSubFilter(prev => 
-      prev.includes(filter) 
-        ? prev.filter(f => f !== filter)
-        : [...prev, filter]
+  const toggleFavorite = (id: string) => {
+    setFavorites(prev => 
+      prev.includes(id) ? prev.filter(f => f !== id) : [...prev, id]
     );
   };
 
-  const filteredOffers = selectedDestination === "All" 
-    ? offers 
-    : offers.filter(offer => {
-        const matchesDestination = offer.destination.includes(selectedDestination);
-        if (selectedSubFilter.length === 0) return matchesDestination;
-        
-        // Here you would match sub-filters based on offer properties
-        // For now, just filter by destination
-        return matchesDestination;
-      });
+  const categories = [
+    "All Deals",
+    "Maldives",
+    "Honeymoon",
+    "Family",
+    "All-Inclusive", 
+    "Last Minute",
+    "Wellness"
+  ];
 
-  const sortedOffers = [...filteredOffers].sort((a, b) => {
-    if (sortBy === "RO Preferred") return b.featured ? 1 : -1;
-    if (sortBy === "Discount") return b.discount - a.discount;
-    return 0;
-  });
+  const offers = [
+    {
+      id: "waldorf-maldives",
+      title: "Waldorf Astoria Maldives",
+      location: "Ithaafushi, Maldives",
+      rating: 9.6,
+      reviews: 847,
+      nightlyRate: 1850,
+      originalRate: 2650,
+      totalNights: 5,
+      image: maldivesWaldorf,
+      category: "Maldives",
+      badges: ["RO Exclusive", "Free Upgrade"],
+      includes: ["Seaplane Transfer", "Half Board", "Spa Credit $500"],
+      validUntil: "2025-03-31"
+    },
+    {
+      id: "patina-maldives",
+      title: "Patina Maldives",
+      location: "Fari Islands, Maldives",
+      rating: 9.4,
+      reviews: 623,
+      nightlyRate: 1650,
+      originalRate: 2200,
+      totalNights: 5,
+      image: maldivesPatina,
+      category: "Maldives",
+      badges: ["30% OFF"],
+      includes: ["Speedboat Transfer", "Breakfast", "Kids Stay Free"],
+      validUntil: "2025-04-15"
+    },
+    {
+      id: "anantara-kihavah",
+      title: "Anantara Kihavah Villas",
+      location: "Baa Atoll, Maldives",
+      rating: 9.5,
+      reviews: 1102,
+      nightlyRate: 1420,
+      originalRate: 1890,
+      totalNights: 7,
+      image: anantaraKihavah,
+      category: "All-Inclusive",
+      badges: ["Best Seller", "All Inclusive"],
+      includes: ["Seaplane", "All-Inclusive", "Underwater Dining"],
+      validUntil: "2025-05-31"
+    },
+    {
+      id: "cheval-blanc",
+      title: "Cheval Blanc Randheli",
+      location: "Noonu Atoll, Maldives",
+      rating: 9.8,
+      reviews: 412,
+      nightlyRate: 3200,
+      originalRate: 4500,
+      totalNights: 4,
+      image: chevalBlanc,
+      category: "Honeymoon",
+      badges: ["Honeymoon Special", "29% OFF"],
+      includes: ["Private Seaplane", "Champagne", "Couples Spa"],
+      validUntil: "2025-06-30"
+    },
+    {
+      id: "soneva-fushi",
+      title: "Soneva Fushi",
+      location: "Baa Atoll, Maldives",
+      rating: 9.7,
+      reviews: 934,
+      nightlyRate: 2100,
+      originalRate: 2800,
+      totalNights: 6,
+      image: sonevaFushi,
+      category: "Wellness",
+      badges: ["Eco Luxury", "25% OFF"],
+      includes: ["Seaplane", "All-Inclusive", "Wellness Program"],
+      validUntil: "2025-04-30"
+    },
+    {
+      id: "waldorf-astoria-full",
+      title: "Waldorf Astoria Ithaafushi",
+      location: "South Male Atoll, Maldives",
+      rating: 9.6,
+      reviews: 756,
+      nightlyRate: 1750,
+      originalRate: 2500,
+      totalNights: 5,
+      image: waldorfAstoria,
+      category: "Maldives",
+      badges: ["RO Preferred", "30% OFF"],
+      includes: ["Yacht Transfer", "Half Board", "$300 Credit"],
+      validUntil: "2025-05-15"
+    },
+    {
+      id: "santorini-honeymoon",
+      title: "Canaves Oia Suites",
+      location: "Santorini, Greece",
+      rating: 9.3,
+      reviews: 512,
+      nightlyRate: 580,
+      originalRate: 780,
+      totalNights: 5,
+      image: santoriniGreece,
+      category: "Honeymoon",
+      badges: ["Romantic Escape"],
+      includes: ["Airport Transfer", "Breakfast", "Wine Tasting"],
+      validUntil: "2025-09-30"
+    },
+    {
+      id: "dolomiti-ski",
+      title: "Cristallo Resort & Spa",
+      location: "Cortina d'Ampezzo, Italy",
+      rating: 9.1,
+      reviews: 389,
+      nightlyRate: 420,
+      originalRate: 550,
+      totalNights: 4,
+      image: dolomitiSki,
+      category: "Wellness",
+      badges: ["Ski Season", "24% OFF"],
+      includes: ["Ski Pass", "Spa Access", "Half Board"],
+      validUntil: "2025-03-15"
+    },
+    {
+      id: "dubai-family",
+      title: "Atlantis The Palm",
+      location: "Dubai, UAE",
+      rating: 8.9,
+      reviews: 2341,
+      nightlyRate: 380,
+      originalRate: 580,
+      totalNights: 5,
+      image: dubaiFamily,
+      category: "Family",
+      badges: ["Kids Stay Free", "35% OFF"],
+      includes: ["Waterpark Access", "Aquarium", "Half Board"],
+      validUntil: "2025-12-20"
+    },
+    {
+      id: "lake-garda-wellness",
+      title: "Lefay Resort & SPA",
+      location: "Lake Garda, Italy",
+      rating: 9.4,
+      reviews: 678,
+      nightlyRate: 450,
+      originalRate: 580,
+      totalNights: 5,
+      image: lakeGardaWellness,
+      category: "Wellness",
+      badges: ["Wellness Retreat"],
+      includes: ["Spa Program", "Yoga Sessions", "Gourmet Dining"],
+      validUntil: "2025-06-30"
+    },
+    {
+      id: "bodrum-lastminute",
+      title: "Mandarin Oriental Bodrum",
+      location: "Bodrum, Turkey",
+      rating: 9.2,
+      reviews: 445,
+      nightlyRate: 320,
+      originalRate: 520,
+      totalNights: 7,
+      image: bodrumBeach,
+      category: "Last Minute",
+      badges: ["Flash Sale", "38% OFF"],
+      includes: ["All-Inclusive", "Beach Club", "Water Sports"],
+      validUntil: "2025-11-30"
+    },
+    {
+      id: "ocean-pool-villa",
+      title: "The Ritz-Carlton Maldives",
+      location: "Fari Islands, Maldives",
+      rating: 9.5,
+      reviews: 521,
+      nightlyRate: 1950,
+      originalRate: 2600,
+      totalNights: 5,
+      image: maldivesOceanPool,
+      category: "Maldives",
+      badges: ["Ocean Pool Villa", "25% OFF"],
+      includes: ["Speedboat", "Breakfast", "Private Pool"],
+      validUntil: "2025-05-31"
+    }
+  ];
+
+  const filteredOffers = selectedCategory === "All Deals" 
+    ? offers 
+    : offers.filter(offer => offer.category === selectedCategory);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
       <Helmet>
         <title>Exclusive Resort Offers & Deals - Up to 40% OFF | ResortsOffers.com</title>
         <meta name="description" content="Limited-time luxury resort offers! Save up to 40% on Maldives water villas, Dubai beach resorts, Bali honeymoon packages & more. Book your dream vacation today." />
-        <meta name="keywords" content="resort deals, hotel offers, Maldives deals, Dubai hotel offers, honeymoon packages, luxury resort discounts, beach resort deals, exclusive travel offers" />
         <link rel="canonical" href="https://www.resortsoffers.com/offers" />
-        
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.resortsoffers.com/offers" />
-        <meta property="og:site_name" content="ResortsOffers.com" />
-        <meta property="og:title" content="Exclusive Resort Offers & Deals - Up to 40% OFF" />
-        <meta property="og:description" content="Limited-time luxury resort offers! Save up to 40% on Maldives, Dubai, Bali & more." />
-        <meta property="og:image" content="https://www.resortsoffers.com/offers-og.jpg" />
-        <meta property="og:locale" content="en_US" />
-        
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:url" content="https://www.resortsoffers.com/offers" />
-        <meta name="twitter:title" content="Exclusive Resort Offers - Up to 40% OFF" />
-        <meta name="twitter:description" content="Limited-time luxury resort offers! Save up to 40% on premium hotels." />
-        <meta name="twitter:image" content="https://www.resortsoffers.com/offers-og.jpg" />
-        
-        {/* Structured Data - Breadcrumb */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://www.resortsoffers.com/"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Offers",
-                "item": "https://www.resortsoffers.com/offers"
-              }
-            ]
-          })}
-        </script>
-        {/* Structured Data - Offers */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "OfferCatalog",
-            "name": "Luxury Resort Offers",
-            "itemListElement": [
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Product",
-                  "name": "Maldives Luxury Resort Packages",
-                  "description": "Exclusive water villa deals with up to 40% discount"
-                },
-                "priceSpecification": {
-                  "@type": "UnitPriceSpecification",
-                  "priceCurrency": "USD",
-                  "price": "Starting from $500/night"
-                }
-              }
-            ]
-          })}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "How much can I save with these resort offers?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Our exclusive resort offers provide savings of up to 40% off regular rates. Discounts vary by destination, season, and booking advance time. Early bird bookings typically offer 25-30% savings, while last-minute deals can reach 40% off."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What is included in the resort packages?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Package inclusions vary by offer but typically include accommodation, daily breakfast, airport transfers, and resort credits. Premium packages may include spa treatments, excursions, and all-inclusive dining. Each offer clearly lists all included amenities."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "When is the best time to book resort deals?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "The best time to book is 60-90 days in advance for optimal selection and pricing. However, we also offer exceptional last-minute deals for flexible travelers. Subscribe to our newsletter to receive alerts on flash sales and limited-time offers."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Are these offers available for all travel dates?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Most offers have specific validity periods and blackout dates during peak seasons and holidays. Each offer displays its valid booking and travel dates. Contact our consultants to check availability for your preferred travel dates."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Can I combine multiple offers or discounts?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Generally, offers cannot be combined with other promotions. However, some resorts allow stacking of resort credits or loyalty benefits. Our consultants will help you find the best value option for your specific booking."
-                }
-              }
-            ]
-          })}
-        </script>
       </Helmet>
       <Navbar />
       
-      {/* Hero Section with Carousel */}
-      <section className="relative h-[70vh] flex items-center justify-center overflow-hidden mt-20">
+      {/* Compact Hero */}
+      <section className="relative h-[50vh] flex items-center justify-center overflow-hidden mt-20">
         <Carousel className="w-full h-full" opts={{ loop: true }}>
           <CarouselContent>
             {heroImages.map((image, index) => (
               <CarouselItem key={index}>
-                <div className="relative h-[70vh]">
+                <div className="relative h-[50vh]">
                   <img 
                     src={image.src} 
                     alt={image.alt}
                     className="w-full h-full object-cover"
                     loading={index === 0 ? "eager" : "lazy"}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-b from-primary/70 to-primary/50" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
                 </div>
               </CarouselItem>
             ))}
@@ -348,132 +283,169 @@ const Offers = () => {
           <CarouselNext className="right-4" />
         </Carousel>
         
-        <div className="absolute z-10 container-custom text-center pointer-events-none">
-          <h1 className="text-4xl md:text-6xl font-playfair font-bold hero-text mb-6 animate-fade-in tracking-tight">
-            Exclusive Deals on Luxury Resorts
+        <div className="absolute z-10 container-custom text-center">
+          <h1 className="text-3xl md:text-5xl font-playfair font-bold text-white mb-4">
+            Exclusive Resort Deals
           </h1>
-          <p className="text-xl md:text-2xl hero-text max-w-3xl mx-auto font-light">
-            More than just discounts — enjoy complimentary upgrades, spa credits, private dining, airport transfers & exclusive added values
+          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
+            Members save up to 40% on luxury resorts worldwide
           </p>
         </div>
       </section>
 
-      {/* Search & Filter Section */}
-      <section className="section-padding">
+      {/* Category Tabs */}
+      <section className="sticky top-20 z-30 bg-background border-b shadow-sm">
         <div className="container-custom">
-          {/* Search Bar with Destination Filter */}
-          <div className="mb-8">
-            <SearchBar 
-              selectedDestination={selectedDestination}
-              onDestinationChange={(dest) => {
-                setSelectedDestination(dest);
-                setSelectedSubFilter([]);
-              }}
-            />
+          <div className="flex gap-2 py-4 overflow-x-auto scrollbar-hide">
+            {categories.map((category) => (
+              <Button
+                key={category}
+                variant={selectedCategory === category ? "default" : "outline"}
+                onClick={() => setSelectedCategory(category)}
+                className="whitespace-nowrap rounded-full"
+                size="sm"
+              >
+                {category}
+              </Button>
+            ))}
           </div>
+        </div>
+      </section>
 
-          {/* Sub Filters */}
-          {selectedDestination !== "All" && subFilters[selectedDestination] && (
-            <div className="mb-8">
-              <h2 className="text-sm font-semibold text-muted-foreground mb-3">
-                {selectedDestination} Filters
-              </h2>
-              <div className="flex gap-2 flex-wrap">
-                {subFilters[selectedDestination].map((filter) => (
-                  <Button
-                    key={filter}
-                    variant={selectedSubFilter.includes(filter) ? "default" : "outline"}
-                    onClick={() => toggleSubFilter(filter)}
-                    size="sm"
-                  >
-                    {filter}
-                  </Button>
-                ))}
-              </div>
-            </div>
-          )}
+      {/* Results Count */}
+      <section className="py-4 bg-muted/50">
+        <div className="container-custom">
+          <p className="text-sm text-muted-foreground">
+            Showing <span className="font-semibold text-foreground">{filteredOffers.length} deals</span>
+            {selectedCategory !== "All Deals" && ` in ${selectedCategory}`}
+          </p>
+        </div>
+      </section>
 
-          {/* Sort By */}
-          <div className="mb-12">
-            <h2 className="text-sm font-semibold text-muted-foreground mb-3">Sort By</h2>
-            <div className="flex gap-2">
-              {["RO Preferred", "Discount"].map((sort) => (
-                <Button
-                  key={sort}
-                  variant={sortBy === sort ? "default" : "outline"}
-                  onClick={() => setSortBy(sort)}
-                  size="sm"
+      {/* Offers Grid - Card Based */}
+      <section className="py-8">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {filteredOffers.map((offer) => {
+              const discount = Math.round((1 - offer.nightlyRate / offer.originalRate) * 100);
+              const totalPrice = offer.nightlyRate * offer.totalNights;
+              const originalTotal = offer.originalRate * offer.totalNights;
+              
+              return (
+                <div 
+                  key={offer.id} 
+                  className="group bg-card rounded-xl overflow-hidden border hover:shadow-xl transition-all duration-300"
                 >
-                  {sort}
-                </Button>
-              ))}
-            </div>
-          </div>
-
-          {/* Offers Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {sortedOffers.map((offer, index) => (
-              <Card key={index} className="hover:shadow-xl transition-shadow duration-300 overflow-hidden">
-                {offer.image && (
-                  <div className="w-full h-64 overflow-hidden">
+                  {/* Image Container */}
+                  <div className="relative h-52 overflow-hidden">
                     <img 
                       src={offer.image} 
                       alt={offer.title}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                  </div>
-                )}
-                <CardHeader>
-                  <div className="flex items-start justify-between mb-2">
-                    <div className="flex-1">
-                      <CardTitle className="text-2xl mb-2 text-primary">{offer.title}</CardTitle>
-                      <div className="flex items-center text-muted-foreground mb-2">
-                        <MapPin size={16} className="mr-1" />
-                        <span className="text-sm">{offer.destination}</span>
-                      </div>
-                    </div>
-                    <div className="flex flex-col gap-2 items-end">
-                      <Badge variant="secondary" className="bg-accent text-accent-foreground">
-                        <Percent size={14} className="mr-1" />
-                        {offer.discount}% OFF
-                      </Badge>
-                      {offer.featured && (
-                        <Badge variant="default">RO Preferred</Badge>
-                      )}
-                    </div>
-                  </div>
-                  <CardDescription className="text-base">
-                    {offer.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    <div className="flex flex-wrap gap-2">
-                      {offer.features.map((feature, i) => (
-                        <span 
+                    {/* Favorite Button */}
+                    <button
+                      onClick={() => toggleFavorite(offer.id)}
+                      className="absolute top-3 right-3 p-2 rounded-full bg-white/90 hover:bg-white transition-colors"
+                    >
+                      <Heart 
+                        size={18} 
+                        className={favorites.includes(offer.id) ? "fill-red-500 text-red-500" : "text-gray-600"}
+                      />
+                    </button>
+                    {/* Badges */}
+                    <div className="absolute top-3 left-3 flex flex-wrap gap-1">
+                      {offer.badges.slice(0, 2).map((badge, i) => (
+                        <Badge 
                           key={i} 
-                          className="text-xs px-3 py-1 bg-muted rounded-full flex items-center"
+                          variant={badge.includes("OFF") || badge.includes("Sale") ? "destructive" : "default"}
+                          className="text-xs px-2 py-0.5"
                         >
-                          <span className="w-1 h-1 rounded-full bg-accent mr-2" />
-                          {feature}
-                        </span>
+                          {badge}
+                        </Badge>
                       ))}
                     </div>
-                    <div className="flex items-center justify-between pt-4 border-t">
-                      <div>
-                        <div className="text-2xl font-bold text-primary">{offer.price}</div>
-                        <div className="flex items-center text-xs text-muted-foreground mt-1">
-                          <Calendar size={12} className="mr-1" />
-                          Valid until {new Date(offer.validUntil).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-4">
+                    {/* Title & Location */}
+                    <h3 className="font-semibold text-lg text-foreground line-clamp-1 mb-1">
+                      {offer.title}
+                    </h3>
+                    <div className="flex items-center text-muted-foreground text-sm mb-3">
+                      <MapPin size={14} className="mr-1 flex-shrink-0" />
+                      <span className="line-clamp-1">{offer.location}</span>
+                    </div>
+
+                    {/* Rating */}
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="bg-primary text-primary-foreground text-xs font-bold px-2 py-1 rounded">
+                        {offer.rating}
+                      </span>
+                      <span className="text-sm font-medium">
+                        {offer.rating >= 9.5 ? "Exceptional" : offer.rating >= 9 ? "Excellent" : "Wonderful"}
+                      </span>
+                      <span className="text-xs text-muted-foreground">
+                        ({offer.reviews.toLocaleString()} reviews)
+                      </span>
+                    </div>
+
+                    {/* Includes - Icons */}
+                    <div className="flex items-center gap-3 mb-4 text-muted-foreground">
+                      {offer.includes.some(i => i.toLowerCase().includes("seaplane") || i.toLowerCase().includes("transfer")) && (
+                        <div className="flex items-center gap-1 text-xs">
+                          <Plane size={14} />
+                          <span>Transfer</span>
                         </div>
+                      )}
+                      {offer.includes.some(i => i.toLowerCase().includes("board") || i.toLowerCase().includes("breakfast") || i.toLowerCase().includes("inclusive")) && (
+                        <div className="flex items-center gap-1 text-xs">
+                          <Utensils size={14} />
+                          <span>Meals</span>
+                        </div>
+                      )}
+                      {offer.includes.some(i => i.toLowerCase().includes("pool") || i.toLowerCase().includes("spa") || i.toLowerCase().includes("water")) && (
+                        <div className="flex items-center gap-1 text-xs">
+                          <Waves size={14} />
+                          <span>Wellness</span>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Price Section */}
+                    <div className="border-t pt-4">
+                      <div className="flex items-baseline justify-between mb-1">
+                        <div>
+                          <span className="text-2xl font-bold text-foreground">${offer.nightlyRate.toLocaleString()}</span>
+                          <span className="text-sm text-muted-foreground">/night</span>
+                        </div>
+                        <span className="text-sm text-muted-foreground line-through">
+                          ${offer.originalRate.toLocaleString()}
+                        </span>
                       </div>
+                      <div className="flex items-center justify-between text-sm mb-3">
+                        <span className="text-muted-foreground">
+                          ${totalPrice.toLocaleString()} total · {offer.totalNights} nights
+                        </span>
+                        <Badge variant="secondary" className="text-xs bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400">
+                          Save {discount}%
+                        </Badge>
+                      </div>
+                      
+                      {/* Valid Until */}
+                      <div className="flex items-center text-xs text-muted-foreground mb-3">
+                        <Calendar size={12} className="mr-1" />
+                        Book by {new Date(offer.validUntil).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+                      </div>
+
+                      {/* CTA */}
                       <Button 
-                        size="lg"
+                        className="w-full"
                         asChild
-                        className="relative z-10 cursor-pointer pointer-events-auto"
                       >
                         <a 
-                          href={getWhatsAppUrl(offer.title, offer.destination, offer.price)}
+                          href={getWhatsAppUrl(offer.title, `$${offer.nightlyRate}/night`)}
                           target="_blank"
                           rel="noopener noreferrer"
                         >
@@ -482,31 +454,44 @@ const Offers = () => {
                       </Button>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
-            ))}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Newsletter Section */}
-      <section className="section-padding bg-muted">
-        <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Never Miss an Exclusive Offer
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Subscribe to receive our latest luxury travel deals and special packages directly to your inbox.
-          </p>
-          <div className="flex gap-2 max-w-md mx-auto">
-            <input 
-              type="email" 
-              placeholder="Enter your email" 
-              className="flex-1 px-4 py-3 rounded-lg border border-input bg-background"
-            />
-            <Button size="lg" className="px-8">
-              Subscribe
-            </Button>
+      {/* Value Props */}
+      <section className="py-12 bg-muted/50">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="flex items-start gap-4">
+              <div className="p-3 rounded-full bg-primary/10">
+                <Check className="w-6 h-6 text-primary" />
+              </div>
+              <div>
+                <h3 className="font-semibold mb-1">Best Price Guarantee</h3>
+                <p className="text-sm text-muted-foreground">Found it cheaper? We'll match it and give you 10% extra off.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-4">
+              <div className="p-3 rounded-full bg-primary/10">
+                <Star className="w-6 h-6 text-primary" />
+              </div>
+              <div>
+                <h3 className="font-semibold mb-1">Exclusive Member Benefits</h3>
+                <p className="text-sm text-muted-foreground">Room upgrades, late checkout & resort credits on every booking.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-4">
+              <div className="p-3 rounded-full bg-primary/10">
+                <Heart className="w-6 h-6 text-primary" />
+              </div>
+              <div>
+                <h3 className="font-semibold mb-1">24/7 Personal Concierge</h3>
+                <p className="text-sm text-muted-foreground">Your dedicated travel expert available around the clock.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

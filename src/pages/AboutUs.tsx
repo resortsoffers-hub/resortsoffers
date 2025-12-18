@@ -74,16 +74,14 @@ const AboutUs = () => {
             alt="Luxury resort infinity pool with ocean views" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-primary/70" />
         </div>
         
         <div className="relative z-10 container-custom text-center">
-          <h1 className="text-4xl md:text-6xl font-playfair font-bold hero-text mb-6 animate-fade-in tracking-tight">
-            About Us
-          </h1>
-          <p className="text-xl md:text-2xl hero-text max-w-3xl mx-auto font-light">
-            Sales, PR, Marketing & Social Media Agency for Luxury Hotels & Travel Brands
-          </p>
+          <div className="bg-white/95 px-8 py-6 rounded-lg inline-block">
+            <p className="text-xl md:text-3xl text-primary font-bold max-w-3xl mx-auto">
+              Sales, PR, Marketing & Social Media Agency for Luxury Hotels & Travel Brands
+            </p>
+          </div>
         </div>
       </section>
 

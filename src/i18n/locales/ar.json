@@ -1,8 +1,6 @@
 {
   "nav": {
-    "destinations": "الوجهات",
-    "resorts": "المنتجعات",
-    "offers": "العروض",
+    "home": "الرئيسية",
     "aboutUs": "من نحن",
     "services": "الخدمات",
     "events": "الفعاليات",

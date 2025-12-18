@@ -1,8 +1,6 @@
 {
   "nav": {
-    "destinations": "Направления",
-    "resorts": "Курорты",
-    "offers": "Предложения",
+    "home": "Главная",
     "aboutUs": "О нас",
     "services": "Услуги",
     "events": "События",

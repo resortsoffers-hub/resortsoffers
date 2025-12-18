@@ -1,8 +1,6 @@
 {
   "nav": {
-    "destinations": "Destinations",
-    "resorts": "Resorts",
-    "offers": "Offers",
+    "home": "Home",
     "aboutUs": "About Us",
     "services": "Services",
     "events": "Events",

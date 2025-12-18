@@ -36,9 +36,7 @@ const WhyBookWithUs = () => {
     { name: "Mastercard", color: "bg-red-500" },
     { name: "Apple Pay", color: "bg-black" },
     { name: "Google Pay", color: "bg-white border border-gray-300" },
-    { name: "Stripe", color: "bg-indigo-600" },
-    { name: "Checkout", color: "bg-green-600" },
-    { name: "Amazon Pay", color: "bg-amber-500" },
+    { name: "Bank Transfer", color: "bg-emerald-600" },
     { name: "Tabby", color: "bg-teal-500" },
     { name: "Tamara", color: "bg-purple-600" },
   ];

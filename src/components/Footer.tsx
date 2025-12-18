@@ -10,8 +10,7 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold mb-4">Resorts Offers Tourism Consultancy</h3>
             <p className="text-sm opacity-90">
-              Discover exclusive luxury resort packages and special offers worldwide. 
-              Your gateway to unforgettable vacation experiences.
+              Your trusted travel partner for life — from honeymoon to family holidays.
             </p>
           </div>
 

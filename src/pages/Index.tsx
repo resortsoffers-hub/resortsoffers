@@ -487,7 +487,7 @@ const Index = () => {
                 <Badge className="absolute top-4 left-4 bg-accent">New</Badge>
               </div>
               <CardHeader>
-                <CardTitle>Winter Your Way</CardTitle>
+                <CardTitle className="text-primary">Winter Your Way</CardTitle>
                 <CardDescription>
                   Discover exclusive winter escapes with up to 35% off luxury resorts worldwide
                 </CardDescription>
@@ -500,7 +500,7 @@ const Index = () => {
                 <Badge className="absolute top-4 left-4 bg-secondary">Featured</Badge>
               </div>
               <CardHeader>
-                <CardTitle>Family Adventure Packages</CardTitle>
+                <CardTitle className="text-primary">Family Adventure Packages</CardTitle>
                 <CardDescription>
                   Kids stay free + theme park tickets included in select Dubai hotels
                 </CardDescription>
@@ -513,7 +513,7 @@ const Index = () => {
                 <Badge className="absolute top-4 left-4 bg-primary">Exclusive</Badge>
               </div>
               <CardHeader>
-                <CardTitle>Honeymoon Specials</CardTitle>
+                <CardTitle className="text-primary">Honeymoon Specials</CardTitle>
                 <CardDescription>
                   Romantic packages with spa treatments & private dining
                 </CardDescription>

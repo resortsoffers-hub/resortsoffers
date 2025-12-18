@@ -12,13 +12,11 @@ const Navbar = () => {
 
   const navItems = [
     { name: t('nav.destinations'), path: "/destinations" },
-    { name: t('nav.resorts'), path: "/resorts" },
     { name: t('nav.offers'), path: "/offers" },
     { name: t('nav.aboutUs'), path: "/about-us" },
     { name: t('nav.services'), path: "/services" },
     { name: t('nav.events'), path: "/events" },
     { name: t('nav.blog'), path: "/blog" },
-    
     { name: t('nav.contact'), path: "/contact" },
     { name: t('nav.reviews'), path: "/reviews" },
   ];

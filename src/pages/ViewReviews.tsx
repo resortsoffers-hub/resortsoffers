@@ -16,7 +16,6 @@ import { toast } from "sonner";
 import { format } from "date-fns";
 import type { Database } from "@/integrations/supabase/types";
 import { getAllDestinations } from "@/data/destinationsData";
-import { getAllResorts } from "@/data/resortsData";
 
 // Main nationalities list
 const NATIONALITIES = [
@@ -57,12 +56,6 @@ export default function ViewReviews() {
   const [selectedDestination, setSelectedDestination] = useState("");
 
   const destinations = useMemo(() => getAllDestinations(), []);
-  const allResorts = useMemo(() => getAllResorts(), []);
-  
-  const filteredHotels = useMemo(() => {
-    if (!selectedDestination) return allResorts;
-    return allResorts.filter(resort => resort.region === selectedDestination);
-  }, [selectedDestination, allResorts]);
 
   const reviewForm = useForm<ReviewFormData>({
     resolver: zodResolver(reviewSchema),
@@ -282,15 +275,8 @@ export default function ViewReviews() {
                     <Input
                       id="hotelName"
                       {...reviewForm.register("hotelName")}
-                      placeholder={selectedDestination ? "Type or select hotel/resort" : "Select destination first"}
-                      disabled={!selectedDestination}
-                      list="hotels-list"
+                      placeholder="Enter hotel/resort name"
                     />
-                    <datalist id="hotels-list">
-                      {filteredHotels.map((hotel) => (
-                        <option key={hotel.slug} value={hotel.name} />
-                      ))}
-                    </datalist>
                   </div>
                   {reviewForm.formState.errors.hotelName && (
                     <p className="text-sm text-destructive">

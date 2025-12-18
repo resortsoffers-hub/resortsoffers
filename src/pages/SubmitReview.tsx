@@ -14,7 +14,6 @@ import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { Star, Send, Loader2 } from "lucide-react";
 import { getAllDestinations } from "@/data/destinationsData";
-import { getAllResorts } from "@/data/resortsData";
 
 // Main nationalities list
 const NATIONALITIES = [
@@ -46,12 +45,6 @@ export default function SubmitReview() {
   const [selectedDestination, setSelectedDestination] = useState("");
 
   const destinations = useMemo(() => getAllDestinations(), []);
-  const allResorts = useMemo(() => getAllResorts(), []);
-  
-  const filteredHotels = useMemo(() => {
-    if (!selectedDestination) return allResorts;
-    return allResorts.filter(resort => resort.region === selectedDestination);
-  }, [selectedDestination, allResorts]);
 
   const reviewForm = useForm<ReviewFormData>({
     resolver: zodResolver(reviewSchema),
@@ -205,22 +198,11 @@ export default function SubmitReview() {
 
                   <div className="space-y-2">
                     <Label htmlFor="hotelName">Hotel/Resort Name *</Label>
-                    <Select
-                      value={reviewForm.watch("hotelName")}
-                      onValueChange={(value) => reviewForm.setValue("hotelName", value)}
-                      disabled={!selectedDestination}
-                    >
-                      <SelectTrigger id="hotelName">
-                        <SelectValue placeholder={selectedDestination ? "Select hotel/resort" : "Select destination first"} />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {filteredHotels.map((hotel) => (
-                          <SelectItem key={hotel.slug} value={hotel.name}>
-                            {hotel.name}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
+                    <Input
+                      id="hotelName"
+                      {...reviewForm.register("hotelName")}
+                      placeholder="Enter hotel/resort name"
+                    />
                     {reviewForm.formState.errors.hotelName && (
                       <p className="text-sm text-destructive">
                         {reviewForm.formState.errors.hotelName.message}

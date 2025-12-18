@@ -7,18 +7,10 @@ import { HelmetProvider } from "react-helmet-async";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ChatWidget from "@/components/ChatWidget";
 import Index from "./pages/Index";
-import Services from "./pages/Services";
 import AboutUs from "./pages/AboutUs";
 import Contact from "./pages/Contact";
-import Terms from "./pages/Terms";
-import BookConsultation from "./pages/BookConsultation";
-import Blog from "./pages/Blog";
-import BlogPost from "./pages/BlogPost";
 import FAQ from "./pages/FAQ";
-import Events from "./pages/Events";
-import SubmitReview from "./pages/SubmitReview";
-import TravelSurvey from "./pages/TravelSurvey";
-import ViewReviews from "./pages/ViewReviews";
+import Terms from "./pages/Terms";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -31,22 +23,12 @@ const App = () => (
         <Sonner />
         <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
           <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/services" element={<Services />} />
-          
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/terms" element={<Terms />} />
-          <Route path="/book-consultation" element={<BookConsultation />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
-          <Route path="/faq" element={<FAQ />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/submit-review" element={<SubmitReview />} />
-          <Route path="/travel-survey" element={<TravelSurvey />} />
-          <Route path="/reviews" element={<ViewReviews />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
+            <Route path="/" element={<Index />} />
+            <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
           <WhatsAppButton />
           <ChatWidget />

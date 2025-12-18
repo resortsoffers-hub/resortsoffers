@@ -2,13 +2,7 @@
   "nav": {
     "home": "首页",
     "aboutUs": "关于我们",
-    "services": "服务",
-    "events": "活动",
-    "blog": "博客",
-    "team": "我们的团队",
-    "contact": "联系我们",
-    "reviews": "评论",
-    "bookConsultation": "预约免费咨询"
+    "contact": "联系我们"
   },
   "hero": {
     "title": "豪华度假体验",

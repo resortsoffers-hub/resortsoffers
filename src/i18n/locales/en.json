@@ -2,13 +2,7 @@
   "nav": {
     "home": "Home",
     "aboutUs": "About Us",
-    "services": "Services",
-    "events": "Events",
-    "blog": "Blog",
-    "team": "Our Team",
-    "contact": "Contact",
-    "reviews": "Reviews",
-    "bookConsultation": "Book Free Consultation"
+    "contact": "Contact"
   },
   "hero": {
     "title": "Luxury Resort Experiences",

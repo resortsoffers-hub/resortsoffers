@@ -9,7 +9,6 @@ import ChatWidget from "@/components/ChatWidget";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
 import AboutUs from "./pages/AboutUs";
-import Offers from "./pages/Offers";
 import Contact from "./pages/Contact";
 import Terms from "./pages/Terms";
 import BookConsultation from "./pages/BookConsultation";
@@ -17,8 +16,6 @@ import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import FAQ from "./pages/FAQ";
 import Events from "./pages/Events";
-import Destinations from "./pages/Destinations";
-import DestinationDetail from "./pages/DestinationDetail";
 import SubmitReview from "./pages/SubmitReview";
 import TravelSurvey from "./pages/TravelSurvey";
 import ViewReviews from "./pages/ViewReviews";
@@ -37,9 +34,6 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/destinations" element={<Destinations />} />
-          <Route path="/destinations/:slug" element={<DestinationDetail />} />
-          <Route path="/offers" element={<Offers />} />
           
           <Route path="/contact" element={<Contact />} />
           <Route path="/terms" element={<Terms />} />

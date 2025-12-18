@@ -95,12 +95,11 @@ const AboutUs = () => {
               Who We Are
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              The Resorts Offers Portfolio is a sales and marketing representation company, specialising in promoting 
-              unique luxury hotels, resorts and cruises to travellers from the Arabian Gulf.
+              The Resorts Offers Tourism Consultancy, specialising in promoting unique luxury hotels, resorts and cruises 
+              to travellers from the Arabian Gulf & Europe.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              We operate out of offices in United Arab Emirates (Dubai and Abu Dhabi) and Saudi Arabia (Jeddah and Riyadh), 
-              and we offer comprehensive regional sales and marketing solutions within the GCC countries. We have an in depth 
+              We operate out of offices in United Arab Emirates (Abu Dhabi) and Saudi Arabia (Riyadh). We have an in depth 
               knowledge of our portfolio, having individually visited the properties and built strong relationships with each 
               of our partners.
             </p>

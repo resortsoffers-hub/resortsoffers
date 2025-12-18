@@ -180,9 +180,9 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center text-sm opacity-75">
-          <p className="mb-2">Member of Dubai Business Women Council</p>
+          <p className="mb-2">Member of Abu Dhabi Business Women Council</p>
           <p className="mb-2">Resorts Offers Tourism Consultancy</p>
-          <p className="mb-2">Registered with Department of Economic Development - CN#5918684</p>
+          <p className="mb-2">Abu Dhabi Economic Licence - CN#5918684</p>
           <p>&copy; {new Date().getFullYear()} Resorts Offers Tourism Consultancy. All rights reserved.</p>
         </div>
       </div>

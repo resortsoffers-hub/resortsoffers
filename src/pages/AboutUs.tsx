@@ -189,12 +189,12 @@ const AboutUs = () => {
                 <div className="flex justify-center mb-4">
                   <Heart className="w-12 h-12 text-accent" />
                 </div>
-                <CardTitle className="text-2xl mb-4">Our Value</CardTitle>
+                <CardTitle className="text-2xl mb-4">Why Book With Us</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-base">
-                  Our values of communication, connection, creation, professionalism, knowledge, and influence 
-                  are at the heart and passion of what we offer and in all the work we do.
+                  Get exclusive rates up to 40% off, 24/7 WhatsApp support, flexible payment plans with 0% interest, 
+                  and personalized travel planning from experts who know every destination inside out.
                 </CardDescription>
               </CardContent>
             </Card>
@@ -204,13 +204,12 @@ const AboutUs = () => {
                 <div className="flex justify-center mb-4">
                   <Target className="w-12 h-12 text-accent" />
                 </div>
-                <CardTitle className="text-2xl mb-4">Our Objective</CardTitle>
+                <CardTitle className="text-2xl mb-4">Why Partner With Us</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-base">
-                  Representing bespoke, individual and luxurious travel partners from across the world in the GCC region. 
-                  We aim to spearhead our partners strategic marketing and sales communications, to achieve a measurable 
-                  and effective return on their investments.
+                  Access the lucrative GCC market through our established network of travel professionals, 
+                  targeted marketing campaigns, and strong relationships with high-value clients from the Arabian Gulf.
                 </CardDescription>
               </CardContent>
             </Card>
@@ -220,14 +219,12 @@ const AboutUs = () => {
                 <div className="flex justify-center mb-4">
                   <Lightbulb className="w-12 h-12 text-accent" />
                 </div>
-                <CardTitle className="text-2xl mb-4">Our Purpose</CardTitle>
+                <CardTitle className="text-2xl mb-4">Our Values</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-base">
-                  We are driven by our passion, and commitment to identifying and delivering results. Our team's strength 
-                  of knowledge and strong relationships with the Travel Professionals in the region ensure strategic marketing 
-                  plans are achieved. We analyse the current and potential market trends, to effectively promote our partners 
-                  brand image and establish an excellent positioning within the defined markets.
+                  Trust, transparency, and excellence guide everything we do. We build lasting relationships 
+                  through honest communication, deep industry knowledge, and a genuine passion for travel.
                 </CardDescription>
               </CardContent>
             </Card>

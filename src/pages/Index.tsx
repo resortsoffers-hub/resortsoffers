@@ -253,7 +253,7 @@ const Index = () => {
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Holiday Recommendations for You</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Handpicked luxury resorts • Free online consultation session with our travel expert
+              Handpicked luxury resorts with up to 40% savings. Book now via WhatsApp for instant confirmation.
             </p>
           </div>
 

@@ -20,7 +20,7 @@ const HeroCarousel = ({ slides }: HeroCarouselProps) => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
+    }, 6000);
 
     return () => clearInterval(timer);
   }, [slides.length]);
@@ -34,7 +34,7 @@ const HeroCarousel = ({ slides }: HeroCarouselProps) => {
   };
 
   return (
-    <div className="relative h-[450px] md:h-[500px] overflow-hidden">
+    <div className="relative h-[500px] md:h-[560px] overflow-hidden">
       {slides.map((slide, index) => (
         <div
           key={index}
@@ -47,23 +47,27 @@ const HeroCarousel = ({ slides }: HeroCarouselProps) => {
             alt={slide.title}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/20" />
+          <div className="absolute inset-0 bg-gradient-to-l from-black/50 via-black/30 to-transparent" />
           
-          <div className="absolute inset-0 flex items-center">
+          {/* Text positioned on right side like dnata */}
+          <div className="absolute inset-0 flex items-center justify-end">
             <div className="container-custom">
-              <div className="max-w-2xl text-white">
-                <h2 className="text-4xl md:text-5xl font-bold mb-4 animate-fade-in">
+              <div className="max-w-xl ml-auto text-right text-white pr-4 md:pr-12">
+                <h2 className="text-4xl md:text-6xl font-bold mb-4 leading-tight tracking-tight">
                   {slide.title}
                 </h2>
-                <p className="text-xl md:text-2xl mb-6 animate-fade-in">
+                <p className="text-lg md:text-xl mb-8 text-white/90">
                   {slide.subtitle}
                 </p>
                 <Button 
                   asChild 
                   size="lg" 
-                  className="bg-accent hover:bg-accent/90 text-white animate-fade-in"
+                  variant="outline"
+                  className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-gray-900 px-8 py-6 text-lg rounded-full"
                 >
-                  <a href={slide.buttonLink}>{slide.buttonText}</a>
+                  <a href={slide.buttonLink} target="_blank" rel="noopener noreferrer">
+                    {slide.buttonText}
+                  </a>
                 </Button>
               </div>
             </div>
@@ -74,34 +78,18 @@ const HeroCarousel = ({ slides }: HeroCarouselProps) => {
       {/* Navigation Buttons */}
       <button
         onClick={goToPrevious}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-2 rounded-full transition-all"
+        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 p-3 rounded-full transition-all shadow-lg"
         aria-label="Previous slide"
       >
-        <ChevronLeft className="w-6 h-6" />
+        <ChevronLeft className="w-5 h-5" />
       </button>
       <button
         onClick={goToNext}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-2 rounded-full transition-all"
+        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 p-3 rounded-full transition-all shadow-lg"
         aria-label="Next slide"
       >
-        <ChevronRight className="w-6 h-6" />
+        <ChevronRight className="w-5 h-5" />
       </button>
-
-      {/* Dots Navigation */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all ${
-              index === currentSlide
-                ? "bg-white w-8"
-                : "bg-white/50 hover:bg-white/75"
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
-      </div>
     </div>
   );
 };

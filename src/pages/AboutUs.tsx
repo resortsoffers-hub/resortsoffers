@@ -78,10 +78,10 @@ const AboutUs = () => {
         </div>
         
         <div className="relative z-10 container-custom text-center">
-          <h1 className="text-4xl md:text-6xl font-bold hero-text mb-6 animate-fade-in">
+          <h1 className="text-4xl md:text-6xl font-playfair font-bold hero-text mb-6 animate-fade-in tracking-tight">
             About Us
           </h1>
-          <p className="text-xl md:text-2xl hero-text max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl hero-text max-w-3xl mx-auto font-light">
             Sales, PR, Marketing & Social Media Agency for Luxury Hotels & Travel Brands
           </p>
         </div>
@@ -91,7 +91,7 @@ const AboutUs = () => {
       <section className="section-padding">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            <h2 className="text-3xl md:text-5xl font-playfair font-bold mb-6 tracking-tight">
               Who We Are
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
@@ -113,17 +113,16 @@ const AboutUs = () => {
           <div className="max-w-5xl mx-auto">
             <Card className="overflow-hidden shadow-xl">
               <div className="grid md:grid-cols-2 gap-0">
-                <div className="relative h-64 md:h-auto">
+                <div className="relative h-80 md:h-auto">
                   <img 
                     src={noraCEO}
                     alt="Nora El Khalifi - CEO & Founder" 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-top"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent md:bg-gradient-to-r" />
                 </div>
                 <CardContent className="p-8 md:p-12 flex flex-col justify-center">
-                  <h3 className="text-3xl md:text-4xl font-bold mb-2">Nora El Khalifi</h3>
-                  <p className="text-xl text-primary font-semibold mb-4">CEO & Founder</p>
+                  <h3 className="text-3xl md:text-4xl font-playfair font-bold mb-2 tracking-tight">Nora El Khalifi</h3>
+                  <p className="text-xl text-primary font-playfair italic mb-4">CEO & Founder</p>
                   <div className="space-y-3 text-muted-foreground mb-6">
                     <p className="flex items-start gap-2">
                       <span className="text-accent mt-1">•</span>

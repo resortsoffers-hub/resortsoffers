@@ -349,11 +349,11 @@ const Offers = () => {
         </Carousel>
         
         <div className="absolute z-10 container-custom text-center pointer-events-none">
-          <h1 className="text-4xl md:text-6xl font-bold hero-text mb-6 animate-fade-in">
-            Resorts Offers
+          <h1 className="text-4xl md:text-6xl font-playfair font-bold hero-text mb-6 animate-fade-in tracking-tight">
+            Exclusive Deals on Luxury Resorts
           </h1>
-          <p className="text-xl md:text-2xl hero-text max-w-3xl mx-auto">
-            Exclusive deals on luxury destinations worldwide - Limited time only
+          <p className="text-xl md:text-2xl hero-text max-w-3xl mx-auto font-light">
+            More than just discounts — enjoy complimentary upgrades, spa credits, private dining, airport transfers & exclusive added values
           </p>
         </div>
       </section>

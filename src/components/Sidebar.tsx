@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { X, Home, Info, Briefcase, Calendar, BookOpen, Phone, Star, HelpCircle, FileText } from "lucide-react";
+import { X, Home, Info, Phone, HelpCircle, FileText } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 
@@ -15,16 +15,9 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
   const menuItems = [
     { name: t('nav.home'), path: "/", icon: Home },
     { name: t('nav.aboutUs'), path: "/about-us", icon: Info },
-    { name: t('nav.services'), path: "/services", icon: Briefcase },
-    { name: t('nav.events'), path: "/events", icon: Calendar },
-    { name: t('nav.blog'), path: "/blog", icon: BookOpen },
     { name: t('nav.contact'), path: "/contact", icon: Phone },
-    { name: t('nav.reviews'), path: "/reviews", icon: Star },
-  ];
-
-  const quickLinks = [
     { name: "FAQ", path: "/faq", icon: HelpCircle },
-    { name: "Terms & Conditions", path: "/terms", icon: FileText },
+    { name: "Terms", path: "/terms", icon: FileText },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -65,39 +58,14 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
             })}
           </nav>
 
-          {/* Quick Links */}
-          <div className="border-t border-white/10 py-4">
-            <div className="px-4 mb-2">
-              <span className="text-xs font-semibold text-white/50 uppercase tracking-wider">
-                Quick Links
-              </span>
-            </div>
-            {quickLinks.map((item) => {
-              const Icon = item.icon;
-              return (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  onClick={onClose}
-                  className={`flex items-center gap-4 px-6 py-3 text-white/70 hover:bg-white/10 hover:text-white transition-colors ${
-                    isActive(item.path) ? "bg-white/20 text-white" : ""
-                  }`}
-                >
-                  <Icon size={18} />
-                  <span className="text-sm">{item.name}</span>
-                </Link>
-              );
-            })}
-          </div>
-
           {/* Contact Info */}
           <div className="p-6 bg-white/5">
-            <p className="text-white/60 text-xs mb-2">Need Help?</p>
+            <p className="text-white/60 text-xs mb-2">Book Now via WhatsApp</p>
             <a 
-              href="https://wa.me/971505620286" 
+              href="https://wa.me/971567622484" 
               className="text-white font-semibold hover:text-white/80 transition-colors"
             >
-              WhatsApp: +971 50 562 0286
+              +971 56 762 2484
             </a>
           </div>
         </div>

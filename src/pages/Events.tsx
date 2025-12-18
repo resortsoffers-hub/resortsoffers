@@ -93,6 +93,22 @@ const Events = () => {
       website: "https://gulfbrideshow.com/",
       category: "Wedding & Lifestyle",
       image: gulfBrideImage
+    },
+    {
+      name: "Summit Bridge Abu Dhabi 2025",
+      shortName: "Summit Bridge",
+      date: "2025",
+      location: "Abu Dhabi, UAE",
+      description: "A premier business and travel summit connecting industry leaders, tourism professionals, and luxury hospitality brands. Summit Bridge Abu Dhabi brings together key stakeholders to explore new opportunities and partnerships in the travel and hospitality sector.",
+      highlights: [
+        "High-level networking opportunities",
+        "Industry leader keynote sessions",
+        "Business matchmaking meetings",
+        "Abu Dhabi tourism partnerships"
+      ],
+      website: "#",
+      category: "Business Summit",
+      image: atmDubaiImage
     }
   ];
 

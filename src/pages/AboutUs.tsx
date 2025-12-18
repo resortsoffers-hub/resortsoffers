@@ -235,30 +235,6 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="section-padding">
-        <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Partner With Us?
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Discover how we can elevate your property's presence in the GCC market and connect you with 
-            discerning travelers from the Arabian Gulf.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/contact">
-              <button className="bg-primary text-primary-foreground px-8 py-3 rounded-lg text-lg font-semibold hover:bg-primary/90 transition-colors">
-                Contact Us
-              </button>
-            </a>
-            <a href="/services">
-              <button className="bg-secondary text-secondary-foreground px-8 py-3 rounded-lg text-lg font-semibold hover:bg-secondary/90 transition-colors">
-                Our Services
-              </button>
-            </a>
-          </div>
-        </div>
-      </section>
 
       <Footer />
     </div>

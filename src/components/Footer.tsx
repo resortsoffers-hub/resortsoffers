@@ -175,6 +175,11 @@ const Footer = () => {
                 <text x="2" y="20" fontFamily="Arial, sans-serif" fontSize="16" fontWeight="bold" fill="white">AMEX</text>
               </svg>
             </div>
+            
+            {/* Bank Transfer */}
+            <div className="bg-emerald-600 px-6 py-3 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+              <span className="text-white font-semibold text-sm">Bank Transfer</span>
+            </div>
           </div>
         </div>
 

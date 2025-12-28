@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import HeroCarousel from "@/components/HeroCarousel";
 import BookingTabs from "@/components/BookingTabs";
 import OfferDetailModal from "@/components/OfferDetailModal";
+import { supabase } from "@/integrations/supabase/client";
 import maldivesWaldorf from "@/assets/maldives-waldorf.jpg";
 import santoriniGreece from "@/assets/santorini-greece.jpg";
 import dubaiFamily from "@/assets/dubai-family.jpg";
@@ -36,6 +37,24 @@ interface Offer {
 const Index = () => {
   const [selectedOffer, setSelectedOffer] = useState<Offer | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [dbOffers, setDbOffers] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchOffers = async () => {
+      const { data, error } = await supabase
+        .from('offers')
+        .select('*')
+        .eq('is_active', true)
+        .order('display_order', { ascending: true });
+      
+      if (data && !error) {
+        setDbOffers(data);
+      }
+      setLoading(false);
+    };
+    fetchOffers();
+  }, []);
 
   const whatsappNumber = "971567622484";
 
@@ -246,6 +265,82 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Database Offers from Supabase */}
+      {dbOffers.length > 0 && (
+        <section className="py-12 bg-white">
+          <div className="container-custom">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">🔥 Latest Packages</h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Exclusive deals added by our travel experts
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {dbOffers.map((offer) => {
+                const features = Array.isArray(offer.features) ? offer.features : [];
+                return (
+                  <Card key={offer.id} className="overflow-hidden hover:shadow-xl transition-all duration-300 bg-white">
+                    <div className="relative h-48 overflow-hidden bg-gradient-to-br from-[#003B95] to-[#00A4E4]">
+                      {offer.image_url ? (
+                        <img src={offer.image_url} alt={offer.title} className="w-full h-full object-cover" />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center">
+                          <span className="text-white text-6xl">🏝️</span>
+                        </div>
+                      )}
+                      <div className="absolute top-3 left-3">
+                        <Badge className="bg-green-500 text-white font-bold">{offer.category || 'Special Offer'}</Badge>
+                      </div>
+                    </div>
+                    
+                    <CardHeader className="pb-2">
+                      <CardTitle className="text-lg">{offer.title}</CardTitle>
+                      <div className="flex items-center gap-2 text-sm text-gray-500">
+                        <MapPin className="w-4 h-4" />
+                        <span>{offer.category || 'Luxury Resort'}</span>
+                      </div>
+                    </CardHeader>
+
+                    <CardContent className="space-y-3">
+                      <CardDescription className="text-sm line-clamp-2">{offer.description}</CardDescription>
+                      
+                      <div className="flex flex-wrap gap-1">
+                        {features.slice(0, 4).map((feature: string, i: number) => (
+                          <Badge key={i} variant="secondary" className="text-xs bg-gray-100">{feature}</Badge>
+                        ))}
+                        {features.length > 4 && (
+                          <Badge variant="secondary" className="text-xs bg-gray-100">+{features.length - 4} more</Badge>
+                        )}
+                      </div>
+
+                      <div className="pt-3 border-t">
+                        <div className="flex items-center justify-between mb-3">
+                          <div>
+                            <span className="text-2xl font-bold text-[#003B95]">{offer.currency} {offer.price?.toLocaleString()}</span>
+                            <span className="text-sm text-gray-500"> total</span>
+                          </div>
+                        </div>
+                        <a 
+                          href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Hi! I'm interested in the ${offer.title} package for ${offer.currency} ${offer.price}. Please send more details.`)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Button className="w-full bg-[#25D366] hover:bg-[#25D366]/90 text-white font-semibold">
+                            <MessageCircle className="w-4 h-4 mr-2" />
+                            Book via WhatsApp
+                          </Button>
+                        </a>
+                      </div>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Featured Offers */}
       <section className="py-12 bg-gray-50">

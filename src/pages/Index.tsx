@@ -20,6 +20,8 @@ import mauritiusHero from "@/assets/destinations/mauritius-hero.jpg";
 import seychellesHero from "@/assets/destinations/seychelles-hero.jpg";
 import moroccoHero from "@/assets/destinations/morocco-hero.jpg";
 import baliResort from "@/assets/resorts/bali-clifftop-resort.jpg";
+import sonevaMaldives from "@/assets/resorts/soneva-fushi.jpg";
+import waterVillasAerial from "@/assets/resorts/water-villas-aerial.jpg";
 
 interface Offer {
   title: string;
@@ -114,16 +116,16 @@ const Index = () => {
     { name: "Mauritius", image: mauritiusHero, tagline: "Island Paradise" }
   ];
 
-  const featuredOffers: Offer[] = [
+const featuredOffers: Offer[] = [
     {
-      title: "Waldorf Astoria Maldives Ithaafushi",
-      destination: "South Malé Atoll, Maldives",
+      title: "Soneva Fushi Maldives",
+      destination: "Baa Atoll, Maldives",
       discount: 25,
-      originalPrice: "AED 4,500",
-      price: "AED 3,375",
-      description: "Ultra-luxury private island resort featuring the largest overwater villas in the Maldives. Each villa spans over 3,000 sq ft with private infinity pools, outdoor showers, and direct lagoon access. Home to 11 restaurants including underwater dining.",
-      features: ["Private Pool", "Butler Service", "Seaplane Transfer", "Half Board", "Spa Credit $200", "Sunset Cruise"],
-      image: maldivesVillaPool,
+      originalPrice: "AED 4,800",
+      price: "AED 3,600",
+      description: "Award-winning barefoot luxury resort in UNESCO Biosphere Reserve. Spacious beach and water villas with private pools, outdoor bathrooms, and butler service. Features open-air cinema, observatory, and 9 dining destinations.",
+      features: ["Private Pool", "Butler Service", "Seaplane Transfer", "All-Inclusive", "Spa Treatment", "Sunset Dolphin Cruise"],
+      image: sonevaMaldives,
       rating: 4.9,
       reviews: 1842
     },
@@ -282,14 +284,12 @@ const Index = () => {
                 const features = Array.isArray(offer.features) ? offer.features : [];
                 return (
                   <Card key={offer.id} className="overflow-hidden hover:shadow-xl transition-all duration-300 bg-white">
-                    <div className="relative h-48 overflow-hidden bg-gradient-to-br from-[#003B95] to-[#00A4E4]">
-                      {offer.image_url ? (
-                        <img src={offer.image_url} alt={offer.title} className="w-full h-full object-cover" />
-                      ) : (
-                        <div className="w-full h-full flex items-center justify-center">
-                          <span className="text-white text-6xl">🏝️</span>
-                        </div>
-                      )}
+                    <div className="relative h-48 overflow-hidden">
+                      <img 
+                        src={offer.image_url || waterVillasAerial} 
+                        alt={offer.title} 
+                        className="w-full h-full object-cover" 
+                      />
                       <div className="absolute top-3 left-3">
                         <Badge className="bg-green-500 text-white font-bold">{offer.category || 'Special Offer'}</Badge>
                       </div>

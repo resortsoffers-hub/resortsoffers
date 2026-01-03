@@ -273,9 +273,9 @@ const featuredOffers: Offer[] = [
         <section className="py-12 bg-white">
           <div className="container-custom">
             <div className="text-center mb-10">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">🔥 Latest Packages</h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Exclusive deals added by our travel experts
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#1e3a5f] mb-4">Resort Offers</h2>
+              <p className="text-lg text-[#1e3a5f]/70 max-w-2xl mx-auto font-sans">
+                Exclusive deals from our partner resorts
               </p>
             </div>
 
@@ -283,7 +283,7 @@ const featuredOffers: Offer[] = [
               {dbOffers.map((offer) => {
                 const features = Array.isArray(offer.features) ? offer.features : [];
                 return (
-                  <Card key={offer.id} className="overflow-hidden hover:shadow-xl transition-all duration-300 bg-white">
+                  <Card key={offer.id} className="overflow-hidden hover:shadow-xl transition-all duration-300 bg-white border border-[#1e3a5f]/10">
                     <div className="relative h-48 overflow-hidden">
                       <img 
                         src={offer.image_url || waterVillasAerial} 
@@ -291,35 +291,35 @@ const featuredOffers: Offer[] = [
                         className="w-full h-full object-cover" 
                       />
                       <div className="absolute top-3 left-3">
-                        <Badge className="bg-green-500 text-white font-bold">{offer.category || 'Special Offer'}</Badge>
+                        <Badge className="bg-[#1e3a5f] text-white font-sans font-medium">{offer.category || 'Special Offer'}</Badge>
                       </div>
                     </div>
                     
                     <CardHeader className="pb-2">
-                      <CardTitle className="text-lg">{offer.title}</CardTitle>
-                      <div className="flex items-center gap-2 text-sm text-gray-500">
+                      <CardTitle className="text-lg font-serif text-[#1e3a5f]">{offer.title}</CardTitle>
+                      <div className="flex items-center gap-2 text-sm text-[#1e3a5f]/60 font-sans">
                         <MapPin className="w-4 h-4" />
                         <span>{offer.category || 'Luxury Resort'}</span>
                       </div>
                     </CardHeader>
 
                     <CardContent className="space-y-3">
-                      <CardDescription className="text-sm line-clamp-2">{offer.description}</CardDescription>
+                      <CardDescription className="text-sm text-[#1e3a5f]/70 line-clamp-2 font-sans">{offer.description}</CardDescription>
                       
                       <div className="flex flex-wrap gap-1">
                         {features.slice(0, 4).map((feature: string, i: number) => (
-                          <Badge key={i} variant="secondary" className="text-xs bg-gray-100">{feature}</Badge>
+                          <Badge key={i} variant="secondary" className="text-xs bg-[#1e3a5f]/5 text-[#1e3a5f] font-sans">{feature}</Badge>
                         ))}
                         {features.length > 4 && (
-                          <Badge variant="secondary" className="text-xs bg-gray-100">+{features.length - 4} more</Badge>
+                          <Badge variant="secondary" className="text-xs bg-[#1e3a5f]/5 text-[#1e3a5f] font-sans">+{features.length - 4} more</Badge>
                         )}
                       </div>
 
-                      <div className="pt-3 border-t">
+                      <div className="pt-3 border-t border-[#1e3a5f]/10">
                         <div className="flex items-center justify-between mb-3">
                           <div>
-                            <span className="text-2xl font-bold text-[#003B95]">{offer.currency} {offer.price?.toLocaleString()}</span>
-                            <span className="text-sm text-gray-500"> total</span>
+                            <span className="text-2xl font-bold text-[#1e3a5f] font-sans">{offer.currency} {offer.price?.toLocaleString()}</span>
+                            <span className="text-sm text-[#1e3a5f]/60 font-sans"> total</span>
                           </div>
                         </div>
                         <a 
@@ -327,9 +327,9 @@ const featuredOffers: Offer[] = [
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <Button className="w-full bg-[#25D366] hover:bg-[#25D366]/90 text-white font-semibold">
+                          <Button className="w-full bg-[#1e3a5f] hover:bg-[#1e3a5f]/90 text-white font-sans font-medium">
                             <MessageCircle className="w-4 h-4 mr-2" />
-                            Book via WhatsApp
+                            Book Now
                           </Button>
                         </a>
                       </div>

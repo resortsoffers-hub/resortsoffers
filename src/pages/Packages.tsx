@@ -24,7 +24,10 @@ import {
   Ship,
   Users,
   Heart,
-  ExternalLink
+  ExternalLink,
+  Flower2,
+  Gamepad2,
+  Sailboat
 } from "lucide-react";
 
 // Cocoon Resort Images
@@ -76,6 +79,27 @@ const Packages = () => {
     { text: "Complimentary Catamaran Cruise (min 7 nights)", icon: Ship },
     { text: "Group cooking class - Ethnic or Italian (min 5 nights)", icon: Utensils },
     { text: "Up to 3 yoga/Pilates classes", icon: Sun }
+  ];
+
+  const furaveriInclusions = [
+    { icon: Utensils, text: "Half Board: Breakfast & Dinner" },
+    { icon: UtensilsCrossed, text: "Floating Breakfast at Sunset" },
+    { icon: Sailboat, text: "Sunset Cruise" },
+    { icon: Sparkles, text: "60-minute Spa Massage" },
+    { icon: Users, text: "Meet & Greet on arrival by dedicated team" },
+    { icon: Glasses, text: "Complimentary snorkeling equipment" },
+    { icon: Waves, text: "Free Stand-Up Paddle & Kayak" },
+    { icon: Anchor, text: "Free windsurfing equipment" },
+    { icon: Music, text: "Daily entertainment activities" },
+    { icon: Dumbbell, text: "Free Gym, Tennis & Badminton access" },
+    { icon: Gamepad2, text: "Billiards, Table Tennis & board games" },
+    { icon: Music, text: "Karaoke, Disco night, Fire show & more" }
+  ];
+
+  const furaveriHoneymoon = [
+    { icon: Flower2, text: "Complimentary fruit plate on arrival" },
+    { icon: Wine, text: "Bottle of sparkling drink" },
+    { icon: Heart, text: "Flower bed decoration in villa" }
   ];
 
   return (
@@ -275,6 +299,175 @@ const Packages = () => {
           </div>
         </div>
       </section>
+
+      {/* Furaveri Maldives Package */}
+      <section className="py-16 bg-gradient-to-b from-teal-50 to-white">
+        <div className="container-custom">
+          <div className="text-center mb-10">
+            <Badge className="bg-teal-600 text-white mb-4 text-sm px-4 py-2">
+              Family & Couples
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#1e3a5f] mb-3">
+              Furaveri Maldives
+            </h2>
+            <p className="text-lg text-[#1e3a5f]/70 max-w-3xl mx-auto">
+              Ocean Pool Villa | Sunset Ocean Pool Villa | Beach Pool Villa
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8 items-start">
+            {/* Left - Inclusions */}
+            <div className="bg-white rounded-2xl shadow-lg p-8 border border-teal-200">
+              <h3 className="text-xl font-serif font-bold text-[#1e3a5f] mb-6">Package Inclusions</h3>
+              <div className="grid gap-3">
+                {furaveriInclusions.map((item, index) => {
+                  const Icon = item.icon;
+                  return (
+                    <div key={index} className="flex items-center gap-4 p-3 rounded-lg bg-teal-50 hover:bg-teal-100 transition-colors">
+                      <div className="w-10 h-10 rounded-full bg-teal-600 flex items-center justify-center flex-shrink-0">
+                        <Icon className="w-5 h-5 text-white" />
+                      </div>
+                      <span className="text-[#1e3a5f] font-medium text-sm">{item.text}</span>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Honeymoon Extras */}
+              <div className="mt-6 pt-6 border-t border-teal-200">
+                <h4 className="text-lg font-serif font-bold text-[#1e3a5f] mb-4 flex items-center gap-2">
+                  <Heart className="w-5 h-5 text-rose-500" /> Honeymoon Special
+                </h4>
+                <div className="grid gap-2">
+                  {furaveriHoneymoon.map((item, index) => {
+                    const Icon = item.icon;
+                    return (
+                      <div key={index} className="flex items-center gap-3 p-2 rounded-lg bg-rose-50">
+                        <Icon className="w-5 h-5 text-rose-500" />
+                        <span className="text-[#1e3a5f] text-sm">{item.text}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+              
+              {/* Price & CTA */}
+              <div className="mt-8 pt-6 border-t border-teal-200">
+                <div className="flex items-end justify-between mb-4">
+                  <div>
+                    <p className="text-sm text-[#1e3a5f]/60 mb-1">3 Nights Package</p>
+                    <p className="text-4xl font-bold text-[#1e3a5f]">$3,700</p>
+                    <p className="text-sm text-[#1e3a5f]/60">for 3 people</p>
+                  </div>
+                  <div className="text-right">
+                    <div className="flex items-center gap-1 mb-1">
+                      <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                      <span className="font-bold text-[#1e3a5f]">4.7</span>
+                    </div>
+                    <p className="text-xs text-[#1e3a5f]/60">Half Board</p>
+                  </div>
+                </div>
+                <a 
+                  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi! I'm interested in the Furaveri Maldives package for 3 nights at $3,700 for 3 people. Please send availability and booking details.")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button className="w-full bg-[#25D366] hover:bg-[#1DA851] text-white font-bold py-6 text-lg">
+                    <MessageCircle className="w-5 h-5 mr-2" />
+                    Book Now via WhatsApp
+                  </Button>
+                </a>
+              </div>
+            </div>
+
+            {/* Right - Instagram Gallery */}
+            <div className="space-y-6">
+              <h3 className="text-xl font-serif font-bold text-[#1e3a5f] mb-4">Villa Gallery</h3>
+              
+              {/* Instagram Embed - Main Photos */}
+              <div className="rounded-2xl overflow-hidden shadow-lg bg-white">
+                <iframe 
+                  src="https://www.instagram.com/p/DLmrpE8NC2j/embed" 
+                  className="w-full h-[450px] border-0"
+                  loading="lazy"
+                  title="Furaveri Maldives - Resort Gallery"
+                  allowFullScreen
+                />
+              </div>
+
+              {/* Villa Types Grid */}
+              <div className="grid gap-4">
+                {/* Ocean Pool Villa */}
+                <div className="rounded-2xl overflow-hidden shadow-lg bg-white">
+                  <iframe 
+                    src="https://www.instagram.com/p/CPJBqp2nX1d/embed" 
+                    className="w-full h-[400px] border-0"
+                    loading="lazy"
+                    title="Furaveri - Ocean Pool Villa"
+                    allowFullScreen
+                  />
+                  <div className="bg-teal-50 p-4">
+                    <p className="font-medium text-[#1e3a5f]">Ocean Pool Villa</p>
+                  </div>
+                </div>
+
+                {/* Sunset Ocean Pool Villa */}
+                <div className="rounded-2xl overflow-hidden shadow-lg bg-white">
+                  <iframe 
+                    src="https://www.instagram.com/p/CPJBD0fnCa0/embed" 
+                    className="w-full h-[400px] border-0"
+                    loading="lazy"
+                    title="Furaveri - Sunset Ocean Pool Villa"
+                    allowFullScreen
+                  />
+                  <div className="bg-teal-50 p-4">
+                    <p className="font-medium text-[#1e3a5f]">Sunset Ocean Pool Villa</p>
+                  </div>
+                </div>
+
+                {/* Beach Pool Villa */}
+                <div className="rounded-2xl overflow-hidden shadow-lg bg-white">
+                  <iframe 
+                    src="https://www.instagram.com/p/CPJDBdTnh3W/embed" 
+                    className="w-full h-[400px] border-0"
+                    loading="lazy"
+                    title="Furaveri - Beach Pool Villa"
+                    allowFullScreen
+                  />
+                  <div className="bg-teal-50 p-4">
+                    <p className="font-medium text-[#1e3a5f]">Beach Pool Villa</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Resort Highlights */}
+              <div className="bg-white rounded-2xl shadow-lg p-6 border border-teal-200">
+                <h4 className="font-serif font-bold text-[#1e3a5f] mb-4">Resort Highlights</h4>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="flex items-center gap-2 text-sm text-[#1e3a5f]">
+                    <Users className="w-4 h-4 text-teal-500" />
+                    <span>Family Friendly</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-[#1e3a5f]">
+                    <Utensils className="w-4 h-4 text-teal-500" />
+                    <span>Half Board</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-[#1e3a5f]">
+                    <Sparkles className="w-4 h-4 text-teal-500" />
+                    <span>Wellness Village</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-[#1e3a5f]">
+                    <Waves className="w-4 h-4 text-teal-500" />
+                    <span>Water Sports</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Westin Maldives Featured Package */}
       <section className="py-16 bg-gradient-to-b from-[#1e3a5f]/5 to-white">
         <div className="container-custom">
           <div className="text-center mb-10">

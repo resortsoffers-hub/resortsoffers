@@ -26,6 +26,12 @@ import {
   Heart,
   ExternalLink
 } from "lucide-react";
+
+// Cocoon Resort Images
+import cocoonAerial from "@/assets/resorts/you-and-me-cocoon-aerial.jpg";
+import cocoonVillaPool from "@/assets/resorts/you-and-me-cocoon-villa-pool.jpg";
+import cocoonAquaSuite from "@/assets/resorts/you-and-me-cocoon-aqua-suite.jpg";
+import cocoonSuite from "@/assets/resorts/you-and-me-cocoon-suite.jpg";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -177,6 +183,52 @@ const Packages = () => {
             <div className="space-y-6">
               <h3 className="text-xl font-serif font-bold text-[#1e3a5f] mb-4">Resort Gallery</h3>
               
+              {/* Main Resort Image */}
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <img 
+                  src={cocoonAerial} 
+                  alt="You & Me by Cocoon Maldives - Aerial View"
+                  className="w-full h-[350px] object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+
+              {/* Image Grid */}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="rounded-xl overflow-hidden shadow-lg">
+                  <img 
+                    src={cocoonVillaPool} 
+                    alt="Dolphin Villa with Pool"
+                    className="w-full h-[200px] object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="bg-white p-3">
+                    <p className="text-sm font-medium text-[#1e3a5f]">Dolphin Villa with Pool</p>
+                  </div>
+                </div>
+                <div className="rounded-xl overflow-hidden shadow-lg">
+                  <img 
+                    src={cocoonAquaSuite} 
+                    alt="Aqua Suite with Pool"
+                    className="w-full h-[200px] object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="bg-white p-3">
+                    <p className="text-sm font-medium text-[#1e3a5f]">Aqua Suite with Pool</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* You & Me Suite */}
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <img 
+                  src={cocoonSuite} 
+                  alt="You & Me Suite - Luxury Overwater Villa"
+                  className="w-full h-[280px] object-cover hover:scale-105 transition-transform duration-500"
+                />
+                <div className="bg-white p-4">
+                  <p className="font-medium text-[#1e3a5f]">You & Me Suite</p>
+                  <p className="text-sm text-[#1e3a5f]/70">280sqm | Private Pool | Cinema | Gym</p>
+                </div>
+              </div>
+
               {/* Google Drive Link */}
               <a 
                 href="https://drive.google.com/drive/folders/19gS9HWS-M7WbyYUOhrT4S7lE6TXiYVWN"
@@ -190,22 +242,12 @@ const Packages = () => {
                       <ExternalLink className="w-7 h-7" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-lg">View High-Resolution Gallery</h4>
+                      <h4 className="font-bold text-lg">View Full Gallery & Resources</h4>
                       <p className="text-white/80 text-sm">Photos, Videos, Fact-sheet & Price Guides</p>
                     </div>
                   </div>
                 </div>
               </a>
-
-              {/* Placeholder for resort image */}
-              <div className="rounded-2xl overflow-hidden shadow-lg bg-gradient-to-br from-rose-100 to-rose-200 h-[400px] flex items-center justify-center">
-                <div className="text-center p-8">
-                  <Heart className="w-16 h-16 text-rose-400 mx-auto mb-4" />
-                  <h4 className="text-xl font-serif font-bold text-[#1e3a5f] mb-2">You & Me by Cocoon</h4>
-                  <p className="text-[#1e3a5f]/70">Adults Only Paradise</p>
-                  <p className="text-sm text-[#1e3a5f]/50 mt-4">Premium All-Inclusive Experience</p>
-                </div>
-              </div>
 
               {/* Resort Highlights */}
               <div className="bg-white rounded-2xl shadow-lg p-6 border border-rose-200">
@@ -233,8 +275,6 @@ const Packages = () => {
           </div>
         </div>
       </section>
-
-      {/* Westin Maldives Featured Package */}
       <section className="py-16 bg-gradient-to-b from-[#1e3a5f]/5 to-white">
         <div className="container-custom">
           <div className="text-center mb-10">

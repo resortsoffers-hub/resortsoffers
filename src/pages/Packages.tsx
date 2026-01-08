@@ -383,17 +383,6 @@ const Packages = () => {
             {/* Right - Instagram Gallery */}
             <div className="space-y-6">
               <h3 className="text-xl font-serif font-bold text-[#1e3a5f] mb-4">Villa Gallery</h3>
-              
-              {/* Instagram Embed - Main Photos */}
-              <div className="rounded-2xl overflow-hidden shadow-lg bg-white">
-                <iframe 
-                  src="https://www.instagram.com/p/DLmrpE8NC2j/embed" 
-                  className="w-full h-[450px] border-0"
-                  loading="lazy"
-                  title="Furaveri Maldives - Resort Gallery"
-                  allowFullScreen
-                />
-              </div>
 
               {/* Villa Types Grid */}
               <div className="grid gap-4">

@@ -11,6 +11,7 @@ import AboutUs from "./pages/AboutUs";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
 import Terms from "./pages/Terms";
+import Packages from "./pages/Packages";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/contact" element={<Contact />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/terms" element={<Terms />} />
+            <Route path="/packages" element={<Packages />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <WhatsAppButton />

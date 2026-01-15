@@ -59,7 +59,7 @@ const Index = () => {
     fetchOffers();
   }, []);
 
-  const whatsappNumber = "971567622484";
+  const whatsappNumber = "971547474404";
 
   const getDestinationWhatsApp = (destination: string) => {
     const message = `Hi! I want to book a holiday in ${destination}. Please send me the best offers.`;
@@ -453,22 +453,38 @@ const featuredOffers: Offer[] = [
                 })}
               </div>
 
-              {/* Honeymoon Extras */}
+              {/* Honeymoon Extras - Creative Signature Style */}
               <div className="mt-6 pt-6 border-t border-teal-200">
-                <h4 className="text-lg font-serif font-bold text-[#1e3a5f] mb-4">
-                  <Heart className="w-5 h-5 inline mr-2 text-rose-500" />
-                  Honeymoon / Anniversary Benefits
-                </h4>
-                <div className="grid gap-2">
-                  {furaveriHoneymoon.map((item, index) => {
-                    const Icon = item.icon;
-                    return (
-                      <div key={index} className="flex items-center gap-3 p-2 rounded-lg bg-rose-50">
-                        <Icon className="w-5 h-5 text-rose-600" />
-                        <span className="text-[#1e3a5f] text-sm">{item.text}</span>
-                      </div>
-                    );
-                  })}
+                <div className="bg-gradient-to-r from-rose-50 via-pink-50 to-rose-50 rounded-xl p-6 border border-rose-200 relative overflow-hidden">
+                  {/* Decorative hearts */}
+                  <div className="absolute top-2 right-2 opacity-20">
+                    <Heart className="w-12 h-12 text-rose-400 fill-rose-400" />
+                  </div>
+                  <div className="absolute bottom-2 left-2 opacity-10">
+                    <Heart className="w-8 h-8 text-rose-400 fill-rose-400" />
+                  </div>
+                  
+                  <h4 className="text-lg font-serif font-bold text-rose-700 mb-4 flex items-center gap-2">
+                    <span className="bg-rose-100 p-2 rounded-full">
+                      <Heart className="w-5 h-5 text-rose-600 fill-rose-600" />
+                    </span>
+                    Honeymoon Special
+                  </h4>
+                  <div className="grid gap-3">
+                    {[
+                      { icon: Flower2, text: "Fruit plate on arrival", color: "text-rose-600" },
+                      { icon: Wine, text: "Sparkling drink", color: "text-rose-600" },
+                      { icon: Heart, text: "Flower bed decoration", color: "text-rose-600" },
+                    ].map((item, index) => {
+                      const Icon = item.icon;
+                      return (
+                        <div key={index} className="flex items-center gap-3 p-2">
+                          <Icon className={`w-5 h-5 ${item.color}`} />
+                          <span className="text-rose-800 font-medium text-sm">{item.text}</span>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
               
@@ -727,10 +743,10 @@ const featuredOffers: Offer[] = [
                 Chat on WhatsApp
               </Button>
             </a>
-            <a href="tel:+971567622484">
+            <a href="tel:+971547474404">
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-[#003B95] px-8">
                 <Phone className="w-5 h-5 mr-2" />
-                Call 80036282
+                Call Now
               </Button>
             </a>
           </div>

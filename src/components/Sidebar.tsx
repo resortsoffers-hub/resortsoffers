@@ -63,10 +63,10 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
           <div className="p-6 bg-white/5">
             <p className="text-white/60 text-xs mb-2">Book Now via WhatsApp</p>
             <a 
-              href="https://wa.me/971567622484" 
+              href="https://wa.me/971547474404" 
               className="text-white font-semibold hover:text-white/80 transition-colors"
             >
-              +971 56 762 2484
+              +971 547 474 404
             </a>
           </div>
         </div>

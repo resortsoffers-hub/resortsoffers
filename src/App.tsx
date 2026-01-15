@@ -12,6 +12,7 @@ import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
 import Terms from "./pages/Terms";
 import Packages from "./pages/Packages";
+import BookConsultation from "./pages/BookConsultation";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +31,7 @@ const App = () => (
             <Route path="/faq" element={<FAQ />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/packages" element={<Packages />} />
+            <Route path="/book-consultation" element={<BookConsultation />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <WhatsAppButton />

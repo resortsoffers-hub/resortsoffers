@@ -10,6 +10,56 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { MessageCircle, Star, MapPin, Ship, Palmtree, Building2, Tent } from "lucide-react";
 
+// Import local images
+import soneva from "@/assets/resorts/soneva-fushi.jpg";
+import chevalBlanc from "@/assets/resorts/cheval-blanc-randheli.jpg";
+import oneOnlyReethi from "@/assets/resorts/oneandonly-reethi-rah.jpg";
+import stRegisMaldives from "@/assets/resorts/maldives-water-villa.jpg";
+import waldorfMaldives from "@/assets/resorts/waldorf-astoria-maldives.jpg";
+import fourSeasonsLandaa from "@/assets/resorts/four-seasons-landaa.jpg";
+import ritzCarltonMaldives from "@/assets/resorts/ritz-carlton-maldives.jpg";
+import velaaMaldives from "@/assets/resorts/velaa-private-island.jpg";
+import kandimaMaldives from "@/assets/resorts/maldives-kandinma-hq.jpg";
+import standardMaldives from "@/assets/resorts/maldives-villa-pool.jpg";
+import furaveriMaldives from "@/assets/resorts/furaveri-maldives.jpg";
+import patinaMaldives from "@/assets/resorts/patina-maldives.jpg";
+import joaliMaldives from "@/assets/resorts/joali-maldives.jpg";
+import anantaraKihavah from "@/assets/resorts/anantara-kihavah.jpg";
+
+import northIsland from "@/assets/resorts/north-island-seychelles.jpg";
+import fourSeasonsSeychelles from "@/assets/resorts/four-seasons-seychelles.jpg";
+import sixSensesSeychelles from "@/assets/resorts/six-senses-seychelles.jpg";
+import rafflesSeychelles from "@/assets/resorts/raffles-seychelles.jpg";
+import constanceEphelia from "@/assets/resorts/constance-ephelia.jpg";
+import mangoHouse from "@/assets/resorts/mango-house-seychelles.jpg";
+import anantaraMaia from "@/assets/resorts/anantara-maia-seychelles.jpg";
+import hiltonNortholme from "@/assets/resorts/hilton-northolme.jpg";
+
+import oneOnlyMauritius from "@/assets/resorts/oneandonly-mauritius.jpg";
+import stRegisMauritius from "@/assets/resorts/st-regis-mauritius.jpg";
+import fourSeasonsMauritius from "@/assets/resorts/four-seasons-mauritius.jpg";
+import shangrila from "@/assets/resorts/shangri-la-mauritius.jpg";
+import oberoiMauritius from "@/assets/resorts/oberoi-mauritius.jpg";
+import constancePrince from "@/assets/resorts/constance-prince-maurice.jpg";
+import luxBelleMare from "@/assets/resorts/lux-belle-mare.jpg";
+import constanceBelleMare from "@/assets/resorts/constance-belle-mare.jpg";
+
+import santoriniHero from "@/assets/destinations/greece-santorini.jpg";
+import mykonosHero from "@/assets/destinations/greece-mykonos.jpg";
+import greeceAthens from "@/assets/destinations/greece-athens.jpg";
+import greeceCrete from "@/assets/destinations/greece-crete.jpg";
+
+import londonHero from "@/assets/destinations/london-hero.jpg";
+import londonLuxury from "@/assets/resorts/london-luxury.jpg";
+
+import dubaiLuxury from "@/assets/resorts/dubai-luxury.jpg";
+
+import baliResort from "@/assets/resorts/bali-clifftop-resort.jpg";
+
+import cruiseHero from "@/assets/destinations/cruise-hero.jpg";
+
+import heroImage from "@/assets/resorts/luxury-infinity-pool.jpg";
+
 interface Hotel {
   name: string;
   image: string;
@@ -27,102 +77,102 @@ const destinations: Destination[] = [
     name: "Maldives",
     icon: <Palmtree className="w-6 h-6" />,
     hotels: [
-      { name: "Soneva Fushi", image: "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=800&q=80", description: "An ultra-luxury barefoot escape on a pristine private island, offering world-class dining, open-air cinemas, and unparalleled natural beauty." },
-      { name: "Cheval Blanc Randheli", image: "https://images.unsplash.com/photo-1540202404-a2f29016b523?w=800&q=80", description: "LVMH's exclusive Maldivian retreat featuring contemporary design, Guerlain spa, and personalized butler service." },
-      { name: "One&Only Reethi Rah", image: "https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=800&q=80", description: "Sprawling over-water villas and pristine beaches on one of the largest resort islands in the Maldives." },
-      { name: "The St. Regis Maldives Vommuli Resort", image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&q=80", description: "Architectural masterpiece with iconic overwater villas, legendary St. Regis Butler Service, and world-class diving." },
-      { name: "Waldorf Astoria Maldives Ithaafushi", image: "https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=800&q=80", description: "Three private islands of uncompromising luxury with 11 dining venues and the largest spa in the Maldives." },
-      { name: "Four Seasons Resort Maldives at Landaa Giraavaru", image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80", description: "UNESCO Biosphere Reserve location with pioneering marine discovery center and Ayurvedic spa." },
-      { name: "The Ritz-Carlton Maldives, Fari Islands", image: "https://images.unsplash.com/photo-1586375300773-8384e3e4916f?w=800&q=80", description: "Contemporary island sanctuary with overwater and beach villas, featuring Ritz-Carlton's legendary service." },
-      { name: "Velaa Private Island", image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80", description: "The epitome of bespoke luxury with private residences, golf academy, and exclusive fine dining." },
-      { name: "Kandima Maldives", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&q=80", description: "Vibrant lifestyle resort offering endless activities, diverse dining, and stunning ocean pool villas." },
-      { name: "The Standard, Huruvalhi Maldives", image: "https://images.unsplash.com/photo-1559628233-100c798642d4?w=800&q=80", description: "Trendy, design-forward resort bringing urban sophistication to paradise with playful luxury experiences." },
-      { name: "Furaveri Maldives", image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80", description: "Authentic Maldivian hospitality on a stunning natural island with exceptional house reef snorkeling." },
-      { name: "Patina Maldives, Fari Islands", image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&q=80", description: "Contemporary wellness sanctuary designed by Brazilian architect Marcio Kogan with sustainability at heart." },
-      { name: "JOALI Maldives", image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&q=80", description: "Art-immersive luxury resort showcasing curated installations by renowned international artists." },
-      { name: "Anantara Kihavah Maldives Villas", image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80", description: "Award-winning resort with underwater restaurant, world-class observatory, and exceptional diving." },
+      { name: "Soneva Fushi", image: soneva, description: "An ultra-luxury barefoot escape on a pristine private island, offering world-class dining, open-air cinemas, and unparalleled natural beauty." },
+      { name: "Cheval Blanc Randheli", image: chevalBlanc, description: "LVMH's exclusive Maldivian retreat featuring contemporary design, Guerlain spa, and personalized butler service." },
+      { name: "One&Only Reethi Rah", image: oneOnlyReethi, description: "Sprawling over-water villas and pristine beaches on one of the largest resort islands in the Maldives." },
+      { name: "The St. Regis Maldives Vommuli Resort", image: stRegisMaldives, description: "Architectural masterpiece with iconic overwater villas, legendary St. Regis Butler Service, and world-class diving." },
+      { name: "Waldorf Astoria Maldives Ithaafushi", image: waldorfMaldives, description: "Three private islands of uncompromising luxury with 11 dining venues and the largest spa in the Maldives." },
+      { name: "Four Seasons Resort Maldives at Landaa Giraavaru", image: fourSeasonsLandaa, description: "UNESCO Biosphere Reserve location with pioneering marine discovery center and Ayurvedic spa." },
+      { name: "The Ritz-Carlton Maldives, Fari Islands", image: ritzCarltonMaldives, description: "Contemporary island sanctuary with overwater and beach villas, featuring Ritz-Carlton's legendary service." },
+      { name: "Velaa Private Island", image: velaaMaldives, description: "The epitome of bespoke luxury with private residences, golf academy, and exclusive fine dining." },
+      { name: "Kandima Maldives", image: kandimaMaldives, description: "Vibrant lifestyle resort offering endless activities, diverse dining, and stunning ocean pool villas." },
+      { name: "The Standard, Huruvalhi Maldives", image: standardMaldives, description: "Trendy, design-forward resort bringing urban sophistication to paradise with playful luxury experiences." },
+      { name: "Furaveri Maldives", image: furaveriMaldives, description: "Authentic Maldivian hospitality on a stunning natural island with exceptional house reef snorkeling." },
+      { name: "Patina Maldives, Fari Islands", image: patinaMaldives, description: "Contemporary wellness sanctuary designed by Brazilian architect Marcio Kogan with sustainability at heart." },
+      { name: "JOALI Maldives", image: joaliMaldives, description: "Art-immersive luxury resort showcasing curated installations by renowned international artists." },
+      { name: "Anantara Kihavah Maldives Villas", image: anantaraKihavah, description: "Award-winning resort with underwater restaurant, world-class observatory, and exceptional diving." },
     ]
   },
   {
     name: "Seychelles",
     icon: <Palmtree className="w-6 h-6" />,
     hotels: [
-      { name: "North Island", image: "https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=800&q=80", description: "Ultra-exclusive private island sanctuary where royalty and celebrities find ultimate privacy and natural beauty." },
-      { name: "Four Seasons Resort Seychelles", image: "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=800&q=80", description: "Hillside and oceanfront villas on Mahé with spectacular views and private plunge pools." },
-      { name: "Six Senses Zil Pasyon", image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80", description: "Private island wellness retreat on Félicité with holistic spa and sustainable luxury philosophy." },
-      { name: "Raffles Seychelles", image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80", description: "Elegant hillside villas on Praslin overlooking pristine beaches with legendary Raffles hospitality." },
-      { name: "Constance Ephelia", image: "https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800&q=80", description: "Sprawling beachfront resort on two stunning beaches with extensive family amenities and spa village." },
-      { name: "Mango House Seychelles", image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80", description: "LXR Hotels & Resorts collection boutique property with intimate luxury on Mahé's southern coast." },
-      { name: "Anantara Maia Seychelles Villas", image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&q=80", description: "All-villa resort with dedicated butlers, oceanfront dining, and exceptional privacy." },
-      { name: "Hilton Seychelles Northolme Resort & Spa", image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80", description: "Historic luxury resort perched on a hillside overlooking Beau Vallon with stunning sunset views." },
+      { name: "North Island", image: northIsland, description: "Ultra-exclusive private island sanctuary where royalty and celebrities find ultimate privacy and natural beauty." },
+      { name: "Four Seasons Resort Seychelles", image: fourSeasonsSeychelles, description: "Hillside and oceanfront villas on Mahé with spectacular views and private plunge pools." },
+      { name: "Six Senses Zil Pasyon", image: sixSensesSeychelles, description: "Private island wellness retreat on Félicité with holistic spa and sustainable luxury philosophy." },
+      { name: "Raffles Seychelles", image: rafflesSeychelles, description: "Elegant hillside villas on Praslin overlooking pristine beaches with legendary Raffles hospitality." },
+      { name: "Constance Ephelia", image: constanceEphelia, description: "Sprawling beachfront resort on two stunning beaches with extensive family amenities and spa village." },
+      { name: "Mango House Seychelles", image: mangoHouse, description: "LXR Hotels & Resorts collection boutique property with intimate luxury on Mahé's southern coast." },
+      { name: "Anantara Maia Seychelles Villas", image: anantaraMaia, description: "All-villa resort with dedicated butlers, oceanfront dining, and exceptional privacy." },
+      { name: "Hilton Seychelles Northolme Resort & Spa", image: hiltonNortholme, description: "Historic luxury resort perched on a hillside overlooking Beau Vallon with stunning sunset views." },
     ]
   },
   {
     name: "Mauritius",
     icon: <Palmtree className="w-6 h-6" />,
     hotels: [
-      { name: "One&Only Le Saint Géran", image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80", description: "Legendary beachfront resort on its own peninsula with championship golf and Givenchy spa." },
-      { name: "The St. Regis Mauritius Resort", image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&q=80", description: "Colonial elegance meets contemporary luxury on Le Morne peninsula with exceptional butler service." },
-      { name: "Four Seasons Resort Mauritius at Anahita", image: "https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800&q=80", description: "Spacious villas with private pools on a pristine lagoon with Ernie Els signature golf course." },
-      { name: "Shangri-La Le Touessrok, Mauritius", image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80", description: "Iconic resort on Trou d'Eau Douce bay with two private island retreats and championship golf." },
-      { name: "The Oberoi Mauritius", image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&q=80", description: "Intimate luxury resort in Turtle Bay with exceptional service and tranquil gardens." },
-      { name: "Constance Prince Maurice", image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80", description: "Architectural marvel on stilts with floating restaurant and world-class spa sanctuary." },
-      { name: "LUX* Belle Mare", image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80", description: "Vibrant beachfront resort with playful luxury, exceptional cuisine, and stunning beach." },
-      { name: "Constance Belle Mare Plage", image: "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=800&q=80", description: "Two kilometers of pristine beach with two championship golf courses and gourmet dining." },
+      { name: "One&Only Le Saint Géran", image: oneOnlyMauritius, description: "Legendary beachfront resort on its own peninsula with championship golf and Givenchy spa." },
+      { name: "The St. Regis Mauritius Resort", image: stRegisMauritius, description: "Colonial elegance meets contemporary luxury on Le Morne peninsula with exceptional butler service." },
+      { name: "Four Seasons Resort Mauritius at Anahita", image: fourSeasonsMauritius, description: "Spacious villas with private pools on a pristine lagoon with Ernie Els signature golf course." },
+      { name: "Shangri-La Le Touessrok, Mauritius", image: shangrila, description: "Iconic resort on Trou d'Eau Douce bay with two private island retreats and championship golf." },
+      { name: "The Oberoi Mauritius", image: oberoiMauritius, description: "Intimate luxury resort in Turtle Bay with exceptional service and tranquil gardens." },
+      { name: "Constance Prince Maurice", image: constancePrince, description: "Architectural marvel on stilts with floating restaurant and world-class spa sanctuary." },
+      { name: "LUX* Belle Mare", image: luxBelleMare, description: "Vibrant beachfront resort with playful luxury, exceptional cuisine, and stunning beach." },
+      { name: "Constance Belle Mare Plage", image: constanceBelleMare, description: "Two kilometers of pristine beach with two championship golf courses and gourmet dining." },
     ]
   },
   {
     name: "Santorini",
     icon: <Building2 className="w-6 h-6" />,
     hotels: [
-      { name: "Canaves Oia Epitome", image: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=800&q=80", description: "Ultra-luxury cave suites perched on Santorini's caldera with private infinity pools and sunset views." },
-      { name: "Grace Hotel Santorini", image: "https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?w=800&q=80", description: "Intimate boutique hotel in Imerovigli with stunning champagne lounge and caldera panoramas." },
-      { name: "Mystique, a Luxury Collection Hotel", image: "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?w=800&q=80", description: "Cave hotel carved into Oia's cliffs with infinity pools overlooking the volcano." },
-      { name: "Andronis Arcadia", image: "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=800&q=80", description: "Contemporary wellness retreat in Oia with rooftop pool and holistic spa experiences." },
-      { name: "Katikies Santorini", image: "https://images.unsplash.com/photo-1601918774946-25832a4be0d6?w=800&q=80", description: "Iconic white-washed suites cascading down the caldera with legendary Greek hospitality." },
-      { name: "Santo Maris Oia Luxury Suites & Spa", image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80", description: "Cycladic architecture meets contemporary luxury with expansive spa and gourmet dining." },
+      { name: "Canaves Oia Epitome", image: santoriniHero, description: "Ultra-luxury cave suites perched on Santorini's caldera with private infinity pools and sunset views." },
+      { name: "Grace Hotel Santorini", image: mykonosHero, description: "Intimate boutique hotel in Imerovigli with stunning champagne lounge and caldera panoramas." },
+      { name: "Mystique, a Luxury Collection Hotel", image: greeceAthens, description: "Cave hotel carved into Oia's cliffs with infinity pools overlooking the volcano." },
+      { name: "Andronis Arcadia", image: greeceCrete, description: "Contemporary wellness retreat in Oia with rooftop pool and holistic spa experiences." },
+      { name: "Katikies Santorini", image: santoriniHero, description: "Iconic white-washed suites cascading down the caldera with legendary Greek hospitality." },
+      { name: "Santo Maris Oia Luxury Suites & Spa", image: mykonosHero, description: "Cycladic architecture meets contemporary luxury with expansive spa and gourmet dining." },
     ]
   },
   {
     name: "London",
     icon: <Building2 className="w-6 h-6" />,
     hotels: [
-      { name: "The Ritz London", image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80", description: "Legendary Piccadilly landmark offering timeless elegance, afternoon tea, and royal-approved luxury." },
-      { name: "Claridge's", image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80", description: "Art Deco masterpiece in Mayfair, beloved by royalty and celebrities for over a century." },
-      { name: "The Savoy", image: "https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800&q=80", description: "Iconic Thames-side hotel blending Edwardian and Art Deco grandeur with theatrical flair." },
-      { name: "The Connaught", image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&q=80", description: "Mayfair's most distinguished address with Michelin-starred Hélène Darroze restaurant." },
-      { name: "Rosewood London", image: "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=800&q=80", description: "Edwardian splendor in High Holborn with stunning courtyard and world-class Sense spa." },
-      { name: "The Lanesborough", image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&q=80", description: "Regency grandeur overlooking Hyde Park with 24-hour butler service and Michelin-starred dining." },
-      { name: "Four Seasons Hotel London at Ten Trinity Square", image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80", description: "Historic landmark near the Tower of London with La Dame de Pic and exclusive members' club." },
-      { name: "Bulgari Hotel London", image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80", description: "Italian glamour in Knightsbridge with stunning spa, cinema, and exclusive boutique." },
+      { name: "The Ritz London", image: londonHero, description: "Legendary Piccadilly landmark offering timeless elegance, afternoon tea, and royal-approved luxury." },
+      { name: "Claridge's", image: londonLuxury, description: "Art Deco masterpiece in Mayfair, beloved by royalty and celebrities for over a century." },
+      { name: "The Savoy", image: londonHero, description: "Iconic Thames-side hotel blending Edwardian and Art Deco grandeur with theatrical flair." },
+      { name: "The Connaught", image: londonLuxury, description: "Mayfair's most distinguished address with Michelin-starred Hélène Darroze restaurant." },
+      { name: "Rosewood London", image: londonHero, description: "Edwardian splendor in High Holborn with stunning courtyard and world-class Sense spa." },
+      { name: "The Lanesborough", image: londonLuxury, description: "Regency grandeur overlooking Hyde Park with 24-hour butler service and Michelin-starred dining." },
+      { name: "Four Seasons Hotel London at Ten Trinity Square", image: londonHero, description: "Historic landmark near the Tower of London with La Dame de Pic and exclusive members' club." },
+      { name: "Bulgari Hotel London", image: londonLuxury, description: "Italian glamour in Knightsbridge with stunning spa, cinema, and exclusive boutique." },
     ]
   },
   {
     name: "Dubai",
     icon: <Building2 className="w-6 h-6" />,
     hotels: [
-      { name: "Burj Al Arab Jumeirah", image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80", description: "The world's most iconic luxury hotel, offering unparalleled opulence and legendary Arabian hospitality." },
-      { name: "Atlantis The Royal", image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80", description: "Ultra-luxury beachfront resort with celebrity restaurants, Aquaventure, and stunning architecture." },
-      { name: "One&Only The Palm", image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80", description: "Intimate Arabian-inspired sanctuary on Palm Jumeirah with pristine private beach." },
-      { name: "Four Seasons Resort Dubai at Jumeirah Beach", image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80", description: "Beachfront Mediterranean-inspired resort with exceptional dining and world-class spa." },
-      { name: "Armani Hotel Dubai", image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80", description: "Giorgio Armani's design vision in the iconic Burj Khalifa with minimalist Italian luxury." },
-      { name: "Jumeirah Al Naseem", image: "https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800&q=80", description: "Contemporary beachfront luxury with turtle rehabilitation sanctuary and Burj Al Arab views." },
-      { name: "Waldorf Astoria Dubai Palm Jumeirah", image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&q=80", description: "Art Deco elegance on Palm Jumeirah with private beach and legendary Waldorf service." },
-      { name: "Raffles Dubai", image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&q=80", description: "Egyptian-inspired pyramid landmark with legendary butler service and rooftop garden." },
+      { name: "Burj Al Arab Jumeirah", image: dubaiLuxury, description: "The world's most iconic luxury hotel, offering unparalleled opulence and legendary Arabian hospitality." },
+      { name: "Atlantis The Royal", image: dubaiLuxury, description: "Ultra-luxury beachfront resort with celebrity restaurants, Aquaventure, and stunning architecture." },
+      { name: "One&Only The Palm", image: dubaiLuxury, description: "Intimate Arabian-inspired sanctuary on Palm Jumeirah with pristine private beach." },
+      { name: "Four Seasons Resort Dubai at Jumeirah Beach", image: dubaiLuxury, description: "Beachfront Mediterranean-inspired resort with exceptional dining and world-class spa." },
+      { name: "Armani Hotel Dubai", image: dubaiLuxury, description: "Giorgio Armani's design vision in the iconic Burj Khalifa with minimalist Italian luxury." },
+      { name: "Jumeirah Al Naseem", image: dubaiLuxury, description: "Contemporary beachfront luxury with turtle rehabilitation sanctuary and Burj Al Arab views." },
+      { name: "Waldorf Astoria Dubai Palm Jumeirah", image: dubaiLuxury, description: "Art Deco elegance on Palm Jumeirah with private beach and legendary Waldorf service." },
+      { name: "Raffles Dubai", image: dubaiLuxury, description: "Egyptian-inspired pyramid landmark with legendary butler service and rooftop garden." },
     ]
   },
   {
     name: "Bali",
     icon: <Palmtree className="w-6 h-6" />,
     hotels: [
-      { name: "Four Seasons Resort Bali at Sayan", image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80", description: "Riverside jungle sanctuary with dramatic entrance bridge and world-renowned Sacred River Spa." },
-      { name: "Aman Villas at Nusa Dua", image: "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=800&q=80", description: "Clifftop minimalist villas with sweeping ocean views and legendary Aman service." },
-      { name: "The Mulia, Mulia Resort & Villas", image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80", description: "Grand beachfront resort with The Mulia Spa, nine restaurants, and pristine white sand beach." },
-      { name: "COMO Shambhala Estate", image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80", description: "Holistic wellness retreat in Ubud's jungle with life-changing health programs." },
-      { name: "Mandapa, a Ritz-Carlton Reserve", image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80", description: "Intimate riverside retreat with rice paddy views, organic farm, and exceptional wellness." },
-      { name: "Bulgari Resort Bali", image: "https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800&q=80", description: "Cliffside Italian elegance in Uluwatu with dramatic ocean views and exclusive beach club." },
-      { name: "The St. Regis Bali Resort", image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&q=80", description: "Beachfront grandeur in Nusa Dua with largest lagoon pool and St. Regis Butler Service." },
-      { name: "Capella Ubud", image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80", description: "Glamping tents in the rainforest designed by Bill Bensley with theatrical luxury." },
+      { name: "Four Seasons Resort Bali at Sayan", image: baliResort, description: "Riverside jungle sanctuary with dramatic entrance bridge and world-renowned Sacred River Spa." },
+      { name: "Aman Villas at Nusa Dua", image: baliResort, description: "Clifftop minimalist villas with sweeping ocean views and legendary Aman service." },
+      { name: "The Mulia, Mulia Resort & Villas", image: baliResort, description: "Grand beachfront resort with The Mulia Spa, nine restaurants, and pristine white sand beach." },
+      { name: "COMO Shambhala Estate", image: baliResort, description: "Holistic wellness retreat in Ubud's jungle with life-changing health programs." },
+      { name: "Mandapa, a Ritz-Carlton Reserve", image: baliResort, description: "Intimate riverside retreat with rice paddy views, organic farm, and exceptional wellness." },
+      { name: "Bulgari Resort Bali", image: baliResort, description: "Cliffside Italian elegance in Uluwatu with dramatic ocean views and exclusive beach club." },
+      { name: "The St. Regis Bali Resort", image: baliResort, description: "Beachfront grandeur in Nusa Dua with largest lagoon pool and St. Regis Butler Service." },
+      { name: "Capella Ubud", image: baliResort, description: "Glamping tents in the rainforest designed by Bill Bensley with theatrical luxury." },
     ]
   },
   {
@@ -133,24 +183,24 @@ const destinations: Destination[] = [
       { name: "Royal Malewane", image: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&q=80", description: "Colonial elegance in Greater Kruger with Africa House spa and exclusive bush experiences." },
       { name: "Londolozi Private Game Reserve", image: "https://images.unsplash.com/photo-1549366021-9f761d450615?w=800&q=80", description: "Pioneer of luxury safari with five distinct camps and legendary leopard sightings." },
       { name: "andBeyond Phinda Private Game Reserve", image: "https://images.unsplash.com/photo-1535941339077-2dd1c7963098?w=800&q=80", description: "Seven ecosystems, six lodges, and pioneering community conservation programs." },
-      { name: "Ellerman House", image: "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=800&q=80", description: "Cape Town's most exclusive boutique hotel with art collection and panoramic ocean views." },
-      { name: "The Silo Hotel", image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80", description: "Architectural marvel atop Zeitz MOCAA with pillowed windows and V&A Waterfront views." },
-      { name: "One&Only Cape Town", image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&q=80", description: "V&A Waterfront luxury with island spa, Nobu restaurant, and Table Mountain backdrop." },
-      { name: "Saxon Hotel, Villas and Spa", image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80", description: "Johannesburg's most exclusive hotel where Nelson Mandela completed his autobiography." },
+      { name: "Ellerman House", image: londonLuxury, description: "Cape Town's most exclusive boutique hotel with art collection and panoramic ocean views." },
+      { name: "The Silo Hotel", image: londonLuxury, description: "Architectural marvel atop Zeitz MOCAA with pillowed windows and V&A Waterfront views." },
+      { name: "One&Only Cape Town", image: oneOnlyMauritius, description: "V&A Waterfront luxury with island spa, Nobu restaurant, and Table Mountain backdrop." },
+      { name: "Saxon Hotel, Villas and Spa", image: londonLuxury, description: "Johannesburg's most exclusive hotel where Nelson Mandela completed his autobiography." },
     ]
   },
   {
     name: "Luxury Cruises",
     icon: <Ship className="w-6 h-6" />,
     hotels: [
-      { name: "Regent Seven Seas Cruises", image: "https://images.unsplash.com/photo-1548574505-5e239809ee19?w=800&q=80", description: "The most inclusive luxury cruise experience with all-suite ships and world-class cuisine." },
-      { name: "Silversea Cruises", image: "https://images.unsplash.com/photo-1559599746-8823b38544c6?w=800&q=80", description: "Italian elegance at sea with intimate ships, butler service, and expedition voyages." },
-      { name: "Seabourn Cruise Line", image: "https://images.unsplash.com/photo-1580541631950-7282082b53ce?w=800&q=80", description: "Ultra-luxury intimate ships with award-winning cuisine and destination immersion." },
-      { name: "Crystal Cruises", image: "https://images.unsplash.com/photo-1548574505-5e239809ee19?w=800&q=80", description: "Legendary luxury cruise line known for spacious suites and exceptional service." },
-      { name: "Oceania Cruises", image: "https://images.unsplash.com/photo-1559599746-8823b38544c6?w=800&q=80", description: "Finest cuisine at sea with destination-focused itineraries and intimate ship atmosphere." },
-      { name: "Viking Ocean Cruises", image: "https://images.unsplash.com/photo-1580541631950-7282082b53ce?w=800&q=80", description: "Scandinavian elegance with cultural enrichment and destination-focused voyages." },
-      { name: "The Ritz-Carlton Yacht Collection", image: "https://images.unsplash.com/photo-1548574505-5e239809ee19?w=800&q=80", description: "Legendary Ritz-Carlton service at sea with bespoke itineraries and personalized experiences." },
-      { name: "Explora Journeys", image: "https://images.unsplash.com/photo-1559599746-8823b38544c6?w=800&q=80", description: "MSC's ultra-luxury brand offering European sophistication and ocean-state-of-mind philosophy." },
+      { name: "Regent Seven Seas Cruises", image: cruiseHero, description: "The most inclusive luxury cruise experience with all-suite ships and world-class cuisine." },
+      { name: "Silversea Cruises", image: cruiseHero, description: "Italian elegance at sea with intimate ships, butler service, and expedition voyages." },
+      { name: "Seabourn Cruise Line", image: cruiseHero, description: "Ultra-luxury intimate ships with award-winning cuisine and destination immersion." },
+      { name: "Crystal Cruises", image: cruiseHero, description: "Legendary luxury cruise line known for spacious suites and exceptional service." },
+      { name: "Oceania Cruises", image: cruiseHero, description: "Finest cuisine at sea with destination-focused itineraries and intimate ship atmosphere." },
+      { name: "Viking Ocean Cruises", image: cruiseHero, description: "Scandinavian elegance with cultural enrichment and destination-focused voyages." },
+      { name: "The Ritz-Carlton Yacht Collection", image: cruiseHero, description: "Legendary Ritz-Carlton service at sea with bespoke itineraries and personalized experiences." },
+      { name: "Explora Journeys", image: cruiseHero, description: "MSC's ultra-luxury brand offering European sophistication and ocean-state-of-mind philosophy." },
     ]
   }
 ];
@@ -371,7 +421,7 @@ const PartnerHotels = () => {
         <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0">
             <img
-              src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1920&q=80"
+              src={heroImage}
               alt="Luxury Resort"
               className="w-full h-full object-cover"
             />

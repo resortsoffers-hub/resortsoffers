@@ -998,29 +998,28 @@ const featuredOffers: Offer[] = [
               </div>
             </div>
 
-            {/* Right - Instagram Embeds */}
+            {/* Right - Resort Gallery */}
             <div className="space-y-4">
               <h3 className="text-xl font-serif font-bold text-white mb-4">Resort Gallery</h3>
               
-              <div className="rounded-2xl overflow-hidden shadow-lg bg-white">
-                <iframe 
-                  src="https://www.instagram.com/p/CNCcHwNnY3b/embed" 
-                  className="w-full h-[400px] border-0"
-                  loading="lazy"
-                  title="Westin Maldives - Water Pool Villa"
-                  allowFullScreen
-                />
-              </div>
-
-              <div className="rounded-2xl overflow-hidden shadow-lg bg-white">
-                <iframe 
-                  src="https://www.instagram.com/p/CXa_bnNJjDw/embed" 
-                  className="w-full h-[400px] border-0"
-                  loading="lazy"
-                  title="Westin Maldives - Interior View"
-                  allowFullScreen
-                />
-              </div>
+              <a 
+                href="https://www.marriott.com/en-us/hotels/mlewi-the-westin-maldives-miriandhoo-resort/overview/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <div className="bg-gradient-to-r from-[#1e3a5f] to-[#2d4a6f] rounded-2xl p-6 text-white hover:from-[#2d4a6f] hover:to-[#3d5a7f] transition-all shadow-lg">
+                  <div className="flex items-center gap-4">
+                    <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center">
+                      <ExternalLink className="w-7 h-7" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-lg">View Official Resort Website</h4>
+                      <p className="text-white/80 text-sm">Explore Westin Maldives Gallery & Information</p>
+                    </div>
+                  </div>
+                </div>
+              </a>
             </div>
           </div>
         </div>

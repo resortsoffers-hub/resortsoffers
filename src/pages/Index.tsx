@@ -59,7 +59,7 @@ const Index = () => {
     fetchOffers();
   }, []);
 
-  const whatsappNumber = "971547474404";
+  const whatsappNumber = "971567622484";
 
   const getDestinationWhatsApp = (destination: string) => {
     const message = `Hi! I want to book a holiday in ${destination}. Please send me the best offers.`;

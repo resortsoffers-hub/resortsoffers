@@ -140,7 +140,7 @@ const BookConsultation = () => {
                 </p>
                 <div className="pt-4 space-y-3">
                   <a 
-                    href="https://wa.me/971547474404" 
+                    href="https://wa.me/971567622484" 
                     target="_blank" 
                     rel="noopener noreferrer"
                   >
@@ -225,7 +225,7 @@ const BookConsultation = () => {
                   Chat with us on WhatsApp for instant response
                 </p>
                 <a 
-                  href="https://wa.me/971547474404" 
+                  href="https://wa.me/971567622484" 
                   target="_blank" 
                   rel="noopener noreferrer"
                 >

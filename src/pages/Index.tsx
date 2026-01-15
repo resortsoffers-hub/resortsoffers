@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { MapPin, Star, Phone, MessageCircle, ArrowRight, CreditCard, Calendar, Leaf, Headphones, Plane, UtensilsCrossed, Sparkles, Camera, Wine, Anchor, Sun, Sunrise, Waves, Glasses, Wifi, Dumbbell, ExternalLink, Sailboat, Users, Heart, Flower2, Music, Gamepad2, Coffee } from "lucide-react";
+import { MapPin, Star, MessageCircle, ArrowRight, CreditCard, Calendar, Plane, UtensilsCrossed, Sparkles, Camera, Wine, Anchor, Sun, Sunrise, Waves, Glasses, Wifi, Dumbbell, ExternalLink, Sailboat, Users, Heart, Flower2, Music, Gamepad2, Coffee } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HeroCarousel from "@/components/HeroCarousel";
@@ -103,11 +103,9 @@ const Index = () => {
   ];
 
   const trustBadges = [
-    { icon: Headphones, title: "24/7 CUSTOMER", subtitle: "SUPPORT" },
     { icon: Star, title: "EARN REWARD", subtitle: "POINTS" },
     { icon: CreditCard, title: "EASY PAYMENT", subtitle: "PLANS" },
-    { icon: Calendar, title: "FLEXIBLE", subtitle: "BOOKINGS" },
-    { icon: Leaf, title: "SUSTAINABLE TRAVEL", subtitle: "OPTIONS" }
+    { icon: Calendar, title: "FLEXIBLE", subtitle: "BOOKINGS" }
   ];
 
   const holidayRecommendations = [
@@ -321,9 +319,9 @@ const featuredOffers: Offer[] = [
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3 tracking-tight">
-              SWITCH OFF FROM THE SCROLL, SWITCH ON TO SERENITY
+              Best Luxury Holiday Offers
             </h2>
-            <p className="text-lg text-gray-600">Find calm with holidays that put you first</p>
+            <p className="text-lg text-gray-600">Explore our handpicked destinations with exclusive deals</p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -644,17 +642,97 @@ const featuredOffers: Offer[] = [
               </div>
             </div>
 
-            {/* Right - Instagram Embed */}
+            {/* Right - Instagram Gallery */}
             <div className="space-y-4">
               <h3 className="text-xl font-serif font-bold text-white mb-4">Resort Gallery</h3>
               
-              {/* The Standard Instagram Post */}
+              {/* Video */}
               <div className="rounded-2xl overflow-hidden shadow-lg bg-white">
                 <iframe 
-                  src="https://www.instagram.com/p/C9HMq5ONXXG/embed" 
-                  className="w-full h-[500px] border-0"
+                  src="https://www.instagram.com/p/B77pMbDnH_V/embed" 
+                  className="w-full h-[400px] border-0"
                   loading="lazy"
-                  title="The Standard Maldives"
+                  title="The Standard Maldives - Video"
+                  allowFullScreen
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                {/* Island Photo 1 */}
+                <div className="rounded-xl overflow-hidden shadow-lg bg-white">
+                  <iframe 
+                    src="https://www.instagram.com/p/CWa55JCvFM-/embed" 
+                    className="w-full h-[280px] border-0"
+                    loading="lazy"
+                    title="The Standard Maldives - Island View 1"
+                    allowFullScreen
+                  />
+                </div>
+                {/* Island Photo 2 */}
+                <div className="rounded-xl overflow-hidden shadow-lg bg-white">
+                  <iframe 
+                    src="https://www.instagram.com/p/CIqCbDlH9ia/embed" 
+                    className="w-full h-[280px] border-0"
+                    loading="lazy"
+                    title="The Standard Maldives - Island View 2"
+                    allowFullScreen
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                {/* Island Photo 3 */}
+                <div className="rounded-xl overflow-hidden shadow-lg bg-white">
+                  <iframe 
+                    src="https://www.instagram.com/p/CZO0w_dJcjj/embed" 
+                    className="w-full h-[280px] border-0"
+                    loading="lazy"
+                    title="The Standard Maldives - Island View 3"
+                    allowFullScreen
+                  />
+                </div>
+                {/* Lagoon Water Pool Villa 1 */}
+                <div className="rounded-xl overflow-hidden shadow-lg bg-white">
+                  <iframe 
+                    src="https://www.instagram.com/p/CWa4vTHvqSp/embed" 
+                    className="w-full h-[280px] border-0"
+                    loading="lazy"
+                    title="The Standard Maldives - Lagoon Villa"
+                    allowFullScreen
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                {/* Lagoon Water Pool Villa 2 */}
+                <div className="rounded-xl overflow-hidden shadow-lg bg-white">
+                  <iframe 
+                    src="https://www.instagram.com/p/B8sxzgAHIEA/embed" 
+                    className="w-full h-[280px] border-0"
+                    loading="lazy"
+                    title="The Standard Maldives - Lagoon Pool Villa"
+                    allowFullScreen
+                  />
+                </div>
+                {/* Ocean Water Pool Villa */}
+                <div className="rounded-xl overflow-hidden shadow-lg bg-white">
+                  <iframe 
+                    src="https://www.instagram.com/p/CWa4OPWPphT/embed" 
+                    className="w-full h-[280px] border-0"
+                    loading="lazy"
+                    title="The Standard Maldives - Ocean Villa"
+                    allowFullScreen
+                  />
+                </div>
+              </div>
+
+              {/* Beach Pool Villa */}
+              <div className="rounded-2xl overflow-hidden shadow-lg bg-white">
+                <iframe 
+                  src="https://www.instagram.com/p/B8t28ChHFD9/embed" 
+                  className="w-full h-[400px] border-0"
+                  loading="lazy"
+                  title="The Standard Maldives - Beach Pool Villa"
                   allowFullScreen
                 />
               </div>
@@ -1094,13 +1172,7 @@ const featuredOffers: Offer[] = [
             <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="bg-[#25D366] hover:bg-[#25D366]/90 text-white px-8">
                 <MessageCircle className="w-5 h-5 mr-2" />
-                Chat on WhatsApp
-              </Button>
-            </a>
-            <a href="tel:+971547474404">
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-[#003B95] px-8">
-                <Phone className="w-5 h-5 mr-2" />
-                Call Now
+                🇦🇪 UAE & Worldwide WhatsApp
               </Button>
             </a>
           </div>

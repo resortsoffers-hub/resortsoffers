@@ -454,6 +454,185 @@ const Packages = () => {
         </div>
       </section>
 
+      {/* Madifushi Private Island Package */}
+      <section className="py-16 bg-gradient-to-b from-amber-50 to-white">
+        <div className="container-custom">
+          <div className="text-center mb-10">
+            <Badge className="bg-amber-600 text-white mb-4 text-sm px-4 py-2">
+              Private Island Resort
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#1e3a5f] mb-3">
+              Madifushi Private Island
+            </h2>
+            <p className="text-lg text-[#1e3a5f]/70 max-w-3xl mx-auto">
+              Water Pool Villa Experience with Half Board & Seaplane Transfer
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8 items-start">
+            {/* Left - Inclusions */}
+            <div className="bg-white rounded-2xl shadow-lg p-8 border border-amber-200">
+              <h3 className="text-xl font-serif font-bold text-[#1e3a5f] mb-6">Package Inclusions</h3>
+              
+              {/* Rate Note */}
+              <div className="bg-amber-100 rounded-xl p-4 mb-6">
+                <p className="text-[#1e3a5f] font-medium text-sm">
+                  ✈️ Rates are inclusive of Half Board & Shared Seaplane Transfer
+                </p>
+              </div>
+
+              {/* 3 Nights Stay */}
+              <div className="mb-6">
+                <h4 className="text-lg font-serif font-bold text-[#1e3a5f] mb-4 flex items-center gap-2">
+                  <Badge className="bg-amber-600 text-white">3 Nights Stay</Badge>
+                </h4>
+                <div className="grid gap-3">
+                  <div className="flex items-center gap-4 p-3 rounded-lg bg-amber-50 hover:bg-amber-100 transition-colors">
+                    <div className="w-10 h-10 rounded-full bg-amber-600 flex items-center justify-center flex-shrink-0">
+                      <Coffee className="w-5 h-5 text-white" />
+                    </div>
+                    <span className="text-[#1e3a5f] font-medium text-sm">Daily buffet breakfast at BlueFin</span>
+                  </div>
+                  <div className="flex items-center gap-4 p-3 rounded-lg bg-amber-50 hover:bg-amber-100 transition-colors">
+                    <div className="w-10 h-10 rounded-full bg-amber-600 flex items-center justify-center flex-shrink-0">
+                      <Utensils className="w-5 h-5 text-white" />
+                    </div>
+                    <span className="text-[#1e3a5f] font-medium text-sm">Daily buffet dinner at BlueFin</span>
+                  </div>
+                  <div className="flex items-center gap-4 p-3 rounded-lg bg-amber-50 hover:bg-amber-100 transition-colors">
+                    <div className="w-10 h-10 rounded-full bg-amber-600 flex items-center justify-center flex-shrink-0">
+                      <UtensilsCrossed className="w-5 h-5 text-white" />
+                    </div>
+                    <span className="text-[#1e3a5f] font-medium text-sm">One time floating breakfast (reserve in advance)</span>
+                  </div>
+                  <div className="flex items-center gap-4 p-3 rounded-lg bg-amber-50 hover:bg-amber-100 transition-colors">
+                    <div className="w-10 h-10 rounded-full bg-amber-600 flex items-center justify-center flex-shrink-0">
+                      <Sparkles className="w-5 h-5 text-white" />
+                    </div>
+                    <span className="text-[#1e3a5f] font-medium text-sm">30-min head, shoulder & back massage at Mandara Spa</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* 4 Nights Stay - Extra */}
+              <div className="pt-6 border-t border-amber-200">
+                <h4 className="text-lg font-serif font-bold text-[#1e3a5f] mb-4 flex items-center gap-2">
+                  <Badge className="bg-[#1e3a5f] text-white">4+ Nights Stay</Badge>
+                  <span className="text-sm text-amber-600 font-medium">+ Extra Bonus</span>
+                </h4>
+                <div className="grid gap-3">
+                  <div className="flex items-center gap-4 p-3 rounded-lg bg-[#1e3a5f]/5 hover:bg-[#1e3a5f]/10 transition-colors">
+                    <div className="w-10 h-10 rounded-full bg-[#1e3a5f] flex items-center justify-center flex-shrink-0">
+                      <Anchor className="w-5 h-5 text-white" />
+                    </div>
+                    <span className="text-[#1e3a5f] font-medium text-sm">One time snorkeling to the nearest reef</span>
+                  </div>
+                  <p className="text-sm text-[#1e3a5f]/60 ml-14">Plus all 3-night inclusions</p>
+                </div>
+              </div>
+              
+              {/* Price & CTA */}
+              <div className="mt-8 pt-6 border-t border-amber-200">
+                <div className="flex items-end justify-between mb-4">
+                  <div>
+                    <p className="text-sm text-[#1e3a5f]/60 mb-1">3 Nights • Water Pool Villa</p>
+                    <p className="text-4xl font-bold text-[#1e3a5f]">$4,600</p>
+                    <p className="text-sm text-[#1e3a5f]/60">for 2 people</p>
+                  </div>
+                  <div className="text-right">
+                    <div className="flex items-center gap-1 mb-1">
+                      <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                      <span className="font-bold text-[#1e3a5f]">4.9</span>
+                    </div>
+                    <p className="text-xs text-[#1e3a5f]/60">Private Island</p>
+                  </div>
+                </div>
+                <a 
+                  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi! I'm interested in the Madifushi Private Island Water Pool Villa package for 3 nights at $4,600 for 2 people. Please send availability and booking details.")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button className="w-full bg-[#25D366] hover:bg-[#1DA851] text-white font-bold py-6 text-lg">
+                    <MessageCircle className="w-5 h-5 mr-2" />
+                    Book Now via WhatsApp
+                  </Button>
+                </a>
+              </div>
+            </div>
+
+            {/* Right - Instagram Gallery */}
+            <div className="space-y-6">
+              <h3 className="text-xl font-serif font-bold text-[#1e3a5f] mb-4">Villa Gallery</h3>
+              
+              {/* Water Pool Villa */}
+              <div className="rounded-2xl overflow-hidden shadow-lg bg-white">
+                <iframe 
+                  src="https://www.instagram.com/p/DLn8ANdN9Vp/embed" 
+                  className="w-full h-[400px] border-0"
+                  loading="lazy"
+                  title="Madifushi - Water Pool Villa"
+                  allowFullScreen
+                />
+                <div className="bg-white p-3 border-t">
+                  <p className="text-sm font-medium text-[#1e3a5f]">Water Pool Villa</p>
+                </div>
+              </div>
+
+              {/* Two Bedroom Beach Pool Villa */}
+              <div className="rounded-2xl overflow-hidden shadow-lg bg-white">
+                <iframe 
+                  src="https://www.instagram.com/p/DLn66lbtYjW/embed" 
+                  className="w-full h-[400px] border-0"
+                  loading="lazy"
+                  title="Madifushi - Two Bedroom Beach Pool Villa"
+                  allowFullScreen
+                />
+                <div className="bg-white p-3 border-t">
+                  <p className="text-sm font-medium text-[#1e3a5f]">Two Bedroom Beach Pool Villa</p>
+                </div>
+              </div>
+
+              {/* Two Bedroom Water Pool Villa */}
+              <div className="rounded-2xl overflow-hidden shadow-lg bg-white">
+                <iframe 
+                  src="https://www.instagram.com/p/DLn7s8ANhTl/embed" 
+                  className="w-full h-[400px] border-0"
+                  loading="lazy"
+                  title="Madifushi - Two Bedroom Water Pool Villa"
+                  allowFullScreen
+                />
+                <div className="bg-white p-3 border-t">
+                  <p className="text-sm font-medium text-[#1e3a5f]">Two Bedroom Water Pool Villa</p>
+                </div>
+              </div>
+
+              {/* Resort Highlights */}
+              <div className="bg-white rounded-2xl shadow-lg p-6 border border-amber-200">
+                <h4 className="font-serif font-bold text-[#1e3a5f] mb-4">Resort Highlights</h4>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="flex items-center gap-2 text-sm text-[#1e3a5f]">
+                    <Plane className="w-4 h-4 text-amber-500" />
+                    <span>Seaplane Transfer</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-[#1e3a5f]">
+                    <Utensils className="w-4 h-4 text-amber-500" />
+                    <span>BlueFin Restaurant</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-[#1e3a5f]">
+                    <Sparkles className="w-4 h-4 text-amber-500" />
+                    <span>Mandara Spa</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-[#1e3a5f]">
+                    <Waves className="w-4 h-4 text-amber-500" />
+                    <span>Private Island</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Westin Maldives Featured Package */}
       <section className="py-16 bg-gradient-to-b from-[#1e3a5f]/5 to-white">
         <div className="container-custom">

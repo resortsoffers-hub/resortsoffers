@@ -8,6 +8,8 @@ interface GalleryImage {
   src: string;
   alt: string;
   caption?: string;
+  title?: string;
+  description?: string;
 }
 
 interface PhotoGalleryProps {
@@ -76,10 +78,13 @@ const PhotoGallery = ({ images, columns = 3, className }: PhotoGalleryProps) => 
                 </div>
               </div>
             </div>
-            {/* Caption */}
-            {image.caption && (
+            {/* Caption/Title */}
+            {(image.caption || image.title) && (
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <p className="text-white text-sm font-medium">{image.caption}</p>
+                <p className="text-white text-sm font-medium">{image.title || image.caption}</p>
+                {image.description && (
+                  <p className="text-white/70 text-xs mt-1">{image.description}</p>
+                )}
               </div>
             )}
           </div>
@@ -125,9 +130,14 @@ const PhotoGallery = ({ images, columns = 3, className }: PhotoGalleryProps) => 
                 />
                 {/* Caption & Counter */}
                 <div className="mt-4 text-center">
-                  {images[selectedIndex].caption && (
-                    <p className="text-white text-lg font-medium mb-2">
-                      {images[selectedIndex].caption}
+                  {(images[selectedIndex].caption || images[selectedIndex].title) && (
+                    <p className="text-white text-lg font-medium mb-1">
+                      {images[selectedIndex].title || images[selectedIndex].caption}
+                    </p>
+                  )}
+                  {images[selectedIndex].description && (
+                    <p className="text-white/70 text-sm mb-2">
+                      {images[selectedIndex].description}
                     </p>
                   )}
                   <p className="text-white/60 text-sm">

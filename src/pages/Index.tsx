@@ -471,52 +471,42 @@ const featuredOffers: Offer[] = [
               </div>
             </div>
 
-            {/* Right - Instagram Embeds */}
+            {/* Right - Gallery */}
             <div className="space-y-4">
               <h3 className="text-xl font-serif font-bold text-white mb-4">Resort Gallery</h3>
               
               {/* Main Resort Photo */}
-              <div className="rounded-2xl overflow-hidden shadow-lg bg-white">
-                <iframe 
-                  src="https://www.instagram.com/p/CWlJy5jtVVP/embed" 
-                  className="w-full h-[400px] border-0"
-                  loading="lazy"
-                  title="Kandima Maldives - Resort View"
-                  allowFullScreen
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <img 
+                  src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=800&q=80" 
+                  alt="Kandima Maldives - Resort View"
+                  className="w-full h-[300px] object-cover hover:scale-105 transition-transform duration-500"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-4">
-                {/* Ocean Pool Villa */}
-                <div className="rounded-xl overflow-hidden shadow-lg bg-white">
-                  <iframe 
-                    src="https://www.instagram.com/p/B8wHRBsHI0Z/embed" 
-                    className="w-full h-[280px] border-0"
-                    loading="lazy"
-                    title="Kandima - Ocean Pool Villa"
-                    allowFullScreen
+                <div className="rounded-xl overflow-hidden shadow-lg">
+                  <img 
+                    src="https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=400&q=80" 
+                    alt="Kandima - Ocean Pool Villa"
+                    className="w-full h-[200px] object-cover hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                {/* Beach Pool Villa */}
-                <div className="rounded-xl overflow-hidden shadow-lg bg-white">
-                  <iframe 
-                    src="https://www.instagram.com/p/B83SLlDHfib/embed" 
-                    className="w-full h-[280px] border-0"
-                    loading="lazy"
-                    title="Kandima - Beach Pool Villa"
-                    allowFullScreen
+                <div className="rounded-xl overflow-hidden shadow-lg">
+                  <img 
+                    src="https://images.unsplash.com/photo-1540202404-a2f29016b523?w=400&q=80" 
+                    alt="Kandima - Beach Pool Villa"
+                    className="w-full h-[200px] object-cover hover:scale-105 transition-transform duration-500"
                   />
                 </div>
               </div>
 
               {/* Sunset Aqua Suite */}
-              <div className="rounded-2xl overflow-hidden shadow-lg bg-white">
-                <iframe 
-                  src="https://www.instagram.com/p/B8Zr-P7n9VA/embed" 
-                  className="w-full h-[400px] border-0"
-                  loading="lazy"
-                  title="Kandima - Sunset Aqua Pool Suite"
-                  allowFullScreen
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <img 
+                  src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&q=80" 
+                  alt="Kandima - Sunset Aqua Pool Suite"
+                  className="w-full h-[280px] object-cover hover:scale-105 transition-transform duration-500"
                 />
               </div>
             </div>
@@ -642,98 +632,59 @@ const featuredOffers: Offer[] = [
               </div>
             </div>
 
-            {/* Right - Instagram Gallery */}
+            {/* Right - Gallery */}
             <div className="space-y-4">
               <h3 className="text-xl font-serif font-bold text-white mb-4">Resort Gallery</h3>
               
-              {/* Video */}
-              <div className="rounded-2xl overflow-hidden shadow-lg bg-white">
-                <iframe 
-                  src="https://www.instagram.com/p/B77pMbDnH_V/embed" 
-                  className="w-full h-[400px] border-0"
-                  loading="lazy"
-                  title="The Standard Maldives - Video"
-                  allowFullScreen
+              {/* Main Photo */}
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <img 
+                  src="https://images.unsplash.com/photo-1540202404-a2f29016b523?w=800&q=80" 
+                  alt="The Standard Maldives - Resort View"
+                  className="w-full h-[300px] object-cover hover:scale-105 transition-transform duration-500"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-4">
-                {/* Island Photo 1 */}
-                <div className="rounded-xl overflow-hidden shadow-lg bg-white">
-                  <iframe 
-                    src="https://www.instagram.com/p/CWa55JCvFM-/embed" 
-                    className="w-full h-[280px] border-0"
-                    loading="lazy"
-                    title="The Standard Maldives - Island View 1"
-                    allowFullScreen
+                <div className="rounded-xl overflow-hidden shadow-lg">
+                  <img 
+                    src="https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=400&q=80" 
+                    alt="The Standard - Island View"
+                    className="w-full h-[180px] object-cover hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                {/* Island Photo 2 */}
-                <div className="rounded-xl overflow-hidden shadow-lg bg-white">
-                  <iframe 
-                    src="https://www.instagram.com/p/CIqCbDlH9ia/embed" 
-                    className="w-full h-[280px] border-0"
-                    loading="lazy"
-                    title="The Standard Maldives - Island View 2"
-                    allowFullScreen
+                <div className="rounded-xl overflow-hidden shadow-lg">
+                  <img 
+                    src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=400&q=80" 
+                    alt="The Standard - Lagoon Villa"
+                    className="w-full h-[180px] object-cover hover:scale-105 transition-transform duration-500"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
-                {/* Island Photo 3 */}
-                <div className="rounded-xl overflow-hidden shadow-lg bg-white">
-                  <iframe 
-                    src="https://www.instagram.com/p/CZO0w_dJcjj/embed" 
-                    className="w-full h-[280px] border-0"
-                    loading="lazy"
-                    title="The Standard Maldives - Island View 3"
-                    allowFullScreen
+                <div className="rounded-xl overflow-hidden shadow-lg">
+                  <img 
+                    src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=400&q=80" 
+                    alt="The Standard - Pool Villa"
+                    className="w-full h-[180px] object-cover hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                {/* Lagoon Water Pool Villa 1 */}
-                <div className="rounded-xl overflow-hidden shadow-lg bg-white">
-                  <iframe 
-                    src="https://www.instagram.com/p/CWa4vTHvqSp/embed" 
-                    className="w-full h-[280px] border-0"
-                    loading="lazy"
-                    title="The Standard Maldives - Lagoon Villa"
-                    allowFullScreen
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                {/* Lagoon Water Pool Villa 2 */}
-                <div className="rounded-xl overflow-hidden shadow-lg bg-white">
-                  <iframe 
-                    src="https://www.instagram.com/p/B8sxzgAHIEA/embed" 
-                    className="w-full h-[280px] border-0"
-                    loading="lazy"
-                    title="The Standard Maldives - Lagoon Pool Villa"
-                    allowFullScreen
-                  />
-                </div>
-                {/* Ocean Water Pool Villa */}
-                <div className="rounded-xl overflow-hidden shadow-lg bg-white">
-                  <iframe 
-                    src="https://www.instagram.com/p/CWa4OPWPphT/embed" 
-                    className="w-full h-[280px] border-0"
-                    loading="lazy"
-                    title="The Standard Maldives - Ocean Villa"
-                    allowFullScreen
+                <div className="rounded-xl overflow-hidden shadow-lg">
+                  <img 
+                    src="https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=400&q=80" 
+                    alt="The Standard - Ocean Villa"
+                    className="w-full h-[180px] object-cover hover:scale-105 transition-transform duration-500"
                   />
                 </div>
               </div>
 
               {/* Beach Pool Villa */}
-              <div className="rounded-2xl overflow-hidden shadow-lg bg-white">
-                <iframe 
-                  src="https://www.instagram.com/p/B8t28ChHFD9/embed" 
-                  className="w-full h-[400px] border-0"
-                  loading="lazy"
-                  title="The Standard Maldives - Beach Pool Villa"
-                  allowFullScreen
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <img 
+                  src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80" 
+                  alt="The Standard - Beach Pool Villa"
+                  className="w-full h-[250px] object-cover hover:scale-105 transition-transform duration-500"
                 />
               </div>
             </div>
@@ -853,52 +804,42 @@ const featuredOffers: Offer[] = [
               </div>
             </div>
 
-            {/* Right - Gallery with Correct Instagram Links */}
+            {/* Right - Gallery */}
             <div className="space-y-4">
               <h3 className="text-xl font-serif font-bold text-white mb-4">Resort Gallery</h3>
               
               {/* Main Resort Photo */}
-              <div className="rounded-2xl overflow-hidden shadow-lg bg-white">
-                <iframe 
-                  src="https://www.instagram.com/p/DLmrpE8NC2j/embed" 
-                  className="w-full h-[400px] border-0"
-                  loading="lazy"
-                  title="Furaveri Maldives - Resort View"
-                  allowFullScreen
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <img 
+                  src={furaveriHero} 
+                  alt="Furaveri Maldives - Resort View"
+                  className="w-full h-[300px] object-cover hover:scale-105 transition-transform duration-500"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-4">
-                {/* Ocean Pool Villa */}
-                <div className="rounded-xl overflow-hidden shadow-lg bg-white">
-                  <iframe 
-                    src="https://www.instagram.com/p/CPJBqp2nX1d/embed" 
-                    className="w-full h-[280px] border-0"
-                    loading="lazy"
-                    title="Furaveri - Ocean Pool Villa"
-                    allowFullScreen
+                <div className="rounded-xl overflow-hidden shadow-lg">
+                  <img 
+                    src="https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=400&q=80" 
+                    alt="Furaveri - Ocean Pool Villa"
+                    className="w-full h-[180px] object-cover hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                {/* Sunset Ocean Pool Villa */}
-                <div className="rounded-xl overflow-hidden shadow-lg bg-white">
-                  <iframe 
-                    src="https://www.instagram.com/p/CPJBD0fnCa0/embed" 
-                    className="w-full h-[280px] border-0"
-                    loading="lazy"
-                    title="Furaveri - Sunset Ocean Pool Villa"
-                    allowFullScreen
+                <div className="rounded-xl overflow-hidden shadow-lg">
+                  <img 
+                    src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=400&q=80" 
+                    alt="Furaveri - Sunset Pool Villa"
+                    className="w-full h-[180px] object-cover hover:scale-105 transition-transform duration-500"
                   />
                 </div>
               </div>
 
               {/* Beach Pool Villa */}
-              <div className="rounded-2xl overflow-hidden shadow-lg bg-white">
-                <iframe 
-                  src="https://www.instagram.com/p/CPJDBdTnh3W/embed" 
-                  className="w-full h-[400px] border-0"
-                  loading="lazy"
-                  title="Furaveri - Beach Pool Villa"
-                  allowFullScreen
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <img 
+                  src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&q=80" 
+                  alt="Furaveri - Beach Pool Villa"
+                  className="w-full h-[250px] object-cover hover:scale-105 transition-transform duration-500"
                 />
               </div>
 

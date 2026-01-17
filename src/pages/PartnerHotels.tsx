@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -8,7 +8,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { MessageCircle, Star, MapPin, Ship, Palmtree, Building2, Tent } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { MessageCircle, Star, MapPin, Ship, Palmtree, Building2, Tent, Plane, Anchor, Car, Heart, Sparkles, Crown, Clock, Filter, X } from "lucide-react";
 
 // Import local images
 import soneva from "@/assets/resorts/soneva-fushi.jpg";
@@ -25,6 +26,21 @@ import furaveriMaldives from "@/assets/resorts/furaveri-maldives.jpg";
 import patinaMaldives from "@/assets/resorts/patina-maldives.jpg";
 import joaliMaldives from "@/assets/resorts/joali-maldives.jpg";
 import anantaraKihavah from "@/assets/resorts/anantara-kihavah.jpg";
+import youAndMeCocoon from "@/assets/resorts/you-and-me-cocoon-aerial.jpg";
+import dusitThani from "@/assets/resorts/dusit-thani-maldives.jpg";
+import siyamWorld from "@/assets/resorts/siyam-world.jpg";
+import hardRock from "@/assets/resorts/hard-rock-maldives.jpg";
+import fairmont from "@/assets/resorts/fairmont-maldives.jpg";
+import wMaldives from "@/assets/resorts/w-maldives.jpg";
+import niyama from "@/assets/resorts/niyama-maldives.jpg";
+import vakkaru from "@/assets/resorts/vakkaru-maldives.jpg";
+import soMaldives from "@/assets/resorts/so-maldives.jpg";
+import ozenReserve from "@/assets/resorts/ozen-reserve-bolifushi.jpg";
+import jwMarriott from "@/assets/resorts/jw-marriott-maldives.jpg";
+import jumeirahMaldives from "@/assets/resorts/jumeirah-maldives.jpg";
+import kudaVillingili from "@/assets/resorts/kuda-villingili.jpg";
+import hiltonAmingiri from "@/assets/resorts/hilton-amingiri.jpg";
+import joyIsland from "@/assets/resorts/joy-island.jpg";
 
 import northIsland from "@/assets/resorts/north-island-seychelles.jpg";
 import fourSeasonsSeychelles from "@/assets/resorts/four-seasons-seychelles.jpg";
@@ -34,6 +50,7 @@ import constanceEphelia from "@/assets/resorts/constance-ephelia.jpg";
 import mangoHouse from "@/assets/resorts/mango-house-seychelles.jpg";
 import anantaraMaia from "@/assets/resorts/anantara-maia-seychelles.jpg";
 import hiltonNortholme from "@/assets/resorts/hilton-northolme.jpg";
+import astoriaSeychelles from "@/assets/resorts/astoria-seychelles.jpg";
 
 import oneOnlyMauritius from "@/assets/resorts/oneandonly-mauritius.jpg";
 import stRegisMauritius from "@/assets/resorts/st-regis-mauritius.jpg";
@@ -60,10 +77,24 @@ import cruiseHero from "@/assets/destinations/cruise-hero.jpg";
 
 import heroImage from "@/assets/resorts/luxury-infinity-pool.jpg";
 
+// Transfer types
+type TransferType = "seaplane" | "speedboat" | "domestic";
+
+// Filter categories
+type FilterCategory = "all" | "adult-only" | "all-inclusive" | "honeymoon" | "nora-picks" | "top-luxury" | "upcoming";
+
 interface Hotel {
   name: string;
   image: string;
   description: string;
+  transfer?: TransferType;
+  isAdultOnly?: boolean;
+  isAllInclusive?: boolean;
+  isHoneymoon?: boolean;
+  isNoraPick?: boolean;
+  isTopLuxury?: boolean;
+  isUpcoming?: boolean;
+  openingYear?: string;
 }
 
 interface Destination {
@@ -77,130 +108,179 @@ const destinations: Destination[] = [
     name: "Maldives",
     icon: <Palmtree className="w-6 h-6" />,
     hotels: [
-      { name: "Soneva Fushi", image: soneva, description: "An ultra-luxury barefoot escape on a pristine private island, offering world-class dining, open-air cinemas, and unparalleled natural beauty." },
-      { name: "Cheval Blanc Randheli", image: chevalBlanc, description: "LVMH's exclusive Maldivian retreat featuring contemporary design, Guerlain spa, and personalized butler service." },
-      { name: "One&Only Reethi Rah", image: oneOnlyReethi, description: "Sprawling over-water villas and pristine beaches on one of the largest resort islands in the Maldives." },
-      { name: "The St. Regis Maldives Vommuli Resort", image: stRegisMaldives, description: "Architectural masterpiece with iconic overwater villas, legendary St. Regis Butler Service, and world-class diving." },
-      { name: "Waldorf Astoria Maldives Ithaafushi", image: waldorfMaldives, description: "Three private islands of uncompromising luxury with 11 dining venues and the largest spa in the Maldives." },
-      { name: "Four Seasons Resort Maldives at Landaa Giraavaru", image: fourSeasonsLandaa, description: "UNESCO Biosphere Reserve location with pioneering marine discovery center and Ayurvedic spa." },
-      { name: "The Ritz-Carlton Maldives, Fari Islands", image: ritzCarltonMaldives, description: "Contemporary island sanctuary with overwater and beach villas, featuring Ritz-Carlton's legendary service." },
-      { name: "Velaa Private Island", image: velaaMaldives, description: "The epitome of bespoke luxury with private residences, golf academy, and exclusive fine dining." },
-      { name: "Kandima Maldives", image: kandimaMaldives, description: "Vibrant lifestyle resort offering endless activities, diverse dining, and stunning ocean pool villas." },
-      { name: "The Standard, Huruvalhi Maldives", image: standardMaldives, description: "Trendy, design-forward resort bringing urban sophistication to paradise with playful luxury experiences." },
-      { name: "Furaveri Maldives", image: furaveriMaldives, description: "Authentic Maldivian hospitality on a stunning natural island with exceptional house reef snorkeling." },
-      { name: "Patina Maldives, Fari Islands", image: patinaMaldives, description: "Contemporary wellness sanctuary designed by Brazilian architect Marcio Kogan with sustainability at heart." },
-      { name: "JOALI Maldives", image: joaliMaldives, description: "Art-immersive luxury resort showcasing curated installations by renowned international artists." },
-      { name: "Anantara Kihavah Maldives Villas", image: anantaraKihavah, description: "Award-winning resort with underwater restaurant, world-class observatory, and exceptional diving." },
+      // Top Luxury
+      { name: "Velaa Private Island", image: velaaMaldives, description: "The epitome of bespoke luxury with private residences, golf academy, and exclusive fine dining.", transfer: "seaplane", isTopLuxury: true, isHoneymoon: true },
+      { name: "Cheval Blanc Randheli", image: chevalBlanc, description: "LVMH's exclusive Maldivian retreat featuring contemporary design, Guerlain spa, and personalized butler service.", transfer: "seaplane", isTopLuxury: true, isHoneymoon: true },
+      { name: "JOALI Maldives", image: joaliMaldives, description: "Art-immersive luxury resort showcasing curated installations by renowned international artists.", transfer: "seaplane", isTopLuxury: true, isNoraPick: true, isHoneymoon: true },
+      { name: "One&Only Reethi Rah", image: oneOnlyReethi, description: "Sprawling over-water villas and pristine beaches on one of the largest resort islands in the Maldives.", transfer: "speedboat", isTopLuxury: true, isHoneymoon: true },
+      { name: "Four Seasons Resort Maldives at Landaa Giraavaru", image: fourSeasonsLandaa, description: "UNESCO Biosphere Reserve location with pioneering marine discovery center and Ayurvedic spa.", transfer: "seaplane", isTopLuxury: true, isHoneymoon: true },
+      { name: "Patina Maldives, Fari Islands", image: patinaMaldives, description: "Contemporary wellness sanctuary designed by Brazilian architect Marcio Kogan with sustainability at heart.", transfer: "speedboat", isTopLuxury: true, isNoraPick: true, isHoneymoon: true },
+      { name: "Kuda Villingili Resort Maldives", image: kudaVillingili, description: "Intimate island sanctuary with personalized service and exceptional dining experiences.", transfer: "speedboat", isTopLuxury: true, isHoneymoon: true },
+      { name: "Raffles Maldives Meradhoo", image: rafflesSeychelles, description: "Remote southern atoll hideaway with legendary Raffles butler service and pristine house reef.", transfer: "domestic", isTopLuxury: true, isHoneymoon: true },
+      { name: "Jumeirah Maldives", image: jumeirahMaldives, description: "Overwater and beach villas with private pools, world-class dining and Arabian hospitality.", transfer: "seaplane", isTopLuxury: true, isHoneymoon: true },
+      
+      // Nora Recommendations
+      { name: "The Ritz-Carlton Maldives, Fari Islands", image: ritzCarltonMaldives, description: "Contemporary island sanctuary with overwater and beach villas, featuring Ritz-Carlton's legendary service.", transfer: "speedboat", isNoraPick: true, isHoneymoon: true, isTopLuxury: true },
+      { name: "The Westin Maldives Miriandhoo Resort", image: standardMaldives, description: "Wellness-focused resort with Heavenly Spa, pristine house reef, and sustainable luxury.", transfer: "seaplane", isNoraPick: true, isHoneymoon: true },
+      { name: "Furaveri Maldives", image: furaveriMaldives, description: "Authentic Maldivian hospitality on a stunning natural island with exceptional house reef snorkeling.", transfer: "seaplane", isNoraPick: true, isHoneymoon: true },
+      { name: "The Standard, Huruvalhi Maldives", image: standardMaldives, description: "Trendy, design-forward resort bringing urban sophistication to paradise with playful luxury experiences.", transfer: "seaplane", isNoraPick: true, isHoneymoon: true },
+      
+      // Adult Only
+      { name: "You & Me by Cocoon Maldives", image: youAndMeCocoon, description: "Adults-only paradise with premium all-inclusive dining, H2O underwater restaurant, and romantic overwater villas.", transfer: "seaplane", isAdultOnly: true, isHoneymoon: true },
+      { name: "Nala Maldives by Jawakara", image: joaliMaldives, description: "Exclusive adults-only boutique resort with intimate luxury and personalized experiences.", transfer: "seaplane", isAdultOnly: true, isHoneymoon: true, isUpcoming: true, openingYear: "2025" },
+      { name: "Milaidhoo Island Maldives", image: velaaMaldives, description: "Boutique adults-only island with just 50 villas and award-winning Ba'theli restaurant.", transfer: "seaplane", isAdultOnly: true, isHoneymoon: true },
+      { name: "Komandoo Island Resort", image: kandimaMaldives, description: "Intimate adults-only resort perfect for couples seeking tranquility and romance.", transfer: "seaplane", isAdultOnly: true, isHoneymoon: true },
+      
+      // All-Inclusive
+      { name: "DusitD2 Feydhoo Resort", image: dusitThani, description: "All-inclusive Thai hospitality with authentic cuisine, Devarana Spa, and excellent value.", transfer: "domestic", isAllInclusive: true, isHoneymoon: true, isUpcoming: true, openingYear: "2025" },
+      { name: "Siyam World Maldives", image: siyamWorld, description: "Mega all-inclusive resort with 24 dining options, waterpark, and endless activities.", transfer: "seaplane", isAllInclusive: true, isHoneymoon: true },
+      { name: "Olhuveli Beach & Spa Maldives", image: ozenReserve, description: "All-inclusive tropical paradise with excellent house reef and family-friendly atmosphere.", transfer: "speedboat", isAllInclusive: true, isHoneymoon: true },
+      { name: "LiLi Beach Resort", image: joyIsland, description: "All-inclusive boutique resort with authentic Maldivian experiences and vibrant house reef.", transfer: "seaplane", isAllInclusive: true, isHoneymoon: true },
+      { name: "Sun Siyam Iru Fushi", image: siyamWorld, description: "Premium all-inclusive with 21 restaurants, extensive spa, and family amenities.", transfer: "seaplane", isAllInclusive: true, isHoneymoon: true },
+      { name: "Constance Moofushi Maldives", image: constanceBelleMare, description: "Award-winning all-inclusive resort with exceptional diving and pristine beaches.", transfer: "seaplane", isAllInclusive: true, isHoneymoon: true },
+      
+      // Other Premium Resorts
+      { name: "Soneva Fushi", image: soneva, description: "An ultra-luxury barefoot escape on a pristine private island, offering world-class dining, open-air cinemas, and unparalleled natural beauty.", transfer: "seaplane", isHoneymoon: true },
+      { name: "The St. Regis Maldives Vommuli Resort", image: stRegisMaldives, description: "Architectural masterpiece with iconic overwater villas, legendary St. Regis Butler Service, and world-class diving.", transfer: "seaplane", isHoneymoon: true },
+      { name: "Waldorf Astoria Maldives Ithaafushi", image: waldorfMaldives, description: "Three private islands of uncompromising luxury with 11 dining venues and the largest spa in the Maldives.", transfer: "speedboat", isHoneymoon: true },
+      { name: "Anantara Kihavah Maldives Villas", image: anantaraKihavah, description: "Award-winning resort with underwater restaurant, world-class observatory, and exceptional diving.", transfer: "seaplane", isHoneymoon: true },
+      { name: "Kandima Maldives", image: kandimaMaldives, description: "Vibrant lifestyle resort offering endless activities, diverse dining, and stunning ocean pool villas.", transfer: "domestic", isHoneymoon: true },
+      { name: "W Maldives", image: wMaldives, description: "Vibrant luxury with underwater restaurant, stellar house reef, and signature W energy.", transfer: "seaplane", isHoneymoon: true },
+      { name: "NIYAMA Private Islands Maldives", image: niyama, description: "Two islands of bold design with underwater nightclub and world-class surfing.", transfer: "seaplane", isHoneymoon: true },
+      { name: "Vakkaru Maldives", image: vakkaru, description: "Classic Maldivian luxury with exceptional diving, family-friendly amenities, and romantic villas.", transfer: "seaplane", isHoneymoon: true },
+      { name: "Hard Rock Hotel Maldives", image: hardRock, description: "Rock star luxury with music-themed experiences, underwater restaurant, and vibrant nightlife.", transfer: "speedboat", isHoneymoon: true },
+      { name: "Fairmont Maldives Sirru Fen Fushi", image: fairmont, description: "Artistic sanctuary with underwater sculpture museum and world-class spa.", transfer: "seaplane", isHoneymoon: true },
+      { name: "JW Marriott Maldives Resort & Spa", image: jwMarriott, description: "Contemporary luxury with overwater villas, JW Spa, and exceptional culinary experiences.", transfer: "seaplane", isHoneymoon: true },
+      { name: "Hilton Maldives Amingiri Resort & Spa", image: hiltonAmingiri, description: "Modern design with spectacular sunset views and only 20 minutes from Male.", transfer: "speedboat", isHoneymoon: true },
+      { name: "OZEN Reserve Bolifushi", image: ozenReserve, description: "Ultra-all-inclusive sanctuary with underwater restaurant and personalized butler service.", transfer: "speedboat", isHoneymoon: true },
+      { name: "Joy Island Maldives", image: joyIsland, description: "Boutique island escape with authentic Maldivian charm and exceptional house reef.", transfer: "speedboat", isHoneymoon: true },
+      
+      // Upcoming Resorts 2025-2026
+      { name: "Ananea Madivaru Maldives", image: velaaMaldives, description: "New luxury resort in North Ari Atoll offering contemporary design and exceptional marine life.", transfer: "seaplane", isUpcoming: true, openingYear: "2025", isHoneymoon: true },
+      { name: "Centara Grand Lagoon Maldives", image: ozenReserve, description: "Grand resort near North Malé Atoll with extensive facilities and Thai hospitality.", transfer: "speedboat", isUpcoming: true, openingYear: "2025", isHoneymoon: true },
+      { name: "JW Marriott Kaafu Atoll Island Resort", image: jwMarriott, description: "New JW Marriott property with elegant design and signature wellness offerings.", transfer: "speedboat", isUpcoming: true, openingYear: "2025", isHoneymoon: true },
+      { name: "SO/ Maldives", image: soMaldives, description: "Vibrant new luxury island resort near Malé with bold design and exceptional service.", transfer: "speedboat", isUpcoming: true, openingYear: "2025", isHoneymoon: true },
+      { name: "Soneva Secret", image: soneva, description: "Ultra-luxury expansion of Soneva brand with new level of privacy and exclusivity.", transfer: "seaplane", isUpcoming: true, openingYear: "2025", isTopLuxury: true, isHoneymoon: true },
+      { name: "V Villas Maldives at Mirihi", image: velaaMaldives, description: "MGallery Collection property with renovated villas and world-class diving.", transfer: "seaplane", isUpcoming: true, openingYear: "2025", isHoneymoon: true },
+      { name: "Corinthia Maldives", image: chevalBlanc, description: "Major luxury opening with Corinthia's legendary hospitality in pristine island setting.", transfer: "seaplane", isUpcoming: true, openingYear: "2025", isTopLuxury: true, isHoneymoon: true },
+      { name: "Mandarin Oriental Bolidhuffaru Reef", image: patinaMaldives, description: "Anticipated luxury resort bringing Mandarin Oriental excellence to the Maldives.", transfer: "seaplane", isUpcoming: true, openingYear: "2025", isTopLuxury: true, isHoneymoon: true },
+      { name: "Al Mahra Maldives", image: joaliMaldives, description: "Large luxury resort project with world-class amenities and exceptional design.", transfer: "seaplane", isUpcoming: true, openingYear: "2025", isHoneymoon: true },
+      { name: "Meyyafushi Maldives", image: standardMaldives, description: "New resort property targeting October 2025 soft opening with modern luxury.", transfer: "seaplane", isUpcoming: true, openingYear: "2025", isHoneymoon: true },
+      { name: "Rah Gili Maldives", image: northIsland, description: "Part of Six & Six Private Islands group, ultra-exclusive new development.", transfer: "seaplane", isUpcoming: true, openingYear: "2026", isTopLuxury: true, isHoneymoon: true },
+      { name: "Don Maaga Maldives", image: velaaMaldives, description: "Six & Six Private Islands development with exceptional privacy and service.", transfer: "seaplane", isUpcoming: true, openingYear: "2026", isTopLuxury: true, isHoneymoon: true },
+      { name: "Bvlgari Resort Ranfushi", image: chevalBlanc, description: "Italian luxury brand's Maldives debut in Raa Atoll with signature elegance.", transfer: "seaplane", isUpcoming: true, openingYear: "2026", isTopLuxury: true, isHoneymoon: true },
+      { name: "Mondrian Maldives", image: wMaldives, description: "Design-forward new resort in Noonu Atoll with Mondrian's signature style.", transfer: "seaplane", isUpcoming: true, openingYear: "2026", isHoneymoon: true },
     ]
   },
   {
     name: "Seychelles",
     icon: <Palmtree className="w-6 h-6" />,
     hotels: [
-      { name: "North Island", image: northIsland, description: "Ultra-exclusive private island sanctuary where royalty and celebrities find ultimate privacy and natural beauty." },
-      { name: "Four Seasons Resort Seychelles", image: fourSeasonsSeychelles, description: "Hillside and oceanfront villas on Mahé with spectacular views and private plunge pools." },
-      { name: "Six Senses Zil Pasyon", image: sixSensesSeychelles, description: "Private island wellness retreat on Félicité with holistic spa and sustainable luxury philosophy." },
-      { name: "Raffles Seychelles", image: rafflesSeychelles, description: "Elegant hillside villas on Praslin overlooking pristine beaches with legendary Raffles hospitality." },
-      { name: "Constance Ephelia", image: constanceEphelia, description: "Sprawling beachfront resort on two stunning beaches with extensive family amenities and spa village." },
-      { name: "Mango House Seychelles", image: mangoHouse, description: "LXR Hotels & Resorts collection boutique property with intimate luxury on Mahé's southern coast." },
-      { name: "Anantara Maia Seychelles Villas", image: anantaraMaia, description: "All-villa resort with dedicated butlers, oceanfront dining, and exceptional privacy." },
-      { name: "Hilton Seychelles Northolme Resort & Spa", image: hiltonNortholme, description: "Historic luxury resort perched on a hillside overlooking Beau Vallon with stunning sunset views." },
+      { name: "North Island", image: northIsland, description: "Ultra-exclusive private island sanctuary where royalty and celebrities find ultimate privacy and natural beauty.", isTopLuxury: true, isHoneymoon: true },
+      { name: "Four Seasons Resort Seychelles", image: fourSeasonsSeychelles, description: "Hillside and oceanfront villas on Mahé with spectacular views and private plunge pools.", isTopLuxury: true, isHoneymoon: true },
+      { name: "Six Senses Zil Pasyon", image: sixSensesSeychelles, description: "Private island wellness retreat on Félicité with holistic spa and sustainable luxury philosophy.", isTopLuxury: true, isHoneymoon: true },
+      { name: "Raffles Seychelles", image: rafflesSeychelles, description: "Elegant hillside villas on Praslin overlooking pristine beaches with legendary Raffles hospitality.", isTopLuxury: true, isHoneymoon: true },
+      { name: "Constance Ephelia", image: constanceEphelia, description: "Sprawling beachfront resort on two stunning beaches with extensive family amenities and spa village.", isHoneymoon: true },
+      { name: "Mango House Seychelles", image: mangoHouse, description: "LXR Hotels & Resorts collection boutique property with intimate luxury on Mahé's southern coast.", isHoneymoon: true },
+      { name: "Anantara Maia Seychelles Villas", image: anantaraMaia, description: "All-villa resort with dedicated butlers, oceanfront dining, and exceptional privacy.", isHoneymoon: true },
+      { name: "Hilton Seychelles Northolme Resort & Spa", image: hiltonNortholme, description: "Historic luxury resort perched on a hillside overlooking Beau Vallon with stunning sunset views.", isHoneymoon: true },
+      { name: "Waldorf Astoria Seychelles Platte Island", image: astoriaSeychelles, description: "Remote private island sanctuary with legendary Waldorf service and pristine natural beauty.", isTopLuxury: true, isHoneymoon: true },
     ]
   },
   {
     name: "Mauritius",
     icon: <Palmtree className="w-6 h-6" />,
     hotels: [
-      { name: "One&Only Le Saint Géran", image: oneOnlyMauritius, description: "Legendary beachfront resort on its own peninsula with championship golf and Givenchy spa." },
-      { name: "The St. Regis Mauritius Resort", image: stRegisMauritius, description: "Colonial elegance meets contemporary luxury on Le Morne peninsula with exceptional butler service." },
-      { name: "Four Seasons Resort Mauritius at Anahita", image: fourSeasonsMauritius, description: "Spacious villas with private pools on a pristine lagoon with Ernie Els signature golf course." },
-      { name: "Shangri-La Le Touessrok, Mauritius", image: shangrila, description: "Iconic resort on Trou d'Eau Douce bay with two private island retreats and championship golf." },
-      { name: "The Oberoi Mauritius", image: oberoiMauritius, description: "Intimate luxury resort in Turtle Bay with exceptional service and tranquil gardens." },
-      { name: "Constance Prince Maurice", image: constancePrince, description: "Architectural marvel on stilts with floating restaurant and world-class spa sanctuary." },
-      { name: "LUX* Belle Mare", image: luxBelleMare, description: "Vibrant beachfront resort with playful luxury, exceptional cuisine, and stunning beach." },
-      { name: "Constance Belle Mare Plage", image: constanceBelleMare, description: "Two kilometers of pristine beach with two championship golf courses and gourmet dining." },
+      { name: "One&Only Le Saint Géran", image: oneOnlyMauritius, description: "Legendary beachfront resort on its own peninsula with championship golf and Givenchy spa.", isTopLuxury: true, isHoneymoon: true },
+      { name: "The St. Regis Mauritius Resort", image: stRegisMauritius, description: "Colonial elegance meets contemporary luxury on Le Morne peninsula with exceptional butler service.", isHoneymoon: true },
+      { name: "Four Seasons Resort Mauritius at Anahita", image: fourSeasonsMauritius, description: "Spacious villas with private pools on a pristine lagoon with Ernie Els signature golf course.", isTopLuxury: true, isHoneymoon: true },
+      { name: "Shangri-La Le Touessrok, Mauritius", image: shangrila, description: "Iconic resort on Trou d'Eau Douce bay with two private island retreats and championship golf.", isHoneymoon: true },
+      { name: "The Oberoi Mauritius", image: oberoiMauritius, description: "Intimate luxury resort in Turtle Bay with exceptional service and tranquil gardens.", isHoneymoon: true },
+      { name: "Constance Prince Maurice", image: constancePrince, description: "Architectural marvel on stilts with floating restaurant and world-class spa sanctuary.", isHoneymoon: true },
+      { name: "LUX* Belle Mare", image: luxBelleMare, description: "Vibrant beachfront resort with playful luxury, exceptional cuisine, and stunning beach.", isHoneymoon: true },
+      { name: "Constance Belle Mare Plage", image: constanceBelleMare, description: "Two kilometers of pristine beach with two championship golf courses and gourmet dining.", isHoneymoon: true },
     ]
   },
   {
     name: "Santorini",
     icon: <Building2 className="w-6 h-6" />,
     hotels: [
-      { name: "Canaves Oia Epitome", image: santoriniHero, description: "Ultra-luxury cave suites perched on Santorini's caldera with private infinity pools and sunset views." },
-      { name: "Grace Hotel Santorini", image: mykonosHero, description: "Intimate boutique hotel in Imerovigli with stunning champagne lounge and caldera panoramas." },
-      { name: "Mystique, a Luxury Collection Hotel", image: greeceAthens, description: "Cave hotel carved into Oia's cliffs with infinity pools overlooking the volcano." },
-      { name: "Andronis Arcadia", image: greeceCrete, description: "Contemporary wellness retreat in Oia with rooftop pool and holistic spa experiences." },
-      { name: "Katikies Santorini", image: santoriniHero, description: "Iconic white-washed suites cascading down the caldera with legendary Greek hospitality." },
-      { name: "Santo Maris Oia Luxury Suites & Spa", image: mykonosHero, description: "Cycladic architecture meets contemporary luxury with expansive spa and gourmet dining." },
+      { name: "Canaves Oia Epitome", image: santoriniHero, description: "Ultra-luxury cave suites perched on Santorini's caldera with private infinity pools and sunset views.", isHoneymoon: true },
+      { name: "Grace Hotel Santorini", image: mykonosHero, description: "Intimate boutique hotel in Imerovigli with stunning champagne lounge and caldera panoramas.", isHoneymoon: true },
+      { name: "Mystique, a Luxury Collection Hotel", image: greeceAthens, description: "Cave hotel carved into Oia's cliffs with infinity pools overlooking the volcano.", isHoneymoon: true },
+      { name: "Andronis Arcadia", image: greeceCrete, description: "Contemporary wellness retreat in Oia with rooftop pool and holistic spa experiences.", isHoneymoon: true },
+      { name: "Katikies Santorini", image: santoriniHero, description: "Iconic white-washed suites cascading down the caldera with legendary Greek hospitality.", isHoneymoon: true },
+      { name: "Santo Maris Oia Luxury Suites & Spa", image: mykonosHero, description: "Cycladic architecture meets contemporary luxury with expansive spa and gourmet dining.", isHoneymoon: true },
     ]
   },
   {
     name: "London",
     icon: <Building2 className="w-6 h-6" />,
     hotels: [
-      { name: "The Ritz London", image: londonHero, description: "Legendary Piccadilly landmark offering timeless elegance, afternoon tea, and royal-approved luxury." },
-      { name: "Claridge's", image: londonLuxury, description: "Art Deco masterpiece in Mayfair, beloved by royalty and celebrities for over a century." },
-      { name: "The Savoy", image: londonHero, description: "Iconic Thames-side hotel blending Edwardian and Art Deco grandeur with theatrical flair." },
-      { name: "The Connaught", image: londonLuxury, description: "Mayfair's most distinguished address with Michelin-starred Hélène Darroze restaurant." },
-      { name: "Rosewood London", image: londonHero, description: "Edwardian splendor in High Holborn with stunning courtyard and world-class Sense spa." },
-      { name: "The Lanesborough", image: londonLuxury, description: "Regency grandeur overlooking Hyde Park with 24-hour butler service and Michelin-starred dining." },
-      { name: "Four Seasons Hotel London at Ten Trinity Square", image: londonHero, description: "Historic landmark near the Tower of London with La Dame de Pic and exclusive members' club." },
-      { name: "Bulgari Hotel London", image: londonLuxury, description: "Italian glamour in Knightsbridge with stunning spa, cinema, and exclusive boutique." },
+      { name: "The Ritz London", image: londonHero, description: "Legendary Piccadilly landmark offering timeless elegance, afternoon tea, and royal-approved luxury.", isHoneymoon: true },
+      { name: "Claridge's", image: londonLuxury, description: "Art Deco masterpiece in Mayfair, beloved by royalty and celebrities for over a century.", isHoneymoon: true },
+      { name: "The Savoy", image: londonHero, description: "Iconic Thames-side hotel blending Edwardian and Art Deco grandeur with theatrical flair.", isHoneymoon: true },
+      { name: "The Connaught", image: londonLuxury, description: "Mayfair's most distinguished address with Michelin-starred Hélène Darroze restaurant.", isHoneymoon: true },
+      { name: "Rosewood London", image: londonHero, description: "Edwardian splendor in High Holborn with stunning courtyard and world-class Sense spa.", isHoneymoon: true },
+      { name: "The Lanesborough", image: londonLuxury, description: "Regency grandeur overlooking Hyde Park with 24-hour butler service and Michelin-starred dining.", isHoneymoon: true },
+      { name: "Four Seasons Hotel London at Ten Trinity Square", image: londonHero, description: "Historic landmark near the Tower of London with La Dame de Pic and exclusive members' club.", isHoneymoon: true },
+      { name: "Bulgari Hotel London", image: londonLuxury, description: "Italian glamour in Knightsbridge with stunning spa, cinema, and exclusive boutique.", isHoneymoon: true },
     ]
   },
   {
     name: "Dubai",
     icon: <Building2 className="w-6 h-6" />,
     hotels: [
-      { name: "Burj Al Arab Jumeirah", image: dubaiLuxury, description: "The world's most iconic luxury hotel, offering unparalleled opulence and legendary Arabian hospitality." },
-      { name: "Atlantis The Royal", image: dubaiLuxury, description: "Ultra-luxury beachfront resort with celebrity restaurants, Aquaventure, and stunning architecture." },
-      { name: "One&Only The Palm", image: dubaiLuxury, description: "Intimate Arabian-inspired sanctuary on Palm Jumeirah with pristine private beach." },
-      { name: "Four Seasons Resort Dubai at Jumeirah Beach", image: dubaiLuxury, description: "Beachfront Mediterranean-inspired resort with exceptional dining and world-class spa." },
-      { name: "Armani Hotel Dubai", image: dubaiLuxury, description: "Giorgio Armani's design vision in the iconic Burj Khalifa with minimalist Italian luxury." },
-      { name: "Jumeirah Al Naseem", image: dubaiLuxury, description: "Contemporary beachfront luxury with turtle rehabilitation sanctuary and Burj Al Arab views." },
-      { name: "Waldorf Astoria Dubai Palm Jumeirah", image: dubaiLuxury, description: "Art Deco elegance on Palm Jumeirah with private beach and legendary Waldorf service." },
-      { name: "Raffles Dubai", image: dubaiLuxury, description: "Egyptian-inspired pyramid landmark with legendary butler service and rooftop garden." },
+      { name: "Burj Al Arab Jumeirah", image: dubaiLuxury, description: "The world's most iconic luxury hotel, offering unparalleled opulence and legendary Arabian hospitality.", isTopLuxury: true, isHoneymoon: true },
+      { name: "Atlantis The Royal", image: dubaiLuxury, description: "Ultra-luxury beachfront resort with celebrity restaurants, Aquaventure, and stunning architecture.", isTopLuxury: true, isHoneymoon: true },
+      { name: "One&Only The Palm", image: dubaiLuxury, description: "Intimate Arabian-inspired sanctuary on Palm Jumeirah with pristine private beach.", isTopLuxury: true, isHoneymoon: true },
+      { name: "Four Seasons Resort Dubai at Jumeirah Beach", image: dubaiLuxury, description: "Beachfront Mediterranean-inspired resort with exceptional dining and world-class spa.", isHoneymoon: true },
+      { name: "Armani Hotel Dubai", image: dubaiLuxury, description: "Giorgio Armani's design vision in the iconic Burj Khalifa with minimalist Italian luxury.", isHoneymoon: true },
+      { name: "Jumeirah Al Naseem", image: dubaiLuxury, description: "Contemporary beachfront luxury with turtle rehabilitation sanctuary and Burj Al Arab views.", isHoneymoon: true },
+      { name: "Waldorf Astoria Dubai Palm Jumeirah", image: dubaiLuxury, description: "Art Deco elegance on Palm Jumeirah with private beach and legendary Waldorf service.", isHoneymoon: true },
+      { name: "Raffles Dubai", image: dubaiLuxury, description: "Egyptian-inspired pyramid landmark with legendary butler service and rooftop garden.", isHoneymoon: true },
     ]
   },
   {
     name: "Bali",
     icon: <Palmtree className="w-6 h-6" />,
     hotels: [
-      { name: "Four Seasons Resort Bali at Sayan", image: baliResort, description: "Riverside jungle sanctuary with dramatic entrance bridge and world-renowned Sacred River Spa." },
-      { name: "Aman Villas at Nusa Dua", image: baliResort, description: "Clifftop minimalist villas with sweeping ocean views and legendary Aman service." },
-      { name: "The Mulia, Mulia Resort & Villas", image: baliResort, description: "Grand beachfront resort with The Mulia Spa, nine restaurants, and pristine white sand beach." },
-      { name: "COMO Shambhala Estate", image: baliResort, description: "Holistic wellness retreat in Ubud's jungle with life-changing health programs." },
-      { name: "Mandapa, a Ritz-Carlton Reserve", image: baliResort, description: "Intimate riverside retreat with rice paddy views, organic farm, and exceptional wellness." },
-      { name: "Bulgari Resort Bali", image: baliResort, description: "Cliffside Italian elegance in Uluwatu with dramatic ocean views and exclusive beach club." },
-      { name: "The St. Regis Bali Resort", image: baliResort, description: "Beachfront grandeur in Nusa Dua with largest lagoon pool and St. Regis Butler Service." },
-      { name: "Capella Ubud", image: baliResort, description: "Glamping tents in the rainforest designed by Bill Bensley with theatrical luxury." },
+      { name: "Four Seasons Resort Bali at Sayan", image: baliResort, description: "Riverside jungle sanctuary with dramatic entrance bridge and world-renowned Sacred River Spa.", isHoneymoon: true },
+      { name: "Aman Villas at Nusa Dua", image: baliResort, description: "Clifftop minimalist villas with sweeping ocean views and legendary Aman service.", isTopLuxury: true, isHoneymoon: true },
+      { name: "The Mulia, Mulia Resort & Villas", image: baliResort, description: "Grand beachfront resort with The Mulia Spa, nine restaurants, and pristine white sand beach.", isHoneymoon: true },
+      { name: "COMO Shambhala Estate", image: baliResort, description: "Holistic wellness retreat in Ubud's jungle with life-changing health programs.", isHoneymoon: true },
+      { name: "Mandapa, a Ritz-Carlton Reserve", image: baliResort, description: "Intimate riverside retreat with rice paddy views, organic farm, and exceptional wellness.", isHoneymoon: true },
+      { name: "Bulgari Resort Bali", image: baliResort, description: "Cliffside Italian elegance in Uluwatu with dramatic ocean views and exclusive beach club.", isTopLuxury: true, isHoneymoon: true },
+      { name: "The St. Regis Bali Resort", image: baliResort, description: "Beachfront grandeur in Nusa Dua with largest lagoon pool and St. Regis Butler Service.", isHoneymoon: true },
+      { name: "Capella Ubud", image: baliResort, description: "Glamping tents in the rainforest designed by Bill Bensley with theatrical luxury.", isHoneymoon: true },
     ]
   },
   {
     name: "South Africa - Luxury Safari Lodges",
     icon: <Tent className="w-6 h-6" />,
     hotels: [
-      { name: "Singita Sabi Sand", image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&q=80", description: "Legendary private game reserve with world-class lodges, exceptional Big Five sightings, and conservation leadership." },
-      { name: "Royal Malewane", image: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&q=80", description: "Colonial elegance in Greater Kruger with Africa House spa and exclusive bush experiences." },
-      { name: "Londolozi Private Game Reserve", image: "https://images.unsplash.com/photo-1549366021-9f761d450615?w=800&q=80", description: "Pioneer of luxury safari with five distinct camps and legendary leopard sightings." },
-      { name: "andBeyond Phinda Private Game Reserve", image: "https://images.unsplash.com/photo-1535941339077-2dd1c7963098?w=800&q=80", description: "Seven ecosystems, six lodges, and pioneering community conservation programs." },
-      { name: "Ellerman House", image: londonLuxury, description: "Cape Town's most exclusive boutique hotel with art collection and panoramic ocean views." },
-      { name: "The Silo Hotel", image: londonLuxury, description: "Architectural marvel atop Zeitz MOCAA with pillowed windows and V&A Waterfront views." },
-      { name: "One&Only Cape Town", image: oneOnlyMauritius, description: "V&A Waterfront luxury with island spa, Nobu restaurant, and Table Mountain backdrop." },
-      { name: "Saxon Hotel, Villas and Spa", image: londonLuxury, description: "Johannesburg's most exclusive hotel where Nelson Mandela completed his autobiography." },
+      { name: "Singita Sabi Sand", image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&q=80", description: "Legendary private game reserve with world-class lodges, exceptional Big Five sightings, and conservation leadership.", isTopLuxury: true, isHoneymoon: true },
+      { name: "Royal Malewane", image: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&q=80", description: "Colonial elegance in Greater Kruger with Africa House spa and exclusive bush experiences.", isHoneymoon: true },
+      { name: "Londolozi Private Game Reserve", image: "https://images.unsplash.com/photo-1549366021-9f761d450615?w=800&q=80", description: "Pioneer of luxury safari with five distinct camps and legendary leopard sightings.", isHoneymoon: true },
+      { name: "andBeyond Phinda Private Game Reserve", image: "https://images.unsplash.com/photo-1535941339077-2dd1c7963098?w=800&q=80", description: "Seven ecosystems, six lodges, and pioneering community conservation programs.", isHoneymoon: true },
+      { name: "Ellerman House", image: londonLuxury, description: "Cape Town's most exclusive boutique hotel with art collection and panoramic ocean views.", isTopLuxury: true, isHoneymoon: true },
+      { name: "The Silo Hotel", image: londonLuxury, description: "Architectural marvel atop Zeitz MOCAA with pillowed windows and V&A Waterfront views.", isHoneymoon: true },
+      { name: "One&Only Cape Town", image: oneOnlyMauritius, description: "V&A Waterfront luxury with island spa, Nobu restaurant, and Table Mountain backdrop.", isHoneymoon: true },
+      { name: "Saxon Hotel, Villas and Spa", image: londonLuxury, description: "Johannesburg's most exclusive hotel where Nelson Mandela completed his autobiography.", isHoneymoon: true },
     ]
   },
   {
     name: "Luxury Cruises",
     icon: <Ship className="w-6 h-6" />,
     hotels: [
-      { name: "Regent Seven Seas Cruises", image: cruiseHero, description: "The most inclusive luxury cruise experience with all-suite ships and world-class cuisine." },
-      { name: "Silversea Cruises", image: cruiseHero, description: "Italian elegance at sea with intimate ships, butler service, and expedition voyages." },
-      { name: "Seabourn Cruise Line", image: cruiseHero, description: "Ultra-luxury intimate ships with award-winning cuisine and destination immersion." },
-      { name: "Crystal Cruises", image: cruiseHero, description: "Legendary luxury cruise line known for spacious suites and exceptional service." },
-      { name: "Oceania Cruises", image: cruiseHero, description: "Finest cuisine at sea with destination-focused itineraries and intimate ship atmosphere." },
-      { name: "Viking Ocean Cruises", image: cruiseHero, description: "Scandinavian elegance with cultural enrichment and destination-focused voyages." },
-      { name: "The Ritz-Carlton Yacht Collection", image: cruiseHero, description: "Legendary Ritz-Carlton service at sea with bespoke itineraries and personalized experiences." },
-      { name: "Explora Journeys", image: cruiseHero, description: "MSC's ultra-luxury brand offering European sophistication and ocean-state-of-mind philosophy." },
+      { name: "Regent Seven Seas Cruises", image: cruiseHero, description: "The most inclusive luxury cruise experience with all-suite ships and world-class cuisine.", isHoneymoon: true },
+      { name: "Silversea Cruises", image: cruiseHero, description: "Italian elegance at sea with intimate ships, butler service, and expedition voyages.", isHoneymoon: true },
+      { name: "Seabourn Cruise Line", image: cruiseHero, description: "Ultra-luxury intimate ships with award-winning cuisine and destination immersion.", isHoneymoon: true },
+      { name: "Crystal Cruises", image: cruiseHero, description: "Legendary luxury cruise line known for spacious suites and exceptional service.", isHoneymoon: true },
+      { name: "Oceania Cruises", image: cruiseHero, description: "Finest cuisine at sea with destination-focused itineraries and intimate ship atmosphere.", isHoneymoon: true },
+      { name: "Viking Ocean Cruises", image: cruiseHero, description: "Scandinavian elegance with cultural enrichment and destination-focused voyages.", isHoneymoon: true },
+      { name: "The Ritz-Carlton Yacht Collection", image: cruiseHero, description: "Legendary Ritz-Carlton service at sea with bespoke itineraries and personalized experiences.", isTopLuxury: true, isHoneymoon: true },
+      { name: "Explora Journeys", image: cruiseHero, description: "MSC's ultra-luxury brand offering European sophistication and ocean-state-of-mind philosophy.", isHoneymoon: true },
     ]
   }
 ];
@@ -214,6 +294,23 @@ const specialOccasions = [
   "Romantic Getaway",
   "Business Trip",
   "Other"
+];
+
+const filterOptions: { id: FilterCategory; label: string; icon: React.ReactNode; color: string }[] = [
+  { id: "all", label: "All Resorts", icon: <Palmtree className="w-4 h-4" />, color: "bg-[#1e3a5f]" },
+  { id: "adult-only", label: "Adults Only", icon: <Heart className="w-4 h-4" />, color: "bg-pink-500" },
+  { id: "all-inclusive", label: "All-Inclusive", icon: <Sparkles className="w-4 h-4" />, color: "bg-emerald-500" },
+  { id: "honeymoon", label: "Honeymoon", icon: <Heart className="w-4 h-4" />, color: "bg-rose-500" },
+  { id: "nora-picks", label: "Nora's Picks", icon: <Star className="w-4 h-4" />, color: "bg-amber-500" },
+  { id: "top-luxury", label: "Top Luxury", icon: <Crown className="w-4 h-4" />, color: "bg-purple-600" },
+  { id: "upcoming", label: "New & Upcoming", icon: <Clock className="w-4 h-4" />, color: "bg-blue-500" },
+];
+
+const transferOptions: { id: TransferType | "all"; label: string; icon: React.ReactNode }[] = [
+  { id: "all", label: "All Transfers", icon: <Filter className="w-4 h-4" /> },
+  { id: "seaplane", label: "Seaplane", icon: <Plane className="w-4 h-4" /> },
+  { id: "speedboat", label: "Speedboat", icon: <Anchor className="w-4 h-4" /> },
+  { id: "domestic", label: "Domestic Flight", icon: <Car className="w-4 h-4" /> },
 ];
 
 interface QuoteFormData {
@@ -279,6 +376,47 @@ Sent via Resorts Offers
           className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+        
+        {/* Badges */}
+        <div className="absolute top-3 left-3 flex flex-wrap gap-2">
+          {hotel.isUpcoming && (
+            <Badge className="bg-blue-500 text-white text-xs">
+              <Clock className="w-3 h-3 mr-1" />
+              {hotel.openingYear}
+            </Badge>
+          )}
+          {hotel.isAdultOnly && (
+            <Badge className="bg-pink-500 text-white text-xs">Adults Only</Badge>
+          )}
+          {hotel.isAllInclusive && (
+            <Badge className="bg-emerald-500 text-white text-xs">All-Inclusive</Badge>
+          )}
+          {hotel.isNoraPick && (
+            <Badge className="bg-amber-500 text-white text-xs">
+              <Star className="w-3 h-3 mr-1" />
+              Nora's Pick
+            </Badge>
+          )}
+          {hotel.isTopLuxury && (
+            <Badge className="bg-purple-600 text-white text-xs">
+              <Crown className="w-3 h-3 mr-1" />
+              Top Luxury
+            </Badge>
+          )}
+        </div>
+        
+        {/* Transfer Type Badge */}
+        {hotel.transfer && (
+          <div className="absolute top-3 right-3">
+            <Badge className="bg-white/90 text-[#1e3a5f] text-xs">
+              {hotel.transfer === "seaplane" && <Plane className="w-3 h-3 mr-1" />}
+              {hotel.transfer === "speedboat" && <Anchor className="w-3 h-3 mr-1" />}
+              {hotel.transfer === "domestic" && <Car className="w-3 h-3 mr-1" />}
+              {hotel.transfer === "seaplane" ? "Seaplane" : hotel.transfer === "speedboat" ? "Speedboat" : "Domestic"}
+            </Badge>
+          </div>
+        )}
+        
         <div className="absolute bottom-0 left-0 right-0 p-6">
           <div className="flex items-center gap-1 mb-2">
             {[...Array(5)].map((_, i) => (
@@ -407,6 +545,43 @@ Sent via Resorts Offers
 };
 
 const PartnerHotels = () => {
+  const [activeFilter, setActiveFilter] = useState<FilterCategory>("all");
+  const [activeTransfer, setActiveTransfer] = useState<TransferType | "all">("all");
+  const [searchQuery, setSearchQuery] = useState("");
+
+  // Filter destinations and hotels
+  const filteredDestinations = useMemo(() => {
+    return destinations.map(destination => {
+      const filteredHotels = destination.hotels.filter(hotel => {
+        // Search filter
+        const matchesSearch = searchQuery === "" || 
+          hotel.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          hotel.description.toLowerCase().includes(searchQuery.toLowerCase());
+        
+        // Category filter
+        let matchesCategory = true;
+        if (activeFilter === "adult-only") matchesCategory = hotel.isAdultOnly === true;
+        else if (activeFilter === "all-inclusive") matchesCategory = hotel.isAllInclusive === true;
+        else if (activeFilter === "honeymoon") matchesCategory = hotel.isHoneymoon === true;
+        else if (activeFilter === "nora-picks") matchesCategory = hotel.isNoraPick === true;
+        else if (activeFilter === "top-luxury") matchesCategory = hotel.isTopLuxury === true;
+        else if (activeFilter === "upcoming") matchesCategory = hotel.isUpcoming === true;
+        
+        // Transfer filter (only applies to Maldives)
+        let matchesTransfer = true;
+        if (activeTransfer !== "all" && destination.name === "Maldives") {
+          matchesTransfer = hotel.transfer === activeTransfer;
+        }
+        
+        return matchesSearch && matchesCategory && matchesTransfer;
+      });
+      
+      return { ...destination, hotels: filteredHotels };
+    }).filter(destination => destination.hotels.length > 0);
+  }, [activeFilter, activeTransfer, searchQuery]);
+
+  const totalHotels = filteredDestinations.reduce((acc, d) => acc + d.hotels.length, 0);
+
   return (
     <>
       <Helmet>
@@ -435,41 +610,129 @@ const PartnerHotels = () => {
           </div>
         </section>
 
+        {/* Filters Section */}
+        <section className="sticky top-0 z-30 bg-white shadow-md border-b border-gray-100">
+          <div className="max-w-7xl mx-auto px-4 py-4">
+            {/* Search Bar */}
+            <div className="mb-4">
+              <div className="relative max-w-md mx-auto">
+                <Input
+                  type="text"
+                  placeholder="Search hotels..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="pl-10 pr-10"
+                />
+                <Filter className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery("")}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {/* Category Filters */}
+            <div className="flex flex-wrap justify-center gap-2 mb-4">
+              {filterOptions.map((filter) => (
+                <button
+                  key={filter.id}
+                  onClick={() => setActiveFilter(filter.id)}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                    activeFilter === filter.id
+                      ? `${filter.color} text-white shadow-lg scale-105`
+                      : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                  }`}
+                >
+                  {filter.icon}
+                  {filter.label}
+                </button>
+              ))}
+            </div>
+
+            {/* Transfer Mode Filters (Maldives Only) */}
+            <div className="flex flex-wrap justify-center gap-2">
+              <span className="text-sm text-gray-500 mr-2 flex items-center">Transfer Mode:</span>
+              {transferOptions.map((transfer) => (
+                <button
+                  key={transfer.id}
+                  onClick={() => setActiveTransfer(transfer.id)}
+                  className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                    activeTransfer === transfer.id
+                      ? "bg-[#1e3a5f] text-white"
+                      : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                  }`}
+                >
+                  {transfer.icon}
+                  {transfer.label}
+                </button>
+              ))}
+            </div>
+
+            {/* Results Count */}
+            <div className="text-center mt-3 text-sm text-gray-500">
+              Showing {totalHotels} properties
+            </div>
+          </div>
+        </section>
+
         {/* Destination Sections */}
         <div className="max-w-7xl mx-auto px-4 py-16">
-          {destinations.map((destination, index) => (
-            <section key={destination.name} className="mb-20">
-              {/* Destination Header */}
-              <div className="flex items-center gap-4 mb-10">
-                <div className="w-14 h-14 rounded-full bg-[#1e3a5f] flex items-center justify-center text-white">
-                  {destination.icon}
-                </div>
-                <div>
-                  <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1e3a5f]">
-                    {destination.name}
-                  </h2>
-                  <div className="flex items-center gap-2 text-gray-500 mt-1">
-                    <MapPin className="w-4 h-4" />
-                    <span>{destination.hotels.length} Luxury Properties</span>
+          {filteredDestinations.length === 0 ? (
+            <div className="text-center py-20">
+              <Palmtree className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+              <h3 className="text-xl font-semibold text-gray-500">No hotels found</h3>
+              <p className="text-gray-400 mt-2">Try adjusting your filters or search query</p>
+              <Button
+                onClick={() => {
+                  setActiveFilter("all");
+                  setActiveTransfer("all");
+                  setSearchQuery("");
+                }}
+                className="mt-4"
+                variant="outline"
+              >
+                Clear Filters
+              </Button>
+            </div>
+          ) : (
+            filteredDestinations.map((destination, index) => (
+              <section key={destination.name} className="mb-20">
+                {/* Destination Header */}
+                <div className="flex items-center gap-4 mb-10">
+                  <div className="w-14 h-14 rounded-full bg-[#1e3a5f] flex items-center justify-center text-white">
+                    {destination.icon}
+                  </div>
+                  <div>
+                    <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1e3a5f]">
+                      {destination.name}
+                    </h2>
+                    <div className="flex items-center gap-2 text-gray-500 mt-1">
+                      <MapPin className="w-4 h-4" />
+                      <span>{destination.hotels.length} Luxury Properties</span>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Hotels Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {destination.hotels.map((hotel) => (
-                  <HotelCard key={hotel.name} hotel={hotel} destination={destination.name} />
-                ))}
-              </div>
-
-              {/* Divider */}
-              {index < destinations.length - 1 && (
-                <div className="mt-16 flex items-center justify-center">
-                  <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#1e3a5f]/30 to-transparent rounded-full" />
+                {/* Hotels Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {destination.hotels.map((hotel) => (
+                    <HotelCard key={hotel.name} hotel={hotel} destination={destination.name} />
+                  ))}
                 </div>
-              )}
-            </section>
-          ))}
+
+                {/* Divider */}
+                {index < filteredDestinations.length - 1 && (
+                  <div className="mt-16 flex items-center justify-center">
+                    <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#1e3a5f]/30 to-transparent rounded-full" />
+                  </div>
+                )}
+              </section>
+            ))
+          )}
         </div>
 
         <Footer />

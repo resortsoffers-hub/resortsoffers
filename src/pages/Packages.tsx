@@ -27,7 +27,8 @@ import {
   ExternalLink,
   Flower2,
   Gamepad2,
-  Sailboat
+  Sailboat,
+  QrCode
 } from "lucide-react";
 
 // Cocoon Resort Images
@@ -201,6 +202,18 @@ const Packages = () => {
                     <MessageCircle className="w-5 h-5 mr-2" />
                     Book Now via WhatsApp
                   </Button>
+                </a>
+                
+                {/* Bio Link Barcode */}
+                <a 
+                  href="https://resortsoffers.bio.link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 flex items-center justify-center gap-3 p-3 rounded-xl bg-rose-50 hover:bg-rose-100 transition-colors border border-rose-200"
+                >
+                  <QrCode className="w-5 h-5 text-rose-600" />
+                  <span className="text-sm font-medium text-[#1e3a5f]">View Resort PDFs & Resources</span>
+                  <ExternalLink className="w-4 h-4 text-rose-400" />
                 </a>
               </div>
             </div>
@@ -448,6 +461,18 @@ const Packages = () => {
                     </Button>
                   </a>
                 </div>
+                
+                {/* Bio Link Barcode */}
+                <a 
+                  href="https://resortsoffers.bio.link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 flex items-center justify-center gap-3 p-3 rounded-xl bg-teal-50 hover:bg-teal-100 transition-colors border border-teal-200"
+                >
+                  <QrCode className="w-5 h-5 text-teal-600" />
+                  <span className="text-sm font-medium text-[#1e3a5f]">View Resort PDFs & Resources</span>
+                  <ExternalLink className="w-4 h-4 text-teal-400" />
+                </a>
               </div>
             </div>
           </div>
@@ -556,6 +581,18 @@ const Packages = () => {
                     <MessageCircle className="w-5 h-5 mr-2" />
                     Book Now via WhatsApp
                   </Button>
+                </a>
+                
+                {/* Bio Link Barcode */}
+                <a 
+                  href="https://resortsoffers.bio.link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 flex items-center justify-center gap-3 p-3 rounded-xl bg-amber-50 hover:bg-amber-100 transition-colors border border-amber-200"
+                >
+                  <QrCode className="w-5 h-5 text-amber-600" />
+                  <span className="text-sm font-medium text-[#1e3a5f]">View Resort PDFs & Resources</span>
+                  <ExternalLink className="w-4 h-4 text-amber-400" />
                 </a>
               </div>
             </div>
@@ -689,6 +726,18 @@ const Packages = () => {
                     <MessageCircle className="w-5 h-5 mr-2" />
                     Book Now via WhatsApp
                   </Button>
+                </a>
+                
+                {/* Bio Link Barcode */}
+                <a 
+                  href="https://resortsoffers.bio.link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 flex items-center justify-center gap-3 p-3 rounded-xl bg-[#1e3a5f]/5 hover:bg-[#1e3a5f]/10 transition-colors border border-[#1e3a5f]/20"
+                >
+                  <QrCode className="w-5 h-5 text-[#1e3a5f]" />
+                  <span className="text-sm font-medium text-[#1e3a5f]">View Resort PDFs & Resources</span>
+                  <ExternalLink className="w-4 h-4 text-[#1e3a5f]/40" />
                 </a>
               </div>
             </div>

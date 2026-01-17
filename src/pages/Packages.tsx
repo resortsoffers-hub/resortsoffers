@@ -40,6 +40,7 @@ import cocoonSuite from "@/assets/resorts/you-and-me-cocoon-suite.jpg";
 import furaveriHero from "@/assets/resorts/furaveri-aerial-hero.png";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PhotoGallery from "@/components/PhotoGallery";
 
 const Packages = () => {
   const whatsappNumber = "971567622484";
@@ -222,51 +223,16 @@ const Packages = () => {
             <div className="space-y-6">
               <h3 className="text-xl font-serif font-bold text-[#1e3a5f] mb-4">Resort Gallery</h3>
               
-              {/* Main Resort Image */}
-              <div className="rounded-2xl overflow-hidden shadow-lg">
-                <img 
-                  src={cocoonAerial} 
-                  alt="You & Me by Cocoon Maldives - Aerial View"
-                  className="w-full h-[350px] object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-
-              {/* Image Grid */}
-              <div className="grid grid-cols-2 gap-4">
-                <div className="rounded-xl overflow-hidden shadow-lg">
-                  <img 
-                    src={cocoonVillaPool} 
-                    alt="Dolphin Villa with Pool"
-                    className="w-full h-[200px] object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="bg-white p-3">
-                    <p className="text-sm font-medium text-[#1e3a5f]">Dolphin Villa with Pool</p>
-                  </div>
-                </div>
-                <div className="rounded-xl overflow-hidden shadow-lg">
-                  <img 
-                    src={cocoonAquaSuite} 
-                    alt="Aqua Suite with Pool"
-                    className="w-full h-[200px] object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="bg-white p-3">
-                    <p className="text-sm font-medium text-[#1e3a5f]">Aqua Suite with Pool</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* You & Me Suite */}
-              <div className="rounded-2xl overflow-hidden shadow-lg">
-                <img 
-                  src={cocoonSuite} 
-                  alt="You & Me Suite - Luxury Overwater Villa"
-                  className="w-full h-[280px] object-cover hover:scale-105 transition-transform duration-500"
-                />
-                <div className="bg-white p-4">
-                  <p className="font-medium text-[#1e3a5f]">You & Me Suite</p>
-                  <p className="text-sm text-[#1e3a5f]/70">280sqm | Private Pool | Cinema | Gym</p>
-                </div>
-              </div>
+              {/* PhotoGallery with Lightbox */}
+              <PhotoGallery
+                images={[
+                  { src: cocoonAerial, alt: "You & Me by Cocoon Maldives - Aerial View", title: "Aerial View" },
+                  { src: cocoonVillaPool, alt: "Dolphin Villa with Pool", title: "Dolphin Villa with Pool" },
+                  { src: cocoonAquaSuite, alt: "Aqua Suite with Pool", title: "Aqua Suite with Pool" },
+                  { src: cocoonSuite, alt: "You & Me Suite - Luxury Overwater Villa", title: "You & Me Suite", description: "280sqm | Private Pool | Cinema | Gym" }
+                ]}
+                columns={2}
+              />
 
               {/* Google Drive Link */}
               <a 
@@ -601,41 +567,15 @@ const Packages = () => {
             <div className="space-y-6">
               <h3 className="text-xl font-serif font-bold text-[#1e3a5f] mb-4">Villa Gallery</h3>
               
-              {/* Water Pool Villa */}
-              <div className="rounded-2xl overflow-hidden shadow-lg">
-                <img 
-                  src="https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=800&q=80" 
-                  alt="Madifushi - Water Pool Villa"
-                  className="w-full h-[280px] object-cover hover:scale-105 transition-transform duration-500"
-                />
-                <div className="bg-white p-3">
-                  <p className="text-sm font-medium text-[#1e3a5f]">Water Pool Villa</p>
-                </div>
-              </div>
-
-              {/* Grid Gallery */}
-              <div className="grid grid-cols-2 gap-4">
-                <div className="rounded-xl overflow-hidden shadow-lg">
-                  <img 
-                    src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=400&q=80" 
-                    alt="Beach Pool Villa"
-                    className="w-full h-[180px] object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="bg-white p-2">
-                    <p className="text-xs font-medium text-[#1e3a5f]">Beach Pool Villa</p>
-                  </div>
-                </div>
-                <div className="rounded-xl overflow-hidden shadow-lg">
-                  <img 
-                    src="https://images.unsplash.com/photo-1540202404-a2f29016b523?w=400&q=80" 
-                    alt="Two Bedroom Water Pool Villa"
-                    className="w-full h-[180px] object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="bg-white p-2">
-                    <p className="text-xs font-medium text-[#1e3a5f]">Water Pool Villa</p>
-                  </div>
-                </div>
-              </div>
+              {/* PhotoGallery with Lightbox */}
+              <PhotoGallery
+                images={[
+                  { src: "https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=800&q=80", alt: "Madifushi - Water Pool Villa", title: "Water Pool Villa" },
+                  { src: "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=400&q=80", alt: "Beach Pool Villa", title: "Beach Pool Villa" },
+                  { src: "https://images.unsplash.com/photo-1540202404-a2f29016b523?w=400&q=80", alt: "Two Bedroom Water Pool Villa", title: "Water Pool Villa" }
+                ]}
+                columns={2}
+              />
 
               {/* Resort Highlights */}
               <div className="bg-white rounded-2xl shadow-lg p-6 border border-amber-200">
@@ -740,53 +680,16 @@ const Packages = () => {
             <div className="space-y-6">
               <h3 className="text-xl font-serif font-bold text-[#1e3a5f] mb-4">Resort Gallery</h3>
               
-              {/* Main Image */}
-              <div className="rounded-2xl overflow-hidden shadow-lg">
-                <img 
-                  src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&q=80" 
-                  alt="Westin Maldives - Water Pool Villa"
-                  className="w-full h-[280px] object-cover hover:scale-105 transition-transform duration-500"
-                />
-                <div className="bg-white p-3">
-                  <p className="text-sm font-medium text-[#1e3a5f]">Heavenly Water Pool Villa</p>
-                </div>
-              </div>
-
-              {/* Grid Gallery */}
-              <div className="grid grid-cols-2 gap-4">
-                <div className="rounded-xl overflow-hidden shadow-lg">
-                  <img 
-                    src="https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=400&q=80" 
-                    alt="Westin Villa Interior"
-                    className="w-full h-[180px] object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="bg-white p-2">
-                    <p className="text-xs font-medium text-[#1e3a5f]">Villa Interior</p>
-                  </div>
-                </div>
-                <div className="rounded-xl overflow-hidden shadow-lg">
-                  <img 
-                    src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&q=80" 
-                    alt="Ocean View"
-                    className="w-full h-[180px] object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="bg-white p-2">
-                    <p className="text-xs font-medium text-[#1e3a5f]">Ocean View</p>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Bottom Image */}
-              <div className="rounded-2xl overflow-hidden shadow-lg">
-                <img 
-                  src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80" 
-                  alt="Westin Maldives Resort"
-                  className="w-full h-[200px] object-cover hover:scale-105 transition-transform duration-500"
-                />
-                <div className="bg-white p-3">
-                  <p className="text-sm font-medium text-[#1e3a5f]">Resort Aerial View</p>
-                </div>
-              </div>
+              {/* PhotoGallery with Lightbox */}
+              <PhotoGallery
+                images={[
+                  { src: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&q=80", alt: "Westin Maldives - Water Pool Villa", title: "Heavenly Water Pool Villa" },
+                  { src: "https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=400&q=80", alt: "Westin Villa Interior", title: "Villa Interior" },
+                  { src: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&q=80", alt: "Ocean View", title: "Ocean View" },
+                  { src: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80", alt: "Westin Maldives Resort", title: "Resort Aerial View" }
+                ]}
+                columns={2}
+              />
             </div>
           </div>
         </div>

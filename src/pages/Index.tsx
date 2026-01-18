@@ -290,25 +290,6 @@ const featuredOffers: Offer[] = [
         <HeroCarousel slides={heroSlides} />
       </section>
 
-      {/* Trust Badges */}
-      <section className="py-10 mt-8">
-        <div className="container-custom">
-          <div className="flex flex-wrap justify-center md:justify-between items-center gap-6 md:gap-4">
-            {trustBadges.map((badge, index) => {
-              const Icon = badge.icon;
-              return (
-                <div key={index} className="flex items-center gap-3">
-                  <Icon className="w-10 h-10 text-[#00A4E4]" strokeWidth={1.5} />
-                  <div>
-                    <p className="font-semibold text-xs text-gray-800 uppercase tracking-wide">{badge.title}</p>
-                    <p className="font-semibold text-xs text-gray-800 uppercase tracking-wide">{badge.subtitle}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
 
       {/* Switch off section */}
       <section className="py-16">

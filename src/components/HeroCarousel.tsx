@@ -34,7 +34,7 @@ const HeroCarousel = ({ slides }: HeroCarouselProps) => {
   };
 
   return (
-    <div className="relative h-[500px] md:h-[560px] overflow-hidden">
+    <div className="relative h-[85vh] md:h-[560px] overflow-hidden">
       {slides.map((slide, index) => {
         const isActive = index === currentSlide;
         return (

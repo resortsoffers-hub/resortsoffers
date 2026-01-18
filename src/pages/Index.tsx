@@ -7,7 +7,6 @@ import { MapPin, Star, MessageCircle, ArrowRight, CreditCard, Calendar, Plane, U
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HeroCarousel from "@/components/HeroCarousel";
-import BookingTabs from "@/components/BookingTabs";
 import OfferDetailModal from "@/components/OfferDetailModal";
 import { supabase } from "@/integrations/supabase/client";
 import maldivesWaldorf from "@/assets/maldives-waldorf.jpg";
@@ -289,9 +288,6 @@ const featuredOffers: Offer[] = [
       {/* Hero Carousel */}
       <section className="mt-14">
         <HeroCarousel slides={heroSlides} />
-        <div className="container-custom -mt-20 relative z-10">
-          <BookingTabs />
-        </div>
       </section>
 
       {/* Trust Badges */}

@@ -116,40 +116,24 @@ const Footer = () => {
         </div>
 
         {/* Payment Methods */}
-        <div className="border-t border-primary-foreground/20 mt-8 pt-6">
-          <div className="flex justify-center items-center gap-3 flex-wrap">
-            <span className="text-xs opacity-75 mr-2">Accepted Payments:</span>
-            {/* Tabby */}
-            <div className="bg-white px-3 py-1.5 rounded shadow-sm">
-              <svg width="40" height="16" viewBox="0 0 80 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <text x="2" y="22" fontFamily="Arial, sans-serif" fontSize="18" fontWeight="bold" fill="#3CDBC0">tabby</text>
-              </svg>
+        <div className="border-t border-primary-foreground/20 mt-8 pt-6 overflow-x-auto">
+          <div className="flex justify-center items-center gap-2 min-w-max">
+            <span className="text-[10px] opacity-75 whitespace-nowrap">Payments:</span>
+            <div className="bg-white px-2 py-1 rounded">
+              <span className="text-[#3CDBC0] font-bold text-[10px]">tabby</span>
             </div>
-            
-            {/* Visa */}
-            <div className="bg-white px-3 py-1.5 rounded shadow-sm">
-              <svg width="40" height="16" viewBox="0 0 70 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M28.3 8.2l-7.5 17h-5.2L11.8 11c-0.5-1.4-0.9-1.9-2.4-2.4-1.4-0.5-3.8-0.9-6.1-1.4l-0.1-0.5h10.4c1.4 0 2.4 0.9 2.8 2.4l2.4 12.3 6.1-14.7h5.7l0.1 0.5zM52.8 17.5c0-4.3-6.1-4.3-6.1-6.1 0-0.5 0.5-1.4 1.9-1.4 1.4 0 2.4 0.5 3.3 0.9l0.5-2.8c-0.9-0.5-2.4-0.9-3.8-0.9-5.2 0-9 2.8-9 6.6 0 2.8 2.8 4.3 4.7 5.2 1.9 0.9 2.8 1.4 2.8 2.4 0 1.4-1.4 1.9-2.8 1.9-2.4 0-3.8-0.5-5.2-1.4l-0.5 2.8c0.9 0.5 2.8 1.4 5.2 1.4 5.7 0 9.4-2.8 9.4-6.6h0.6zM63.6 25.2h4.7l-4.3-17h-4.3c-1.4 0-2.4 0.5-2.8 1.9l-7.5 15.1h5.7l0.9-2.8h6.6l0.9 2.8h0.1zM57.9 16.1l2.8-7.5 1.4 7.5h-4.2zM35.8 8.2l-4.3 17h-5.2l4.3-17h5.2z" fill="#1434CB"/>
-              </svg>
+            <div className="bg-white px-2 py-1 rounded">
+              <span className="text-[#1434CB] font-bold text-[10px]">VISA</span>
             </div>
-            
-            {/* Mastercard */}
-            <div className="bg-white px-3 py-1.5 rounded shadow-sm">
-              <svg width="28" height="16" viewBox="0 0 50 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="18" cy="16" r="12" fill="#EB001B"/>
-                <circle cx="32" cy="16" r="12" fill="#F79E1B"/>
-                <path d="M25 8c2.2 1.7 3.5 4.3 3.5 7s-1.3 5.3-3.5 7c-2.2-1.7-3.5-4.3-3.5-7s1.3-5.3 3.5-7z" fill="#FF5F00"/>
-              </svg>
+            <div className="bg-white px-2 py-1 rounded flex items-center gap-0.5">
+              <span className="w-2 h-2 rounded-full bg-[#EB001B]"></span>
+              <span className="w-2 h-2 rounded-full bg-[#F79E1B] -ml-1"></span>
             </div>
-            
-            {/* American Express */}
-            <div className="bg-[#006FCF] px-3 py-1.5 rounded shadow-sm">
+            <div className="bg-[#006FCF] px-2 py-1 rounded">
               <span className="text-white font-bold text-[10px]">AMEX</span>
             </div>
-            
-            {/* Bank Transfer */}
-            <div className="bg-emerald-600 px-3 py-1.5 rounded shadow-sm">
-              <span className="text-white font-semibold text-[10px]">Bank Transfer</span>
+            <div className="bg-emerald-600 px-2 py-1 rounded">
+              <span className="text-white font-bold text-[10px]">Bank</span>
             </div>
           </div>
         </div>

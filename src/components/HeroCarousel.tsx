@@ -35,35 +35,37 @@ const HeroCarousel = ({ slides }: HeroCarouselProps) => {
 
   return (
     <div className="relative h-[500px] md:h-[560px] overflow-hidden">
-      {slides.map((slide, index) => (
-        <div
-          key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ${
-            index === currentSlide ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          <img
-            src={slide.image}
-            alt={slide.title}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-l from-black/50 via-black/30 to-transparent" />
-          
-          {/* Text positioned on right side like dnata */}
-          <div className="absolute inset-0 flex items-center justify-end">
-            <div className="container-custom">
-              <div className="max-w-xl ml-auto text-right text-white pr-4 md:pr-12">
-                <h2 className="text-4xl md:text-6xl font-bold mb-4 leading-tight tracking-tight">
+      {slides.map((slide, index) => {
+        const isActive = index === currentSlide;
+        return (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              isActive ? "opacity-100 z-10" : "opacity-0 z-0"
+            }`}
+            style={{ visibility: isActive ? 'visible' : 'hidden' }}
+          >
+            <img
+              src={slide.image}
+              alt={slide.title}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
+            
+            {/* Text centered */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="text-center text-white px-4">
+                <h2 className="text-3xl md:text-5xl font-bold mb-3 leading-tight tracking-tight uppercase drop-shadow-lg">
                   {slide.title}
                 </h2>
-                <p className="text-lg md:text-xl mb-8 text-white/90">
+                <p className="text-base md:text-lg mb-6 text-white/90 drop-shadow-md">
                   {slide.subtitle}
                 </p>
                 <Button 
                   asChild 
                   size="lg" 
                   variant="outline"
-                  className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-gray-900 px-8 py-6 text-lg rounded-full"
+                  className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-gray-900 px-6 py-4 text-base rounded-full"
                 >
                   <a href={slide.buttonLink} target="_blank" rel="noopener noreferrer">
                     {slide.buttonText}
@@ -72,8 +74,8 @@ const HeroCarousel = ({ slides }: HeroCarouselProps) => {
               </div>
             </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
 
       {/* Navigation Buttons */}
       <button

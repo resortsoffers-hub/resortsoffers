@@ -633,63 +633,62 @@ const PartnerHotels = () => {
         {/* Filters Section */}
         <section className="sticky top-0 z-30 bg-white shadow-md border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-4 py-4">
-            {/* Search Bar */}
-            <div className="mb-4">
-              <div className="relative max-w-md mx-auto">
-                <Input
-                  type="text"
-                  placeholder="Search hotels..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 pr-10"
-                />
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-                {searchQuery && (
-                  <button
-                    onClick={() => setSearchQuery("")}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
-                  >
-                    <X className="w-4 h-4" />
-                  </button>
-                )}
+            {/* Search Bar with Integrated Filters */}
+            <div className="max-w-2xl mx-auto">
+              <div className="relative flex items-center gap-2">
+                <div className="relative flex-1">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                  <Input
+                    type="text"
+                    placeholder="Search hotels..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="pl-10 pr-10"
+                  />
+                  {searchQuery && (
+                    <button
+                      onClick={() => setSearchQuery("")}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                    >
+                      <X className="w-4 h-4" />
+                    </button>
+                  )}
+                </div>
+                
+                {/* Category Filter Dropdown */}
+                <Select value={activeFilter} onValueChange={(value) => setActiveFilter(value as FilterCategory)}>
+                  <SelectTrigger className="w-[160px]">
+                    <SelectValue placeholder="Category" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {filterOptions.map((filter) => (
+                      <SelectItem key={filter.id} value={filter.id}>
+                        <div className="flex items-center gap-2">
+                          {filter.icon}
+                          {filter.label}
+                        </div>
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+
+                {/* Transfer Mode Dropdown */}
+                <Select value={activeTransfer} onValueChange={(value) => setActiveTransfer(value as "all" | TransferType)}>
+                  <SelectTrigger className="w-[150px]">
+                    <SelectValue placeholder="Transfer" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {transferOptions.map((transfer) => (
+                      <SelectItem key={transfer.id} value={transfer.id}>
+                        <div className="flex items-center gap-2">
+                          {transfer.icon}
+                          {transfer.label}
+                        </div>
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
-            </div>
-
-            {/* Category Filters */}
-            <div className="flex flex-wrap justify-center gap-2 mb-4">
-              {filterOptions.map((filter) => (
-                <button
-                  key={filter.id}
-                  onClick={() => setActiveFilter(filter.id)}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                    activeFilter === filter.id
-                      ? `${filter.color} text-white shadow-lg scale-105`
-                      : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                  }`}
-                >
-                  {filter.icon}
-                  {filter.label}
-                </button>
-              ))}
-            </div>
-
-            {/* Transfer Mode Filters (Maldives Only) */}
-            <div className="flex flex-wrap justify-center gap-2">
-              <span className="text-sm text-gray-500 mr-2 flex items-center">Transfer Mode:</span>
-              {transferOptions.map((transfer) => (
-                <button
-                  key={transfer.id}
-                  onClick={() => setActiveTransfer(transfer.id)}
-                  className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
-                    activeTransfer === transfer.id
-                      ? "bg-[#1e3a5f] text-white"
-                      : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                  }`}
-                >
-                  {transfer.icon}
-                  {transfer.label}
-                </button>
-              ))}
             </div>
 
             {/* Results Count */}

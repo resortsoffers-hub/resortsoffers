@@ -20,6 +20,12 @@ import mauritiusHero from "@/assets/destinations/mauritius-hero.jpg";
 import seychellesHero from "@/assets/destinations/seychelles-hero.jpg";
 import sonevaMaldives from "@/assets/resorts/soneva-fushi.jpg";
 import waterVillasAerial from "@/assets/resorts/water-villas-aerial.jpg";
+import greeceHero from "@/assets/destinations/greece-santorini.jpg";
+import turkeyHero from "@/assets/resorts/turkey-resort.jpg";
+import baliHero from "@/assets/resorts/bali-clifftop-resort.jpg";
+import moroccoHero from "@/assets/destinations/morocco-hero.jpg";
+import thailandHero from "@/assets/resorts/malaysia-beach.jpg";
+import indonesiaHero from "@/assets/resorts/luxury-infinity-pool.jpg";
 
 interface Offer {
   title: string;
@@ -100,10 +106,16 @@ const Index = () => {
   ];
 
   const holidayRecommendations = [
-    { name: "Maldives", image: maldivesVillaPool, tagline: "Paradise on Earth" },
-    { name: "Dubai", image: dubaiLuxury, tagline: "City of Dreams" },
-    { name: "Seychelles", image: seychellesHero, tagline: "Untouched Beauty" },
-    { name: "Mauritius", image: mauritiusHero, tagline: "Island Paradise" }
+    { name: "Maldives", image: maldivesVillaPool },
+    { name: "Dubai", image: dubaiLuxury },
+    { name: "Seychelles", image: seychellesHero },
+    { name: "Mauritius", image: mauritiusHero },
+    { name: "Greece", image: greeceHero },
+    { name: "Turkey", image: turkeyHero },
+    { name: "Bali", image: baliHero },
+    { name: "Morocco", image: moroccoHero },
+    { name: "Thailand", image: thailandHero },
+    { name: "Indonesia", image: indonesiaHero }
   ];
 
 
@@ -208,7 +220,7 @@ const featuredOffers: Offer[] = [
             <p className="text-lg text-gray-600">Explore our handpicked destinations with exclusive deals</p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 gap-4">
             {holidayRecommendations.map((dest, index) => (
               <a
                 key={index}
@@ -217,18 +229,18 @@ const featuredOffers: Offer[] = [
                 rel="noopener noreferrer"
                 className="group cursor-pointer"
               >
-                <div className="relative h-56 md:h-72 rounded-lg overflow-hidden">
+                <div className="relative h-44 md:h-56 rounded-xl overflow-hidden shadow-md">
                   <img 
                     src={dest.image} 
                     alt={dest.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-4 text-white">
-                    <h3 className="text-xl font-bold">{dest.name}</h3>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <div className="absolute bottom-3 left-3 text-white">
+                    <h3 className="text-lg md:text-xl font-bold italic">{dest.name}</h3>
                   </div>
                 </div>
-                <div className="mt-3 flex items-center text-[#00A4E4] font-medium text-sm group-hover:underline">
+                <div className="mt-2 flex items-center text-[#00A4E4] font-medium text-sm group-hover:underline">
                   View deals <ArrowRight className="w-4 h-4 ml-1" />
                 </div>
               </a>

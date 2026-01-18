@@ -42,6 +42,23 @@ import siyamWorld from "@/assets/resorts/siyam-world.jpg";
 import luxBelleMare from "@/assets/resorts/lux-belle-mare.jpg";
 import fairmont from "@/assets/resorts/fairmont-maldives.jpg";
 import niyama from "@/assets/resorts/niyama-maldives.jpg";
+
+// Seychelles Images
+import rafflesSeychelles from "@/assets/resorts/raffles-seychelles.jpg";
+import fourSeasonsSeychelles from "@/assets/resorts/four-seasons-seychelles.jpg";
+import sixSensesSeychelles from "@/assets/resorts/six-senses-seychelles.jpg";
+import constanceEphelia from "@/assets/resorts/constance-ephelia.jpg";
+import northIslandSeychelles from "@/assets/resorts/north-island-seychelles.jpg";
+import kempinskiSeychelles from "@/assets/resorts/kempinski-seychelles.jpg";
+import anantaraMaiaSeychelles from "@/assets/resorts/anantara-maia-seychelles.jpg";
+
+// Mauritius Images
+import constancePrinceMaurice from "@/assets/resorts/constance-prince-maurice.jpg";
+import fourSeasonsMauritius from "@/assets/resorts/four-seasons-mauritius.jpg";
+import stRegisMauritius from "@/assets/resorts/st-regis-mauritius.jpg";
+import shangriLaMauritius from "@/assets/resorts/shangri-la-mauritius.jpg";
+import oneandOnlyMauritius from "@/assets/resorts/oneandonly-mauritius.jpg";
+import oberoiMauritius from "@/assets/resorts/oberoi-mauritius.jpg";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -397,11 +414,382 @@ const packagesData: PackageData[] = [
     transferType: "Seaplane",
     whatsappMessage: "Hi! I'm interested in the Madifushi Private Island Water Pool Villa package for 3 nights at $4,600 for 2 people. Please send availability.",
     validUntil: "30 April 2025"
+  },
+
+  // ============ SEYCHELLES PACKAGES ============
+  // Raffles Seychelles
+  {
+    id: "raffles-seychelles",
+    image: rafflesSeychelles,
+    hotelName: "Raffles Seychelles",
+    location: "Praslin Island",
+    destination: "Seychelles",
+    stars: 5,
+    amenityIcons: [
+      { icon: Anchor, label: "Private Beach" },
+      { icon: Sparkles, label: "Spa" },
+      { icon: UtensilsCrossed, label: "Fine Dining" },
+      { icon: Glasses, label: "Snorkeling" }
+    ],
+    description: "Iconic hillside villas with private pools overlooking Anse Takamaka. Butler service and award-winning Raffles Spa experience.",
+    inclusions: [
+      "Hillside Pool Villa",
+      "Half Board dining",
+      "Return airport transfers",
+      "Daily minibar"
+    ],
+    nights: 4,
+    price: "$5,200",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in Raffles Seychelles for 4 nights at $5,200 for 2 people. Please send availability.",
+    validUntil: "30 April 2025"
+  },
+  // Four Seasons Seychelles
+  {
+    id: "four-seasons-seychelles",
+    image: fourSeasonsSeychelles,
+    hotelName: "Four Seasons Resort Seychelles",
+    location: "Mahé Island",
+    destination: "Seychelles",
+    stars: 5,
+    amenityIcons: [
+      { icon: Sparkles, label: "Spa" },
+      { icon: Waves, label: "Water Sports" },
+      { icon: Users, label: "Family" },
+      { icon: Glasses, label: "Diving" }
+    ],
+    description: "Tree-house inspired villas set in the hillside jungle above Petite Anse. Exceptional diving and nature experiences.",
+    inclusions: [
+      "Ocean View Villa",
+      "Half Board meals",
+      "Return airport transfers",
+      "Complimentary snorkeling gear"
+    ],
+    nights: 4,
+    price: "$6,100",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in Four Seasons Seychelles for 4 nights at $6,100 for 2 people. Please send availability.",
+    validUntil: "30 April 2025"
+  },
+  // Six Senses Zil Pasyon
+  {
+    id: "six-senses-seychelles",
+    image: sixSensesSeychelles,
+    hotelName: "Six Senses Zil Pasyon",
+    location: "Félicité Island",
+    destination: "Seychelles",
+    stars: 5,
+    amenityIcons: [
+      { icon: Anchor, label: "Private Island" },
+      { icon: Sparkles, label: "Wellness" },
+      { icon: Waves, label: "Water Sports" },
+      { icon: UtensilsCrossed, label: "Organic Dining" }
+    ],
+    description: "Ultra-private island sanctuary with world-class wellness, organic cuisine, and sustainable luxury in pristine nature.",
+    inclusions: [
+      "Hideaway Pool Villa",
+      "Half Board organic meals",
+      "Return helicopter/boat transfers",
+      "Wellness consultation"
+    ],
+    nights: 3,
+    price: "$7,800",
+    priceNote: "for 2 people",
+    transferType: "Helicopter",
+    whatsappMessage: "Hi! I'm interested in Six Senses Zil Pasyon for 3 nights at $7,800 for 2 people. Please send availability.",
+    validUntil: "30 April 2025"
+  },
+  // Constance Ephélia
+  {
+    id: "constance-ephelia",
+    image: constanceEphelia,
+    hotelName: "Constance Ephélia",
+    location: "Mahé Island",
+    destination: "Seychelles",
+    stars: 5,
+    amenityIcons: [
+      { icon: Users, label: "Family" },
+      { icon: Sparkles, label: "U Spa" },
+      { icon: Waves, label: "5 Beaches" },
+      { icon: Glasses, label: "Diving" }
+    ],
+    description: "Sprawling resort with 5 beaches, exceptional kids' club, and the award-winning U Spa by Constance.",
+    inclusions: [
+      "Junior Suite",
+      "Half Board Plus",
+      "Return airport transfers",
+      "Kids stay & eat free"
+    ],
+    nights: 5,
+    price: "$3,900",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in Constance Ephélia for 5 nights at $3,900 for 2 people. Please send availability.",
+    validUntil: "30 April 2025"
+  },
+  // North Island Seychelles
+  {
+    id: "north-island-seychelles",
+    image: northIslandSeychelles,
+    hotelName: "North Island Seychelles",
+    location: "North Island",
+    destination: "Seychelles",
+    stars: 5,
+    amenityIcons: [
+      { icon: Anchor, label: "Private Island" },
+      { icon: Wine, label: "All-Inclusive" },
+      { icon: Sparkles, label: "Spa" },
+      { icon: Heart, label: "Exclusive" }
+    ],
+    description: "Ultimate private island escape with just 11 villas. Barefoot luxury and conservation-focused experiences.",
+    inclusions: [
+      "Presidential Villa",
+      "All-Inclusive luxury",
+      "Return helicopter transfer",
+      "Private beach picnics"
+    ],
+    nights: 3,
+    price: "$15,500",
+    priceNote: "for 2 people",
+    transferType: "Helicopter",
+    whatsappMessage: "Hi! I'm interested in North Island Seychelles for 3 nights at $15,500 for 2 people. Please send availability.",
+    validUntil: "30 April 2025"
+  },
+  // Kempinski Seychelles
+  {
+    id: "kempinski-seychelles",
+    image: kempinskiSeychelles,
+    hotelName: "Kempinski Seychelles Resort",
+    location: "Mahé Island",
+    destination: "Seychelles",
+    stars: 5,
+    amenityIcons: [
+      { icon: Sparkles, label: "Spa" },
+      { icon: Utensils, label: "5 Restaurants" },
+      { icon: Waves, label: "Water Sports" },
+      { icon: Users, label: "Family" }
+    ],
+    description: "European elegance meets tropical paradise on Baie Lazare. Award-winning spa and exceptional dining options.",
+    inclusions: [
+      "Sea View Room",
+      "Half Board meals",
+      "Return airport transfers",
+      "Welcome amenity"
+    ],
+    nights: 4,
+    price: "$3,200",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in Kempinski Seychelles for 4 nights at $3,200 for 2 people. Please send availability.",
+    validUntil: "30 April 2025"
+  },
+  // Anantara Maia Seychelles
+  {
+    id: "anantara-maia-seychelles",
+    image: anantaraMaiaSeychelles,
+    hotelName: "MAIA Luxury Resort & Spa",
+    location: "Mahé Island",
+    destination: "Seychelles",
+    stars: 5,
+    amenityIcons: [
+      { icon: Heart, label: "Adults Only" },
+      { icon: Wine, label: "All-Inclusive" },
+      { icon: Sparkles, label: "Spa" },
+      { icon: Anchor, label: "Private Beach" }
+    ],
+    description: "Ultra-luxury boutique resort with personal butlers, all-inclusive indulgence, and intimate private beach setting.",
+    inclusions: [
+      "Ocean Panoramic Villa",
+      "All-Inclusive luxury",
+      "Return airport transfers",
+      "Personal butler service"
+    ],
+    nights: 4,
+    price: "$8,900",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in MAIA Luxury Resort for 4 nights at $8,900 for 2 people. Please send availability.",
+    validUntil: "30 April 2025"
+  },
+
+  // ============ MAURITIUS PACKAGES ============
+  // Constance Prince Maurice
+  {
+    id: "constance-prince-maurice",
+    image: constancePrinceMaurice,
+    hotelName: "Constance Prince Maurice",
+    location: "Poste de Flacq",
+    destination: "Mauritius",
+    stars: 5,
+    amenityIcons: [
+      { icon: UtensilsCrossed, label: "Fine Dining" },
+      { icon: Sparkles, label: "U Spa" },
+      { icon: Glasses, label: "Diving" },
+      { icon: Anchor, label: "Nature Reserve" }
+    ],
+    description: "Iconic stilted suites over natural lagoon with floating restaurant and private nature reserve.",
+    inclusions: [
+      "Junior Suite",
+      "Half Board Plus",
+      "Return airport transfers",
+      "Sunset cocktails"
+    ],
+    nights: 5,
+    price: "$4,800",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in Constance Prince Maurice for 5 nights at $4,800 for 2 people. Please send availability.",
+    validUntil: "30 April 2025"
+  },
+  // Four Seasons Mauritius
+  {
+    id: "four-seasons-mauritius",
+    image: fourSeasonsMauritius,
+    hotelName: "Four Seasons Resort Mauritius",
+    location: "Anahita",
+    destination: "Mauritius",
+    stars: 5,
+    amenityIcons: [
+      { icon: Sparkles, label: "Spa" },
+      { icon: Dumbbell, label: "Golf" },
+      { icon: Users, label: "Family" },
+      { icon: Waves, label: "Water Sports" }
+    ],
+    description: "Private villa resort with Ernie Els golf course, exceptional kids' club, and lagoon sanctuary.",
+    inclusions: [
+      "Ocean Villa with pool",
+      "Half Board dining",
+      "Return airport transfers",
+      "Kids program included"
+    ],
+    nights: 5,
+    price: "$6,500",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in Four Seasons Mauritius for 5 nights at $6,500 for 2 people. Please send availability.",
+    validUntil: "30 April 2025"
+  },
+  // The St. Regis Mauritius
+  {
+    id: "st-regis-mauritius",
+    image: stRegisMauritius,
+    hotelName: "The St. Regis Mauritius Resort",
+    location: "Le Morne",
+    destination: "Mauritius",
+    stars: 5,
+    amenityIcons: [
+      { icon: Sparkles, label: "Iridium Spa" },
+      { icon: Wine, label: "Butler Service" },
+      { icon: Dumbbell, label: "Golf" },
+      { icon: Waves, label: "Water Sports" }
+    ],
+    description: "Colonial elegance at the foot of Le Morne with signature butler service and Iridium Spa.",
+    inclusions: [
+      "Grand Manor House Suite",
+      "Half Board Plus",
+      "Return airport transfers",
+      "St. Regis Butler service"
+    ],
+    nights: 4,
+    price: "$5,600",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in The St. Regis Mauritius for 4 nights at $5,600 for 2 people. Please send availability.",
+    validUntil: "30 April 2025"
+  },
+  // Shangri-La's Le Touessrok
+  {
+    id: "shangri-la-mauritius",
+    image: shangriLaMauritius,
+    hotelName: "Shangri-La's Le Touessrok",
+    location: "Trou d'Eau Douce",
+    destination: "Mauritius",
+    stars: 5,
+    amenityIcons: [
+      { icon: Anchor, label: "Private Islands" },
+      { icon: Sparkles, label: "CHI Spa" },
+      { icon: Dumbbell, label: "Golf" },
+      { icon: Utensils, label: "Fine Dining" }
+    ],
+    description: "Legendary resort with two private islands, CHI The Spa, and exceptional golf at Île aux Cerfs.",
+    inclusions: [
+      "Ocean View Room",
+      "Half Board meals",
+      "Return airport transfers",
+      "Île aux Cerfs excursion"
+    ],
+    nights: 5,
+    price: "$4,200",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in Shangri-La's Le Touessrok for 5 nights at $4,200 for 2 people. Please send availability.",
+    validUntil: "30 April 2025"
+  },
+  // One&Only Le Saint Géran
+  {
+    id: "oneandonly-mauritius",
+    image: oneandOnlyMauritius,
+    hotelName: "One&Only Le Saint Géran",
+    location: "Poste de Flacq",
+    destination: "Mauritius",
+    stars: 5,
+    amenityIcons: [
+      { icon: Sparkles, label: "Spa" },
+      { icon: Users, label: "KidsOnly" },
+      { icon: Dumbbell, label: "Golf" },
+      { icon: Wine, label: "Fine Dining" }
+    ],
+    description: "The legendary Indian Ocean icon with pristine peninsula setting and exceptional family experiences.",
+    inclusions: [
+      "Ocean Suite",
+      "Half Board Plus",
+      "Return airport transfers",
+      "KidsOnly club access"
+    ],
+    nights: 4,
+    price: "$5,900",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in One&Only Le Saint Géran for 4 nights at $5,900 for 2 people. Please send availability.",
+    validUntil: "30 April 2025"
+  },
+  // The Oberoi Mauritius
+  {
+    id: "oberoi-mauritius",
+    image: oberoiMauritius,
+    hotelName: "The Oberoi Mauritius",
+    location: "Pointe aux Piments",
+    destination: "Mauritius",
+    stars: 5,
+    amenityIcons: [
+      { icon: Sparkles, label: "Oberoi Spa" },
+      { icon: Heart, label: "Romance" },
+      { icon: UtensilsCrossed, label: "Fine Dining" },
+      { icon: Waves, label: "Water Sports" }
+    ],
+    description: "Intimate luxury with traditional Mauritius architecture, exceptional Oberoi Spa, and romantic settings.",
+    inclusions: [
+      "Luxury Pavilion with pool",
+      "Half Board dining",
+      "Return airport transfers",
+      "Romantic dinner setup"
+    ],
+    nights: 4,
+    price: "$4,500",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in The Oberoi Mauritius for 4 nights at $4,500 for 2 people. Please send availability.",
+    validUntil: "30 April 2025"
   }
 ];
 
-// Get unique destinations
-const destinations = [...new Set(packagesData.map(p => p.destination))];
+// Get unique destinations - fixed order
+const destinationOrder = ["Maldives", "Seychelles", "Mauritius"];
+const destinations = destinationOrder.filter(dest => 
+  packagesData.some(p => p.destination === dest)
+);
 
 // Package Card Component - dnata style
 const PackageCard = ({ pkg }: { pkg: PackageData }) => {
@@ -411,7 +799,7 @@ const PackageCard = ({ pkg }: { pkg: PackageData }) => {
     <div className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow">
       {/* Image */}
       <div className="relative h-48 overflow-hidden">
-        <img 
+        <img
           src={pkg.image} 
           alt={pkg.hotelName}
           className="w-full h-full object-cover"

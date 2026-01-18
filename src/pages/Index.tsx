@@ -8,6 +8,7 @@ import { MapPin, Star, MessageCircle, ArrowRight, Building2, Sparkles } from "lu
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HeroCarousel from "@/components/HeroCarousel";
+import AddedValuesSlider from "@/components/AddedValuesSlider";
 import OfferDetailModal from "@/components/OfferDetailModal";
 import { supabase } from "@/integrations/supabase/client";
 import maldivesWaldorf from "@/assets/maldives-waldorf.jpg";
@@ -210,44 +211,8 @@ const featuredOffers: Offer[] = [
       </section>
 
 
-      {/* Switch off section */}
-      <section className="py-16">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3 tracking-tight">
-              Best Luxury Holiday Offers
-            </h2>
-            <p className="text-lg text-gray-600">Explore our handpicked destinations with exclusive deals</p>
-          </div>
-
-          <div className="grid grid-cols-2 gap-4">
-            {holidayRecommendations.map((dest, index) => (
-              <a
-                key={index}
-                href={getDestinationWhatsApp(dest.name)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group cursor-pointer"
-              >
-                <div className="relative h-44 md:h-56 rounded-xl overflow-hidden shadow-md">
-                  <img 
-                    src={dest.image} 
-                    alt={dest.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                  <div className="absolute bottom-3 left-3 text-white">
-                    <h3 className="text-lg md:text-xl font-bold italic">{dest.name}</h3>
-                  </div>
-                </div>
-                <div className="mt-2 flex items-center text-[#00A4E4] font-medium text-sm group-hover:underline">
-                  View deals <ArrowRight className="w-4 h-4 ml-1" />
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Added Values Slider */}
+      <AddedValuesSlider />
 
       {/* Partner Hotels CTA Section */}
       <section className="py-16 bg-gradient-to-br from-[#1e3a5f] via-[#2a4a6f] to-[#1e3a5f] relative overflow-hidden">

@@ -324,6 +324,7 @@ interface QuoteFormData {
 }
 
 const HotelCard = ({ hotel, destination }: { hotel: Hotel; destination: string }) => {
+  const [showQuoteForm, setShowQuoteForm] = useState(false);
   const [formData, setFormData] = useState<QuoteFormData>({
     fullName: "",
     adults: "2",
@@ -428,117 +429,136 @@ Sent via Resorts Offers
       </div>
 
       <div className="p-6">
-        <p className="text-gray-600 text-sm leading-relaxed mb-6">{hotel.description}</p>
+        <p className="text-gray-600 text-sm leading-relaxed mb-4">{hotel.description}</p>
 
-        {/* Quote Request Form */}
-        <div className="space-y-4 bg-gray-50 rounded-xl p-5">
-          <h4 className="font-semibold text-[#1e3a5f] flex items-center gap-2 text-lg">
+        {/* Collapsed Quote Button */}
+        {!showQuoteForm ? (
+          <Button 
+            onClick={() => setShowQuoteForm(true)}
+            className="w-full bg-[#25D366] hover:bg-[#1DA851] text-white font-semibold py-2 gap-2"
+          >
             <MessageCircle className="w-5 h-5" />
-            Request a Quote
-          </h4>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="md:col-span-2">
-              <Label htmlFor={`name-${hotel.name}`} className="text-sm font-medium text-gray-700">Full Name *</Label>
-              <Input
-                id={`name-${hotel.name}`}
-                placeholder="Your full name"
-                value={formData.fullName}
-                onChange={(e) => handleInputChange("fullName", e.target.value)}
-                className="mt-1"
-              />
+            Ask for a Quote
+          </Button>
+        ) : (
+          /* Expanded Quote Form */
+          <div className="space-y-4 bg-gray-50 rounded-xl p-4">
+            <div className="flex items-center justify-between">
+              <h4 className="font-semibold text-[#1e3a5f] flex items-center gap-2 text-sm">
+                <MessageCircle className="w-4 h-4" />
+                Request a Quote
+              </h4>
+              <button 
+                onClick={() => setShowQuoteForm(false)}
+                className="text-gray-400 hover:text-gray-600"
+              >
+                <X className="w-4 h-4" />
+              </button>
             </div>
 
-            <div>
-              <Label htmlFor={`adults-${hotel.name}`} className="text-sm font-medium text-gray-700">Number of Adults *</Label>
-              <Select value={formData.adults} onValueChange={(value) => handleInputChange("adults", value)}>
-                <SelectTrigger className="mt-1">
-                  <SelectValue placeholder="Adults" />
-                </SelectTrigger>
-                <SelectContent>
-                  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(num => (
-                    <SelectItem key={num} value={num.toString()}>{num}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-
-            <div>
-              <Label htmlFor={`kids-${hotel.name}`} className="text-sm font-medium text-gray-700">Number of Kids</Label>
-              <Select value={formData.kids} onValueChange={(value) => handleInputChange("kids", value)}>
-                <SelectTrigger className="mt-1">
-                  <SelectValue placeholder="Kids" />
-                </SelectTrigger>
-                <SelectContent>
-                  {[0, 1, 2, 3, 4, 5, 6].map(num => (
-                    <SelectItem key={num} value={num.toString()}>{num}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-
-            {formData.kids !== "0" && (
-              <div className="md:col-span-2">
-                <Label htmlFor={`ages-${hotel.name}`} className="text-sm font-medium text-gray-700">Ages of Kids</Label>
+            <div className="grid grid-cols-2 gap-3">
+              <div className="col-span-2">
+                <Label htmlFor={`name-${hotel.name}`} className="text-xs font-medium text-gray-700">Full Name *</Label>
                 <Input
-                  id={`ages-${hotel.name}`}
-                  placeholder="e.g., 5, 8, 12"
-                  value={formData.kidsAges}
-                  onChange={(e) => handleInputChange("kidsAges", e.target.value)}
-                  className="mt-1"
+                  id={`name-${hotel.name}`}
+                  placeholder="Your name"
+                  value={formData.fullName}
+                  onChange={(e) => handleInputChange("fullName", e.target.value)}
+                  className="mt-1 h-9 text-sm"
                 />
               </div>
-            )}
 
-            <div className="md:col-span-2">
-              <Label htmlFor={`dates-${hotel.name}`} className="text-sm font-medium text-gray-700">Travel Dates</Label>
-              <Input
-                id={`dates-${hotel.name}`}
-                placeholder="e.g., March 15-22, 2025"
-                value={formData.travelDates}
-                onChange={(e) => handleInputChange("travelDates", e.target.value)}
-                className="mt-1"
-              />
+              <div>
+                <Label htmlFor={`adults-${hotel.name}`} className="text-xs font-medium text-gray-700">Adults *</Label>
+                <Select value={formData.adults} onValueChange={(value) => handleInputChange("adults", value)}>
+                  <SelectTrigger className="mt-1 h-9 text-sm">
+                    <SelectValue placeholder="Adults" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(num => (
+                      <SelectItem key={num} value={num.toString()}>{num}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div>
+                <Label htmlFor={`kids-${hotel.name}`} className="text-xs font-medium text-gray-700">Kids</Label>
+                <Select value={formData.kids} onValueChange={(value) => handleInputChange("kids", value)}>
+                  <SelectTrigger className="mt-1 h-9 text-sm">
+                    <SelectValue placeholder="Kids" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {[0, 1, 2, 3, 4, 5, 6].map(num => (
+                      <SelectItem key={num} value={num.toString()}>{num}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              {formData.kids !== "0" && (
+                <div className="col-span-2">
+                  <Label htmlFor={`ages-${hotel.name}`} className="text-xs font-medium text-gray-700">Ages of Kids</Label>
+                  <Input
+                    id={`ages-${hotel.name}`}
+                    placeholder="e.g., 5, 8"
+                    value={formData.kidsAges}
+                    onChange={(e) => handleInputChange("kidsAges", e.target.value)}
+                    className="mt-1 h-9 text-sm"
+                  />
+                </div>
+              )}
+
+              <div className="col-span-2">
+                <Label htmlFor={`dates-${hotel.name}`} className="text-xs font-medium text-gray-700">Travel Dates</Label>
+                <Input
+                  id={`dates-${hotel.name}`}
+                  placeholder="e.g., March 15-22, 2025"
+                  value={formData.travelDates}
+                  onChange={(e) => handleInputChange("travelDates", e.target.value)}
+                  className="mt-1 h-9 text-sm"
+                />
+              </div>
+
+              <div className="col-span-2">
+                <Label htmlFor={`occasion-${hotel.name}`} className="text-xs font-medium text-gray-700">Occasion</Label>
+                <Select value={formData.occasion} onValueChange={(value) => handleInputChange("occasion", value)}>
+                  <SelectTrigger className="mt-1 h-9 text-sm">
+                    <SelectValue placeholder="Select (optional)" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {specialOccasions.map(occasion => (
+                      <SelectItem key={occasion} value={occasion}>{occasion}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="col-span-2">
+                <Label htmlFor={`requests-${hotel.name}`} className="text-xs font-medium text-gray-700">Requests</Label>
+                <Textarea
+                  id={`requests-${hotel.name}`}
+                  placeholder="Special requirements..."
+                  value={formData.requests}
+                  onChange={(e) => handleInputChange("requests", e.target.value)}
+                  className="mt-1 min-h-[60px] text-sm"
+                />
+              </div>
             </div>
 
-            <div className="md:col-span-2">
-              <Label htmlFor={`occasion-${hotel.name}`} className="text-sm font-medium text-gray-700">Special Occasion</Label>
-              <Select value={formData.occasion} onValueChange={(value) => handleInputChange("occasion", value)}>
-                <SelectTrigger className="mt-1">
-                  <SelectValue placeholder="Select occasion (optional)" />
-                </SelectTrigger>
-                <SelectContent>
-                  {specialOccasions.map(occasion => (
-                    <SelectItem key={occasion} value={occasion}>{occasion}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-
-            <div className="md:col-span-2">
-              <Label htmlFor={`requests-${hotel.name}`} className="text-sm font-medium text-gray-700">Additional Requests</Label>
-              <Textarea
-                id={`requests-${hotel.name}`}
-                placeholder="Any special requirements, room preferences, dietary needs..."
-                value={formData.requests}
-                onChange={(e) => handleInputChange("requests", e.target.value)}
-                className="mt-1 min-h-[80px]"
-              />
-            </div>
+            <a
+              href={generateWhatsAppLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full"
+            >
+              <Button className="w-full bg-[#25D366] hover:bg-[#1DA851] text-white font-semibold py-2 gap-2">
+                <MessageCircle className="w-4 h-4" />
+                Send via WhatsApp
+              </Button>
+            </a>
           </div>
-
-          <a
-            href={generateWhatsAppLink()}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block w-full"
-          >
-            <Button className="w-full bg-[#25D366] hover:bg-[#1DA851] text-white font-semibold py-3 text-lg gap-2">
-              <MessageCircle className="w-5 h-5" />
-              Ask for a Quote
-            </Button>
-          </a>
-        </div>
+        )}
       </div>
     </div>
   );

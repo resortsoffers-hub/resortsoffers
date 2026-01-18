@@ -107,7 +107,7 @@ const AddedValuesSlider = () => {
             <span className="text-white/90 font-medium text-sm">Exclusive Added Values</span>
           </div>
           <h2 className="text-2xl md:text-3xl font-serif font-bold text-white mb-2">
-            Complimentary with Every Booking
+            Complimentary Benefits
           </h2>
           <div className="flex items-center justify-center gap-2 text-[#00A4E4]">
             <CheckCircle className="w-5 h-5" />

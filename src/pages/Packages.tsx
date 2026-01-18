@@ -785,11 +785,8 @@ const packagesData: PackageData[] = [
   }
 ];
 
-// Get unique destinations - fixed order
-const destinationOrder = ["Maldives", "Seychelles", "Mauritius"];
-const destinations = destinationOrder.filter(dest => 
-  packagesData.some(p => p.destination === dest)
-);
+// Destinations shown in the filter (fixed order per requirements)
+const destinations = ["Maldives", "Seychelles", "Mauritius", "China", "Vietnam", "Bali", "Thailand"];
 
 // Package Card Component - dnata style
 const PackageCard = ({ pkg }: { pkg: PackageData }) => {

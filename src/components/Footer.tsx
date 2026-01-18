@@ -75,7 +75,7 @@ const Footer = () => {
               </a>
               <a href="https://www.snapchat.com/add/Resortsoffers" target="_blank" rel="noopener noreferrer" className="hover:text-[#FFFC00] transition-colors" aria-label="Snapchat">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12.166 0c.833 0 3.533.253 4.832 3.495.432.972.328 2.62.243 3.945l-.003.049c-.01.146-.018.28-.024.415.061.037.165.073.326.073.243 0 .492-.122.695-.317.179-.159.362-.292.564-.405.173-.094.385-.159.608-.159.554 0 .999.378.999.847 0 .346-.192.633-.434.84-.217.184-.461.327-.694.461l-.003.001c-.232.132-.463.266-.621.469-.137.175-.238.373-.318.571.101.034.23.052.373.052.434 0 .878-.153 1.255-.291.378-.141.758-.281 1.127-.281.249 0 .481.11.649.293.171.187.257.421.257.659 0 .527-.577.934-1.149.934-.313 0-.636-.077-.972-.186-.334-.109-.693-.225-1.053-.225-.202 0-.394.036-.576.104-.232.085-.453.205-.667.324l-.002.001c-.215.119-.43.24-.679.339-.26.102-.553.155-.866.155-1.150 0-2.009-.477-2.415-1.339-.187-.393-.263-.797-.263-1.172 0-.113.008-.223.022-.33.016-.127.035-.256.035-.387 0-.216-.110-.424-.299-.573-.206-.162-.488-.256-.781-.256-.146 0-.293.023-.436.07-.132.041-.263.094-.395.145l-.002.001c-.132.051-.263.103-.412.139-.206.047-.431.071-.667.071-.943 0-1.733-.472-2.202-1.300-.466-.823-.612-1.931-.612-3.072 0-1.923.634-3.751 1.786-5.141C9.347 1.281 10.742.635 11.167.568l.082-.011c.229-.033.458-.052.687-.052z"/>
+                  <path d="M12.206.793c.99 0 4.347.276 5.93 3.821.529 1.193.403 3.219.299 4.847l-.003.06c-.012.18-.022.345-.03.51.075.045.203.09.401.09.3-.016.659-.12 1.033-.301.165-.088.344-.104.464-.104.182 0 .359.029.509.09.45.149.734.479.734.838.015.449-.39.839-1.213 1.168-.089.029-.209.075-.344.119-.45.135-1.139.36-1.333.81-.09.224-.061.524.12.868l.015.015c.06.136 1.526 3.475 4.791 4.014.255.044.435.27.42.509 0 .075-.015.149-.045.225-.24.569-1.273.988-3.146 1.271-.059.091-.12.375-.164.57-.029.179-.074.36-.134.553-.076.271-.27.405-.555.405h-.03c-.135 0-.313-.031-.538-.074-.36-.075-.765-.135-1.273-.135-.3 0-.599.015-.913.074-.6.104-1.123.464-1.723.884-.853.599-1.826 1.288-3.294 1.288-.06 0-.119-.015-.18-.015h-.149c-1.468 0-2.427-.675-3.279-1.288-.599-.42-1.107-.779-1.707-.884-.314-.045-.629-.074-.928-.074-.54 0-.958.089-1.272.149-.211.043-.391.074-.54.074-.374 0-.523-.224-.583-.42-.061-.192-.09-.389-.135-.567-.046-.181-.105-.494-.166-.57-1.918-.222-2.95-.642-3.189-1.226-.031-.063-.052-.15-.055-.225-.015-.243.165-.465.42-.509 3.264-.54 4.73-3.879 4.791-4.02l.016-.029c.18-.345.224-.645.119-.869-.195-.434-.884-.658-1.332-.809-.121-.029-.24-.074-.346-.119-1.107-.435-1.257-.93-1.197-1.273.09-.479.674-.793 1.168-.793.146 0 .27.029.383.074.42.194.789.3 1.104.3.234 0 .384-.06.465-.105l-.046-.569c-.098-1.626-.225-3.651.307-4.837C7.392 1.077 10.739.807 11.727.807l.419-.015h.06z"/>
                 </svg>
               </a>
               <a href="http://resortsoffers.bio.link/" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Bio Link">
@@ -119,21 +119,28 @@ const Footer = () => {
         <div className="border-t border-primary-foreground/20 mt-8 pt-6 overflow-x-auto">
           <div className="flex justify-center items-center gap-2 min-w-max">
             <span className="text-[10px] opacity-75 whitespace-nowrap">Payments:</span>
-            <div className="bg-white px-2 py-1 rounded">
-              <span className="text-[#3CDBC0] font-bold text-[10px]">tabby</span>
+
+            <div className="h-7 w-[56px] bg-white rounded flex items-center justify-center">
+              <span className="text-[#3CDBC0] font-bold text-[11px] leading-none">tabby</span>
             </div>
-            <div className="bg-white px-2 py-1 rounded">
-              <span className="text-[#1434CB] font-bold text-[10px]">VISA</span>
+
+            <div className="h-7 w-[56px] bg-white rounded flex items-center justify-center">
+              <span className="text-[#1434CB] font-bold text-[12px] leading-none tracking-wide">VISA</span>
             </div>
-            <div className="bg-white px-2 py-1 rounded flex items-center gap-0.5">
-              <span className="w-2 h-2 rounded-full bg-[#EB001B]"></span>
-              <span className="w-2 h-2 rounded-full bg-[#F79E1B] -ml-1"></span>
+
+            <div className="h-7 w-[56px] bg-white rounded flex items-center justify-center">
+              <div className="flex items-center justify-center">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#EB001B]"></span>
+                <span className="w-2.5 h-2.5 rounded-full bg-[#F79E1B] -ml-1.5"></span>
+              </div>
             </div>
-            <div className="bg-[#006FCF] px-2 py-1 rounded">
-              <span className="text-white font-bold text-[10px]">AMEX</span>
+
+            <div className="h-7 w-[56px] bg-[#006FCF] rounded flex items-center justify-center">
+              <span className="text-white font-bold text-[11px] leading-none">AMEX</span>
             </div>
-            <div className="bg-emerald-600 px-2 py-1 rounded">
-              <span className="text-white font-bold text-[10px]">Bank</span>
+
+            <div className="h-7 w-[56px] bg-emerald-600 rounded flex items-center justify-center">
+              <span className="text-white font-bold text-[11px] leading-none">Bank</span>
             </div>
           </div>
         </div>

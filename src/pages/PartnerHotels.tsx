@@ -9,7 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { MessageCircle, Star, MapPin, Ship, Palmtree, Building2, Tent, Plane, Anchor, Car, Heart, Sparkles, Crown, Clock, Filter, X } from "lucide-react";
+import { MessageCircle, Star, MapPin, Ship, Palmtree, Building2, Tent, Plane, Anchor, Car, Heart, Sparkles, Crown, Clock, Filter, X, Search } from "lucide-react";
 
 // Import local images
 import soneva from "@/assets/resorts/soneva-fushi.jpg";
@@ -643,7 +643,7 @@ const PartnerHotels = () => {
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="pl-10 pr-10"
                 />
-                <Filter className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                 {searchQuery && (
                   <button
                     onClick={() => setSearchQuery("")}

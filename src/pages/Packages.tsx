@@ -937,57 +937,34 @@ const Packages = () => {
       
       <Navbar />
       
-      {/* Hero Section */}
-      <section className="pt-24 pb-8 bg-gradient-to-b from-[#1e3a5f] to-[#1e3a5f]/90">
-        <div className="container-custom text-center">
-          <h1 className="text-3xl md:text-4xl font-serif font-bold text-white mb-2">
-            Resort Packages
-          </h1>
-          <p className="text-lg text-white/80">
-            Hand-picked luxury experiences with premium inclusions
-          </p>
-        </div>
-      </section>
-
-      {/* Filters Section */}
-      <section className="py-6 bg-gray-50 border-b">
+      {/* Filters Section - Start immediately after navbar */}
+      <section className="pt-20 pb-6 bg-white border-b">
         <div className="container-custom">
-          <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
+          <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
             {/* Search */}
-            <div className="relative w-full md:w-80">
+            <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
               <Input
                 placeholder="Search resorts..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 bg-white"
+                className="pl-10 bg-white border-gray-300"
               />
             </div>
 
-            {/* Destination Filter */}
-            <div className="flex items-center gap-2 flex-wrap justify-center">
+            {/* Destination Dropdown Filter */}
+            <div className="flex items-center gap-2">
               <Filter className="w-4 h-4 text-[#1e3a5f]" />
-              <span className="text-sm text-[#1e3a5f] font-medium">Destination:</span>
-              <Button
-                variant={selectedDestination === "all" ? "default" : "outline"}
-                size="sm"
-                onClick={() => setSelectedDestination("all")}
-                className={selectedDestination === "all" ? "bg-[#1e3a5f]" : ""}
+              <select
+                value={selectedDestination}
+                onChange={(e) => setSelectedDestination(e.target.value)}
+                className="h-10 px-4 py-2 border border-gray-300 rounded-md bg-white text-[#1e3a5f] font-medium focus:outline-none focus:ring-2 focus:ring-[#1e3a5f] focus:border-transparent min-w-[160px]"
               >
-                All
-              </Button>
-              {destinations.map(dest => (
-                <Button
-                  key={dest}
-                  variant={selectedDestination === dest ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => setSelectedDestination(dest)}
-                  className={selectedDestination === dest ? "bg-[#1e3a5f]" : ""}
-                >
-                  <Palmtree className="w-3 h-3 mr-1" />
-                  {dest}
-                </Button>
-              ))}
+                <option value="all">All Destinations</option>
+                {destinations.map(dest => (
+                  <option key={dest} value={dest}>{dest}</option>
+                ))}
+              </select>
             </div>
           </div>
         </div>

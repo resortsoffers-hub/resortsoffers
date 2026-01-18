@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, UtensilsCrossed, Plane, Camera, Sparkles, Ship, Baby, UserCheck, Heart, Gift, CheckCircle } from "lucide-react";
 
-// Import images for each value
-import floatingBreakfast from "@/assets/resorts/pool-breakfast.jpg";
-import seaplaneTransfer from "@/assets/maldives-waldorf.jpg";
-import photoSession from "@/assets/resorts/wedding-couple-cart.jpg";
-import spaMassage from "@/assets/lake-garda-wellness.jpg";
-import sunsetCruise from "@/assets/resorts/maldives-water-villa.jpg";
-import kidsStay from "@/assets/dubai-family.jpg";
-import butlerService from "@/assets/resorts/luxury-villa-pool.jpg";
-import honeymoonAmenities from "@/assets/resorts/wedding-ceremony.jpg";
+// Import contextual images for each benefit
+import floatingBreakfast from "@/assets/benefits/floating-breakfast.jpg";
+import seaplaneTransfer from "@/assets/benefits/seaplane-transfer.jpg";
+import photoSession from "@/assets/benefits/photo-session.jpg";
+import spaMassage from "@/assets/benefits/spa-massage.jpg";
+import sunsetCruise from "@/assets/benefits/sunset-cruise.jpg";
+import kidsStay from "@/assets/benefits/kids-stay-free.jpg";
+import butlerService from "@/assets/benefits/butler-service.jpg";
+import honeymoonAmenities from "@/assets/benefits/honeymoon-setup.jpg";
 
 const addedValues = [
   {

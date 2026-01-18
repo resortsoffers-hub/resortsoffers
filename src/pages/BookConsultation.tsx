@@ -40,9 +40,17 @@ const timeSlots = [
   "16:00", "16:30", "17:00", "17:30", "18:00", "18:30"
 ];
 
+interface BookingDetails {
+  date: string;
+  time: string;
+  consultationType: string;
+  name: string;
+}
+
 const BookConsultation = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [bookingDetails, setBookingDetails] = useState<BookingDetails | null>(null);
   const { toast } = useToast();
 
   const form = useForm<BookingFormData>({
@@ -98,6 +106,14 @@ const BookConsultation = () => {
         console.warn('Calendar notification failed, but booking was saved:', funcError);
       }
 
+      // Store booking details for confirmation page
+      setBookingDetails({
+        date: format(data.preferredDate, "EEEE, MMMM d, yyyy"),
+        time: data.preferredTime,
+        consultationType: data.consultationType === "video" ? "Video Call" : "Phone Call",
+        name: data.name,
+      });
+
       setIsSuccess(true);
       toast({
         title: "Consultation Booked! ✨",
@@ -122,7 +138,7 @@ const BookConsultation = () => {
     return date < today;
   };
 
-  if (isSuccess) {
+  if (isSuccess && bookingDetails) {
     return (
       <div className="min-h-screen bg-white">
         <Navbar />
@@ -135,9 +151,46 @@ const BookConsultation = () => {
                 </div>
                 <h2 className="text-2xl font-bold text-[#1e3a5f]">Consultation Booked Successfully!</h2>
                 <p className="text-gray-600">
-                  Thank you for booking your free consultation with Nora El Khalifi. 
+                  Thank you {bookingDetails.name} for booking your free consultation with Nora El Khalifi. 
                   You'll receive a confirmation email with a calendar invite shortly.
                 </p>
+                
+                {/* Booking Details */}
+                <div className="bg-[#1e3a5f]/5 rounded-xl p-6 text-left space-y-4">
+                  <h3 className="font-semibold text-[#1e3a5f] text-center mb-4">Your Booking Details</h3>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-[#1e3a5f] rounded-full flex items-center justify-center flex-shrink-0">
+                      <CalendarIcon className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-500">Date</p>
+                      <p className="font-medium text-[#1e3a5f]">{bookingDetails.date}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-[#1e3a5f] rounded-full flex items-center justify-center flex-shrink-0">
+                      <Clock className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-500">Time (Dubai)</p>
+                      <p className="font-medium text-[#1e3a5f]">{bookingDetails.time}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-[#1e3a5f] rounded-full flex items-center justify-center flex-shrink-0">
+                      {bookingDetails.consultationType === "Video Call" ? (
+                        <Video className="w-5 h-5 text-white" />
+                      ) : (
+                        <Phone className="w-5 h-5 text-white" />
+                      )}
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-500">Consultation Type</p>
+                      <p className="font-medium text-[#1e3a5f]">{bookingDetails.consultationType}</p>
+                    </div>
+                  </div>
+                </div>
+
                 <div className="pt-4 space-y-3">
                   <a 
                     href="https://wa.me/971567622484" 

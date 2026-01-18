@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, Phone, User, Heart, HelpCircle } from "lucide-react";
-import LanguageSwitcher from "./LanguageSwitcher";
 import Sidebar from "./Sidebar";
 
 const Navbar = () => {
@@ -56,8 +55,6 @@ const Navbar = () => {
                 <HelpCircle className="w-5 h-5" />
                 <span className="text-sm">Help</span>
               </Link>
-
-              <LanguageSwitcher />
 
               {/* Menu */}
               <button

@@ -114,8 +114,8 @@ const Index = () => {
     { name: "Greece", image: greeceHero },
     { name: "Turkey", image: turkeyHero },
     { name: "Bali", image: baliHero },
+    { name: "Phuket", image: thailandHero, hasPoolVillaFilter: true },
     { name: "Morocco", image: moroccoHero },
-    { name: "Thailand", image: thailandHero },
     { name: "Indonesia", image: indonesiaHero }
   ];
 
@@ -298,6 +298,19 @@ const featuredOffers: Offer[] = [
                         <span>{transfer.label}</span>
                       </Link>
                     ))}
+                  </div>
+                )}
+                
+                {/* Phuket Pool Villa Filter */}
+                {dest.hasPoolVillaFilter && (
+                  <div className="mt-2">
+                    <Link
+                      to="/partner-hotels?destination=Phuket"
+                      className="flex items-center gap-1 px-2 py-1 bg-[#1e3a5f]/10 hover:bg-[#1e3a5f] hover:text-white text-[#1e3a5f] text-xs rounded-full transition-colors duration-200 w-fit"
+                    >
+                      <span>🏊</span>
+                      <span>Pool Villas</span>
+                    </Link>
                   </div>
                 )}
               </div>

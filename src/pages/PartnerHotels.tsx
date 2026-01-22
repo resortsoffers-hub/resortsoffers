@@ -266,6 +266,8 @@ const destinations: Destination[] = [
       { name: "Blue Palace Elounda", image: greeceCrete, description: "Sprawling luxury resort on Crete's coast with private beach, spa, and stunning views of Spinalonga.", greeceIsland: "crete", isHoneymoon: true, isTopLuxury: true },
       { name: "Daios Cove Luxury Resort", image: greeceCrete, description: "Cliffside retreat with private beach, infinity pools, and panoramic Aegean Sea views.", greeceIsland: "crete", isHoneymoon: true, isTopLuxury: true },
       { name: "Amirandes Grecotel Exclusive Resort", image: greeceCrete, description: "Palatial resort with lagoon pools, private beach, and Cretan hospitality at its finest.", greeceIsland: "crete", isHoneymoon: true },
+      { name: "Elounda Beach Hotel & Villas", image: greeceCrete, description: "Legendary Cretan resort on Mirabello Bay with private sandy beach, award-winning spa, and elegant suites overlooking the Gulf of Elounda.", greeceIsland: "crete", isHoneymoon: true, isTopLuxury: true },
+      { name: "Elounda Bay Palace", image: greeceCrete, description: "Five-star beachfront palace on Elounda's stunning coastline with panoramic sea views, world-class dining, and luxurious suites with private pools.", greeceIsland: "crete", isHoneymoon: true, isTopLuxury: true },
     ]
   },
   {

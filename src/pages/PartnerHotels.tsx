@@ -52,6 +52,7 @@ import anantaraMaia from "@/assets/resorts/anantara-maia-seychelles.jpg";
 import hiltonNortholme from "@/assets/resorts/hilton-northolme.jpg";
 import astoriaSeychelles from "@/assets/resorts/astoria-seychelles.jpg";
 import kempinskiSeychelles from "@/assets/resorts/kempinski-seychelles.jpg";
+import hiltonCanopySeychelles from "@/assets/resorts/hilton-canopy-seychelles.jpg";
 
 import oneOnlyMauritius from "@/assets/resorts/oneandonly-mauritius.jpg";
 import stRegisMauritius from "@/assets/resorts/st-regis-mauritius.jpg";
@@ -204,6 +205,11 @@ const destinations: Destination[] = [
       { name: "Hilton Seychelles Northolme Resort & Spa", image: hiltonNortholme, description: "Historic luxury resort perched on a hillside overlooking Beau Vallon with stunning sunset views.", isHoneymoon: true },
       { name: "Waldorf Astoria Seychelles Platte Island", image: astoriaSeychelles, description: "Remote private island sanctuary with legendary Waldorf service and pristine natural beauty.", isTopLuxury: true, isHoneymoon: true },
       { name: "Kempinski Seychelles Resort Baie Lazare", image: kempinskiSeychelles, description: "Grand European elegance on Mahé's pristine Baie Lazare beach with extensive spa, lush tropical gardens, and authentic Seychellois hospitality.", isHoneymoon: true, isTopLuxury: true },
+      { name: "Hilton Seychelles Labriz Resort & Spa", image: hiltonCanopySeychelles, description: "Secluded paradise on Silhouette Island within a national marine park, featuring the largest spa in Seychelles and pristine natural surroundings.", isHoneymoon: true },
+      { name: "Savoy Seychelles Resort & Spa", image: sixSensesSeychelles, description: "Contemporary beachfront resort on Beau Vallon with stylish rooms, infinity pool, and vibrant dining scene.", isHoneymoon: true },
+      { name: "Coral Strand Smart Choice Hotel", image: constanceEphelia, description: "Popular mid-range choice on Beau Vallon Beach offering excellent value with pool, spa, and water sports.", isHoneymoon: false },
+      { name: "STORY Seychelles", image: mangoHouse, description: "Boutique luxury retreat on Mahé's southern coast with personalized service and intimate beach setting.", isHoneymoon: true },
+      { name: "DoubleTree by Hilton Seychelles Allamanda Resort & Spa", image: hiltonNortholme, description: "Charming beachfront resort on Anse Forbans with excellent snorkeling and warm Hilton hospitality.", isHoneymoon: true },
     ]
   },
   {

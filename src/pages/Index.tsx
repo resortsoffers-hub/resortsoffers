@@ -107,7 +107,7 @@ const Index = () => {
   ];
 
   const holidayRecommendations = [
-    { name: "Maldives", image: maldivesVillaPool },
+    { name: "Maldives", image: maldivesVillaPool, hasTransferFilter: true },
     { name: "Dubai", image: dubaiLuxury },
     { name: "Seychelles", image: seychellesHero },
     { name: "Mauritius", image: mauritiusHero },
@@ -117,6 +117,12 @@ const Index = () => {
     { name: "Morocco", image: moroccoHero },
     { name: "Thailand", image: thailandHero },
     { name: "Indonesia", image: indonesiaHero }
+  ];
+
+  const maldivesTransferTypes = [
+    { type: "seaplane", label: "Seaplane", icon: "✈️" },
+    { type: "speedboat", label: "Speedboat", icon: "🚤" },
+    { type: "domestic", label: "Domestic Flight", icon: "🛩️" }
   ];
 
 
@@ -251,6 +257,54 @@ const featuredOffers: Offer[] = [
         </div>
       </section>
 
+      {/* Destinations Grid with Transfer Filters */}
+      <section className="py-12 bg-white">
+        <div className="container-custom">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Explore Destinations</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Discover luxury resorts across the world's most stunning locations
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {holidayRecommendations.map((dest, index) => (
+              <div key={index} className="group relative">
+                <Link 
+                  to={`/packages?destination=${encodeURIComponent(dest.name)}`}
+                  className="block relative h-48 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+                >
+                  <img 
+                    src={dest.image} 
+                    alt={dest.name} 
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <h3 className="text-white font-bold text-lg">{dest.name}</h3>
+                  </div>
+                </Link>
+                
+                {/* Maldives Transfer Type Filters */}
+                {dest.hasTransferFilter && (
+                  <div className="mt-2 flex flex-wrap gap-1">
+                    {maldivesTransferTypes.map((transfer) => (
+                      <Link
+                        key={transfer.type}
+                        to={`/partner-hotels?destination=Maldives&transfer=${transfer.type}`}
+                        className="flex items-center gap-1 px-2 py-1 bg-[#1e3a5f]/10 hover:bg-[#1e3a5f] hover:text-white text-[#1e3a5f] text-xs rounded-full transition-colors duration-200"
+                      >
+                        <span>{transfer.icon}</span>
+                        <span>{transfer.label}</span>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Featured Offers */}
       <section className="py-12 bg-gray-50">

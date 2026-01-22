@@ -41,6 +41,7 @@ import jumeirahMaldives from "@/assets/resorts/jumeirah-maldives.jpg";
 import kudaVillingili from "@/assets/resorts/kuda-villingili.jpg";
 import hiltonAmingiri from "@/assets/resorts/hilton-amingiri.jpg";
 import joyIsland from "@/assets/resorts/joy-island.jpg";
+import oagaArt from "@/assets/resorts/oaga-art-maldives.jpg";
 
 import northIsland from "@/assets/resorts/north-island-seychelles.jpg";
 import fourSeasonsSeychelles from "@/assets/resorts/four-seasons-seychelles.jpg";
@@ -77,6 +78,7 @@ import londonLuxury from "@/assets/resorts/london-luxury.jpg";
 import dubaiLuxury from "@/assets/resorts/dubai-luxury.jpg";
 
 import baliResort from "@/assets/resorts/bali-clifftop-resort.jpg";
+import samabeBali from "@/assets/resorts/samabe-bali.jpg";
 
 import cruiseHero from "@/assets/destinations/cruise-hero.jpg";
 
@@ -184,6 +186,7 @@ const destinations: Destination[] = [
       { name: "Villa Nautica Paradise Island", image: ritzCarltonMaldives, description: "Luxurious 5-star resort with overwater and beachfront villas, infinity pool, and personalized services just minutes from Male.", transfer: "speedboat", isNoraPick: true, isAllInclusive: true, isHoneymoon: true },
       { name: "Kurumba Maldives", image: wMaldives, description: "Historic landmark and first resort in Maldives since 1972, just 10 minutes from airport with award-winning dining and endless activities.", transfer: "speedboat", isNoraPick: true, isHoneymoon: true },
       { name: "Constance Moofushi Maldives", image: constanceBelleMare, description: "Award-winning all-inclusive resort in pristine South Ari Atoll with exceptional diving, world-class service, and barefoot luxury.", transfer: "seaplane", isNoraPick: true, isAllInclusive: true, isHoneymoon: true },
+      { name: "Oaga Art Resort", image: oagaArt, description: "Authentic Maldivian art-inspired retreat in North Malé Atoll with vibrant cultural experiences, all-inclusive dining, and personalized hospitality.", transfer: "speedboat", isAllInclusive: true, isHoneymoon: true },
       
       // Upcoming Resorts 2025-2026
       { name: "Ananea Madivaru Maldives", image: velaaMaldives, description: "New luxury resort in North Ari Atoll offering contemporary design and exceptional marine life.", transfer: "seaplane", isUpcoming: true, openingYear: "2025", isHoneymoon: true },
@@ -317,6 +320,7 @@ const destinations: Destination[] = [
       { name: "Bulgari Resort Bali", image: baliResort, description: "Cliffside Italian elegance in Uluwatu with dramatic ocean views and exclusive beach club.", isTopLuxury: true, isHoneymoon: true },
       { name: "The St. Regis Bali Resort", image: baliResort, description: "Beachfront grandeur in Nusa Dua with largest lagoon pool and St. Regis Butler Service.", isHoneymoon: true },
       { name: "Capella Ubud", image: baliResort, description: "Glamping tents in the rainforest designed by Bill Bensley with theatrical luxury.", isHoneymoon: true, isTopLuxury: true },
+      { name: "Samabe Bali Suites & Villas", image: samabeBali, description: "Beachfront all-inclusive luxury in Nusa Dua with clifftop ocean views, unlimited privileges, and personalized e-butler service.", isHoneymoon: true, isAllInclusive: true },
     ]
   },
   {

@@ -631,38 +631,55 @@ Sent via Resorts Offers
 const PartnerHotels = () => {
   const [activeFilter, setActiveFilter] = useState<FilterCategory>("all");
   const [activeTransfer, setActiveTransfer] = useState<TransferType | "all">("all");
+  const [activeDestination, setActiveDestination] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState("");
+
+  // Get unique destination names for the filter
+  const destinationNames = useMemo(() => {
+    return ["all", ...destinations.map(d => d.name)];
+  }, []);
+
+  // Check if Maldives is the selected destination (show transfer filter only for Maldives)
+  const showTransferFilter = activeDestination === "Maldives";
 
   // Filter destinations and hotels
   const filteredDestinations = useMemo(() => {
-    return destinations.map(destination => {
-      const filteredHotels = destination.hotels.filter(hotel => {
-        // Search filter
-        const matchesSearch = searchQuery === "" || 
-          hotel.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          hotel.description.toLowerCase().includes(searchQuery.toLowerCase());
-        
-        // Category filter
-        let matchesCategory = true;
-        if (activeFilter === "adult-only") matchesCategory = hotel.isAdultOnly === true;
-        else if (activeFilter === "all-inclusive") matchesCategory = hotel.isAllInclusive === true;
-        else if (activeFilter === "honeymoon") matchesCategory = hotel.isHoneymoon === true;
-        else if (activeFilter === "nora-picks") matchesCategory = hotel.isNoraPick === true;
-        else if (activeFilter === "top-luxury") matchesCategory = hotel.isTopLuxury === true;
-        else if (activeFilter === "upcoming") matchesCategory = hotel.isUpcoming === true;
-        
-        // Transfer filter (only applies to Maldives)
-        let matchesTransfer = true;
-        if (activeTransfer !== "all" && destination.name === "Maldives") {
-          matchesTransfer = hotel.transfer === activeTransfer;
+    return destinations
+      .filter(destination => {
+        // Destination filter
+        if (activeDestination !== "all") {
+          return destination.name === activeDestination;
         }
+        return true;
+      })
+      .map(destination => {
+        const filteredHotels = destination.hotels.filter(hotel => {
+          // Search filter
+          const matchesSearch = searchQuery === "" || 
+            hotel.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            hotel.description.toLowerCase().includes(searchQuery.toLowerCase());
+          
+          // Category filter
+          let matchesCategory = true;
+          if (activeFilter === "adult-only") matchesCategory = hotel.isAdultOnly === true;
+          else if (activeFilter === "all-inclusive") matchesCategory = hotel.isAllInclusive === true;
+          else if (activeFilter === "honeymoon") matchesCategory = hotel.isHoneymoon === true;
+          else if (activeFilter === "nora-picks") matchesCategory = hotel.isNoraPick === true;
+          else if (activeFilter === "top-luxury") matchesCategory = hotel.isTopLuxury === true;
+          else if (activeFilter === "upcoming") matchesCategory = hotel.isUpcoming === true;
+          
+          // Transfer filter (only applies when Maldives is selected)
+          let matchesTransfer = true;
+          if (activeTransfer !== "all" && destination.name === "Maldives") {
+            matchesTransfer = hotel.transfer === activeTransfer;
+          }
+          
+          return matchesSearch && matchesCategory && matchesTransfer;
+        });
         
-        return matchesSearch && matchesCategory && matchesTransfer;
-      });
-      
-      return { ...destination, hotels: filteredHotels };
-    }).filter(destination => destination.hotels.length > 0);
-  }, [activeFilter, activeTransfer, searchQuery]);
+        return { ...destination, hotels: filteredHotels };
+      }).filter(destination => destination.hotels.length > 0);
+  }, [activeFilter, activeTransfer, activeDestination, searchQuery]);
 
   const totalHotels = filteredDestinations.reduce((acc, d) => acc + d.hotels.length, 0);
 
@@ -694,51 +711,78 @@ const PartnerHotels = () => {
           </div>
         </section>
 
-        {/* Filters Section */}
+        {/* Filters Section - Single Row */}
         <section className="sticky top-0 z-30 bg-white shadow-md border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-4 py-4">
-            {/* Search Bar with Integrated Filters */}
-            <div className="max-w-2xl mx-auto">
-              <div className="relative flex items-center gap-2">
-                <div className="relative flex-1">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-                  <Input
-                    type="text"
-                    placeholder="Search hotels..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="pl-10 pr-10"
-                  />
-                  {searchQuery && (
-                    <button
-                      onClick={() => setSearchQuery("")}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
-                    >
-                      <X className="w-4 h-4" />
-                    </button>
-                  )}
-                </div>
-                
-                {/* Category Filter Dropdown */}
-                <Select value={activeFilter} onValueChange={(value) => setActiveFilter(value as FilterCategory)}>
-                  <SelectTrigger className="w-[160px]">
-                    <SelectValue placeholder="Category" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {filterOptions.map((filter) => (
-                      <SelectItem key={filter.id} value={filter.id}>
-                        <div className="flex items-center gap-2">
-                          {filter.icon}
-                          {filter.label}
-                        </div>
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+            {/* Single Row Filter Bar */}
+            <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3">
+              {/* Search Input */}
+              <div className="relative w-full sm:w-auto sm:flex-1 sm:max-w-[200px]">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                <Input
+                  type="text"
+                  placeholder="Search..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="pl-10 pr-8 h-10"
+                />
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery("")}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
+                )}
+              </div>
+              
+              {/* Destination Filter - First priority */}
+              <Select 
+                value={activeDestination} 
+                onValueChange={(value) => {
+                  setActiveDestination(value);
+                  // Reset transfer filter when switching away from Maldives
+                  if (value !== "Maldives") {
+                    setActiveTransfer("all");
+                  }
+                }}
+              >
+                <SelectTrigger className="w-[140px] h-10">
+                  <div className="flex items-center gap-2">
+                    <MapPin className="w-4 h-4 text-primary" />
+                    <SelectValue placeholder="Destination" />
+                  </div>
+                </SelectTrigger>
+                <SelectContent>
+                  {destinationNames.map((dest) => (
+                    <SelectItem key={dest} value={dest}>
+                      {dest === "all" ? "All Destinations" : dest}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
 
-                {/* Transfer Mode Dropdown */}
+              {/* Category Filter */}
+              <Select value={activeFilter} onValueChange={(value) => setActiveFilter(value as FilterCategory)}>
+                <SelectTrigger className="w-[150px] h-10">
+                  <SelectValue placeholder="Category" />
+                </SelectTrigger>
+                <SelectContent>
+                  {filterOptions.map((filter) => (
+                    <SelectItem key={filter.id} value={filter.id}>
+                      <div className="flex items-center gap-2">
+                        {filter.icon}
+                        {filter.label}
+                      </div>
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+
+              {/* Transfer Filter - Only visible when Maldives is selected */}
+              {showTransferFilter && (
                 <Select value={activeTransfer} onValueChange={(value) => setActiveTransfer(value as "all" | TransferType)}>
-                  <SelectTrigger className="w-[150px]">
+                  <SelectTrigger className="w-[150px] h-10 border-primary/50 bg-primary/5">
                     <SelectValue placeholder="Transfer" />
                   </SelectTrigger>
                   <SelectContent>
@@ -752,12 +796,31 @@ const PartnerHotels = () => {
                     ))}
                   </SelectContent>
                 </Select>
-              </div>
+              )}
+
+              {/* Clear All Button */}
+              {(activeFilter !== "all" || activeTransfer !== "all" || activeDestination !== "all" || searchQuery) && (
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => {
+                    setActiveFilter("all");
+                    setActiveTransfer("all");
+                    setActiveDestination("all");
+                    setSearchQuery("");
+                  }}
+                  className="h-10 text-gray-500 hover:text-gray-700"
+                >
+                  <X className="w-4 h-4 mr-1" />
+                  Clear
+                </Button>
+              )}
             </div>
 
             {/* Results Count */}
             <div className="text-center mt-3 text-sm text-gray-500">
               Showing {totalHotels} properties
+              {activeDestination !== "all" && ` in ${activeDestination}`}
             </div>
           </div>
         </section>
@@ -773,6 +836,7 @@ const PartnerHotels = () => {
                 onClick={() => {
                   setActiveFilter("all");
                   setActiveTransfer("all");
+                  setActiveDestination("all");
                   setSearchQuery("");
                 }}
                 className="mt-4"

@@ -79,8 +79,14 @@ import cruiseHero from "@/assets/destinations/cruise-hero.jpg";
 
 import heroImage from "@/assets/resorts/luxury-infinity-pool.jpg";
 
-// Transfer types
+// Transfer types (Maldives)
 type TransferType = "seaplane" | "speedboat" | "domestic";
+
+// Seychelles island/area types
+type SeychellesArea = "mahe" | "praslin" | "la-digue" | "silhouette" | "felicite" | "private-island";
+
+// Greece island types
+type GreeceIsland = "santorini" | "mykonos" | "crete" | "athens";
 
 // Filter categories
 type FilterCategory = "all" | "adult-only" | "all-inclusive" | "honeymoon" | "nora-picks" | "top-luxury" | "upcoming";
@@ -90,6 +96,8 @@ interface Hotel {
   image: string;
   description: string;
   transfer?: TransferType;
+  seychellesArea?: SeychellesArea;
+  greeceIsland?: GreeceIsland;
   isAdultOnly?: boolean;
   isAllInclusive?: boolean;
   isHoneymoon?: boolean;
@@ -195,21 +203,21 @@ const destinations: Destination[] = [
     name: "Seychelles",
     icon: <Palmtree className="w-6 h-6" />,
     hotels: [
-      { name: "North Island", image: northIsland, description: "Ultra-exclusive private island sanctuary where royalty and celebrities find ultimate privacy and natural beauty.", isTopLuxury: true, isHoneymoon: true },
-      { name: "Four Seasons Resort Seychelles", image: fourSeasonsSeychelles, description: "Hillside and oceanfront villas on Mahé with spectacular views and private plunge pools.", isTopLuxury: true, isHoneymoon: true },
-      { name: "Six Senses Zil Pasyon", image: sixSensesSeychelles, description: "Private island wellness retreat on Félicité with holistic spa and sustainable luxury philosophy.", isTopLuxury: true, isHoneymoon: true },
-      { name: "Raffles Seychelles", image: rafflesSeychelles, description: "Elegant hillside villas on Praslin overlooking pristine beaches with legendary Raffles hospitality.", isTopLuxury: true, isHoneymoon: true },
-      { name: "Constance Ephelia", image: constanceEphelia, description: "Sprawling beachfront resort on two stunning beaches with extensive family amenities and spa village.", isHoneymoon: true },
-      { name: "Mango House Seychelles", image: mangoHouse, description: "LXR Hotels & Resorts collection boutique property with intimate luxury on Mahé's southern coast.", isHoneymoon: true },
-      { name: "Anantara Maia Seychelles Villas", image: anantaraMaia, description: "All-villa resort with dedicated butlers, oceanfront dining, and exceptional privacy.", isHoneymoon: true },
-      { name: "Hilton Seychelles Northolme Resort & Spa", image: hiltonNortholme, description: "Historic luxury resort perched on a hillside overlooking Beau Vallon with stunning sunset views.", isHoneymoon: true },
-      { name: "Waldorf Astoria Seychelles Platte Island", image: astoriaSeychelles, description: "Remote private island sanctuary with legendary Waldorf service and pristine natural beauty.", isTopLuxury: true, isHoneymoon: true },
-      { name: "Kempinski Seychelles Resort Baie Lazare", image: kempinskiSeychelles, description: "Grand European elegance on Mahé's pristine Baie Lazare beach with extensive spa, lush tropical gardens, and authentic Seychellois hospitality.", isHoneymoon: true, isTopLuxury: true },
-      { name: "Hilton Seychelles Labriz Resort & Spa", image: hiltonCanopySeychelles, description: "Secluded paradise on Silhouette Island within a national marine park, featuring the largest spa in Seychelles and pristine natural surroundings.", isHoneymoon: true },
-      { name: "Savoy Seychelles Resort & Spa", image: sixSensesSeychelles, description: "Contemporary beachfront resort on Beau Vallon with stylish rooms, infinity pool, and vibrant dining scene.", isHoneymoon: true },
-      { name: "Coral Strand Smart Choice Hotel", image: constanceEphelia, description: "Popular mid-range choice on Beau Vallon Beach offering excellent value with pool, spa, and water sports.", isHoneymoon: false },
-      { name: "STORY Seychelles", image: mangoHouse, description: "Boutique luxury retreat on Mahé's southern coast with personalized service and intimate beach setting.", isHoneymoon: true },
-      { name: "DoubleTree by Hilton Seychelles Allamanda Resort & Spa", image: hiltonNortholme, description: "Charming beachfront resort on Anse Forbans with excellent snorkeling and warm Hilton hospitality.", isHoneymoon: true },
+      { name: "North Island", image: northIsland, description: "Ultra-exclusive private island sanctuary where royalty and celebrities find ultimate privacy and natural beauty.", seychellesArea: "private-island", isTopLuxury: true, isHoneymoon: true },
+      { name: "Four Seasons Resort Seychelles", image: fourSeasonsSeychelles, description: "Hillside and oceanfront villas on Mahé with spectacular views and private plunge pools.", seychellesArea: "mahe", isTopLuxury: true, isHoneymoon: true },
+      { name: "Six Senses Zil Pasyon", image: sixSensesSeychelles, description: "Private island wellness retreat on Félicité with holistic spa and sustainable luxury philosophy.", seychellesArea: "felicite", isTopLuxury: true, isHoneymoon: true },
+      { name: "Raffles Seychelles", image: rafflesSeychelles, description: "Elegant hillside villas on Praslin overlooking pristine beaches with legendary Raffles hospitality.", seychellesArea: "praslin", isTopLuxury: true, isHoneymoon: true },
+      { name: "Constance Ephelia", image: constanceEphelia, description: "Sprawling beachfront resort on two stunning beaches with extensive family amenities and spa village.", seychellesArea: "mahe", isHoneymoon: true },
+      { name: "Mango House Seychelles", image: mangoHouse, description: "LXR Hotels & Resorts collection boutique property with intimate luxury on Mahé's southern coast.", seychellesArea: "mahe", isHoneymoon: true },
+      { name: "Anantara Maia Seychelles Villas", image: anantaraMaia, description: "All-villa resort with dedicated butlers, oceanfront dining, and exceptional privacy.", seychellesArea: "mahe", isHoneymoon: true },
+      { name: "Hilton Seychelles Northolme Resort & Spa", image: hiltonNortholme, description: "Historic luxury resort perched on a hillside overlooking Beau Vallon with stunning sunset views.", seychellesArea: "mahe", isHoneymoon: true },
+      { name: "Waldorf Astoria Seychelles Platte Island", image: astoriaSeychelles, description: "Remote private island sanctuary with legendary Waldorf service and pristine natural beauty.", seychellesArea: "private-island", isTopLuxury: true, isHoneymoon: true },
+      { name: "Kempinski Seychelles Resort Baie Lazare", image: kempinskiSeychelles, description: "Grand European elegance on Mahé's pristine Baie Lazare beach with extensive spa, lush tropical gardens, and authentic Seychellois hospitality.", seychellesArea: "mahe", isHoneymoon: true, isTopLuxury: true },
+      { name: "Hilton Seychelles Labriz Resort & Spa", image: hiltonCanopySeychelles, description: "Secluded paradise on Silhouette Island within a national marine park, featuring the largest spa in Seychelles and pristine natural surroundings.", seychellesArea: "silhouette", isHoneymoon: true },
+      { name: "Savoy Seychelles Resort & Spa", image: sixSensesSeychelles, description: "Contemporary beachfront resort on Beau Vallon with stylish rooms, infinity pool, and vibrant dining scene.", seychellesArea: "mahe", isHoneymoon: true },
+      { name: "Coral Strand Smart Choice Hotel", image: constanceEphelia, description: "Popular mid-range choice on Beau Vallon Beach offering excellent value with pool, spa, and water sports.", seychellesArea: "mahe", isHoneymoon: false },
+      { name: "STORY Seychelles", image: mangoHouse, description: "Boutique luxury retreat on Mahé's southern coast with personalized service and intimate beach setting.", seychellesArea: "mahe", isHoneymoon: true },
+      { name: "DoubleTree by Hilton Seychelles Allamanda Resort & Spa", image: hiltonNortholme, description: "Charming beachfront resort on Anse Forbans with excellent snorkeling and warm Hilton hospitality.", seychellesArea: "mahe", isHoneymoon: true },
     ]
   },
   {
@@ -227,42 +235,37 @@ const destinations: Destination[] = [
     ]
   },
   {
-    name: "Santorini",
+    name: "Greece",
     icon: <Building2 className="w-6 h-6" />,
     hotels: [
-      { name: "Canaves Oia Epitome", image: santoriniHero, description: "Ultra-luxury cave suites perched on Santorini's caldera with private infinity pools and sunset views.", isHoneymoon: true, isTopLuxury: true },
-      { name: "Cavo Tagoo Santorini", image: santoriniHero, description: "Iconic design hotel in Imerovigli with signature cave pool, caldera views, and sophisticated island luxury.", isHoneymoon: true, isTopLuxury: true, isNoraPick: true },
-      { name: "Athermi Suites", image: santoriniHero, description: "Boutique luxury suites in Fira with stunning caldera views, private jacuzzis, and authentic Santorinian hospitality.", isHoneymoon: true },
-      { name: "Grace Hotel Santorini", image: mykonosHero, description: "Intimate boutique hotel in Imerovigli with stunning champagne lounge and caldera panoramas.", isHoneymoon: true, isTopLuxury: true },
-      { name: "Mystique, a Luxury Collection Hotel", image: greeceAthens, description: "Cave hotel carved into Oia's cliffs with infinity pools overlooking the volcano.", isHoneymoon: true, isTopLuxury: true },
-      { name: "Andronis Arcadia", image: greeceCrete, description: "Contemporary wellness retreat in Oia with rooftop pool and holistic spa experiences.", isHoneymoon: true },
-      { name: "Katikies Santorini", image: santoriniHero, description: "Iconic white-washed suites cascading down the caldera with legendary Greek hospitality.", isHoneymoon: true, isTopLuxury: true },
-      { name: "Santo Maris Oia Luxury Suites & Spa", image: mykonosHero, description: "Cycladic architecture meets contemporary luxury with expansive spa and gourmet dining.", isHoneymoon: true },
-      { name: "Astra Suites", image: santoriniHero, description: "Award-winning boutique hotel in Imerovigli with romantic suites, infinity pool, and legendary breakfast.", isHoneymoon: true },
-      { name: "Cosmopolitan Suites", image: mykonosHero, description: "Intimate luxury retreat in Fira with personalized service, caldera views, and elegant Cycladic design.", isHoneymoon: true },
-    ]
-  },
-  {
-    name: "Mykonos",
-    icon: <Building2 className="w-6 h-6" />,
-    hotels: [
-      { name: "Cavo Tagoo Mykonos", image: mykonosHero, description: "Iconic luxury hotel carved into the hillside with famous cave pool, sea views, and vibrant Mykonian energy.", isHoneymoon: true, isTopLuxury: true, isNoraPick: true },
-      { name: "Kalesma Mykonos", image: mykonosHero, description: "Contemporary Cycladic sanctuary perched above Ornos Bay with infinity pool and farm-to-table dining.", isHoneymoon: true, isTopLuxury: true },
-      { name: "Myconian Utopia Resort", image: mykonosHero, description: "Adults-only clifftop retreat in Elia Beach with thalasso spa and stunning Aegean panoramas.", isHoneymoon: true, isAdultOnly: true },
-      { name: "Santa Marina, a Luxury Collection Resort", image: mykonosHero, description: "Private peninsula resort with exclusive beach, Buddha-Bar Beach, and Cycladic elegance.", isHoneymoon: true, isTopLuxury: true },
-      { name: "Belvedere Hotel Mykonos", image: mykonosHero, description: "Legendary boutique hotel in Mykonos Town with Matsuhisa restaurant and bohemian luxury.", isHoneymoon: true },
-      { name: "Bill & Coo Suites and Lounge", image: mykonosHero, description: "Award-winning adults-only hideaway with minimalist suites, gourmet dining, and Little Venice views.", isHoneymoon: true, isAdultOnly: true, isTopLuxury: true },
-    ]
-  },
-  {
-    name: "Athens",
-    icon: <Building2 className="w-6 h-6" />,
-    hotels: [
-      { name: "Hotel Grande Bretagne", image: greeceAthens, description: "Legendary landmark on Syntagma Square with Acropolis views, historic grandeur, and rooftop dining.", isHoneymoon: true, isTopLuxury: true },
-      { name: "Four Seasons Astir Palace Hotel Athens", image: greeceAthens, description: "Prestigious coastal resort on Athens Riviera with three private beaches and Mediterranean elegance.", isHoneymoon: true, isTopLuxury: true },
-      { name: "King George, a Luxury Collection Hotel", image: greeceAthens, description: "Intimate luxury in the heart of Athens with Tudor Hall restaurant and Acropolis panoramas.", isHoneymoon: true },
-      { name: "The Margi Hotel", image: greeceAthens, description: "Boutique retreat in Vouliagmeni with beach club access, spa, and sophisticated coastal living.", isHoneymoon: true },
-      { name: "One&Only Aesthesis Athens Riviera", image: greeceAthens, description: "Ultra-luxury coastal sanctuary blending contemporary design with Greek heritage on the Athens Riviera.", isHoneymoon: true, isTopLuxury: true, isUpcoming: true, openingYear: "2024" },
+      // Santorini
+      { name: "Canaves Oia Epitome", image: santoriniHero, description: "Ultra-luxury cave suites perched on Santorini's caldera with private infinity pools and sunset views.", greeceIsland: "santorini", isHoneymoon: true, isTopLuxury: true },
+      { name: "Cavo Tagoo Santorini", image: santoriniHero, description: "Iconic design hotel in Imerovigli with signature cave pool, caldera views, and sophisticated island luxury.", greeceIsland: "santorini", isHoneymoon: true, isTopLuxury: true, isNoraPick: true },
+      { name: "Athermi Suites", image: santoriniHero, description: "Boutique luxury suites in Fira with stunning caldera views, private jacuzzis, and authentic Santorinian hospitality.", greeceIsland: "santorini", isHoneymoon: true },
+      { name: "Grace Hotel Santorini", image: mykonosHero, description: "Intimate boutique hotel in Imerovigli with stunning champagne lounge and caldera panoramas.", greeceIsland: "santorini", isHoneymoon: true, isTopLuxury: true },
+      { name: "Mystique, a Luxury Collection Hotel", image: greeceAthens, description: "Cave hotel carved into Oia's cliffs with infinity pools overlooking the volcano.", greeceIsland: "santorini", isHoneymoon: true, isTopLuxury: true },
+      { name: "Andronis Arcadia", image: greeceCrete, description: "Contemporary wellness retreat in Oia with rooftop pool and holistic spa experiences.", greeceIsland: "santorini", isHoneymoon: true },
+      { name: "Katikies Santorini", image: santoriniHero, description: "Iconic white-washed suites cascading down the caldera with legendary Greek hospitality.", greeceIsland: "santorini", isHoneymoon: true, isTopLuxury: true },
+      { name: "Santo Maris Oia Luxury Suites & Spa", image: mykonosHero, description: "Cycladic architecture meets contemporary luxury with expansive spa and gourmet dining.", greeceIsland: "santorini", isHoneymoon: true },
+      { name: "Astra Suites", image: santoriniHero, description: "Award-winning boutique hotel in Imerovigli with romantic suites, infinity pool, and legendary breakfast.", greeceIsland: "santorini", isHoneymoon: true },
+      { name: "Cosmopolitan Suites", image: mykonosHero, description: "Intimate luxury retreat in Fira with personalized service, caldera views, and elegant Cycladic design.", greeceIsland: "santorini", isHoneymoon: true },
+      // Mykonos
+      { name: "Cavo Tagoo Mykonos", image: mykonosHero, description: "Iconic luxury hotel carved into the hillside with famous cave pool, sea views, and vibrant Mykonian energy.", greeceIsland: "mykonos", isHoneymoon: true, isTopLuxury: true, isNoraPick: true },
+      { name: "Kalesma Mykonos", image: mykonosHero, description: "Contemporary Cycladic sanctuary perched above Ornos Bay with infinity pool and farm-to-table dining.", greeceIsland: "mykonos", isHoneymoon: true, isTopLuxury: true },
+      { name: "Myconian Utopia Resort", image: mykonosHero, description: "Adults-only clifftop retreat in Elia Beach with thalasso spa and stunning Aegean panoramas.", greeceIsland: "mykonos", isHoneymoon: true, isAdultOnly: true },
+      { name: "Santa Marina, a Luxury Collection Resort", image: mykonosHero, description: "Private peninsula resort with exclusive beach, Buddha-Bar Beach, and Cycladic elegance.", greeceIsland: "mykonos", isHoneymoon: true, isTopLuxury: true },
+      { name: "Belvedere Hotel Mykonos", image: mykonosHero, description: "Legendary boutique hotel in Mykonos Town with Matsuhisa restaurant and bohemian luxury.", greeceIsland: "mykonos", isHoneymoon: true },
+      { name: "Bill & Coo Suites and Lounge", image: mykonosHero, description: "Award-winning adults-only hideaway with minimalist suites, gourmet dining, and Little Venice views.", greeceIsland: "mykonos", isHoneymoon: true, isAdultOnly: true, isTopLuxury: true },
+      // Athens
+      { name: "Hotel Grande Bretagne", image: greeceAthens, description: "Legendary landmark on Syntagma Square with Acropolis views, historic grandeur, and rooftop dining.", greeceIsland: "athens", isHoneymoon: true, isTopLuxury: true },
+      { name: "Four Seasons Astir Palace Hotel Athens", image: greeceAthens, description: "Prestigious coastal resort on Athens Riviera with three private beaches and Mediterranean elegance.", greeceIsland: "athens", isHoneymoon: true, isTopLuxury: true },
+      { name: "King George, a Luxury Collection Hotel", image: greeceAthens, description: "Intimate luxury in the heart of Athens with Tudor Hall restaurant and Acropolis panoramas.", greeceIsland: "athens", isHoneymoon: true },
+      { name: "The Margi Hotel", image: greeceAthens, description: "Boutique retreat in Vouliagmeni with beach club access, spa, and sophisticated coastal living.", greeceIsland: "athens", isHoneymoon: true },
+      { name: "One&Only Aesthesis Athens Riviera", image: greeceAthens, description: "Ultra-luxury coastal sanctuary blending contemporary design with Greek heritage on the Athens Riviera.", greeceIsland: "athens", isHoneymoon: true, isTopLuxury: true, isUpcoming: true, openingYear: "2024" },
+      // Crete
+      { name: "Blue Palace Elounda", image: greeceCrete, description: "Sprawling luxury resort on Crete's coast with private beach, spa, and stunning views of Spinalonga.", greeceIsland: "crete", isHoneymoon: true, isTopLuxury: true },
+      { name: "Daios Cove Luxury Resort", image: greeceCrete, description: "Cliffside retreat with private beach, infinity pools, and panoramic Aegean Sea views.", greeceIsland: "crete", isHoneymoon: true, isTopLuxury: true },
+      { name: "Amirandes Grecotel Exclusive Resort", image: greeceCrete, description: "Palatial resort with lagoon pools, private beach, and Cretan hospitality at its finest.", greeceIsland: "crete", isHoneymoon: true },
     ]
   },
   {
@@ -375,6 +378,24 @@ const transferOptions: { id: TransferType | "all"; label: string; icon: React.Re
   { id: "seaplane", label: "Seaplane", icon: <Plane className="w-4 h-4" /> },
   { id: "speedboat", label: "Speedboat", icon: <Anchor className="w-4 h-4" /> },
   { id: "domestic", label: "Domestic Flight", icon: <Car className="w-4 h-4" /> },
+];
+
+const seychellesAreaOptions: { id: SeychellesArea | "all"; label: string; icon: React.ReactNode }[] = [
+  { id: "all", label: "All Islands", icon: <Filter className="w-4 h-4" /> },
+  { id: "mahe", label: "Mahé", icon: <Palmtree className="w-4 h-4" /> },
+  { id: "praslin", label: "Praslin", icon: <Palmtree className="w-4 h-4" /> },
+  { id: "la-digue", label: "La Digue", icon: <Palmtree className="w-4 h-4" /> },
+  { id: "silhouette", label: "Silhouette", icon: <Palmtree className="w-4 h-4" /> },
+  { id: "felicite", label: "Félicité", icon: <Palmtree className="w-4 h-4" /> },
+  { id: "private-island", label: "Private Island", icon: <Crown className="w-4 h-4" /> },
+];
+
+const greeceIslandOptions: { id: GreeceIsland | "all"; label: string; icon: React.ReactNode }[] = [
+  { id: "all", label: "All Regions", icon: <Filter className="w-4 h-4" /> },
+  { id: "santorini", label: "Santorini", icon: <Building2 className="w-4 h-4" /> },
+  { id: "mykonos", label: "Mykonos", icon: <Building2 className="w-4 h-4" /> },
+  { id: "athens", label: "Athens", icon: <Building2 className="w-4 h-4" /> },
+  { id: "crete", label: "Crete", icon: <Building2 className="w-4 h-4" /> },
 ];
 
 interface QuoteFormData {
@@ -631,6 +652,8 @@ Sent via Resorts Offers
 const PartnerHotels = () => {
   const [activeFilter, setActiveFilter] = useState<FilterCategory>("all");
   const [activeTransfer, setActiveTransfer] = useState<TransferType | "all">("all");
+  const [activeSeychellesArea, setActiveSeychellesArea] = useState<SeychellesArea | "all">("all");
+  const [activeGreeceIsland, setActiveGreeceIsland] = useState<GreeceIsland | "all">("all");
   const [activeDestination, setActiveDestination] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -639,8 +662,10 @@ const PartnerHotels = () => {
     return ["all", ...destinations.map(d => d.name)];
   }, []);
 
-  // Check if Maldives is the selected destination (show transfer filter only for Maldives)
+  // Show destination-specific sub-filters
   const showTransferFilter = activeDestination === "Maldives";
+  const showSeychellesFilter = activeDestination === "Seychelles";
+  const showGreeceFilter = activeDestination === "Greece";
 
   // Filter destinations and hotels
   const filteredDestinations = useMemo(() => {
@@ -674,12 +699,24 @@ const PartnerHotels = () => {
             matchesTransfer = hotel.transfer === activeTransfer;
           }
           
-          return matchesSearch && matchesCategory && matchesTransfer;
+          // Seychelles area filter
+          let matchesSeychellesArea = true;
+          if (activeSeychellesArea !== "all" && destination.name === "Seychelles") {
+            matchesSeychellesArea = hotel.seychellesArea === activeSeychellesArea;
+          }
+          
+          // Greece island filter
+          let matchesGreeceIsland = true;
+          if (activeGreeceIsland !== "all" && destination.name === "Greece") {
+            matchesGreeceIsland = hotel.greeceIsland === activeGreeceIsland;
+          }
+          
+          return matchesSearch && matchesCategory && matchesTransfer && matchesSeychellesArea && matchesGreeceIsland;
         });
         
         return { ...destination, hotels: filteredHotels };
       }).filter(destination => destination.hotels.length > 0);
-  }, [activeFilter, activeTransfer, activeDestination, searchQuery]);
+  }, [activeFilter, activeTransfer, activeSeychellesArea, activeGreeceIsland, activeDestination, searchQuery]);
 
   const totalHotels = filteredDestinations.reduce((acc, d) => acc + d.hotels.length, 0);
 
@@ -741,10 +778,10 @@ const PartnerHotels = () => {
                 value={activeDestination} 
                 onValueChange={(value) => {
                   setActiveDestination(value);
-                  // Reset transfer filter when switching away from Maldives
-                  if (value !== "Maldives") {
-                    setActiveTransfer("all");
-                  }
+                  // Reset all destination-specific filters when switching
+                  setActiveTransfer("all");
+                  setActiveSeychellesArea("all");
+                  setActiveGreeceIsland("all");
                 }}
               >
                 <SelectTrigger className="w-[140px] h-10">
@@ -798,14 +835,54 @@ const PartnerHotels = () => {
                 </Select>
               )}
 
+              {/* Seychelles Area Filter - Only visible when Seychelles is selected */}
+              {showSeychellesFilter && (
+                <Select value={activeSeychellesArea} onValueChange={(value) => setActiveSeychellesArea(value as "all" | SeychellesArea)}>
+                  <SelectTrigger className="w-[150px] h-10 border-primary/50 bg-primary/5">
+                    <SelectValue placeholder="Island" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {seychellesAreaOptions.map((area) => (
+                      <SelectItem key={area.id} value={area.id}>
+                        <div className="flex items-center gap-2">
+                          {area.icon}
+                          {area.label}
+                        </div>
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              )}
+
+              {/* Greece Island Filter - Only visible when Greece is selected */}
+              {showGreeceFilter && (
+                <Select value={activeGreeceIsland} onValueChange={(value) => setActiveGreeceIsland(value as "all" | GreeceIsland)}>
+                  <SelectTrigger className="w-[150px] h-10 border-primary/50 bg-primary/5">
+                    <SelectValue placeholder="Region" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {greeceIslandOptions.map((island) => (
+                      <SelectItem key={island.id} value={island.id}>
+                        <div className="flex items-center gap-2">
+                          {island.icon}
+                          {island.label}
+                        </div>
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              )}
+
               {/* Clear All Button */}
-              {(activeFilter !== "all" || activeTransfer !== "all" || activeDestination !== "all" || searchQuery) && (
+              {(activeFilter !== "all" || activeTransfer !== "all" || activeSeychellesArea !== "all" || activeGreeceIsland !== "all" || activeDestination !== "all" || searchQuery) && (
                 <Button
                   variant="ghost"
                   size="sm"
                   onClick={() => {
                     setActiveFilter("all");
                     setActiveTransfer("all");
+                    setActiveSeychellesArea("all");
+                    setActiveGreeceIsland("all");
                     setActiveDestination("all");
                     setSearchQuery("");
                   }}
@@ -836,6 +913,8 @@ const PartnerHotels = () => {
                 onClick={() => {
                   setActiveFilter("all");
                   setActiveTransfer("all");
+                  setActiveSeychellesArea("all");
+                  setActiveGreeceIsland("all");
                   setActiveDestination("all");
                   setSearchQuery("");
                 }}

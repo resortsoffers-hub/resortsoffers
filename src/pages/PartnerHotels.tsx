@@ -222,12 +222,39 @@ const destinations: Destination[] = [
     name: "Santorini",
     icon: <Building2 className="w-6 h-6" />,
     hotels: [
-      { name: "Canaves Oia Epitome", image: santoriniHero, description: "Ultra-luxury cave suites perched on Santorini's caldera with private infinity pools and sunset views.", isHoneymoon: true },
-      { name: "Grace Hotel Santorini", image: mykonosHero, description: "Intimate boutique hotel in Imerovigli with stunning champagne lounge and caldera panoramas.", isHoneymoon: true },
-      { name: "Mystique, a Luxury Collection Hotel", image: greeceAthens, description: "Cave hotel carved into Oia's cliffs with infinity pools overlooking the volcano.", isHoneymoon: true },
+      { name: "Canaves Oia Epitome", image: santoriniHero, description: "Ultra-luxury cave suites perched on Santorini's caldera with private infinity pools and sunset views.", isHoneymoon: true, isTopLuxury: true },
+      { name: "Cavo Tagoo Santorini", image: santoriniHero, description: "Iconic design hotel in Imerovigli with signature cave pool, caldera views, and sophisticated island luxury.", isHoneymoon: true, isTopLuxury: true, isNoraPick: true },
+      { name: "Athermi Suites", image: santoriniHero, description: "Boutique luxury suites in Fira with stunning caldera views, private jacuzzis, and authentic Santorinian hospitality.", isHoneymoon: true },
+      { name: "Grace Hotel Santorini", image: mykonosHero, description: "Intimate boutique hotel in Imerovigli with stunning champagne lounge and caldera panoramas.", isHoneymoon: true, isTopLuxury: true },
+      { name: "Mystique, a Luxury Collection Hotel", image: greeceAthens, description: "Cave hotel carved into Oia's cliffs with infinity pools overlooking the volcano.", isHoneymoon: true, isTopLuxury: true },
       { name: "Andronis Arcadia", image: greeceCrete, description: "Contemporary wellness retreat in Oia with rooftop pool and holistic spa experiences.", isHoneymoon: true },
-      { name: "Katikies Santorini", image: santoriniHero, description: "Iconic white-washed suites cascading down the caldera with legendary Greek hospitality.", isHoneymoon: true },
+      { name: "Katikies Santorini", image: santoriniHero, description: "Iconic white-washed suites cascading down the caldera with legendary Greek hospitality.", isHoneymoon: true, isTopLuxury: true },
       { name: "Santo Maris Oia Luxury Suites & Spa", image: mykonosHero, description: "Cycladic architecture meets contemporary luxury with expansive spa and gourmet dining.", isHoneymoon: true },
+      { name: "Astra Suites", image: santoriniHero, description: "Award-winning boutique hotel in Imerovigli with romantic suites, infinity pool, and legendary breakfast.", isHoneymoon: true },
+      { name: "Cosmopolitan Suites", image: mykonosHero, description: "Intimate luxury retreat in Fira with personalized service, caldera views, and elegant Cycladic design.", isHoneymoon: true },
+    ]
+  },
+  {
+    name: "Mykonos",
+    icon: <Building2 className="w-6 h-6" />,
+    hotels: [
+      { name: "Cavo Tagoo Mykonos", image: mykonosHero, description: "Iconic luxury hotel carved into the hillside with famous cave pool, sea views, and vibrant Mykonian energy.", isHoneymoon: true, isTopLuxury: true, isNoraPick: true },
+      { name: "Kalesma Mykonos", image: mykonosHero, description: "Contemporary Cycladic sanctuary perched above Ornos Bay with infinity pool and farm-to-table dining.", isHoneymoon: true, isTopLuxury: true },
+      { name: "Myconian Utopia Resort", image: mykonosHero, description: "Adults-only clifftop retreat in Elia Beach with thalasso spa and stunning Aegean panoramas.", isHoneymoon: true, isAdultOnly: true },
+      { name: "Santa Marina, a Luxury Collection Resort", image: mykonosHero, description: "Private peninsula resort with exclusive beach, Buddha-Bar Beach, and Cycladic elegance.", isHoneymoon: true, isTopLuxury: true },
+      { name: "Belvedere Hotel Mykonos", image: mykonosHero, description: "Legendary boutique hotel in Mykonos Town with Matsuhisa restaurant and bohemian luxury.", isHoneymoon: true },
+      { name: "Bill & Coo Suites and Lounge", image: mykonosHero, description: "Award-winning adults-only hideaway with minimalist suites, gourmet dining, and Little Venice views.", isHoneymoon: true, isAdultOnly: true, isTopLuxury: true },
+    ]
+  },
+  {
+    name: "Athens",
+    icon: <Building2 className="w-6 h-6" />,
+    hotels: [
+      { name: "Hotel Grande Bretagne", image: greeceAthens, description: "Legendary landmark on Syntagma Square with Acropolis views, historic grandeur, and rooftop dining.", isHoneymoon: true, isTopLuxury: true },
+      { name: "Four Seasons Astir Palace Hotel Athens", image: greeceAthens, description: "Prestigious coastal resort on Athens Riviera with three private beaches and Mediterranean elegance.", isHoneymoon: true, isTopLuxury: true },
+      { name: "King George, a Luxury Collection Hotel", image: greeceAthens, description: "Intimate luxury in the heart of Athens with Tudor Hall restaurant and Acropolis panoramas.", isHoneymoon: true },
+      { name: "The Margi Hotel", image: greeceAthens, description: "Boutique retreat in Vouliagmeni with beach club access, spa, and sophisticated coastal living.", isHoneymoon: true },
+      { name: "One&Only Aesthesis Athens Riviera", image: greeceAthens, description: "Ultra-luxury coastal sanctuary blending contemporary design with Greek heritage on the Athens Riviera.", isHoneymoon: true, isTopLuxury: true, isUpcoming: true, openingYear: "2024" },
     ]
   },
   {
@@ -262,14 +289,15 @@ const destinations: Destination[] = [
     name: "Bali",
     icon: <Palmtree className="w-6 h-6" />,
     hotels: [
-      { name: "Four Seasons Resort Bali at Sayan", image: baliResort, description: "Riverside jungle sanctuary with dramatic entrance bridge and world-renowned Sacred River Spa.", isHoneymoon: true },
+      { name: "Hanging Gardens of Bali", image: baliResort, description: "Iconic jungle hideaway in Ubud with legendary dual infinity pools overlooking Ayung River gorge, world's best pool views.", isHoneymoon: true, isTopLuxury: true, isNoraPick: true },
+      { name: "Four Seasons Resort Bali at Sayan", image: baliResort, description: "Riverside jungle sanctuary with dramatic entrance bridge and world-renowned Sacred River Spa.", isHoneymoon: true, isTopLuxury: true },
       { name: "Aman Villas at Nusa Dua", image: baliResort, description: "Clifftop minimalist villas with sweeping ocean views and legendary Aman service.", isTopLuxury: true, isHoneymoon: true },
       { name: "The Mulia, Mulia Resort & Villas", image: baliResort, description: "Grand beachfront resort with The Mulia Spa, nine restaurants, and pristine white sand beach.", isHoneymoon: true },
       { name: "COMO Shambhala Estate", image: baliResort, description: "Holistic wellness retreat in Ubud's jungle with life-changing health programs.", isHoneymoon: true },
-      { name: "Mandapa, a Ritz-Carlton Reserve", image: baliResort, description: "Intimate riverside retreat with rice paddy views, organic farm, and exceptional wellness.", isHoneymoon: true },
+      { name: "Mandapa, a Ritz-Carlton Reserve", image: baliResort, description: "Intimate riverside retreat with rice paddy views, organic farm, and exceptional wellness.", isHoneymoon: true, isTopLuxury: true },
       { name: "Bulgari Resort Bali", image: baliResort, description: "Cliffside Italian elegance in Uluwatu with dramatic ocean views and exclusive beach club.", isTopLuxury: true, isHoneymoon: true },
       { name: "The St. Regis Bali Resort", image: baliResort, description: "Beachfront grandeur in Nusa Dua with largest lagoon pool and St. Regis Butler Service.", isHoneymoon: true },
-      { name: "Capella Ubud", image: baliResort, description: "Glamping tents in the rainforest designed by Bill Bensley with theatrical luxury.", isHoneymoon: true },
+      { name: "Capella Ubud", image: baliResort, description: "Glamping tents in the rainforest designed by Bill Bensley with theatrical luxury.", isHoneymoon: true, isTopLuxury: true },
     ]
   },
   {

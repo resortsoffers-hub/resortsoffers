@@ -26,7 +26,8 @@ import {
   Search,
   Filter,
   Camera,
-  Palmtree
+  Palmtree,
+  BedDouble
 } from "lucide-react";
 
 // Resort Images
@@ -79,6 +80,7 @@ interface PackageData {
   transferType?: string;
   whatsappMessage: string;
   validUntil?: string;
+  bedrooms?: number; // Number of bedrooms for family villas (2-6+)
 }
 
 // All packages data
@@ -91,6 +93,7 @@ const packagesData: PackageData[] = [
     location: "South Malé Atoll",
     destination: "Maldives",
     stars: 5,
+    bedrooms: 2,
     amenityIcons: [
       { icon: Wine, label: "All-Inclusive" },
       { icon: Sparkles, label: "Spa" },
@@ -119,6 +122,7 @@ const packagesData: PackageData[] = [
     location: "Lhaviyani Atoll",
     destination: "Maldives",
     stars: 5,
+    bedrooms: 3,
     amenityIcons: [
       { icon: Wine, label: "All-Inclusive" },
       { icon: Utensils, label: "6 Restaurants" },
@@ -147,6 +151,7 @@ const packagesData: PackageData[] = [
     location: "Lhaviyani Atoll",
     destination: "Maldives",
     stars: 5,
+    bedrooms: 2,
     amenityIcons: [
       { icon: Heart, label: "Adults Only" },
       { icon: Wine, label: "All-Inclusive" },
@@ -175,6 +180,7 @@ const packagesData: PackageData[] = [
     location: "North Ari Atoll",
     destination: "Maldives",
     stars: 5,
+    bedrooms: 3,
     amenityIcons: [
       { icon: Utensils, label: "Half Board" },
       { icon: Glasses, label: "Diving" },
@@ -203,6 +209,7 @@ const packagesData: PackageData[] = [
     location: "Noonu Atoll",
     destination: "Maldives",
     stars: 5,
+    bedrooms: 4,
     amenityIcons: [
       { icon: Wine, label: "All-Inclusive" },
       { icon: Utensils, label: "21 Restaurants" },
@@ -231,6 +238,7 @@ const packagesData: PackageData[] = [
     location: "South Ari Atoll",
     destination: "Maldives",
     stars: 5,
+    bedrooms: 3,
     amenityIcons: [
       { icon: Utensils, label: "Half Board" },
       { icon: Glasses, label: "Whale Sharks" },
@@ -259,6 +267,7 @@ const packagesData: PackageData[] = [
     location: "Raa Atoll",
     destination: "Maldives",
     stars: 5,
+    bedrooms: 4,
     amenityIcons: [
       { icon: Wine, label: "All-Inclusive" },
       { icon: Sparkles, label: "Spa" },
@@ -287,6 +296,7 @@ const packagesData: PackageData[] = [
     location: "South Ari Atoll",
     destination: "Maldives",
     stars: 5,
+    bedrooms: 5,
     amenityIcons: [
       { icon: UtensilsCrossed, label: "Ithaa Restaurant" },
       { icon: Sparkles, label: "The Spa Retreat" },
@@ -315,6 +325,7 @@ const packagesData: PackageData[] = [
     location: "Raa Atoll",
     destination: "Maldives",
     stars: 5,
+    bedrooms: 2,
     amenityIcons: [
       { icon: Heart, label: "Adults Only" },
       { icon: Wine, label: "All-Inclusive" },
@@ -342,6 +353,7 @@ const packagesData: PackageData[] = [
     location: "Raa Atoll",
     destination: "Maldives",
     stars: 5,
+    bedrooms: 2,
     amenityIcons: [
       { icon: Utensils, label: "Half Board" },
       { icon: Sparkles, label: "Spa" },
@@ -369,6 +381,7 @@ const packagesData: PackageData[] = [
     location: "Dhaalu Atoll",
     destination: "Maldives",
     stars: 5,
+    bedrooms: 5,
     amenityIcons: [
       { icon: Dumbbell, label: "Fitness" },
       { icon: Users, label: "Family Friendly" },
@@ -396,6 +409,7 @@ const packagesData: PackageData[] = [
     location: "South Malé Atoll",
     destination: "Maldives",
     stars: 5,
+    bedrooms: 6,
     amenityIcons: [
       { icon: Anchor, label: "Private Island" },
       { icon: Sparkles, label: "Mandara Spa" },
@@ -425,6 +439,7 @@ const packagesData: PackageData[] = [
     location: "Praslin Island",
     destination: "Seychelles",
     stars: 5,
+    bedrooms: 2,
     amenityIcons: [
       { icon: Anchor, label: "Private Beach" },
       { icon: Sparkles, label: "Spa" },
@@ -453,6 +468,7 @@ const packagesData: PackageData[] = [
     location: "Mahé Island",
     destination: "Seychelles",
     stars: 5,
+    bedrooms: 3,
     amenityIcons: [
       { icon: Sparkles, label: "Spa" },
       { icon: Waves, label: "Water Sports" },
@@ -481,6 +497,7 @@ const packagesData: PackageData[] = [
     location: "Félicité Island",
     destination: "Seychelles",
     stars: 5,
+    bedrooms: 4,
     amenityIcons: [
       { icon: Anchor, label: "Private Island" },
       { icon: Sparkles, label: "Wellness" },
@@ -509,6 +526,7 @@ const packagesData: PackageData[] = [
     location: "Mahé Island",
     destination: "Seychelles",
     stars: 5,
+    bedrooms: 4,
     amenityIcons: [
       { icon: Users, label: "Family" },
       { icon: Sparkles, label: "U Spa" },
@@ -537,6 +555,7 @@ const packagesData: PackageData[] = [
     location: "North Island",
     destination: "Seychelles",
     stars: 5,
+    bedrooms: 6,
     amenityIcons: [
       { icon: Anchor, label: "Private Island" },
       { icon: Wine, label: "All-Inclusive" },
@@ -565,6 +584,7 @@ const packagesData: PackageData[] = [
     location: "Mahé Island",
     destination: "Seychelles",
     stars: 5,
+    bedrooms: 3,
     amenityIcons: [
       { icon: Sparkles, label: "Spa" },
       { icon: Utensils, label: "5 Restaurants" },
@@ -593,6 +613,7 @@ const packagesData: PackageData[] = [
     location: "Mahé Island",
     destination: "Seychelles",
     stars: 5,
+    bedrooms: 2,
     amenityIcons: [
       { icon: Heart, label: "Adults Only" },
       { icon: Wine, label: "All-Inclusive" },
@@ -623,6 +644,7 @@ const packagesData: PackageData[] = [
     location: "Poste de Flacq",
     destination: "Mauritius",
     stars: 5,
+    bedrooms: 3,
     amenityIcons: [
       { icon: UtensilsCrossed, label: "Fine Dining" },
       { icon: Sparkles, label: "U Spa" },
@@ -651,6 +673,7 @@ const packagesData: PackageData[] = [
     location: "Anahita",
     destination: "Mauritius",
     stars: 5,
+    bedrooms: 5,
     amenityIcons: [
       { icon: Sparkles, label: "Spa" },
       { icon: Dumbbell, label: "Golf" },
@@ -679,6 +702,7 @@ const packagesData: PackageData[] = [
     location: "Le Morne",
     destination: "Mauritius",
     stars: 5,
+    bedrooms: 4,
     amenityIcons: [
       { icon: Sparkles, label: "Iridium Spa" },
       { icon: Wine, label: "Butler Service" },
@@ -707,6 +731,7 @@ const packagesData: PackageData[] = [
     location: "Trou d'Eau Douce",
     destination: "Mauritius",
     stars: 5,
+    bedrooms: 4,
     amenityIcons: [
       { icon: Anchor, label: "Private Islands" },
       { icon: Sparkles, label: "CHI Spa" },
@@ -735,6 +760,7 @@ const packagesData: PackageData[] = [
     location: "Poste de Flacq",
     destination: "Mauritius",
     stars: 5,
+    bedrooms: 5,
     amenityIcons: [
       { icon: Sparkles, label: "Spa" },
       { icon: Users, label: "KidsOnly" },
@@ -763,6 +789,7 @@ const packagesData: PackageData[] = [
     location: "Pointe aux Piments",
     destination: "Mauritius",
     stars: 5,
+    bedrooms: 2,
     amenityIcons: [
       { icon: Sparkles, label: "Oberoi Spa" },
       { icon: Heart, label: "Romance" },
@@ -899,7 +926,17 @@ const PackageCard = ({ pkg }: { pkg: PackageData }) => {
 
 const Packages = () => {
   const [selectedDestination, setSelectedDestination] = useState<string>("all");
+  const [selectedBedrooms, setSelectedBedrooms] = useState<string>("any");
   const [searchQuery, setSearchQuery] = useState("");
+
+  const bedroomOptions = [
+    { value: "any", label: "Any Bedrooms" },
+    { value: "2", label: "2 Bedrooms" },
+    { value: "3", label: "3 Bedrooms" },
+    { value: "4", label: "4 Bedrooms" },
+    { value: "5", label: "5 Bedrooms" },
+    { value: "6", label: "6+ Bedrooms" },
+  ];
 
   const filteredPackages = useMemo(() => {
     return packagesData.filter(pkg => {
@@ -908,9 +945,23 @@ const Packages = () => {
         pkg.hotelName.toLowerCase().includes(searchQuery.toLowerCase()) ||
         pkg.location.toLowerCase().includes(searchQuery.toLowerCase()) ||
         pkg.description.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchesDestination && matchesSearch;
+      
+      // Bedroom filter logic
+      let matchesBedrooms = true;
+      if (selectedBedrooms !== "any" && pkg.bedrooms) {
+        const bedroomCount = parseInt(selectedBedrooms);
+        if (bedroomCount === 6) {
+          matchesBedrooms = pkg.bedrooms >= 6;
+        } else {
+          matchesBedrooms = pkg.bedrooms === bedroomCount;
+        }
+      } else if (selectedBedrooms !== "any" && !pkg.bedrooms) {
+        matchesBedrooms = false; // Hide packages without bedroom info when filtering
+      }
+      
+      return matchesDestination && matchesSearch && matchesBedrooms;
     });
-  }, [selectedDestination, searchQuery]);
+  }, [selectedDestination, selectedBedrooms, searchQuery]);
 
   // Group packages by destination
   const groupedPackages = useMemo(() => {
@@ -963,6 +1014,20 @@ const Packages = () => {
                 ))}
               </select>
             </div>
+
+            {/* Bedrooms Dropdown Filter */}
+            <div className="flex items-center gap-2">
+              <BedDouble className="w-4 h-4 text-[#1e3a5f]" />
+              <select
+                value={selectedBedrooms}
+                onChange={(e) => setSelectedBedrooms(e.target.value)}
+                className="h-10 px-4 py-2 border border-gray-300 rounded-md bg-white text-[#1e3a5f] font-medium focus:outline-none focus:ring-2 focus:ring-[#1e3a5f] focus:border-transparent min-w-[140px]"
+              >
+                {bedroomOptions.map(opt => (
+                  <option key={opt.value} value={opt.value}>{opt.label}</option>
+                ))}
+              </select>
+            </div>
           </div>
         </div>
       </section>
@@ -1000,7 +1065,7 @@ const Packages = () => {
             <Button 
               variant="outline" 
               className="mt-4"
-              onClick={() => { setSelectedDestination("all"); setSearchQuery(""); }}
+              onClick={() => { setSelectedDestination("all"); setSelectedBedrooms("any"); setSearchQuery(""); }}
             >
               Clear Filters
             </Button>

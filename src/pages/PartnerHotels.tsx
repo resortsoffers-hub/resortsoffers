@@ -51,6 +51,7 @@ import mangoHouse from "@/assets/resorts/mango-house-seychelles.jpg";
 import anantaraMaia from "@/assets/resorts/anantara-maia-seychelles.jpg";
 import hiltonNortholme from "@/assets/resorts/hilton-northolme.jpg";
 import astoriaSeychelles from "@/assets/resorts/astoria-seychelles.jpg";
+import kempinskiSeychelles from "@/assets/resorts/kempinski-seychelles.jpg";
 
 import oneOnlyMauritius from "@/assets/resorts/oneandonly-mauritius.jpg";
 import stRegisMauritius from "@/assets/resorts/st-regis-mauritius.jpg";
@@ -202,6 +203,7 @@ const destinations: Destination[] = [
       { name: "Anantara Maia Seychelles Villas", image: anantaraMaia, description: "All-villa resort with dedicated butlers, oceanfront dining, and exceptional privacy.", isHoneymoon: true },
       { name: "Hilton Seychelles Northolme Resort & Spa", image: hiltonNortholme, description: "Historic luxury resort perched on a hillside overlooking Beau Vallon with stunning sunset views.", isHoneymoon: true },
       { name: "Waldorf Astoria Seychelles Platte Island", image: astoriaSeychelles, description: "Remote private island sanctuary with legendary Waldorf service and pristine natural beauty.", isTopLuxury: true, isHoneymoon: true },
+      { name: "Kempinski Seychelles Resort Baie Lazare", image: kempinskiSeychelles, description: "Grand European elegance on Mahé's pristine Baie Lazare beach with extensive spa, lush tropical gardens, and authentic Seychellois hospitality.", isHoneymoon: true, isTopLuxury: true },
     ]
   },
   {

@@ -140,7 +140,8 @@ const destinations: Destination[] = [
       { name: "Constance Moofushi Maldives", image: constanceBelleMare, description: "Award-winning all-inclusive resort with exceptional diving and pristine beaches.", transfer: "seaplane", isAllInclusive: true, isHoneymoon: true },
       
       // Other Premium Resorts
-      { name: "Soneva Fushi", image: soneva, description: "An ultra-luxury barefoot escape on a pristine private island, offering world-class dining, open-air cinemas, and unparalleled natural beauty.", transfer: "seaplane", isHoneymoon: true },
+      { name: "Soneva Fushi", image: soneva, description: "An ultra-luxury barefoot escape on a pristine private island, offering world-class dining, open-air cinemas, and unparalleled natural beauty.", transfer: "seaplane", isHoneymoon: true, isTopLuxury: true },
+      { name: "Soneva Jani", image: soneva, description: "Ultra-luxury resort in Noonu Atoll with stunning overwater villas featuring private pools, retractable roofs, and water slides.", transfer: "seaplane", isHoneymoon: true, isTopLuxury: true },
       { name: "The St. Regis Maldives Vommuli Resort", image: stRegisMaldives, description: "Architectural masterpiece with iconic overwater villas, legendary St. Regis Butler Service, and world-class diving.", transfer: "seaplane", isHoneymoon: true },
       { name: "Waldorf Astoria Maldives Ithaafushi", image: waldorfMaldives, description: "Three private islands of uncompromising luxury with 11 dining venues and the largest spa in the Maldives.", transfer: "speedboat", isHoneymoon: true },
       { name: "Anantara Kihavah Maldives Villas", image: anantaraKihavah, description: "Award-winning resort with underwater restaurant, world-class observatory, and exceptional diving.", transfer: "seaplane", isHoneymoon: true },
@@ -154,6 +155,14 @@ const destinations: Destination[] = [
       { name: "Hilton Maldives Amingiri Resort & Spa", image: hiltonAmingiri, description: "Modern design with spectacular sunset views and only 20 minutes from Male.", transfer: "speedboat", isHoneymoon: true },
       { name: "OZEN Reserve Bolifushi", image: ozenReserve, description: "Ultra-all-inclusive sanctuary with underwater restaurant and personalized butler service.", transfer: "speedboat", isHoneymoon: true },
       { name: "Joy Island Maldives", image: joyIsland, description: "Boutique island escape with authentic Maldivian charm and exceptional house reef.", transfer: "speedboat", isHoneymoon: true },
+      { name: "Bandos Maldives", image: standardMaldives, description: "Iconic Maldivian resort just 15 minutes from Male with excellent diving, water sports, and family-friendly atmosphere.", transfer: "speedboat", isHoneymoon: true },
+      { name: "Angsana Velavaru", image: anantaraKihavah, description: "Vibrant resort with colorful design, InOcean villas suspended above the lagoon, and excellent snorkeling.", transfer: "domestic", isHoneymoon: true },
+      { name: "Banyan Tree Vabbinfaru", image: velaaMaldives, description: "Intimate sanctuary with exceptional spa, marine conservation programs, and romantic beachfront villas.", transfer: "speedboat", isHoneymoon: true, isTopLuxury: true },
+      { name: "Hideaway Beach Resort & Spa", image: velaaMaldives, description: "Exclusive luxury resort with expansive villas, world-class dining, and pristine house reef.", transfer: "seaplane", isHoneymoon: true, isTopLuxury: true },
+      { name: "JA Manafaru", image: patinaMaldives, description: "Secluded northern atoll escape with spacious villas, seven restaurants, and exceptional diving experiences.", transfer: "seaplane", isHoneymoon: true, isTopLuxury: true },
+      { name: "Amilla Maldives Resort", image: ritzCarltonMaldives, description: "Contemporary island paradise with stunning overwater and treetop residences, wellness focus, and private island exclusivity.", transfer: "seaplane", isHoneymoon: true, isTopLuxury: true },
+      { name: "Baros Maldives", image: chevalBlanc, description: "Legendary boutique resort with timeless elegance, award-winning dining, and romantic overwater villas since 1973.", transfer: "speedboat", isHoneymoon: true, isTopLuxury: true },
+      { name: "Emerald Maldives Resort & Spa", image: patinaMaldives, description: "All-inclusive Deluxe concept with premium inclusions, stunning lagoon setting, and Maldivian-inspired architecture.", transfer: "seaplane", isAllInclusive: true, isHoneymoon: true },
       
       // Upcoming Resorts 2025-2026
       { name: "Ananea Madivaru Maldives", image: velaaMaldives, description: "New luxury resort in North Ari Atoll offering contemporary design and exceptional marine life.", transfer: "seaplane", isUpcoming: true, openingYear: "2025", isHoneymoon: true },

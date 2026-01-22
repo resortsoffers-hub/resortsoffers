@@ -84,6 +84,14 @@ import samabeBali from "@/assets/resorts/samabe-bali.jpg";
 
 import cruiseHero from "@/assets/destinations/cruise-hero.jpg";
 
+import phuketHero from "@/assets/destinations/phuket-hero.jpg";
+import banyanTreePhuket from "@/assets/resorts/banyan-tree-phuket.jpg";
+import trisaraPhuket from "@/assets/resorts/trisara-phuket.jpg";
+import rosewoodPhuket from "@/assets/resorts/rosewood-phuket.jpg";
+import keemalaPhuket from "@/assets/resorts/keemala-phuket.jpg";
+import amanpuriPhuket from "@/assets/resorts/amanpuri-phuket.jpg";
+import anantaraLayanPhuket from "@/assets/resorts/anantara-layan-phuket.jpg";
+
 import heroImage from "@/assets/resorts/luxury-infinity-pool.jpg";
 
 // Transfer types (Maldives)
@@ -112,6 +120,7 @@ interface Hotel {
   isTopLuxury?: boolean;
   isUpcoming?: boolean;
   openingYear?: string;
+  hasPoolVilla?: boolean;
 }
 
 interface Destination {
@@ -323,6 +332,24 @@ const destinations: Destination[] = [
       { name: "The St. Regis Bali Resort", image: baliResort, description: "Beachfront grandeur in Nusa Dua with largest lagoon pool and St. Regis Butler Service.", isHoneymoon: true },
       { name: "Capella Ubud", image: baliResort, description: "Glamping tents in the rainforest designed by Bill Bensley with theatrical luxury.", isHoneymoon: true, isTopLuxury: true },
       { name: "Samabe Bali Suites & Villas", image: samabeBali, description: "Beachfront all-inclusive luxury in Nusa Dua with clifftop ocean views, unlimited privileges, and personalized e-butler service.", isHoneymoon: true, isAllInclusive: true },
+    ]
+  },
+  {
+    name: "Phuket",
+    icon: <Palmtree className="w-6 h-6" />,
+    hotels: [
+      { name: "Amanpuri", image: amanpuriPhuket, description: "The original Aman resort, offering Thai pavilions on a private peninsula with legendary service, holistic wellness, and Andaman Sea views.", isTopLuxury: true, isHoneymoon: true, isNoraPick: true, hasPoolVilla: true },
+      { name: "Trisara", image: trisaraPhuket, description: "Exclusive private pool villas cascading down hillside to pristine beach, with exceptional dining and world-class spa on Phuket's northwest coast.", isTopLuxury: true, isHoneymoon: true, hasPoolVilla: true },
+      { name: "Rosewood Phuket", image: rosewoodPhuket, description: "Ultra-luxury beachfront resort on Emerald Bay with pool pavilions, residences, and Sense spa in a pristine natural setting.", isTopLuxury: true, isHoneymoon: true, hasPoolVilla: true },
+      { name: "Banyan Tree Phuket", image: banyanTreePhuket, description: "Award-winning all-pool-villa resort on Laguna Beach with legendary Banyan Tree Spa, Thai architecture, and lush tropical gardens.", isHoneymoon: true, hasPoolVilla: true },
+      { name: "Keemala", image: keemalaPhuket, description: "Unique rainforest retreat with bird's nest and tree house pool villas, holistic wellness, and organic cuisine above Kamala Beach.", isHoneymoon: true, isTopLuxury: true, hasPoolVilla: true },
+      { name: "Anantara Layan Phuket Villas", image: anantaraLayanPhuket, description: "Beachfront pool villas overlooking Layan Beach with Thai-inspired luxury, Anantara Spa, and exceptional dining experiences.", isHoneymoon: true, hasPoolVilla: true },
+      { name: "Anantara Mai Khao Phuket Villas", image: anantaraLayanPhuket, description: "Serene pool villa retreat on Phuket's longest beach with lagoon and beachfront villas, Sea.Fire.Salt restaurant, and turtle conservation.", isHoneymoon: true, hasPoolVilla: true },
+      { name: "Six Senses Yao Noi", image: phuketHero, description: "Private island eco-luxury near Phuket with panoramic Phang Nga Bay views, sustainable practices, and Six Senses wellness.", isTopLuxury: true, isHoneymoon: true, hasPoolVilla: true },
+      { name: "COMO Point Yamu", image: phuketHero, description: "Contemporary design on dramatic cape with COMO Shambhala wellness, Italian dining, and stunning Phang Nga Bay panoramas.", isHoneymoon: true, hasPoolVilla: true },
+      { name: "The Naka Phuket", image: phuketHero, description: "Design-forward pool villas on private Naka Beach with infinity pools, contemporary Thai architecture, and secluded luxury.", isHoneymoon: true, hasPoolVilla: true },
+      { name: "InterContinental Phuket Resort", image: phuketHero, description: "Contemporary beachfront resort on Kamala Beach with ocean-facing rooms, Club InterContinental, and exceptional dining.", isHoneymoon: true, hasPoolVilla: true },
+      { name: "The Surin Phuket", image: phuketHero, description: "Hillside cottages and beach suites on Pansea Beach with legendary service, beachfront dining, and lush tropical setting.", isHoneymoon: true },
     ]
   },
   {

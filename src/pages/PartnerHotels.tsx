@@ -67,6 +67,9 @@ import santoriniHero from "@/assets/destinations/greece-santorini.jpg";
 import mykonosHero from "@/assets/destinations/greece-mykonos.jpg";
 import greeceAthens from "@/assets/destinations/greece-athens.jpg";
 import greeceCrete from "@/assets/destinations/greece-crete.jpg";
+import domesOfElounda from "@/assets/resorts/domes-of-elounda.jpg";
+import royalBlueResort from "@/assets/resorts/royal-blue-resort.jpg";
+import abatonIslandResort from "@/assets/resorts/abaton-island-resort.jpg";
 
 import londonHero from "@/assets/destinations/london-hero.jpg";
 import londonLuxury from "@/assets/resorts/london-luxury.jpg";
@@ -268,9 +271,9 @@ const destinations: Destination[] = [
       { name: "Amirandes Grecotel Exclusive Resort", image: greeceCrete, description: "Palatial resort with lagoon pools, private beach, and Cretan hospitality at its finest.", greeceIsland: "crete", isHoneymoon: true },
       { name: "Elounda Beach Hotel & Villas", image: greeceCrete, description: "Legendary Cretan resort on Mirabello Bay with private sandy beach, award-winning spa, and elegant suites overlooking the Gulf of Elounda.", greeceIsland: "crete", isHoneymoon: true, isTopLuxury: true },
       { name: "Elounda Bay Palace", image: greeceCrete, description: "Five-star beachfront palace on Elounda's stunning coastline with panoramic sea views, world-class dining, and luxurious suites with private pools.", greeceIsland: "crete", isHoneymoon: true, isTopLuxury: true },
-      { name: "Domes of Elounda", image: greeceCrete, description: "Autograph Collection resort with avant-garde design, private beach, and Cretan wellness experiences on Elounda's peninsula.", greeceIsland: "crete", isHoneymoon: true, isTopLuxury: true },
-      { name: "Royal Blue Resort", image: greeceCrete, description: "Panormos Bay hideaway with contemporary luxury suites, infinity pools, and exceptional Mediterranean cuisine.", greeceIsland: "crete", isHoneymoon: true, isTopLuxury: true },
-      { name: "Abaton Island Resort & Spa", image: greeceCrete, description: "Stylish adults-only retreat in Hersonissos with serene beach, indulgent spa, and refined Greek hospitality.", greeceIsland: "crete", isHoneymoon: true, isTopLuxury: true },
+      { name: "Domes of Elounda", image: domesOfElounda, description: "Autograph Collection resort with avant-garde design, private beach, and Cretan wellness experiences on Elounda's peninsula.", greeceIsland: "crete", isHoneymoon: true, isTopLuxury: true },
+      { name: "Royal Blue Resort", image: royalBlueResort, description: "Panormos Bay hideaway with contemporary luxury suites, infinity pools, and exceptional Mediterranean cuisine.", greeceIsland: "crete", isHoneymoon: true, isTopLuxury: true },
+      { name: "Abaton Island Resort & Spa", image: abatonIslandResort, description: "Stylish adults-only retreat in Hersonissos with serene beach, indulgent spa, and refined Greek hospitality.", greeceIsland: "crete", isHoneymoon: true, isTopLuxury: true },
     ]
   },
   {

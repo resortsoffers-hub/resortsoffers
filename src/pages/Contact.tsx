@@ -26,9 +26,8 @@ const Contact = () => {
       icon: <MessageCircle className="w-6 h-6 text-[#25D366]" />,
       title: "WhatsApp Business - Available 24/7",
       details: [
-        { text: "🇦🇪 +971 56 762 2484", link: "https://wa.me/971567622484" },
-        { text: "🇸🇦 +966 582 360 080", link: "https://wa.me/966582360080" },
-        { text: "🇬🇧 +44 7500 029091", link: "https://wa.me/447500029091" }
+        { text: "🇦🇪 +971 56 762 2484 (Worldwide)", link: "https://wa.me/971567622484" },
+        { text: "🇦🇪 +971 54 747 4404 (Saudi Arabia)", link: "https://wa.me/971547474404" }
       ],
       badge: "24/7"
     },
@@ -117,15 +116,9 @@ const Contact = () => {
                 },
                 {
                   "@type": "ContactPoint",
-                  "telephone": "+966582360080",
+                  "telephone": "+971547474404",
                   "contactType": "Customer Service",
                   "areaServed": "SA"
-                },
-                {
-                  "@type": "ContactPoint",
-                  "telephone": "+447500029091",
-                  "contactType": "Customer Service",
-                  "areaServed": "GB"
                 }
               ]
             }
@@ -166,28 +159,19 @@ const Contact = () => {
                         href="https://wa.me/971567622484" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-2 bg-[#25D366]/10 hover:bg-[#25D366]/20 border border-[#25D366]/30 rounded-md text-xl transition-colors"
-                        title="WhatsApp UAE"
+                        className="inline-flex items-center gap-1.5 px-3 py-2 bg-[#25D366]/10 hover:bg-[#25D366]/20 border border-[#25D366]/30 rounded-md text-sm font-medium transition-colors"
+                        title="WhatsApp Worldwide"
                       >
-                        <span>🇦🇪</span>
+                        <span>🇦🇪</span> Worldwide
                       </a>
                       <a 
-                        href="https://wa.me/966582360080" 
+                        href="https://wa.me/971547474404" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-2 bg-[#25D366]/10 hover:bg-[#25D366]/20 border border-[#25D366]/30 rounded-md text-xl transition-colors"
-                        title="WhatsApp KSA"
+                        className="inline-flex items-center gap-1.5 px-3 py-2 bg-[#25D366]/10 hover:bg-[#25D366]/20 border border-[#25D366]/30 rounded-md text-sm font-medium transition-colors"
+                        title="WhatsApp Saudi Arabia"
                       >
-                        <span>🇸🇦</span>
-                      </a>
-                      <a 
-                        href="https://wa.me/447500029091" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-2 bg-[#25D366]/10 hover:bg-[#25D366]/20 border border-[#25D366]/30 rounded-md text-xl transition-colors"
-                        title="WhatsApp UK"
-                      >
-                        <span>🇬🇧</span>
+                        <span>🇦🇪</span> Saudi Arabia
                       </a>
                     </div>
                   </CardContent>

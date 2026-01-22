@@ -291,6 +291,13 @@ const destinations: Destination[] = [
       { name: "The Ritz-Carlton Yacht Collection", image: cruiseHero, description: "Legendary Ritz-Carlton service at sea with bespoke itineraries and personalized experiences.", isTopLuxury: true, isHoneymoon: true },
       { name: "Explora Journeys", image: cruiseHero, description: "MSC's ultra-luxury brand offering European sophistication and ocean-state-of-mind philosophy.", isHoneymoon: true },
     ]
+  },
+  {
+    name: "Switzerland",
+    icon: <Building2 className="w-6 h-6" />,
+    hotels: [
+      { name: "Hotel Villa Honegg", image: heroImage, description: "Iconic boutique hotel perched above Lake Lucerne with legendary infinity pool, panoramic Alpine views, and intimate luxury.", isTopLuxury: true, isHoneymoon: true, isNoraPick: true },
+    ]
   }
 ];
 

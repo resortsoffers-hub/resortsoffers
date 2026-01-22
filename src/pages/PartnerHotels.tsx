@@ -305,6 +305,10 @@ const destinations: Destination[] = [
     icon: <Building2 className="w-6 h-6" />,
     hotels: [
       { name: "Hotel Villa Honegg", image: heroImage, description: "Iconic boutique hotel perched above Lake Lucerne with legendary infinity pool, panoramic Alpine views, and intimate luxury.", isTopLuxury: true, isHoneymoon: true, isNoraPick: true },
+      { name: "The Chedi Andermatt", image: heroImage, description: "Award-winning alpine destination with 123 rooms and suites, Asia-meets-Alps design, six restaurants, and Europe's largest spa in the Swiss Alps.", isTopLuxury: true, isHoneymoon: true },
+      { name: "Badrutt's Palace Hotel St. Moritz", image: heroImage, description: "Legendary grand hotel since 1896, birthplace of winter tourism, with Renaissance tower, Michelin-starred dining, and iconic St. Moritz glamour.", isTopLuxury: true, isHoneymoon: true },
+      { name: "The Dolder Grand Zurich", image: heroImage, description: "Historic City Resort combining Belle Époque architecture with contemporary design, featuring 4,000sqm spa, two-Michelin-star restaurant, and stunning lake views.", isTopLuxury: true, isHoneymoon: true },
+      { name: "Bürgenstock Resort Lake Lucerne", image: heroImage, description: "Legendary resort reborn with four hotels, Alpine Spa spanning 10,000sqm, Europe's highest outdoor elevator, and breathtaking Lake Lucerne panoramas.", isTopLuxury: true, isHoneymoon: true, isNoraPick: true },
     ]
   }
 ];

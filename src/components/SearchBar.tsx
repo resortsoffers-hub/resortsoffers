@@ -4,22 +4,33 @@ import { Input } from "@/components/ui/input";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { CalendarIcon, MapPin, Users, Minus, Plus } from "lucide-react";
+import { CalendarIcon, MapPin, Users, Minus, Plus, BedDouble } from "lucide-react";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 
 interface SearchBarProps {
   selectedDestination?: string;
   onDestinationChange?: (destination: string) => void;
+  onBedroomsChange?: (bedrooms: string) => void;
 }
 
-const SearchBar = ({ selectedDestination = "All", onDestinationChange }: SearchBarProps) => {
+const SearchBar = ({ selectedDestination = "All", onDestinationChange, onBedroomsChange }: SearchBarProps) => {
   const [destination, setDestination] = useState("");
   const [checkIn, setCheckIn] = useState<Date>();
   const [checkOut, setCheckOut] = useState<Date>();
   const [adults, setAdults] = useState(2);
   const [children, setChildren] = useState(0);
   const [rooms, setRooms] = useState(1);
+  const [bedrooms, setBedrooms] = useState("any");
+
+  const bedroomOptions = [
+    { value: "any", label: "Any Bedrooms" },
+    { value: "2", label: "2 Bedrooms" },
+    { value: "3", label: "3 Bedrooms" },
+    { value: "4", label: "4 Bedrooms" },
+    { value: "5", label: "5 Bedrooms" },
+    { value: "6", label: "6+ Bedrooms" },
+  ];
 
   const destinations = [
     "All",
@@ -40,13 +51,13 @@ const SearchBar = ({ selectedDestination = "All", onDestinationChange }: SearchB
   ];
 
   const handleSearch = () => {
-    console.log("Search:", { destination, checkIn, checkOut, adults, children, rooms });
+    console.log("Search:", { destination, checkIn, checkOut, adults, children, rooms, bedrooms });
     // Add search logic here
   };
 
   return (
     <div className="w-full max-w-6xl mx-auto bg-white rounded shadow-2xl p-3 md:p-4 border-4 border-[#003B95]">
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-2 md:gap-3">
         {/* Destination */}
         <div className="relative">
           <label className="text-xs font-semibold text-gray-800 mb-1 block">
@@ -70,6 +81,35 @@ const SearchBar = ({ selectedDestination = "All", onDestinationChange }: SearchB
                   className="cursor-pointer hover:bg-gray-100 focus:bg-gray-100"
                 >
                   {dest}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+
+        {/* Bedrooms Filter - NEW */}
+        <div className="relative">
+          <label className="text-xs font-semibold text-gray-800 mb-1 block">
+            Bedrooms (Family Villas)
+          </label>
+          <Select value={bedrooms} onValueChange={(value) => {
+            setBedrooms(value);
+            onBedroomsChange?.(value);
+          }}>
+            <SelectTrigger className="w-full h-14 border-2 border-gray-300 focus:border-[#003B95] bg-white text-gray-900 font-medium">
+              <div className="flex items-center">
+                <BedDouble className="mr-2 w-5 h-5 text-[#003B95]" />
+                <SelectValue placeholder="Any Bedrooms" />
+              </div>
+            </SelectTrigger>
+            <SelectContent className="bg-white z-50">
+              {bedroomOptions.map((option) => (
+                <SelectItem 
+                  key={option.value} 
+                  value={option.value}
+                  className="cursor-pointer hover:bg-gray-100 focus:bg-gray-100"
+                >
+                  {option.label}
                 </SelectItem>
               ))}
             </SelectContent>

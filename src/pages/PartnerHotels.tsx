@@ -164,6 +164,14 @@ const destinations: Destination[] = [
       { name: "Baros Maldives", image: chevalBlanc, description: "Legendary boutique resort with timeless elegance, award-winning dining, and romantic overwater villas since 1973.", transfer: "speedboat", isHoneymoon: true, isTopLuxury: true },
       { name: "Emerald Maldives Resort & Spa", image: patinaMaldives, description: "All-inclusive Deluxe concept with premium inclusions, stunning lagoon setting, and Maldivian-inspired architecture.", transfer: "seaplane", isAllInclusive: true, isHoneymoon: true },
       
+      // Nora's Personal Partner Resorts
+      { name: "Kuramathi Island Resort", image: kandimaMaldives, description: "One of the largest islands in Maldives with diverse villa options, three distinct villages, and exceptional house reef for snorkeling.", transfer: "seaplane", isNoraPick: true, isHoneymoon: true, isAllInclusive: true },
+      { name: "Velassaru Maldives", image: standardMaldives, description: "Tranquil paradise for the young at heart with shimmering blue lagoons, modern romance, and effortlessly sophisticated island living.", transfer: "speedboat", isNoraPick: true, isHoneymoon: true },
+      { name: "Huvafen Fushi", image: velaaMaldives, description: "World's first underwater spa retreat where dreams become days, featuring private bungalows with freshwater pools and exclusive wine cellar.", transfer: "speedboat", isNoraPick: true, isTopLuxury: true, isHoneymoon: true },
+      { name: "Villa Nautica Paradise Island", image: ritzCarltonMaldives, description: "Luxurious 5-star resort with overwater and beachfront villas, infinity pool, and personalized services just minutes from Male.", transfer: "speedboat", isNoraPick: true, isAllInclusive: true, isHoneymoon: true },
+      { name: "Kurumba Maldives", image: wMaldives, description: "Historic landmark and first resort in Maldives since 1972, just 10 minutes from airport with award-winning dining and endless activities.", transfer: "speedboat", isNoraPick: true, isHoneymoon: true },
+      { name: "Constance Moofushi Maldives", image: constanceBelleMare, description: "Award-winning all-inclusive resort in pristine South Ari Atoll with exceptional diving, world-class service, and barefoot luxury.", transfer: "seaplane", isNoraPick: true, isAllInclusive: true, isHoneymoon: true },
+      
       // Upcoming Resorts 2025-2026
       { name: "Ananea Madivaru Maldives", image: velaaMaldives, description: "New luxury resort in North Ari Atoll offering contemporary design and exceptional marine life.", transfer: "seaplane", isUpcoming: true, openingYear: "2025", isHoneymoon: true },
       { name: "Centara Grand Lagoon Maldives", image: ozenReserve, description: "Grand resort near North Malé Atoll with extensive facilities and Thai hospitality.", transfer: "speedboat", isUpcoming: true, openingYear: "2025", isHoneymoon: true },

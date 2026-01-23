@@ -22,6 +22,26 @@ const SearchBar = ({ selectedDestination = "All", onDestinationChange, onBedroom
   const [children, setChildren] = useState(0);
   const [rooms, setRooms] = useState(1);
   const [bedrooms, setBedrooms] = useState("any");
+  const [transferType, setTransferType] = useState("any");
+
+  const currentDestination = destination || selectedDestination;
+  const isMaldivesSelected = currentDestination === "Maldives";
+
+  const maldivesTransferTypes = [
+    { value: "any", label: "All Transfers" },
+    { value: "seaplane", label: "Seaplane" },
+    { value: "speedboat", label: "Speedboat" },
+    { value: "domestic", label: "Domestic" },
+  ];
+
+  const maldivesBedroomOptions = [
+    { value: "any", label: "Any Bedrooms" },
+    { value: "2", label: "2 Bedrooms" },
+    { value: "3", label: "3 Bedrooms" },
+    { value: "4", label: "4 Bedrooms" },
+    { value: "5", label: "5 Bedrooms" },
+    { value: "6", label: "6+ Bedrooms" },
+  ];
 
   const bedroomOptions = [
     { value: "any", label: "Any Bedrooms" },
@@ -51,21 +71,26 @@ const SearchBar = ({ selectedDestination = "All", onDestinationChange, onBedroom
   ];
 
   const handleSearch = () => {
-    console.log("Search:", { destination, checkIn, checkOut, adults, children, rooms, bedrooms });
+    console.log("Search:", { destination, checkIn, checkOut, adults, children, rooms, bedrooms, transferType });
     // Add search logic here
   };
 
   return (
     <div className="w-full max-w-6xl mx-auto bg-white rounded shadow-2xl p-3 md:p-4 border-4 border-[#003B95]">
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-2 md:gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-3">
         {/* Destination */}
         <div className="relative">
           <label className="text-xs font-semibold text-gray-800 mb-1 block">
             Where are you going?
           </label>
-          <Select value={destination || selectedDestination} onValueChange={(value) => {
+          <Select value={currentDestination} onValueChange={(value) => {
             setDestination(value);
             onDestinationChange?.(value);
+            // Reset Maldives-specific filters when changing destination
+            if (value !== "Maldives") {
+              setTransferType("any");
+              setBedrooms("any");
+            }
           }}>
             <SelectTrigger className="w-full h-14 border-2 border-gray-300 focus:border-[#003B95] bg-white text-gray-900 font-medium">
               <div className="flex items-center">
@@ -85,35 +110,46 @@ const SearchBar = ({ selectedDestination = "All", onDestinationChange, onBedroom
               ))}
             </SelectContent>
           </Select>
-        </div>
 
-        {/* Bedrooms Filter - NEW */}
-        <div className="relative">
-          <label className="text-xs font-semibold text-gray-800 mb-1 block">
-            Bedrooms (Family Villas)
-          </label>
-          <Select value={bedrooms} onValueChange={(value) => {
-            setBedrooms(value);
-            onBedroomsChange?.(value);
-          }}>
-            <SelectTrigger className="w-full h-14 border-2 border-gray-300 focus:border-[#003B95] bg-white text-gray-900 font-medium">
-              <div className="flex items-center">
-                <BedDouble className="mr-2 w-5 h-5 text-[#003B95]" />
-                <SelectValue placeholder="Any Bedrooms" />
-              </div>
-            </SelectTrigger>
-            <SelectContent className="bg-white z-50">
-              {bedroomOptions.map((option) => (
-                <SelectItem 
-                  key={option.value} 
-                  value={option.value}
-                  className="cursor-pointer hover:bg-gray-100 focus:bg-gray-100"
+          {/* Maldives Sub-filters - appear directly below destination when Maldives is selected */}
+          {isMaldivesSelected && (
+            <div className="mt-2 flex flex-wrap gap-1.5">
+              {/* Transfer Type Filters */}
+              {maldivesTransferTypes.map((type) => (
+                <button
+                  key={type.value}
+                  onClick={() => setTransferType(type.value)}
+                  className={cn(
+                    "px-2.5 py-1 text-xs font-medium rounded-full border transition-all",
+                    transferType === type.value
+                      ? "bg-[#003B95] text-white border-[#003B95]"
+                      : "bg-white text-gray-700 border-gray-300 hover:border-[#003B95] hover:text-[#003B95]"
+                  )}
+                >
+                  {type.label}
+                </button>
+              ))}
+              <span className="w-px h-6 bg-gray-300 mx-1 self-center" />
+              {/* Bedroom Filters */}
+              {maldivesBedroomOptions.slice(1).map((option) => (
+                <button
+                  key={option.value}
+                  onClick={() => {
+                    setBedrooms(option.value);
+                    onBedroomsChange?.(option.value);
+                  }}
+                  className={cn(
+                    "px-2.5 py-1 text-xs font-medium rounded-full border transition-all",
+                    bedrooms === option.value
+                      ? "bg-[#003B95] text-white border-[#003B95]"
+                      : "bg-white text-gray-700 border-gray-300 hover:border-[#003B95] hover:text-[#003B95]"
+                  )}
                 >
                   {option.label}
-                </SelectItem>
+                </button>
               ))}
-            </SelectContent>
-          </Select>
+            </div>
+          )}
         </div>
 
         {/* Check-in Date */}

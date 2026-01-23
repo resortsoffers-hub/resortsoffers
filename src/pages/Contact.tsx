@@ -299,13 +299,13 @@ const Contact = () => {
                     <Button 
                       className="w-full" 
                       size="lg"
-                      onClick={() => window.open('https://calendly.com/resortsoffers', '_blank')}
+                      onClick={() => window.location.href = '/book-consultation'}
                     >
                       <Calendar className="w-4 h-4 mr-2" />
-                      Schedule Meeting Now
+                      Book Free Consultation
                     </Button>
                     <p className="text-xs text-center text-muted-foreground">
-                      Available time slots will be shown based on your timezone
+                      Schedule a free consultation with our travel experts
                     </p>
                   </CardContent>
                 </Card>

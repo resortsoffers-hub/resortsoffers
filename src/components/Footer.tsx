@@ -99,9 +99,9 @@ const Footer = () => {
         <div className="border-t border-primary-foreground/20 mt-12 pt-8">
           <div className="text-center">
             <a 
-              href="https://g.page/r/Cf7HhHgF8dCpEBM/review" 
+              href="https://maps.app.goo.gl/yrTrMqHRhTEuwXmDA?g_st=ic" 
               target="_blank" 
-              rel="noopener noreferrer" 
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-primary-foreground/10 hover:bg-primary-foreground/20 px-6 py-3 rounded-lg transition-colors"
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

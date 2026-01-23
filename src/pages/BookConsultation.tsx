@@ -239,9 +239,6 @@ const BookConsultation = () => {
             <h1 className="text-3xl md:text-5xl font-serif font-bold mb-4">
               Book Your Free Consultation
             </h1>
-            <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
-              15 minutes with Nora El Khalifi, CEO of Resorts Offers
-            </p>
           </div>
         </div>
       </section>

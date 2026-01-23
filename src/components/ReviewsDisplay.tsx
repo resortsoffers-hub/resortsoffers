@@ -75,6 +75,7 @@ const ReviewsDisplay = () => {
   const [loading, setLoading] = useState(true);
   const [selectedNationality, setSelectedNationality] = useState("All Nationalities");
   const [selectedDestination, setSelectedDestination] = useState("All Destinations");
+  const [selectedRating, setSelectedRating] = useState("All Ratings");
 
   useEffect(() => {
     const fetchReviews = async () => {
@@ -101,9 +102,12 @@ const ReviewsDisplay = () => {
       const matchesDestination = 
         selectedDestination === "All Destinations" || 
         review.destination === selectedDestination;
-      return matchesNationality && matchesDestination;
+      const matchesRating =
+        selectedRating === "All Ratings" ||
+        review.rating === parseInt(selectedRating);
+      return matchesNationality && matchesDestination && matchesRating;
     });
-  }, [reviews, selectedNationality, selectedDestination]);
+  }, [reviews, selectedNationality, selectedDestination, selectedRating]);
 
   const renderStars = (rating: number) => {
     return (
@@ -140,7 +144,7 @@ const ReviewsDisplay = () => {
         <div className="flex-1 space-y-2">
           <label className="text-sm font-medium flex items-center gap-2">
             <Globe className="w-4 h-4" />
-            Filter by Nationality
+            Nationality
           </label>
           <Select value={selectedNationality} onValueChange={setSelectedNationality}>
             <SelectTrigger className="bg-background">
@@ -159,7 +163,7 @@ const ReviewsDisplay = () => {
         <div className="flex-1 space-y-2">
           <label className="text-sm font-medium flex items-center gap-2">
             <MapPin className="w-4 h-4" />
-            Filter by Destination
+            Destination
           </label>
           <Select value={selectedDestination} onValueChange={setSelectedDestination}>
             <SelectTrigger className="bg-background">
@@ -171,6 +175,26 @@ const ReviewsDisplay = () => {
                   {dest}
                 </SelectItem>
               ))}
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div className="flex-1 space-y-2">
+          <label className="text-sm font-medium flex items-center gap-2">
+            <Star className="w-4 h-4" />
+            Rating
+          </label>
+          <Select value={selectedRating} onValueChange={setSelectedRating}>
+            <SelectTrigger className="bg-background">
+              <SelectValue placeholder="Select rating" />
+            </SelectTrigger>
+            <SelectContent className="bg-background z-50">
+              <SelectItem value="All Ratings">All Ratings</SelectItem>
+              <SelectItem value="5">⭐⭐⭐⭐⭐ 5 Stars</SelectItem>
+              <SelectItem value="4">⭐⭐⭐⭐ 4 Stars</SelectItem>
+              <SelectItem value="3">⭐⭐⭐ 3 Stars</SelectItem>
+              <SelectItem value="2">⭐⭐ 2 Stars</SelectItem>
+              <SelectItem value="1">⭐ 1 Star</SelectItem>
             </SelectContent>
           </Select>
         </div>

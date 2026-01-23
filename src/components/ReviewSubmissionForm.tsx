@@ -80,7 +80,7 @@ interface MediaFile {
   type: 'image' | 'video';
 }
 
-const MAX_FILES = 5;
+const MAX_FILES = 10;
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
 
 const ReviewSubmissionForm = () => {

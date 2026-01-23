@@ -35,10 +35,7 @@ const Contact = () => {
       icon: <Mail className="w-6 h-6 text-accent" />,
       title: "Email Us",
       details: [
-        { text: "VIP@resortsoffers.com", link: "mailto:VIP@resortsoffers.com" },
-        { text: "Marketing@resortsoffers.com", link: "mailto:Marketing@resortsoffers.com" },
-        { text: "Finance@resortsoffers.com", link: "mailto:Finance@resortsoffers.com" },
-        { text: "ceo@resortsoffers.com", link: "mailto:ceo@resortsoffers.com" }
+        { text: "VIP@resortsoffers.com", link: "mailto:VIP@resortsoffers.com" }
       ]
     },
     {

@@ -22,19 +22,14 @@ const SearchBar = ({ selectedDestination = "All", onDestinationChange, onBedroom
   const [children, setChildren] = useState(0);
   const [rooms, setRooms] = useState(1);
   const [bedrooms, setBedrooms] = useState("any");
-  const [transferType, setTransferType] = useState("any");
   const [seychellesIsland, setSeychellesIsland] = useState("any");
   const [seychellesTransfer, setSeychellesTransfer] = useState("any");
+  const [mauritiusRegion, setMauritiusRegion] = useState("any");
 
   const currentDestination = destination || selectedDestination;
   const isMaldivesSelected = currentDestination === "Maldives";
   const isSeychellesSelected = currentDestination === "Seychelles";
-
-  const maldivesTransferTypes = [
-    { value: "seaplane", label: "Seaplane" },
-    { value: "speedboat", label: "Speedboat" },
-    { value: "domestic", label: "Domestic" },
-  ];
+  const isMauritiusSelected = currentDestination === "Mauritius";
 
   const maldivesBedroomOptions = [
     { value: "any", label: "Any Bedrooms" },
@@ -61,6 +56,14 @@ const SearchBar = ({ selectedDestination = "All", onDestinationChange, onBedroom
     { value: "ferry", label: "By Ferry" },
   ];
 
+  const mauritiusRegions = [
+    { value: "any", label: "All Regions" },
+    { value: "north", label: "North" },
+    { value: "south", label: "South" },
+    { value: "east", label: "East" },
+    { value: "west", label: "West" },
+  ];
+
   const destinations = [
     "All",
     "Finland",
@@ -80,7 +83,7 @@ const SearchBar = ({ selectedDestination = "All", onDestinationChange, onBedroom
   ];
 
   const handleSearch = () => {
-    console.log("Search:", { destination, checkIn, checkOut, adults, children, rooms, bedrooms, transferType });
+    console.log("Search:", { destination, checkIn, checkOut, adults, children, rooms, bedrooms, mauritiusRegion, seychellesIsland, seychellesTransfer });
     // Add search logic here
   };
 
@@ -97,12 +100,14 @@ const SearchBar = ({ selectedDestination = "All", onDestinationChange, onBedroom
             onDestinationChange?.(value);
             // Reset destination-specific filters when changing destination
             if (value !== "Maldives") {
-              setTransferType("any");
               setBedrooms("any");
             }
             if (value !== "Seychelles") {
               setSeychellesIsland("any");
               setSeychellesTransfer("any");
+            }
+            if (value !== "Mauritius") {
+              setMauritiusRegion("any");
             }
           }}>
             <SelectTrigger className="w-full h-14 border-2 border-gray-300 focus:border-[#003B95] bg-white text-gray-900 font-medium">
@@ -124,32 +129,15 @@ const SearchBar = ({ selectedDestination = "All", onDestinationChange, onBedroom
             </SelectContent>
           </Select>
 
-          {/* Maldives Sub-filters - appear directly below destination when Maldives is selected */}
+          {/* Maldives Sub-filters - Bedroom options only */}
           {isMaldivesSelected && (
             <div className="mt-2 flex flex-wrap gap-1.5">
-              {/* Transfer Type Filters */}
-              {maldivesTransferTypes.map((type) => (
-                <button
-                  key={type.value}
-                  onClick={() => setTransferType(transferType === type.value ? "any" : type.value)}
-                  className={cn(
-                    "px-2.5 py-1 text-xs font-medium rounded-full border transition-all",
-                    transferType === type.value
-                      ? "bg-[#003B95] text-white border-[#003B95]"
-                      : "bg-white text-gray-700 border-gray-300 hover:border-[#003B95] hover:text-[#003B95]"
-                  )}
-                >
-                  {type.label}
-                </button>
-              ))}
-              <span className="w-px h-6 bg-gray-300 mx-1 self-center" />
-              {/* Bedroom Filters */}
               {maldivesBedroomOptions.slice(1).map((option) => (
                 <button
                   key={option.value}
                   onClick={() => {
-                    setBedrooms(option.value);
-                    onBedroomsChange?.(option.value);
+                    setBedrooms(bedrooms === option.value ? "any" : option.value);
+                    onBedroomsChange?.(bedrooms === option.value ? "any" : option.value);
                   }}
                   className={cn(
                     "px-2.5 py-1 text-xs font-medium rounded-full border transition-all",
@@ -159,6 +147,26 @@ const SearchBar = ({ selectedDestination = "All", onDestinationChange, onBedroom
                   )}
                 >
                   {option.label}
+                </button>
+              ))}
+            </div>
+          )}
+
+          {/* Mauritius Sub-filters - Region options */}
+          {isMauritiusSelected && (
+            <div className="mt-2 flex flex-wrap gap-1.5">
+              {mauritiusRegions.map((region) => (
+                <button
+                  key={region.value}
+                  onClick={() => setMauritiusRegion(mauritiusRegion === region.value ? "any" : region.value)}
+                  className={cn(
+                    "px-2.5 py-1 text-xs font-medium rounded-full border transition-all",
+                    mauritiusRegion === region.value
+                      ? "bg-[#003B95] text-white border-[#003B95]"
+                      : "bg-white text-gray-700 border-gray-300 hover:border-[#003B95] hover:text-[#003B95]"
+                  )}
+                >
+                  {region.label}
                 </button>
               ))}
             </div>

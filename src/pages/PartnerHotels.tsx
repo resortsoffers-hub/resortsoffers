@@ -207,18 +207,21 @@ const destinations: Destination[] = [
       { name: "Kagi Maldives Spa Island", image: anantaraKihavah, description: "Wellness-focused sanctuary in North Malé Atoll with holistic spa journeys, healthy cuisine, and tranquil overwater villas.", transfer: "speedboat", isHoneymoon: true, isNoraPick: true },
       { name: "Reethi Beach Resort", image: furaveriMaldives, description: "Eco-friendly island paradise in Baa Atoll UNESCO Biosphere Reserve with excellent diving, vibrant house reef, and authentic Maldivian charm.", transfer: "seaplane", isHoneymoon: true },
       
-      // Upcoming Resorts 2025-2026
-      { name: "Ananea Madivaru Maldives", image: velaaMaldives, description: "New luxury resort in North Ari Atoll offering contemporary design and exceptional marine life.", transfer: "seaplane", isUpcoming: true, openingYear: "2025", isHoneymoon: true },
-      { name: "Centara Grand Lagoon Maldives", image: ozenReserve, description: "Grand resort near North Malé Atoll with extensive facilities and Thai hospitality.", transfer: "speedboat", isUpcoming: true, openingYear: "2025", isHoneymoon: true },
-      { name: "JW Marriott Kaafu Atoll Island Resort", image: jwMarriott, description: "New JW Marriott property with elegant design and signature wellness offerings.", transfer: "speedboat", isUpcoming: true, openingYear: "2025", isHoneymoon: true },
-      { name: "SO/ Maldives", image: soMaldives, description: "Vibrant new luxury island resort near Malé with bold design and exceptional service.", transfer: "speedboat", isUpcoming: true, openingYear: "2025", isHoneymoon: true },
-      { name: "Soneva Secret", image: soneva, description: "Ultra-luxury expansion of Soneva brand with new level of privacy and exclusivity.", transfer: "seaplane", isUpcoming: true, openingYear: "2025", isTopLuxury: true, isHoneymoon: true },
-      { name: "V Villas Maldives at Mirihi", image: velaaMaldives, description: "MGallery Collection property with renovated villas and world-class diving.", transfer: "seaplane", isUpcoming: true, openingYear: "2025", isHoneymoon: true },
-      { name: "Corinthia Maldives", image: chevalBlanc, description: "Major luxury opening with Corinthia's legendary hospitality in pristine island setting.", transfer: "seaplane", isUpcoming: true, openingYear: "2025", isTopLuxury: true, isHoneymoon: true },
-      { name: "Mandarin Oriental Bolidhuffaru Reef", image: patinaMaldives, description: "Anticipated luxury resort bringing Mandarin Oriental excellence to the Maldives.", transfer: "seaplane", isUpcoming: true, openingYear: "2025", isTopLuxury: true, isHoneymoon: true },
-      { name: "Al Mahra Maldives", image: joaliMaldives, description: "Large luxury resort project with world-class amenities and exceptional design.", transfer: "seaplane", isUpcoming: true, openingYear: "2025", isHoneymoon: true },
-      { name: "Meyyafushi Maldives", image: standardMaldives, description: "New resort property targeting October 2025 soft opening with modern luxury.", transfer: "seaplane", isUpcoming: true, openingYear: "2025", isHoneymoon: true },
-      { name: "Rah Gili Maldives", image: northIsland, description: "Part of Six & Six Private Islands group, ultra-exclusive new development.", transfer: "seaplane", isUpcoming: true, openingYear: "2026", isTopLuxury: true, isHoneymoon: true },
+      // New Openings 2024 (Reopened/Opened)
+      { name: "Veligandu Maldives Resort Island", image: furaveriMaldives, description: "Iconic adults-only resort reopened Nov 2024 after extensive renovation with stunning water villas and pristine house reef.", transfer: "seaplane", isUpcoming: true, openingYear: "2024", isHoneymoon: true, isAdultOnly: true },
+      { name: "Centara Mirage Lagoon Maldives", image: siyamWorld, description: "Family-focused 'Mirage' concept resort opened Nov 2024 with waterpark, kids club, and Thai hospitality.", transfer: "speedboat", isUpcoming: true, openingYear: "2024", isHoneymoon: true },
+      { name: "Soneva Secret", image: soneva, description: "Ultra-bespoke hideaway with very limited villas, welcomed first guests early 2024.", transfer: "seaplane", isUpcoming: true, openingYear: "2024", isTopLuxury: true, isHoneymoon: true },
+      
+      // New Openings 2025
+      { name: "Nala Maldives by Jawakara", image: joaliMaldives, description: "Exclusive adults-focused boutique resort in Lhaviyani Atoll, opened Dec 2025 (12+ guests).", transfer: "seaplane", isAdultOnly: true, isHoneymoon: true, isUpcoming: true, openingYear: "2025" },
+      { name: "Meyyafushi Maldives", image: standardMaldives, description: "New luxury resort in Lhaviyani Atoll with soft opening Oct 2025 and grand opening Dec 2025.", transfer: "seaplane", isUpcoming: true, openingYear: "2025", isHoneymoon: true },
+      { name: "dusitD2 Feydhoo Maldives", image: dusitThani, description: "All-inclusive lifestyle concept near Velana airport, opened Jul 2025 with very short speedboat transfer.", transfer: "speedboat", isAllInclusive: true, isHoneymoon: true, isUpcoming: true, openingYear: "2025" },
+      { name: "Ananea Madivaru Maldives", image: velaaMaldives, description: "Contemporary luxury in North Ari Atoll, commenced operations Apr 2025 with exceptional marine life.", transfer: "seaplane", isUpcoming: true, openingYear: "2025", isHoneymoon: true },
+      { name: "Centara Grand Lagoon Maldives", image: ozenReserve, description: "Grand resort in The Atollia (North Malé Atoll area) opened Apr 2025 with extensive facilities and Thai hospitality.", transfer: "speedboat", isUpcoming: true, openingYear: "2025", isHoneymoon: true },
+      { name: "JW Marriott Maldives Kaafu Atoll Island Resort", image: jwMarriott, description: "Elegant JW Marriott property opened Jan 2025 with speedboat access from Velana and signature wellness.", transfer: "speedboat", isUpcoming: true, openingYear: "2025", isHoneymoon: true },
+      
+      // Upcoming 2026
+      { name: "Rah Gili Maldives", image: northIsland, description: "Ultra-exclusive new development debuting Feb 2026 as part of Six & Six Private Islands group.", transfer: "seaplane", isUpcoming: true, openingYear: "2026", isTopLuxury: true, isHoneymoon: true },
       { name: "Don Maaga Maldives", image: velaaMaldives, description: "Six & Six Private Islands development with exceptional privacy and service.", transfer: "seaplane", isUpcoming: true, openingYear: "2026", isTopLuxury: true, isHoneymoon: true },
       { name: "Bvlgari Resort Ranfushi", image: chevalBlanc, description: "Italian luxury brand's Maldives debut in Raa Atoll with signature elegance.", transfer: "seaplane", isUpcoming: true, openingYear: "2026", isTopLuxury: true, isHoneymoon: true },
       { name: "Mondrian Maldives", image: wMaldives, description: "Design-forward new resort in Noonu Atoll with Mondrian's signature style.", transfer: "seaplane", isUpcoming: true, openingYear: "2026", isHoneymoon: true },
@@ -417,12 +420,12 @@ const specialOccasions = [
 
 const filterOptions: { id: FilterCategory; label: string; icon: React.ReactNode; color: string }[] = [
   { id: "all", label: "All Resorts", icon: <Palmtree className="w-4 h-4" />, color: "bg-[#1e3a5f]" },
+  { id: "upcoming", label: "New 2024-2026", icon: <Clock className="w-4 h-4" />, color: "bg-blue-500" },
+  { id: "nora-picks", label: "Nora's Picks", icon: <Star className="w-4 h-4" />, color: "bg-amber-500" },
+  { id: "top-luxury", label: "Top Luxury", icon: <Crown className="w-4 h-4" />, color: "bg-purple-600" },
   { id: "adult-only", label: "Adults Only", icon: <Heart className="w-4 h-4" />, color: "bg-pink-500" },
   { id: "all-inclusive", label: "All-Inclusive", icon: <Sparkles className="w-4 h-4" />, color: "bg-emerald-500" },
   { id: "honeymoon", label: "Honeymoon", icon: <Heart className="w-4 h-4" />, color: "bg-rose-500" },
-  { id: "nora-picks", label: "Nora's Picks", icon: <Star className="w-4 h-4" />, color: "bg-amber-500" },
-  { id: "top-luxury", label: "Top Luxury", icon: <Crown className="w-4 h-4" />, color: "bg-purple-600" },
-  { id: "upcoming", label: "New & Upcoming", icon: <Clock className="w-4 h-4" />, color: "bg-blue-500" },
 ];
 
 const transferOptions: { id: TransferType | "all"; label: string; icon: React.ReactNode }[] = [

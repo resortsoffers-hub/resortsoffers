@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { MapPin, Star, MessageCircle, ArrowRight, Building2, Sparkles } from "lucide-react";
+import { MapPin, Star, MessageCircle, ArrowRight, Building2, Sparkles, Package } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HeroCarousel from "@/components/HeroCarousel";
@@ -284,6 +284,17 @@ const featuredOffers: Offer[] = [
                     <h3 className="text-white font-bold text-lg">{dest.name}</h3>
                   </div>
                 </Link>
+                
+                {/* View Packages Link */}
+                <div className="mt-2">
+                  <Link
+                    to={`/packages?destination=${encodeURIComponent(dest.name)}`}
+                    className="flex items-center justify-center gap-1 px-3 py-1.5 bg-primary/10 hover:bg-primary hover:text-white text-primary text-xs font-medium rounded-full transition-colors duration-200 w-full"
+                  >
+                    <Package className="w-3 h-3" />
+                    <span>View Packages</span>
+                  </Link>
+                </div>
                 
                 {/* Maldives Transfer Type Filters */}
                 {dest.hasTransferFilter && (

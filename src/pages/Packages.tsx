@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -27,7 +28,8 @@ import {
   Filter,
   Camera,
   Palmtree,
-  BedDouble
+  BedDouble,
+  Building2
 } from "lucide-react";
 
 // Resort Images
@@ -919,6 +921,17 @@ const PackageCard = ({ pkg }: { pkg: PackageData }) => {
             Book via WhatsApp
           </Button>
         </a>
+
+        {/* View Partner Hotels Button */}
+        <Link 
+          to={`/partner-hotels?destination=${encodeURIComponent(pkg.destination)}`}
+          className="block mt-2"
+        >
+          <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white font-semibold py-2">
+            <Building2 className="w-4 h-4 mr-2" />
+            View Partner Hotels
+          </Button>
+        </Link>
       </div>
     </div>
   );

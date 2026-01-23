@@ -31,7 +31,6 @@ const SearchBar = ({ selectedDestination = "All", onDestinationChange, onBedroom
   const isSeychellesSelected = currentDestination === "Seychelles";
 
   const maldivesTransferTypes = [
-    { value: "any", label: "All Transfers" },
     { value: "seaplane", label: "Seaplane" },
     { value: "speedboat", label: "Speedboat" },
     { value: "domestic", label: "Domestic" },
@@ -132,7 +131,7 @@ const SearchBar = ({ selectedDestination = "All", onDestinationChange, onBedroom
               {maldivesTransferTypes.map((type) => (
                 <button
                   key={type.value}
-                  onClick={() => setTransferType(type.value)}
+                  onClick={() => setTransferType(transferType === type.value ? "any" : type.value)}
                   className={cn(
                     "px-2.5 py-1 text-xs font-medium rounded-full border transition-all",
                     transferType === type.value

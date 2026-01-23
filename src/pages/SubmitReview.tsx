@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Star, ExternalLink, MessageSquare, CheckCircle, Users } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -40,19 +40,74 @@ const SubmitReview = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-primary/60" />
         <div className="relative z-10 container-custom text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 animate-fade-in">
-            Share Your Experience
+            Customer Reviews
           </h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto text-white/90">
-            Your feedback helps us serve you better and guides other travelers
+            See what travelers say and share your own experience
           </p>
         </div>
       </section>
 
-      {/* Main Content */}
+      {/* Customer Reviews Section - NOW FIRST */}
+      <section className="section-padding bg-muted/30">
+        <div className="container-custom max-w-5xl">
+          <div className="text-center mb-8">
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <Users className="w-6 h-6 text-primary" />
+              <h2 className="text-3xl font-bold">What Our Customers Say</h2>
+            </div>
+            <p className="text-muted-foreground">
+              Use the filters below to find reviews that match your interests
+            </p>
+          </div>
+          <ReviewsDisplay />
+        </div>
+      </section>
+
+      {/* Submit Review Section */}
       <section className="section-padding">
         <div className="container-custom max-w-4xl">
           
-          {/* Google Review CTA - Compact Section */}
+          {/* Why Review Section */}
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            <Card className="text-center p-6">
+              <div className="flex justify-center mb-4">
+                <div className="p-3 bg-primary/10 rounded-full">
+                  <MessageSquare className="w-8 h-8 text-primary" />
+                </div>
+              </div>
+              <h3 className="font-semibold text-lg mb-2">Share Your Story</h3>
+              <p className="text-muted-foreground text-sm">
+                Tell others about your luxury resort experience and memorable moments
+              </p>
+            </Card>
+            
+            <Card className="text-center p-6">
+              <div className="flex justify-center mb-4">
+                <div className="p-3 bg-accent/10 rounded-full">
+                  <Star className="w-8 h-8 text-accent" />
+                </div>
+              </div>
+              <h3 className="font-semibold text-lg mb-2">Help Future Travelers</h3>
+              <p className="text-muted-foreground text-sm">
+                Your honest feedback guides others in planning their dream vacations
+              </p>
+            </Card>
+            
+            <Card className="text-center p-6">
+              <div className="flex justify-center mb-4">
+                <div className="p-3 bg-green-500/10 rounded-full">
+                  <CheckCircle className="w-8 h-8 text-green-500" />
+                </div>
+              </div>
+              <h3 className="font-semibold text-lg mb-2">Help Us Improve</h3>
+              <p className="text-muted-foreground text-sm">
+                Your insights help us continuously enhance our services
+              </p>
+            </Card>
+          </div>
+
+          {/* Google Review CTA */}
           <Card className="mb-8 border-2 border-accent bg-gradient-to-br from-accent/10 via-accent/5 to-transparent shadow-lg">
             <CardContent className="py-6">
               <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
@@ -95,45 +150,6 @@ const SubmitReview = () => {
             <ReviewSubmissionForm />
           </div>
 
-          {/* Why Review Section */}
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
-            <Card className="text-center p-6">
-              <div className="flex justify-center mb-4">
-                <div className="p-3 bg-primary/10 rounded-full">
-                  <MessageSquare className="w-8 h-8 text-primary" />
-                </div>
-              </div>
-              <h3 className="font-semibold text-lg mb-2">Share Your Story</h3>
-              <p className="text-muted-foreground text-sm">
-                Tell others about your luxury resort experience and memorable moments
-              </p>
-            </Card>
-            
-            <Card className="text-center p-6">
-              <div className="flex justify-center mb-4">
-                <div className="p-3 bg-accent/10 rounded-full">
-                  <Star className="w-8 h-8 text-accent" />
-                </div>
-              </div>
-              <h3 className="font-semibold text-lg mb-2">Help Future Travelers</h3>
-              <p className="text-muted-foreground text-sm">
-                Your honest feedback guides others in planning their dream vacations
-              </p>
-            </Card>
-            
-            <Card className="text-center p-6">
-              <div className="flex justify-center mb-4">
-                <div className="p-3 bg-green-500/10 rounded-full">
-                  <CheckCircle className="w-8 h-8 text-green-500" />
-                </div>
-              </div>
-              <h3 className="font-semibold text-lg mb-2">Help Us Improve</h3>
-              <p className="text-muted-foreground text-sm">
-                Your insights help us continuously enhance our services
-              </p>
-            </Card>
-          </div>
-
           {/* Thank You Message */}
           <Card className="bg-muted/50 text-center">
             <CardContent className="py-8">
@@ -144,22 +160,6 @@ const SubmitReview = () => {
               </p>
             </CardContent>
           </Card>
-        </div>
-      </section>
-
-      {/* Customer Reviews Section */}
-      <section className="section-padding bg-muted/30">
-        <div className="container-custom max-w-5xl">
-          <div className="text-center mb-8">
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <Users className="w-6 h-6 text-primary" />
-              <h2 className="text-3xl font-bold">Customer Reviews</h2>
-            </div>
-            <p className="text-muted-foreground">
-              See what other travelers are saying about their experiences
-            </p>
-          </div>
-          <ReviewsDisplay />
         </div>
       </section>
 

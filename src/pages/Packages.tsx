@@ -817,6 +817,18 @@ const packagesData: PackageData[] = [
 // Destinations shown in the filter (fixed order per requirements)
 const destinations = ["Maldives", "Seychelles", "Mauritius", "China", "Vietnam", "Bali", "Thailand"];
 
+// Partner hotel counts per destination
+const partnerHotelCounts: Record<string, number> = {
+  "Maldives": 48,
+  "Seychelles": 11,
+  "Mauritius": 8,
+  "Phuket": 9,
+  "Greece": 9,
+  "Bali": 2,
+  "Dubai": 1,
+  "London": 1,
+};
+
 // Package Card Component - dnata style
 const PackageCard = ({ pkg }: { pkg: PackageData }) => {
   const whatsappNumber = "971567622484";
@@ -930,6 +942,11 @@ const PackageCard = ({ pkg }: { pkg: PackageData }) => {
           <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white font-semibold py-2">
             <Building2 className="w-4 h-4 mr-2" />
             View Partner Hotels
+            {partnerHotelCounts[pkg.destination] && (
+              <Badge variant="secondary" className="ml-2 bg-primary/10 text-primary text-xs">
+                {partnerHotelCounts[pkg.destination]}
+              </Badge>
+            )}
           </Button>
         </Link>
       </div>

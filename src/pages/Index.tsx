@@ -271,7 +271,7 @@ const featuredOffers: Offer[] = [
             {holidayRecommendations.map((dest, index) => (
               <div key={index} className="group relative">
                 <Link 
-                  to={`/packages?destination=${encodeURIComponent(dest.name)}`}
+                  to={`/partner-hotels?destination=${encodeURIComponent(dest.name)}`}
                   className="block relative h-48 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   <img 

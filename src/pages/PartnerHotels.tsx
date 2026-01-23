@@ -91,6 +91,9 @@ import rosewoodPhuket from "@/assets/resorts/rosewood-phuket.jpg";
 import keemalaPhuket from "@/assets/resorts/keemala-phuket.jpg";
 import amanpuriPhuket from "@/assets/resorts/amanpuri-phuket.jpg";
 import anantaraLayanPhuket from "@/assets/resorts/anantara-layan-phuket.jpg";
+import diamondCliffPhuket from "@/assets/resorts/diamond-cliff-phuket.jpg";
+import vVillasPhuket from "@/assets/resorts/v-villas-phuket.jpg";
+import kalimaPhuket from "@/assets/resorts/kalima-phuket.jpg";
 
 import heroImage from "@/assets/resorts/luxury-infinity-pool.jpg";
 
@@ -350,6 +353,9 @@ const destinations: Destination[] = [
       { name: "The Naka Phuket", image: phuketHero, description: "Design-forward pool villas on private Naka Beach with infinity pools, contemporary Thai architecture, and secluded luxury.", isHoneymoon: true, hasPoolVilla: true },
       { name: "InterContinental Phuket Resort", image: phuketHero, description: "Contemporary beachfront resort on Kamala Beach with ocean-facing rooms, Club InterContinental, and exceptional dining.", isHoneymoon: true, hasPoolVilla: true },
       { name: "The Surin Phuket", image: phuketHero, description: "Hillside cottages and beach suites on Pansea Beach with legendary service, beachfront dining, and lush tropical setting.", isHoneymoon: true },
+      { name: "Diamond Cliff Resort & Spa", image: diamondCliffPhuket, description: "Award-winning clifftop resort overlooking Patong Bay with panoramic ocean views, multiple pools, and legendary Thai hospitality since 1979.", isHoneymoon: true, hasPoolVilla: true },
+      { name: "V Villas Phuket", image: vVillasPhuket, description: "Ultra-exclusive boutique retreat with only 19 private pool villas, personalized butler service, and stunning Andaman Sea sunset views.", isTopLuxury: true, isHoneymoon: true, hasPoolVilla: true },
+      { name: "Kalima Resort & Spa", image: kalimaPhuket, description: "Contemporary hillside resort above Patong Beach featuring infinity pool with ocean views, Spa by Kalima, and award-winning design.", isHoneymoon: true, hasPoolVilla: true },
     ]
   },
   {

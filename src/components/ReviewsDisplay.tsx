@@ -1,12 +1,12 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { Star, MapPin, Globe, Calendar, User, Play, Image as ImageIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Star, MapPin, Globe, Calendar, User, Play, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { format } from "date-fns";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-
 interface Review {
   id: string;
   customer_name: string;
@@ -78,8 +78,41 @@ const ReviewsDisplay = () => {
   const [selectedNationality, setSelectedNationality] = useState("All Nationalities");
   const [selectedDestination, setSelectedDestination] = useState("All Destinations");
   const [selectedRating, setSelectedRating] = useState("All Ratings");
-  const [lightboxMedia, setLightboxMedia] = useState<string | null>(null);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxMediaList, setLightboxMediaList] = useState<string[]>([]);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
 
+  const openLightbox = (mediaUrls: string[], startIndex: number) => {
+    setLightboxMediaList(mediaUrls);
+    setLightboxIndex(startIndex);
+    setLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+    setLightboxMediaList([]);
+    setLightboxIndex(0);
+  };
+
+  const goToPrevious = useCallback(() => {
+    setLightboxIndex((prev) => (prev === 0 ? lightboxMediaList.length - 1 : prev - 1));
+  }, [lightboxMediaList.length]);
+
+  const goToNext = useCallback(() => {
+    setLightboxIndex((prev) => (prev === lightboxMediaList.length - 1 ? 0 : prev + 1));
+  }, [lightboxMediaList.length]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!lightboxOpen) return;
+      if (e.key === "ArrowLeft") goToPrevious();
+      if (e.key === "ArrowRight") goToNext();
+      if (e.key === "Escape") closeLightbox();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [lightboxOpen, goToPrevious, goToNext]);
   const isVideo = (url: string) => {
     return /\.(mp4|mov|avi|webm)$/i.test(url);
   };
@@ -255,8 +288,8 @@ const ReviewsDisplay = () => {
                     {review.media_urls.slice(0, 4).map((url, index) => (
                       <button
                         key={index}
-                        onClick={() => setLightboxMedia(url)}
-                        className="relative flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border border-border hover:opacity-80 transition-opacity"
+                        onClick={() => openLightbox(review.media_urls!, index)}
+                        className="relative flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border border-border hover:opacity-80 transition-opacity group"
                       >
                         {isVideo(url) ? (
                           <div className="w-full h-full bg-muted flex items-center justify-center">
@@ -266,7 +299,7 @@ const ReviewsDisplay = () => {
                           <img
                             src={url}
                             alt={`Review media ${index + 1}`}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform"
                           />
                         )}
                         {index === 3 && review.media_urls && review.media_urls.length > 4 && (
@@ -305,25 +338,96 @@ const ReviewsDisplay = () => {
         </Card>
       )}
 
-      {/* Media Lightbox */}
-      <Dialog open={!!lightboxMedia} onOpenChange={() => setLightboxMedia(null)}>
-        <DialogContent className="max-w-4xl p-2">
-          {lightboxMedia && (
-            isVideo(lightboxMedia) ? (
-              <video
-                src={lightboxMedia}
-                controls
-                autoPlay
-                className="w-full max-h-[80vh] rounded-lg"
-              />
-            ) : (
-              <img
-                src={lightboxMedia}
-                alt="Review media"
-                className="w-full max-h-[80vh] object-contain rounded-lg"
-              />
-            )
-          )}
+      {/* Media Lightbox with Carousel */}
+      <Dialog open={lightboxOpen} onOpenChange={closeLightbox}>
+        <DialogContent className="max-w-5xl p-0 bg-black/95 border-none">
+          <div className="relative flex flex-col items-center">
+            {/* Close Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={closeLightbox}
+              className="absolute top-2 right-2 z-50 text-white hover:bg-white/20"
+            >
+              <X className="w-6 h-6" />
+            </Button>
+
+            {/* Main Media Display */}
+            <div className="relative w-full flex items-center justify-center min-h-[60vh] max-h-[80vh] p-4">
+              {lightboxMediaList[lightboxIndex] && (
+                isVideo(lightboxMediaList[lightboxIndex]) ? (
+                  <video
+                    key={lightboxIndex}
+                    src={lightboxMediaList[lightboxIndex]}
+                    controls
+                    autoPlay
+                    className="max-w-full max-h-[70vh] rounded-lg"
+                  />
+                ) : (
+                  <img
+                    key={lightboxIndex}
+                    src={lightboxMediaList[lightboxIndex]}
+                    alt={`Media ${lightboxIndex + 1}`}
+                    className="max-w-full max-h-[70vh] object-contain rounded-lg"
+                  />
+                )
+              )}
+
+              {/* Navigation Arrows */}
+              {lightboxMediaList.length > 1 && (
+                <>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={goToPrevious}
+                    className="absolute left-2 top-1/2 -translate-y-1/2 text-white hover:bg-white/20 h-12 w-12"
+                  >
+                    <ChevronLeft className="w-8 h-8" />
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={goToNext}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 text-white hover:bg-white/20 h-12 w-12"
+                  >
+                    <ChevronRight className="w-8 h-8" />
+                  </Button>
+                </>
+              )}
+            </div>
+
+            {/* Counter */}
+            <div className="text-white/80 text-sm mb-2">
+              {lightboxIndex + 1} / {lightboxMediaList.length}
+            </div>
+
+            {/* Thumbnail Strip */}
+            {lightboxMediaList.length > 1 && (
+              <div className="flex gap-2 px-4 pb-4 overflow-x-auto max-w-full">
+                {lightboxMediaList.map((url, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setLightboxIndex(index)}
+                    className={`flex-shrink-0 w-14 h-14 rounded-md overflow-hidden border-2 transition-all ${
+                      index === lightboxIndex ? "border-primary ring-2 ring-primary/50" : "border-transparent opacity-60 hover:opacity-100"
+                    }`}
+                  >
+                    {isVideo(url) ? (
+                      <div className="w-full h-full bg-muted flex items-center justify-center">
+                        <Play className="w-4 h-4 text-primary" />
+                      </div>
+                    ) : (
+                      <img
+                        src={url}
+                        alt={`Thumbnail ${index + 1}`}
+                        className="w-full h-full object-cover"
+                      />
+                    )}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
         </DialogContent>
       </Dialog>
     </div>

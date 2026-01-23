@@ -221,7 +221,8 @@ const destinations: Destination[] = [
       { name: "JW Marriott Maldives Kaafu Atoll Island Resort", image: jwMarriott, description: "Elegant JW Marriott property opened Jan 2025 with speedboat access from Velana and signature wellness.", transfer: "speedboat", isUpcoming: true, openingYear: "2025", isHoneymoon: true },
       
       // Upcoming 2026
-      { name: "Rah Gili Maldives", image: northIsland, description: "Ultra-exclusive new development debuting Feb 2026 as part of Six & Six Private Islands group.", transfer: "seaplane", isUpcoming: true, openingYear: "2026", isTopLuxury: true, isHoneymoon: true },
+      { name: "Meliá Whale Lagoon Maldives", image: niyama, description: "Spanish hospitality in South Ari Atoll opening Jan 2026, reached via ~30-minute seaplane transfer from Velana Airport.", transfer: "seaplane", isUpcoming: true, openingYear: "2026", isHoneymoon: true },
+      { name: "Rah Gili Maldives", image: northIsland, description: "Exclusive new development debuting Feb 2026 with short speedboat transfer from Velana Airport.", transfer: "speedboat", isUpcoming: true, openingYear: "2026", isTopLuxury: true, isHoneymoon: true },
       { name: "Don Maaga Maldives", image: velaaMaldives, description: "Six & Six Private Islands development with exceptional privacy and service.", transfer: "seaplane", isUpcoming: true, openingYear: "2026", isTopLuxury: true, isHoneymoon: true },
       { name: "Bvlgari Resort Ranfushi", image: chevalBlanc, description: "Italian luxury brand's Maldives debut in Raa Atoll with signature elegance.", transfer: "seaplane", isUpcoming: true, openingYear: "2026", isTopLuxury: true, isHoneymoon: true },
       { name: "Mondrian Maldives", image: wMaldives, description: "Design-forward new resort in Noonu Atoll with Mondrian's signature style.", transfer: "seaplane", isUpcoming: true, openingYear: "2026", isHoneymoon: true },

@@ -1,10 +1,11 @@
 import { Helmet } from "react-helmet-async";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Star, ExternalLink, MessageSquare, CheckCircle } from "lucide-react";
+import { Star, ExternalLink, MessageSquare, CheckCircle, Users } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ReviewSubmissionForm from "@/components/ReviewSubmissionForm";
+import ReviewsDisplay from "@/components/ReviewsDisplay";
 import contactHeroImg from "@/assets/contact-hero.jpg";
 
 const SubmitReview = () => {
@@ -143,6 +144,22 @@ const SubmitReview = () => {
               </p>
             </CardContent>
           </Card>
+        </div>
+      </section>
+
+      {/* Customer Reviews Section */}
+      <section className="section-padding bg-muted/30">
+        <div className="container-custom max-w-5xl">
+          <div className="text-center mb-8">
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <Users className="w-6 h-6 text-primary" />
+              <h2 className="text-3xl font-bold">Customer Reviews</h2>
+            </div>
+            <p className="text-muted-foreground">
+              See what other travelers are saying about their experiences
+            </p>
+          </div>
+          <ReviewsDisplay />
         </div>
       </section>
 

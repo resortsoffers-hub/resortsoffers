@@ -107,7 +107,7 @@ const Index = () => {
   ];
 
   const holidayRecommendations = [
-    { name: "Maldives", image: maldivesVillaPool, hasTransferFilter: true },
+    { name: "Maldives", image: maldivesVillaPool },
     { name: "Dubai", image: dubaiLuxury },
     { name: "Seychelles", image: seychellesHero },
     { name: "Mauritius", image: mauritiusHero },
@@ -117,12 +117,6 @@ const Index = () => {
     { name: "Phuket", image: thailandHero, hasPoolVillaFilter: true },
     { name: "Morocco", image: moroccoHero },
     { name: "Indonesia", image: indonesiaHero }
-  ];
-
-  const maldivesTransferTypes = [
-    { type: "seaplane", label: "Seaplane", icon: "✈️" },
-    { type: "speedboat", label: "Speedboat", icon: "🚤" },
-    { type: "domestic", label: "Domestic Flight", icon: "🛩️" }
   ];
 
 
@@ -296,21 +290,6 @@ const featuredOffers: Offer[] = [
                   </Link>
                 </div>
                 
-                {/* Maldives Transfer Type Filters */}
-                {dest.hasTransferFilter && (
-                  <div className="mt-2 flex flex-wrap gap-1">
-                    {maldivesTransferTypes.map((transfer) => (
-                      <Link
-                        key={transfer.type}
-                        to={`/partner-hotels?destination=Maldives&transfer=${transfer.type}`}
-                        className="flex items-center gap-1 px-2 py-1 bg-[#1e3a5f]/10 hover:bg-[#1e3a5f] hover:text-white text-[#1e3a5f] text-xs rounded-full transition-colors duration-200"
-                      >
-                        <span>{transfer.icon}</span>
-                        <span>{transfer.label}</span>
-                      </Link>
-                    ))}
-                  </div>
-                )}
                 
                 {/* Phuket Pool Villa Filter */}
                 {dest.hasPoolVillaFilter && (

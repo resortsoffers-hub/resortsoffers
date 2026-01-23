@@ -2,9 +2,10 @@ import { useState, useEffect, useMemo } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { Star, MapPin, Globe, Calendar, User } from "lucide-react";
+import { Star, MapPin, Globe, Calendar, User, Play, Image as ImageIcon } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { format } from "date-fns";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 
 interface Review {
   id: string;
@@ -16,6 +17,7 @@ interface Review {
   travel_end_date: string;
   rating: number;
   review_text: string;
+  media_urls: string[] | null;
   created_at: string;
 }
 
@@ -76,6 +78,11 @@ const ReviewsDisplay = () => {
   const [selectedNationality, setSelectedNationality] = useState("All Nationalities");
   const [selectedDestination, setSelectedDestination] = useState("All Destinations");
   const [selectedRating, setSelectedRating] = useState("All Ratings");
+  const [lightboxMedia, setLightboxMedia] = useState<string | null>(null);
+
+  const isVideo = (url: string) => {
+    return /\.(mp4|mov|avi|webm)$/i.test(url);
+  };
 
   useEffect(() => {
     const fetchReviews = async () => {
@@ -86,7 +93,11 @@ const ReviewsDisplay = () => {
         .order("created_at", { ascending: false });
 
       if (data && !error) {
-        setReviews(data);
+        const formattedReviews: Review[] = data.map((review) => ({
+          ...review,
+          media_urls: Array.isArray(review.media_urls) ? review.media_urls as string[] : null,
+        }));
+        setReviews(formattedReviews);
       }
       setLoading(false);
     };
@@ -238,6 +249,38 @@ const ReviewsDisplay = () => {
                   </Badge>
                 </div>
 
+                {/* Media Gallery */}
+                {review.media_urls && review.media_urls.length > 0 && (
+                  <div className="flex gap-2 mb-3 overflow-x-auto pb-1">
+                    {review.media_urls.slice(0, 4).map((url, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setLightboxMedia(url)}
+                        className="relative flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border border-border hover:opacity-80 transition-opacity"
+                      >
+                        {isVideo(url) ? (
+                          <div className="w-full h-full bg-muted flex items-center justify-center">
+                            <Play className="w-6 h-6 text-primary" />
+                          </div>
+                        ) : (
+                          <img
+                            src={url}
+                            alt={`Review media ${index + 1}`}
+                            className="w-full h-full object-cover"
+                          />
+                        )}
+                        {index === 3 && review.media_urls && review.media_urls.length > 4 && (
+                          <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
+                            <span className="text-white text-sm font-medium">
+                              +{review.media_urls.length - 4}
+                            </span>
+                          </div>
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                )}
+
                 {/* Review Text */}
                 <p className="text-sm text-foreground mb-3 line-clamp-4">
                   {review.review_text}
@@ -261,6 +304,28 @@ const ReviewsDisplay = () => {
           </p>
         </Card>
       )}
+
+      {/* Media Lightbox */}
+      <Dialog open={!!lightboxMedia} onOpenChange={() => setLightboxMedia(null)}>
+        <DialogContent className="max-w-4xl p-2">
+          {lightboxMedia && (
+            isVideo(lightboxMedia) ? (
+              <video
+                src={lightboxMedia}
+                controls
+                autoPlay
+                className="w-full max-h-[80vh] rounded-lg"
+              />
+            ) : (
+              <img
+                src={lightboxMedia}
+                alt="Review media"
+                className="w-full max-h-[80vh] object-contain rounded-lg"
+              />
+            )
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

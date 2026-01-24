@@ -68,45 +68,6 @@ const SubmitReview = () => {
       <section className="section-padding">
         <div className="container-custom max-w-4xl">
           
-          {/* Why Review Section */}
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
-            <Card className="text-center p-6">
-              <div className="flex justify-center mb-4">
-                <div className="p-3 bg-primary/10 rounded-full">
-                  <MessageSquare className="w-8 h-8 text-primary" />
-                </div>
-              </div>
-              <h3 className="font-semibold text-lg mb-2">Share Your Story</h3>
-              <p className="text-muted-foreground text-sm">
-                Tell others about your luxury resort experience and memorable moments
-              </p>
-            </Card>
-            
-            <Card className="text-center p-6">
-              <div className="flex justify-center mb-4">
-                <div className="p-3 bg-accent/10 rounded-full">
-                  <Star className="w-8 h-8 text-accent" />
-                </div>
-              </div>
-              <h3 className="font-semibold text-lg mb-2">Help Future Travelers</h3>
-              <p className="text-muted-foreground text-sm">
-                Your honest feedback guides others in planning their dream vacations
-              </p>
-            </Card>
-            
-            <Card className="text-center p-6">
-              <div className="flex justify-center mb-4">
-                <div className="p-3 bg-green-500/10 rounded-full">
-                  <CheckCircle className="w-8 h-8 text-green-500" />
-                </div>
-              </div>
-              <h3 className="font-semibold text-lg mb-2">Help Us Improve</h3>
-              <p className="text-muted-foreground text-sm">
-                Your insights help us continuously enhance our services
-              </p>
-            </Card>
-          </div>
-
           {/* Google Review CTA */}
           <Card className="mb-8 border-2 border-accent bg-gradient-to-br from-accent/10 via-accent/5 to-transparent shadow-lg">
             <CardContent className="py-6">

@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Star, MapPin, Globe, Calendar, User, Play, ChevronLeft, ChevronRight, X } from "lucide-react";
+import { Star, MapPin, Globe, Calendar, User, Play, ChevronLeft, ChevronRight, X, Building2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { format } from "date-fns";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
@@ -77,10 +77,26 @@ const ReviewsDisplay = () => {
   const [loading, setLoading] = useState(true);
   const [selectedNationality, setSelectedNationality] = useState("All Nationalities");
   const [selectedDestination, setSelectedDestination] = useState("All Destinations");
+  const [selectedHotel, setSelectedHotel] = useState("All Hotels");
   const [selectedRating, setSelectedRating] = useState("All Ratings");
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxMediaList, setLightboxMediaList] = useState<string[]>([]);
   const [lightboxIndex, setLightboxIndex] = useState(0);
+
+  // Get unique hotel names filtered by selected destination
+  const availableHotels = useMemo(() => {
+    const filteredReviews = selectedDestination === "All Destinations"
+      ? reviews
+      : reviews.filter(r => r.destination === selectedDestination);
+    
+    const hotelSet = new Set(filteredReviews.map(r => r.hotel_name));
+    return ["All Hotels", ...Array.from(hotelSet).sort()];
+  }, [reviews, selectedDestination]);
+
+  // Reset hotel filter when destination changes
+  useEffect(() => {
+    setSelectedHotel("All Hotels");
+  }, [selectedDestination]);
 
   const openLightbox = (mediaUrls: string[], startIndex: number) => {
     setLightboxMediaList(mediaUrls);
@@ -146,12 +162,15 @@ const ReviewsDisplay = () => {
       const matchesDestination = 
         selectedDestination === "All Destinations" || 
         review.destination === selectedDestination;
+      const matchesHotel =
+        selectedHotel === "All Hotels" ||
+        review.hotel_name === selectedHotel;
       const matchesRating =
         selectedRating === "All Ratings" ||
         review.rating === parseInt(selectedRating);
-      return matchesNationality && matchesDestination && matchesRating;
+      return matchesNationality && matchesDestination && matchesHotel && matchesRating;
     });
-  }, [reviews, selectedNationality, selectedDestination, selectedRating]);
+  }, [reviews, selectedNationality, selectedDestination, selectedHotel, selectedRating]);
 
   const renderStars = (rating: number) => {
     return (
@@ -217,6 +236,25 @@ const ReviewsDisplay = () => {
               {destinations.map((dest) => (
                 <SelectItem key={dest} value={dest}>
                   {dest}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div className="flex-1 space-y-2">
+          <label className="text-sm font-medium flex items-center gap-2">
+            <Building2 className="w-4 h-4" />
+            Hotel
+          </label>
+          <Select value={selectedHotel} onValueChange={setSelectedHotel}>
+            <SelectTrigger className="bg-background">
+              <SelectValue placeholder="Select hotel" />
+            </SelectTrigger>
+            <SelectContent className="bg-background z-50 max-h-60">
+              {availableHotels.map((hotel) => (
+                <SelectItem key={hotel} value={hotel}>
+                  {hotel}
                 </SelectItem>
               ))}
             </SelectContent>

@@ -497,10 +497,23 @@ const ReviewSubmissionForm = () => {
                         className="w-full h-full object-cover"
                       />
                     ) : (
-                      <video
-                        src={media.preview}
-                        className="w-full h-full object-cover"
-                      />
+                      <div className="relative w-full h-full bg-muted">
+                        <video
+                          src={media.preview}
+                          className="w-full h-full object-cover"
+                          preload="metadata"
+                          muted
+                          onLoadedData={(e) => {
+                            const video = e.currentTarget;
+                            video.currentTime = 0.5;
+                          }}
+                        />
+                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                          <div className="w-10 h-10 rounded-full bg-black/60 flex items-center justify-center">
+                            <div className="w-0 h-0 border-t-[6px] border-t-transparent border-l-[10px] border-l-white border-b-[6px] border-b-transparent ml-1" />
+                          </div>
+                        </div>
+                      </div>
                     )}
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                       <button

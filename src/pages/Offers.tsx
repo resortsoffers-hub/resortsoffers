@@ -17,7 +17,6 @@ import Footer from "@/components/Footer";
 
 // Resort Images
 import cocoonAerial from "@/assets/resorts/you-and-me-cocoon-aerial.jpg";
-import furaveriHero from "@/assets/resorts/furaveri-aerial-hero.png";
 import maldivesKandinma from "@/assets/resorts/maldives-kandinma-hq.jpg";
 import waldorfMaldives from "@/assets/resorts/waldorf-astoria-maldives.jpg";
 import ozenReserve from "@/assets/resorts/ozen-reserve-bolifushi.jpg";
@@ -46,9 +45,9 @@ import rosewoodPhuket from "@/assets/resorts/rosewood-phuket.jpg";
 import banyanTreePhuket from "@/assets/resorts/banyan-tree-phuket.jpg";
 import trisaraPhuket from "@/assets/resorts/trisara-phuket.jpg";
 // Dubai
-import dubaiLuxury from "@/assets/resorts/dubai-luxury.jpg";
-import atlantis from "@/assets/resorts/luxury-villa-pool.jpg";
-import jumeirah from "@/assets/resorts/luxury-infinity-pool.jpg";
+  import atlantisTheRoyal from "@/assets/resorts/atlantis-the-royal.jpg";
+  import burjAlArabJumeirah from "@/assets/resorts/burj-al-arab-jumeirah.jpg";
+  import oneAndOnlyThePalm from "@/assets/resorts/oneandonly-the-palm.jpg";
 // Greece
 import domesOfElounda from "@/assets/resorts/domes-of-elounda.jpg";
 import eloundaBayPalace from "@/assets/resorts/elounda-bay-palace.jpg";
@@ -59,8 +58,10 @@ import swissAlps from "@/assets/resorts/swiss-alps.jpg";
 import clubmedStMoritz from "@/assets/resorts/clubmed-stmoritz.jpg";
 import clubmedVillars from "@/assets/resorts/clubmed-villars.jpg";
 // South Africa
-import villaNorthIsland from "@/assets/resorts/villa-private-island.jpg";
-import waterVillasAerial from "@/assets/resorts/water-villas-aerial.jpg";
+  import oneAndOnlyCapeTown from "@/assets/resorts/oneandonly-cape-town.jpg";
+  import singitaSabiSand from "@/assets/resorts/singita-sabi-sand.webp";
+  import ellermanHouse from "@/assets/resorts/ellerman-house.jpg";
+  import theSiloHotel from "@/assets/resorts/the-silo-hotel.jpg";
 
 interface OfferData {
   id: string;
@@ -159,22 +160,6 @@ const offersData: OfferData[] = [
     whatsappMessage: "Hi! I'm interested in the You & Me by Cocoon Maldives package for 3 nights at $3,300 for 2 people. Please send availability.",
     validUntil: "30 April 2025",
     discount: "35% OFF"
-  },
-  {
-    id: "furaveri",
-    image: furaveriHero,
-    hotelName: "Furaveri Maldives",
-    location: "Raa Atoll",
-    destination: "Maldives",
-    stars: 5,
-    description: "Ocean Pool Villa Package with Floating Breakfast and Sunset Cruise.",
-    nights: 3,
-    price: "$4,400",
-    priceNote: "for 3 people",
-    transferType: "Speedboat",
-    whatsappMessage: "Hi! I'm interested in the Furaveri Maldives package for 3 nights at $4,400. Please send availability.",
-    validUntil: "30 April 2025",
-    discount: "30% OFF"
   },
   {
     id: "kandima",
@@ -437,7 +422,7 @@ const offersData: OfferData[] = [
   // Dubai Offers
   {
     id: "atlantis-royal",
-    image: dubaiLuxury,
+    image: atlantisTheRoyal,
     hotelName: "Atlantis The Royal",
     location: "Palm Jumeirah",
     destination: "Dubai",
@@ -453,7 +438,7 @@ const offersData: OfferData[] = [
   },
   {
     id: "burj-al-arab",
-    image: atlantis,
+    image: burjAlArabJumeirah,
     hotelName: "Burj Al Arab Jumeirah",
     location: "Jumeirah Beach",
     destination: "Dubai",
@@ -469,7 +454,7 @@ const offersData: OfferData[] = [
   },
   {
     id: "one-only-palm",
-    image: jumeirah,
+    image: oneAndOnlyThePalm,
     hotelName: "One&Only The Palm",
     location: "Palm Jumeirah",
     destination: "Dubai",
@@ -616,7 +601,7 @@ const offersData: OfferData[] = [
   // South Africa Offers
   {
     id: "oneandonly-cape-town",
-    image: villaNorthIsland,
+    image: oneAndOnlyCapeTown,
     hotelName: "One&Only Cape Town",
     location: "V&A Waterfront",
     destination: "South Africa",
@@ -632,7 +617,7 @@ const offersData: OfferData[] = [
   },
   {
     id: "singita-sabi-sand",
-    image: waterVillasAerial,
+    image: singitaSabiSand,
     hotelName: "Singita Sabi Sand",
     location: "Kruger National Park",
     destination: "South Africa",
@@ -648,7 +633,7 @@ const offersData: OfferData[] = [
   },
   {
     id: "ellerman-house",
-    image: villaNorthIsland,
+    image: ellermanHouse,
     hotelName: "Ellerman House",
     location: "Bantry Bay, Cape Town",
     destination: "South Africa",
@@ -664,7 +649,7 @@ const offersData: OfferData[] = [
   },
   {
     id: "the-silo-cape-town",
-    image: waterVillasAerial,
+    image: theSiloHotel,
     hotelName: "The Silo Hotel",
     location: "V&A Waterfront",
     destination: "South Africa",

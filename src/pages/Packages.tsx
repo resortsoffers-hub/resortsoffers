@@ -34,7 +34,7 @@ import {
 
 // Resort Images
 import cocoonAerial from "@/assets/resorts/you-and-me-cocoon-aerial.jpg";
-import furaveriHero from "@/assets/resorts/furaveri-aerial-hero.png";
+
 import maldivesKandinma from "@/assets/resorts/maldives-kandinma-hq.jpg";
 import waldorfMaldives from "@/assets/resorts/waldorf-astoria-maldives.jpg";
 import ozenReserve from "@/assets/resorts/ozen-reserve-bolifushi.jpg";
@@ -345,34 +345,6 @@ const packagesData: PackageData[] = [
     priceNote: "for 2 people",
     transferType: "Seaplane",
     whatsappMessage: "Hi! I'm interested in the You & Me by Cocoon Maldives package for 3 nights at $3,300 for 2 people. Please send availability.",
-    validUntil: "30 April 2025"
-  },
-  // Furaveri Maldives
-  {
-    id: "furaveri",
-    image: furaveriHero,
-    hotelName: "Furaveri Maldives",
-    location: "Raa Atoll",
-    destination: "Maldives",
-    stars: 5,
-    bedrooms: 2,
-    amenityIcons: [
-      { icon: Utensils, label: "Half Board" },
-      { icon: Sparkles, label: "Spa" },
-      { icon: Sailboat, label: "Sunset Cruise" },
-      { icon: Waves, label: "Water Sports" }
-    ],
-    description: "Ocean Pool Villa Package with Floating Breakfast, Sunset Cruise & 60-min Spa Massage. Perfect for couples and honeymooners.",
-    inclusions: [
-      "Stay in an Ocean Pool Villa",
-      "Half Board meals",
-      "Floating Breakfast & Sunset Cruise"
-    ],
-    nights: 3,
-    price: "$4,400",
-    priceNote: "for 3 people",
-    transferType: "Speedboat",
-    whatsappMessage: "Hi! I'm interested in the Furaveri Maldives 3 nights package at USD 4,400 for 3 people. Please send availability.",
     validUntil: "30 April 2025"
   },
   // Kandima Maldives

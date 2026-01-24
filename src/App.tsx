@@ -16,6 +16,7 @@ import Offers from "./pages/Offers";
 import BookConsultation from "./pages/BookConsultation";
 import PartnerHotels from "./pages/PartnerHotels";
 import SubmitReview from "./pages/SubmitReview";
+import Reviews from "./pages/Reviews";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -38,6 +39,7 @@ const App = () => (
             <Route path="/book-consultation" element={<BookConsultation />} />
             <Route path="/partner-hotels" element={<PartnerHotels />} />
             <Route path="/submit-review" element={<SubmitReview />} />
+            <Route path="/reviews" element={<Reviews />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <WhatsAppButton />

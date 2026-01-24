@@ -49,6 +49,18 @@ import trisaraPhuket from "@/assets/resorts/trisara-phuket.jpg";
 import dubaiLuxury from "@/assets/resorts/dubai-luxury.jpg";
 import atlantis from "@/assets/resorts/luxury-villa-pool.jpg";
 import jumeirah from "@/assets/resorts/luxury-infinity-pool.jpg";
+// Greece
+import domesOfElounda from "@/assets/resorts/domes-of-elounda.jpg";
+import eloundaBayPalace from "@/assets/resorts/elounda-bay-palace.jpg";
+import eloundaBeachHotel from "@/assets/resorts/elounda-beach-hotel.jpg";
+import clubmedGregolimano from "@/assets/resorts/clubmed-gregolimano.jpg";
+// Switzerland
+import swissAlps from "@/assets/resorts/swiss-alps.jpg";
+import clubmedStMoritz from "@/assets/resorts/clubmed-stmoritz.jpg";
+import clubmedVillars from "@/assets/resorts/clubmed-villars.jpg";
+// South Africa
+import villaNorthIsland from "@/assets/resorts/villa-private-island.jpg";
+import waterVillasAerial from "@/assets/resorts/water-villas-aerial.jpg";
 
 interface OfferData {
   id: string;
@@ -470,6 +482,201 @@ const offersData: OfferData[] = [
     whatsappMessage: "Hi! I'm interested in One&Only The Palm for 4 nights at $4,600 for 2 people. Please send availability.",
     validUntil: "30 April 2025",
     discount: "30% OFF"
+  },
+  // Greece Offers
+  {
+    id: "domes-of-elounda",
+    image: domesOfElounda,
+    hotelName: "Domes of Elounda",
+    location: "Elounda, Crete",
+    destination: "Greece",
+    stars: 5,
+    description: "Autograph Collection resort with private beach, Haute Living suites and family-friendly luxury.",
+    nights: 5,
+    price: "$4,200",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in Domes of Elounda for 5 nights at $4,200 for 2 people. Please send availability.",
+    validUntil: "30 April 2025",
+    discount: "30% OFF"
+  },
+  {
+    id: "elounda-bay-palace",
+    image: eloundaBayPalace,
+    hotelName: "Elounda Bay Palace",
+    location: "Elounda, Crete",
+    destination: "Greece",
+    stars: 5,
+    description: "Legendary Greek hospitality with private marina, spa and stunning Mirabello Bay views.",
+    nights: 5,
+    price: "$3,800",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in Elounda Bay Palace for 5 nights at $3,800 for 2 people. Please send availability.",
+    validUntil: "30 April 2025",
+    discount: "35% OFF"
+  },
+  {
+    id: "elounda-beach-hotel",
+    image: eloundaBeachHotel,
+    hotelName: "Elounda Beach Hotel & Villas",
+    location: "Elounda, Crete",
+    destination: "Greece",
+    stars: 5,
+    description: "Award-winning beachfront resort with private villas, six-star service and world-class dining.",
+    nights: 5,
+    price: "$4,500",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in Elounda Beach Hotel for 5 nights at $4,500 for 2 people. Please send availability.",
+    validUntil: "30 April 2025",
+    discount: "25% OFF"
+  },
+  {
+    id: "clubmed-gregolimano",
+    image: clubmedGregolimano,
+    hotelName: "Club Med Gregolimano",
+    location: "Evia Island",
+    destination: "Greece",
+    stars: 4,
+    description: "Family-friendly all-inclusive on a private peninsula with watersports and kids clubs.",
+    nights: 7,
+    price: "$3,200",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in Club Med Gregolimano for 7 nights at $3,200 for 2 people. Please send availability.",
+    validUntil: "30 April 2025",
+    discount: "40% OFF"
+  },
+  // Switzerland Offers
+  {
+    id: "badrutts-palace",
+    image: swissAlps,
+    hotelName: "Badrutt's Palace Hotel",
+    location: "St. Moritz",
+    destination: "Switzerland",
+    stars: 5,
+    description: "Legendary alpine palace with world-class skiing, spa and panoramic mountain views.",
+    nights: 4,
+    price: "$6,800",
+    priceNote: "for 2 people",
+    transferType: "Private Transfer",
+    whatsappMessage: "Hi! I'm interested in Badrutt's Palace St. Moritz for 4 nights at $6,800 for 2 people. Please send availability.",
+    validUntil: "30 April 2025",
+    discount: "20% OFF"
+  },
+  {
+    id: "clubmed-stmoritz",
+    image: clubmedStMoritz,
+    hotelName: "Club Med Saint-Moritz Roi Soleil",
+    location: "St. Moritz",
+    destination: "Switzerland",
+    stars: 4,
+    description: "Premium all-inclusive ski resort with ski-in/ski-out access and gourmet dining.",
+    nights: 7,
+    price: "$5,200",
+    priceNote: "for 2 people",
+    transferType: "Coach Transfer",
+    whatsappMessage: "Hi! I'm interested in Club Med St. Moritz for 7 nights at $5,200 for 2 people. Please send availability.",
+    validUntil: "30 April 2025",
+    discount: "30% OFF"
+  },
+  {
+    id: "clubmed-villars",
+    image: clubmedVillars,
+    hotelName: "Club Med Villars-sur-Ollon",
+    location: "Villars-sur-Ollon",
+    destination: "Switzerland",
+    stars: 4,
+    description: "Chic alpine village resort with family-friendly slopes and stunning Lake Geneva views.",
+    nights: 7,
+    price: "$4,800",
+    priceNote: "for 2 people",
+    transferType: "Coach Transfer",
+    whatsappMessage: "Hi! I'm interested in Club Med Villars for 7 nights at $4,800 for 2 people. Please send availability.",
+    validUntil: "30 April 2025",
+    discount: "35% OFF"
+  },
+  {
+    id: "chedi-andermatt",
+    image: swissAlps,
+    hotelName: "The Chedi Andermatt",
+    location: "Andermatt",
+    destination: "Switzerland",
+    stars: 5,
+    description: "Contemporary alpine luxury with Asia-inspired design, exceptional spa and ski concierge.",
+    nights: 4,
+    price: "$5,600",
+    priceNote: "for 2 people",
+    transferType: "Private Transfer",
+    whatsappMessage: "Hi! I'm interested in The Chedi Andermatt for 4 nights at $5,600 for 2 people. Please send availability.",
+    validUntil: "30 April 2025",
+    discount: "25% OFF"
+  },
+  // South Africa Offers
+  {
+    id: "oneandonly-cape-town",
+    image: villaNorthIsland,
+    hotelName: "One&Only Cape Town",
+    location: "V&A Waterfront",
+    destination: "South Africa",
+    stars: 5,
+    description: "Urban resort oasis with Table Mountain views, spa island and celebrity chef restaurants.",
+    nights: 5,
+    price: "$4,200",
+    priceNote: "for 2 people",
+    transferType: "Private Transfer",
+    whatsappMessage: "Hi! I'm interested in One&Only Cape Town for 5 nights at $4,200 for 2 people. Please send availability.",
+    validUntil: "30 April 2025",
+    discount: "30% OFF"
+  },
+  {
+    id: "singita-sabi-sand",
+    image: waterVillasAerial,
+    hotelName: "Singita Sabi Sand",
+    location: "Kruger National Park",
+    destination: "South Africa",
+    stars: 5,
+    description: "Ultra-luxury safari lodge with Big Five game drives and conservation experience.",
+    nights: 4,
+    price: "$8,500",
+    priceNote: "for 2 people",
+    transferType: "Charter Flight",
+    whatsappMessage: "Hi! I'm interested in Singita Sabi Sand for 4 nights at $8,500 for 2 people. Please send availability.",
+    validUntil: "30 April 2025",
+    discount: "15% OFF"
+  },
+  {
+    id: "ellerman-house",
+    image: villaNorthIsland,
+    hotelName: "Ellerman House",
+    location: "Bantry Bay, Cape Town",
+    destination: "South Africa",
+    stars: 5,
+    description: "Intimate boutique villa hotel with contemporary art collection and Atlantic Ocean views.",
+    nights: 5,
+    price: "$5,800",
+    priceNote: "for 2 people",
+    transferType: "Private Transfer",
+    whatsappMessage: "Hi! I'm interested in Ellerman House for 5 nights at $5,800 for 2 people. Please send availability.",
+    validUntil: "30 April 2025",
+    discount: "20% OFF"
+  },
+  {
+    id: "the-silo-cape-town",
+    image: waterVillasAerial,
+    hotelName: "The Silo Hotel",
+    location: "V&A Waterfront",
+    destination: "South Africa",
+    stars: 5,
+    description: "Iconic design hotel above Zeitz MOCAA with extraordinary pillowed windows and rooftop pool.",
+    nights: 4,
+    price: "$4,600",
+    priceNote: "for 2 people",
+    transferType: "Private Transfer",
+    whatsappMessage: "Hi! I'm interested in The Silo Hotel for 4 nights at $4,600 for 2 people. Please send availability.",
+    validUntil: "30 April 2025",
+    discount: "25% OFF"
   }
 ];
 

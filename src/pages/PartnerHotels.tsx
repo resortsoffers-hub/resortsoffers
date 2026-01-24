@@ -97,6 +97,18 @@ import kalimaPhuket from "@/assets/resorts/kalima-phuket.jpg";
 
 import heroImage from "@/assets/resorts/luxury-infinity-pool.jpg";
 
+// Club Med imports
+import clubmedKani from "@/assets/resorts/clubmed-kani.jpg";
+import clubmedFinolhu from "@/assets/resorts/clubmed-finolhu.jpg";
+import clubmedSeychelles from "@/assets/resorts/clubmed-seychelles.jpg";
+import clubmedMauritiusPointe from "@/assets/resorts/clubmed-mauritius-pointe.jpg";
+import clubmedMauritiusAlbion from "@/assets/resorts/clubmed-mauritius-albion.jpg";
+import clubmedGregolimano from "@/assets/resorts/clubmed-gregolimano.jpg";
+import clubmedBali from "@/assets/resorts/clubmed-bali.jpg";
+import clubmedPhuket from "@/assets/resorts/clubmed-phuket.jpg";
+import clubmedStmoritz from "@/assets/resorts/clubmed-stmoritz.jpg";
+import clubmedVillars from "@/assets/resorts/clubmed-villars.jpg";
+
 // Transfer types (Maldives)
 type TransferType = "seaplane" | "speedboat" | "domestic";
 
@@ -231,8 +243,8 @@ const destinations: Destination[] = [
       { name: "Robinson Club Maldives", image: siyamWorld, description: "Adults-only (18+) premium all-inclusive resort with WellFit spa, extensive sports, and vibrant entertainment in Gaafu Alifu Atoll.", transfer: "domestic", isAdultOnly: true, isAllInclusive: true, isHoneymoon: true },
       
       // Club Med
-      { name: "Club Med Kani", image: kandimaMaldives, description: "Premium all-inclusive resort in North Malé Atoll with stunning water villas, world-class diving, and signature Club Med hospitality.", transfer: "speedboat", isAllInclusive: true, isHoneymoon: true },
-      { name: "Club Med Finolhu Villas", image: patinaMaldives, description: "Exclusive Eco Chic all-inclusive villas in Baa Atoll UNESCO Biosphere with personalized service and adults-only serenity.", transfer: "seaplane", isAllInclusive: true, isHoneymoon: true, isAdultOnly: true, isTopLuxury: true },
+      { name: "Club Med Kani", image: clubmedKani, description: "Premium all-inclusive resort in North Malé Atoll with stunning water villas, world-class diving, and signature Club Med hospitality.", transfer: "speedboat", isAllInclusive: true, isHoneymoon: true },
+      { name: "Club Med Finolhu Villas", image: clubmedFinolhu, description: "Exclusive Eco Chic all-inclusive villas in Baa Atoll UNESCO Biosphere with personalized service and adults-only serenity.", transfer: "seaplane", isAllInclusive: true, isHoneymoon: true, isAdultOnly: true, isTopLuxury: true },
     ]
   },
   {
@@ -256,7 +268,7 @@ const destinations: Destination[] = [
       { name: "DoubleTree by Hilton Seychelles Allamanda Resort & Spa", image: hiltonNortholme, description: "Charming beachfront resort on Anse Forbans with excellent snorkeling and warm Hilton hospitality.", seychellesArea: "mahe", isHoneymoon: true },
       
       // Club Med
-      { name: "Club Med Seychelles", image: sixSensesSeychelles, description: "Premium all-inclusive eco-resort on Sainte Anne Island with pristine marine park, water sports, and authentic Creole experiences.", seychellesArea: "private-island", isAllInclusive: true, isHoneymoon: true },
+      { name: "Club Med Seychelles", image: clubmedSeychelles, description: "Premium all-inclusive eco-resort on Sainte Anne Island with pristine marine park, water sports, and authentic Creole experiences.", seychellesArea: "private-island", isAllInclusive: true, isHoneymoon: true },
     ]
   },
   {
@@ -273,8 +285,8 @@ const destinations: Destination[] = [
       { name: "Constance Belle Mare Plage", image: constanceBelleMare, description: "Two kilometers of pristine beach with two championship golf courses and gourmet dining.", isHoneymoon: true },
       
       // Club Med
-      { name: "Club Med La Pointe aux Canonniers", image: luxBelleMare, description: "All-inclusive tropical paradise in Grand Baie with water sports, kids clubs, and vibrant nightlife on the northern coast.", isAllInclusive: true, isHoneymoon: true },
-      { name: "Club Med Albion Villas", image: fourSeasonsMauritius, description: "Exclusive 5-Trident Zen villa resort with private pools, dedicated concierge, and premium all-inclusive luxury on Mauritius' west coast.", isAllInclusive: true, isHoneymoon: true, isTopLuxury: true },
+      { name: "Club Med La Pointe aux Canonniers", image: clubmedMauritiusPointe, description: "All-inclusive tropical paradise in Grand Baie with water sports, kids clubs, and vibrant nightlife on the northern coast.", isAllInclusive: true, isHoneymoon: true },
+      { name: "Club Med Albion Villas", image: clubmedMauritiusAlbion, description: "Exclusive 5-Trident Zen villa resort with private pools, dedicated concierge, and premium all-inclusive luxury on Mauritius' west coast.", isAllInclusive: true, isHoneymoon: true, isTopLuxury: true },
     ]
   },
   {
@@ -316,7 +328,7 @@ const destinations: Destination[] = [
       { name: "Abaton Island Resort & Spa", image: abatonIslandResort, description: "Stylish adults-only retreat in Hersonissos with serene beach, indulgent spa, and refined Greek hospitality.", greeceIsland: "crete", isHoneymoon: true, isTopLuxury: true },
       
       // Club Med
-      { name: "Club Med Gregolimano", image: greeceCrete, description: "Premium all-inclusive resort on Evia Island with sailing school, water sports, and stunning Aegean Sea setting.", greeceIsland: "athens", isAllInclusive: true, isHoneymoon: true },
+      { name: "Club Med Gregolimano", image: clubmedGregolimano, description: "Premium all-inclusive resort on Evia Island with sailing school, water sports, and stunning Aegean Sea setting.", greeceIsland: "athens", isAllInclusive: true, isHoneymoon: true },
     ]
   },
   {
@@ -373,7 +385,7 @@ const destinations: Destination[] = [
       { name: "Samabe Bali Suites & Villas", image: samabeBali, description: "Beachfront all-inclusive luxury in Nusa Dua with clifftop ocean views, unlimited privileges, and personalized e-butler service.", isHoneymoon: true, isAllInclusive: true },
       
       // Club Med
-      { name: "Club Med Bali", image: baliResort, description: "Premium all-inclusive resort in Nusa Dua with stunning beach, world-class spa, kids clubs, and authentic Balinese cultural experiences.", isAllInclusive: true, isHoneymoon: true },
+      { name: "Club Med Bali", image: clubmedBali, description: "Premium all-inclusive resort in Nusa Dua with stunning beach, world-class spa, kids clubs, and authentic Balinese cultural experiences.", isAllInclusive: true, isHoneymoon: true },
     ]
   },
   {
@@ -397,7 +409,7 @@ const destinations: Destination[] = [
       { name: "Kalima Resort & Spa", image: kalimaPhuket, description: "Contemporary hillside resort above Patong Beach featuring infinity pool with ocean views, Spa by Kalima, and award-winning design.", isHoneymoon: true, hasPoolVilla: true },
       
       // Club Med
-      { name: "Club Med Phuket", image: phuketHero, description: "Premium all-inclusive beachfront resort in Kata Beach with Flying Trapeze, water sports, and lush tropical gardens.", isAllInclusive: true, isHoneymoon: true },
+      { name: "Club Med Phuket", image: clubmedPhuket, description: "Premium all-inclusive beachfront resort in Kata Beach with Flying Trapeze, water sports, and lush tropical gardens.", isAllInclusive: true, isHoneymoon: true },
     ]
   },
   {
@@ -439,8 +451,8 @@ const destinations: Destination[] = [
       { name: "Bürgenstock Resort Lake Lucerne", image: heroImage, description: "Legendary resort reborn with four hotels, Alpine Spa spanning 10,000sqm, Europe's highest outdoor elevator, and breathtaking Lake Lucerne panoramas.", isTopLuxury: true, isHoneymoon: true, isNoraPick: true },
       
       // Club Med
-      { name: "Club Med Saint-Moritz Roi Soleil", image: heroImage, description: "Premium ski-in/ski-out resort in iconic St. Moritz with après-ski, wellness, and legendary Swiss Alpine hospitality.", isAllInclusive: true, isHoneymoon: true },
-      { name: "Club Med Villars-sur-Ollon", image: heroImage, description: "All-inclusive family resort in Vaud Alps with skiing, snowboarding, and stunning Lake Geneva views.", isAllInclusive: true, isHoneymoon: true },
+      { name: "Club Med Saint-Moritz Roi Soleil", image: clubmedStmoritz, description: "Premium ski-in/ski-out resort in iconic St. Moritz with après-ski, wellness, and legendary Swiss Alpine hospitality.", isAllInclusive: true, isHoneymoon: true },
+      { name: "Club Med Villars-sur-Ollon", image: clubmedVillars, description: "All-inclusive family resort in Vaud Alps with skiing, snowboarding, and stunning Lake Geneva views.", isAllInclusive: true, isHoneymoon: true },
     ]
   }
 ];

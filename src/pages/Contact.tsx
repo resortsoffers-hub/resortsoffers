@@ -18,11 +18,6 @@ const Contact = () => {
 
   const contactInfo = [
     {
-      icon: <MapPin className="w-6 h-6 text-accent" />,
-      title: "Location",
-      details: ["Deira - Port Saeed - Dubai - United Arab Emirates"]
-    },
-    {
       icon: <MessageCircle className="w-6 h-6 text-[#25D366]" />,
       title: "WhatsApp Business - Available 24/7",
       details: [
@@ -224,7 +219,6 @@ const Contact = () => {
 
             {/* Contact Information */}
             <div>
-              <h2 className="text-3xl font-bold mb-6">Get in Touch</h2>
               
 
               <div className="space-y-6">

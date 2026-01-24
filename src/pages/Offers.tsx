@@ -36,6 +36,19 @@ import constancePrinceMaurice from "@/assets/resorts/constance-prince-maurice.jp
 import fourSeasonsMauritius from "@/assets/resorts/four-seasons-mauritius.jpg";
 import stRegisMauritius from "@/assets/resorts/st-regis-mauritius.jpg";
 import shangriLaMauritius from "@/assets/resorts/shangri-la-mauritius.jpg";
+// Bali
+import samabeBali from "@/assets/resorts/samabe-bali.jpg";
+import baliClifftop from "@/assets/resorts/bali-clifftop-resort.jpg";
+import clubmedBali from "@/assets/resorts/clubmed-bali.jpg";
+// Phuket
+import amanpuriPhuket from "@/assets/resorts/amanpuri-phuket.jpg";
+import rosewoodPhuket from "@/assets/resorts/rosewood-phuket.jpg";
+import banyanTreePhuket from "@/assets/resorts/banyan-tree-phuket.jpg";
+import trisaraPhuket from "@/assets/resorts/trisara-phuket.jpg";
+// Dubai
+import dubaiLuxury from "@/assets/resorts/dubai-luxury.jpg";
+import atlantis from "@/assets/resorts/luxury-villa-pool.jpg";
+import jumeirah from "@/assets/resorts/luxury-infinity-pool.jpg";
 
 interface OfferData {
   id: string;
@@ -294,6 +307,169 @@ const offersData: OfferData[] = [
     whatsappMessage: "Hi! I'm interested in Shangri-La Mauritius for 5 nights at $4,400 for 2 people. Please send availability.",
     validUntil: "30 April 2025",
     discount: "35% OFF"
+  },
+  // Bali Offers
+  {
+    id: "samabe-bali",
+    image: samabeBali,
+    hotelName: "Samabe Bali Suites & Villas",
+    location: "Nusa Dua",
+    destination: "Bali",
+    stars: 5,
+    description: "Unlimited Privilege luxury all-inclusive with private beach and butler service.",
+    nights: 4,
+    price: "$3,800",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in Samabe Bali for 4 nights at $3,800 for 2 people. Please send availability.",
+    validUntil: "30 April 2025",
+    discount: "30% OFF"
+  },
+  {
+    id: "four-seasons-bali",
+    image: baliClifftop,
+    hotelName: "Four Seasons Resort Bali at Jimbaran Bay",
+    location: "Jimbaran Bay",
+    destination: "Bali",
+    stars: 5,
+    description: "Iconic clifftop villas with stunning ocean views and world-class spa.",
+    nights: 4,
+    price: "$5,200",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in Four Seasons Bali Jimbaran for 4 nights at $5,200 for 2 people. Please send availability.",
+    validUntil: "30 April 2025",
+    discount: "25% OFF"
+  },
+  {
+    id: "clubmed-bali",
+    image: clubmedBali,
+    hotelName: "Club Med Bali",
+    location: "Nusa Dua",
+    destination: "Bali",
+    stars: 5,
+    description: "Premium all-inclusive family resort with endless activities and gourmet dining.",
+    nights: 5,
+    price: "$4,100",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in Club Med Bali for 5 nights at $4,100 for 2 people. Please send availability.",
+    validUntil: "30 April 2025",
+    discount: "35% OFF"
+  },
+  // Phuket Offers
+  {
+    id: "amanpuri-phuket",
+    image: amanpuriPhuket,
+    hotelName: "Amanpuri Phuket",
+    location: "Pansea Beach",
+    destination: "Phuket",
+    stars: 5,
+    description: "The legendary Aman flagship property with Thai-inspired pavilions and private beach.",
+    nights: 4,
+    price: "$6,500",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in Amanpuri Phuket for 4 nights at $6,500 for 2 people. Please send availability.",
+    validUntil: "30 April 2025",
+    discount: "20% OFF"
+  },
+  {
+    id: "rosewood-phuket",
+    image: rosewoodPhuket,
+    hotelName: "Rosewood Phuket",
+    location: "Emerald Bay",
+    destination: "Phuket",
+    stars: 5,
+    description: "Ultra-luxury hillside resort with panoramic Andaman Sea views and private pools.",
+    nights: 4,
+    price: "$5,800",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in Rosewood Phuket for 4 nights at $5,800 for 2 people. Please send availability.",
+    validUntil: "30 April 2025",
+    discount: "25% OFF"
+  },
+  {
+    id: "banyan-tree-phuket",
+    image: banyanTreePhuket,
+    hotelName: "Banyan Tree Phuket",
+    location: "Laguna",
+    destination: "Phuket",
+    stars: 5,
+    description: "Award-winning spa resort with private pool villas and championship golf.",
+    nights: 4,
+    price: "$4,200",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in Banyan Tree Phuket for 4 nights at $4,200 for 2 people. Please send availability.",
+    validUntil: "30 April 2025",
+    discount: "30% OFF"
+  },
+  {
+    id: "trisara-phuket",
+    image: trisaraPhuket,
+    hotelName: "Trisara Phuket",
+    location: "Nai Thon Beach",
+    destination: "Phuket",
+    stars: 5,
+    description: "Exclusive oceanfront villas with private infinity pools and personalized dining.",
+    nights: 4,
+    price: "$5,400",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in Trisara Phuket for 4 nights at $5,400 for 2 people. Please send availability.",
+    validUntil: "30 April 2025",
+    discount: "25% OFF"
+  },
+  // Dubai Offers
+  {
+    id: "atlantis-royal",
+    image: dubaiLuxury,
+    hotelName: "Atlantis The Royal",
+    location: "Palm Jumeirah",
+    destination: "Dubai",
+    stars: 5,
+    description: "Ultra-luxury architectural marvel with 17 celebrity chef restaurants and infinity pools.",
+    nights: 4,
+    price: "$5,200",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in Atlantis The Royal Dubai for 4 nights at $5,200 for 2 people. Please send availability.",
+    validUntil: "30 April 2025",
+    discount: "25% OFF"
+  },
+  {
+    id: "burj-al-arab",
+    image: atlantis,
+    hotelName: "Burj Al Arab Jumeirah",
+    location: "Jumeirah Beach",
+    destination: "Dubai",
+    stars: 5,
+    description: "The world's most luxurious hotel with iconic sail design and personalized butler service.",
+    nights: 3,
+    price: "$7,800",
+    priceNote: "for 2 people",
+    transferType: "Rolls-Royce Transfer",
+    whatsappMessage: "Hi! I'm interested in Burj Al Arab for 3 nights at $7,800 for 2 people. Please send availability.",
+    validUntil: "30 April 2025",
+    discount: "15% OFF"
+  },
+  {
+    id: "one-only-palm",
+    image: jumeirah,
+    hotelName: "One&Only The Palm",
+    location: "Palm Jumeirah",
+    destination: "Dubai",
+    stars: 5,
+    description: "Intimate beachfront sanctuary with Moorish architecture and private marina.",
+    nights: 4,
+    price: "$4,600",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in One&Only The Palm for 4 nights at $4,600 for 2 people. Please send availability.",
+    validUntil: "30 April 2025",
+    discount: "30% OFF"
   }
 ];
 

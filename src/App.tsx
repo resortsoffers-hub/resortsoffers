@@ -18,6 +18,7 @@ import PartnerHotels from "./pages/PartnerHotels";
 import SubmitReview from "./pages/SubmitReview";
 import Reviews from "./pages/Reviews";
 import NotFound from "./pages/NotFound";
+import DhawaPackageSample from "./components/DhawaPackageSample";
 
 const queryClient = new QueryClient();
 
@@ -40,6 +41,7 @@ const App = () => (
             <Route path="/partner-hotels" element={<PartnerHotels />} />
             <Route path="/submit-review" element={<SubmitReview />} />
             <Route path="/reviews" element={<Reviews />} />
+            <Route path="/package-sample" element={<DhawaPackageSample />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <WhatsAppButton />

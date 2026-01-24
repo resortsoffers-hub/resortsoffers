@@ -9,6 +9,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HeroCarousel from "@/components/HeroCarousel";
 import AddedValuesSlider from "@/components/AddedValuesSlider";
+import FeaturedOffersCarousel from "@/components/FeaturedOffersCarousel";
 import OfferDetailModal from "@/components/OfferDetailModal";
 import { supabase } from "@/integrations/supabase/client";
 import maldivesWaldorf from "@/assets/maldives-waldorf.jpg";
@@ -213,6 +214,9 @@ const featuredOffers: Offer[] = [
 
       {/* Added Values Slider */}
       <AddedValuesSlider />
+
+      {/* Featured Offers Carousel */}
+      <FeaturedOffersCarousel />
 
       {/* Partner Hotels CTA Section */}
       <section className="py-16 bg-gradient-to-br from-[#1e3a5f] via-[#2a4a6f] to-[#1e3a5f] relative overflow-hidden">

@@ -22,7 +22,7 @@ import ritzCarltonMaldives from "@/assets/resorts/ritz-carlton-maldives.jpg";
 import velaaMaldives from "@/assets/resorts/velaa-private-island.jpg";
 import kandimaMaldives from "@/assets/resorts/maldives-kandinma-hq.jpg";
 import standardMaldives from "@/assets/resorts/maldives-villa-pool.jpg";
-import furaveriMaldives from "@/assets/resorts/furaveri-maldives.jpg";
+
 import patinaMaldives from "@/assets/resorts/patina-maldives.jpg";
 import joaliMaldives from "@/assets/resorts/joali-maldives.jpg";
 import anantaraKihavah from "@/assets/resorts/anantara-kihavah.jpg";
@@ -163,7 +163,7 @@ const destinations: Destination[] = [
       // Nora Recommendations
       { name: "The Ritz-Carlton Maldives, Fari Islands", image: ritzCarltonMaldives, description: "Contemporary island sanctuary with overwater and beach villas, featuring Ritz-Carlton's legendary service.", transfer: "speedboat", isNoraPick: true, isHoneymoon: true, isTopLuxury: true },
       { name: "The Westin Maldives Miriandhoo Resort", image: standardMaldives, description: "Wellness-focused resort with Heavenly Spa, pristine house reef, and sustainable luxury.", transfer: "seaplane", isNoraPick: true, isHoneymoon: true },
-      { name: "Furaveri Maldives", image: furaveriMaldives, description: "Authentic Maldivian hospitality on a stunning natural island with exceptional house reef snorkeling.", transfer: "seaplane", isNoraPick: true, isHoneymoon: true },
+      
       { name: "The Standard, Huruvalhi Maldives", image: standardMaldives, description: "Trendy, design-forward resort bringing urban sophistication to paradise with playful luxury experiences.", transfer: "seaplane", isNoraPick: true, isHoneymoon: true },
       
       // Adult Only
@@ -217,10 +217,10 @@ const destinations: Destination[] = [
       { name: "Hurawalhi Island Resort", image: joaliMaldives, description: "Adults-only paradise featuring the world's largest underwater restaurant 5.8, exceptional house reef, and contemporary overwater villas.", transfer: "seaplane", isAdultOnly: true, isAllInclusive: true, isHoneymoon: true },
       { name: "Jawakara Islands Maldives", image: patinaMaldives, description: "All-inclusive boutique resort with authentic Maldivian hospitality, intimate island setting, and exceptional value.", transfer: "seaplane", isAllInclusive: true, isHoneymoon: true },
       { name: "Kagi Maldives Spa Island", image: anantaraKihavah, description: "Wellness-focused sanctuary in North Malé Atoll with holistic spa journeys, healthy cuisine, and tranquil overwater villas.", transfer: "speedboat", isHoneymoon: true, isNoraPick: true },
-      { name: "Reethi Beach Resort", image: furaveriMaldives, description: "Eco-friendly island paradise in Baa Atoll UNESCO Biosphere Reserve with excellent diving, vibrant house reef, and authentic Maldivian charm.", transfer: "seaplane", isHoneymoon: true },
+      { name: "Reethi Beach Resort", image: fairmont, description: "Eco-friendly island paradise in Baa Atoll UNESCO Biosphere Reserve with excellent diving, vibrant house reef, and authentic Maldivian charm.", transfer: "seaplane", isHoneymoon: true },
       
       // New Openings 2024 (Reopened/Opened)
-      { name: "Veligandu Maldives Resort Island", image: furaveriMaldives, description: "Iconic adults-only resort reopened Nov 2024 after extensive renovation with stunning water villas and pristine house reef.", transfer: "seaplane", isUpcoming: true, openingYear: "2024", isHoneymoon: true, isAdultOnly: true },
+      { name: "Veligandu Maldives Resort Island", image: wMaldives, description: "Iconic adults-only resort reopened Nov 2024 after extensive renovation with stunning water villas and pristine house reef.", transfer: "seaplane", isUpcoming: true, openingYear: "2024", isHoneymoon: true, isAdultOnly: true },
       { name: "Centara Mirage Lagoon Maldives", image: siyamWorld, description: "Family-focused 'Mirage' concept resort opened Nov 2024 with waterpark, kids club, and Thai hospitality.", transfer: "speedboat", isUpcoming: true, openingYear: "2024", isHoneymoon: true },
       { name: "Soneva Secret", image: soneva, description: "Ultra-bespoke hideaway with very limited villas, welcomed first guests early 2024.", transfer: "seaplane", isUpcoming: true, openingYear: "2024", isTopLuxury: true, isHoneymoon: true },
       

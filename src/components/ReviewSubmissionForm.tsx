@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Star, Send, Loader2, Upload, X, Image, Video } from "lucide-react";
+import { Star, Send, Loader2, Upload, X, Image, Video, CloudUpload } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
@@ -89,7 +89,9 @@ const ReviewSubmissionForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [mediaFiles, setMediaFiles] = useState<MediaFile[]>([]);
   const [uploadProgress, setUploadProgress] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const dropZoneRef = useRef<HTMLDivElement>(null);
 
   const {
     register,
@@ -105,15 +107,13 @@ const ReviewSubmissionForm = () => {
     },
   });
 
-  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const files = e.target.files;
-    if (!files) return;
-
+  const processFiles = useCallback((files: FileList | File[]) => {
+    const fileArray = Array.from(files);
     const newFiles: MediaFile[] = [];
     const remainingSlots = MAX_FILES - mediaFiles.length;
 
-    for (let i = 0; i < Math.min(files.length, remainingSlots); i++) {
-      const file = files[i];
+    for (let i = 0; i < Math.min(fileArray.length, remainingSlots); i++) {
+      const file = fileArray[i];
       
       if (file.size > MAX_FILE_SIZE) {
         toast.error(`${file.name} is too large. Max size is 10MB.`);
@@ -135,17 +135,62 @@ const ReviewSubmissionForm = () => {
       });
     }
 
-    if (files.length > remainingSlots) {
+    if (fileArray.length > remainingSlots) {
       toast.warning(`Only ${remainingSlots} more file(s) can be added. Max ${MAX_FILES} files.`);
     }
 
     setMediaFiles(prev => [...prev, ...newFiles]);
+  }, [mediaFiles.length]);
+
+  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (!files) return;
+    
+    processFiles(files);
     
     // Reset input
     if (fileInputRef.current) {
       fileInputRef.current.value = '';
     }
   };
+
+  const handleDragEnter = useCallback((e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (mediaFiles.length < MAX_FILES) {
+      setIsDragging(true);
+    }
+  }, [mediaFiles.length]);
+
+  const handleDragLeave = useCallback((e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    // Only set dragging to false if we're leaving the drop zone entirely
+    if (dropZoneRef.current && !dropZoneRef.current.contains(e.relatedTarget as Node)) {
+      setIsDragging(false);
+    }
+  }, []);
+
+  const handleDragOver = useCallback((e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+  }, []);
+
+  const handleDrop = useCallback((e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(false);
+
+    if (mediaFiles.length >= MAX_FILES) {
+      toast.warning(`Maximum ${MAX_FILES} files allowed.`);
+      return;
+    }
+
+    const files = e.dataTransfer.files;
+    if (files.length > 0) {
+      processFiles(files);
+    }
+  }, [mediaFiles.length, processFiles]);
 
   const removeFile = (index: number) => {
     setMediaFiles(prev => {
@@ -390,8 +435,23 @@ const ReviewSubmissionForm = () => {
               Add up to {MAX_FILES} photos or videos to share your experience (max 10MB each)
             </p>
             
-            {/* Upload Button */}
-            <div className="flex gap-2">
+            {/* Drop Zone */}
+            <div
+              ref={dropZoneRef}
+              onDragEnter={handleDragEnter}
+              onDragLeave={handleDragLeave}
+              onDragOver={handleDragOver}
+              onDrop={handleDrop}
+              onClick={() => mediaFiles.length < MAX_FILES && fileInputRef.current?.click()}
+              className={`
+                relative border-2 border-dashed rounded-lg p-6 transition-all duration-200 cursor-pointer
+                ${isDragging 
+                  ? 'border-primary bg-primary/10 scale-[1.02]' 
+                  : 'border-muted-foreground/30 hover:border-primary/50 hover:bg-muted/50'
+                }
+                ${mediaFiles.length >= MAX_FILES ? 'opacity-50 cursor-not-allowed' : ''}
+              `}
+            >
               <input
                 ref={fileInputRef}
                 type="file"
@@ -401,26 +461,28 @@ const ReviewSubmissionForm = () => {
                 className="hidden"
                 disabled={mediaFiles.length >= MAX_FILES}
               />
-              <Button
-                type="button"
-                variant="outline"
-                onClick={() => fileInputRef.current?.click()}
-                disabled={mediaFiles.length >= MAX_FILES}
-                className="gap-2"
-              >
-                <Image className="w-4 h-4" />
-                Add Photos
-              </Button>
-              <Button
-                type="button"
-                variant="outline"
-                onClick={() => fileInputRef.current?.click()}
-                disabled={mediaFiles.length >= MAX_FILES}
-                className="gap-2"
-              >
-                <Video className="w-4 h-4" />
-                Add Videos
-              </Button>
+              
+              <div className="flex flex-col items-center justify-center gap-3 text-center">
+                <div className={`p-3 rounded-full transition-colors ${isDragging ? 'bg-primary/20' : 'bg-muted'}`}>
+                  <CloudUpload className={`w-8 h-8 transition-colors ${isDragging ? 'text-primary' : 'text-muted-foreground'}`} />
+                </div>
+                <div>
+                  <p className={`font-medium ${isDragging ? 'text-primary' : 'text-foreground'}`}>
+                    {isDragging ? 'Drop your files here' : 'Drag & drop photos or videos'}
+                  </p>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    or click to browse • {mediaFiles.length}/{MAX_FILES} files
+                  </p>
+                </div>
+                <div className="flex gap-2 mt-2">
+                  <span className="inline-flex items-center gap-1 text-xs text-muted-foreground bg-muted px-2 py-1 rounded">
+                    <Image className="w-3 h-3" /> Images
+                  </span>
+                  <span className="inline-flex items-center gap-1 text-xs text-muted-foreground bg-muted px-2 py-1 rounded">
+                    <Video className="w-3 h-3" /> Videos
+                  </span>
+                </div>
+              </div>
             </div>
 
             {/* Preview Grid */}

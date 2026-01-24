@@ -328,6 +328,16 @@ const destinations: Destination[] = [
       { name: "Jumeirah Al Naseem", image: dubaiLuxury, description: "Contemporary beachfront luxury with turtle rehabilitation sanctuary and Burj Al Arab views.", isHoneymoon: true },
       { name: "Waldorf Astoria Dubai Palm Jumeirah", image: dubaiLuxury, description: "Art Deco elegance on Palm Jumeirah with private beach and legendary Waldorf service.", isHoneymoon: true },
       { name: "Raffles Dubai", image: dubaiLuxury, description: "Egyptian-inspired pyramid landmark with legendary butler service and rooftop garden.", isHoneymoon: true },
+      { name: "Jumeirah Zabeel Saray", image: dubaiLuxury, description: "Ottoman-inspired palace on Palm Jumeirah with award-winning Talise Ottoman Spa and private beach.", isHoneymoon: true, isTopLuxury: true },
+      { name: "Palazzo Versace Dubai", image: dubaiLuxury, description: "Italian fashion house elegance with stunning lagoon views, haute couture interiors, and Mediterranean dining.", isHoneymoon: true, isTopLuxury: true },
+      { name: "The Ritz-Carlton Dubai", image: dubaiLuxury, description: "Beachfront Mediterranean palace in JBR with legendary service, spa, and pristine private beach.", isHoneymoon: true },
+      { name: "Mandarin Oriental Jumeira, Dubai", image: dubaiLuxury, description: "Contemporary waterfront resort with stunning skyline views, award-winning spa, and exceptional dining.", isHoneymoon: true, isTopLuxury: true },
+      { name: "Address Beach Resort", image: dubaiLuxury, description: "Iconic twin towers with the world's highest infinity pool, stunning JBR beachfront location.", isHoneymoon: true },
+      { name: "Bvlgari Resort Dubai", image: dubaiLuxury, description: "Italian craftsmanship on Jumeira Bay island with exclusive marina, yacht club, and Mediterranean sophistication.", isTopLuxury: true, isHoneymoon: true },
+      { name: "Anantara The Palm Dubai Resort", image: dubaiLuxury, description: "Thai-inspired luxury on Palm Jumeirah with overwater villas, lagoon pools, and Anantara Spa.", isHoneymoon: true },
+      { name: "Caesars Palace Dubai", image: dubaiLuxury, description: "Las Vegas glamour meets Arabian hospitality on Bluewaters Island with celebrity dining and entertainment.", isHoneymoon: true },
+      { name: "Kempinski Hotel Mall of the Emirates", image: dubaiLuxury, description: "Ski Dubai views, European elegance, and direct mall access with exceptional dining and wellness.", isHoneymoon: true },
+      { name: "Sofitel Dubai The Palm", image: dubaiLuxury, description: "Polynesian-inspired beachfront resort on Palm Jumeirah with overwater bungalows and French flair.", isHoneymoon: true },
     ]
   },
   {

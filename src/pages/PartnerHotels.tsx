@@ -46,6 +46,13 @@ import oagaArt from "@/assets/resorts/oaga-art-maldives.jpg";
 import nautilusMaldives from "@/assets/resorts/nautilus-maldives.jpg";
 import fushifaruMaldives from "@/assets/resorts/fushifaru-maldives.jpg";
 import ayadaMaldives from "@/assets/resorts/ayada-maldives.jpg";
+import amariHavodda from "@/assets/resorts/amari-havodda.jpg";
+import finolhuMaldives from "@/assets/resorts/finolhu-maldives.jpg";
+import varuAtmosphere from "@/assets/resorts/varu-atmosphere.jpg";
+import sunSiyamIruVeli from "@/assets/resorts/sun-siyam-iru-veli.jpg";
+import alilaMaldives from "@/assets/resorts/alila-maldives.jpg";
+import jaManafaru from "@/assets/resorts/ja-manafaru.jpg";
+import furaveriMaldives from "@/assets/resorts/furaveri-maldives.jpg";
 
 import northIsland from "@/assets/resorts/north-island-seychelles.jpg";
 import fourSeasonsSeychelles from "@/assets/resorts/four-seasons-seychelles.jpg";
@@ -59,6 +66,14 @@ import astoriaSeychelles from "@/assets/resorts/astoria-seychelles.jpg";
 import kempinskiSeychelles from "@/assets/resorts/kempinski-seychelles.jpg";
 import hiltonCanopySeychelles from "@/assets/resorts/hilton-canopy-seychelles.jpg";
 import domaineOrangeraieSeychelles from "@/assets/resorts/domaine-orangeraie-seychelles.jpg";
+import doubletreeSeychelles from "@/assets/resorts/doubletree-seychelles.jpg";
+import lailaSeychelles from "@/assets/resorts/laila-seychelles.jpg";
+import crownBeachSeychelles from "@/assets/resorts/crown-beach-seychelles.jpg";
+import blissMahe from "@/assets/resorts/bliss-mahe.jpg";
+import blissPraslin from "@/assets/resorts/bliss-praslin.jpg";
+import leDucSeychelles from "@/assets/resorts/le-duc-seychelles.jpg";
+import edenBleuSeychelles from "@/assets/resorts/eden-bleu-seychelles.jpg";
+import lesLauriersSeychelles from "@/assets/resorts/les-lauriers-seychelles.jpg";
 
 import oneOnlyMauritius from "@/assets/resorts/oneandonly-mauritius.jpg";
 import stRegisMauritius from "@/assets/resorts/st-regis-mauritius.jpg";
@@ -254,6 +269,13 @@ const destinations: Destination[] = [
       { name: "The St. Regis Maldives Vommuli Resort", image: nautilusMaldives, description: "Architectural masterpiece with iconic overwater villas, legendary St. Regis Butler Service, and world-class diving in Dhaalu Atoll.", transfer: "seaplane", isTopLuxury: true, isHoneymoon: true },
       { name: "Fushifaru Maldives", image: fushifaruMaldives, description: "Boutique island sanctuary in Lhaviyani Atoll with barefoot luxury, exceptional house reef, and personalized authentic Maldivian experiences.", transfer: "seaplane", isHoneymoon: true, isNoraPick: true },
       { name: "Ayada Maldives", image: ayadaMaldives, description: "Turkish-inspired luxury in remote Gaafu Dhaalu Atoll with stunning ocean villas, world-class spa, and pristine diving experiences.", transfer: "domestic", isTopLuxury: true, isHoneymoon: true },
+      { name: "Amari Havodda Maldives", image: amariHavodda, description: "Contemporary luxury in Gaafu Dhaalu Atoll with pristine beaches, exceptional diving, and authentic Maldivian hospitality.", transfer: "domestic", isHoneymoon: true },
+      { name: "Finolhu Baa Atoll Maldives", image: finolhuMaldives, description: "Playful retro-chic island resort in UNESCO Biosphere with iconic beach club, vibrant atmosphere, and spectacular sunsets.", transfer: "seaplane", isHoneymoon: true, isNoraPick: true },
+      { name: "Varu by Atmosphere", image: varuAtmosphere, description: "Premium all-inclusive resort in Malé Atoll with overwater villas, exceptional dining, and personalized butler service.", transfer: "speedboat", isAllInclusive: true, isHoneymoon: true },
+      { name: "Sun Siyam Iru Veli", image: sunSiyamIruVeli, description: "Stylish island retreat in Dhaalu Atoll with overwater villas, multiple dining venues, and world-class spa experiences.", transfer: "seaplane", isHoneymoon: true },
+      { name: "Alila Kothaifaru Maldives", image: alilaMaldives, description: "Modern wellness sanctuary in Raa Atoll with sustainable luxury, holistic spa, and stunning architectural design.", transfer: "seaplane", isHoneymoon: true, isTopLuxury: true },
+      { name: "JA Manafaru", image: jaManafaru, description: "Secluded northern atoll escape with spacious villas, seven dining venues, and exceptional diving experiences.", transfer: "seaplane", isHoneymoon: true, isTopLuxury: true },
+      { name: "Furaveri Maldives", image: furaveriMaldives, description: "Authentic Maldivian island in Raa Atoll with overwater villas, vibrant house reef, and warm island hospitality.", transfer: "seaplane", isHoneymoon: true },
       
       // Club Med
       { name: "Club Med Kani", image: clubmedKani, description: "Premium all-inclusive resort in North Malé Atoll with stunning water villas, world-class diving, and signature Club Med hospitality.", transfer: "speedboat", isAllInclusive: true, isHoneymoon: true },
@@ -289,6 +311,17 @@ const destinations: Destination[] = [
       { name: "Denis Private Island", image: sixSensesSeychelles, description: "Remote coral island retreat with sustainable luxury, barefoot elegance, and exceptional fishing and diving.", seychellesArea: "private-island", isTopLuxury: true, isHoneymoon: true },
       { name: "The H Resort Beau Vallon Beach", image: hiltonNortholme, description: "Contemporary beachfront luxury on Beau Vallon with spacious suites, infinity pool, and vibrant atmosphere.", seychellesArea: "mahe", isHoneymoon: true },
       { name: "AVANI Seychelles Barbarons Resort & Spa", image: constanceEphelia, description: "Family-friendly beachfront resort on Barbarons Beach with stunning sunset views and tropical gardens.", seychellesArea: "mahe", isHoneymoon: true },
+      
+      // Additional Hotels
+      { name: "DoubleTree by Hilton Seychelles Allamanda Resort & Spa", image: doubletreeSeychelles, description: "Charming beachfront resort on Anse Forbans with excellent snorkeling, pool, and warm Hilton hospitality.", seychellesArea: "mahe", isHoneymoon: true },
+      { name: "Hilton Seychelles Labriz Resort & Spa", image: hiltonCanopySeychelles, description: "Secluded paradise on Silhouette Island within a national marine park, featuring the largest spa in Seychelles.", seychellesArea: "silhouette", isHoneymoon: true },
+      { name: "Laila Seychelles", image: lailaSeychelles, description: "Boutique luxury retreat with stunning beachfront villas, granite boulder setting, and intimate Creole charm.", seychellesArea: "mahe", isHoneymoon: true },
+      { name: "Crown Beach Hotel", image: crownBeachSeychelles, description: "Elegant beachfront hotel on Praslin with stunning views of Côte d'Or beach and warm Seychellois hospitality.", seychellesArea: "praslin", isHoneymoon: true },
+      { name: "Bliss Hotel Mahé", image: blissMahe, description: "Contemporary boutique hotel on Mahé with tropical gardens, infinity pool, and personalized island experiences.", seychellesArea: "mahe", isHoneymoon: true },
+      { name: "Bliss Hotel Praslin", image: blissPraslin, description: "Stylish boutique property on Praslin with lush gardens, ocean views, and easy access to pristine beaches.", seychellesArea: "praslin", isHoneymoon: true },
+      { name: "Le Duc de Praslin", image: leDucSeychelles, description: "Colonial-style luxury hotel on Praslin with elegant suites, tropical gardens, and refined Creole dining.", seychellesArea: "praslin", isHoneymoon: true },
+      { name: "Eden Bleu Hotel", image: edenBleuSeychelles, description: "Luxury marina hotel on Eden Island with yacht club access, waterfront dining, and sophisticated island living.", seychellesArea: "mahe", isHoneymoon: true },
+      { name: "Les Lauriers Eco Hotel", image: lesLauriersSeychelles, description: "Eco-friendly boutique hotel on Praslin with traditional Creole architecture, lush gardens, and sustainable luxury.", seychellesArea: "praslin", isHoneymoon: true },
       
       // Club Med
       { name: "Club Med Seychelles", image: clubmedSeychelles, description: "Premium all-inclusive eco-resort on Sainte Anne Island with pristine marine park, water sports, and authentic Creole experiences.", seychellesArea: "private-island", isAllInclusive: true, isHoneymoon: true },

@@ -10,7 +10,8 @@ import {
   Search, 
   Filter,
   MapPin,
-  BedDouble
+  BedDouble,
+  Info
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -62,6 +63,8 @@ import clubmedVillars from "@/assets/resorts/clubmed-villars.jpg";
   import singitaSabiSand from "@/assets/resorts/singita-sabi-sand.webp";
   import ellermanHouse from "@/assets/resorts/ellerman-house.jpg";
   import theSiloHotel from "@/assets/resorts/the-silo-hotel.jpg";
+// Dhawa Ihuru
+import dhawaIhuru from "@/assets/resorts/dhawa-ihuru.jpg";
 
 interface OfferData {
   id: string;
@@ -78,9 +81,27 @@ interface OfferData {
   whatsappMessage: string;
   validUntil?: string;
   discount?: string;
+  specialNote?: string;
 }
 
 const offersData: OfferData[] = [
+  {
+    id: "dhawa-ihuru",
+    image: dhawaIhuru,
+    hotelName: "Dhawa Ihuru",
+    location: "North Malé Atoll",
+    destination: "Maldives",
+    stars: 5,
+    description: "Intimate beach resort with complimentary activities including dolphin cruise, sunset cruise, night fishing and spa massage.",
+    nights: 3,
+    price: "$2,340",
+    priceNote: "for 2 adults",
+    transferType: "Speedboat",
+    whatsappMessage: "Hi! I'm interested in the Dhawa Ihuru Maldives package - 3 Nights Beach Villa at $2,340 for 2 adults. Please share availability.",
+    validUntil: "30 April 2025",
+    discount: "SPECIAL OFFER",
+    specialNote: "Complimentary 3 activities for 3 nights stay, 4 activities for 4 nights stay, and maximum 5 activities for 5 nights stay and above."
+  },
   {
     id: "ozen-reserve",
     image: ozenReserve,
@@ -830,6 +851,18 @@ const Offers = () => {
                         </a>
                       </Button>
                     </div>
+
+                    {/* Special Note */}
+                    {offer.specialNote && (
+                      <div className="bg-amber-50 border border-amber-200 rounded-lg p-2.5 mt-4">
+                        <div className="flex gap-2">
+                          <Info className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
+                          <p className="text-xs text-amber-800 leading-relaxed">
+                            <strong>Note:</strong> {offer.specialNote}
+                          </p>
+                        </div>
+                      </div>
+                    )}
 
                     {/* Valid Until */}
                     {offer.validUntil && (

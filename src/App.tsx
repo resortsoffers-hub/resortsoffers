@@ -17,6 +17,7 @@ import BookConsultation from "./pages/BookConsultation";
 import PartnerHotels from "./pages/PartnerHotels";
 import SubmitReview from "./pages/SubmitReview";
 import Reviews from "./pages/Reviews";
+import Cruises from "./pages/Cruises";
 import NotFound from "./pages/NotFound";
 import DhawaPackageSample from "./components/DhawaPackageSample";
 
@@ -41,6 +42,7 @@ const App = () => (
             <Route path="/partner-hotels" element={<PartnerHotels />} />
             <Route path="/submit-review" element={<SubmitReview />} />
             <Route path="/reviews" element={<Reviews />} />
+            <Route path="/cruises" element={<Cruises />} />
             <Route path="/package-sample" element={<DhawaPackageSample />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

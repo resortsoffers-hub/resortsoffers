@@ -53,6 +53,8 @@ import sunSiyamIruVeli from "@/assets/resorts/sun-siyam-iru-veli.jpg";
 import alilaMaldives from "@/assets/resorts/alila-maldives.jpg";
 import jaManafaru from "@/assets/resorts/ja-manafaru.jpg";
 import furaveriMaldives from "@/assets/resorts/furaveri-maldives.jpg";
+import baglioniMaldives from "@/assets/resorts/baglioni-maldives.jpg";
+import residenceMaldives from "@/assets/resorts/residence-maldives.jpg";
 
 import northIsland from "@/assets/resorts/north-island-seychelles.jpg";
 import fourSeasonsSeychelles from "@/assets/resorts/four-seasons-seychelles.jpg";
@@ -277,7 +279,9 @@ const destinations: Destination[] = [
       { name: "Alila Kothaifaru Maldives", image: alilaMaldives, description: "Modern wellness sanctuary in Raa Atoll with sustainable luxury, holistic spa, and stunning architectural design.", transfer: "seaplane", isHoneymoon: true, isTopLuxury: true },
       { name: "JA Manafaru", image: jaManafaru, description: "Secluded northern atoll escape with spacious villas, seven dining venues, and exceptional diving experiences.", transfer: "seaplane", isHoneymoon: true, isTopLuxury: true },
       { name: "Furaveri Maldives", image: furaveriMaldives, description: "Authentic Maldivian island in Raa Atoll with overwater villas, vibrant house reef, and warm island hospitality.", transfer: "seaplane", isHoneymoon: true },
-      
+      { name: "Baglioni Resort Maldives", image: baglioniMaldives, description: "Italian elegance in Dhaalu Atoll featuring refined overwater and beach villas, authentic Italian cuisine, and exclusive spa experiences.", transfer: "seaplane", isTopLuxury: true, isHoneymoon: true },
+      { name: "The Residence Maldives at Falhumaafushi", image: residenceMaldives, description: "Luxurious beachfront resort in Gaafu Alifu Atoll with spacious villas, personalized butler service, and exceptional diving.", transfer: "domestic", isTopLuxury: true, isHoneymoon: true },
+
       // Club Med
       { name: "Club Med Kani", image: clubmedKani, description: "Premium all-inclusive resort in North Malé Atoll with stunning water villas, world-class diving, and signature Club Med hospitality.", transfer: "speedboat", isAllInclusive: true, isHoneymoon: true },
       { name: "Club Med Finolhu Villas", image: clubmedFinolhu, description: "Exclusive Eco Chic all-inclusive villas in Baa Atoll UNESCO Biosphere with personalized service and adults-only serenity.", transfer: "seaplane", isAllInclusive: true, isHoneymoon: true, isAdultOnly: true, isTopLuxury: true },

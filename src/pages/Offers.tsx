@@ -65,6 +65,8 @@ import clubmedVillars from "@/assets/resorts/clubmed-villars.jpg";
   import theSiloHotel from "@/assets/resorts/the-silo-hotel.jpg";
 // Dhawa Ihuru
 import dhawaIhuru from "@/assets/resorts/dhawa-ihuru.jpg";
+// Cruises
+import disneyCruise from "@/assets/resorts/disney-cruise.jpg";
 
 interface OfferData {
   id: string;
@@ -683,6 +685,40 @@ const offersData: OfferData[] = [
     whatsappMessage: "Hi! I'm interested in The Silo Hotel for 4 nights at $4,600 for 2 people. Please send availability.",
     validUntil: "30 April 2025",
     discount: "25% OFF"
+  },
+  // Cruise Offers
+  {
+    id: "disney-cruise-caribbean",
+    image: disneyCruise,
+    hotelName: "Disney Cruise Line - Caribbean Adventure",
+    location: "Caribbean Islands",
+    destination: "Cruises",
+    stars: 5,
+    description: "Magical family adventure with character dining, Broadway-style shows, kids clubs, and exclusive Castaway Cay island.",
+    nights: 7,
+    price: "$5,800",
+    priceNote: "for family of 4",
+    transferType: "Port Canaveral",
+    whatsappMessage: "Hi! I'm interested in the Disney Cruise Caribbean Adventure for 7 nights at $5,800 for a family of 4. Please send availability.",
+    validUntil: "30 June 2025",
+    discount: "FAMILY SPECIAL",
+    specialNote: "Includes character meet & greets, kids club access, and rotational dining at 3 themed restaurants."
+  },
+  {
+    id: "disney-cruise-bahamas",
+    image: disneyCruise,
+    hotelName: "Disney Cruise Line - Bahamas Escape",
+    location: "Nassau & Castaway Cay",
+    destination: "Cruises",
+    stars: 5,
+    description: "Short getaway with Disney magic, featuring Castaway Cay private island and world-class entertainment.",
+    nights: 4,
+    price: "$3,200",
+    priceNote: "for family of 4",
+    transferType: "Port Canaveral",
+    whatsappMessage: "Hi! I'm interested in the Disney Cruise Bahamas Escape for 4 nights at $3,200 for a family of 4. Please send availability.",
+    validUntil: "30 June 2025",
+    discount: "20% OFF"
   }
 ];
 

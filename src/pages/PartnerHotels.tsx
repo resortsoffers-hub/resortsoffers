@@ -105,6 +105,7 @@ import samabeBali from "@/assets/resorts/samabe-bali.jpg";
 import rafflesBali from "@/assets/resorts/raffles-bali.jpg";
 
 import cruiseHero from "@/assets/destinations/cruise-hero.jpg";
+import disneyCruise from "@/assets/resorts/disney-cruise.jpg";
 
 import phuketHero from "@/assets/destinations/phuket-hero.jpg";
 import banyanTreePhuket from "@/assets/resorts/banyan-tree-phuket.jpg";
@@ -496,6 +497,7 @@ const destinations: Destination[] = [
       { name: "Viking Ocean Cruises", image: cruiseHero, description: "Scandinavian elegance with cultural enrichment and destination-focused voyages.", isHoneymoon: true },
       { name: "The Ritz-Carlton Yacht Collection", image: cruiseHero, description: "Legendary Ritz-Carlton service at sea with bespoke itineraries and personalized experiences.", isTopLuxury: true, isHoneymoon: true },
       { name: "Explora Journeys", image: cruiseHero, description: "MSC's ultra-luxury brand offering European sophistication and ocean-state-of-mind philosophy.", isHoneymoon: true },
+      { name: "Disney Cruise Line", image: disneyCruise, description: "Magical family adventures at sea with legendary Disney entertainment, character experiences, and world-class service.", isHoneymoon: true },
     ]
   },
   {

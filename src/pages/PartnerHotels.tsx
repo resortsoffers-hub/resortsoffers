@@ -86,6 +86,7 @@ import constancePrince from "@/assets/resorts/constance-prince-maurice.jpg";
 import luxBelleMare from "@/assets/resorts/lux-belle-mare.jpg";
 import constanceBelleMare from "@/assets/resorts/constance-belle-mare.jpg";
 import cMauritius from "@/assets/resorts/c-mauritius.jpg";
+import luxGrandBaie from "@/assets/resorts/lux-grand-baie.jpg";
 
 import santoriniHero from "@/assets/destinations/greece-santorini.jpg";
 import mykonosHero from "@/assets/destinations/greece-mykonos.jpg";
@@ -345,6 +346,7 @@ const destinations: Destination[] = [
       { name: "LUX* Belle Mare", image: luxBelleMare, description: "Vibrant beachfront resort with playful luxury, exceptional cuisine, and stunning beach.", isHoneymoon: true },
       { name: "Constance Belle Mare Plage", image: constanceBelleMare, description: "Two kilometers of pristine beach with two championship golf courses and gourmet dining.", isHoneymoon: true },
       { name: "C Mauritius", image: cMauritius, description: "Contemporary lifestyle resort on Palmar Beach with all-inclusive concept, vibrant atmosphere, and modern Mauritian hospitality.", isAllInclusive: true, isHoneymoon: true },
+      { name: "LUX* Grand Baie", image: luxGrandBaie, description: "Contemporary beachfront resort in Grand Baie featuring modern design, rooftop terrace, exceptional dining, and vibrant northern Mauritius energy.", isTopLuxury: true, isHoneymoon: true },
       
       // Club Med
       { name: "Club Med La Pointe aux Canonniers", image: clubmedMauritiusPointe, description: "All-inclusive tropical paradise in Grand Baie with water sports, kids clubs, and vibrant nightlife on the northern coast.", isAllInclusive: true, isHoneymoon: true },

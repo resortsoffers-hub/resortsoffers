@@ -87,6 +87,9 @@ import luxBelleMare from "@/assets/resorts/lux-belle-mare.jpg";
 import constanceBelleMare from "@/assets/resorts/constance-belle-mare.jpg";
 import cMauritius from "@/assets/resorts/c-mauritius.jpg";
 import luxGrandBaie from "@/assets/resorts/lux-grand-baie.jpg";
+import baweIslandZanzibar from "@/assets/resorts/bawe-island-zanzibar.jpg";
+import goldZanzibar from "@/assets/resorts/gold-zanzibar.jpg";
+import islandPongweZanzibar from "@/assets/resorts/island-pongwe-zanzibar.jpg";
 
 import santoriniHero from "@/assets/destinations/greece-santorini.jpg";
 import mykonosHero from "@/assets/destinations/greece-mykonos.jpg";
@@ -519,6 +522,15 @@ const destinations: Destination[] = [
       // Club Med
       { name: "Club Med Saint-Moritz Roi Soleil", image: clubmedStmoritz, description: "Premium ski-in/ski-out resort in iconic St. Moritz with après-ski, wellness, and legendary Swiss Alpine hospitality.", isAllInclusive: true, isHoneymoon: true },
       { name: "Club Med Villars-sur-Ollon", image: clubmedVillars, description: "All-inclusive family resort in Vaud Alps with skiing, snowboarding, and stunning Lake Geneva views.", isAllInclusive: true, isHoneymoon: true },
+    ]
+  },
+  {
+    name: "Zanzibar",
+    icon: <Palmtree className="w-6 h-6" />,
+    hotels: [
+      { name: "Bawe Island", image: baweIslandZanzibar, description: "Exclusive private island retreat offering pristine beaches, turquoise waters, and secluded luxury just off Stone Town.", isTopLuxury: true, isHoneymoon: true },
+      { name: "Gold Zanzibar Beach House & Spa", image: goldZanzibar, description: "Elegant beachfront resort on Kendwa Beach featuring infinity pool, gourmet dining, and authentic Zanzibari hospitality.", isHoneymoon: true },
+      { name: "The Island Pongwe", image: islandPongweZanzibar, description: "Boutique beach lodge on Pongwe Beach with rustic luxury cottages, pristine white sand, and intimate tropical paradise atmosphere.", isHoneymoon: true },
     ]
   }
 ];

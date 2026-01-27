@@ -19,6 +19,7 @@ import SubmitReview from "./pages/SubmitReview";
 import Reviews from "./pages/Reviews";
 import Cruises from "./pages/Cruises";
 import AboutUs from "./pages/AboutUs";
+import Events from "./pages/Events";
 import NotFound from "./pages/NotFound";
 import DhawaPackageSample from "./components/DhawaPackageSample";
 
@@ -45,6 +46,7 @@ const App = () => (
             <Route path="/reviews" element={<Reviews />} />
             <Route path="/cruises" element={<Cruises />} />
             <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/events" element={<Events />} />
             <Route path="/package-sample" element={<DhawaPackageSample />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

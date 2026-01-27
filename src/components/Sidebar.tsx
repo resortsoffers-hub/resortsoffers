@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { X, Home, Phone, HelpCircle, FileText, Package, Building2, Tag, Star, MessageSquare, Ship, Users } from "lucide-react";
+import { X, Home, Phone, HelpCircle, FileText, Package, Building2, Tag, Star, MessageSquare, Ship, Users, CalendarDays } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 
@@ -18,6 +18,7 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
     { name: "Packages", path: "/packages", icon: Package },
     { name: "Partner Hotels", path: "/partner-hotels", icon: Building2 },
     { name: "Cruises", path: "/cruises", icon: Ship },
+    { name: "Events", path: "/events", icon: CalendarDays },
     { name: "Offers", path: "/offers", icon: Tag },
     { name: "Reviews", path: "/reviews", icon: MessageSquare },
     { name: t('nav.contact'), path: "/contact", icon: Phone },

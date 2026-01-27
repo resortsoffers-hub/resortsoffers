@@ -54,6 +54,11 @@ import domesOfElounda from "@/assets/resorts/domes-of-elounda.jpg";
 import eloundaBayPalace from "@/assets/resorts/elounda-bay-palace.jpg";
 import eloundaBeachHotel from "@/assets/resorts/elounda-beach-hotel.jpg";
 import clubmedGregolimano from "@/assets/resorts/clubmed-gregolimano.jpg";
+// Greece Honeymoon
+import santoriniHoneymoonSuite from "@/assets/resorts/santorini-honeymoon-suite.jpg";
+import mykonosHoneymoonVilla from "@/assets/resorts/mykonos-honeymoon-villa.jpg";
+import santoriniOiaHoneymoon from "@/assets/resorts/santorini-oia-honeymoon.jpg";
+import mykonosBoutiqueHoneymoon from "@/assets/resorts/mykonos-boutique-honeymoon.jpg";
 // Switzerland
 import swissAlps from "@/assets/resorts/swiss-alps.jpg";
 import clubmedStMoritz from "@/assets/resorts/clubmed-stmoritz.jpg";
@@ -555,6 +560,109 @@ const offersData: OfferData[] = [
     whatsappMessage: "Hi! I'm interested in Club Med Gregolimano for 7 nights at $3,200 for 2 people. Please send availability.",
     validUntil: "30 April 2025",
     discount: "40% OFF"
+  },
+  // Greece Honeymoon Packages
+  {
+    id: "santorini-andronis-honeymoon",
+    image: santoriniHoneymoonSuite,
+    hotelName: "Andronis Luxury Suites Honeymoon",
+    location: "Oia, Santorini",
+    destination: "Greece",
+    stars: 5,
+    description: "Ultimate Santorini honeymoon with return flights from Dubai, private airport transfers, infinity pool suite overlooking the caldera, sunset sailing cruise, and couple's spa treatment.",
+    nights: 5,
+    price: "$7,200",
+    priceNote: "for 2 people incl. flights",
+    transferType: "Flights + Private Transfer",
+    whatsappMessage: "Hi! I'm interested in the Andronis Luxury Suites Santorini Honeymoon Package - 5 Nights at $7,200 including flights and transfers. Please share availability.",
+    validUntil: "30 September 2025",
+    discount: "HONEYMOON SPECIAL",
+    specialNote: "Includes: Return flights from Dubai, private airport transfers, daily breakfast, sunset sailing cruise, couple's spa massage, romantic candlelit dinner, and room upgrade subject to availability."
+  },
+  {
+    id: "santorini-canaves-honeymoon",
+    image: santoriniOiaHoneymoon,
+    hotelName: "Canaves Oia Epitome Honeymoon",
+    location: "Oia, Santorini",
+    destination: "Greece",
+    stars: 5,
+    description: "Exclusive honeymoon escape with flights, cave pool suite with caldera views, private wine tasting tour, sunset catamaran cruise, and in-room couple's massage.",
+    nights: 6,
+    price: "$8,500",
+    priceNote: "for 2 people incl. flights",
+    transferType: "Flights + Private Transfer",
+    whatsappMessage: "Hi! I'm interested in the Canaves Oia Epitome Santorini Honeymoon Package - 6 Nights at $8,500 including flights. Please share availability.",
+    validUntil: "30 September 2025",
+    discount: "25% OFF",
+    specialNote: "Includes: Return flights from Dubai/GCC, VIP airport meet & greet, daily gourmet breakfast, sunset catamaran cruise with dinner, wine tasting in Santorini vineyards, and couple's spa experience."
+  },
+  {
+    id: "santorini-katikies-honeymoon",
+    image: santoriniHoneymoonSuite,
+    hotelName: "Katikies Kirini Honeymoon",
+    location: "Oia, Santorini",
+    destination: "Greece",
+    stars: 5,
+    description: "Romantic spa retreat with flights, master suite with private pool, signature Hammam experience, private photography session, and sunset dinner overlooking the Aegean.",
+    nights: 5,
+    price: "$6,800",
+    priceNote: "for 2 people incl. flights",
+    transferType: "Flights + Private Transfer",
+    whatsappMessage: "Hi! I'm interested in the Katikies Kirini Santorini Honeymoon Package - 5 Nights at $6,800 including flights. Please share availability.",
+    validUntil: "30 September 2025",
+    discount: "30% OFF",
+    specialNote: "Includes: Return flights from Dubai, private transfers, daily breakfast, Hammam spa experience, professional honeymoon photo session, and romantic private dinner."
+  },
+  {
+    id: "mykonos-cavo-tagoo-honeymoon",
+    image: mykonosHoneymoonVilla,
+    hotelName: "Cavo Tagoo Mykonos Honeymoon",
+    location: "Mykonos Town",
+    destination: "Greece",
+    stars: 5,
+    description: "Iconic Mykonos honeymoon with flights, suite with private pool, sunset yacht cruise to Delos, couples spa, and private dining experience at the infinity pool.",
+    nights: 5,
+    price: "$7,500",
+    priceNote: "for 2 people incl. flights",
+    transferType: "Flights + Private Transfer",
+    whatsappMessage: "Hi! I'm interested in the Cavo Tagoo Mykonos Honeymoon Package - 5 Nights at $7,500 including flights. Please share availability.",
+    validUntil: "30 September 2025",
+    discount: "HONEYMOON SPECIAL",
+    specialNote: "Includes: Return flights from Dubai, VIP airport transfers, daily gourmet breakfast, private yacht cruise to Delos Island, couple's spa treatment, and romantic poolside dinner."
+  },
+  {
+    id: "mykonos-kivotos-honeymoon",
+    image: mykonosBoutiqueHoneymoon,
+    hotelName: "Kivotos Mykonos Honeymoon",
+    location: "Ornos Beach, Mykonos",
+    destination: "Greece",
+    stars: 5,
+    description: "Boutique luxury honeymoon with flights, Hideaway Villa with infinity pool, private beach cabana, sunset sailing cruise, and romantic dinner on private yacht.",
+    nights: 6,
+    price: "$8,200",
+    priceNote: "for 2 people incl. flights",
+    transferType: "Flights + Private Transfer",
+    whatsappMessage: "Hi! I'm interested in the Kivotos Mykonos Honeymoon Package - 6 Nights at $8,200 including flights. Please share availability.",
+    validUntil: "30 September 2025",
+    discount: "20% OFF",
+    specialNote: "Includes: Return flights from Dubai/GCC, private airport transfers, daily breakfast, Hideaway Villa upgrade, sunset sailing cruise, private beach dinner, and complimentary spa credits."
+  },
+  {
+    id: "mykonos-bill-coo-honeymoon",
+    image: mykonosHoneymoonVilla,
+    hotelName: "Bill & Coo Suites Honeymoon",
+    location: "Megali Ammos, Mykonos",
+    destination: "Greece",
+    stars: 5,
+    description: "Adults-only honeymoon sanctuary with flights, suite with private pool, tasting menu dinner, Delos archaeological tour, and sunset cocktails at the beach bar.",
+    nights: 5,
+    price: "$6,500",
+    priceNote: "for 2 people incl. flights",
+    transferType: "Flights + Private Transfer",
+    whatsappMessage: "Hi! I'm interested in the Bill & Coo Mykonos Honeymoon Package - 5 Nights at $6,500 including flights. Please share availability.",
+    validUntil: "30 September 2025",
+    discount: "35% OFF",
+    specialNote: "Includes: Return flights from Dubai, luxury transfers, daily gourmet breakfast, tasting menu dinner for 2, Delos island excursion, couple's massage, and sunset cocktails daily."
   },
   // Switzerland Offers
   {

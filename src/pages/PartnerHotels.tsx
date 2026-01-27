@@ -118,6 +118,16 @@ import cavoTagooMykonos from "@/assets/resorts/cavo-tagoo-mykonos.jpg";
 import kivotosMykonos from "@/assets/resorts/kivotos-mykonos.jpg";
 import billAndCooMykonos from "@/assets/resorts/bill-and-coo-mykonos.jpg";
 import mykonosBlancHotel from "@/assets/resorts/mykonos-blanc-hotel.jpg";
+import belvedereMykonos from "@/assets/resorts/belvedere-mykonos.jpg";
+import myconianAmbassador from "@/assets/resorts/myconian-ambassador.jpg";
+import royalMyconian from "@/assets/resorts/royal-myconian.jpg";
+import bohemeMykonos from "@/assets/resorts/boheme-mykonos.jpg";
+import eliaSuitesMykonos from "@/assets/resorts/elia-suites-mykonos.jpg";
+import katikiesMykonos from "@/assets/resorts/katikies-mykonos.jpg";
+import saintJohnMykonos from "@/assets/resorts/saint-john-mykonos.jpg";
+import myconianCollection from "@/assets/resorts/myconian-collection.jpg";
+import tagooBlackMykonos from "@/assets/resorts/tagoo-black-mykonos.jpg";
+import oxeniaMykonos from "@/assets/resorts/oxenia-mykonos.jpg";
 
 import londonHero from "@/assets/destinations/london-hero.jpg";
 import londonLuxury from "@/assets/resorts/london-luxury.jpg";
@@ -411,10 +421,23 @@ const destinations: Destination[] = [
       { name: "Kivotos Mykonos", image: kivotosMykonos, description: "Elegant boutique resort with hideaway villas featuring private infinity pools, sophisticated Cycladic luxury, and panoramic Aegean views.", greeceIsland: "mykonos", isHoneymoon: true, isTopLuxury: true },
       { name: "Bill & Coo Suites and Lounge", image: billAndCooMykonos, description: "Award-winning adults-only hideaway with minimalist suites featuring private pools, gourmet dining, and Little Venice views.", greeceIsland: "mykonos", isHoneymoon: true, isAdultOnly: true, isTopLuxury: true },
       { name: "Mykonos Blanc Hotel", image: mykonosBlancHotel, description: "Contemporary luxury villas and Blanc pool suites with private pools, modern Cycladic design, and stunning Aegean Sea views.", greeceIsland: "mykonos", isHoneymoon: true, isTopLuxury: true },
-      { name: "Kalesma Mykonos", image: mykonosHero, description: "Contemporary Cycladic sanctuary perched above Ornos Bay with infinity pool and farm-to-table dining.", greeceIsland: "mykonos", isHoneymoon: true, isTopLuxury: true },
-      { name: "Myconian Utopia Resort", image: mykonosHero, description: "Adults-only clifftop retreat in Elia Beach with thalasso spa and stunning Aegean panoramas.", greeceIsland: "mykonos", isHoneymoon: true, isAdultOnly: true },
-      { name: "Santa Marina, a Luxury Collection Resort", image: mykonosHero, description: "Private peninsula resort with exclusive beach, Buddha-Bar Beach, and Cycladic elegance.", greeceIsland: "mykonos", isHoneymoon: true, isTopLuxury: true },
-      { name: "Belvedere Hotel Mykonos", image: mykonosHero, description: "Legendary boutique hotel in Mykonos Town with Matsuhisa restaurant and bohemian luxury.", greeceIsland: "mykonos", isHoneymoon: true },
+      { name: "Belvedere Hotel Mykonos", image: belvedereMykonos, description: "Legendary boutique hotel in Mykonos Town with hilltop infinity sea view rooms, private pool suites, and Nobu Matsuhisa restaurant.", greeceIsland: "mykonos", isHoneymoon: true, isTopLuxury: true, hasPoolVilla: true },
+      { name: "The Oxenia Hotel Tourlos", image: oxeniaMykonos, description: "Stylish beachfront hotel in Tourlos with elegant suites, stunning sea views, and easy access to Mykonos Town.", greeceIsland: "mykonos", isHoneymoon: true },
+      { name: "Saint John Mykonos", image: saintJohnMykonos, description: "Elegant luxury resort with private pool suites, panoramic Aegean Sea views, spa sanctuary, and refined Greek hospitality.", greeceIsland: "mykonos", isHoneymoon: true, isTopLuxury: true, hasPoolVilla: true },
+      { name: "Katikies Mykonos", image: katikiesMykonos, description: "Luxury suites from the iconic Katikies brand with private pools, impeccable service, and stunning Aegean panoramas.", greeceIsland: "mykonos", isHoneymoon: true, isTopLuxury: true, hasPoolVilla: true },
+      { name: "Katikies Villa Mykonos", image: katikiesMykonos, description: "Exclusive private villas with infinity pools, elegant Cycladic architecture, and personalized villa services.", greeceIsland: "mykonos", isHoneymoon: true, isTopLuxury: true, hasPoolVilla: true },
+      { name: "Myconian Ambassador Relais & Châteaux", image: myconianAmbassador, description: "Prestigious Relais & Châteaux resort with luxury villas featuring private pools, fine dining, and spectacular sea views.", greeceIsland: "mykonos", isHoneymoon: true, isTopLuxury: true, hasPoolVilla: true },
+      { name: "Royal Myconian, Leading Hotels of the World", image: royalMyconian, description: "Executive suites with private pools overlooking the Aegean, world-class thalasso spa, and impeccable service.", greeceIsland: "mykonos", isHoneymoon: true, isTopLuxury: true, hasPoolVilla: true },
+      { name: "Myconian Korali", image: myconianCollection, description: "Contemporary luxury resort from the Myconian Collection with stylish suites, pools, and stunning sea views.", greeceIsland: "mykonos", isHoneymoon: true, isTopLuxury: true },
+      { name: "Myconian Kyma", image: myconianCollection, description: "Elegant Design Hotels member with sophisticated suites, rooftop pool, and panoramic views of Mykonos Town.", greeceIsland: "mykonos", isHoneymoon: true, isTopLuxury: true },
+      { name: "Myconian Naia", image: myconianAmbassador, description: "Luxury suites with private pools, contemporary Cycladic design, and breathtaking Aegean Sea panoramas.", greeceIsland: "mykonos", isHoneymoon: true, isTopLuxury: true, hasPoolVilla: true },
+      { name: "Myconian Villa Collection", image: myconianCollection, description: "Exclusive collection of elegant villas with private pools, butler service, and panoramic sea views.", greeceIsland: "mykonos", isHoneymoon: true, isTopLuxury: true, hasPoolVilla: true },
+      { name: "Boheme Mykonos", image: bohemeMykonos, description: "Boutique luxury hotel with contemporary suites, private pool terraces, and stunning Mediterranean design.", greeceIsland: "mykonos", isHoneymoon: true, hasPoolVilla: true },
+      { name: "Elia Suites", image: eliaSuitesMykonos, description: "Beachfront luxury with 2-5 bedroom sea view villas featuring private pools, presidential suites, and Elia Beach access.", greeceIsland: "mykonos", isHoneymoon: true, isTopLuxury: true, hasPoolVilla: true },
+      { name: "Tagoo Black", image: tagooBlackMykonos, description: "Trendy 4-star boutique hotel in Tagoo with deluxe rooms featuring private cave pools, modern design, and vibrant atmosphere.", greeceIsland: "mykonos", isHoneymoon: true, hasPoolVilla: true },
+      { name: "Kalesma Mykonos", image: saintJohnMykonos, description: "Contemporary Cycladic sanctuary perched above Ornos Bay with infinity pool and farm-to-table dining.", greeceIsland: "mykonos", isHoneymoon: true, isTopLuxury: true },
+      { name: "Myconian Utopia Resort", image: myconianAmbassador, description: "Adults-only clifftop retreat in Elia Beach with thalasso spa and stunning Aegean panoramas.", greeceIsland: "mykonos", isHoneymoon: true, isAdultOnly: true },
+      { name: "Santa Marina, a Luxury Collection Resort", image: royalMyconian, description: "Private peninsula resort with exclusive beach, Buddha-Bar Beach, and Cycladic elegance.", greeceIsland: "mykonos", isHoneymoon: true, isTopLuxury: true },
       
       // Athens
       { name: "Hotel Grande Bretagne", image: greeceAthens, description: "Legendary landmark on Syntagma Square with Acropolis views, historic grandeur, and rooftop dining.", greeceIsland: "athens", isHoneymoon: true, isTopLuxury: true },

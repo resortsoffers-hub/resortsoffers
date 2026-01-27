@@ -37,13 +37,46 @@ const AboutUs = () => {
           </div>
         </section>
 
-        {/* Mission Statement */}
+        {/* Founding Vision */}
         <section className="py-16 bg-white">
           <div className="container-custom">
             <div className="max-w-4xl mx-auto text-center">
               <div className="flex justify-center mb-6">
                 <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center">
-                  <Handshake className="w-8 h-8 text-accent" />
+                  <Award className="w-8 h-8 text-accent" />
+                </div>
+              </div>
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6">
+                Our Vision
+              </h2>
+              <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
+                <p>
+                  Founded Resorts Offers with a clear vision — to redefine bespoke luxury travel.
+                </p>
+                <p>
+                  Together with a passionate team of experts, we create tailor-made travel experiences designed to exceed your expectations. With deep industry knowledge, exclusive partnerships, and a commitment to exceptional service, we offer unique experiences and privileged access you won't find elsewhere.
+                </p>
+                <p>
+                  From private events and personalized excursions to exclusive tours, we bring your travels to life — carefully curating every detail to perfection.
+                </p>
+                <p>
+                  We're here for you at every step, ready to answer questions, offer recommendations, and make sure your experience is seamless.
+                </p>
+                <p className="font-semibold text-primary">
+                  Discretion and confidentiality are always at the core of what we do.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Mission Statement */}
+        <section className="py-16 bg-slate-50">
+          <div className="container-custom">
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="flex justify-center mb-6">
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Handshake className="w-8 h-8 text-primary" />
                 </div>
               </div>
               <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6">
@@ -138,10 +171,10 @@ const AboutUs = () => {
               
               <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
                 <h3 className="text-xl font-bold text-primary mb-2">
-                  Nora Abdullah Mohamed Elkhalifi
+                  Nora Abdullah
                 </h3>
                 <p className="text-accent font-semibold mb-6">
-                  Chief Executive Officer
+                  CEO & Founder
                 </p>
                 
                 <div className="space-y-2 text-muted-foreground">

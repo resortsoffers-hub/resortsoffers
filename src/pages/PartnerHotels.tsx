@@ -101,6 +101,24 @@ import abatonIslandResort from "@/assets/resorts/abaton-island-resort.jpg";
 import eloundaBeachHotel from "@/assets/resorts/elounda-beach-hotel.jpg";
 import eloundaBayPalace from "@/assets/resorts/elounda-bay-palace.jpg";
 
+// New Greece imports
+import andronisLuxurySuites from "@/assets/resorts/andronis-luxury-suites.jpg";
+import andronisArcadia from "@/assets/resorts/andronis-arcadia-santorini.jpg";
+import katikiesKirini from "@/assets/resorts/katikies-kirini-santorini.jpg";
+import katikiesVilla from "@/assets/resorts/katikies-villa-santorini.jpg";
+import katikiesChromata from "@/assets/resorts/katikies-chromata-santorini.jpg";
+import charismaSuites from "@/assets/resorts/charisma-suites-santorini.jpg";
+import canavesSantorini from "@/assets/resorts/canaves-oia-santorini.jpg";
+import sanAntonioSantorini from "@/assets/resorts/san-antonio-santorini.jpg";
+import aquaSuitesSantorini from "@/assets/resorts/aqua-suites-santorini.jpg";
+import vedemaSantorini from "@/assets/resorts/vedema-santorini.jpg";
+import astarteSuites from "@/assets/resorts/astarte-suites-santorini.jpg";
+import kivotosSantorini from "@/assets/resorts/kivotos-santorini.jpg";
+import cavoTagooMykonos from "@/assets/resorts/cavo-tagoo-mykonos.jpg";
+import kivotosMykonos from "@/assets/resorts/kivotos-mykonos.jpg";
+import billAndCooMykonos from "@/assets/resorts/bill-and-coo-mykonos.jpg";
+import mykonosBlancHotel from "@/assets/resorts/mykonos-blanc-hotel.jpg";
+
 import londonHero from "@/assets/destinations/london-hero.jpg";
 import londonLuxury from "@/assets/resorts/london-luxury.jpg";
 
@@ -361,29 +379,45 @@ const destinations: Destination[] = [
     icon: <Building2 className="w-6 h-6" />,
     hotels: [
       // Santorini
+      { name: "Andronis Luxury Suites", image: andronisLuxurySuites, description: "Iconic white-washed cave suites in Oia with exceptional infinity pools overlooking the caldera, exceptional suites with private pools.", greeceIsland: "santorini", isHoneymoon: true, isTopLuxury: true, isNoraPick: true },
+      { name: "Andronis Arcadia", image: andronisArcadia, description: "Contemporary wellness retreat in Oia with rooftop pool, holistic spa experiences, and panoramic caldera views.", greeceIsland: "santorini", isHoneymoon: true, isTopLuxury: true },
+      { name: "Katikies Hotel Santorini", image: santoriniHero, description: "Legendary luxury hotel in Oia cascading down the caldera cliffs with iconic white-washed suites and exceptional Greek hospitality.", greeceIsland: "santorini", isHoneymoon: true, isTopLuxury: true },
+      { name: "Katikies Villa Santorini", image: katikiesVilla, description: "Exclusive private villas in Oia with infinity pools, stunning caldera views, and authentic Santorinian charm meant to be discovered.", greeceIsland: "santorini", isHoneymoon: true, isTopLuxury: true },
+      { name: "Katikies Kirini Santorini", image: katikiesKirini, description: "Exquisite spa hotel in Santorini that evokes the senses, featuring master suites with private pools and holistic wellness.", greeceIsland: "santorini", isHoneymoon: true, isTopLuxury: true },
+      { name: "Katikies Chromata Santorini", image: katikiesChromata, description: "Relaxed sophistication and vibrant 5-star luxury hotel with Chromata infinity pool villas and stunning caldera views.", greeceIsland: "santorini", isHoneymoon: true, isTopLuxury: true },
+      { name: "Charisma Suites Santorini", image: charismaSuites, description: "Boutique luxury in Oia featuring cave pool suites with caldera views, romantic honeymoon retreat with exceptional service.", greeceIsland: "santorini", isHoneymoon: true },
+      { name: "Canaves Oia", image: canavesSantorini, description: "Iconic white-washed suites cascading down the caldera in Oia with private pools, legendary sunsets, and minimalist luxury.", greeceIsland: "santorini", isHoneymoon: true, isTopLuxury: true },
       { name: "Canaves Oia Epitome", image: santoriniHero, description: "Ultra-luxury cave suites perched on Santorini's caldera with private infinity pools and sunset views.", greeceIsland: "santorini", isHoneymoon: true, isTopLuxury: true },
+      { name: "San Antonio Imerovigli", image: sanAntonioSantorini, description: "Cliffside luxury hotel in Imerovigli with stunning caldera views, infinity pool overlooking the volcano, and romantic Greek hospitality.", greeceIsland: "santorini", isHoneymoon: true },
+      { name: "Aqua Suites Santorini", image: aquaSuitesSantorini, description: "Luxury suites and villas in Imerovigli with private pools, panoramic caldera and volcano views, romantic honeymoon destination.", greeceIsland: "santorini", isHoneymoon: true },
+      { name: "Vedema, a Luxury Collection Resort", image: vedemaSantorini, description: "Traditional wine village resort by Marriott featuring elegant stone villas with private pools, vineyard views, and sophisticated Mediterranean luxury.", greeceIsland: "santorini", isHoneymoon: true, isTopLuxury: true },
+      { name: "Astarte Suites", image: astarteSuites, description: "Intimate luxury suites with infinity pools and panoramic caldera views, romantic honeymoon retreat in Santorini.", greeceIsland: "santorini", isHoneymoon: true },
+      { name: "Kivotos Santorini", image: kivotosSantorini, description: "Luxury villas and suites with private pools, elegant Cycladic design, and stunning caldera panoramas.", greeceIsland: "santorini", isHoneymoon: true, isTopLuxury: true },
       { name: "Cavo Tagoo Santorini", image: santoriniHero, description: "Iconic design hotel in Imerovigli with signature cave pool, caldera views, and sophisticated island luxury.", greeceIsland: "santorini", isHoneymoon: true, isTopLuxury: true, isNoraPick: true },
-      { name: "Athermi Suites", image: santoriniHero, description: "Boutique luxury suites in Fira with stunning caldera views, private jacuzzis, and authentic Santorinian hospitality.", greeceIsland: "santorini", isHoneymoon: true },
       { name: "Grace Hotel Santorini", image: mykonosHero, description: "Intimate boutique hotel in Imerovigli with stunning champagne lounge and caldera panoramas.", greeceIsland: "santorini", isHoneymoon: true, isTopLuxury: true },
       { name: "Mystique, a Luxury Collection Hotel", image: greeceAthens, description: "Cave hotel carved into Oia's cliffs with infinity pools overlooking the volcano.", greeceIsland: "santorini", isHoneymoon: true, isTopLuxury: true },
-      { name: "Andronis Arcadia", image: greeceCrete, description: "Contemporary wellness retreat in Oia with rooftop pool and holistic spa experiences.", greeceIsland: "santorini", isHoneymoon: true },
-      { name: "Katikies Santorini", image: santoriniHero, description: "Iconic white-washed suites cascading down the caldera with legendary Greek hospitality.", greeceIsland: "santorini", isHoneymoon: true, isTopLuxury: true },
+      { name: "Athermi Suites", image: santoriniHero, description: "Boutique luxury suites in Fira with stunning caldera views, private jacuzzis, and authentic Santorinian hospitality.", greeceIsland: "santorini", isHoneymoon: true },
       { name: "Santo Maris Oia Luxury Suites & Spa", image: mykonosHero, description: "Cycladic architecture meets contemporary luxury with expansive spa and gourmet dining.", greeceIsland: "santorini", isHoneymoon: true },
       { name: "Astra Suites", image: santoriniHero, description: "Award-winning boutique hotel in Imerovigli with romantic suites, infinity pool, and legendary breakfast.", greeceIsland: "santorini", isHoneymoon: true },
       { name: "Cosmopolitan Suites", image: mykonosHero, description: "Intimate luxury retreat in Fira with personalized service, caldera views, and elegant Cycladic design.", greeceIsland: "santorini", isHoneymoon: true },
+      
       // Mykonos
-      { name: "Cavo Tagoo Mykonos", image: mykonosHero, description: "Iconic luxury hotel carved into the hillside with famous cave pool, sea views, and vibrant Mykonian energy.", greeceIsland: "mykonos", isHoneymoon: true, isTopLuxury: true, isNoraPick: true },
+      { name: "Cavo Tagoo Mykonos", image: cavoTagooMykonos, description: "Iconic luxury hotel carved into the hillside with famous cave pool, honeymoon suites with pools, and vibrant Mykonian energy.", greeceIsland: "mykonos", isHoneymoon: true, isTopLuxury: true, isNoraPick: true },
+      { name: "Kivotos Mykonos", image: kivotosMykonos, description: "Elegant boutique resort with hideaway villas featuring private infinity pools, sophisticated Cycladic luxury, and panoramic Aegean views.", greeceIsland: "mykonos", isHoneymoon: true, isTopLuxury: true },
+      { name: "Bill & Coo Suites and Lounge", image: billAndCooMykonos, description: "Award-winning adults-only hideaway with minimalist suites featuring private pools, gourmet dining, and Little Venice views.", greeceIsland: "mykonos", isHoneymoon: true, isAdultOnly: true, isTopLuxury: true },
+      { name: "Mykonos Blanc Hotel", image: mykonosBlancHotel, description: "Contemporary luxury villas and Blanc pool suites with private pools, modern Cycladic design, and stunning Aegean Sea views.", greeceIsland: "mykonos", isHoneymoon: true, isTopLuxury: true },
       { name: "Kalesma Mykonos", image: mykonosHero, description: "Contemporary Cycladic sanctuary perched above Ornos Bay with infinity pool and farm-to-table dining.", greeceIsland: "mykonos", isHoneymoon: true, isTopLuxury: true },
       { name: "Myconian Utopia Resort", image: mykonosHero, description: "Adults-only clifftop retreat in Elia Beach with thalasso spa and stunning Aegean panoramas.", greeceIsland: "mykonos", isHoneymoon: true, isAdultOnly: true },
       { name: "Santa Marina, a Luxury Collection Resort", image: mykonosHero, description: "Private peninsula resort with exclusive beach, Buddha-Bar Beach, and Cycladic elegance.", greeceIsland: "mykonos", isHoneymoon: true, isTopLuxury: true },
       { name: "Belvedere Hotel Mykonos", image: mykonosHero, description: "Legendary boutique hotel in Mykonos Town with Matsuhisa restaurant and bohemian luxury.", greeceIsland: "mykonos", isHoneymoon: true },
-      { name: "Bill & Coo Suites and Lounge", image: mykonosHero, description: "Award-winning adults-only hideaway with minimalist suites, gourmet dining, and Little Venice views.", greeceIsland: "mykonos", isHoneymoon: true, isAdultOnly: true, isTopLuxury: true },
+      
       // Athens
       { name: "Hotel Grande Bretagne", image: greeceAthens, description: "Legendary landmark on Syntagma Square with Acropolis views, historic grandeur, and rooftop dining.", greeceIsland: "athens", isHoneymoon: true, isTopLuxury: true },
       { name: "Four Seasons Astir Palace Hotel Athens", image: greeceAthens, description: "Prestigious coastal resort on Athens Riviera with three private beaches and Mediterranean elegance.", greeceIsland: "athens", isHoneymoon: true, isTopLuxury: true },
       { name: "King George, a Luxury Collection Hotel", image: greeceAthens, description: "Intimate luxury in the heart of Athens with Tudor Hall restaurant and Acropolis panoramas.", greeceIsland: "athens", isHoneymoon: true },
       { name: "The Margi Hotel", image: greeceAthens, description: "Boutique retreat in Vouliagmeni with beach club access, spa, and sophisticated coastal living.", greeceIsland: "athens", isHoneymoon: true },
       { name: "One&Only Aesthesis Athens Riviera", image: greeceAthens, description: "Ultra-luxury coastal sanctuary blending contemporary design with Greek heritage on the Athens Riviera.", greeceIsland: "athens", isHoneymoon: true, isTopLuxury: true, isUpcoming: true, openingYear: "2024" },
+      
       // Crete
       { name: "Blue Palace Elounda", image: greeceCrete, description: "Sprawling luxury resort on Crete's coast with private beach, spa, and stunning views of Spinalonga.", greeceIsland: "crete", isHoneymoon: true, isTopLuxury: true },
       { name: "Daios Cove Luxury Resort", image: greeceCrete, description: "Cliffside retreat with private beach, infinity pools, and panoramic Aegean Sea views.", greeceIsland: "crete", isHoneymoon: true, isTopLuxury: true },

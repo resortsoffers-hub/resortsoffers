@@ -1141,7 +1141,7 @@ const rawDestinationsData: Record<string, DestinationData> = {
       {
         name: "Mykonos",
         arabicName: "ميكونوس",
-        description: "Glamorous island with beaches, nightlife, and windmills",
+        description: "Glamorous island with luxury pool villa hotels, pristine beaches, iconic windmills, and world-class honeymoon resorts including Belvedere, Cavo Tagoo, Myconian Collection, Katikies, and more",
         image: "/src/assets/destinations/greece-mykonos.jpg"
       },
       {

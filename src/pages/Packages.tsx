@@ -62,6 +62,29 @@ import stRegisMauritius from "@/assets/resorts/st-regis-mauritius.jpg";
 import shangriLaMauritius from "@/assets/resorts/shangri-la-mauritius.jpg";
 import oneandOnlyMauritius from "@/assets/resorts/oneandonly-mauritius.jpg";
 import oberoiMauritius from "@/assets/resorts/oberoi-mauritius.jpg";
+
+// Bali Images
+import rafflesBali from "@/assets/resorts/raffles-bali.jpg";
+import samabeBali from "@/assets/resorts/samabe-bali.jpg";
+import baliClifftop from "@/assets/resorts/bali-clifftop-resort.jpg";
+import clubmedBali from "@/assets/resorts/clubmed-bali.jpg";
+
+// Phuket Images
+import amanpuriPhuket from "@/assets/resorts/amanpuri-phuket.jpg";
+import rosewoodPhuket from "@/assets/resorts/rosewood-phuket.jpg";
+import trisaraPhuket from "@/assets/resorts/trisara-phuket.jpg";
+import keemalaPhuket from "@/assets/resorts/keemala-phuket.jpg";
+import banyanTreePhuket from "@/assets/resorts/banyan-tree-phuket.jpg";
+import sixSensesYaoNoi from "@/assets/resorts/six-senses-yao-noi.jpg";
+
+// Malaysia Images
+import malaysiaBech from "@/assets/resorts/malaysia-beach.jpg";
+
+// Zanzibar Images
+import goldZanzibar from "@/assets/resorts/gold-zanzibar.jpg";
+import baweIslandZanzibar from "@/assets/resorts/bawe-island-zanzibar.jpg";
+import islandPongweZanzibar from "@/assets/resorts/island-pongwe-zanzibar.jpg";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -783,11 +806,516 @@ const packagesData: PackageData[] = [
     transferType: "Car Transfer",
     whatsappMessage: "Hi! I'm interested in The Oberoi Mauritius for 4 nights at $4,500 for 2 people. Please send availability.",
     validUntil: "30 April 2025"
+  },
+
+  // ============ BALI PACKAGES ============
+  // Grand Mirage Resort
+  {
+    id: "grand-mirage-bali",
+    image: clubmedBali,
+    hotelName: "Grand Mirage Resort & Thalasso Bali",
+    location: "Nusa Dua",
+    destination: "Bali",
+    stars: 5,
+    bedrooms: 4,
+    amenityIcons: [
+      { icon: Wine, label: "All-Inclusive" },
+      { icon: Sparkles, label: "Thalasso Spa" },
+      { icon: Users, label: "Family" },
+      { icon: Waves, label: "Beach" }
+    ],
+    description: "Beachfront all-inclusive resort featuring Thalasso spa, multiple pools, and comprehensive family activities in Nusa Dua.",
+    inclusions: [
+      "Deluxe Ocean View Room",
+      "All-Inclusive meals & drinks",
+      "Return airport transfers",
+      "Daily spa treatment"
+    ],
+    nights: 4,
+    price: "$1,890",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in Grand Mirage Resort Bali for 4 nights at $1,890 for 2 people. Please send availability.",
+    validUntil: "30 April 2025"
+  },
+  // The Apurva Kempinski Bali
+  {
+    id: "apurva-kempinski-bali",
+    image: baliClifftop,
+    hotelName: "The Apurva Kempinski Bali",
+    location: "Nusa Dua",
+    destination: "Bali",
+    stars: 5,
+    bedrooms: 3,
+    amenityIcons: [
+      { icon: UtensilsCrossed, label: "Fine Dining" },
+      { icon: Sparkles, label: "Spa" },
+      { icon: Anchor, label: "Private Beach" },
+      { icon: Glasses, label: "Infinity Pool" }
+    ],
+    description: "Clifftop luxury resort showcasing Indonesian architecture with stunning Indian Ocean views and world-class dining.",
+    inclusions: [
+      "Grand Deluxe Room",
+      "Half Board meals",
+      "Return airport transfers",
+      "60-min spa massage"
+    ],
+    nights: 4,
+    price: "$2,400",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in The Apurva Kempinski Bali for 4 nights at $2,400 for 2 people. Please send availability.",
+    validUntil: "30 April 2025"
+  },
+  // St. Regis Bali
+  {
+    id: "st-regis-bali",
+    image: samabeBali,
+    hotelName: "The St. Regis Bali Resort",
+    location: "Nusa Dua",
+    destination: "Bali",
+    stars: 5,
+    bedrooms: 4,
+    amenityIcons: [
+      { icon: Wine, label: "Butler Service" },
+      { icon: Sparkles, label: "Remède Spa" },
+      { icon: Anchor, label: "Private Beach" },
+      { icon: UtensilsCrossed, label: "Fine Dining" }
+    ],
+    description: "Iconic beachfront resort with signature St. Regis Butler service, Remède Spa, and exquisite Balinese hospitality.",
+    inclusions: [
+      "St. Regis Suite",
+      "Half Board Plus",
+      "Return airport transfers",
+      "Butler service"
+    ],
+    nights: 4,
+    price: "$4,200",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in The St. Regis Bali for 4 nights at $4,200 for 2 people. Please send availability.",
+    validUntil: "30 April 2025"
+  },
+  // Jumeirah Bali
+  {
+    id: "jumeirah-bali",
+    image: rafflesBali,
+    hotelName: "Jumeirah Bali",
+    location: "Uluwatu",
+    destination: "Bali",
+    stars: 5,
+    bedrooms: 2,
+    amenityIcons: [
+      { icon: Heart, label: "Romance" },
+      { icon: Sparkles, label: "Talise Spa" },
+      { icon: Anchor, label: "Cliffside" },
+      { icon: UtensilsCrossed, label: "Fine Dining" }
+    ],
+    description: "Intimate cliffside sanctuary in Uluwatu with private pool villas, Talise Spa, and breathtaking ocean panoramas.",
+    inclusions: [
+      "Pool Villa",
+      "Half Board dining",
+      "Return airport transfers",
+      "Romantic dinner setup"
+    ],
+    nights: 3,
+    price: "$3,600",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in Jumeirah Bali for 3 nights at $3,600 for 2 people. Please send availability.",
+    validUntil: "30 April 2025"
+  },
+
+  // ============ PHUKET PACKAGES ============
+  // Amanpuri Phuket
+  {
+    id: "amanpuri-phuket",
+    image: amanpuriPhuket,
+    hotelName: "Amanpuri",
+    location: "Pansea Beach",
+    destination: "Phuket",
+    stars: 5,
+    bedrooms: 3,
+    amenityIcons: [
+      { icon: Heart, label: "Exclusive" },
+      { icon: Sparkles, label: "Holistic Spa" },
+      { icon: Sailboat, label: "Yacht" },
+      { icon: UtensilsCrossed, label: "Fine Dining" }
+    ],
+    description: "The original Aman resort on a private peninsula with Thai-style pavilions, legendary spa, and yacht charter.",
+    inclusions: [
+      "Ocean Pavilion",
+      "Half Board meals",
+      "Return airport transfers",
+      "Thai cooking class"
+    ],
+    nights: 4,
+    price: "$5,800",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in Amanpuri Phuket for 4 nights at $5,800 for 2 people. Please send availability.",
+    validUntil: "30 April 2025"
+  },
+  // Rosewood Phuket
+  {
+    id: "rosewood-phuket",
+    image: rosewoodPhuket,
+    hotelName: "Rosewood Phuket",
+    location: "Emerald Bay",
+    destination: "Phuket",
+    stars: 5,
+    bedrooms: 4,
+    amenityIcons: [
+      { icon: Sparkles, label: "Asaya Spa" },
+      { icon: Users, label: "Family" },
+      { icon: Anchor, label: "Private Beach" },
+      { icon: Waves, label: "Water Sports" }
+    ],
+    description: "Secluded hillside hideaway on Emerald Bay with private beach, Asaya wellness, and exceptional family amenities.",
+    inclusions: [
+      "Pool Pavilion",
+      "Half Board dining",
+      "Return airport transfers",
+      "Kids activities"
+    ],
+    nights: 4,
+    price: "$4,100",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in Rosewood Phuket for 4 nights at $4,100 for 2 people. Please send availability.",
+    validUntil: "30 April 2025"
+  },
+  // Trisara Phuket
+  {
+    id: "trisara-phuket",
+    image: trisaraPhuket,
+    hotelName: "Trisara",
+    location: "Nai Thon Beach",
+    destination: "Phuket",
+    stars: 5,
+    bedrooms: 3,
+    amenityIcons: [
+      { icon: Heart, label: "Romance" },
+      { icon: Sparkles, label: "Jara Spa" },
+      { icon: Anchor, label: "Private Bay" },
+      { icon: UtensilsCrossed, label: "Michelin Dining" }
+    ],
+    description: "Ultra-exclusive oceanfront villas on a private bay with Michelin-starred dining and world-class Jara Spa.",
+    inclusions: [
+      "Ocean View Pool Villa",
+      "Half Board Plus",
+      "Return airport transfers",
+      "Spa treatment"
+    ],
+    nights: 3,
+    price: "$4,800",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in Trisara Phuket for 3 nights at $4,800 for 2 people. Please send availability.",
+    validUntil: "30 April 2025"
+  },
+  // Keemala Phuket
+  {
+    id: "keemala-phuket",
+    image: keemalaPhuket,
+    hotelName: "Keemala",
+    location: "Kamala",
+    destination: "Phuket",
+    stars: 5,
+    bedrooms: 2,
+    amenityIcons: [
+      { icon: Heart, label: "Adults Only" },
+      { icon: Sparkles, label: "Holistic Spa" },
+      { icon: Palmtree, label: "Rainforest" },
+      { icon: Flower2, label: "Wellness" }
+    ],
+    description: "Enchanting rainforest hideaway with unique bird's nest villas, holistic wellness, and farm-to-table organic dining.",
+    inclusions: [
+      "Tree Pool House",
+      "Half Board organic meals",
+      "Return airport transfers",
+      "Wellness consultation"
+    ],
+    nights: 3,
+    price: "$3,200",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in Keemala Phuket for 3 nights at $3,200 for 2 people. Please send availability.",
+    validUntil: "30 April 2025"
+  },
+  // Banyan Tree Phuket
+  {
+    id: "banyan-tree-phuket",
+    image: banyanTreePhuket,
+    hotelName: "Banyan Tree Phuket",
+    location: "Laguna",
+    destination: "Phuket",
+    stars: 5,
+    bedrooms: 4,
+    amenityIcons: [
+      { icon: Sparkles, label: "Spa Sanctuary" },
+      { icon: Dumbbell, label: "Golf" },
+      { icon: Users, label: "Family" },
+      { icon: Anchor, label: "Lagoon" }
+    ],
+    description: "Iconic all-pool-villa resort in Laguna complex with award-winning spa sanctuary and championship golf.",
+    inclusions: [
+      "Pool Villa",
+      "Half Board dining",
+      "Return airport transfers",
+      "90-min spa treatment"
+    ],
+    nights: 4,
+    price: "$2,800",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in Banyan Tree Phuket for 4 nights at $2,800 for 2 people. Please send availability.",
+    validUntil: "30 April 2025"
+  },
+  // The Nai Harn Phuket
+  {
+    id: "nai-harn-phuket",
+    image: sixSensesYaoNoi,
+    hotelName: "The Nai Harn",
+    location: "Nai Harn Beach",
+    destination: "Phuket",
+    stars: 5,
+    bedrooms: 2,
+    amenityIcons: [
+      { icon: Heart, label: "Romance" },
+      { icon: Sparkles, label: "Spa" },
+      { icon: Anchor, label: "Beachfront" },
+      { icon: Coffee, label: "Rock Salt" }
+    ],
+    description: "Sophisticated beachfront retreat overlooking pristine Nai Harn Bay with exceptional dining at Rock Salt.",
+    inclusions: [
+      "Grand Ocean View Room",
+      "Half Board meals",
+      "Return airport transfers",
+      "Sunset cocktails"
+    ],
+    nights: 4,
+    price: "$1,800",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in The Nai Harn Phuket for 4 nights at $1,800 for 2 people. Please send availability.",
+    validUntil: "30 April 2025"
+  },
+
+  // ============ GOA PACKAGES ============
+  // St. Regis Goa
+  {
+    id: "st-regis-goa",
+    image: baliClifftop,
+    hotelName: "The St. Regis Goa Resort",
+    location: "Cavelossim Beach",
+    destination: "Goa",
+    stars: 5,
+    bedrooms: 3,
+    amenityIcons: [
+      { icon: Wine, label: "Butler Service" },
+      { icon: Sparkles, label: "Iridium Spa" },
+      { icon: Anchor, label: "Private Beach" },
+      { icon: UtensilsCrossed, label: "Fine Dining" }
+    ],
+    description: "Portuguese-influenced luxury on South Goa's pristine beach with St. Regis Butler service and Iridium Spa.",
+    inclusions: [
+      "Grand Deluxe Room",
+      "Half Board Plus",
+      "Return airport transfers",
+      "Butler service"
+    ],
+    nights: 4,
+    price: "$2,100",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in The St. Regis Goa for 4 nights at $2,100 for 2 people. Please send availability.",
+    validUntil: "30 April 2025"
+  },
+  // Alila Diwa Goa
+  {
+    id: "alila-diwa-goa",
+    image: samabeBali,
+    hotelName: "Alila Diwa Goa",
+    location: "South Goa",
+    destination: "Goa",
+    stars: 5,
+    bedrooms: 3,
+    amenityIcons: [
+      { icon: Sparkles, label: "Spa Alila" },
+      { icon: Users, label: "Family" },
+      { icon: Palmtree, label: "Paddy Fields" },
+      { icon: Waves, label: "Infinity Pool" }
+    ],
+    description: "Contemporary retreat amid paddy fields with Spa Alila wellness, exceptional dining, and serene atmosphere.",
+    inclusions: [
+      "Terrace Room",
+      "Half Board meals",
+      "Return airport transfers",
+      "Spa treatment"
+    ],
+    nights: 4,
+    price: "$1,400",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in Alila Diwa Goa for 4 nights at $1,400 for 2 people. Please send availability.",
+    validUntil: "30 April 2025"
+  },
+
+  // ============ MALAYSIA PACKAGES ============
+  // Berjaya Langkawi
+  {
+    id: "berjaya-langkawi",
+    image: malaysiaBech,
+    hotelName: "Berjaya Langkawi Resort",
+    location: "Langkawi Island",
+    destination: "Malaysia",
+    stars: 5,
+    bedrooms: 4,
+    amenityIcons: [
+      { icon: Palmtree, label: "Rainforest" },
+      { icon: Sparkles, label: "Taaras Spa" },
+      { icon: Users, label: "Family" },
+      { icon: Anchor, label: "Private Beach" }
+    ],
+    description: "Rainforest retreat on stilts with over-water chalets, private beach, and eco-friendly experiences.",
+    inclusions: [
+      "Premier Chalet on Stilts",
+      "Half Board meals",
+      "Return airport transfers",
+      "Mangrove tour"
+    ],
+    nights: 4,
+    price: "$1,600",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in Berjaya Langkawi Resort for 4 nights at $1,600 for 2 people. Please send availability.",
+    validUntil: "30 April 2025"
+  },
+
+  // ============ ZANZIBAR PACKAGES ============
+  // Gold Zanzibar Beach House & Spa
+  {
+    id: "gold-zanzibar",
+    image: goldZanzibar,
+    hotelName: "Gold Zanzibar Beach House & Spa",
+    location: "Kendwa Beach",
+    destination: "Zanzibar",
+    stars: 5,
+    bedrooms: 3,
+    amenityIcons: [
+      { icon: Sparkles, label: "Mvua Spa" },
+      { icon: Heart, label: "Romance" },
+      { icon: Anchor, label: "Beachfront" },
+      { icon: Waves, label: "Water Sports" }
+    ],
+    description: "Boutique beachfront haven on Kendwa with Arabian-influenced design, Mvua African Rain Spa, and stunning sunsets.",
+    inclusions: [
+      "Ocean View Suite",
+      "Half Board meals",
+      "Return airport transfers",
+      "Sunset dhow cruise"
+    ],
+    nights: 4,
+    price: "$2,200",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in Gold Zanzibar for 4 nights at $2,200 for 2 people. Please send availability.",
+    validUntil: "30 April 2025"
+  },
+  // The Residence Zanzibar
+  {
+    id: "residence-zanzibar",
+    image: baweIslandZanzibar,
+    hotelName: "The Residence Zanzibar",
+    location: "Kizimkazi",
+    destination: "Zanzibar",
+    stars: 5,
+    bedrooms: 4,
+    amenityIcons: [
+      { icon: Sparkles, label: "Spa by Clarins" },
+      { icon: Heart, label: "Romance" },
+      { icon: Glasses, label: "Dolphins" },
+      { icon: Anchor, label: "Private Beach" }
+    ],
+    description: "Elegant plantation-style villas on secluded southern coast with Spa by Clarins and dolphin encounters.",
+    inclusions: [
+      "Luxury Pool Villa",
+      "Half Board Plus",
+      "Return airport transfers",
+      "Dolphin excursion"
+    ],
+    nights: 5,
+    price: "$3,400",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in The Residence Zanzibar for 5 nights at $3,400 for 2 people. Please send availability.",
+    validUntil: "30 April 2025"
+  },
+  // Melia Zanzibar
+  {
+    id: "melia-zanzibar",
+    image: islandPongweZanzibar,
+    hotelName: "Meliá Zanzibar",
+    location: "Kiwengwa Beach",
+    destination: "Zanzibar",
+    stars: 5,
+    bedrooms: 4,
+    amenityIcons: [
+      { icon: Wine, label: "All-Inclusive" },
+      { icon: Sparkles, label: "YHI Spa" },
+      { icon: Users, label: "Family" },
+      { icon: Waves, label: "Water Sports" }
+    ],
+    description: "Contemporary beachfront resort with The Level exclusive services, YHI Spa, and comprehensive all-inclusive.",
+    inclusions: [
+      "The Level Lagoon Access Room",
+      "Premium All-Inclusive",
+      "Return airport transfers",
+      "Kids stay free"
+    ],
+    nights: 5,
+    price: "$2,800",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in Meliá Zanzibar for 5 nights at $2,800 for 2 people. Please send availability.",
+    validUntil: "30 April 2025"
+  },
+
+  // ============ SRI LANKA PACKAGES ============
+  // The Fortress Resort & Spa
+  {
+    id: "fortress-sri-lanka",
+    image: samabeBali,
+    hotelName: "The Fortress Resort & Spa",
+    location: "Koggala",
+    destination: "Sri Lanka",
+    stars: 5,
+    bedrooms: 3,
+    amenityIcons: [
+      { icon: Sparkles, label: "Spa" },
+      { icon: Heart, label: "Romance" },
+      { icon: Anchor, label: "Beachfront" },
+      { icon: Glasses, label: "Heritage" }
+    ],
+    description: "Dutch colonial-inspired fortress retreat on southern coast with exceptional spa and cultural experiences.",
+    inclusions: [
+      "Ocean Room",
+      "Half Board meals",
+      "Return airport transfers",
+      "Galle Fort excursion"
+    ],
+    nights: 4,
+    price: "$1,800",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in The Fortress Resort Sri Lanka for 4 nights at $1,800 for 2 people. Please send availability.",
+    validUntil: "30 April 2025"
   }
 ];
 
 // Destinations shown in the filter (fixed order per requirements)
-const destinations = ["Maldives", "Seychelles", "Mauritius", "China", "Vietnam", "Bali", "Thailand"];
+const destinations = ["Maldives", "Seychelles", "Mauritius", "Bali", "Phuket", "Goa", "Malaysia", "Zanzibar", "Sri Lanka"];
 
 // Partner hotel counts per destination
 const partnerHotelCounts: Record<string, number> = {
@@ -796,9 +1324,13 @@ const partnerHotelCounts: Record<string, number> = {
   "Mauritius": 8,
   "Phuket": 9,
   "Greece": 9,
-  "Bali": 2,
+  "Bali": 4,
   "Dubai": 1,
   "London": 1,
+  "Goa": 2,
+  "Malaysia": 1,
+  "Zanzibar": 3,
+  "Sri Lanka": 1,
 };
 
 // Package Card Component - dnata style

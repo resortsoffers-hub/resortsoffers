@@ -64,10 +64,10 @@ import oneandOnlyMauritius from "@/assets/resorts/oneandonly-mauritius.jpg";
 import oberoiMauritius from "@/assets/resorts/oberoi-mauritius.jpg";
 
 // Bali Images
-import rafflesBali from "@/assets/resorts/raffles-bali.jpg";
-import samabeBali from "@/assets/resorts/samabe-bali.jpg";
-import baliClifftop from "@/assets/resorts/bali-clifftop-resort.jpg";
-import clubmedBali from "@/assets/resorts/clubmed-bali.jpg";
+import grandMirageBali from "@/assets/resorts/grand-mirage-bali.jpg";
+import apurvaKempinskiBali from "@/assets/resorts/apurva-kempinski-bali.jpg";
+import stRegisBali from "@/assets/resorts/st-regis-bali.jpg";
+import jumeirahBali from "@/assets/resorts/jumeirah-bali.jpg";
 
 // Phuket Images
 import amanpuriPhuket from "@/assets/resorts/amanpuri-phuket.jpg";
@@ -75,10 +75,17 @@ import rosewoodPhuket from "@/assets/resorts/rosewood-phuket.jpg";
 import trisaraPhuket from "@/assets/resorts/trisara-phuket.jpg";
 import keemalaPhuket from "@/assets/resorts/keemala-phuket.jpg";
 import banyanTreePhuket from "@/assets/resorts/banyan-tree-phuket.jpg";
-import sixSensesYaoNoi from "@/assets/resorts/six-senses-yao-noi.jpg";
+import naiHarnPhuket from "@/assets/resorts/nai-harn-phuket.jpg";
+
+// Goa Images
+import stRegisGoa from "@/assets/resorts/st-regis-goa.jpg";
+import alilaDiwaGoa from "@/assets/resorts/alila-diwa-goa.jpg";
 
 // Malaysia Images
-import malaysiaBech from "@/assets/resorts/malaysia-beach.jpg";
+import berjayaLangkawi from "@/assets/resorts/berjaya-langkawi.jpg";
+
+// Sri Lanka Images
+import fortressSriLanka from "@/assets/resorts/fortress-sri-lanka.jpg";
 
 // Zanzibar Images
 import goldZanzibar from "@/assets/resorts/gold-zanzibar.jpg";
@@ -812,7 +819,7 @@ const packagesData: PackageData[] = [
   // Grand Mirage Resort
   {
     id: "grand-mirage-bali",
-    image: clubmedBali,
+    image: grandMirageBali,
     hotelName: "Grand Mirage Resort & Thalasso Bali",
     location: "Nusa Dua",
     destination: "Bali",
@@ -841,7 +848,7 @@ const packagesData: PackageData[] = [
   // The Apurva Kempinski Bali
   {
     id: "apurva-kempinski-bali",
-    image: baliClifftop,
+    image: apurvaKempinskiBali,
     hotelName: "The Apurva Kempinski Bali",
     location: "Nusa Dua",
     destination: "Bali",
@@ -870,7 +877,7 @@ const packagesData: PackageData[] = [
   // St. Regis Bali
   {
     id: "st-regis-bali",
-    image: samabeBali,
+    image: stRegisBali,
     hotelName: "The St. Regis Bali Resort",
     location: "Nusa Dua",
     destination: "Bali",
@@ -899,7 +906,7 @@ const packagesData: PackageData[] = [
   // Jumeirah Bali
   {
     id: "jumeirah-bali",
-    image: rafflesBali,
+    image: jumeirahBali,
     hotelName: "Jumeirah Bali",
     location: "Uluwatu",
     destination: "Bali",
@@ -1075,7 +1082,7 @@ const packagesData: PackageData[] = [
   // The Nai Harn Phuket
   {
     id: "nai-harn-phuket",
-    image: sixSensesYaoNoi,
+    image: naiHarnPhuket,
     hotelName: "The Nai Harn",
     location: "Nai Harn Beach",
     destination: "Phuket",
@@ -1106,7 +1113,7 @@ const packagesData: PackageData[] = [
   // St. Regis Goa
   {
     id: "st-regis-goa",
-    image: baliClifftop,
+    image: stRegisGoa,
     hotelName: "The St. Regis Goa Resort",
     location: "Cavelossim Beach",
     destination: "Goa",
@@ -1135,7 +1142,7 @@ const packagesData: PackageData[] = [
   // Alila Diwa Goa
   {
     id: "alila-diwa-goa",
-    image: samabeBali,
+    image: alilaDiwaGoa,
     hotelName: "Alila Diwa Goa",
     location: "South Goa",
     destination: "Goa",
@@ -1166,7 +1173,7 @@ const packagesData: PackageData[] = [
   // Berjaya Langkawi
   {
     id: "berjaya-langkawi",
-    image: malaysiaBech,
+    image: berjayaLangkawi,
     hotelName: "Berjaya Langkawi Resort",
     location: "Langkawi Island",
     destination: "Malaysia",
@@ -1286,7 +1293,7 @@ const packagesData: PackageData[] = [
   // The Fortress Resort & Spa
   {
     id: "fortress-sri-lanka",
-    image: samabeBali,
+    image: fortressSriLanka,
     hotelName: "The Fortress Resort & Spa",
     location: "Koggala",
     destination: "Sri Lanka",

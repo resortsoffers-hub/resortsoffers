@@ -87,6 +87,18 @@ import berjayaLangkawi from "@/assets/resorts/berjaya-langkawi.jpg";
 // Sri Lanka Images
 import fortressSriLanka from "@/assets/resorts/fortress-sri-lanka.jpg";
 
+// Middle East Images
+import sixSensesZighyBay from "@/assets/resorts/six-senses-zighy-bay.jpg";
+import addressBahrain from "@/assets/resorts/address-bahrain.jpg";
+import hiltonSalwaQatar from "@/assets/resorts/hilton-salwa-qatar.jpg";
+import atlantisTheRoyal from "@/assets/resorts/atlantis-the-royal.jpg";
+
+// Europe Images
+import rafflesIstanbul from "@/assets/resorts/raffles-istanbul.jpg";
+
+// Asia City Images
+import mandarinOrientalBangkok from "@/assets/resorts/mandarin-oriental-bangkok.jpg";
+
 // Zanzibar Images
 import goldZanzibar from "@/assets/resorts/gold-zanzibar.jpg";
 import baweIslandZanzibar from "@/assets/resorts/bawe-island-zanzibar.jpg";
@@ -1318,11 +1330,191 @@ const packagesData: PackageData[] = [
     transferType: "Car Transfer",
     whatsappMessage: "Hi! I'm interested in The Fortress Resort Sri Lanka for 4 nights at $1,800 for 2 people. Please send availability.",
     validUntil: "30 April 2025"
+  },
+
+  // ============ MIDDLE EAST PACKAGES ============
+  // Six Senses Zighy Bay
+  {
+    id: "six-senses-zighy-bay",
+    image: sixSensesZighyBay,
+    hotelName: "Six Senses Zighy Bay",
+    location: "Musandam Peninsula",
+    destination: "Middle East",
+    stars: 5,
+    bedrooms: 3,
+    amenityIcons: [
+      { icon: Sparkles, label: "Six Senses Spa" },
+      { icon: Heart, label: "Romance" },
+      { icon: Anchor, label: "Private Beach" },
+      { icon: UtensilsCrossed, label: "Fine Dining" }
+    ],
+    description: "Dramatic fjord-side luxury between rugged Hajar Mountains and turquoise Gulf of Oman. Paraglide arrivals, open-air cinema, and world-class Six Senses Spa.",
+    inclusions: [
+      "Pool Villa Suite",
+      "Half Board Plus",
+      "Return airport transfers",
+      "60-min spa treatment"
+    ],
+    nights: 4,
+    price: "$4,800",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in Six Senses Zighy Bay for 4 nights at $4,800 for 2 people. Please send availability.",
+    validUntil: "30 April 2025"
+  },
+  // Address Beach Resort Bahrain
+  {
+    id: "address-bahrain",
+    image: addressBahrain,
+    hotelName: "Address Beach Resort Bahrain",
+    location: "Bahrain Bay",
+    destination: "Middle East",
+    stars: 5,
+    bedrooms: 3,
+    amenityIcons: [
+      { icon: Waves, label: "Private Beach" },
+      { icon: Sparkles, label: "Spa" },
+      { icon: Glasses, label: "Infinity Pool" },
+      { icon: UtensilsCrossed, label: "Fine Dining" }
+    ],
+    description: "Contemporary beachfront tower on Bahrain Bay with rooftop infinity pool, luxury spa, and vibrant dining scene. Gateway to the island's cultural attractions.",
+    inclusions: [
+      "Premium Sea View Room",
+      "Half Board meals",
+      "Return airport transfers",
+      "Beach club access"
+    ],
+    nights: 3,
+    price: "$1,800",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in Address Beach Resort Bahrain for 3 nights at $1,800 for 2 people. Please send availability.",
+    validUntil: "30 April 2025"
+  },
+  // Hilton Salwa Beach Resort
+  {
+    id: "hilton-salwa-qatar",
+    image: hiltonSalwaQatar,
+    hotelName: "Hilton Salwa Beach Resort & Villas",
+    location: "Abu Samra",
+    destination: "Middle East",
+    stars: 5,
+    bedrooms: 5,
+    amenityIcons: [
+      { icon: Users, label: "Family" },
+      { icon: Waves, label: "Water Park" },
+      { icon: Sparkles, label: "eforea Spa" },
+      { icon: Anchor, label: "Private Beach" }
+    ],
+    description: "Qatar's premier beach resort with Desert Falls Water Park, private marina, 3.5 km beach, and expansive family-friendly facilities on the Arabian Gulf.",
+    inclusions: [
+      "King Deluxe Sea View Room",
+      "Half Board Plus",
+      "Return airport transfers",
+      "Water park access"
+    ],
+    nights: 4,
+    price: "$2,400",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in Hilton Salwa Beach Resort Qatar for 4 nights at $2,400 for 2 people. Please send availability.",
+    validUntil: "30 April 2025"
+  },
+  // Atlantis The Royal Dubai
+  {
+    id: "atlantis-the-royal-dubai",
+    image: atlantisTheRoyal,
+    hotelName: "Atlantis The Royal",
+    location: "Palm Jumeirah",
+    destination: "Middle East",
+    stars: 5,
+    bedrooms: 4,
+    amenityIcons: [
+      { icon: UtensilsCrossed, label: "17 Restaurants" },
+      { icon: Sparkles, label: "AWARA Spa" },
+      { icon: Waves, label: "Skypool" },
+      { icon: Heart, label: "Ultra Luxury" }
+    ],
+    description: "Dubai's most iconic ultra-luxury resort on Palm Jumeirah featuring 17 world-class restaurants, cloud 22 skypool, and AWARA Spa. Celebrity chef dining by Nobu and José Andrés.",
+    inclusions: [
+      "Skyline View Room",
+      "Half Board dining",
+      "Return airport transfers",
+      "Cloud 22 pool access"
+    ],
+    nights: 3,
+    price: "$3,900",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in Atlantis The Royal Dubai for 3 nights at $3,900 for 2 people. Please send availability.",
+    validUntil: "30 April 2025"
+  },
+
+  // ============ EUROPE PACKAGES ============
+  // Raffles Istanbul
+  {
+    id: "raffles-istanbul",
+    image: rafflesIstanbul,
+    hotelName: "Raffles Istanbul",
+    location: "Zorlu Center",
+    destination: "Europe",
+    stars: 5,
+    bedrooms: 2,
+    amenityIcons: [
+      { icon: Sparkles, label: "Spa" },
+      { icon: UtensilsCrossed, label: "Fine Dining" },
+      { icon: Wine, label: "Butler Service" },
+      { icon: Heart, label: "Luxury" }
+    ],
+    description: "Ottoman-inspired luxury in the heart of Istanbul with Bosphorus panoramas, signature Raffles butler service, and acclaimed Arola Mediterranean cuisine.",
+    inclusions: [
+      "Deluxe Room with Bosphorus View",
+      "Half Board meals",
+      "Return airport transfers",
+      "Turkish bath experience"
+    ],
+    nights: 3,
+    price: "$2,200",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in Raffles Istanbul for 3 nights at $2,200 for 2 people. Please send availability.",
+    validUntil: "30 April 2025"
+  },
+
+  // ============ ASIA CITY PACKAGES ============
+  // Mandarin Oriental Bangkok
+  {
+    id: "mandarin-oriental-bangkok",
+    image: mandarinOrientalBangkok,
+    hotelName: "Mandarin Oriental Bangkok",
+    location: "Chao Phraya Riverside",
+    destination: "Asia",
+    stars: 5,
+    bedrooms: 2,
+    amenityIcons: [
+      { icon: Sparkles, label: "Oriental Spa" },
+      { icon: UtensilsCrossed, label: "Fine Dining" },
+      { icon: Heart, label: "Heritage" },
+      { icon: Wine, label: "Butler Service" }
+    ],
+    description: "The legendary river hotel since 1876, blending timeless Thai elegance with world-renowned Oriental Spa, Michelin-starred dining, and unparalleled Chao Phraya River views.",
+    inclusions: [
+      "Premier River View Room",
+      "Half Board dining",
+      "Return airport transfers",
+      "90-min Oriental Spa treatment"
+    ],
+    nights: 3,
+    price: "$2,600",
+    priceNote: "for 2 people",
+    transferType: "Car Transfer",
+    whatsappMessage: "Hi! I'm interested in Mandarin Oriental Bangkok for 3 nights at $2,600 for 2 people. Please send availability.",
+    validUntil: "30 April 2025"
   }
 ];
 
 // Destinations shown in the filter (fixed order per requirements)
-const destinations = ["Maldives", "Seychelles", "Mauritius", "Bali", "Phuket", "Goa", "Malaysia", "Zanzibar", "Sri Lanka"];
+const destinations = ["Maldives", "Seychelles", "Mauritius", "Bali", "Phuket", "Goa", "Malaysia", "Zanzibar", "Sri Lanka", "Middle East", "Europe", "Asia"];
 
 // Partner hotel counts per destination
 const partnerHotelCounts: Record<string, number> = {
@@ -1338,6 +1530,9 @@ const partnerHotelCounts: Record<string, number> = {
   "Malaysia": 1,
   "Zanzibar": 3,
   "Sri Lanka": 1,
+  "Middle East": 4,
+  "Europe": 1,
+  "Asia": 1,
 };
 
 // Package Card Component - dnata style

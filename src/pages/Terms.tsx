@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { CreditCard, Banknote, FileText, AlertTriangle, Building, XCircle, DollarSign } from "lucide-react";
+import { CreditCard, Banknote, FileText, AlertTriangle, Building, XCircle, DollarSign, Luggage } from "lucide-react";
 
 const Terms = () => {
   return (
@@ -216,6 +216,89 @@ const Terms = () => {
                 <p className="text-muted-foreground text-sm md:text-base leading-relaxed text-left pt-2">
                   Hotel cancellation terms vary depending on the property and package booked. Please refer to the specific hotel's policy for applicable charges in case of modification, no-show, or cancellation.
                 </p>
+              </AccordionContent>
+            </AccordionItem>
+
+            {/* Maldives Transfers - Baggage Allowance */}
+            <AccordionItem value="maldives-baggage" className="bg-background rounded-lg border shadow-sm px-4">
+              <AccordionTrigger className="text-left hover:no-underline py-5">
+                <div className="flex items-center gap-3">
+                  <Luggage className="w-5 h-5 text-primary shrink-0" />
+                  <span className="text-lg md:text-xl font-semibold">Maldives Transfers — Baggage Allowance Policy</span>
+                </div>
+              </AccordionTrigger>
+              <AccordionContent className="pb-5">
+                <div className="space-y-5 pt-2 text-left">
+                  {/* 1. Seaplane / Domestic Flight */}
+                  <div>
+                    <h3 className="font-semibold text-base mb-2">1. Seaplane / Domestic Flight Transfers</h3>
+                    <p className="text-muted-foreground text-sm md:text-base leading-relaxed mb-2">
+                      Each passenger is entitled to:
+                    </p>
+                    <ul className="space-y-2 text-muted-foreground text-sm md:text-base">
+                      <li className="flex items-start gap-2">
+                        <span className="text-primary mt-1">•</span>
+                        <span><strong className="text-foreground">20 kg</strong> of checked luggage</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-primary mt-1">•</span>
+                        <span><strong className="text-foreground">1 piece</strong> of hand luggage not exceeding <strong className="text-foreground">5 kg</strong></span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-primary mt-1">•</span>
+                        <span>Infants are <strong className="text-foreground">not entitled</strong> to any baggage allowance.</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* 2. Excess Baggage */}
+                  <div>
+                    <h3 className="font-semibold text-base mb-2">2. Excess Baggage</h3>
+                    <ul className="space-y-2 text-muted-foreground text-sm md:text-base">
+                      <li className="flex items-start gap-2">
+                        <span className="text-primary mt-1">•</span>
+                        <span>Any excess baggage will be chargeable and must be paid directly to the Seaplane or Domestic Airline Company.</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-primary mt-1">•</span>
+                        <span>Charges apply at <strong className="text-foreground">USD 5.00 per kg + applicable GST</strong>.</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* 3. Luggage Handling */}
+                  <div>
+                    <h3 className="font-semibold text-base mb-2">3. Luggage Handling</h3>
+                    <ul className="space-y-2 text-muted-foreground text-sm md:text-base">
+                      <li className="flex items-start gap-2">
+                        <span className="text-primary mt-1">•</span>
+                        <span>In exceptional or operational circumstances, luggage may be transported on a later flight.</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-primary mt-1">•</span>
+                        <span>All such situations are handled in accordance with the Seaplane Carrier or Domestic Airline regulations.</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-primary mt-1">•</span>
+                        <span>The resort does not accept liability for any delays in luggage delivery due to these reasons.</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* 4. Speedboat Transfers */}
+                  <div>
+                    <h3 className="font-semibold text-base mb-2">4. Speedboat Transfers</h3>
+                    <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
+                      No strict baggage weight limitations apply for speedboat transfers.
+                    </p>
+                  </div>
+
+                  <div className="bg-accent/10 p-4 rounded-lg">
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      <strong className="text-foreground">Note:</strong> Baggage policies are set by the seaplane and domestic airline carriers and are subject to change without prior notice.
+                    </p>
+                  </div>
+                </div>
               </AccordionContent>
             </AccordionItem>
 

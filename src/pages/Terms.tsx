@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { CreditCard, Banknote, FileText, AlertTriangle, Building, XCircle, DollarSign, Luggage, Plane, ExternalLink } from "lucide-react";
+import { CreditCard, Banknote, FileText, AlertTriangle, Building, XCircle, DollarSign, Luggage, Plane, ExternalLink, ShieldCheck, Edit, RefreshCw } from "lucide-react";
 
 const Terms = () => {
   return (

@@ -57,6 +57,44 @@ const Terms = () => {
                   <span className="font-medium text-sm">Tamara</span>
                 </div>
               </div>
+
+              {/* Credit Card Processing Fees */}
+              <div className="mt-6 pt-6 border-t">
+                <h3 className="font-semibold text-base md:text-lg mb-3 text-left flex items-center gap-2">
+                  <CreditCard className="w-5 h-5 text-primary" />
+                  Credit Card Processing Fees
+                </h3>
+                <ul className="space-y-2 text-muted-foreground text-sm md:text-base text-left mb-4">
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary mt-1">•</span>
+                    <span><strong className="text-foreground">Domestic card</strong> (within the same country): <strong className="text-foreground">3% fee</strong></span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary mt-1">•</span>
+                    <span><strong className="text-foreground">International card</strong> (issued abroad): <strong className="text-foreground">4% fee</strong></span>
+                  </li>
+                </ul>
+
+                <div className="bg-accent/10 p-4 rounded-lg text-left">
+                  <h4 className="font-semibold text-sm md:text-base mb-2">Credit Card Payment Charges</h4>
+                  <p className="text-muted-foreground text-sm md:text-base leading-relaxed mb-2">
+                    In case payment is made via a credit card payment link, the following processing fees will apply:
+                  </p>
+                  <ul className="space-y-1.5 text-muted-foreground text-sm md:text-base">
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span><strong className="text-foreground">3% surcharge</strong> for domestic credit cards</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-1">•</span>
+                      <span><strong className="text-foreground">4% surcharge</strong> for international credit cards</span>
+                    </li>
+                  </ul>
+                  <p className="text-xs md:text-sm text-muted-foreground leading-relaxed mt-3">
+                    These charges are applied by the payment processing provider and will be added to the total payable amount.
+                  </p>
+                </div>
+              </div>
             </CardContent>
           </Card>
         </div>

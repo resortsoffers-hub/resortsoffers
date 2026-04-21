@@ -24,6 +24,17 @@ const Footer = () => {
               <li><Link to="/submit-review" className="hover:text-accent transition-colors">Submit Review</Link></li>
               <li><Link to="/faq" className="hover:text-accent transition-colors">FAQ</Link></li>
               <li><Link to="/terms" className="hover:text-accent transition-colors">Terms & Conditions</Link></li>
+              <li className="pt-2 mt-2 border-t border-primary-foreground/20">
+                <a
+                  href="https://noel.ae"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 hover:text-accent transition-colors font-semibold"
+                >
+                  Sister Agency: Noel.ae
+                  <LinkIcon size={12} />
+                </a>
+              </li>
             </ul>
           </div>
 

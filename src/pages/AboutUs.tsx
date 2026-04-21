@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Shield, Users, Award, Handshake, Mail } from "lucide-react";
+import { Shield, Users, Award, Handshake, Mail, ExternalLink } from "lucide-react";
 
 const AboutUs = () => {
   const policyPrinciples = [

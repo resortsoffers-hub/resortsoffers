@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Facebook, Twitter, MapPin, MessageCircle, Link as LinkIcon, Youtube, Linkedin, Calendar } from "lucide-react";
+import { Facebook, Twitter, MapPin, MessageCircle, Link as LinkIcon, Youtube, Linkedin, Calendar, Instagram } from "lucide-react";
 
 const Footer = () => {
   return (

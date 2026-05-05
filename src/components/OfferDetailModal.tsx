@@ -1,6 +1,10 @@
+import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Link } from "react-router-dom";
+import { toast } from "sonner";
 import { MapPin, Star, MessageCircle, Check, Calendar, Users, Utensils, Wifi, Car } from "lucide-react";
 
 interface Offer {

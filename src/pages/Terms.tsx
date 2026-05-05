@@ -354,6 +354,48 @@ const Terms = () => {
                 </p>
               </AccordionContent>
             </AccordionItem>
+
+            {/* Booking, Credit & Refund Policy */}
+            <AccordionItem value="booking-credit-refund" className="bg-background rounded-lg border shadow-sm px-4">
+              <AccordionTrigger className="text-left hover:no-underline py-5">
+                <div className="flex items-center gap-3">
+                  <RefreshCw className="w-5 h-5 text-primary shrink-0" />
+                  <span className="text-lg md:text-xl font-semibold">Booking, Credit & Refund Policy</span>
+                </div>
+              </AccordionTrigger>
+              <AccordionContent className="pb-5">
+                <div className="space-y-3 pt-2 text-left text-muted-foreground text-sm md:text-base leading-relaxed">
+                  <p>
+                    The <strong className="text-foreground">25% service fee</strong> is part of the agreement between our company and our partner resorts and applies in the case of any refund request.
+                  </p>
+                  <p>
+                    If a refund is requested, the 25% service fee will be deducted in accordance with the agreed terms.
+                  </p>
+                  <p>
+                    Alternatively, guests may choose to keep the full amount paid as a <strong className="text-foreground">credit with the hotel</strong> for a future booking. In this case, no service fee will be applied.
+                  </p>
+                  <p>
+                    The credit remains valid for a future stay and can be used subject to the hotel's availability.
+                  </p>
+                  <p>
+                    As per our agreement with partner resorts and financial policies, we are unable to waive the service fee for refunds.
+                  </p>
+                  <div className="bg-accent/10 p-4 rounded-lg">
+                    <p>
+                      As a gesture of goodwill, we will extend a <strong className="text-foreground">significant additional discount</strong> on your future booking to compensate for the service charges.
+                    </p>
+                  </div>
+                  <div className="bg-primary/5 border border-primary/20 p-4 rounded-lg">
+                    <p>
+                      Please note that airport operations are expected to resume fully soon. In the meantime, some routes are already operating, including flights from Kuwait, as well as connections via Dubai to the Maldives.
+                    </p>
+                  </div>
+                  <p className="text-xs md:text-sm italic pt-2">
+                    By proceeding with the booking, guests acknowledge and accept these terms and conditions.
+                  </p>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
           </Accordion>
         </div>
       </section>

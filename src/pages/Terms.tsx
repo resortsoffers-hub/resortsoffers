@@ -396,6 +396,42 @@ const Terms = () => {
                 </div>
               </AccordionContent>
             </AccordionItem>
+
+            {/* Refund Policy FAQ */}
+            <AccordionItem value="refund-faq" className="bg-background rounded-lg border shadow-sm px-4">
+              <AccordionTrigger className="hover:no-underline">
+                <div className="flex items-center gap-3 text-left">
+                  <FileText className="w-5 h-5 text-primary shrink-0" />
+                  <span className="font-semibold">Refund Policy – Frequently Asked Questions</span>
+                </div>
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground space-y-4 pt-2">
+                <div>
+                  <p className="font-semibold text-foreground mb-1">How long is my hotel credit valid?</p>
+                  <p>Hotel credit is typically valid for 12 months from the original booking date and can be applied to any future stay at the same partner resort, subject to availability and seasonal rates.</p>
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground mb-1">Can I transfer my credit to another guest?</p>
+                  <p>Credits are issued in the original guest's name. Transfers may be possible on a case-by-case basis with the resort's approval — please contact us via WhatsApp to request this.</p>
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground mb-1">Why is the 25% service fee deducted on refunds?</p>
+                  <p>The 25% service fee covers the operational, advisory, and partner commitments made on your behalf at the time of booking. It is part of our agreement with partner resorts and applies only when a refund is requested instead of a credit.</p>
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground mb-1">Can the service fee be waived?</p>
+                  <p>The service fee cannot be waived for refunds. However, if you choose to keep your payment as hotel credit, no service fee is deducted, and we extend an additional goodwill discount on your future booking.</p>
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground mb-1">How long does a refund take to process?</p>
+                  <p>Once approved, refunds are typically processed within 14–21 business days, depending on the resort and the original payment method.</p>
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground mb-1">Can I change my destination when using credit?</p>
+                  <p>Credit is generally tied to the original partner resort. Changing destinations may be possible subject to the resort's policy — our advisory team can help explore options.</p>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
           </Accordion>
         </div>
       </section>

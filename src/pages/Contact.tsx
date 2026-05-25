@@ -46,15 +46,15 @@ const Contact = () => {
         <title>Contact Us - Luxury Travel Experts | ResortsOffers.com</title>
         <meta name="description" content="Contact our luxury travel experts. Get instant support via WhatsApp, email, or phone. Available 24/7 to help plan your perfect resort vacation." />
         <meta name="keywords" content="contact travel agency, luxury travel experts, resort booking help, travel support, WhatsApp booking, travel consultation" />
-        <link rel="canonical" href="https://www.resortsoffers.com/contact" />
+        <link rel="canonical" href="https://resortsoffers.com/contact" />
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.resortsoffers.com/contact" />
+        <meta property="og:url" content="https://resortsoffers.com/contact" />
         <meta property="og:site_name" content="ResortsOffers.com" />
         <meta property="og:title" content="Contact Us - Luxury Travel Experts" />
         <meta property="og:description" content="Contact our luxury travel experts. Available 24/7 to help plan your vacation." />
-        <meta property="og:image" content="https://www.resortsoffers.com/contact-og.jpg" />
+        <meta property="og:image" content="https://resortsoffers.com/contact-og.jpg" />
         <meta property="og:locale" content="en_US" />
         
         {/* Twitter */}
@@ -72,13 +72,13 @@ const Contact = () => {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://www.resortsoffers.com/"
+                "item": "https://resortsoffers.com/"
               },
               {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Contact",
-                "item": "https://www.resortsoffers.com/contact"
+                "item": "https://resortsoffers.com/contact"
               }
             ]
           })}

@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://www.resortsoffers.com/sitemap.xml
+Sitemap: https://resortsoffers.com/sitemap.xml

@@ -1716,7 +1716,7 @@ const Packages = () => {
       <Helmet>
         <title>Luxury Resort Packages - Maldives, Seychelles & More | ResortsOffers.com</title>
         <meta name="description" content="Book exclusive luxury resort packages. Premium all-inclusive deals at top Maldives resorts with special inclusions." />
-        <link rel="canonical" href="https://www.resortsoffers.com/packages" />
+        <link rel="canonical" href="https://resortsoffers.com/packages" />
       </Helmet>
       
       <Navbar />

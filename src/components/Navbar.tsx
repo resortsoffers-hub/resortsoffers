@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, Phone, User, Heart, HelpCircle } from "lucide-react";
+import { Menu, User, Heart, HelpCircle } from "lucide-react";
 import Sidebar from "./Sidebar";
 
 const Navbar = () => {
@@ -19,14 +19,6 @@ const Navbar = () => {
 
             {/* Right: Actions */}
             <div className="flex items-center gap-1 md:gap-4">
-              {/* Phone */}
-              <div className="hidden md:flex flex-col items-end mr-2">
-                <span className="text-[10px] text-gray-500 uppercase tracking-wider">Speak to us</span>
-                <a href="tel:+971567622484" className="text-[#00A4E4] font-bold text-lg hover:underline">
-                  80036282
-                </a>
-              </div>
-
               {/* WhatsApp */}
               <a
                 href="https://wa.me/971567622484"

@@ -12,22 +12,20 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Resorts Offers Tourism Consultancy</h3>
-            <p className="text-sm opacity-90">
-              Your trusted travel partner for life — from honeymoon to family holidays.
-            </p>
+            <h3 className="text-xl font-bold mb-4">{t('footer.brand')}</h3>
+            <p className="text-sm opacity-90">{t('footer.tagline')}</p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold mb-4">Quick Links</h4>
+            <h4 className="font-semibold mb-4">{t('footer.quickLinks')}</h4>
             <ul className="space-y-2 text-sm">
-              <li><Link to="/services" className="hover:text-accent transition-colors">Services</Link></li>
-              <li><Link to="/resorts" className="hover:text-accent transition-colors">Partners</Link></li>
-              <li><Link to="/offers" className="hover:text-accent transition-colors">Offers</Link></li>
-              <li><Link to="/submit-review" className="hover:text-accent transition-colors">Submit Review</Link></li>
-              <li><Link to="/faq" className="hover:text-accent transition-colors">FAQ</Link></li>
-              <li><Link to="/terms" className="hover:text-accent transition-colors">Terms & Conditions</Link></li>
+              <li><Link to={lp("/services")} className="hover:text-accent transition-colors">{t('footer.services')}</Link></li>
+              <li><Link to={lp("/partner-hotels")} className="hover:text-accent transition-colors">{t('footer.partners')}</Link></li>
+              <li><Link to={lp("/offers")} className="hover:text-accent transition-colors">{t('nav.offers')}</Link></li>
+              <li><Link to={lp("/submit-review")} className="hover:text-accent transition-colors">{t('footer.submitReview')}</Link></li>
+              <li><Link to={lp("/faq")} className="hover:text-accent transition-colors">{t('nav.faq')}</Link></li>
+              <li><Link to={lp("/terms")} className="hover:text-accent transition-colors">{t('nav.terms')}</Link></li>
               <li className="pt-2 mt-2 border-t border-primary-foreground/20">
                 <a
                   href="https://noel.ae"
@@ -35,7 +33,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 hover:text-accent transition-colors font-semibold"
                 >
-                  Sister Agency: Noel.ae
+                  {t('footer.sisterAgency')}
                   <LinkIcon size={12} />
                 </a>
               </li>

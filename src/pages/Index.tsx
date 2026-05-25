@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { safeHotelImage } from "@/lib/safeImage";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";

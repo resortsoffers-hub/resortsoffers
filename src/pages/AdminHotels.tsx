@@ -10,6 +10,8 @@ import { Switch } from "@/components/ui/switch";
 import { toast } from "sonner";
 import { Loader2, Upload, Trash2, LogOut, ArrowLeft, Image as ImageIcon, Plus, Eye } from "lucide-react";
 import Navbar from "@/components/Navbar";
+import { HOTEL_CATEGORIES } from "@/lib/hotelCategories";
+
 
 interface HotelRow {
   id: string;
@@ -25,6 +27,7 @@ interface HotelRow {
   hero_image_url: string | null;
   is_published: boolean;
   display_order: number;
+  tags: string[] | null;
 }
 
 interface HotelImage {
@@ -41,7 +44,7 @@ const slugify = (s: string) =>
 const empty: Partial<HotelRow> = {
   slug: "", name_en: "", name_ar: "", destination: "", country: "",
   short_desc_en: "", short_desc_ar: "", long_desc_en: "", long_desc_ar: "",
-  hero_image_url: "", is_published: false, display_order: 0,
+  hero_image_url: "", is_published: false, display_order: 0, tags: [],
 };
 
 const AdminHotels = () => {
@@ -109,6 +112,7 @@ const AdminHotels = () => {
         hero_image_url: editing.hero_image_url?.trim() || null,
         is_published: !!editing.is_published,
         display_order: Number(editing.display_order) || 0,
+        tags: editing.tags || [],
       };
       if (editing.id) {
         const { error } = await supabase.from("hotels").update(payload).eq("id", editing.id);
@@ -304,6 +308,34 @@ const AdminHotels = () => {
                   <div>
                     <Label>Long description (Arabic)</Label>
                     <Textarea dir="rtl" rows={5} value={editing.long_desc_ar || ""} onChange={(e) => setEditing({ ...editing, long_desc_ar: e.target.value })} />
+                  </div>
+                  {/* Category tags — drive the visible filter chips on /hotels */}
+                  <div>
+                    <Label>Categories</Label>
+                    <p className="text-xs text-muted-foreground mb-2">Tap to toggle. These power the filter chips above the public resort grid.</p>
+                    <div className="flex flex-wrap gap-2">
+                      {HOTEL_CATEGORIES.map((c) => {
+                        const active = (editing.tags || []).includes(c.slug);
+                        return (
+                          <button
+                            type="button"
+                            key={c.slug}
+                            onClick={() => {
+                              const current = editing.tags || [];
+                              const next = active ? current.filter((t) => t !== c.slug) : [...current, c.slug];
+                              setEditing({ ...editing, tags: next });
+                            }}
+                            className={`px-3 py-1.5 text-xs rounded-full border transition-colors ${
+                              active
+                                ? "bg-primary text-primary-foreground border-primary"
+                                : "bg-background hover:border-primary text-foreground/80"
+                            }`}
+                          >
+                            {c.label_en}
+                          </button>
+                        );
+                      })}
+                    </div>
                   </div>
                   <div className="flex items-center gap-3">
                     <Switch checked={!!editing.is_published} onCheckedChange={(v) => setEditing({ ...editing, is_published: v })} />

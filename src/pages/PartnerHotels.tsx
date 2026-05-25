@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { safeHotelImage } from "@/lib/safeImage";
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -702,7 +703,7 @@ Sent via Resorts Offers
       {/* Hotel Image & Info */}
       <div className="relative h-64 overflow-hidden">
         <img
-          src={hotel.image}
+          src={safeHotelImage(hotel.image)}
           alt={hotel.name}
           className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
         />
@@ -979,7 +980,7 @@ const PartnerHotels = () => {
         <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0">
             <img
-              src={heroImage}
+              src={safeHotelImage(heroImage)}
               alt="Luxury Resort"
               className="w-full h-full object-cover"
             />

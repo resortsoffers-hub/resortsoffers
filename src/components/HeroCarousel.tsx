@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { safeHotelImage } from "@/lib/safeImage";
 
 interface Slide {
   image: string;
@@ -46,7 +47,7 @@ const HeroCarousel = ({ slides }: HeroCarouselProps) => {
             style={{ visibility: isActive ? 'visible' : 'hidden' }}
           >
             <img
-              src={slide.image}
+              src={safeHotelImage(slide.image)}
               alt={slide.title}
               className="w-full h-full object-cover"
             />

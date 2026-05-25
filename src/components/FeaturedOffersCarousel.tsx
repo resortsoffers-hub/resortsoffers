@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight, Star, MapPin, ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { safeHotelImage } from "@/lib/safeImage";
 
 // Import images
 import sonevaMaldives from "@/assets/resorts/soneva-fushi.jpg";
@@ -225,7 +226,7 @@ const FeaturedOffersCarousel = () => {
                     {/* Image Container */}
                     <div className="relative h-56 overflow-hidden">
                       <img
-                        src={offer.image}
+                        src={safeHotelImage(offer.image)}
                         alt={offer.title}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />

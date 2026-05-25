@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { safeHotelImage } from "@/lib/safeImage";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
@@ -1544,7 +1545,7 @@ const PackageCard = ({ pkg }: { pkg: PackageData }) => {
       {/* Image */}
       <div className="relative h-48 overflow-hidden">
         <img
-          src={pkg.image} 
+          src={safeHotelImage(pkg.image)} 
           alt={pkg.hotelName}
           className="w-full h-full object-cover"
         />

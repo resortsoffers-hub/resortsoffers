@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Official resort photography being verified">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e3a5f"/>
+      <stop offset="100%" stop-color="#0f2340"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <g fill="none" stroke="#ffffff" stroke-opacity="0.18" stroke-width="1">
+    <path d="M0 440 Q200 410 400 440 T800 440"/>
+    <path d="M0 470 Q200 440 400 470 T800 470"/>
+    <path d="M0 500 Q200 470 400 500 T800 500"/>
+  </g>
+  <g transform="translate(400 250)" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" fill="#ffffff">
+    <text font-size="34" letter-spacing="4" font-weight="300">RESORTS OFFERS</text>
+    <text y="48" font-size="16" fill-opacity="0.75" letter-spacing="2">OFFICIAL PHOTOGRAPHY BEING VERIFIED</text>
+    <text y="96" font-size="13" fill-opacity="0.55" font-family="system-ui, sans-serif">Request authentic media via WhatsApp +971 56 762 2484</text>
+  </g>
+</svg>

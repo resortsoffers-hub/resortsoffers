@@ -2,10 +2,11 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ChatWidget from "@/components/ChatWidget";
+import LocaleLayout from "@/components/LocaleLayout";
 import Index from "./pages/Index";
 
 import Contact from "./pages/Contact";
@@ -28,6 +29,37 @@ import DhawaPackageSample from "./components/DhawaPackageSample";
 
 const queryClient = new QueryClient();
 
+/**
+ * Redirects any non-localized request (e.g. /contact) to its English equivalent (/en/contact).
+ * Preserves search + hash so deep links stay intact.
+ */
+const RedirectToLocale = () => {
+  const location = useLocation();
+  const detected = typeof navigator !== "undefined" && navigator.language?.toLowerCase().startsWith("ar") ? "ar" : "en";
+  const path = location.pathname === "/" ? "" : location.pathname;
+  return <Navigate to={`/${detected}${path}${location.search}${location.hash}`} replace />;
+};
+
+const localizedChildren = (
+  <>
+    <Route index element={<Index />} />
+    <Route path="contact" element={<Contact />} />
+    <Route path="faq" element={<FAQ />} />
+    <Route path="terms" element={<Terms />} />
+    <Route path="packages" element={<Packages />} />
+    <Route path="offers" element={<Offers />} />
+    <Route path="offers/:id" element={<OfferDetail />} />
+    <Route path="book-consultation" element={<BookConsultation />} />
+    <Route path="partner-hotels" element={<PartnerHotels />} />
+    <Route path="submit-review" element={<SubmitReview />} />
+    <Route path="reviews" element={<Reviews />} />
+    <Route path="cruises" element={<Cruises />} />
+    <Route path="about-us" element={<AboutUs />} />
+    <Route path="events" element={<Events />} />
+    <Route path="package-sample" element={<DhawaPackageSample />} />
+  </>
+);
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <HelmetProvider>
@@ -36,24 +68,31 @@ const App = () => (
         <Sonner />
         <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
           <Routes>
-            <Route path="/" element={<Index />} />
-            
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/terms" element={<Terms />} />
-            <Route path="/packages" element={<Packages />} />
-            <Route path="/offers" element={<Offers />} />
-            <Route path="/offers/:id" element={<OfferDetail />} />
+            {/* Admin stays unlocalized */}
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin/offers" element={<AdminOffers />} />
-            <Route path="/book-consultation" element={<BookConsultation />} />
-            <Route path="/partner-hotels" element={<PartnerHotels />} />
-            <Route path="/submit-review" element={<SubmitReview />} />
-            <Route path="/reviews" element={<Reviews />} />
-            <Route path="/cruises" element={<Cruises />} />
-            <Route path="/about-us" element={<AboutUs />} />
-            <Route path="/events" element={<Events />} />
-            <Route path="/package-sample" element={<DhawaPackageSample />} />
+
+            {/* Localized trees — both prefixes share the same nested routes */}
+            <Route path="/en" element={<LocaleLayout />}>{localizedChildren}</Route>
+            <Route path="/ar" element={<LocaleLayout />}>{localizedChildren}</Route>
+
+            {/* Bare root + legacy URLs → redirect to detected locale */}
+            <Route path="/" element={<RedirectToLocale />} />
+            <Route path="/contact" element={<RedirectToLocale />} />
+            <Route path="/faq" element={<RedirectToLocale />} />
+            <Route path="/terms" element={<RedirectToLocale />} />
+            <Route path="/packages" element={<RedirectToLocale />} />
+            <Route path="/offers" element={<RedirectToLocale />} />
+            <Route path="/offers/:id" element={<RedirectToLocale />} />
+            <Route path="/book-consultation" element={<RedirectToLocale />} />
+            <Route path="/partner-hotels" element={<RedirectToLocale />} />
+            <Route path="/submit-review" element={<RedirectToLocale />} />
+            <Route path="/reviews" element={<RedirectToLocale />} />
+            <Route path="/cruises" element={<RedirectToLocale />} />
+            <Route path="/about-us" element={<RedirectToLocale />} />
+            <Route path="/events" element={<RedirectToLocale />} />
+            <Route path="/package-sample" element={<RedirectToLocale />} />
+
             <Route path="*" element={<NotFound />} />
           </Routes>
           <WhatsAppButton />

@@ -1,218 +1,237 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Main Pages -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://resortsoffers.com/</loc>
-    <lastmod>2025-11-24</lastmod>
-    <changefreq>daily</changefreq>
+    <loc>https://resortsoffers.com/en</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://resortsoffers.com/en"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://resortsoffers.com/ar"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://resortsoffers.com/en"/>
   </url>
   <url>
-    <loc>https://resortsoffers.com/offers</loc>
-    <lastmod>2025-11-24</lastmod>
+    <loc>https://resortsoffers.com/ar</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://resortsoffers.com/en"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://resortsoffers.com/ar"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://resortsoffers.com/en"/>
+  </url>
+  <url>
+    <loc>https://resortsoffers.com/en/about-us</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://resortsoffers.com/en/about-us"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://resortsoffers.com/ar/about-us"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://resortsoffers.com/en/about-us"/>
+  </url>
+  <url>
+    <loc>https://resortsoffers.com/ar/about-us</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://resortsoffers.com/en/about-us"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://resortsoffers.com/ar/about-us"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://resortsoffers.com/en/about-us"/>
+  </url>
+  <url>
+    <loc>https://resortsoffers.com/en/packages</loc>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://resortsoffers.com/en/packages"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://resortsoffers.com/ar/packages"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://resortsoffers.com/en/packages"/>
   </url>
   <url>
-    <loc>https://resortsoffers.com/resorts</loc>
-    <lastmod>2025-11-24</lastmod>
+    <loc>https://resortsoffers.com/ar/packages</loc>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://resortsoffers.com/en/packages"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://resortsoffers.com/ar/packages"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://resortsoffers.com/en/packages"/>
   </url>
   <url>
-    <loc>https://resortsoffers.com/destinations</loc>
-    <lastmod>2025-11-24</lastmod>
+    <loc>https://resortsoffers.com/en/partner-hotels</loc>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://resortsoffers.com/en/partner-hotels"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://resortsoffers.com/ar/partner-hotels"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://resortsoffers.com/en/partner-hotels"/>
   </url>
   <url>
-    <loc>https://resortsoffers.com/services</loc>
-    <lastmod>2025-11-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://resortsoffers.com/ar/partner-hotels</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://resortsoffers.com/en/partner-hotels"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://resortsoffers.com/ar/partner-hotels"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://resortsoffers.com/en/partner-hotels"/>
+  </url>
+  <url>
+    <loc>https://resortsoffers.com/en/cruises</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://resortsoffers.com/en/cruises"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://resortsoffers.com/ar/cruises"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://resortsoffers.com/en/cruises"/>
   </url>
   <url>
-    <loc>https://resortsoffers.com/contact</loc>
-    <lastmod>2025-11-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://resortsoffers.com/team</loc>
-    <lastmod>2025-11-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://resortsoffers.com/ar/cruises</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://resortsoffers.com/en/cruises"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://resortsoffers.com/ar/cruises"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://resortsoffers.com/en/cruises"/>
   </url>
   <url>
-    <loc>https://resortsoffers.com/blog</loc>
-    <lastmod>2025-11-24</lastmod>
+    <loc>https://resortsoffers.com/en/events</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://resortsoffers.com/en/events"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://resortsoffers.com/ar/events"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://resortsoffers.com/en/events"/>
+  </url>
+  <url>
+    <loc>https://resortsoffers.com/ar/events</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://resortsoffers.com/en/events"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://resortsoffers.com/ar/events"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://resortsoffers.com/en/events"/>
+  </url>
+  <url>
+    <loc>https://resortsoffers.com/en/offers</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://resortsoffers.com/en/offers"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://resortsoffers.com/ar/offers"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://resortsoffers.com/en/offers"/>
+  </url>
+  <url>
+    <loc>https://resortsoffers.com/ar/offers</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://resortsoffers.com/en/offers"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://resortsoffers.com/ar/offers"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://resortsoffers.com/en/offers"/>
+  </url>
+  <url>
+    <loc>https://resortsoffers.com/en/reviews</loc>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://resortsoffers.com/en/reviews"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://resortsoffers.com/ar/reviews"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://resortsoffers.com/en/reviews"/>
   </url>
   <url>
-    <loc>https://resortsoffers.com/events</loc>
-    <lastmod>2025-11-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://resortsoffers.com/book-consultation</loc>
-    <lastmod>2025-11-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://resortsoffers.com/faq</loc>
-    <lastmod>2025-11-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://resortsoffers.com/travel-survey</loc>
-    <lastmod>2025-11-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://resortsoffers.com/submit-review</loc>
-    <lastmod>2025-11-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://resortsoffers.com/reviews</loc>
-    <lastmod>2025-11-24</lastmod>
+    <loc>https://resortsoffers.com/ar/reviews</loc>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://resortsoffers.com/en/reviews"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://resortsoffers.com/ar/reviews"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://resortsoffers.com/en/reviews"/>
   </url>
   <url>
-    <loc>https://resortsoffers.com/terms</loc>
-    <lastmod>2025-11-24</lastmod>
-    <changefreq>yearly</changefreq>
+    <loc>https://resortsoffers.com/en/submit-review</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://resortsoffers.com/en/submit-review"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://resortsoffers.com/ar/submit-review"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://resortsoffers.com/en/submit-review"/>
+  </url>
+  <url>
+    <loc>https://resortsoffers.com/ar/submit-review</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://resortsoffers.com/en/submit-review"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://resortsoffers.com/ar/submit-review"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://resortsoffers.com/en/submit-review"/>
+  </url>
+  <url>
+    <loc>https://resortsoffers.com/en/contact</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://resortsoffers.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://resortsoffers.com/ar/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://resortsoffers.com/en/contact"/>
+  </url>
+  <url>
+    <loc>https://resortsoffers.com/ar/contact</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://resortsoffers.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://resortsoffers.com/ar/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://resortsoffers.com/en/contact"/>
+  </url>
+  <url>
+    <loc>https://resortsoffers.com/en/faq</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://resortsoffers.com/en/faq"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://resortsoffers.com/ar/faq"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://resortsoffers.com/en/faq"/>
+  </url>
+  <url>
+    <loc>https://resortsoffers.com/ar/faq</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://resortsoffers.com/en/faq"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://resortsoffers.com/ar/faq"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://resortsoffers.com/en/faq"/>
+  </url>
+  <url>
+    <loc>https://resortsoffers.com/en/terms</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.3</priority>
-  </url>
-
-  <!-- Destination Pages -->
-  <url>
-    <loc>https://resortsoffers.com/destinations/maldives</loc>
-    <lastmod>2025-11-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://resortsoffers.com/en/terms"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://resortsoffers.com/ar/terms"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://resortsoffers.com/en/terms"/>
   </url>
   <url>
-    <loc>https://resortsoffers.com/destinations/dubai</loc>
-    <lastmod>2025-11-24</lastmod>
+    <loc>https://resortsoffers.com/ar/terms</loc>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://resortsoffers.com/en/terms"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://resortsoffers.com/ar/terms"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://resortsoffers.com/en/terms"/>
   </url>
   <url>
-    <loc>https://resortsoffers.com/destinations/thailand</loc>
-    <lastmod>2025-11-24</lastmod>
+    <loc>https://resortsoffers.com/en/book-consultation</loc>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://resortsoffers.com/en/book-consultation"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://resortsoffers.com/ar/book-consultation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://resortsoffers.com/en/book-consultation"/>
   </url>
   <url>
-    <loc>https://resortsoffers.com/destinations/bali</loc>
-    <lastmod>2025-11-24</lastmod>
+    <loc>https://resortsoffers.com/ar/book-consultation</loc>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://resortsoffers.com/destinations/japan</loc>
-    <lastmod>2025-11-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://resortsoffers.com/destinations/switzerland</loc>
-    <lastmod>2025-11-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://resortsoffers.com/destinations/italy</loc>
-    <lastmod>2025-11-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://resortsoffers.com/destinations/norway</loc>
-    <lastmod>2025-11-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://resortsoffers.com/destinations/finland</loc>
-    <lastmod>2025-11-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://resortsoffers.com/destinations/uk</loc>
-    <lastmod>2025-11-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://resortsoffers.com/destinations/china</loc>
-    <lastmod>2025-11-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://resortsoffers.com/destinations/malaysia</loc>
-    <lastmod>2025-11-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://resortsoffers.com/destinations/greece</loc>
-    <lastmod>2025-11-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://resortsoffers.com/destinations/zanzibar</loc>
-    <lastmod>2025-11-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://resortsoffers.com/destinations/south-africa</loc>
-    <lastmod>2025-11-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://resortsoffers.com/destinations/seychelles</loc>
-    <lastmod>2025-11-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://resortsoffers.com/destinations/mauritius</loc>
-    <lastmod>2025-11-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://resortsoffers.com/destinations/tahiti</loc>
-    <lastmod>2025-11-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Resort Pages -->
-  <url>
-    <loc>https://resortsoffers.com/resorts/ritz-carlton-maldives</loc>
-    <lastmod>2025-11-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://resortsoffers.com/resorts/patina-maldives</loc>
-    <lastmod>2025-11-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://resortsoffers.com/en/book-consultation"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://resortsoffers.com/ar/book-consultation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://resortsoffers.com/en/book-consultation"/>
   </url>
 </urlset>

@@ -1,29 +1,31 @@
 import { Link } from "react-router-dom";
 import { Facebook, Twitter, MapPin, MessageCircle, Link as LinkIcon, Youtube, Linkedin, Calendar, Instagram } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { useLocalePath } from "@/hooks/useLocale";
 
 const Footer = () => {
+  const { t } = useTranslation();
+  const lp = useLocalePath();
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="container-custom py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Resorts Offers Tourism Consultancy</h3>
-            <p className="text-sm opacity-90">
-              Your trusted travel partner for life — from honeymoon to family holidays.
-            </p>
+            <h3 className="text-xl font-bold mb-4">{t('footer.brand')}</h3>
+            <p className="text-sm opacity-90">{t('footer.tagline')}</p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold mb-4">Quick Links</h4>
+            <h4 className="font-semibold mb-4">{t('footer.quickLinks')}</h4>
             <ul className="space-y-2 text-sm">
-              <li><Link to="/services" className="hover:text-accent transition-colors">Services</Link></li>
-              <li><Link to="/resorts" className="hover:text-accent transition-colors">Partners</Link></li>
-              <li><Link to="/offers" className="hover:text-accent transition-colors">Offers</Link></li>
-              <li><Link to="/submit-review" className="hover:text-accent transition-colors">Submit Review</Link></li>
-              <li><Link to="/faq" className="hover:text-accent transition-colors">FAQ</Link></li>
-              <li><Link to="/terms" className="hover:text-accent transition-colors">Terms & Conditions</Link></li>
+              <li><Link to={lp("/services")} className="hover:text-accent transition-colors">{t('footer.services')}</Link></li>
+              <li><Link to={lp("/partner-hotels")} className="hover:text-accent transition-colors">{t('footer.partners')}</Link></li>
+              <li><Link to={lp("/offers")} className="hover:text-accent transition-colors">{t('nav.offers')}</Link></li>
+              <li><Link to={lp("/submit-review")} className="hover:text-accent transition-colors">{t('footer.submitReview')}</Link></li>
+              <li><Link to={lp("/faq")} className="hover:text-accent transition-colors">{t('nav.faq')}</Link></li>
+              <li><Link to={lp("/terms")} className="hover:text-accent transition-colors">{t('nav.terms')}</Link></li>
               <li className="pt-2 mt-2 border-t border-primary-foreground/20">
                 <a
                   href="https://noel.ae"
@@ -31,7 +33,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 hover:text-accent transition-colors font-semibold"
                 >
-                  Sister Agency: Noel.ae
+                  {t('footer.sisterAgency')}
                   <LinkIcon size={12} />
                 </a>
               </li>
@@ -40,7 +42,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-semibold mb-4">Contact Us</h4>
+            <h4 className="font-semibold mb-4">{t('footer.contactUs')}</h4>
             <ul className="space-y-2 text-sm">
               <li className="flex items-center gap-2">
                 <MessageCircle size={16} className="text-[#25D366]" />
@@ -65,7 +67,7 @@ const Footer = () => {
 
           {/* Social Media */}
           <div>
-            <h4 className="font-semibold mb-4">Follow Us</h4>
+            <h4 className="font-semibold mb-4">{t('footer.followUs')}</h4>
             <div className="flex gap-4 flex-wrap mb-4">
               <a href="https://www.facebook.com/Resortsoffers/" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Facebook">
                 <Facebook size={20} />
@@ -108,11 +110,11 @@ const Footer = () => {
             
             <div className="mt-6 pt-4 border-t border-primary-foreground/20">
               <Link 
-                to="/book-consultation"
+                to={lp("/book-consultation")}
                 className="flex items-center gap-2 text-sm hover:text-accent transition-colors font-semibold"
               >
                 <Calendar size={16} className="text-accent" />
-                <span>Book Free Consultation</span>
+                <span>{t('common.bookNow')}</span>
               </Link>
             </div>
           </div>
@@ -172,7 +174,7 @@ const Footer = () => {
           <p className="mb-2">Member of Abu Dhabi Business Women Council</p>
           <p className="mb-2">Resorts Offers Tourism Consultancy</p>
           <p className="mb-2">Abu Dhabi Economic Licence - CN#5918684</p>
-          <p>&copy; {new Date().getFullYear()} Resorts Offers Tourism Consultancy. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} {t('footer.brand')}. {t('footer.rights')}</p>
         </div>
       </div>
     </footer>

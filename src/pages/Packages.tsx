@@ -1641,21 +1641,7 @@ const PackageCard = ({ pkg }: { pkg: PackageData }) => {
           </Button>
         </a>
 
-        {/* View Partner Hotels Button */}
-        <Link 
-          to={`/partner-hotels?destination=${encodeURIComponent(pkg.destination)}`}
-          className="block mt-2"
-        >
-          <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white font-semibold py-2">
-            <Building2 className="w-4 h-4 mr-2" />
-            View Partner Hotels
-            {partnerHotelCounts[pkg.destination] && (
-              <Badge variant="secondary" className="ml-2 bg-primary/10 text-primary text-xs">
-                {partnerHotelCounts[pkg.destination]}
-              </Badge>
-            )}
-          </Button>
-        </Link>
+        {/* View Partner Hotels button hidden — catalog being rebuilt with verified imagery */}
       </div>
     </div>
   );

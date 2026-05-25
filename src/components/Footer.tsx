@@ -21,7 +21,7 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">{t('footer.quickLinks')}</h4>
             <ul className="space-y-2 text-sm">
               <li><Link to={lp("/services")} className="hover:text-accent transition-colors">{t('footer.services')}</Link></li>
-              <li><Link to={lp("/partner-hotels")} className="hover:text-accent transition-colors">{t('footer.partners')}</Link></li>
+              {/* Partner Hotels footer link hidden — catalog being rebuilt with verified imagery */}
               <li><Link to={lp("/offers")} className="hover:text-accent transition-colors">{t('nav.offers')}</Link></li>
               <li><Link to={lp("/submit-review")} className="hover:text-accent transition-colors">{t('footer.submitReview')}</Link></li>
               <li><Link to={lp("/faq")} className="hover:text-accent transition-colors">{t('nav.faq')}</Link></li>

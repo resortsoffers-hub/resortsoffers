@@ -219,42 +219,10 @@ const featuredOffers: Offer[] = [
       {/* Featured Offers Carousel */}
       <FeaturedOffersCarousel />
 
-      {/* Partner Hotels CTA Section */}
-      <section className="py-16 bg-gradient-to-br from-[#1e3a5f] via-[#2a4a6f] to-[#1e3a5f] relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-10 w-32 h-32 bg-white rounded-full blur-3xl" />
-          <div className="absolute bottom-10 right-10 w-40 h-40 bg-[#00A4E4] rounded-full blur-3xl" />
-        </div>
-        <div className="container-custom relative z-10">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
-            <div className="text-center lg:text-left">
-              <div className="flex items-center justify-center lg:justify-start gap-2 mb-4">
-                <Building2 className="w-8 h-8 text-[#00A4E4]" />
-                <Badge className="bg-[#00A4E4]/20 text-[#00A4E4] border-[#00A4E4]/30">
-                  <Sparkles className="w-3 h-3 mr-1" />
-                  100+ Partner Resorts
-                </Badge>
-              </div>
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mb-3">
-                Browse Our Partner Hotels
-              </h2>
-              <p className="text-lg text-white/80 max-w-xl">
-                Discover luxury resorts across Maldives, Seychelles, Mauritius, Dubai and more. 
-                Filter by destination, transfer type, and special categories.
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/partner-hotels">
-                <Button size="lg" className="bg-white text-[#1e3a5f] hover:bg-gray-100 font-bold px-8 py-6 text-lg shadow-xl">
-                  <Building2 className="w-5 h-5 mr-2" />
-                  View All Partner Hotels
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Partner Hotels CTA — temporarily hidden.
+          Catalog removed pending verified official imagery per the Authentic
+          Imagery Quality Gate. Will return once curated resorts are published. */}
+
 
       {/* Destinations Grid with Transfer Filters */}
       <section className="py-12 bg-white">
@@ -270,7 +238,7 @@ const featuredOffers: Offer[] = [
             {holidayRecommendations.map((dest, index) => (
               <div key={index} className="group relative">
                 <Link 
-                  to={`/partner-hotels?destination=${encodeURIComponent(dest.name)}`}
+                  to={`/packages?destination=${encodeURIComponent(dest.name)}`}
                   className="block relative h-48 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   <img 
@@ -296,18 +264,7 @@ const featuredOffers: Offer[] = [
                 </div>
                 
                 
-                {/* Phuket Pool Villa Filter */}
-                {dest.hasPoolVillaFilter && (
-                  <div className="mt-2">
-                    <Link
-                      to="/partner-hotels?destination=Phuket"
-                      className="flex items-center gap-1 px-2 py-1 bg-[#1e3a5f]/10 hover:bg-[#1e3a5f] hover:text-white text-[#1e3a5f] text-xs rounded-full transition-colors duration-200 w-fit"
-                    >
-                      <span>🏊</span>
-                      <span>Pool Villas</span>
-                    </Link>
-                  </div>
-                )}
+                {/* Pool Villa filter removed — pending verified hotel data */}
               </div>
             ))}
           </div>

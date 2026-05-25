@@ -936,9 +936,83 @@ const Offers = () => {
         </div>
       </section>
 
+      {/* Latest Uploaded Offers */}
+      {uploadedOffers.length > 0 && (
+        <section className="section-padding bg-muted/30">
+          <div className="container-custom">
+            <div className="flex items-end justify-between mb-8">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-serif text-primary">Latest Offers</h2>
+                <p className="text-muted-foreground mt-2">Freshly uploaded by our advisory team</p>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {uploadedOffers.map((o) => (
+                <Link
+                  key={o.id}
+                  to={`/offers/${o.id}`}
+                  className="group bg-card rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all border block"
+                >
+                  <div className="relative h-56 bg-muted overflow-hidden">
+                    {o.image_url ? (
+                      <img
+                        src={o.image_url}
+                        alt={o.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center text-muted-foreground text-sm">
+                        PDF Offer
+                      </div>
+                    )}
+                    {o.category && (
+                      <Badge className="absolute top-3 left-3 bg-primary text-primary-foreground">
+                        {o.category}
+                      </Badge>
+                    )}
+                    {o.destination && (
+                      <Badge variant="secondary" className="absolute top-3 right-3">
+                        {o.destination}
+                      </Badge>
+                    )}
+                  </div>
+                  <div className="p-5">
+                    <h3 className="font-bold text-lg mb-2 line-clamp-1">{o.title}</h3>
+                    {o.description && (
+                      <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{o.description}</p>
+                    )}
+                    <div className="flex items-end justify-between">
+                      <div>
+                        {o.price != null ? (
+                          <>
+                            <p className="text-2xl font-bold text-primary">
+                              {o.currency || "USD"} {Number(o.price).toLocaleString()}
+                            </p>
+                            {o.nights && (
+                              <p className="text-xs text-muted-foreground">{o.nights} nights</p>
+                            )}
+                          </>
+                        ) : (
+                          <span className="text-sm text-muted-foreground">View details</span>
+                        )}
+                      </div>
+                      <span className="inline-flex items-center text-sm font-medium text-primary group-hover:translate-x-1 transition-transform">
+                        Details <ArrowRight className="h-4 w-4 ml-1" />
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Offers Grid */}
       <section className="section-padding">
         <div className="container-custom">
+
           {filteredOffers.length === 0 ? (
             <div className="text-center py-16">
               <Filter className="h-12 w-12 mx-auto text-muted-foreground mb-4" />

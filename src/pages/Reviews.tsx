@@ -89,10 +89,10 @@ const Reviews = () => {
         <title>Reviews & Testimonials | ResortsOffers.com</title>
         <meta name="description" content="Read authentic reviews from our customers and partner testimonials. Discover why travelers choose ResortsOffers.com for luxury resort bookings." />
         <meta name="keywords" content="customer reviews, travel testimonials, resort reviews, luxury travel feedback, partner testimonials, hotel reviews" />
-        <link rel="canonical" href="https://www.resortsoffers.com/reviews" />
+        <link rel="canonical" href="https://resortsoffers.com/reviews" />
         
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.resortsoffers.com/reviews" />
+        <meta property="og:url" content="https://resortsoffers.com/reviews" />
         <meta property="og:site_name" content="ResortsOffers.com" />
         <meta property="og:title" content="Reviews & Testimonials | ResortsOffers.com" />
         <meta property="og:description" content="Read authentic reviews from our customers and partners." />

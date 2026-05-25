@@ -17,10 +17,10 @@ const SubmitReview = () => {
         <title>Submit Your Review - Share Your Experience | ResortsOffers.com</title>
         <meta name="description" content="Share your luxury travel experience with ResortsOffers.com. Submit your Google review and help other travelers discover exceptional resort vacations." />
         <meta name="keywords" content="submit review, travel review, resort review, luxury travel feedback, customer testimonials" />
-        <link rel="canonical" href="https://www.resortsoffers.com/submit-review" />
+        <link rel="canonical" href="https://resortsoffers.com/submit-review" />
         
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.resortsoffers.com/submit-review" />
+        <meta property="og:url" content="https://resortsoffers.com/submit-review" />
         <meta property="og:site_name" content="ResortsOffers.com" />
         <meta property="og:title" content="Submit Your Review - ResortsOffers.com" />
         <meta property="og:description" content="Share your luxury travel experience and help others discover exceptional resort vacations." />

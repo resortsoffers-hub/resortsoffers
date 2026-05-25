@@ -19,7 +19,7 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
     { name: t('nav.home'), path: "/", icon: Home },
     { name: t('nav.aboutUs'), path: "/about-us", icon: Users },
     { name: t('nav.packages'), path: "/packages", icon: Package },
-    { name: t('nav.partnerHotels'), path: "/partner-hotels", icon: Building2 },
+    // Partner Hotels nav hidden — catalog being rebuilt with verified imagery
     { name: t('nav.cruises'), path: "/cruises", icon: Ship },
     { name: t('nav.events'), path: "/events", icon: CalendarDays },
     { name: t('nav.offers'), path: "/offers", icon: Tag },

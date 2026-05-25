@@ -40,8 +40,8 @@ const RedirectToLocale = () => {
   return <Navigate to={`/${detected}${path}${location.search}${location.hash}`} replace />;
 };
 
-const LocalizedRoutes = () => (
-  <Route element={<LocaleLayout />}>
+const localizedChildren = (
+  <>
     <Route index element={<Index />} />
     <Route path="contact" element={<Contact />} />
     <Route path="faq" element={<FAQ />} />
@@ -57,7 +57,7 @@ const LocalizedRoutes = () => (
     <Route path="about-us" element={<AboutUs />} />
     <Route path="events" element={<Events />} />
     <Route path="package-sample" element={<DhawaPackageSample />} />
-  </Route>
+  </>
 );
 
 const App = () => (

@@ -4,6 +4,8 @@ import { useTranslation } from "react-i18next";
 import { useLocalePath } from "@/hooks/useLocale";
 
 const Footer = () => {
+  const { t } = useTranslation();
+  const lp = useLocalePath();
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="container-custom py-12">

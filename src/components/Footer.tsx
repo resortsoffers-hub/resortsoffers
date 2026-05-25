@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { Facebook, Twitter, MapPin, MessageCircle, Link as LinkIcon, Youtube, Linkedin, Calendar, Instagram } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { useLocalePath } from "@/hooks/useLocale";
 
 const Footer = () => {
   return (

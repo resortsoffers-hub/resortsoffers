@@ -201,7 +201,7 @@ const featuredOffers: Offer[] = [
       <Helmet>
         <title>Luxury Resort Deals - Save up to 40% | ResortsOffers.com</title>
         <meta name="description" content="Book luxury resorts in Maldives, Dubai, Seychelles & more. Save up to 40% with exclusive deals." />
-        <link rel="canonical" href="https://www.resortsoffers.com/" />
+        <link rel="canonical" href="https://resortsoffers.com/" />
       </Helmet>
       
       <Navbar />

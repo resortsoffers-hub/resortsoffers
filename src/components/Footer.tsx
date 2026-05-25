@@ -42,7 +42,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-semibold mb-4">Contact Us</h4>
+            <h4 className="font-semibold mb-4">{t('footer.contactUs')}</h4>
             <ul className="space-y-2 text-sm">
               <li className="flex items-center gap-2">
                 <MessageCircle size={16} className="text-[#25D366]" />
@@ -67,7 +67,7 @@ const Footer = () => {
 
           {/* Social Media */}
           <div>
-            <h4 className="font-semibold mb-4">Follow Us</h4>
+            <h4 className="font-semibold mb-4">{t('footer.followUs')}</h4>
             <div className="flex gap-4 flex-wrap mb-4">
               <a href="https://www.facebook.com/Resortsoffers/" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors" aria-label="Facebook">
                 <Facebook size={20} />
@@ -110,11 +110,11 @@ const Footer = () => {
             
             <div className="mt-6 pt-4 border-t border-primary-foreground/20">
               <Link 
-                to="/book-consultation"
+                to={lp("/book-consultation")}
                 className="flex items-center gap-2 text-sm hover:text-accent transition-colors font-semibold"
               >
                 <Calendar size={16} className="text-accent" />
-                <span>Book Free Consultation</span>
+                <span>{t('common.bookNow')}</span>
               </Link>
             </div>
           </div>
@@ -174,7 +174,7 @@ const Footer = () => {
           <p className="mb-2">Member of Abu Dhabi Business Women Council</p>
           <p className="mb-2">Resorts Offers Tourism Consultancy</p>
           <p className="mb-2">Abu Dhabi Economic Licence - CN#5918684</p>
-          <p>&copy; {new Date().getFullYear()} Resorts Offers Tourism Consultancy. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} {t('footer.brand')}. {t('footer.rights')}</p>
         </div>
       </div>
     </footer>

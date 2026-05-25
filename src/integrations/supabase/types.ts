@@ -248,6 +248,7 @@ export type Database = {
           short_desc_ar: string | null
           short_desc_en: string | null
           slug: string
+          tags: string[]
           updated_at: string
         }
         Insert: {
@@ -266,6 +267,7 @@ export type Database = {
           short_desc_ar?: string | null
           short_desc_en?: string | null
           slug: string
+          tags?: string[]
           updated_at?: string
         }
         Update: {
@@ -284,6 +286,7 @@ export type Database = {
           short_desc_ar?: string | null
           short_desc_en?: string | null
           slug?: string
+          tags?: string[]
           updated_at?: string
         }
         Relationships: []

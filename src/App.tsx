@@ -16,7 +16,10 @@ import Packages from "./pages/Packages";
 import Offers from "./pages/Offers";
 import OfferDetail from "./pages/OfferDetail";
 import AdminOffers from "./pages/AdminOffers";
+import AdminHotels from "./pages/AdminHotels";
 import AdminLogin from "./pages/AdminLogin";
+import Hotels from "./pages/Hotels";
+import HotelDetail from "./pages/HotelDetail";
 import BookConsultation from "./pages/BookConsultation";
 import PartnerHotels from "./pages/PartnerHotels";
 import SubmitReview from "./pages/SubmitReview";
@@ -51,6 +54,8 @@ const localizedChildren = (
     <Route path="offers/:id" element={<OfferDetail />} />
     <Route path="book-consultation" element={<BookConsultation />} />
     <Route path="partner-hotels" element={<PartnerHotels />} />
+    <Route path="hotels" element={<Hotels />} />
+    <Route path="hotels/:slug" element={<HotelDetail />} />
     <Route path="submit-review" element={<SubmitReview />} />
     <Route path="reviews" element={<Reviews />} />
     <Route path="cruises" element={<Cruises />} />
@@ -71,6 +76,7 @@ const App = () => (
             {/* Admin stays unlocalized */}
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin/offers" element={<AdminOffers />} />
+            <Route path="/admin/hotels" element={<AdminHotels />} />
 
             {/* Localized trees — both prefixes share the same nested routes */}
             <Route path="/en" element={<LocaleLayout />}>{localizedChildren}</Route>
@@ -86,6 +92,8 @@ const App = () => (
             <Route path="/offers/:id" element={<RedirectToLocale />} />
             <Route path="/book-consultation" element={<RedirectToLocale />} />
             <Route path="/partner-hotels" element={<RedirectToLocale />} />
+            <Route path="/hotels" element={<RedirectToLocale />} />
+            <Route path="/hotels/:slug" element={<RedirectToLocale />} />
             <Route path="/submit-review" element={<RedirectToLocale />} />
             <Route path="/reviews" element={<RedirectToLocale />} />
             <Route path="/cruises" element={<RedirectToLocale />} />

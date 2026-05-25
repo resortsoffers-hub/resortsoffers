@@ -165,8 +165,8 @@ const AdminOffers = () => {
       <main className="container mx-auto px-4 py-8 max-w-5xl">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <Link to="/offers" className="inline-flex items-center text-sm text-muted-foreground hover:text-primary mb-2">
-              <ArrowLeft className="h-4 w-4 mr-1" /> View public offers
+            <Link to="/admin/hotels" className="inline-flex items-center text-sm text-muted-foreground hover:text-primary mb-2">
+              <ArrowLeft className="h-4 w-4 mr-1" /> Manage hotels (CMS)
             </Link>
             <h1 className="text-3xl font-serif text-primary">Manage Offers</h1>
           </div>

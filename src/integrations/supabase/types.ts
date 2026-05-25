@@ -143,42 +143,60 @@ export type Database = {
           created_at: string | null
           currency: string | null
           description: string | null
+          destination: string | null
           display_order: number | null
           features: Json | null
+          file_type: string | null
+          file_url: string | null
+          hotel_name: string | null
           id: string
           image_url: string | null
           is_active: boolean | null
+          nights: number | null
           price: number | null
           title: string
           updated_at: string | null
+          valid_until: string | null
         }
         Insert: {
           category?: string | null
           created_at?: string | null
           currency?: string | null
           description?: string | null
+          destination?: string | null
           display_order?: number | null
           features?: Json | null
+          file_type?: string | null
+          file_url?: string | null
+          hotel_name?: string | null
           id?: string
           image_url?: string | null
           is_active?: boolean | null
+          nights?: number | null
           price?: number | null
           title: string
           updated_at?: string | null
+          valid_until?: string | null
         }
         Update: {
           category?: string | null
           created_at?: string | null
           currency?: string | null
           description?: string | null
+          destination?: string | null
           display_order?: number | null
           features?: Json | null
+          file_type?: string | null
+          file_url?: string | null
+          hotel_name?: string | null
           id?: string
           image_url?: string | null
           is_active?: boolean | null
+          nights?: number | null
           price?: number | null
           title?: string
           updated_at?: string | null
+          valid_until?: string | null
         }
         Relationships: []
       }

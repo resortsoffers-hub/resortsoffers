@@ -884,10 +884,10 @@ const Offers = () => {
         <title>Exclusive Resort Offers & Deals | ResortsOffers.com</title>
         <meta name="description" content="Discover exclusive luxury resort offers in Maldives, Seychelles & Mauritius. Special discounts up to 40% off on 5-star resorts. Limited time deals." />
         <meta name="keywords" content="luxury resort offers, Maldives deals, Seychelles packages, Mauritius resorts, exclusive hotel discounts, vacation packages" />
-        <link rel="canonical" href="https://www.resortsoffers.com/offers" />
+        <link rel="canonical" href="https://resortsoffers.com/offers" />
         <meta property="og:title" content="Exclusive Resort Offers & Deals | ResortsOffers.com" />
         <meta property="og:description" content="Discover exclusive luxury resort offers in Maldives, Seychelles & Mauritius. Special discounts up to 40% off." />
-        <meta property="og:url" content="https://www.resortsoffers.com/offers" />
+        <meta property="og:url" content="https://resortsoffers.com/offers" />
         <meta property="og:type" content="website" />
       </Helmet>
 

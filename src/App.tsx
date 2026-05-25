@@ -72,9 +72,9 @@ const App = () => (
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin/offers" element={<AdminOffers />} />
 
-            {/* Localized trees */}
-            <Route path="/en">{LocalizedRoutes().props.children}</Route>
-            <Route path="/ar">{LocalizedRoutes().props.children}</Route>
+            {/* Localized trees — both prefixes share the same nested routes */}
+            <Route path="/en" element={<LocaleLayout />}>{localizedChildren}</Route>
+            <Route path="/ar" element={<LocaleLayout />}>{localizedChildren}</Route>
 
             {/* Bare root + legacy URLs → redirect to detected locale */}
             <Route path="/" element={<RedirectToLocale />} />

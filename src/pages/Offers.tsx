@@ -833,14 +833,40 @@ const offersData: OfferData[] = [
   }
 ];
 
+interface UploadedOffer {
+  id: string;
+  title: string;
+  description: string | null;
+  price: number | null;
+  currency: string | null;
+  image_url: string | null;
+  category: string | null;
+  destination: string | null;
+  hotel_name: string | null;
+  nights: number | null;
+  file_url: string | null;
+}
+
 const Offers = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedDestination, setSelectedDestination] = useState<string>("all");
+  const [uploadedOffers, setUploadedOffers] = useState<UploadedOffer[]>([]);
+
+  useEffect(() => {
+    supabase
+      .from("offers")
+      .select("id,title,description,price,currency,image_url,category,destination,hotel_name,nights,file_url")
+      .eq("is_active", true)
+      .order("display_order", { ascending: false })
+      .order("created_at", { ascending: false })
+      .then(({ data }) => setUploadedOffers((data as UploadedOffer[]) || []));
+  }, []);
 
   const destinations = useMemo(() => {
     const destSet = new Set(offersData.map(o => o.destination));
     return ["all", ...Array.from(destSet)];
   }, []);
+
 
   const filteredOffers = useMemo(() => {
     return offersData.filter(offer => {

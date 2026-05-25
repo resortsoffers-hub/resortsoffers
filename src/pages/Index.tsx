@@ -273,7 +273,7 @@ const featuredOffers: Offer[] = [
                   className="block relative h-48 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   <img 
-                    src={dest.image} 
+                    src={safeHotelImage(dest.image)} 
                     alt={dest.name} 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
@@ -327,7 +327,7 @@ const featuredOffers: Offer[] = [
             {featuredOffers.map((offer, index) => (
               <Card key={index} className="overflow-hidden hover:shadow-xl transition-all duration-300 bg-white cursor-pointer" onClick={() => openOfferDetail(offer)}>
                 <div className="relative h-48 overflow-hidden">
-                  <img src={offer.image} alt={offer.title} className="w-full h-full object-cover" />
+                  <img src={safeHotelImage(offer.image)} alt={offer.title} className="w-full h-full object-cover" />
                   <div className="absolute top-3 left-3">
                     <Badge className="bg-red-500 text-white font-bold">{offer.discount}% OFF</Badge>
                   </div>

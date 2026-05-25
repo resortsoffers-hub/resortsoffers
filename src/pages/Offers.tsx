@@ -956,7 +956,7 @@ const Offers = () => {
                   <div className="relative h-56 bg-muted overflow-hidden">
                     {o.image_url ? (
                       <img
-                        src={o.image_url}
+                        src={safeHotelImage(o.image_url)}
                         alt={o.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"
@@ -1026,7 +1026,7 @@ const Offers = () => {
                   {/* Image */}
                   <div className="relative h-56 overflow-hidden">
                     <img
-                      src={offer.image}
+                      src={safeHotelImage(offer.image)}
                       alt={offer.hotelName}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />

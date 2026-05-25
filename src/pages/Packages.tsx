@@ -1544,7 +1544,7 @@ const PackageCard = ({ pkg }: { pkg: PackageData }) => {
       {/* Image */}
       <div className="relative h-48 overflow-hidden">
         <img
-          src={pkg.image} 
+          src={safeHotelImage(pkg.image)} 
           alt={pkg.hotelName}
           className="w-full h-full object-cover"
         />

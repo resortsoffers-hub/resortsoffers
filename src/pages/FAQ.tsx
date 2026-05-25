@@ -101,7 +101,7 @@ const FAQ = () => {
       <Helmet>
         <title>Frequently Asked Questions - Travel & Resort Information | Resorts Offers</title>
         <meta name="description" content="Get answers to common questions about luxury resort bookings, destinations, visa requirements, and travel planning with Resorts Offers." />
-        <link rel="canonical" href="https://www.resortsoffers.com/faq" />
+        <link rel="canonical" href="https://resortsoffers.com/faq" />
       </Helmet>
       <Navbar />
       

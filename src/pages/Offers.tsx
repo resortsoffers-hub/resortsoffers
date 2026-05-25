@@ -1,4 +1,5 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -11,10 +12,12 @@ import {
   Filter,
   MapPin,
   BedDouble,
-  Info
+  Info,
+  ArrowRight
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { supabase } from "@/integrations/supabase/client";
 
 // Resort Images
 import cocoonAerial from "@/assets/resorts/you-and-me-cocoon-aerial.jpg";
@@ -830,14 +833,40 @@ const offersData: OfferData[] = [
   }
 ];
 
+interface UploadedOffer {
+  id: string;
+  title: string;
+  description: string | null;
+  price: number | null;
+  currency: string | null;
+  image_url: string | null;
+  category: string | null;
+  destination: string | null;
+  hotel_name: string | null;
+  nights: number | null;
+  file_url: string | null;
+}
+
 const Offers = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedDestination, setSelectedDestination] = useState<string>("all");
+  const [uploadedOffers, setUploadedOffers] = useState<UploadedOffer[]>([]);
+
+  useEffect(() => {
+    supabase
+      .from("offers")
+      .select("id,title,description,price,currency,image_url,category,destination,hotel_name,nights,file_url")
+      .eq("is_active", true)
+      .order("display_order", { ascending: false })
+      .order("created_at", { ascending: false })
+      .then(({ data }) => setUploadedOffers((data as UploadedOffer[]) || []));
+  }, []);
 
   const destinations = useMemo(() => {
     const destSet = new Set(offersData.map(o => o.destination));
     return ["all", ...Array.from(destSet)];
   }, []);
+
 
   const filteredOffers = useMemo(() => {
     return offersData.filter(offer => {
@@ -907,9 +936,83 @@ const Offers = () => {
         </div>
       </section>
 
+      {/* Latest Uploaded Offers */}
+      {uploadedOffers.length > 0 && (
+        <section className="section-padding bg-muted/30">
+          <div className="container-custom">
+            <div className="flex items-end justify-between mb-8">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-serif text-primary">Latest Offers</h2>
+                <p className="text-muted-foreground mt-2">Freshly uploaded by our advisory team</p>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {uploadedOffers.map((o) => (
+                <Link
+                  key={o.id}
+                  to={`/offers/${o.id}`}
+                  className="group bg-card rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all border block"
+                >
+                  <div className="relative h-56 bg-muted overflow-hidden">
+                    {o.image_url ? (
+                      <img
+                        src={o.image_url}
+                        alt={o.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center text-muted-foreground text-sm">
+                        PDF Offer
+                      </div>
+                    )}
+                    {o.category && (
+                      <Badge className="absolute top-3 left-3 bg-primary text-primary-foreground">
+                        {o.category}
+                      </Badge>
+                    )}
+                    {o.destination && (
+                      <Badge variant="secondary" className="absolute top-3 right-3">
+                        {o.destination}
+                      </Badge>
+                    )}
+                  </div>
+                  <div className="p-5">
+                    <h3 className="font-bold text-lg mb-2 line-clamp-1">{o.title}</h3>
+                    {o.description && (
+                      <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{o.description}</p>
+                    )}
+                    <div className="flex items-end justify-between">
+                      <div>
+                        {o.price != null ? (
+                          <>
+                            <p className="text-2xl font-bold text-primary">
+                              {o.currency || "USD"} {Number(o.price).toLocaleString()}
+                            </p>
+                            {o.nights && (
+                              <p className="text-xs text-muted-foreground">{o.nights} nights</p>
+                            )}
+                          </>
+                        ) : (
+                          <span className="text-sm text-muted-foreground">View details</span>
+                        )}
+                      </div>
+                      <span className="inline-flex items-center text-sm font-medium text-primary group-hover:translate-x-1 transition-transform">
+                        Details <ArrowRight className="h-4 w-4 ml-1" />
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Offers Grid */}
       <section className="section-padding">
         <div className="container-custom">
+
           {filteredOffers.length === 0 ? (
             <div className="text-center py-16">
               <Filter className="h-12 w-12 mx-auto text-muted-foreground mb-4" />

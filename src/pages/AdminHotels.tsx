@@ -8,9 +8,26 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
 import { toast } from "sonner";
-import { Loader2, Upload, Trash2, LogOut, ArrowLeft, Image as ImageIcon, Plus, Eye } from "lucide-react";
+import { Loader2, Upload, Trash2, LogOut, ArrowLeft, Image as ImageIcon, Plus, Eye, ExternalLink, Link2 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import { HOTEL_CATEGORIES } from "@/lib/hotelCategories";
+
+// Standard short-label resource kinds the CMS supports per hotel.
+// These keep the public-facing buttons short and clean even when the
+// underlying official URL is long / ugly.
+const RESOURCE_KINDS: { value: string; label: string }[] = [
+  { value: "website",       label: "Official Website" },
+  { value: "media_library", label: "Media Library" },
+  { value: "fact_sheet",    label: "Fact Sheet" },
+  { value: "presentation",  label: "Resort Presentation" },
+  { value: "villas",        label: "Villas" },
+  { value: "videos",        label: "Videos" },
+  { value: "tour_360",      label: "360 Tour" },
+  { value: "floorplan",     label: "Floorplan / Map" },
+  { value: "sales_kit",     label: "Sales Kit" },
+  { value: "brochure",      label: "Brochure / PDF" },
+  { value: "custom",        label: "Custom Link" },
+];
 
 
 interface HotelRow {

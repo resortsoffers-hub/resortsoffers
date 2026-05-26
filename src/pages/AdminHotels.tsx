@@ -8,9 +8,26 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
 import { toast } from "sonner";
-import { Loader2, Upload, Trash2, LogOut, ArrowLeft, Image as ImageIcon, Plus, Eye } from "lucide-react";
+import { Loader2, Upload, Trash2, LogOut, ArrowLeft, Image as ImageIcon, Plus, Eye, ExternalLink, Link2 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import { HOTEL_CATEGORIES } from "@/lib/hotelCategories";
+
+// Standard short-label resource kinds the CMS supports per hotel.
+// These keep the public-facing buttons short and clean even when the
+// underlying official URL is long / ugly.
+const RESOURCE_KINDS: { value: string; label: string }[] = [
+  { value: "website",       label: "Official Website" },
+  { value: "media_library", label: "Media Library" },
+  { value: "fact_sheet",    label: "Fact Sheet" },
+  { value: "presentation",  label: "Resort Presentation" },
+  { value: "villas",        label: "Villas" },
+  { value: "videos",        label: "Videos" },
+  { value: "tour_360",      label: "360 Tour" },
+  { value: "floorplan",     label: "Floorplan / Map" },
+  { value: "sales_kit",     label: "Sales Kit" },
+  { value: "brochure",      label: "Brochure / PDF" },
+  { value: "custom",        label: "Custom Link" },
+];
 
 
 interface HotelRow {
@@ -36,6 +53,19 @@ interface HotelImage {
   image_url: string;
   caption_en: string | null;
   display_order: number;
+  category_label: string | null;
+  category_kind: string | null;
+}
+
+interface HotelResource {
+  id: string;
+  hotel_id: string;
+  kind: string;
+  label: string;
+  url: string;
+  notes: string | null;
+  display_order: number;
+  is_internal: boolean;
 }
 
 const slugify = (s: string) =>
@@ -57,6 +87,10 @@ const AdminHotels = () => {
   const [saving, setSaving] = useState(false);
   const [images, setImages] = useState<HotelImage[]>([]);
   const [uploading, setUploading] = useState(false);
+  const [resources, setResources] = useState<HotelResource[]>([]);
+  const [newResource, setNewResource] = useState<Partial<HotelResource>>({
+    kind: "media_library", label: "", url: "", is_internal: true, display_order: 0,
+  });
 
   useEffect(() => {
     (async () => {
@@ -86,9 +120,23 @@ const AdminHotels = () => {
     setImages((data as HotelImage[]) || []);
   };
 
+  const loadResources = async (hotelId: string) => {
+    const { data } = await supabase.from("hotel_resources")
+      .select("*").eq("hotel_id", hotelId)
+      .order("display_order", { ascending: true })
+      .order("created_at", { ascending: true });
+    setResources((data as HotelResource[]) || []);
+  };
+
   const startEdit = async (h?: HotelRow) => {
-    if (h) { setEditing(h); await loadImages(h.id); }
-    else { setEditing({ ...empty }); setImages([]); }
+    if (h) {
+      setEditing(h);
+      await Promise.all([loadImages(h.id), loadResources(h.id)]);
+    } else {
+      setEditing({ ...empty });
+      setImages([]);
+      setResources([]);
+    }
   };
 
   const handleSave = async () => {

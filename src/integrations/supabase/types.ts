@@ -141,6 +141,8 @@ export type Database = {
         Row: {
           caption_ar: string | null
           caption_en: string | null
+          category_kind: string | null
+          category_label: string | null
           created_at: string
           display_order: number
           hotel_id: string
@@ -150,6 +152,8 @@ export type Database = {
         Insert: {
           caption_ar?: string | null
           caption_en?: string | null
+          category_kind?: string | null
+          category_label?: string | null
           created_at?: string
           display_order?: number
           hotel_id: string
@@ -159,6 +163,8 @@ export type Database = {
         Update: {
           caption_ar?: string | null
           caption_en?: string | null
+          category_kind?: string | null
+          category_label?: string | null
           created_at?: string
           display_order?: number
           hotel_id?: string
@@ -224,6 +230,53 @@ export type Database = {
         Relationships: [
           {
             foreignKeyName: "hotel_inquiries_hotel_id_fkey"
+            columns: ["hotel_id"]
+            isOneToOne: false
+            referencedRelation: "hotels"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      hotel_resources: {
+        Row: {
+          created_at: string
+          display_order: number
+          hotel_id: string
+          id: string
+          is_internal: boolean
+          kind: string
+          label: string
+          notes: string | null
+          updated_at: string
+          url: string
+        }
+        Insert: {
+          created_at?: string
+          display_order?: number
+          hotel_id: string
+          id?: string
+          is_internal?: boolean
+          kind?: string
+          label: string
+          notes?: string | null
+          updated_at?: string
+          url: string
+        }
+        Update: {
+          created_at?: string
+          display_order?: number
+          hotel_id?: string
+          id?: string
+          is_internal?: boolean
+          kind?: string
+          label?: string
+          notes?: string | null
+          updated_at?: string
+          url?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "hotel_resources_hotel_id_fkey"
             columns: ["hotel_id"]
             isOneToOne: false
             referencedRelation: "hotels"

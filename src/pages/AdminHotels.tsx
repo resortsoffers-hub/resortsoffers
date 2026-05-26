@@ -87,6 +87,10 @@ const AdminHotels = () => {
   const [saving, setSaving] = useState(false);
   const [images, setImages] = useState<HotelImage[]>([]);
   const [uploading, setUploading] = useState(false);
+  const [resources, setResources] = useState<HotelResource[]>([]);
+  const [newResource, setNewResource] = useState<Partial<HotelResource>>({
+    kind: "media_library", label: "", url: "", is_internal: true, display_order: 0,
+  });
 
   useEffect(() => {
     (async () => {

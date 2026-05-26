@@ -237,7 +237,49 @@ const AdminHotels = () => {
     if (editing?.id) loadImages(editing.id);
   };
 
+  const updateImageCategory = async (img: HotelImage, patch: Partial<Pick<HotelImage, "category_label" | "category_kind">>) => {
+    const { error } = await supabase.from("hotel_images").update(patch).eq("id", img.id);
+    if (error) return toast.error(error.message);
+    setImages((prev) => prev.map((i) => (i.id === img.id ? { ...i, ...patch } : i)));
+  };
+
+  const addResource = async () => {
+    if (!editing?.id) return;
+    if (!newResource.label?.trim() || !newResource.url?.trim()) {
+      toast.error("Label and URL are required");
+      return;
+    }
+    const payload = {
+      hotel_id: editing.id,
+      kind: newResource.kind || "custom",
+      label: newResource.label!.trim(),
+      url: newResource.url!.trim(),
+      notes: newResource.notes?.trim() || null,
+      is_internal: newResource.is_internal !== false,
+      display_order: resources.length,
+    };
+    const { error } = await supabase.from("hotel_resources").insert(payload);
+    if (error) return toast.error(error.message);
+    toast.success("Resource added");
+    setNewResource({ kind: "media_library", label: "", url: "", is_internal: true, display_order: 0 });
+    await loadResources(editing.id);
+  };
+
+  const updateResource = async (id: string, patch: Partial<HotelResource>) => {
+    const { error } = await supabase.from("hotel_resources").update(patch).eq("id", id);
+    if (error) return toast.error(error.message);
+    setResources((prev) => prev.map((r) => (r.id === id ? { ...r, ...patch } : r)));
+  };
+
+  const deleteResource = async (id: string) => {
+    if (!confirm("Remove this resource link?")) return;
+    const { error } = await supabase.from("hotel_resources").delete().eq("id", id);
+    if (error) return toast.error(error.message);
+    setResources((prev) => prev.filter((r) => r.id !== id));
+  };
+
   const handleLogout = async () => { await supabase.auth.signOut(); navigate("/admin/login"); };
+
 
   if (checking) return <div className="min-h-screen flex items-center justify-center"><Loader2 className="h-6 w-6 animate-spin text-primary" /></div>;
   if (!isAdmin) return (

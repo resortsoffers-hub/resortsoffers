@@ -120,9 +120,23 @@ const AdminHotels = () => {
     setImages((data as HotelImage[]) || []);
   };
 
+  const loadResources = async (hotelId: string) => {
+    const { data } = await supabase.from("hotel_resources")
+      .select("*").eq("hotel_id", hotelId)
+      .order("display_order", { ascending: true })
+      .order("created_at", { ascending: true });
+    setResources((data as HotelResource[]) || []);
+  };
+
   const startEdit = async (h?: HotelRow) => {
-    if (h) { setEditing(h); await loadImages(h.id); }
-    else { setEditing({ ...empty }); setImages([]); }
+    if (h) {
+      setEditing(h);
+      await Promise.all([loadImages(h.id), loadResources(h.id)]);
+    } else {
+      setEditing({ ...empty });
+      setImages([]);
+      setResources([]);
+    }
   };
 
   const handleSave = async () => {

@@ -53,6 +53,19 @@ interface HotelImage {
   image_url: string;
   caption_en: string | null;
   display_order: number;
+  category_label: string | null;
+  category_kind: string | null;
+}
+
+interface HotelResource {
+  id: string;
+  hotel_id: string;
+  kind: string;
+  label: string;
+  url: string;
+  notes: string | null;
+  display_order: number;
+  is_internal: boolean;
 }
 
 const slugify = (s: string) =>

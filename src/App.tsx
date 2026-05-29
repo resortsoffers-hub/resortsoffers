@@ -28,7 +28,7 @@ import Cruises from "./pages/Cruises";
 import AboutUs from "./pages/AboutUs";
 import Events from "./pages/Events";
 import NotFound from "./pages/NotFound";
-import DhawaPackageSample from "./components/DhawaPackageSample";
+// DhawaPackageSample removed — used a generic Maldives stock image as placeholder for a real hotel name.
 
 const queryClient = new QueryClient();
 
@@ -61,7 +61,7 @@ const localizedChildren = (
     <Route path="cruises" element={<Cruises />} />
     <Route path="about-us" element={<AboutUs />} />
     <Route path="events" element={<Events />} />
-    <Route path="package-sample" element={<DhawaPackageSample />} />
+    {/* /package-sample route removed — see Index.tsx note above */}
   </>
 );
 
@@ -99,7 +99,7 @@ const App = () => (
             <Route path="/cruises" element={<RedirectToLocale />} />
             <Route path="/about-us" element={<RedirectToLocale />} />
             <Route path="/events" element={<RedirectToLocale />} />
-            <Route path="/package-sample" element={<RedirectToLocale />} />
+            {/* /package-sample legacy redirect removed */}
 
             <Route path="*" element={<NotFound />} />
           </Routes>

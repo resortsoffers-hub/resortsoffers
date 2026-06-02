@@ -1,22 +1,39 @@
+import { useEffect, useState } from "react";
 import { MessageCircle } from "lucide-react";
+import { BRAND } from "@/lib/brand";
 
+/**
+ * Floating WhatsApp button — compact, single bottom-right, hides on scroll-down.
+ */
 const WhatsAppButton = () => {
-  const whatsappNumber = "971567622484"; // UAE & Worldwide
-  const message = "Hello! I'm interested in learning more about your resort offers.";
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+  const [visible, setVisible] = useState(true);
+  const [lastY, setLastY] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY;
+      setVisible(y < lastY || y < 200);
+      setLastY(y);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [lastY]);
+
+  const url = `https://wa.me/${BRAND.whatsapp}?text=${encodeURIComponent(
+    "Hello! I'd like a personal resort recommendation."
+  )}`;
 
   return (
     <a
-      href={whatsappUrl}
+      href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#1DA851] text-white shadow-2xl transition-all duration-300 hover:scale-110 animate-fade-in group flex items-center gap-3 rounded-full px-5 py-4 border-2 border-white/30"
-      aria-label="Chat on WhatsApp 24/7"
+      aria-label="WhatsApp"
+      className={`fixed bottom-5 right-5 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-all duration-300 hover:scale-105 ${
+        visible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
+      }`}
     >
-      <MessageCircle size={32} className="text-white drop-shadow-lg" strokeWidth={2.5} />
-      <div className="hidden group-hover:block text-sm font-bold whitespace-nowrap">
-        <div>Chat 24/7</div>
-      </div>
+      <MessageCircle size={22} strokeWidth={2.25} />
     </a>
   );
 };

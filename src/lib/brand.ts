@@ -1,0 +1,29 @@
+/**
+ * Single source of truth for brand identity.
+ *
+ * Designed so a future migration from "Resorts Offers" → "Yasnora" only
+ * requires editing this file + swapping a logo SVG. Components must import
+ * strings/colors from here rather than hardcoding them in JSX.
+ */
+export const BRAND = {
+  name: "Resorts Offers",
+  legalName: "Resorts Offers Tourism Consultancy",
+  tagline: "Private luxury travel advisory",
+  taglineAr: "استشارة سفر فاخرة خاصة",
+  domain: "resortsoffers.com",
+  whatsapp: "971567622484",
+  email: "hello@resortsoffers.com",
+  // HSL tokens are defined in index.css; these literals are only for non-themed
+  // surfaces (e.g. WhatsApp brand green which must remain its official color).
+  colors: {
+    primary: "#1e3a5f", // Navy
+    accent: "#00A4E4", // Cyan accent
+    whatsapp: "#25D366",
+  },
+  social: {
+    instagram: "https://instagram.com/resortsoffers",
+    bioLink: "https://resortsoffers.bio.link",
+  },
+} as const;
+
+export type Brand = typeof BRAND;

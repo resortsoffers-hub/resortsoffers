@@ -20,6 +20,8 @@ import AdminHotels from "./pages/AdminHotels";
 import AdminLogin from "./pages/AdminLogin";
 import Hotels from "./pages/Hotels";
 import HotelDetail from "./pages/HotelDetail";
+import Destinations from "./pages/Destinations";
+import DestinationHub from "./pages/DestinationHub";
 import BookConsultation from "./pages/BookConsultation";
 import PartnerHotels from "./pages/PartnerHotels";
 import SubmitReview from "./pages/SubmitReview";
@@ -56,6 +58,8 @@ const localizedChildren = (
     <Route path="partner-hotels" element={<PartnerHotels />} />
     <Route path="hotels" element={<Hotels />} />
     <Route path="hotels/:slug" element={<HotelDetail />} />
+    <Route path="destinations" element={<Destinations />} />
+    <Route path="destinations/:slug" element={<DestinationHub />} />
     <Route path="submit-review" element={<SubmitReview />} />
     <Route path="reviews" element={<Reviews />} />
     <Route path="cruises" element={<Cruises />} />
@@ -94,6 +98,8 @@ const App = () => (
             <Route path="/partner-hotels" element={<RedirectToLocale />} />
             <Route path="/hotels" element={<RedirectToLocale />} />
             <Route path="/hotels/:slug" element={<RedirectToLocale />} />
+            <Route path="/destinations" element={<RedirectToLocale />} />
+            <Route path="/destinations/:slug" element={<RedirectToLocale />} />
             <Route path="/submit-review" element={<RedirectToLocale />} />
             <Route path="/reviews" element={<RedirectToLocale />} />
             <Route path="/cruises" element={<RedirectToLocale />} />

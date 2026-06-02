@@ -188,7 +188,7 @@ export type Database = {
           created_at: string
           email: string
           guests: number | null
-          hotel_id: string
+          hotel_id: string | null
           id: string
           message: string | null
           name: string
@@ -203,7 +203,7 @@ export type Database = {
           created_at?: string
           email: string
           guests?: number | null
-          hotel_id: string
+          hotel_id?: string | null
           id?: string
           message?: string | null
           name: string
@@ -218,7 +218,7 @@ export type Database = {
           created_at?: string
           email?: string
           guests?: number | null
-          hotel_id?: string
+          hotel_id?: string | null
           id?: string
           message?: string | null
           name?: string

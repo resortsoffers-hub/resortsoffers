@@ -1,0 +1,1 @@
+ALTER TABLE public.hotel_inquiries ALTER COLUMN hotel_id DROP NOT NULL;

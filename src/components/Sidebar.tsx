@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { X, Home, Phone, HelpCircle, FileText, Package, Building2, Tag, Star, MessageSquare, Ship, Users, CalendarDays } from "lucide-react";
+import { X, Home, Phone, HelpCircle, FileText, Package, Building2, Tag, Star, MessageSquare, Ship, Users, CalendarDays, Globe } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { useLocale, useLocalePath } from "@/hooks/useLocale";
@@ -17,12 +17,10 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
 
   const menuItems = [
     { name: t('nav.home'), path: "/", icon: Home },
+    { name: lang === "ar" ? "الوجهات" : "Destinations", path: "/destinations", icon: Globe },
     { name: t('nav.aboutUs'), path: "/about-us", icon: Users },
-    { name: t('nav.packages'), path: "/packages", icon: Package },
-    // Partner Hotels nav hidden — catalog being rebuilt with verified imagery
     { name: t('nav.cruises'), path: "/cruises", icon: Ship },
     { name: t('nav.events'), path: "/events", icon: CalendarDays },
-    { name: t('nav.offers'), path: "/offers", icon: Tag },
     { name: t('nav.reviews'), path: "/reviews", icon: MessageSquare },
     { name: t('nav.contact'), path: "/contact", icon: Phone },
     { name: t('nav.faq'), path: "/faq", icon: HelpCircle },

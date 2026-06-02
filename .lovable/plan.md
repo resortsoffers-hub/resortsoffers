@@ -1,100 +1,117 @@
+# Site Restructure Plan — Destination-First, Luxury Advisory
 
-# Delivery Plan — Bilingual + Hotel CMS + GCC SEO
-
-You picked the heaviest option in all three phases. Honest scoping: this is **3 work sessions**, not one. Shipping it in a single pass would mean shallow translations, leaky photo isolation, and broken SEO. Here's the sequence I'll execute, smallest blast radius first.
-
----
-
-## Session 1 — Bilingual foundation (this session, if you approve)
-
-**Goal:** `/en/*` and `/ar/*` both live, RTL works, language switcher in header, hreflang in head, nav + footer + homepage fully translated. Inner pages get English fallback until Session 2 translates them.
-
-**Technical work:**
-- Install `react-i18next` + `i18next-browser-languagedetector`
-- New `src/i18n/` with `en.json` + `ar.json` translation files (nav, footer, common CTAs, homepage strings)
-- Restructure `App.tsx` routes so every existing route gets mounted under both `/en/*` and `/ar/*`; bare `/` redirects to `/en/` (or `/ar/` if browser is Arabic)
-- New `<LocaleLayout>` wrapper that reads `:lang` param, sets `i18n.language`, sets `dir="rtl"` + `lang="ar"` on `<html>` for Arabic
-- `<LanguageSwitcher>` in `Navbar` (EN / عربي toggle that preserves current path)
-- Tailwind RTL audit: replace directional `ml-*` / `mr-*` / `pl-*` / `pr-*` / `text-left` / `text-right` with logical equivalents (`ms-*`, `me-*`, `ps-*`, `pe-*`, `text-start`, `text-end`) in shared components (Navbar, Footer, Hero, hotel cards)
-- Per-route `<Helmet>` adds `<link rel="alternate" hreflang="en" href=".../en/...">` + `hreflang="ar"` + `hreflang="x-default"`
-- `sitemap.xml` regenerated with both locale variants
-- Memory rewrite: overwrite the English-only Core rule with a new bilingual rule + update `mem://localization/language-policy-v3`
-
-**Out of scope this session:** translating every inner page body copy (Packages, Reviews, FAQ, Terms, Policy, Consultation). They render in English under `/ar/` until Session 2.
+## Goals
+1. Destination is the spine. Categories filter *inside* a destination, never across the whole catalog.
+2. Zero unverified imagery anywhere public.
+3. Homepage reads as a concierge brand, not a listings DB.
+4. Mobile-first, calm luxury UX.
+5. Architecture ready for Resorts Offers → Yasnora rebrand without rewrites.
 
 ---
 
-## Session 2 — Hotel CMS core (next session)
+## 1. Destination-first information architecture
 
-**Goal:** Admin can create a hotel, upload images that belong only to that hotel, publish a dedicated public page with isolated gallery and inquiry form.
+New public route structure:
+```
+/                       → Home (curated, not catalog)
+/destinations           → 6–8 hero destination tiles
+/destinations/:slug     → Single destination hub (resorts + filters scoped here)
+/hotels/:slug           → Resort detail (unchanged URL, kept for SEO)
+/collections/:slug      → Curated collections (Honeymoon, Adults Only, Nora's Picks…)
+/about /contact /reviews /faq
+```
 
-**Database (new tables):**
-- `hotels` — slug, name_en, name_ar, destination, short_desc_en/ar, long_desc_en/ar, hero_image_url, is_published, display_order
-- `hotel_images` — hotel_id FK (CASCADE), image_url, caption_en/ar, display_order. **RLS + FK guarantee an image can never appear under another hotel.**
-- `hotel_inquiries` — hotel_id FK, name, email, phone, check_in, check_out, guests, message, status
-- Storage bucket `hotel-images` (public read, admin write) with path convention `{hotel_id}/{filename}` enforced by RLS
+Key behavior change:
+- The global `/hotels` page (mixed catalog with chips on top) is **demoted**. It still exists for admin/QA but is no longer linked in main nav.
+- `Hotels` listing logic moves into `/destinations/:slug` and only ever shows resorts where `destination = :slug`.
+- Category chips on a destination hub only render categories that have ≥1 resort in *that* destination (computed from `tags`).
+- Collections (`/collections/:slug`) are the cross-destination view, but they're explicitly framed as editorial picks, not a search result.
 
-**Admin UI:** `/admin/hotels` list + create/edit form with drag-drop image upload scoped to that hotel only. Existing `AdminOffers` gets a hotel selector so an offer is linked to one hotel.
-
-**Public:** `/en/hotels/:slug` and `/ar/hotels/:slug` — hero, gallery lightbox, description, inquiry form (writes to `hotel_inquiries`, also opens prefilled WhatsApp). Hotels index at `/en/hotels` / `/ar/hotels`.
-
-**Translation:** Arabic translations for the public hotel page chrome; per-hotel content uses the `_ar` columns the admin fills in.
-
-**Deferred to Session 3:** room types, meal plans, pricing tiers, inclusions/exclusions, travel-date windows. (You explicitly chose to defer these.)
+Result: user picks Maldives → sees only Maldives resorts and only Maldives-relevant chips (Water Villa, Honeymoon, Family, etc.). No more disconnected dropdown + chip flow.
 
 ---
 
-## Session 3 — GCC landing pages + SEO (final session)
+## 2. Homepage hierarchy
 
-**Goal:** 4 dedicated market landing pages ranking for your target keywords.
+Rebuild `src/pages/Index.tsx` in this fixed order, each section a discrete component:
 
-**New routes (En + Ar):**
-- `/en/maldives-from-dubai` — "Maldives packages from Dubai", "Luxury Maldives resorts UAE"
-- `/en/maldives-from-saudi-arabia` — "Saudi Maldives packages"
-- `/en/maldives-from-qatar` — "Qatar luxury holidays"
-- `/en/maldives-from-kuwait` — "Kuwait resort deals"
-- Plus `/en/honeymoon-packages-gcc` for "GCC honeymoon packages"
-- Mirror under `/ar/` with Arabic copy
+1. **Hero** — text-only, brand statement + single primary CTA ("Plan with Nora" → WhatsApp). No fake imagery.
+2. **Luxury Destinations** — 6 tiles, image only if a destination has a verified hero photo from a published hotel in that destination; otherwise branded placeholder. Links to `/destinations/:slug`.
+3. **Curated Collections** — 3–4 editorial tiles (Honeymoon, Adults-Only Sanctuaries, Family Villas, Nora's Picks).
+4. **Featured Resorts** — max 3, only `is_published=true` with verified `hero_image_url`. If <3 exist, the section hides itself rather than padding with placeholders.
+5. **Why Choose Us** — 4 concise pillars (existing `WhyBookWithUs`).
+6. **Reviews / Testimonials** — pulled from `customer_reviews` where approved.
+7. **WhatsApp CTA band** — single, calm, full-width.
+8. **Inquiry form** — short (name, email/WhatsApp, destination, dates, message) → writes to `hotel_inquiries` with `hotel_id` nullable.
 
-**Per page:** market-specific hero, flight-route mention, currency context (AED/SAR/QAR/KWD), 3–6 featured hotels (queried from new `hotels` table), JSON-LD `TravelAgency` + `TouristTrip`, geo meta tags, hreflang pairs.
+Removed from home: `BookingTabs` global search (replaced by destination tiles), oversized dropdowns, floating elements.
 
-**Cross-cutting:**
-- Sitemap split: `sitemap-en.xml` + `sitemap-ar.xml` + index
-- Homepage gets a "Travelling from" market picker linking to the 4 landing pages
+---
+
+## 3. Verified imagery enforcement
+
+- Keep `safeHotelImage()` — already gates to Supabase Storage only. Good.
+- Extend gate to **destination tiles**: a destination tile's hero is computed server-side as "first verified `hero_image_url` from a published hotel in this destination". If none, show typographic tile (destination name on brand background) — never a stock photo.
+- Admin (`/admin/hotels`) gains a visible "Publish-ready checklist" before `is_published` can be toggled:
+  - hero image uploaded via CMS
+  - ≥6 gallery images tagged with `category_kind` (villa/outlet/spa/etc.)
+  - ≥1 official resource link (website or factsheet)
+  - EN + AR short description present
+- Backend: add a DB trigger that prevents `is_published=true` unless the above are satisfied. Hard gate, matches the memory rule.
+
+---
+
+## 4. Luxury visual system
+
+- Reduce chip density: max 5 visible category chips per destination, "More" reveals the rest.
+- Increase vertical rhythm: section padding `py-20 md:py-28`, generous max-widths.
+- Typography: keep current serif for display, tighten body to single sans, drop competing weights.
+- Colors: lock to memory rule — navy `#1e3a5f` primary, off-white surfaces, single cyan accent for actions only.
+- Remove: BookingTabs cyan brand block on home, oversized hero filter bar, decorative gradients on cards.
+
+---
+
+## 5. Mobile fixes
+
+- Replace native `<Select>` with a bottom-sheet on `<640px` for destination/category pickers.
+- Sticky filter rail collapses to a single "Filters" button on mobile that opens a sheet; chips no longer fight the page scroll.
+- WhatsApp floating button: smaller (48px), bottom-right only, hides on scroll-down, re-appears on scroll-up.
+- Cards: single column under 640px, `aspect-[4/3]` preserved, tap targets ≥44px.
+
+---
+
+## 6. Rebrand-ready architecture
+
+- Move all brand strings (name, tagline, WhatsApp number, social handles, logo wordmark colors) into `src/lib/brand.ts`. Components import from there — no hardcoded "Resorts Offers" or `#003B95`/`#00A4E4` literals in JSX.
+- Logo becomes `<BrandWordmark />` component reading from `brand.ts`.
+- Switching to Yasnora later = edit one file + swap one SVG.
+- Domain/canonical logic in `main.tsx` stays, just reads from `brand.ts`.
 
 ---
 
 ## Technical notes
 
-```text
-Routing shape after Session 1:
-  /                       → redirect to /en or /ar (lang detect)
-  /en/*                   → existing routes, English
-  /ar/*                   → existing routes, RTL + Arabic chrome
-  /admin/*                → unchanged, English-only (internal)
-```
-
-```text
-Photo isolation guarantee (Session 2):
-  Storage path:   hotel-images/{hotel_id}/{file}
-  RLS on insert:  admin role only
-  RLS on select:  public (bucket is public)
-  FK on hotel_images.hotel_id → hotels.id ON DELETE CASCADE
-  Public query:   .eq('hotel_id', hotel.id) — physically impossible
-                  to surface another hotel's images
-```
-
-```text
-hreflang block injected per route:
-  <link rel="alternate" hreflang="en" href="https://resortsoffers.com/en/...">
-  <link rel="alternate" hreflang="ar" href="https://resortsoffers.com/ar/...">
-  <link rel="alternate" hreflang="x-default" href="https://resortsoffers.com/en/...">
-```
+- **New page**: `src/pages/DestinationHub.tsx` — fetches `hotels` where `destination = slug AND is_published = true`, computes available tags from that subset only.
+- **New page**: `src/pages/CollectionHub.tsx` — fetches by tag across destinations, explicitly editorial framing.
+- **New component**: `src/components/home/DestinationTiles.tsx` — server-derived hero per destination.
+- **Refactor**: `Index.tsx`, `Navbar.tsx` (nav links → Destinations / Collections / About / Reviews / Contact), `BookingTabs.tsx` (deleted from home, kept only inside destination hub as scoped search).
+- **DB migration**: trigger on `hotels` rejecting `is_published=true` without hero image + 6 tagged gallery images + 1 resource + EN/AR copy. Plus index on `hotels(destination, is_published)`.
+- **Brand layer**: `src/lib/brand.ts` exports `BRAND = { name, tagline, whatsapp, colors, wordmark }`.
 
 ---
 
-## What I need from you
+## Out of scope (explicit)
+- No new hotel data entry — catalog stays empty until you approve each hotel per the publish-approval gate.
+- No payment integration — all CTAs remain WhatsApp.
+- No admin UI redesign in this pass beyond the publish checklist.
+- No AI image generation, ever.
 
-**Approve this plan** and I start Session 1 immediately. Sessions 2 and 3 happen in follow-up prompts so each ships clean and testable.
+---
 
-If you'd rather compress (e.g. skip Session 3 landing pages, or do English-only Hotel CMS first), tell me now and I'll re-plan.
+## Suggested execution order
+1. Brand layer + Navbar refactor (foundation, low risk)
+2. Homepage rebuild (visible win)
+3. Destination hub + routing + Hotels page demotion
+4. Collection hub
+5. Mobile sheet pickers + WhatsApp button polish
+6. DB publish-gate trigger + admin checklist UI

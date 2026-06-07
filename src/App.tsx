@@ -7,6 +7,7 @@ import { HelmetProvider } from "react-helmet-async";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ChatWidget from "@/components/ChatWidget";
 import LocaleLayout from "@/components/LocaleLayout";
+import ErrorBoundary from "@/components/ErrorBoundary";
 import Index from "./pages/Index";
 
 import Contact from "./pages/Contact";
@@ -76,39 +77,41 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-          <Routes>
-            {/* Admin stays unlocalized */}
-            <Route path="/admin/login" element={<AdminLogin />} />
-            <Route path="/admin/offers" element={<AdminOffers />} />
-            <Route path="/admin/hotels" element={<AdminHotels />} />
+          <ErrorBoundary>
+            <Routes>
+              {/* Admin stays unlocalized */}
+              <Route path="/admin/login" element={<AdminLogin />} />
+              <Route path="/admin/offers" element={<AdminOffers />} />
+              <Route path="/admin/hotels" element={<AdminHotels />} />
 
-            {/* Localized trees — both prefixes share the same nested routes */}
-            <Route path="/en" element={<LocaleLayout />}>{localizedChildren}</Route>
-            <Route path="/ar" element={<LocaleLayout />}>{localizedChildren}</Route>
+              {/* Localized trees — both prefixes share the same nested routes */}
+              <Route path="/en" element={<LocaleLayout />}>{localizedChildren}</Route>
+              <Route path="/ar" element={<LocaleLayout />}>{localizedChildren}</Route>
 
-            {/* Bare root + legacy URLs → redirect to detected locale */}
-            <Route path="/" element={<RedirectToLocale />} />
-            <Route path="/contact" element={<RedirectToLocale />} />
-            <Route path="/faq" element={<RedirectToLocale />} />
-            <Route path="/terms" element={<RedirectToLocale />} />
-            <Route path="/packages" element={<RedirectToLocale />} />
-            <Route path="/offers" element={<RedirectToLocale />} />
-            <Route path="/offers/:id" element={<RedirectToLocale />} />
-            <Route path="/book-consultation" element={<RedirectToLocale />} />
-            <Route path="/partner-hotels" element={<RedirectToLocale />} />
-            <Route path="/hotels" element={<RedirectToLocale />} />
-            <Route path="/hotels/:slug" element={<RedirectToLocale />} />
-            <Route path="/destinations" element={<RedirectToLocale />} />
-            <Route path="/destinations/:slug" element={<RedirectToLocale />} />
-            <Route path="/submit-review" element={<RedirectToLocale />} />
-            <Route path="/reviews" element={<RedirectToLocale />} />
-            <Route path="/cruises" element={<RedirectToLocale />} />
-            <Route path="/about-us" element={<RedirectToLocale />} />
-            <Route path="/events" element={<RedirectToLocale />} />
-            {/* /package-sample legacy redirect removed */}
+              {/* Bare root + legacy URLs → redirect to detected locale */}
+              <Route path="/" element={<RedirectToLocale />} />
+              <Route path="/contact" element={<RedirectToLocale />} />
+              <Route path="/faq" element={<RedirectToLocale />} />
+              <Route path="/terms" element={<RedirectToLocale />} />
+              <Route path="/packages" element={<RedirectToLocale />} />
+              <Route path="/offers" element={<RedirectToLocale />} />
+              <Route path="/offers/:id" element={<RedirectToLocale />} />
+              <Route path="/book-consultation" element={<RedirectToLocale />} />
+              <Route path="/partner-hotels" element={<RedirectToLocale />} />
+              <Route path="/hotels" element={<RedirectToLocale />} />
+              <Route path="/hotels/:slug" element={<RedirectToLocale />} />
+              <Route path="/destinations" element={<RedirectToLocale />} />
+              <Route path="/destinations/:slug" element={<RedirectToLocale />} />
+              <Route path="/submit-review" element={<RedirectToLocale />} />
+              <Route path="/reviews" element={<RedirectToLocale />} />
+              <Route path="/cruises" element={<RedirectToLocale />} />
+              <Route path="/about-us" element={<RedirectToLocale />} />
+              <Route path="/events" element={<RedirectToLocale />} />
+              {/* /package-sample legacy redirect removed */}
 
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </ErrorBoundary>
           <WhatsAppButton />
           <ChatWidget />
         </BrowserRouter>

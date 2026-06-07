@@ -60,18 +60,36 @@ serve(async (req) => {
       );
     }
     
-    // Limit message content size
+    // Limit message content size + basic prompt-injection screening
     const MAX_MESSAGE_LENGTH = 2000;
+    const INJECTION_PATTERNS: RegExp[] = [
+      /ignore\s+(all\s+)?previous\s+(instructions|prompts|messages)/i,
+      /disregard\s+(all\s+)?(prior|previous|above)\s+(instructions|prompts)/i,
+      /system\s*[:>]\s*you\s+are/i,
+      /\b(reveal|print|show|expose|leak)\b[^.]{0,40}\b(api[_\s-]?key|secret|env(?:ironment)?|password|token|credentials?)\b/i,
+      /\bLOVABLE_API_KEY\b/i,
+      /<\|(?:im_start|im_end|system|endoftext)\|>/i,
+      /\[\[\s*(system|assistant)\s*\]\]/i,
+    ];
     for (const msg of messages) {
-      if (msg.content && msg.content.length > MAX_MESSAGE_LENGTH) {
+      if (!msg?.content || typeof msg.content !== 'string') continue;
+      if (msg.content.length > MAX_MESSAGE_LENGTH) {
         console.error('Message too long:', msg.content.length);
         return new Response(
           JSON.stringify({ error: 'Message too long. Please keep messages under 2000 characters.' }),
-          {
-            headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-            status: 400,
-          }
+          { headers: { ...corsHeaders, 'Content-Type': 'application/json' }, status: 400 }
         );
+      }
+      if (msg.role === 'user' && INJECTION_PATTERNS.some((re) => re.test(msg.content))) {
+        console.warn('Blocked potential prompt injection from IP:', ip);
+        return new Response(
+          JSON.stringify({ error: 'Your message contains disallowed content. Please rephrase your travel question.' }),
+          { headers: { ...corsHeaders, 'Content-Type': 'application/json' }, status: 400 }
+        );
+      }
+      // Strip control characters that could be used for prompt smuggling
+      if (msg.role === 'user') {
+        msg.content = msg.content.replace(/[\u0000-\u0008\u000B-\u001F\u007F]/g, '').trim();
       }
     }
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");

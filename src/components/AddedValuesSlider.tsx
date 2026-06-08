@@ -1,204 +1,91 @@
-import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, UtensilsCrossed, Plane, Camera, Sparkles, Ship, Baby, UserCheck, Heart, Gift, CheckCircle } from "lucide-react";
+import { Crown, Sparkles, Compass, Gem } from "lucide-react";
+import { useLocale } from "@/hooks/useLocale";
 
-// Import contextual images for each benefit
-import floatingBreakfast from "@/assets/benefits/floating-breakfast.jpg";
-import seaplaneTransfer from "@/assets/benefits/seaplane-transfer.jpg";
-import photoSession from "@/assets/benefits/photo-session.jpg";
-import spaMassage from "@/assets/benefits/spa-massage.jpg";
-import sunsetCruise from "@/assets/benefits/sunset-cruise.jpg";
-import kidsStay from "@/assets/benefits/kids-stay-free.jpg";
-import butlerService from "@/assets/benefits/butler-service.jpg";
-import honeymoonAmenities from "@/assets/benefits/honeymoon-setup.jpg";
-
-const addedValues = [
-  {
-    id: 1,
-    title: "Floating Breakfast",
-    description: "Start your day with a magical in-pool breakfast experience",
-    icon: UtensilsCrossed,
-    image: floatingBreakfast,
-  },
-  {
-    id: 2,
-    title: "Seaplane Transfer",
-    description: "Scenic aerial journey to your island paradise",
-    icon: Plane,
-    image: seaplaneTransfer,
-  },
-  {
-    id: 3,
-    title: "Photo Session",
-    description: "Professional photography to capture your memories",
-    icon: Camera,
-    image: photoSession,
-  },
-  {
-    id: 4,
-    title: "Spa & Massage",
-    description: "Rejuvenating treatments for complete relaxation",
-    icon: Sparkles,
-    image: spaMassage,
-  },
-  {
-    id: 5,
-    title: "Sunset Cruise",
-    description: "Romantic dolphin watching at golden hour",
-    icon: Ship,
-    image: sunsetCruise,
-  },
-  {
-    id: 6,
-    title: "Kids Stay Free",
-    description: "Family-friendly packages with complimentary child stays",
-    icon: Baby,
-    image: kidsStay,
-  },
-  {
-    id: 7,
-    title: "Dedicated Butler",
-    description: "Personal service for an exceptional experience",
-    icon: UserCheck,
-    image: butlerService,
-  },
-  {
-    id: 8,
-    title: "Honeymoon Amenities",
-    description: "Special touches for celebrating your love",
-    icon: Heart,
-    image: honeymoonAmenities,
-  },
-];
-
+/**
+ * Exclusive Member Privileges
+ *
+ * Replaces the previous "Complimentary Benefits" image slider, which relied on
+ * AI-generated photography. Per the Resorts Offers Image & Media Policy, no
+ * AI imagery is permitted anywhere on the site. This section is intentionally
+ * text-first and conveys the private members-club tone: exclusivity, privacy,
+ * bespoke service. When verified official lifestyle imagery is available from
+ * hotel media centres, a future revision may reintroduce a curated visual layer.
+ */
 const AddedValuesSlider = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const lang = useLocale();
+  const ar = lang === "ar";
 
-  useEffect(() => {
-    if (!isAutoPlaying) return;
-    
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % addedValues.length);
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, [isAutoPlaying]);
-
-  const goToPrevious = () => {
-    setIsAutoPlaying(false);
-    setCurrentIndex((prev) => (prev - 1 + addedValues.length) % addedValues.length);
-  };
-
-  const goToNext = () => {
-    setIsAutoPlaying(false);
-    setCurrentIndex((prev) => (prev + 1) % addedValues.length);
-  };
-
-  const currentValue = addedValues[currentIndex];
-  const IconComponent = currentValue.icon;
+  const pillars = [
+    {
+      icon: Crown,
+      title_en: "Private Member Access",
+      title_ar: "وصول حصري للأعضاء",
+      desc_en: "Curated rates, suite upgrades and amenities reserved for our members.",
+      desc_ar: "أسعار مختارة، ترقيات أجنحة ومزايا حصرية لأعضائنا.",
+    },
+    {
+      icon: Gem,
+      title_en: "Bespoke Travel Planning",
+      title_ar: "تخطيط سفر مخصص",
+      desc_en: "Every itinerary is hand-crafted by your personal luxury advisor.",
+      desc_ar: "كل برنامج رحلة يُصمَّم بعناية من قِبَل مستشارك الشخصي.",
+    },
+    {
+      icon: Sparkles,
+      title_en: "Exceptional Added Values",
+      title_ar: "مزايا استثنائية مضافة",
+      desc_en: "Complimentary privileges thoughtfully arranged for every stay.",
+      desc_ar: "امتيازات مجانية مرتبة بعناية لكل إقامة.",
+    },
+    {
+      icon: Compass,
+      title_en: "Discreet Concierge",
+      title_ar: "كونسيرج خاص",
+      desc_en: "A single trusted point of contact — before, during and after your trip.",
+      desc_ar: "نقطة تواصل واحدة موثوقة قبل وأثناء وبعد رحلتك.",
+    },
+  ];
 
   return (
-    <section className="py-12 bg-gradient-to-br from-[#1e3a5f] via-[#2a4a6f] to-[#1e3a5f] overflow-hidden">
-      <div className="container-custom">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-4">
-            <Gift className="w-5 h-5 text-[#00A4E4]" />
-            <span className="text-white/90 font-medium text-sm">Exclusive Added Values</span>
+    <section className="py-20 md:py-28 bg-gradient-to-br from-[#0f2440] via-[#1e3a5f] to-[#0f2440] text-white">
+      <div className="container mx-auto px-4">
+        <div className="text-center max-w-2xl mx-auto mb-14">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-white/85 text-xs font-medium tracking-wider uppercase mb-5">
+            <Crown className="h-3.5 w-3.5" />
+            {ar ? "امتيازات الأعضاء الحصرية" : "Exclusive Member Privileges"}
           </div>
-          <h2 className="text-2xl md:text-3xl font-serif font-bold text-white mb-2">
-            Complimentary Benefits
+          <h2 className="font-serif text-3xl md:text-4xl leading-tight mb-4">
+            {ar
+              ? "تجارب فاخرة منسقة، تخطيط سفر مخصص"
+              : "Curated luxury experiences, bespoke travel planning"}
           </h2>
-          <div className="flex items-center justify-center gap-2 text-[#00A4E4]">
-            <CheckCircle className="w-5 h-5" />
-            <span className="font-medium">Best Price Secured</span>
-          </div>
+          <p className="text-white/75 text-base md:text-lg leading-relaxed">
+            {ar
+              ? "ومزايا استثنائية مضافة لكل إقامة."
+              : "and exceptional added values for every stay."}
+          </p>
         </div>
 
-        {/* Slider */}
-        <div className="relative">
-          {/* Main Slide */}
-          <div className="relative h-[400px] md:h-[450px] rounded-2xl overflow-hidden mx-auto max-w-4xl">
-            <img
-              src={currentValue.image}
-              alt={currentValue.title}
-              className="w-full h-full object-cover transition-all duration-700"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-            
-            {/* Content Overlay */}
-            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#00A4E4] flex items-center justify-center">
-                  <IconComponent className="w-6 h-6 md:w-7 md:h-7 text-white" />
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
+          {pillars.map((p) => {
+            const Icon = p.icon;
+            return (
+              <div
+                key={p.title_en}
+                className="group relative rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-7 hover:bg-white/[0.07] hover:border-white/20 transition-all"
+              >
+                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-5 group-hover:bg-white/15 transition-colors">
+                  <Icon className="w-5 h-5 text-white" />
                 </div>
-                <div>
-                  <h3 className="text-2xl md:text-3xl font-serif font-bold text-white">
-                    {currentValue.title}
-                  </h3>
-                  <p className="text-white/80 text-sm md:text-base">
-                    {currentValue.description}
-                  </p>
-                </div>
+                <h3 className="font-serif text-xl mb-2">
+                  {ar ? p.title_ar : p.title_en}
+                </h3>
+                <p className="text-sm text-white/70 leading-relaxed">
+                  {ar ? p.desc_ar : p.desc_en}
+                </p>
               </div>
-            </div>
-
-            {/* Navigation Arrows */}
-            <button
-              onClick={goToPrevious}
-              className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/90 shadow-lg flex items-center justify-center hover:bg-white transition-colors"
-            >
-              <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-[#1e3a5f]" />
-            </button>
-            <button
-              onClick={goToNext}
-              className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/90 shadow-lg flex items-center justify-center hover:bg-white transition-colors"
-            >
-              <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-[#1e3a5f]" />
-            </button>
-          </div>
-
-          {/* Dots Indicator */}
-          <div className="flex justify-center gap-2 mt-6">
-            {addedValues.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => {
-                  setIsAutoPlaying(false);
-                  setCurrentIndex(index);
-                }}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  index === currentIndex 
-                    ? "bg-[#00A4E4] w-6" 
-                    : "bg-white/40 hover:bg-white/60"
-                }`}
-              />
-            ))}
-          </div>
-
-          {/* Mini Thumbnails */}
-          <div className="flex justify-center gap-3 mt-6 overflow-x-auto pb-2 px-4">
-            {addedValues.map((value, index) => {
-              const Icon = value.icon;
-              return (
-                <button
-                  key={value.id}
-                  onClick={() => {
-                    setIsAutoPlaying(false);
-                    setCurrentIndex(index);
-                  }}
-                  className={`flex-shrink-0 flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 ${
-                    index === currentIndex
-                      ? "bg-[#00A4E4] text-white"
-                      : "bg-white/10 text-white/70 hover:bg-white/20"
-                  }`}
-                >
-                  <Icon className="w-4 h-4" />
-                  <span className="text-xs md:text-sm font-medium whitespace-nowrap">{value.title}</span>
-                </button>
-              );
-            })}
-          </div>
+            );
+          })}
         </div>
       </div>
     </section>

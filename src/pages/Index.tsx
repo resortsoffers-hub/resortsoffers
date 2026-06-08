@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { MessageCircle, ShieldCheck, Sparkles, ArrowRight, MapPin } from "lucide-react";
+import { MessageCircle, ShieldCheck, ArrowRight, MapPin } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AddedValuesSlider from "@/components/AddedValuesSlider";
@@ -61,12 +61,12 @@ const Index = () => {
       : "Hello, I'd like personal recommendations for a verified luxury resort."
   );
 
-  // Editorial collections — curated, not catalog-driven
+  // Luxury Collections — private members-club groupings
   const collections = [
-    { slug: "honeymoon", label_en: "Honeymoon", label_ar: "شهر العسل" },
-    { slug: "adults-only", label_en: "Adults-Only Sanctuaries", label_ar: "للبالغين فقط" },
-    { slug: "family", label_en: "Family Villas", label_ar: "فيلات عائلية" },
-    { slug: "noras-picks", label_en: "Nora's Picks", label_ar: "اختيارات نورا" },
+    { slug: "honeymoon", label_en: "Romantic Escapes", label_ar: "رحلات رومانسية" },
+    { slug: "adults-only", label_en: "Adults-Only Hideaways", label_ar: "ملاذات للبالغين فقط" },
+    { slug: "family", label_en: "Family Luxury Collection", label_ar: "مجموعة العائلة الفاخرة" },
+    { slug: "villas", label_en: "Private Villa Collection", label_ar: "مجموعة الفلل الخاصة" },
   ];
 
   return (
@@ -90,9 +90,8 @@ const Index = () => {
         {/* 1. Hero */}
         <section className="bg-primary text-primary-foreground pt-24 pb-20 md:pt-32 md:pb-28">
           <div className="container mx-auto px-4 text-center max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-white/90 text-xs font-medium mb-6">
-              <Sparkles className="h-3.5 w-3.5" />
-              {ar ? "استشارة فاخرة خاصة" : "Private luxury advisory"}
+            <div className="inline-block uppercase tracking-[0.25em] text-[10px] md:text-xs text-white/70 mb-6">
+              {ar ? "— استشارة فاخرة خاصة —" : "— Private Luxury Advisory —"}
             </div>
             <h1 className="font-serif text-3xl md:text-5xl leading-tight mb-5">
               {ar
@@ -143,7 +142,7 @@ const Index = () => {
           <div className="container mx-auto px-4">
             <div className="text-center max-w-2xl mx-auto mb-12">
               <h2 className="font-serif text-3xl md:text-4xl text-primary mb-3">
-                {ar ? "وجهات فاخرة مختارة" : "Curated luxury destinations"}
+                {ar ? "وجهات فاخرة" : "Luxury Destinations"}
               </h2>
               <p className="text-muted-foreground">
                 {ar
@@ -188,17 +187,18 @@ const Index = () => {
           </div>
         </section>
 
-        {/* 4. Curated collections */}
+        {/* 4. Luxury Collections */}
         <section className="py-20 md:py-24 bg-muted/30 border-y">
           <div className="container mx-auto px-4">
-            <div className="text-center max-w-2xl mx-auto mb-10">
+            <div className="text-center max-w-2xl mx-auto mb-12">
               <h2 className="font-serif text-3xl md:text-4xl text-primary mb-3">
-                {ar ? "مجموعات منسقة" : "Curated collections"}
+                {ar ? "مجموعات فاخرة" : "Luxury Collections"}
               </h2>
+              <div className="mx-auto w-12 h-px bg-primary/30 mb-4" />
               <p className="text-muted-foreground">
                 {ar
-                  ? "اختيارات تحريرية عبر الوجهات لمناسبات وأذواق محددة."
-                  : "Editorial picks across destinations for specific occasions and tastes."}
+                  ? "تجارب موقعة عبر الوجهات لكل مناسبة وكل ذوق."
+                  : "Signature experiences across our destinations for every occasion and taste."}
               </p>
             </div>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
@@ -206,14 +206,14 @@ const Index = () => {
                 <Link
                   key={c.slug}
                   to={lp(`/destinations`)}
-                  className="group bg-card rounded-xl border p-6 text-center hover:shadow-md transition-all hover:-translate-y-0.5"
+                  className="group bg-card rounded-none border border-border p-7 text-center hover:border-primary transition-all"
                 >
-                  <Sparkles className="h-5 w-5 text-primary mx-auto mb-3" />
-                  <h3 className="font-serif text-lg text-primary mb-1">
+                  <h3 className="font-serif text-lg text-primary mb-3">
                     {ar ? c.label_ar : c.label_en}
                   </h3>
-                  <p className="text-xs text-muted-foreground inline-flex items-center gap-1">
-                    {ar ? "استكشف" : "Explore"}
+                  <div className="mx-auto w-8 h-px bg-primary/30 group-hover:w-12 group-hover:bg-primary transition-all mb-3" />
+                  <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground inline-flex items-center gap-1.5">
+                    {ar ? "استكشف" : "Discover"}
                     <ArrowRight className="h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
                   </p>
                 </Link>

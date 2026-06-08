@@ -1,4 +1,4 @@
-import { Crown, Sparkles, Compass, Gem } from "lucide-react";
+import { Crown, Compass, Gem, Diamond } from "lucide-react";
 import { useLocale } from "@/hooks/useLocale";
 
 /**
@@ -31,7 +31,7 @@ const AddedValuesSlider = () => {
       desc_ar: "كل برنامج رحلة يُصمَّم بعناية من قِبَل مستشارك الشخصي.",
     },
     {
-      icon: Sparkles,
+      icon: Diamond,
       title_en: "Exceptional Added Values",
       title_ar: "مزايا استثنائية مضافة",
       desc_en: "Complimentary privileges thoughtfully arranged for every stay.",
@@ -50,15 +50,15 @@ const AddedValuesSlider = () => {
     <section className="py-20 md:py-28 bg-gradient-to-br from-[#0f2440] via-[#1e3a5f] to-[#0f2440] text-white">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-white/85 text-xs font-medium tracking-wider uppercase mb-5">
-            <Crown className="h-3.5 w-3.5" />
-            {ar ? "امتيازات الأعضاء الحصرية" : "Exclusive Member Privileges"}
+          <div className="inline-block uppercase tracking-[0.25em] text-[10px] md:text-xs text-white/70 mb-5">
+            {ar ? "— امتيازات الأعضاء الحصرية —" : "— Exclusive Member Privileges —"}
           </div>
-          <h2 className="font-serif text-3xl md:text-4xl leading-tight mb-4">
+          <h2 className="font-serif text-3xl md:text-4xl leading-tight mb-5">
             {ar
-              ? "تجارب فاخرة منسقة، تخطيط سفر مخصص"
-              : "Curated luxury experiences, bespoke travel planning"}
+              ? "تجارب فاخرة موقعة، تخطيط سفر مخصص"
+              : "Signature luxury experiences, tailored travel planning"}
           </h2>
+          <div className="mx-auto w-12 h-px bg-white/40 mb-5" />
           <p className="text-white/75 text-base md:text-lg leading-relaxed">
             {ar
               ? "ومزايا استثنائية مضافة لكل إقامة."

@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { MessageCircle, X, Send, Sparkles, Languages } from "lucide-react";
+import { MessageCircle, X, Send, Languages } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -232,10 +232,10 @@ const ChatWidget = () => {
           <div className="bg-primary text-primary-foreground p-4 rounded-t-lg">
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
-                <Sparkles className="h-5 w-5" />
+                <MessageCircle className="h-5 w-5" />
                 <div>
-                  <h3 className="font-semibold">Travel Assistant</h3>
-                  <p className="text-xs opacity-90">Powered by AI</p>
+                  <h3 className="font-semibold">Travel Advisor</h3>
+                  <p className="text-xs opacity-90">Private concierge</p>
                 </div>
               </div>
               <Button

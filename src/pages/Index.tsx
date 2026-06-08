@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { MessageCircle, ShieldCheck, ArrowRight, MapPin } from "lucide-react";
+import { MessageCircle, ArrowRight, MapPin } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AddedValuesSlider from "@/components/AddedValuesSlider";
@@ -77,8 +77,8 @@ const Index = () => {
           name="description"
           content={
             ar
-              ? "استشارة سفر فاخرة خاصة. توصيات شخصية لمنتجعات موثقة فقط."
-              : "Private luxury travel advisory. Personal recommendations for verified resorts only."
+              ? "استشارة سفر فاخرة خاصة. رحلات استثنائية مخصصة حسب ذوقك."
+              : "Private luxury travel advisory. Exceptional journeys designed exclusively for you."
           }
         />
         <link rel="canonical" href={`https://${BRAND.domain}/`} />
@@ -95,13 +95,13 @@ const Index = () => {
             </div>
             <h1 className="font-serif text-3xl md:text-5xl leading-tight mb-5">
               {ar
-                ? "منتجعات موثقة. مختارة بعناية. لا صور عامة."
-                : "Verified resorts. Hand-picked. No generic photography."}
+                ? "سفر فاخر مُصمّم حولك"
+                : "Bespoke Luxury Travel, Designed Around You"}
             </h1>
             <p className="text-primary-foreground/85 text-base md:text-lg leading-relaxed mb-8">
               {ar
-                ? "نحن لسنا منصة حجوزات. اختر وجهة، وسنقدّم لك مجموعة مختارة بعناية من المنتجعات الفاخرة، ومستشارًا شخصيًا لتنسيق رحلتك."
-                : "We're not a booking engine. Pick a destination — we'll present a hand-curated set of luxury resorts and a personal advisor to plan your trip."}
+                ? "مستشارو السفر لدينا يصمّمون كل رحلة باهتمام استثنائي بالتفاصيل، لضمان تجربة فاخرة لا تُنسى."
+                : "Our travel advisors curate every journey with exceptional attention to detail, ensuring a seamless and unforgettable luxury experience."}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link to={lp("/destinations")}>
@@ -126,14 +126,11 @@ const Index = () => {
         {/* 2. Trust strip */}
         <section className="border-b">
           <div className="container mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-center gap-3 md:gap-8 text-sm text-muted-foreground text-center">
-            <span className="inline-flex items-center gap-2">
-              <ShieldCheck className="h-4 w-4 text-primary" />
-              {ar ? "صور رسمية فقط من المنتجع" : "Only official property photography"}
-            </span>
+            <span>{ar ? "استشارة شخصية" : "Personal advisory"}</span>
             <span className="hidden md:inline text-border">|</span>
             <span>{ar ? "محتوى أصلي لكل منتجع" : "Original content per resort"}</span>
             <span className="hidden md:inline text-border">|</span>
-            <span>{ar ? "استشارة شخصية — لا منصة حجوزات" : "Personal advisory — not a booking engine"}</span>
+            <span>{ar ? "صور رسمية من المنتجع" : "Official property photography"}</span>
           </div>
         </section>
 

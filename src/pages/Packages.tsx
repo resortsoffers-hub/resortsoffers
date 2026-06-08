@@ -48,15 +48,11 @@ const Packages = () => {
           <h1 className="font-serif text-3xl md:text-5xl text-primary mb-5 leading-tight">
             {ar ? "الباقات قيد التحديث" : "Packages are being refreshed"}
           </h1>
-          <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-3">
+          <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-10">
             {ar
-              ? "نُعيد بناء باقاتنا باستخدام منتجعات معتمدة فقط — بصور رسمية وأسعار محدّثة من شركائنا. خلال هذه المرحلة، يقدم مستشارونا توصيات شخصية لكل رحلة."
-              : "We're rebuilding our packages around verified resorts only — with official photography and live partner pricing. In the meantime our advisors will tailor a proposal to your trip."}
+              ? "كل باقة تُصاغ خصيصاً لرحلتك — بأسعار محدّثة من شركائنا واهتمام شخصي بكل تفصيل."
+              : "Every itinerary is composed privately for your journey — with live partner pricing and personal attention to every detail."}
           </p>
-          <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground mb-10">
-            <ShieldCheck className="h-3.5 w-3.5 text-primary" />
-            {ar ? "لا أسعار وهمية — لا صور عامة" : "No invented pricing — no generic photography"}
-          </div>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
               href={`https://wa.me/${WA}?text=${waMsg}`}
@@ -69,7 +65,7 @@ const Packages = () => {
             </a>
             <Link to={lp("/hotels")}>
               <Button variant="outline" className="px-6 py-3 h-auto">
-                {ar ? "تصفح المنتجعات المعتمدة" : "Browse verified resorts"}
+                {ar ? "تصفح المنتجعات" : "Browse resorts"}
                 <ArrowRight className="h-4 w-4 ms-2" />
               </Button>
             </Link>

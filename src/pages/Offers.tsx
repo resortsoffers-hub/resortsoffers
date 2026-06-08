@@ -70,7 +70,7 @@ const Offers = () => {
             </a>
             <Link to={lp("/hotels")}>
               <Button variant="outline" className="px-6 py-3 h-auto">
-                {ar ? "تصفح المنتجعات المعتمدة" : "Browse verified resorts"}
+                {ar ? "تصفح المنتجعات" : "Browse resorts"}
                 <ArrowRight className="h-4 w-4 ms-2" />
               </Button>
             </Link>

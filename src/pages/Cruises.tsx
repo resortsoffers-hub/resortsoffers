@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Ship, Anchor, MapPin, Clock, Heart, Sparkles, Users, Search, X, MessageCircle, Calendar, Star } from "lucide-react";
+import { Ship, Anchor, MapPin, Clock, Heart, Users, Search, X, MessageCircle, Calendar, Star } from "lucide-react";
 
 // Import cruise images
 import disneyCruise from "@/assets/resorts/disney-cruise.jpg";

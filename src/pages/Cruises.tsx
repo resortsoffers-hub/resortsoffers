@@ -328,8 +328,7 @@ const CruiseCard = ({ cruise }: { cruise: Cruise }) => {
             </Badge>
           )}
           {cruise.isLuxury && (
-            <Badge className="bg-amber-500/90 text-white">
-              <Sparkles className="w-3 h-3 mr-1" />
+            <Badge className="bg-amber-500/90 text-white tracking-widest uppercase text-[10px]">
               Luxury
             </Badge>
           )}

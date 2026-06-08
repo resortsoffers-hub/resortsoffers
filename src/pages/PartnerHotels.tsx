@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Sparkles, ShieldCheck, ArrowRight } from "lucide-react";
+import { MessageCircle, ShieldCheck, ArrowRight } from "lucide-react";
 import { useLocale, useLocalePath } from "@/hooks/useLocale";
 
 /**
@@ -52,9 +52,8 @@ const PartnerHotels = () => {
 
       <main className="flex-1 flex items-center justify-center px-6 py-20">
         <div className="max-w-2xl text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-medium mb-6">
-            <Sparkles className="h-3.5 w-3.5" />
-            {ar ? "تحت التنسيق" : "Currently being curated"}
+          <div className="inline-block uppercase tracking-[0.25em] text-[10px] md:text-xs text-primary/70 mb-6">
+            {ar ? "— تحت التنسيق —" : "— Currently Being Curated —"}
           </div>
 
           <h1 className="font-serif text-3xl md:text-5xl text-primary mb-5 leading-tight">

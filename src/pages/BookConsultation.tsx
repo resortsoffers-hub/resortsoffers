@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { format } from "date-fns";
-import { Calendar as CalendarIcon, Phone, Video, MessageCircle, Clock, Check, Sparkles } from "lucide-react";
+import { Calendar as CalendarIcon, Phone, Video, MessageCircle, Clock, Check } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -255,7 +255,7 @@ const BookConsultation = () => {
                 </h2>
                 <div className="space-y-4">
                   {[
-                    { icon: Sparkles, text: "Personalized resort recommendations based on your preferences" },
+                    { icon: Check, text: "Personalized resort recommendations based on your preferences" },
                     { icon: Clock, text: "Save hours of research with expert guidance" },
                     { icon: MessageCircle, text: "Exclusive deals and added value packages" },
                   ].map((item, index) => (

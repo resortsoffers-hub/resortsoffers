@@ -62,16 +62,11 @@ const PartnerHotels = () => {
               : "Our curated luxury collection is being refreshed"}
           </h1>
 
-          <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-3">
+          <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-10">
             {ar
-              ? "نُعيد بناء كتالوج المنتجعات الشريكة باستخدام صور رسمية موثقة ومحتوى أصلي لكل منتجع. نحن نُفضّل مجموعة صغيرة دقيقة على دليل واسع غير دقيق."
-              : "We're rebuilding the partner-resort catalogue using verified official photography and original content for each property. We'd rather present a smaller authentic collection than a large inaccurate directory."}
+              ? "تُعدّ مجموعتنا من المنتجعات الشريكة بعناية، منزلاً واحداً في كل مرة. يُسعد مستشارينا تنسيق إقامتك القادمة بشكل خاص."
+              : "Our partner-resort collection is being composed with care, one property at a time. In the meantime, our advisors will privately arrange your next stay."}
           </p>
-
-          <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground mb-10">
-            <ShieldCheck className="h-3.5 w-3.5 text-primary" />
-            {ar ? "صور رسمية فقط — لا توجد صور عامة أو مكررة" : "Verified imagery only — no generic or duplicated visuals"}
-          </div>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
@@ -90,12 +85,6 @@ const PartnerHotels = () => {
               </Button>
             </Link>
           </div>
-
-          <p className="mt-10 text-xs text-muted-foreground">
-            {ar
-              ? "يعود قريباً مع أول منتجعات معتمدة."
-              : "Returning shortly with the first verified resorts."}
-          </p>
         </div>
       </main>
 

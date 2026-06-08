@@ -116,7 +116,7 @@ const BookConsultation = () => {
 
       setIsSuccess(true);
       toast({
-        title: "Consultation Booked! ✨",
+        title: "Consultation Booked",
         description: "You'll receive a confirmation email with calendar invite shortly.",
       });
     } catch (error) {

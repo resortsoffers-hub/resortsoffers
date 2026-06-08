@@ -189,18 +189,60 @@ const HotelDetail = () => {
               <p className="text-muted-foreground">{lang === "ar" ? "محتوى مفصل قريباً." : "Detailed content coming soon."}</p>
             )}
 
-            {images.length > 0 && (
-              <div className="mt-10">
-                <h2 className="font-serif text-2xl text-primary mb-4">{lang === "ar" ? "المعرض" : "Gallery"}</h2>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                  {images.map((img) => (
-                    <button key={img.id} onClick={() => setActiveImg(img.image_url)} className="aspect-[4/3] rounded-lg overflow-hidden bg-muted">
-                      <img src={img.image_url} alt={img.caption_en || ""} loading="lazy" className="w-full h-full object-cover hover:scale-105 transition-transform" />
-                    </button>
-                  ))}
+            {/* Categorised galleries */}
+            {CATEGORY_ORDER.map((cat) => {
+              const items = images.filter((i) => i.category_kind === cat.kind);
+              if (items.length === 0) return null;
+              const title = lang === "ar" ? cat.ar : cat.en;
+              return (
+                <div key={cat.kind} className="mt-12">
+                  <h2 className="font-serif text-2xl text-primary mb-4">{title}</h2>
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    {items.map((img) => {
+                      const caption = lang === "ar" && img.caption_ar ? img.caption_ar : img.caption_en;
+                      return (
+                        <button
+                          key={img.id}
+                          onClick={() => setActiveImg(img.image_url)}
+                          className="group text-start"
+                        >
+                          <div className="aspect-[4/3] rounded-lg overflow-hidden bg-muted">
+                            <img
+                              src={img.image_url}
+                              alt={caption || title}
+                              loading="lazy"
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                            />
+                          </div>
+                          {img.category_label && (
+                            <div className="mt-1.5 text-xs text-muted-foreground line-clamp-1">{img.category_label}</div>
+                          )}
+                        </button>
+                      );
+                    })}
+                  </div>
                 </div>
-              </div>
-            )}
+              );
+            })}
+
+            {/* Uncategorised fallback */}
+            {(() => {
+              const orphan = images.filter((i) => !CATEGORY_ORDER.some((c) => c.kind === i.category_kind));
+              if (orphan.length === 0) return null;
+              return (
+                <div className="mt-12">
+                  <h2 className="font-serif text-2xl text-primary mb-4">{lang === "ar" ? "المعرض" : "Gallery"}</h2>
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    {orphan.map((img) => (
+                      <button key={img.id} onClick={() => setActiveImg(img.image_url)} className="aspect-[4/3] rounded-lg overflow-hidden bg-muted">
+                        <img src={img.image_url} alt={img.caption_en || ""} loading="lazy" className="w-full h-full object-cover hover:scale-105 transition-transform" />
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              );
+            })()}
+
           </div>
 
           {/* Inquiry */}

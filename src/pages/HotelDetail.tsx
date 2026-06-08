@@ -26,11 +26,30 @@ interface Hotel {
   long_desc_en: string | null;
   long_desc_ar: string | null;
   hero_image_url: string | null;
+  is_published: boolean;
 }
 
-interface Img { id: string; image_url: string; caption_en: string | null; }
+interface Img {
+  id: string;
+  image_url: string;
+  caption_en: string | null;
+  caption_ar: string | null;
+  category_kind: string | null;
+  category_label: string | null;
+}
 
 const WHATSAPP = "971567622484";
+
+const CATEGORY_ORDER: { kind: string; en: string; ar: string }[] = [
+  { kind: "aerial", en: "Aerial & Island Views", ar: "إطلالات جوية وجزيرة" },
+  { kind: "villa", en: "Villas & Suites", ar: "الفلل والأجنحة" },
+  { kind: "dining", en: "Restaurants & Bars", ar: "المطاعم والبارات" },
+  { kind: "spa", en: "Spa & Wellness", ar: "السبا والعافية" },
+  { kind: "experience", en: "Experiences", ar: "التجارب" },
+  { kind: "beach", en: "Beach & Pool", ar: "الشاطئ والمسبح" },
+  { kind: "kids", en: "Kids Club", ar: "نادي الأطفال" },
+  { kind: "facility", en: "Facilities", ar: "المرافق" },
+];
 
 const HotelDetail = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -47,11 +66,13 @@ const HotelDetail = () => {
   useEffect(() => {
     (async () => {
       setLoading(true);
-      const { data: h } = await supabase.from("hotels").select("*").eq("slug", slug!).eq("is_published", true).maybeSingle();
+      // No is_published filter — RLS hides unpublished hotels from anon; admins see all.
+      // Public list pages still filter by is_published, so drafts are only reachable by direct URL.
+      const { data: h } = await supabase.from("hotels").select("*").eq("slug", slug!).maybeSingle();
       if (h) {
         setHotel(h as Hotel);
         const { data: imgs } = await supabase.from("hotel_images")
-          .select("id,image_url,caption_en").eq("hotel_id", (h as Hotel).id)
+          .select("id,image_url,caption_en,caption_ar,category_kind,category_label").eq("hotel_id", (h as Hotel).id)
           .order("display_order", { ascending: true });
         setImages((imgs as Img[]) || []);
         setActiveImg((h as Hotel).hero_image_url || (imgs?.[0]?.image_url ?? null));
@@ -59,6 +80,7 @@ const HotelDetail = () => {
       setLoading(false);
     })();
   }, [slug]);
+
 
   const submitInquiry = async (e: React.FormEvent) => {
     e.preventDefault();

@@ -382,13 +382,25 @@ const HotelDetail = () => {
                       ))}
                     </ul>
                   )}
-                  <a
-                    href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(`Hello, I'd like to book the current offer at ${hotel.name_en}: ${offer.title}`)}`}
-                    target="_blank" rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1da851] text-white rounded-md px-5 py-2.5 font-medium transition-colors"
-                  >
-                    <MessageCircle className="h-4 w-4" /> {lang === "ar" ? "احجز هذا العرض" : "Book this offer"}
-                  </a>
+                  <div className="flex flex-wrap gap-3">
+                    <a
+                      href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(`Hello, I'd like to book the current offer at ${hotel.name_en}: ${offer.title}`)}`}
+                      target="_blank" rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1da851] text-white rounded-md px-5 py-2.5 font-medium transition-colors"
+                    >
+                      <MessageCircle className="h-4 w-4" /> {lang === "ar" ? "احجز عبر واتساب" : "Enquire via WhatsApp"}
+                    </a>
+                    {offer.file_url && (
+                      <a
+                        href={offer.file_url}
+                        target="_blank" rel="noopener noreferrer"
+                        download
+                        className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground rounded-md px-5 py-2.5 font-medium transition-colors"
+                      >
+                        <Download className="h-4 w-4" /> {lang === "ar" ? "تحميل العرض PDF" : "Download PDF"}
+                      </a>
+                    )}
+                  </div>
                 </div>
               ) : (
                 <div className="bg-muted/40 border border-dashed rounded-xl p-6 text-sm text-muted-foreground">

@@ -66,6 +66,8 @@ interface Offer {
   nights: number | null;
   valid_until: string | null;
   features: any;
+  file_url: string | null;
+  file_type: string | null;
 }
 
 const WHATSAPP = "971567622484";

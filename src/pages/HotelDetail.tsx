@@ -15,7 +15,7 @@ import { safeHotelImage } from "@/lib/safeImage";
 import {
   MapPin, MessageCircle, Loader2, ArrowLeft,
   Home, UtensilsCrossed, Sparkles, Waves, Users, Heart,
-  Plane, Camera, Video, Tag, Mail,
+  Plane, Camera, Video, Tag, Mail, Download, FileText,
 } from "lucide-react";
 
 const QUICK_LINKS: { id: string; en: string; ar: string; Icon: React.ComponentType<{ className?: string }> }[] = [

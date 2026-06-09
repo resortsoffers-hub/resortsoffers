@@ -203,7 +203,13 @@ const HotelDetail = () => {
         >
           <div className="container mx-auto px-4 py-4">
             <ul className="flex gap-2 md:gap-3 overflow-x-auto pb-1 scrollbar-thin">
-              {QUICK_LINKS.map(({ id, en, ar, Icon }) => {
+              {QUICK_LINKS.filter(({ id }) => {
+                // Always available targets
+                if (["location", "offer", "quote"].includes(id)) return true;
+                if (id === "gallery") return images.length > 0;
+                // Category-backed targets: only show when at least one image exists in that category
+                return images.some((img) => img.category_kind === id);
+              }).map(({ id, en, ar, Icon }) => {
                 const label = lang === "ar" ? ar : en;
                 const href = id === "quote" ? `https://wa.me/${WHATSAPP}?text=${waMsg}` : `#${id}`;
                 const isExternal = id === "quote";

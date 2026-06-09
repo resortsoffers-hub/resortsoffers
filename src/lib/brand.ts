@@ -16,8 +16,8 @@ export const BRAND = {
   // HSL tokens are defined in index.css; these literals are only for non-themed
   // surfaces (e.g. WhatsApp brand green which must remain its official color).
   colors: {
-    primary: "#1e3a5f", // Navy
-    accent: "#00A4E4", // Cyan accent
+    primary: "#141414", // Near-black
+    accent: "#C9A961", // Champagne gold
     whatsapp: "#25D366",
   },
   social: {

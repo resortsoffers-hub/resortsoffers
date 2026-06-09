@@ -11,7 +11,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
 import { useLocale, useLocalePath } from "@/hooks/useLocale";
-import { safeHotelImage } from "@/lib/safeImage";
+import { fallbackHotelImage, safeHotelImage } from "@/lib/safeImage";
 import {
   MapPin, MessageCircle, Loader2, ArrowLeft,
   Home, UtensilsCrossed, Sparkles, Waves, Users, Heart,
@@ -203,7 +203,7 @@ const HotelDetail = () => {
       <main className="flex-1">
         {/* Hero */}
         <section id="location" className="relative h-[60vh] min-h-[400px] bg-muted scroll-mt-24">
-          <img src={safeHotelImage(activeImg)} alt={name} className="w-full h-full object-cover" />
+          <img src={safeHotelImage(activeImg)} alt={name} onError={fallbackHotelImage} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
           <div className="absolute bottom-0 inset-x-0 p-6 md:p-10 text-white">
             <div className="container mx-auto">
@@ -270,6 +270,7 @@ const HotelDetail = () => {
                   <img
                     src={img.image_url}
                     alt={(lang === "ar" && img.caption_ar) ? img.caption_ar : (img.caption_en || `${hotel.name_en} photo`)}
+                    onError={fallbackHotelImage}
                     className="w-full h-full object-cover"
                   />
                 </button>
@@ -312,6 +313,7 @@ const HotelDetail = () => {
                               src={img.image_url}
                               alt={caption || title}
                               loading="lazy"
+                              onError={fallbackHotelImage}
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform"
                             />
                           </div>
@@ -336,7 +338,7 @@ const HotelDetail = () => {
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                     {orphan.map((img) => (
                       <button key={img.id} onClick={() => setActiveImg(img.image_url)} className="aspect-[4/3] rounded-lg overflow-hidden bg-muted">
-                        <img src={img.image_url} alt={img.caption_en || ""} loading="lazy" className="w-full h-full object-cover hover:scale-105 transition-transform" />
+                        <img src={img.image_url} alt={img.caption_en || ""} loading="lazy" onError={fallbackHotelImage} className="w-full h-full object-cover hover:scale-105 transition-transform" />
                       </button>
                     ))}
                   </div>

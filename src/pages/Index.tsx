@@ -12,7 +12,7 @@ import { DESTINATIONS } from "@/lib/destinations";
 import { HOTEL_CATEGORIES } from "@/lib/hotelCategories";
 import { BRAND } from "@/lib/brand";
 import { supabase } from "@/integrations/supabase/client";
-import { safeHotelImage } from "@/lib/safeImage";
+import { fallbackHotelImage, safeHotelImage } from "@/lib/safeImage";
 
 /**
  * Homepage — destination-first, concierge-style.
@@ -166,6 +166,7 @@ const Index = () => {
                           src={safeHotelImage(hero)}
                           alt={name}
                           loading="lazy"
+                          onError={fallbackHotelImage}
                           className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
@@ -248,6 +249,7 @@ const Index = () => {
                           src={safeHotelImage(h.hero_image_url)}
                           alt={name}
                           loading="lazy"
+                          onError={fallbackHotelImage}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                       </div>

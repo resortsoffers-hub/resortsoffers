@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { supabase } from "@/integrations/supabase/client";
-import { safeHotelImage } from "@/lib/safeImage";
+import { fallbackHotelImage, safeHotelImage } from "@/lib/safeImage";
 import { useLocale, useLocalePath } from "@/hooks/useLocale";
 import { HOTEL_CATEGORIES } from "@/lib/hotelCategories";
 import { findDestination } from "@/lib/destinations";
@@ -205,6 +205,7 @@ const DestinationHub = () => {
                         src={safeHotelImage(h.hero_image_url)}
                         alt={name}
                         loading="lazy"
+                        onError={fallbackHotelImage}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                     </div>

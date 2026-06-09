@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { useLocale, useLocalePath } from "@/hooks/useLocale";
-import { safeHotelImage } from "@/lib/safeImage";
+import { fallbackHotelImage, safeHotelImage } from "@/lib/safeImage";
 import { HOTEL_CATEGORIES } from "@/lib/hotelCategories";
 import { MapPin, Search, X } from "lucide-react";
 
@@ -196,6 +196,7 @@ const Hotels = () => {
                         src={safeHotelImage(h.hero_image_url)}
                         alt={name}
                         loading="lazy"
+                        onError={fallbackHotelImage}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                     </div>

@@ -1,3 +1,5 @@
+import type { SyntheticEvent } from "react";
+
 /**
  * Image trust gate.
  *
@@ -25,4 +27,9 @@ export function safeHotelImage(src?: string | null): string {
   if (src === PLACEHOLDER || src.endsWith("/hotel-placeholder.svg")) return src;
   // Everything else (bundled AI assets, unsplash, pexels, third-party) → placeholder
   return PLACEHOLDER;
+}
+
+export function fallbackHotelImage(event: SyntheticEvent<HTMLImageElement>) {
+  const img = event.currentTarget;
+  if (!img.src.endsWith(PLACEHOLDER)) img.src = PLACEHOLDER;
 }

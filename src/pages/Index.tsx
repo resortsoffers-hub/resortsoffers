@@ -134,55 +134,58 @@ const Index = () => {
           </div>
         </section>
 
-        {/* 3. Luxury destinations */}
-        <section className="py-20 md:py-28">
-          <div className="container mx-auto px-4">
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <h2 className="font-serif text-3xl md:text-4xl text-primary mb-3">
-                {ar ? "وجهات فاخرة" : "Luxury Destinations"}
-              </h2>
-              <p className="text-muted-foreground">
-                {ar
-                  ? "اختر وجهتك — ستجد فقط المنتجعات والفئات ذات الصلة بها."
-                  : "Pick your destination — you'll only see resorts and filters relevant to it."}
-              </p>
-            </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {DESTINATIONS.map((d) => {
-                const name = ar ? d.name_ar : d.name_en;
-                const blurb = ar ? d.blurb_ar : d.blurb_en;
-                const hero = heroByDest[d.slug];
-                return (
-                  <Link
-                    key={d.slug}
-                    to={lp(`/destinations/${d.slug}`)}
-                    className="group relative aspect-[4/5] rounded-2xl overflow-hidden bg-primary border border-border hover:shadow-xl transition-all"
-                  >
-                    {hero ? (
-                      <img
-                        src={safeHotelImage(hero)}
-                        alt={name}
-                        loading="lazy"
-                        className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                      />
-                    ) : (
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary to-[#0f2440]" />
-                    )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                    <div className="absolute inset-x-0 bottom-0 p-6 text-white">
-                      <div className="flex items-center gap-1.5 text-xs uppercase tracking-wider opacity-80 mb-2">
-                        <MapPin className="h-3 w-3" />
-                        {d.region}
-                      </div>
-                      <h3 className="font-serif text-2xl mb-1">{name}</h3>
-                      <p className="text-sm text-white/85 line-clamp-2">{blurb}</p>
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-        </section>
+        {/* 3. Luxury destinations — only render destinations with verified official photography */}
+        {(() => {
+          const liveDests = DESTINATIONS.filter((d) => heroByDest[d.slug]);
+          if (liveDests.length === 0) return null;
+          return (
+            <section className="py-20 md:py-28">
+              <div className="container mx-auto px-4">
+                <div className="text-center max-w-2xl mx-auto mb-12">
+                  <h2 className="font-serif text-3xl md:text-4xl text-primary mb-3">
+                    {ar ? "وجهات فاخرة" : "Luxury Destinations"}
+                  </h2>
+                  <p className="text-muted-foreground">
+                    {ar
+                      ? "اختر وجهتك لاستكشاف منتجعاتنا الموثقة."
+                      : "Choose your destination to explore our verified resorts."}
+                  </p>
+                </div>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {liveDests.map((d) => {
+                    const name = ar ? d.name_ar : d.name_en;
+                    const blurb = ar ? d.blurb_ar : d.blurb_en;
+                    const hero = heroByDest[d.slug];
+                    return (
+                      <Link
+                        key={d.slug}
+                        to={lp(`/destinations/${d.slug}`)}
+                        className="group relative aspect-[4/5] rounded-2xl overflow-hidden border border-border hover:shadow-xl transition-all"
+                      >
+                        <img
+                          src={safeHotelImage(hero)}
+                          alt={name}
+                          loading="lazy"
+                          className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                        <div className="absolute inset-x-0 bottom-0 p-6 text-white">
+                          <div className="flex items-center gap-1.5 text-xs uppercase tracking-wider opacity-80 mb-2">
+                            <MapPin className="h-3 w-3" />
+                            {d.region}
+                          </div>
+                          <h3 className="font-serif text-2xl mb-1">{name}</h3>
+                          <p className="text-sm text-white/85 line-clamp-2">{blurb}</p>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            </section>
+          );
+        })()}
+
 
         {/* 4. Luxury Collections */}
         <section className="py-20 md:py-24 bg-muted/30 border-y">

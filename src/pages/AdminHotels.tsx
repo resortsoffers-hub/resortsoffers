@@ -247,6 +247,18 @@ const AdminHotels = () => {
     setImages((prev) => prev.map((i) => (i.id === img.id ? { ...i, ...patch } : i)));
   };
 
+  // Patch SEO fields (filename, alt, title, description) on a single image.
+  // Debounce-free: we update local state instantly and persist on blur.
+  const updateImageSeo = async (
+    img: HotelImage,
+    patch: Partial<Pick<HotelImage, "seo_filename" | "alt_en" | "title_en" | "description_en" | "caption_en">>
+  ) => {
+    const { error } = await supabase.from("hotel_images").update(patch).eq("id", img.id);
+    if (error) return toast.error(error.message);
+    setImages((prev) => prev.map((i) => (i.id === img.id ? { ...i, ...patch } : i)));
+  };
+
+
   const addResource = async () => {
     if (!editing?.id) return;
     if (!newResource.label?.trim() || !newResource.url?.trim()) {
@@ -604,6 +616,40 @@ const AdminHotels = () => {
                               onChange={(e) => updateImageCategory(img, { category_label: e.target.value || null })}
                               placeholder="Exact name (e.g. Sunset Water Villa)"
                               className="h-8 text-xs"
+                            />
+                          </div>
+                          {/* SEO fields — feed Google Image search and screen readers.
+                              Persisted on blur so typing stays smooth. */}
+                          <div className="p-2 pt-0 grid gap-1.5 bg-card border-t">
+                            <Input
+                              defaultValue={img.seo_filename || ""}
+                              onBlur={(e) => updateImageSeo(img, { seo_filename: e.target.value.trim() || null })}
+                              placeholder="SEO filename (e.g. soneva-jani-water-villa-lagoon)"
+                              className="h-8 text-xs"
+                            />
+                            <Input
+                              defaultValue={img.alt_en || ""}
+                              onBlur={(e) => updateImageSeo(img, { alt_en: e.target.value.trim() || null })}
+                              placeholder="Alt text — describe what's shown for accessibility"
+                              className="h-8 text-xs"
+                            />
+                            <Input
+                              defaultValue={img.title_en || ""}
+                              onBlur={(e) => updateImageSeo(img, { title_en: e.target.value.trim() || null })}
+                              placeholder="Title (hover tooltip)"
+                              className="h-8 text-xs"
+                            />
+                            <Input
+                              defaultValue={img.caption_en || ""}
+                              onBlur={(e) => updateImageSeo(img, { caption_en: e.target.value.trim() || null })}
+                              placeholder="Caption (shown under image in gallery)"
+                              className="h-8 text-xs"
+                            />
+                            <Textarea
+                              defaultValue={img.description_en || ""}
+                              onBlur={(e) => updateImageSeo(img, { description_en: e.target.value.trim() || null })}
+                              placeholder="Long description for SEO / schema.org ImageObject"
+                              className="text-xs min-h-[60px]"
                             />
                           </div>
                         </div>

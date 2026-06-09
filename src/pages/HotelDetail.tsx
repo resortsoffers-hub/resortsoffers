@@ -15,7 +15,7 @@ import { safeHotelImage } from "@/lib/safeImage";
 import {
   MapPin, MessageCircle, Loader2, ArrowLeft,
   Home, UtensilsCrossed, Sparkles, Waves, Users, Heart,
-  Plane, Camera, Video, Tag, Mail,
+  Plane, Camera, Video, Tag, Mail, Download, FileText,
 } from "lucide-react";
 
 const QUICK_LINKS: { id: string; en: string; ar: string; Icon: React.ComponentType<{ className?: string }> }[] = [
@@ -66,6 +66,8 @@ interface Offer {
   nights: number | null;
   valid_until: string | null;
   features: any;
+  file_url: string | null;
+  file_type: string | null;
 }
 
 const WHATSAPP = "971567622484";
@@ -105,7 +107,7 @@ const HotelDetail = () => {
             .select("id,image_url,caption_en,caption_ar,category_kind,category_label").eq("hotel_id", (h as Hotel).id)
             .order("display_order", { ascending: true }),
           supabase.from("offers")
-            .select("id,title,description,price,currency,nights,valid_until,features")
+            .select("id,title,description,price,currency,nights,valid_until,features,file_url,file_type")
             .eq("hotel_id", (h as Hotel).id).eq("is_active", true)
             .order("display_order", { ascending: true }).limit(1),
         ]);
@@ -380,13 +382,25 @@ const HotelDetail = () => {
                       ))}
                     </ul>
                   )}
-                  <a
-                    href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(`Hello, I'd like to book the current offer at ${hotel.name_en}: ${offer.title}`)}`}
-                    target="_blank" rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1da851] text-white rounded-md px-5 py-2.5 font-medium transition-colors"
-                  >
-                    <MessageCircle className="h-4 w-4" /> {lang === "ar" ? "احجز هذا العرض" : "Book this offer"}
-                  </a>
+                  <div className="flex flex-wrap gap-3">
+                    <a
+                      href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(`Hello, I'd like to book the current offer at ${hotel.name_en}: ${offer.title}`)}`}
+                      target="_blank" rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1da851] text-white rounded-md px-5 py-2.5 font-medium transition-colors"
+                    >
+                      <MessageCircle className="h-4 w-4" /> {lang === "ar" ? "احجز عبر واتساب" : "Enquire via WhatsApp"}
+                    </a>
+                    {offer.file_url && (
+                      <a
+                        href={offer.file_url}
+                        target="_blank" rel="noopener noreferrer"
+                        download
+                        className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground rounded-md px-5 py-2.5 font-medium transition-colors"
+                      >
+                        <Download className="h-4 w-4" /> {lang === "ar" ? "تحميل العرض PDF" : "Download PDF"}
+                      </a>
+                    )}
+                  </div>
                 </div>
               ) : (
                 <div className="bg-muted/40 border border-dashed rounded-xl p-6 text-sm text-muted-foreground">
@@ -458,6 +472,28 @@ const HotelDetail = () => {
           </aside>
         </section>
       </main>
+
+      {/* Sticky mobile CTA bar — keeps Enquire + PDF always visible */}
+      <div className="lg:hidden fixed bottom-0 inset-x-0 z-40 border-t bg-background/95 backdrop-blur px-3 py-2 flex gap-2 shadow-lg">
+        <a
+          href={`https://wa.me/${WHATSAPP}?text=${waMsg}`}
+          target="_blank" rel="noopener noreferrer"
+          className="flex-1 inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1da851] text-white rounded-md py-2.5 text-sm font-medium"
+        >
+          <MessageCircle className="h-4 w-4" /> {lang === "ar" ? "واتساب" : "Enquire"}
+        </a>
+        {offer?.file_url && (
+          <a
+            href={offer.file_url}
+            target="_blank" rel="noopener noreferrer"
+            download
+            className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground rounded-md px-4 py-2.5 text-sm font-medium"
+          >
+            <FileText className="h-4 w-4" /> PDF
+          </a>
+        )}
+      </div>
+
       <Footer />
     </div>
   );

@@ -368,7 +368,7 @@ const AdminHotels = () => {
                   <div className="flex items-center justify-between">
                     <h2 className="font-serif text-xl">{editing.id ? "Edit hotel" : "New hotel"}</h2>
                     {editing.id && (
-                      <Link to={`/en/hotels/${editing.slug}`} target="_blank" className="text-sm inline-flex items-center text-primary hover:underline">
+                      <Link to={`/en/hotels/${editing.slug}?preview=${editing.id}`} target="_blank" className="text-sm inline-flex items-center text-primary hover:underline">
                         <Eye className="h-4 w-4 mr-1" /> Preview
                       </Link>
                     )}

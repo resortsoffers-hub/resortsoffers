@@ -12,7 +12,26 @@ import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
 import { useLocale, useLocalePath } from "@/hooks/useLocale";
 import { safeHotelImage } from "@/lib/safeImage";
-import { MapPin, MessageCircle, Loader2, ArrowLeft } from "lucide-react";
+import {
+  MapPin, MessageCircle, Loader2, ArrowLeft,
+  Home, UtensilsCrossed, Sparkles, Waves, Users, Heart,
+  Plane, Camera, Video, Tag, Mail,
+} from "lucide-react";
+
+const QUICK_LINKS: { id: string; en: string; ar: string; Icon: React.ComponentType<{ className?: string }> }[] = [
+  { id: "location",   en: "Location",            ar: "الموقع",            Icon: MapPin },
+  { id: "villa",      en: "Villas & Suites",     ar: "الفلل والأجنحة",     Icon: Home },
+  { id: "dining",     en: "Restaurants & Bars",  ar: "المطاعم والبارات",   Icon: UtensilsCrossed },
+  { id: "spa",        en: "Spa & Wellness",      ar: "السبا والعافية",     Icon: Sparkles },
+  { id: "experience", en: "Activities",          ar: "الأنشطة والرحلات",   Icon: Waves },
+  { id: "kids",       en: "Family Facilities",   ar: "مرافق العائلة",      Icon: Users },
+  { id: "honeymoon",  en: "Honeymoon Benefits",  ar: "مزايا شهر العسل",   Icon: Heart },
+  { id: "transfers",  en: "Transfers",           ar: "خدمة النقل",         Icon: Plane },
+  { id: "gallery",    en: "Photo Gallery",       ar: "معرض الصور",         Icon: Camera },
+  { id: "videos",     en: "Videos",              ar: "الفيديوهات",         Icon: Video },
+  { id: "offer",      en: "Current Offer",       ar: "العرض الحالي",       Icon: Tag },
+  { id: "quote",      en: "Request a Quote",     ar: "اطلب عرض سعر",       Icon: Mail },
+];
 
 interface Hotel {
   id: string;

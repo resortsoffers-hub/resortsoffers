@@ -472,6 +472,28 @@ const HotelDetail = () => {
           </aside>
         </section>
       </main>
+
+      {/* Sticky mobile CTA bar — keeps Enquire + PDF always visible */}
+      <div className="lg:hidden fixed bottom-0 inset-x-0 z-40 border-t bg-background/95 backdrop-blur px-3 py-2 flex gap-2 shadow-lg">
+        <a
+          href={`https://wa.me/${WHATSAPP}?text=${waMsg}`}
+          target="_blank" rel="noopener noreferrer"
+          className="flex-1 inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1da851] text-white rounded-md py-2.5 text-sm font-medium"
+        >
+          <MessageCircle className="h-4 w-4" /> {lang === "ar" ? "واتساب" : "Enquire"}
+        </a>
+        {offer?.file_url && (
+          <a
+            href={offer.file_url}
+            target="_blank" rel="noopener noreferrer"
+            download
+            className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground rounded-md px-4 py-2.5 text-sm font-medium"
+          >
+            <FileText className="h-4 w-4" /> PDF
+          </a>
+        )}
+      </div>
+
       <Footer />
     </div>
   );

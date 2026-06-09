@@ -1,3 +1,5 @@
+import type { SyntheticEvent } from "react";
+
 /**
  * Image trust gate.
  *
@@ -27,7 +29,7 @@ export function safeHotelImage(src?: string | null): string {
   return PLACEHOLDER;
 }
 
-export function fallbackHotelImage(event: React.SyntheticEvent<HTMLImageElement>) {
+export function fallbackHotelImage(event: SyntheticEvent<HTMLImageElement>) {
   const img = event.currentTarget;
   if (!img.src.endsWith(PLACEHOLDER)) img.src = PLACEHOLDER;
 }

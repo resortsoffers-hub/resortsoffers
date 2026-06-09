@@ -87,6 +87,7 @@ const HotelDetail = () => {
   const localePath = useLocalePath();
   const [hotel, setHotel] = useState<Hotel | null>(null);
   const [images, setImages] = useState<Img[]>([]);
+  const [offer, setOffer] = useState<Offer | null>(null);
   const [loading, setLoading] = useState(true);
   const [activeImg, setActiveImg] = useState<string | null>(null);
 
@@ -96,15 +97,20 @@ const HotelDetail = () => {
   useEffect(() => {
     (async () => {
       setLoading(true);
-      // No is_published filter — RLS hides unpublished hotels from anon; admins see all.
-      // Public list pages still filter by is_published, so drafts are only reachable by direct URL.
       const { data: h } = await supabase.from("hotels").select("*").eq("slug", slug!).maybeSingle();
       if (h) {
         setHotel(h as Hotel);
-        const { data: imgs } = await supabase.from("hotel_images")
-          .select("id,image_url,caption_en,caption_ar,category_kind,category_label").eq("hotel_id", (h as Hotel).id)
-          .order("display_order", { ascending: true });
+        const [{ data: imgs }, { data: offers }] = await Promise.all([
+          supabase.from("hotel_images")
+            .select("id,image_url,caption_en,caption_ar,category_kind,category_label").eq("hotel_id", (h as Hotel).id)
+            .order("display_order", { ascending: true }),
+          supabase.from("offers")
+            .select("id,title,description,price,currency,nights,valid_until,features")
+            .eq("hotel_id", (h as Hotel).id).eq("is_active", true)
+            .order("display_order", { ascending: true }).limit(1),
+        ]);
         setImages((imgs as Img[]) || []);
+        setOffer((offers?.[0] as Offer) || null);
         setActiveImg((h as Hotel).hero_image_url || (imgs?.[0]?.image_url ?? null));
       }
       setLoading(false);

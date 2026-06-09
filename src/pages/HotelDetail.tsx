@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { supabase } from "@/integrations/supabase/client";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PhotoGallery from "@/components/PhotoGallery";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -104,7 +105,26 @@ const HotelDetail = () => {
       setOffer(null);
       setActiveImg(null);
 
-      const { data: h } = await supabase.from("hotels").select("*").eq("slug", slug!).maybeSingle();
+      const privatePreviewId = previewId || new URLSearchParams(window.location.search).get("preview");
+
+      if (privatePreviewId) {
+        const { data: preview } = await (supabase as any).rpc("get_hotel_preview", {
+          _slug: slug,
+          _preview_id: privatePreviewId,
+        });
+        const payload = preview as { hotel?: Hotel; images?: Img[]; offer?: Offer | null } | null;
+        if (payload?.hotel) {
+          const previewImages = payload.images || [];
+          setHotel(payload.hotel);
+          setImages(previewImages);
+          setOffer(payload.offer || null);
+          setActiveImg(payload.hotel.hero_image_url || (previewImages[0]?.image_url ?? null));
+          setLoading(false);
+          return;
+        }
+      }
+
+      const { data: h } = await supabase.from("hotels").select("*").eq("slug", slug!).eq("is_published", true).maybeSingle();
       if (h) {
         setHotel(h as Hotel);
         const [{ data: imgs }, { data: offers }] = await Promise.all([
@@ -119,22 +139,6 @@ const HotelDetail = () => {
         setImages((imgs as Img[]) || []);
         setOffer((offers?.[0] as Offer) || null);
         setActiveImg((h as Hotel).hero_image_url || (imgs?.[0]?.image_url ?? null));
-      } else {
-        const privatePreviewId = previewId || new URLSearchParams(window.location.search).get("preview");
-        if (privatePreviewId) {
-          const { data: preview } = await (supabase as any).rpc("get_hotel_preview", {
-            _slug: slug,
-            _preview_id: privatePreviewId,
-          });
-          const payload = preview as { hotel?: Hotel; images?: Img[]; offer?: Offer | null } | null;
-          if (payload?.hotel) {
-            const previewImages = payload.images || [];
-            setHotel(payload.hotel);
-            setImages(previewImages);
-            setOffer(payload.offer || null);
-            setActiveImg(payload.hotel.hero_image_url || (previewImages[0]?.image_url ?? null));
-          }
-        }
       }
       setLoading(false);
     })();
@@ -186,6 +190,12 @@ const HotelDetail = () => {
   const name = lang === "ar" && hotel.name_ar ? hotel.name_ar : hotel.name_en;
   const shortDesc = lang === "ar" && hotel.short_desc_ar ? hotel.short_desc_ar : hotel.short_desc_en;
   const longDesc = lang === "ar" && hotel.long_desc_ar ? hotel.long_desc_ar : hotel.long_desc_en;
+  const toGalleryImages = (items: Img[], fallbackTitle: string) => items.map((img) => ({
+    src: safeHotelImage(img.image_url),
+    alt: (lang === "ar" && img.caption_ar) ? img.caption_ar : (img.caption_en || `${hotel.name_en} photo`),
+    title: (lang === "ar" && img.caption_ar) ? img.caption_ar : (img.caption_en || fallbackTitle),
+    description: img.category_label || undefined,
+  }));
 
   const waMsg = encodeURIComponent(
     `Hello, I'd like more information about ${hotel.name_en} (${hotel.destination}).`
@@ -268,7 +278,7 @@ const HotelDetail = () => {
                   className={`flex-shrink-0 w-24 h-20 rounded overflow-hidden border-2 transition-colors ${activeImg === img.image_url ? "border-primary" : "border-transparent"}`}
                 >
                   <img
-                    src={img.image_url}
+                    src={safeHotelImage(img.image_url)}
                     alt={(lang === "ar" && img.caption_ar) ? img.caption_ar : (img.caption_en || `${hotel.name_en} photo`)}
                     onError={fallbackHotelImage}
                     className="w-full h-full object-cover"
@@ -299,31 +309,7 @@ const HotelDetail = () => {
               return (
                 <div key={cat.kind} id={cat.kind} className="mt-12 scroll-mt-24">
                   <h2 className="font-serif text-2xl text-primary mb-4">{title}</h2>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                    {items.map((img) => {
-                      const caption = lang === "ar" && img.caption_ar ? img.caption_ar : img.caption_en;
-                      return (
-                        <button
-                          key={img.id}
-                          onClick={() => setActiveImg(img.image_url)}
-                          className="group text-start"
-                        >
-                          <div className="aspect-[4/3] rounded-lg overflow-hidden bg-muted">
-                            <img
-                              src={img.image_url}
-                              alt={caption || title}
-                              loading="lazy"
-                              onError={fallbackHotelImage}
-                              className="w-full h-full object-cover group-hover:scale-105 transition-transform"
-                            />
-                          </div>
-                          {img.category_label && (
-                            <div className="mt-1.5 text-xs text-muted-foreground line-clamp-1">{img.category_label}</div>
-                          )}
-                        </button>
-                      );
-                    })}
-                  </div>
+                  <PhotoGallery images={toGalleryImages(items, title)} columns={3} />
                 </div>
               );
             })}
@@ -335,13 +321,7 @@ const HotelDetail = () => {
               return (
                 <div className="mt-12">
                   <h2 className="font-serif text-2xl text-primary mb-4">{lang === "ar" ? "المعرض" : "Gallery"}</h2>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                    {orphan.map((img) => (
-                      <button key={img.id} onClick={() => setActiveImg(img.image_url)} className="aspect-[4/3] rounded-lg overflow-hidden bg-muted">
-                        <img src={img.image_url} alt={img.caption_en || ""} loading="lazy" onError={fallbackHotelImage} className="w-full h-full object-cover hover:scale-105 transition-transform" />
-                      </button>
-                    ))}
-                  </div>
+                  <PhotoGallery images={toGalleryImages(orphan, lang === "ar" ? "المعرض" : "Gallery")} columns={3} />
                 </div>
               );
             })()}

@@ -179,7 +179,7 @@ const HotelDetail = () => {
       <Navbar />
       <main className="flex-1">
         {/* Hero */}
-        <section className="relative h-[60vh] min-h-[400px] bg-muted">
+        <section id="location" className="relative h-[60vh] min-h-[400px] bg-muted scroll-mt-24">
           <img src={safeHotelImage(activeImg)} alt={name} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
           <div className="absolute bottom-0 inset-x-0 p-6 md:p-10 text-white">

@@ -330,7 +330,23 @@ const HotelDetail = () => {
                 <div className="bg-gradient-to-br from-primary/5 to-amber-50/40 border border-primary/20 rounded-xl p-6">
                   <h3 className="font-serif text-xl mb-2">{offer.title}</h3>
                   {offer.description && (
-                    <p className="text-foreground/80 whitespace-pre-line mb-4">{offer.description}</p>
+                    <p className="text-foreground/80 whitespace-pre-line mb-4">
+                      {offer.description.split(/(https?:\/\/[^\s]+)/g).map((part, i) =>
+                        /^https?:\/\//.test(part) ? (
+                          <a
+                            key={i}
+                            href={part}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-primary underline underline-offset-2 break-all hover:text-primary/80"
+                          >
+                            {part}
+                          </a>
+                        ) : (
+                          <span key={i}>{part}</span>
+                        )
+                      )}
+                    </p>
                   )}
                   <div className="flex flex-wrap gap-4 text-sm mb-4">
                     {offer.price != null && (

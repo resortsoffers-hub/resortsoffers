@@ -107,7 +107,7 @@ const HotelDetail = () => {
             .select("id,image_url,caption_en,caption_ar,category_kind,category_label").eq("hotel_id", (h as Hotel).id)
             .order("display_order", { ascending: true }),
           supabase.from("offers")
-            .select("id,title,description,price,currency,nights,valid_until,features")
+            .select("id,title,description,price,currency,nights,valid_until,features,file_url,file_type")
             .eq("hotel_id", (h as Hotel).id).eq("is_active", true)
             .order("display_order", { ascending: true }).limit(1),
         ]);

@@ -315,10 +315,70 @@ const HotelDetail = () => {
               );
             })()}
 
+            {/* Current Offer — single source of truth, easy to update from admin */}
+            <section id="offer" className="mt-12 scroll-mt-24">
+              <h2 className="font-serif text-2xl text-primary mb-4">
+                {lang === "ar" ? "العرض الحالي" : "Current Offer"}
+              </h2>
+              {offer ? (
+                <div className="bg-gradient-to-br from-primary/5 to-amber-50/40 border border-primary/20 rounded-xl p-6">
+                  <h3 className="font-serif text-xl mb-2">{offer.title}</h3>
+                  {offer.description && (
+                    <p className="text-foreground/80 whitespace-pre-line mb-4">{offer.description}</p>
+                  )}
+                  <div className="flex flex-wrap gap-4 text-sm mb-4">
+                    {offer.price != null && (
+                      <div>
+                        <div className="text-xs text-muted-foreground">{lang === "ar" ? "تبدأ من" : "From"}</div>
+                        <div className="font-serif text-lg text-primary">
+                          {offer.currency || "USD"} {Number(offer.price).toLocaleString()}
+                        </div>
+                      </div>
+                    )}
+                    {offer.nights && (
+                      <div>
+                        <div className="text-xs text-muted-foreground">{lang === "ar" ? "الليالي" : "Nights"}</div>
+                        <div className="font-medium">{offer.nights}</div>
+                      </div>
+                    )}
+                    {offer.valid_until && (
+                      <div>
+                        <div className="text-xs text-muted-foreground">{lang === "ar" ? "صالح حتى" : "Valid until"}</div>
+                        <div className="font-medium">{new Date(offer.valid_until).toLocaleDateString(lang === "ar" ? "ar" : "en-GB")}</div>
+                      </div>
+                    )}
+                  </div>
+                  {Array.isArray(offer.features) && offer.features.length > 0 && (
+                    <ul className="grid sm:grid-cols-2 gap-2 mb-4">
+                      {offer.features.map((f: any, i: number) => (
+                        <li key={i} className="flex items-start gap-2 text-sm">
+                          <span className="text-primary mt-0.5">✓</span>
+                          <span>{typeof f === "string" ? f : f?.label || f?.text}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  <a
+                    href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(`Hello, I'd like to book the current offer at ${hotel.name_en}: ${offer.title}`)}`}
+                    target="_blank" rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1da851] text-white rounded-md px-5 py-2.5 font-medium transition-colors"
+                  >
+                    <MessageCircle className="h-4 w-4" /> {lang === "ar" ? "احجز هذا العرض" : "Book this offer"}
+                  </a>
+                </div>
+              ) : (
+                <div className="bg-muted/40 border border-dashed rounded-xl p-6 text-sm text-muted-foreground">
+                  {lang === "ar"
+                    ? "اطلب أحدث الأسعار وعروض الموسم من مستشارنا."
+                    : "Request the latest rates and seasonal offers from our advisor."}
+                </div>
+              )}
+            </section>
+
           </div>
 
           {/* Inquiry */}
-          <aside className="lg:sticky lg:top-24 h-fit">
+          <aside id="quote" className="lg:sticky lg:top-24 h-fit scroll-mt-24">
             <div className="bg-card border rounded-xl p-6 shadow-sm">
               <h3 className="font-serif text-xl text-primary mb-1">
                 {lang === "ar" ? "استفسر عن هذا المنتجع" : "Enquire about this resort"}

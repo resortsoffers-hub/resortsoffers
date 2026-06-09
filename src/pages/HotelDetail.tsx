@@ -267,7 +267,7 @@ const HotelDetail = () => {
               if (items.length === 0) return null;
               const title = lang === "ar" ? cat.ar : cat.en;
               return (
-                <div key={cat.kind} className="mt-12">
+                <div key={cat.kind} id={cat.kind} className="mt-12 scroll-mt-24">
                   <h2 className="font-serif text-2xl text-primary mb-4">{title}</h2>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                     {items.map((img) => {

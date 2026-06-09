@@ -55,6 +55,10 @@ interface HotelImage {
   display_order: number;
   category_label: string | null;
   category_kind: string | null;
+  seo_filename: string | null;
+  alt_en: string | null;
+  title_en: string | null;
+  description_en: string | null;
 }
 
 interface HotelResource {

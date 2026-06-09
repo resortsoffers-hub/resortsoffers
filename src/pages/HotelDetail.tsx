@@ -99,6 +99,11 @@ const HotelDetail = () => {
   useEffect(() => {
     (async () => {
       setLoading(true);
+      setHotel(null);
+      setImages([]);
+      setOffer(null);
+      setActiveImg(null);
+
       const { data: h } = await supabase.from("hotels").select("*").eq("slug", slug!).maybeSingle();
       if (h) {
         setHotel(h as Hotel);
@@ -114,6 +119,22 @@ const HotelDetail = () => {
         setImages((imgs as Img[]) || []);
         setOffer((offers?.[0] as Offer) || null);
         setActiveImg((h as Hotel).hero_image_url || (imgs?.[0]?.image_url ?? null));
+      } else {
+        const previewId = new URLSearchParams(window.location.search).get("preview");
+        if (previewId) {
+          const { data: preview } = await (supabase as any).rpc("get_hotel_preview", {
+            _slug: slug,
+            _preview_id: previewId,
+          });
+          const payload = preview as { hotel?: Hotel; images?: Img[]; offer?: Offer | null } | null;
+          if (payload?.hotel) {
+            const previewImages = payload.images || [];
+            setHotel(payload.hotel);
+            setImages(previewImages);
+            setOffer(payload.offer || null);
+            setActiveImg(payload.hotel.hero_image_url || (previewImages[0]?.image_url ?? null));
+          }
+        }
       }
       setLoading(false);
     })();

@@ -139,37 +139,58 @@ export type Database = {
       }
       hotel_images: {
         Row: {
+          alt_ar: string | null
+          alt_en: string | null
           caption_ar: string | null
           caption_en: string | null
           category_kind: string | null
           category_label: string | null
           created_at: string
+          description_ar: string | null
+          description_en: string | null
           display_order: number
           hotel_id: string
           id: string
           image_url: string
+          seo_filename: string | null
+          title_ar: string | null
+          title_en: string | null
         }
         Insert: {
+          alt_ar?: string | null
+          alt_en?: string | null
           caption_ar?: string | null
           caption_en?: string | null
           category_kind?: string | null
           category_label?: string | null
           created_at?: string
+          description_ar?: string | null
+          description_en?: string | null
           display_order?: number
           hotel_id: string
           id?: string
           image_url: string
+          seo_filename?: string | null
+          title_ar?: string | null
+          title_en?: string | null
         }
         Update: {
+          alt_ar?: string | null
+          alt_en?: string | null
           caption_ar?: string | null
           caption_en?: string | null
           category_kind?: string | null
           category_label?: string | null
           created_at?: string
+          description_ar?: string | null
+          description_en?: string | null
           display_order?: number
           hotel_id?: string
           id?: string
           image_url?: string
+          seo_filename?: string | null
+          title_ar?: string | null
+          title_en?: string | null
         }
         Relationships: [
           {

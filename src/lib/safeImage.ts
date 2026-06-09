@@ -26,3 +26,8 @@ export function safeHotelImage(src?: string | null): string {
   // Everything else (bundled AI assets, unsplash, pexels, third-party) → placeholder
   return PLACEHOLDER;
 }
+
+export function fallbackHotelImage(event: React.SyntheticEvent<HTMLImageElement>) {
+  const img = event.currentTarget;
+  if (!img.src.endsWith(PLACEHOLDER)) img.src = PLACEHOLDER;
+}

@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight, X, ZoomIn } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -99,6 +99,9 @@ const PhotoGallery = ({ images, columns = 3, className }: PhotoGalleryProps) => 
         >
           {selectedIndex !== null && images[selectedIndex] && (
             <div className="relative w-full h-full flex items-center justify-center">
+              <DialogTitle className="sr-only">
+                {images[selectedIndex].title || images[selectedIndex].caption || images[selectedIndex].alt || 'Photo gallery'}
+              </DialogTitle>
               {/* Close Button */}
               <Button
                 variant="ghost"

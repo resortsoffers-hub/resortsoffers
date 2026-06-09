@@ -62,52 +62,61 @@ const Destinations = () => {
         </section>
 
         <section className="container mx-auto px-4 py-16 md:py-24">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {DESTINATIONS.map((d) => {
-              const name = ar ? d.name_ar : d.name_en;
-              const blurb = ar ? d.blurb_ar : d.blurb_en;
-              const hero = heroByDest[d.slug];
-              const count = countByDest[d.slug] || 0;
+          {(() => {
+            const liveDests = DESTINATIONS.filter((d) => heroByDest[d.slug]);
+            if (liveDests.length === 0) {
               return (
-                <Link
-                  key={d.slug}
-                  to={lp(`/destinations/${d.slug}`)}
-                  className="group relative aspect-[4/5] rounded-2xl overflow-hidden bg-primary border border-border hover:shadow-xl transition-all"
-                >
-                  {hero ? (
-                    <img
-                      src={safeHotelImage(hero)}
-                      alt={name}
-                      loading="lazy"
-                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                  ) : (
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary to-[#0f2440]" />
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                  <div className="absolute inset-x-0 bottom-0 p-6 text-white">
-                    <div className="flex items-center gap-1.5 text-xs uppercase tracking-wider opacity-80 mb-2">
-                      <MapPin className="h-3 w-3" />
-                      {d.region}
-                    </div>
-                    <h2 className="font-serif text-2xl md:text-3xl mb-2">{name}</h2>
-                    <p className="text-sm text-white/85 mb-4 line-clamp-2">{blurb}</p>
-                    <div className="inline-flex items-center gap-2 text-sm font-medium">
-                      {count > 0
-                        ? ar
-                          ? `${count} منتجع موثق`
-                          : `${count} verified ${count === 1 ? "resort" : "resorts"}`
-                        : ar
-                          ? "قيد التنسيق"
-                          : "Curation in progress"}
-                      <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                    </div>
-                  </div>
-                </Link>
+                <div className="max-w-xl mx-auto text-center py-20">
+                  <p className="text-muted-foreground">
+                    {ar
+                      ? "وجهاتنا قيد التنسيق. يُسعد مستشارينا تقديم توصية شخصية."
+                      : "Our destinations are being privately curated. Our advisors will gladly arrange a personal recommendation."}
+                  </p>
+                </div>
               );
-            })}
-          </div>
+            }
+            return (
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                {liveDests.map((d) => {
+                  const name = ar ? d.name_ar : d.name_en;
+                  const blurb = ar ? d.blurb_ar : d.blurb_en;
+                  const hero = heroByDest[d.slug];
+                  const count = countByDest[d.slug] || 0;
+                  return (
+                    <Link
+                      key={d.slug}
+                      to={lp(`/destinations/${d.slug}`)}
+                      className="group relative aspect-[4/5] rounded-2xl overflow-hidden border border-border hover:shadow-xl transition-all"
+                    >
+                      <img
+                        src={safeHotelImage(hero)}
+                        alt={name}
+                        loading="lazy"
+                        className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                      <div className="absolute inset-x-0 bottom-0 p-6 text-white">
+                        <div className="flex items-center gap-1.5 text-xs uppercase tracking-wider opacity-80 mb-2">
+                          <MapPin className="h-3 w-3" />
+                          {d.region}
+                        </div>
+                        <h2 className="font-serif text-2xl md:text-3xl mb-2">{name}</h2>
+                        <p className="text-sm text-white/85 mb-4 line-clamp-2">{blurb}</p>
+                        <div className="inline-flex items-center gap-2 text-sm font-medium">
+                          {ar
+                            ? `${count} منتجع موثق`
+                            : `${count} verified ${count === 1 ? "resort" : "resorts"}`}
+                          <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        </div>
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            );
+          })()}
         </section>
+
       </main>
       <Footer />
     </div>

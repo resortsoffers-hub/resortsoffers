@@ -12,7 +12,26 @@ import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
 import { useLocale, useLocalePath } from "@/hooks/useLocale";
 import { safeHotelImage } from "@/lib/safeImage";
-import { MapPin, MessageCircle, Loader2, ArrowLeft } from "lucide-react";
+import {
+  MapPin, MessageCircle, Loader2, ArrowLeft,
+  Home, UtensilsCrossed, Sparkles, Waves, Users, Heart,
+  Plane, Camera, Video, Tag, Mail,
+} from "lucide-react";
+
+const QUICK_LINKS: { id: string; en: string; ar: string; Icon: React.ComponentType<{ className?: string }> }[] = [
+  { id: "location",   en: "Location",            ar: "الموقع",            Icon: MapPin },
+  { id: "villa",      en: "Villas & Suites",     ar: "الفلل والأجنحة",     Icon: Home },
+  { id: "dining",     en: "Restaurants & Bars",  ar: "المطاعم والبارات",   Icon: UtensilsCrossed },
+  { id: "spa",        en: "Spa & Wellness",      ar: "السبا والعافية",     Icon: Sparkles },
+  { id: "experience", en: "Activities",          ar: "الأنشطة والرحلات",   Icon: Waves },
+  { id: "kids",       en: "Family Facilities",   ar: "مرافق العائلة",      Icon: Users },
+  { id: "honeymoon",  en: "Honeymoon Benefits",  ar: "مزايا شهر العسل",   Icon: Heart },
+  { id: "transfers",  en: "Transfers",           ar: "خدمة النقل",         Icon: Plane },
+  { id: "gallery",    en: "Photo Gallery",       ar: "معرض الصور",         Icon: Camera },
+  { id: "videos",     en: "Videos",              ar: "الفيديوهات",         Icon: Video },
+  { id: "offer",      en: "Current Offer",       ar: "العرض الحالي",       Icon: Tag },
+  { id: "quote",      en: "Request a Quote",     ar: "اطلب عرض سعر",       Icon: Mail },
+];
 
 interface Hotel {
   id: string;
@@ -38,6 +57,17 @@ interface Img {
   category_label: string | null;
 }
 
+interface Offer {
+  id: string;
+  title: string;
+  description: string | null;
+  price: number | null;
+  currency: string | null;
+  nights: number | null;
+  valid_until: string | null;
+  features: any;
+}
+
 const WHATSAPP = "971567622484";
 
 const CATEGORY_ORDER: { kind: string; en: string; ar: string }[] = [
@@ -57,6 +87,7 @@ const HotelDetail = () => {
   const localePath = useLocalePath();
   const [hotel, setHotel] = useState<Hotel | null>(null);
   const [images, setImages] = useState<Img[]>([]);
+  const [offer, setOffer] = useState<Offer | null>(null);
   const [loading, setLoading] = useState(true);
   const [activeImg, setActiveImg] = useState<string | null>(null);
 
@@ -66,15 +97,20 @@ const HotelDetail = () => {
   useEffect(() => {
     (async () => {
       setLoading(true);
-      // No is_published filter — RLS hides unpublished hotels from anon; admins see all.
-      // Public list pages still filter by is_published, so drafts are only reachable by direct URL.
       const { data: h } = await supabase.from("hotels").select("*").eq("slug", slug!).maybeSingle();
       if (h) {
         setHotel(h as Hotel);
-        const { data: imgs } = await supabase.from("hotel_images")
-          .select("id,image_url,caption_en,caption_ar,category_kind,category_label").eq("hotel_id", (h as Hotel).id)
-          .order("display_order", { ascending: true });
+        const [{ data: imgs }, { data: offers }] = await Promise.all([
+          supabase.from("hotel_images")
+            .select("id,image_url,caption_en,caption_ar,category_kind,category_label").eq("hotel_id", (h as Hotel).id)
+            .order("display_order", { ascending: true }),
+          supabase.from("offers")
+            .select("id,title,description,price,currency,nights,valid_until,features")
+            .eq("hotel_id", (h as Hotel).id).eq("is_active", true)
+            .order("display_order", { ascending: true }).limit(1),
+        ]);
         setImages((imgs as Img[]) || []);
+        setOffer((offers?.[0] as Offer) || null);
         setActiveImg((h as Hotel).hero_image_url || (imgs?.[0]?.image_url ?? null));
       }
       setLoading(false);
@@ -143,7 +179,7 @@ const HotelDetail = () => {
       <Navbar />
       <main className="flex-1">
         {/* Hero */}
-        <section className="relative h-[60vh] min-h-[400px] bg-muted">
+        <section id="location" className="relative h-[60vh] min-h-[400px] bg-muted scroll-mt-24">
           <img src={safeHotelImage(activeImg)} alt={name} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
           <div className="absolute bottom-0 inset-x-0 p-6 md:p-10 text-white">
@@ -160,9 +196,47 @@ const HotelDetail = () => {
           </div>
         </section>
 
+        {/* Quick Links — in-page navigation to keep visitors on site */}
+        <nav
+          aria-label={lang === "ar" ? "روابط سريعة" : "Quick links"}
+          className="border-y bg-muted/30"
+        >
+          <div className="container mx-auto px-4 py-4">
+            <ul className="flex gap-2 md:gap-3 overflow-x-auto pb-1 scrollbar-thin">
+              {QUICK_LINKS.filter(({ id }) => {
+                // Always available targets
+                if (["location", "offer", "quote"].includes(id)) return true;
+                if (id === "gallery") return images.length > 0;
+                // Category-backed targets: only show when at least one image exists in that category
+                return images.some((img) => img.category_kind === id);
+              }).map(({ id, en, ar, Icon }) => {
+                const label = lang === "ar" ? ar : en;
+                const href = id === "quote" ? `https://wa.me/${WHATSAPP}?text=${waMsg}` : `#${id}`;
+                const isExternal = id === "quote";
+                return (
+                  <li key={id} className="flex-shrink-0">
+                    <a
+                      href={href}
+                      {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                      title={label}
+                      aria-label={label}
+                      className="group flex flex-col items-center justify-center gap-1.5 min-w-[88px] px-3 py-3 rounded-lg bg-card border border-border hover:border-primary hover:bg-primary/5 transition-colors"
+                    >
+                      <Icon className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
+                      <span className="text-[11px] font-medium text-foreground/80 text-center leading-tight">
+                        {label}
+                      </span>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </nav>
+
         {/* Gallery thumbs */}
         {images.length > 0 && (
-          <section className="container mx-auto px-4 py-6">
+          <section id="gallery" className="container mx-auto px-4 py-6 scroll-mt-24">
             <div className="flex gap-2 overflow-x-auto pb-2">
               {images.map((img) => (
                 <button
@@ -170,7 +244,11 @@ const HotelDetail = () => {
                   onClick={() => setActiveImg(img.image_url)}
                   className={`flex-shrink-0 w-24 h-20 rounded overflow-hidden border-2 transition-colors ${activeImg === img.image_url ? "border-primary" : "border-transparent"}`}
                 >
-                  <img src={img.image_url} alt="" className="w-full h-full object-cover" />
+                  <img
+                    src={img.image_url}
+                    alt={(lang === "ar" && img.caption_ar) ? img.caption_ar : (img.caption_en || `${hotel.name_en} photo`)}
+                    className="w-full h-full object-cover"
+                  />
                 </button>
               ))}
             </div>
@@ -195,7 +273,7 @@ const HotelDetail = () => {
               if (items.length === 0) return null;
               const title = lang === "ar" ? cat.ar : cat.en;
               return (
-                <div key={cat.kind} className="mt-12">
+                <div key={cat.kind} id={cat.kind} className="mt-12 scroll-mt-24">
                   <h2 className="font-serif text-2xl text-primary mb-4">{title}</h2>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                     {items.map((img) => {
@@ -243,10 +321,70 @@ const HotelDetail = () => {
               );
             })()}
 
+            {/* Current Offer — single source of truth, easy to update from admin */}
+            <section id="offer" className="mt-12 scroll-mt-24">
+              <h2 className="font-serif text-2xl text-primary mb-4">
+                {lang === "ar" ? "العرض الحالي" : "Current Offer"}
+              </h2>
+              {offer ? (
+                <div className="bg-gradient-to-br from-primary/5 to-amber-50/40 border border-primary/20 rounded-xl p-6">
+                  <h3 className="font-serif text-xl mb-2">{offer.title}</h3>
+                  {offer.description && (
+                    <p className="text-foreground/80 whitespace-pre-line mb-4">{offer.description}</p>
+                  )}
+                  <div className="flex flex-wrap gap-4 text-sm mb-4">
+                    {offer.price != null && (
+                      <div>
+                        <div className="text-xs text-muted-foreground">{lang === "ar" ? "تبدأ من" : "From"}</div>
+                        <div className="font-serif text-lg text-primary">
+                          {offer.currency || "USD"} {Number(offer.price).toLocaleString()}
+                        </div>
+                      </div>
+                    )}
+                    {offer.nights && (
+                      <div>
+                        <div className="text-xs text-muted-foreground">{lang === "ar" ? "الليالي" : "Nights"}</div>
+                        <div className="font-medium">{offer.nights}</div>
+                      </div>
+                    )}
+                    {offer.valid_until && (
+                      <div>
+                        <div className="text-xs text-muted-foreground">{lang === "ar" ? "صالح حتى" : "Valid until"}</div>
+                        <div className="font-medium">{new Date(offer.valid_until).toLocaleDateString(lang === "ar" ? "ar" : "en-GB")}</div>
+                      </div>
+                    )}
+                  </div>
+                  {Array.isArray(offer.features) && offer.features.length > 0 && (
+                    <ul className="grid sm:grid-cols-2 gap-2 mb-4">
+                      {offer.features.map((f: any, i: number) => (
+                        <li key={i} className="flex items-start gap-2 text-sm">
+                          <span className="text-primary mt-0.5">✓</span>
+                          <span>{typeof f === "string" ? f : f?.label || f?.text}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  <a
+                    href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(`Hello, I'd like to book the current offer at ${hotel.name_en}: ${offer.title}`)}`}
+                    target="_blank" rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1da851] text-white rounded-md px-5 py-2.5 font-medium transition-colors"
+                  >
+                    <MessageCircle className="h-4 w-4" /> {lang === "ar" ? "احجز هذا العرض" : "Book this offer"}
+                  </a>
+                </div>
+              ) : (
+                <div className="bg-muted/40 border border-dashed rounded-xl p-6 text-sm text-muted-foreground">
+                  {lang === "ar"
+                    ? "اطلب أحدث الأسعار وعروض الموسم من مستشارنا."
+                    : "Request the latest rates and seasonal offers from our advisor."}
+                </div>
+              )}
+            </section>
+
           </div>
 
           {/* Inquiry */}
-          <aside className="lg:sticky lg:top-24 h-fit">
+          <aside id="quote" className="lg:sticky lg:top-24 h-fit scroll-mt-24">
             <div className="bg-card border rounded-xl p-6 shadow-sm">
               <h3 className="font-serif text-xl text-primary mb-1">
                 {lang === "ar" ? "استفسر عن هذا المنتجع" : "Enquire about this resort"}

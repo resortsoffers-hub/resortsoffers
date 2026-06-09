@@ -57,6 +57,17 @@ interface Img {
   category_label: string | null;
 }
 
+interface Offer {
+  id: string;
+  title: string;
+  description: string | null;
+  price: number | null;
+  currency: string | null;
+  nights: number | null;
+  valid_until: string | null;
+  features: any;
+}
+
 const WHATSAPP = "971567622484";
 
 const CATEGORY_ORDER: { kind: string; en: string; ar: string }[] = [

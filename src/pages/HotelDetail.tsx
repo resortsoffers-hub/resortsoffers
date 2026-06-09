@@ -196,9 +196,41 @@ const HotelDetail = () => {
           </div>
         </section>
 
+        {/* Quick Links — in-page navigation to keep visitors on site */}
+        <nav
+          aria-label={lang === "ar" ? "روابط سريعة" : "Quick links"}
+          className="border-y bg-muted/30"
+        >
+          <div className="container mx-auto px-4 py-4">
+            <ul className="flex gap-2 md:gap-3 overflow-x-auto pb-1 scrollbar-thin">
+              {QUICK_LINKS.map(({ id, en, ar, Icon }) => {
+                const label = lang === "ar" ? ar : en;
+                const href = id === "quote" ? `https://wa.me/${WHATSAPP}?text=${waMsg}` : `#${id}`;
+                const isExternal = id === "quote";
+                return (
+                  <li key={id} className="flex-shrink-0">
+                    <a
+                      href={href}
+                      {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                      title={label}
+                      aria-label={label}
+                      className="group flex flex-col items-center justify-center gap-1.5 min-w-[88px] px-3 py-3 rounded-lg bg-card border border-border hover:border-primary hover:bg-primary/5 transition-colors"
+                    >
+                      <Icon className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
+                      <span className="text-[11px] font-medium text-foreground/80 text-center leading-tight">
+                        {label}
+                      </span>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </nav>
+
         {/* Gallery thumbs */}
         {images.length > 0 && (
-          <section className="container mx-auto px-4 py-6">
+          <section id="gallery" className="container mx-auto px-4 py-6 scroll-mt-24">
             <div className="flex gap-2 overflow-x-auto pb-2">
               {images.map((img) => (
                 <button
@@ -206,7 +238,11 @@ const HotelDetail = () => {
                   onClick={() => setActiveImg(img.image_url)}
                   className={`flex-shrink-0 w-24 h-20 rounded overflow-hidden border-2 transition-colors ${activeImg === img.image_url ? "border-primary" : "border-transparent"}`}
                 >
-                  <img src={img.image_url} alt="" className="w-full h-full object-cover" />
+                  <img
+                    src={img.image_url}
+                    alt={(lang === "ar" && img.caption_ar) ? img.caption_ar : (img.caption_en || `${hotel.name_en} photo`)}
+                    className="w-full h-full object-cover"
+                  />
                 </button>
               ))}
             </div>

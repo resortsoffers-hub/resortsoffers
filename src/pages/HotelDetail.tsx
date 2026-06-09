@@ -84,7 +84,7 @@ const CATEGORY_ORDER: { kind: string; en: string; ar: string }[] = [
 ];
 
 const HotelDetail = () => {
-  const { slug } = useParams<{ slug: string }>();
+  const { slug, previewId } = useParams<{ slug: string; previewId?: string }>();
   const lang = useLocale();
   const localePath = useLocalePath();
   const [hotel, setHotel] = useState<Hotel | null>(null);
@@ -120,11 +120,11 @@ const HotelDetail = () => {
         setOffer((offers?.[0] as Offer) || null);
         setActiveImg((h as Hotel).hero_image_url || (imgs?.[0]?.image_url ?? null));
       } else {
-        const previewId = new URLSearchParams(window.location.search).get("preview");
-        if (previewId) {
+        const privatePreviewId = previewId || new URLSearchParams(window.location.search).get("preview");
+        if (privatePreviewId) {
           const { data: preview } = await (supabase as any).rpc("get_hotel_preview", {
             _slug: slug,
-            _preview_id: previewId,
+            _preview_id: privatePreviewId,
           });
           const payload = preview as { hotel?: Hotel; images?: Img[]; offer?: Offer | null } | null;
           if (payload?.hotel) {
@@ -138,7 +138,7 @@ const HotelDetail = () => {
       }
       setLoading(false);
     })();
-  }, [slug]);
+  }, [slug, previewId]);
 
 
   const submitInquiry = async (e: React.FormEvent) => {

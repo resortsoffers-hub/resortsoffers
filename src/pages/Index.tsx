@@ -13,6 +13,12 @@ import { HOTEL_CATEGORIES } from "@/lib/hotelCategories";
 import { BRAND } from "@/lib/brand";
 import { supabase } from "@/integrations/supabase/client";
 import { fallbackHotelImage, safeHotelImage } from "@/lib/safeImage";
+import heroImg1 from "@/assets/home-hero/IMG_0892.jpg.asset.json";
+import heroImg2 from "@/assets/home-hero/IMG_9957.jpg.asset.json";
+import heroImg3 from "@/assets/home-hero/IMG_9950.jpg.asset.json";
+import heroImg4 from "@/assets/home-hero/IMG_8290.jpg.asset.json";
+
+const HOME_HERO_IMAGES = [heroImg1.url, heroImg2.url, heroImg3.url, heroImg4.url];
 
 /**
  * Homepage — destination-first, concierge-style.

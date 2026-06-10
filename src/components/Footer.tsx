@@ -1,4 +1,4 @@
-import { MessageCircle, Mail, Phone } from "lucide-react";
+import { MessageCircle, Mail } from "lucide-react";
 import { BRAND } from "@/lib/brand";
 import { useLocale } from "@/hooks/useLocale";
 
@@ -31,13 +31,6 @@ const Footer = () => {
               className="inline-flex items-center gap-2 hover:text-accent transition-colors"
             >
               <MessageCircle size={16} className="text-[#25D366]" />
-              +971 56 762 2484
-            </a>
-            <a
-              href={`tel:${BRAND.mobile}`}
-              className="inline-flex items-center gap-2 hover:text-accent transition-colors"
-            >
-              <Phone size={16} />
               {BRAND.mobile}
             </a>
             <a

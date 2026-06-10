@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Home, Phone, Building2, Tag, Mail } from "lucide-react";
+import { Home, Phone, Building2, Tag, Mail, MessageCircle } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { useLocale, useLocalePath } from "@/hooks/useLocale";
@@ -68,20 +68,12 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
           {/* Contact Info */}
           <div className="p-6 bg-white/5 space-y-3">
             <div>
-              <p className="text-white/60 text-xs mb-1">{t('common.bookNowWhatsApp')}</p>
+              <p className="text-white/60 text-xs mb-1">WhatsApp</p>
               <a 
                 href={`https://wa.me/${BRAND.whatsapp}`} 
-                className="text-white font-semibold hover:text-white/80 transition-colors"
+                className="text-white font-semibold hover:text-white/80 transition-colors inline-flex items-center gap-2"
               >
-                +971 56 762 2484
-              </a>
-            </div>
-            <div>
-              <p className="text-white/60 text-xs mb-1">Mobile</p>
-              <a 
-                href={`tel:${BRAND.mobile}`} 
-                className="text-white font-semibold hover:text-white/80 transition-colors"
-              >
+                <MessageCircle size={14} className="text-[#25D366]" />
                 {BRAND.mobile}
               </a>
             </div>

@@ -99,8 +99,23 @@ const Index = () => {
       <Navbar />
 
       <main className="flex-1">
-        {/* 1. Hero */}
-        <section className="bg-primary text-primary-foreground pt-24 pb-20 md:pt-32 md:pb-28">
+        {/* 1. Hero with photo slideshow */}
+        <section className="relative text-primary-foreground pt-24 pb-20 md:pt-32 md:pb-28 overflow-hidden">
+          {/* Background slideshow */}
+          <div className="absolute inset-0 -z-10 bg-primary">
+            {HOME_HERO_IMAGES.map((src, i) => (
+              <img
+                key={src}
+                src={src}
+                alt=""
+                aria-hidden="true"
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500ms] ${
+                  i === heroSlide ? "opacity-100" : "opacity-0"
+                }`}
+              />
+            ))}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/45 to-black/65" />
+          </div>
           <div className="container mx-auto px-4 text-center max-w-3xl">
             <div className="inline-block uppercase tracking-[0.25em] text-[10px] md:text-xs text-white/70 mb-6">
               {ar ? "— استشارة فاخرة خاصة —" : "— Private Luxury Advisory —"}

@@ -11,7 +11,7 @@ export const BRAND = {
   tagline: "Private luxury travel advisory",
   taglineAr: "استشارة سفر فاخرة خاصة",
   domain: "resortsoffers.com",
-  whatsapp: "971567622484",
+  whatsapp: "971547474404",
   email: "Vip@resortsoffers.com",
   mobile: "+971547474404",
   // HSL tokens are defined in index.css; these literals are only for non-themed

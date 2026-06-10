@@ -187,8 +187,9 @@ const HotelDetail = () => {
   const waHref = `https://wa.me/${BRAND.whatsapp}?text=${waMsg}`;
 
   const galleryImages = images.map((i) => ({
-    url: safeHotelImage(i.image_url),
-    caption: ar && i.caption_ar ? i.caption_ar : i.caption_en || "",
+    src: safeHotelImage(i.image_url),
+    alt: (ar && i.caption_ar ? i.caption_ar : i.caption_en) || name,
+    caption: (ar && i.caption_ar ? i.caption_ar : i.caption_en) || undefined,
   }));
 
   return (

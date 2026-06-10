@@ -88,47 +88,54 @@ const Hotels = () => {
           </div>
         </section>
 
-        {/* Sticky filter rail — visible chips, one-tap, mobile-first */}
-        <div className="sticky top-0 z-30 bg-background/95 backdrop-blur border-b">
-          <div className="container mx-auto px-4 py-3">
-            {/* Category chips (horizontal scroll on mobile) */}
-            <div className="flex gap-2 overflow-x-auto pb-1 -mx-4 px-4 scrollbar-thin">
-              <button
-                onClick={() => setActiveTag(null)}
-                className={`flex-shrink-0 px-4 py-2 text-sm font-medium rounded-full border transition-all ${
-                  activeTag === null
-                    ? "bg-primary text-primary-foreground border-primary shadow-sm"
-                    : "bg-card hover:border-primary text-foreground/80"
-                }`}
-              >
-                {lang === "ar" ? "كل المنتجعات" : "All resorts"}
-              </button>
-              {HOTEL_CATEGORIES.map((c) => {
-                const count = tagCounts.get(c.slug) || 0;
-                const active = activeTag === c.slug;
-                return (
+        {/* Category chips — only relevant when browsing Maldives */}
+        {(() => {
+          const isMaldivesScope =
+            destFilter.toLowerCase() === "maldives" ||
+            (destFilter === "all" && hotels.length > 0 && hotels.every((h) => h.destination?.toLowerCase() === "maldives"));
+          if (!isMaldivesScope) return null;
+          return (
+            <div className="sticky top-0 z-30 bg-background/95 backdrop-blur border-b">
+              <div className="container mx-auto px-4 py-3">
+                <div className="flex gap-2 overflow-x-auto pb-1 -mx-4 px-4 scrollbar-thin">
                   <button
-                    key={c.slug}
-                    onClick={() => setActiveTag(active ? null : c.slug)}
+                    onClick={() => setActiveTag(null)}
                     className={`flex-shrink-0 px-4 py-2 text-sm font-medium rounded-full border transition-all ${
-                      active
+                      activeTag === null
                         ? "bg-primary text-primary-foreground border-primary shadow-sm"
                         : "bg-card hover:border-primary text-foreground/80"
-                    } ${count === 0 && !active ? "opacity-50" : ""}`}
-                    aria-pressed={active}
+                    }`}
                   >
-                    {lang === "ar" ? c.label_ar : c.label_en}
-                    {count > 0 && (
-                      <span className={`ms-1.5 text-xs ${active ? "text-primary-foreground/70" : "text-muted-foreground"}`}>
-                        {count}
-                      </span>
-                    )}
+                    {lang === "ar" ? "كل المنتجعات" : "All resorts"}
                   </button>
-                );
-              })}
+                  {HOTEL_CATEGORIES.map((c) => {
+                    const count = tagCounts.get(c.slug) || 0;
+                    const active = activeTag === c.slug;
+                    return (
+                      <button
+                        key={c.slug}
+                        onClick={() => setActiveTag(active ? null : c.slug)}
+                        className={`flex-shrink-0 px-4 py-2 text-sm font-medium rounded-full border transition-all ${
+                          active
+                            ? "bg-primary text-primary-foreground border-primary shadow-sm"
+                            : "bg-card hover:border-primary text-foreground/80"
+                        } ${count === 0 && !active ? "opacity-50" : ""}`}
+                        aria-pressed={active}
+                      >
+                        {lang === "ar" ? c.label_ar : c.label_en}
+                        {count > 0 && (
+                          <span className={`ms-1.5 text-xs ${active ? "text-primary-foreground/70" : "text-muted-foreground"}`}>
+                            {count}
+                          </span>
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          );
+        })()}
 
         <section className="container mx-auto px-4 py-6">
           {/* Secondary: search + destination */}

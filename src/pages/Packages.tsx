@@ -13,7 +13,7 @@ import { useLocale, useLocalePath } from "@/hooks/useLocale";
  * generic/AI imagery and invented pricing. Removed entirely. Real packages
  * will return only when sourced from the CMS with verified hotel records.
  */
-const WA = "971567622484";
+const WA = "971547474404";
 
 const Packages = () => {
   const lang = useLocale();

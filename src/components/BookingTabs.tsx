@@ -32,7 +32,7 @@ const BookingTabs = () => {
     "Egypt"
   ];
 
-  const whatsappNumber = "971567622484";
+  const whatsappNumber = "971547474404";
 
   const handleSearch = () => {
     const message = `Hi! I want to search for ${activeTab} deals. Please help me find the best options.`;

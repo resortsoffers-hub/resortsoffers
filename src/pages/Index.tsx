@@ -79,9 +79,6 @@ const Index = () => {
 
           <div className="container mx-auto px-6 pb-16 md:pb-24">
             <div className="max-w-2xl">
-              <div className="uppercase tracking-[0.35em] text-[10px] md:text-xs text-white/75 mb-5">
-                {ar ? "دار سفر فاخرة خاصة" : "A Private Luxury Travel House"}
-              </div>
               <h1 className="font-serif text-4xl md:text-6xl leading-[1.05] mb-8">
                 {ar ? "رحلات تُروى، لا تُباع." : "Journeys, quietly curated."}
               </h1>

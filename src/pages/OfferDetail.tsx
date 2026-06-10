@@ -8,7 +8,7 @@ import { ArrowLeft, MapPin, BedDouble, Calendar, MessageCircle, FileText, Loader
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const WHATSAPP_NUMBER = "971567622484";
+const WHATSAPP_NUMBER = "971547474404";
 
 interface OfferRow {
   id: string;

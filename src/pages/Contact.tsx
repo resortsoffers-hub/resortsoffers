@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { MessageCircle, Mail, Send, Facebook, Instagram, Twitter, Star, Youtube, Linkedin, Calendar, Bell } from "lucide-react";
+import { MessageCircle, Mail, Star, Calendar } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { toast } from "sonner";
@@ -20,12 +20,10 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: <MessageCircle className="w-6 h-6 text-[#25D366]" />,
-      title: "WhatsApp Business - Available 24/7",
+      title: "WhatsApp",
       details: [
-        { text: "🇦🇪 +971 56 762 2484 (Worldwide)", link: "https://wa.me/971567622484" },
-        { text: "🇸🇦 +971 54 747 4404 (Saudi Arabia)", link: "https://wa.me/971547474404" },
+        { text: "+971 54 747 4404", link: "https://wa.me/971547474404" },
       ],
-      badge: "24/7",
     },
     {
       icon: <Mail className="w-6 h-6 text-accent" />,
@@ -108,26 +106,14 @@ const Contact = () => {
                       <MessageCircle className="h-4 w-4 text-[#25D366]" />
                       Prefer instant chat? Contact us on WhatsApp!
                     </p>
-                    <div className="flex flex-wrap gap-2">
-                      <a
-                        href="https://wa.me/971567622484"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 rounded-md border border-[#25D366]/30 bg-[#25D366]/10 px-3 py-2 text-sm font-medium transition-colors hover:bg-[#25D366]/20"
-                        title="WhatsApp Worldwide"
-                      >
-                        <span>🇦🇪</span> Worldwide
-                      </a>
-                      <a
-                        href="https://wa.me/971547474404"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 rounded-md border border-[#25D366]/30 bg-[#25D366]/10 px-3 py-2 text-sm font-medium transition-colors hover:bg-[#25D366]/20"
-                        title="WhatsApp Saudi Arabia"
-                      >
-                        <span>🇸🇦</span> Saudi Arabia
-                      </a>
-                    </div>
+                    <a
+                      href="https://wa.me/971547474404"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 rounded-md border border-[#25D366]/30 bg-[#25D366]/10 px-3 py-2 text-sm font-medium transition-colors hover:bg-[#25D366]/20"
+                    >
+                      +971 54 747 4404
+                    </a>
                   </CardContent>
                 </Card>
               </div>
@@ -183,16 +169,11 @@ const Contact = () => {
             <div>
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
-                  <Card key={index} className={info.badge ? "border-accent/50" : ""}>
+                  <Card key={index}>
                     <CardHeader>
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                          {info.icon}
-                          <CardTitle className="text-lg">{info.title}</CardTitle>
-                        </div>
-                        {info.badge && (
-                          <span className="rounded-full bg-accent px-3 py-1 text-xs font-semibold text-accent-foreground">{info.badge}</span>
-                        )}
+                      <div className="flex items-center gap-3">
+                        {info.icon}
+                        <CardTitle className="text-lg">{info.title}</CardTitle>
                       </div>
                     </CardHeader>
                     <CardContent>
@@ -221,50 +202,21 @@ const Contact = () => {
                       <Calendar className="h-6 w-6 text-primary" />
                       <CardTitle className="text-lg">Book Paid Consultation</CardTitle>
                     </div>
-                    <CardDescription className="mt-2 flex items-center gap-2">
-                      <Bell className="h-4 w-4" />
-                      Instant confirmation via WhatsApp for both parties
-                    </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <p className="text-sm text-muted-foreground">
-                      Schedule a personalized consultation with our travel experts for urgent inquiries and detailed trip planning.
-                    </p>
                     <div className="rounded-lg border border-accent/30 bg-background/80 p-4 text-center">
                       <div className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Consultation Fee</div>
                       <div className="mt-2 font-serif text-3xl text-primary">$200</div>
                       <div className="mt-1 text-sm text-muted-foreground">Per consultation</div>
                     </div>
-                    <div className="space-y-2">
-                      <div className="flex items-start gap-2 text-sm"><div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" /><span>Automated calendar sync for both parties</span></div>
-                      <div className="flex items-start gap-2 text-sm"><div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" /><span>WhatsApp notifications & reminders</span></div>
-                      <div className="flex items-start gap-2 text-sm"><div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" /><span>Meeting confirmation sent instantly</span></div>
-                    </div>
                     <Button className="w-full" size="lg" onClick={() => (window.location.href = "/book-consultation")}>
                       <Calendar className="mr-2 h-4 w-4" />
                       Book $200 Consultation
                     </Button>
-                    <p className="text-center text-xs text-muted-foreground">Paid consultation — $200 per session</p>
                   </CardContent>
                 </Card>
               </div>
 
-              <Card className="mt-6">
-                <CardHeader>
-                  <CardTitle>Connect With Us</CardTitle>
-                  <CardDescription>Follow us on social media</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex gap-4">
-                    <a href="https://www.facebook.com/Resortsoffers/" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-accent" aria-label="Facebook"><Facebook size={24} /></a>
-                    <a href="https://www.instagram.com/resortsoffers/" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-accent" aria-label="Instagram"><Instagram size={24} /></a>
-                    <a href="https://www.linkedin.com/in/noraelkhalifi/" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-accent" aria-label="LinkedIn"><Linkedin size={24} /></a>
-                    <a href="https://twitter.com/Resortsoffers" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-accent" aria-label="Twitter"><Twitter size={24} /></a>
-                    <a href="https://www.youtube.com/@resortsoffers" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-accent" aria-label="YouTube"><Youtube size={24} /></a>
-                    <a href="https://t.me/resortsoffers" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-accent" aria-label="Telegram"><Send size={24} /></a>
-                  </div>
-                </CardContent>
-              </Card>
             </div>
           </div>
         </div>

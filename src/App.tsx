@@ -18,6 +18,7 @@ import Offers from "./pages/Offers";
 import OfferDetail from "./pages/OfferDetail";
 import AdminOffers from "./pages/AdminOffers";
 import AdminHotels from "./pages/AdminHotels";
+import AdminDraftReview from "./pages/AdminDraftReview";
 import AdminLogin from "./pages/AdminLogin";
 import Hotels from "./pages/Hotels";
 import HotelDetail from "./pages/HotelDetail";
@@ -84,6 +85,7 @@ const App = () => (
               <Route path="/admin/login" element={<AdminLogin />} />
               <Route path="/admin/offers" element={<AdminOffers />} />
               <Route path="/admin/hotels" element={<AdminHotels />} />
+              <Route path="/admin/draft-review" element={<AdminDraftReview />} />
 
               {/* Localized trees — both prefixes share the same nested routes */}
               <Route path="/en" element={<LocaleLayout />}>{localizedChildren}</Route>

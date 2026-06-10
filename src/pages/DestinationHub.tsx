@@ -1,15 +1,12 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { ArrowLeft, MapPin, MessageCircle, Search } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Input } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge";
 import { supabase } from "@/integrations/supabase/client";
-import { fallbackHotelImage, safeHotelImage } from "@/lib/safeImage";
+import { safeHotelImage } from "@/lib/safeImage";
 import { useLocale, useLocalePath } from "@/hooks/useLocale";
-import { HOTEL_CATEGORIES } from "@/lib/hotelCategories";
 import { findDestination } from "@/lib/destinations";
 import { BRAND } from "@/lib/brand";
 
@@ -18,204 +15,135 @@ interface Hotel {
   slug: string;
   name_en: string;
   name_ar: string | null;
-  destination: string;
   short_desc_en: string | null;
   short_desc_ar: string | null;
   hero_image_url: string | null;
-  tags: string[] | null;
 }
 
 /**
- * Single-destination hub.
+ * Collection page — editorial showcase of handpicked resorts.
  *
- * Resorts and category chips are scoped to this destination only. Categories
- * that have zero resorts within this destination are hidden — chips never
- * lie about availability.
+ * Strictly card-only: hero image, resort name, one editorial sentence,
+ * "Explore Resort". No prices, no descriptions, no booking buttons,
+ * no WhatsApp, no filters, no search. When the collection is empty,
+ * a single editorial line is shown — never a "speak to advisor" CTA.
  */
 const DestinationHub = () => {
   const { slug } = useParams<{ slug: string }>();
   const dest = findDestination(slug);
-  const lang = useLocale();
+  const ar = useLocale() === "ar";
   const lp = useLocalePath();
-  const ar = lang === "ar";
 
   const [hotels, setHotels] = useState<Hotel[]>([]);
   const [loading, setLoading] = useState(true);
-  const [activeTag, setActiveTag] = useState<string | null>(null);
-  const [query, setQuery] = useState("");
 
   useEffect(() => {
     if (!dest) return;
     (async () => {
       setLoading(true);
-      const { data } = await supabase
+      let q = supabase
         .from("hotels")
-        .select("id,slug,name_en,name_ar,destination,short_desc_en,short_desc_ar,hero_image_url,tags")
+        .select("id,slug,name_en,name_ar,short_desc_en,short_desc_ar,hero_image_url")
         .eq("is_published", true)
-        .ilike("destination", dest.name_en)
         .order("display_order", { ascending: false });
+
+      if (dest.kind === "place") {
+        q = q.ilike("destination", dest.name_en);
+      } else if (dest.tag) {
+        q = q.contains("tags", [dest.tag]);
+      }
+
+      const { data } = await q;
       setHotels((data as Hotel[]) || []);
       setLoading(false);
     })();
   }, [dest?.slug]);
-
-  const tagCounts = useMemo(() => {
-    const m = new Map<string, number>();
-    for (const h of hotels) for (const t of h.tags || []) m.set(t, (m.get(t) || 0) + 1);
-    return m;
-  }, [hotels]);
-
-  const visibleCategories = HOTEL_CATEGORIES.filter((c) => (tagCounts.get(c.slug) || 0) > 0);
-
-  const filtered = useMemo(() => {
-    return hotels.filter((h) => {
-      if (activeTag && !(h.tags || []).includes(activeTag)) return false;
-      if (query) {
-        const q = query.toLowerCase();
-        return ((h.name_en ?? "") + " " + (h.name_ar ?? "")).toLowerCase().includes(q);
-      }
-      return true;
-    });
-  }, [hotels, query, activeTag]);
 
   if (!dest) return <Navigate to={lp("/destinations")} replace />;
 
   const destName = ar ? dest.name_ar : dest.name_en;
   const destBlurb = ar ? dest.blurb_ar : dest.blurb_en;
 
-  const waMsg = encodeURIComponent(
-    ar
-      ? `مرحباً، أرغب في الحصول على توصيات منتجع في ${dest.name_ar}.`
-      : `Hello, I'd like resort recommendations in ${dest.name_en}.`
-  );
-
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Helmet>
-        <title>{`${destName} — ${ar ? "منتجعات فاخرة" : "Luxury Resorts"} · Resort Offers`}</title>
-        <meta
-          name="description"
-          content={ar ? `منتجعات فاخرة موثقة في ${dest.name_ar}. ${dest.blurb_ar}` : `Verified luxury resorts in ${dest.name_en}. ${dest.blurb_en}`}
-        />
+        <title>{`${destName} · ${BRAND.name}`}</title>
+        <meta name="description" content={destBlurb} />
       </Helmet>
       <Navbar />
       <main className="flex-1">
-        {/* Destination hero */}
-        <section className="bg-primary text-primary-foreground py-16 md:py-24">
-          <div className="container mx-auto px-4 max-w-3xl text-center">
-            <Link
-              to={lp("/destinations")}
-              className="inline-flex items-center gap-1.5 text-sm text-white/80 hover:text-white mb-4"
-            >
-              <ArrowLeft className="h-3.5 w-3.5" />
-              {ar ? "كل الوجهات" : "All destinations"}
-            </Link>
-            <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider text-white/70 mb-3">
-              <MapPin className="h-3 w-3" />
-              {dest.region}
-            </div>
-            <h1 className="font-serif text-3xl md:text-5xl mb-4">{destName}</h1>
-            <p className="text-primary-foreground/85 text-base md:text-lg">{destBlurb}</p>
+        {/* Editorial header */}
+        <section className="container mx-auto px-6 pt-24 md:pt-32 pb-12 md:pb-16 max-w-3xl text-center">
+          <Link
+            to={lp("/destinations")}
+            className="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-[0.25em] text-muted-foreground hover:text-primary transition-colors mb-8"
+          >
+            <ArrowLeft className="h-3 w-3" />
+            {ar ? "كل المجموعات" : "All collections"}
+          </Link>
+          <div className="uppercase tracking-[0.35em] text-[10px] md:text-xs text-accent mb-5">
+            {dest.kind === "place"
+              ? (ar ? "وجهة" : "Destination")
+              : (ar ? "مجموعة" : "Collection")}
           </div>
+          <h1 className="font-serif text-4xl md:text-6xl text-primary leading-[1.05] mb-6">
+            {destName}
+          </h1>
+          <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+            {destBlurb}
+          </p>
         </section>
 
-        {/* Scoped filters */}
-        {(visibleCategories.length > 0 || hotels.length > 0) && (
-          <div className="sticky top-14 z-30 bg-background/95 backdrop-blur border-b">
-            <div className="container mx-auto px-4 py-3 flex flex-wrap items-center gap-3">
-              <button
-                onClick={() => setActiveTag(null)}
-                className={`px-4 py-1.5 text-sm rounded-full border transition-all ${
-                  activeTag === null
-                    ? "bg-primary text-primary-foreground border-primary"
-                    : "bg-card hover:border-primary"
-                }`}
-              >
-                {ar ? "كل المنتجعات" : "All"}
-                <span className="ms-1.5 text-xs opacity-70">{hotels.length}</span>
-              </button>
-              {visibleCategories.map((c) => {
-                const active = activeTag === c.slug;
-                const count = tagCounts.get(c.slug) || 0;
-                return (
-                  <button
-                    key={c.slug}
-                    onClick={() => setActiveTag(active ? null : c.slug)}
-                    className={`px-4 py-1.5 text-sm rounded-full border transition-all ${
-                      active
-                        ? "bg-primary text-primary-foreground border-primary"
-                        : "bg-card hover:border-primary"
-                    }`}
-                  >
-                    {ar ? c.label_ar : c.label_en}
-                    <span className="ms-1.5 text-xs opacity-70">{count}</span>
-                  </button>
-                );
-              })}
-              <div className="relative ms-auto w-full sm:w-64">
-                <Search className="absolute start-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                <Input
-                  className="ps-9 h-9"
-                  placeholder={ar ? "ابحث عن منتجع..." : "Search resort..."}
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                />
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Grid */}
-        <section className="container mx-auto px-4 py-12 md:py-16">
+        {/* Resorts */}
+        <section className="container mx-auto px-6 pb-24 md:pb-32">
           {loading ? (
-            <p className="text-center text-muted-foreground py-16">{ar ? "جاري التحميل…" : "Loading…"}</p>
-          ) : filtered.length === 0 ? (
-            <div className="max-w-xl mx-auto text-center py-12">
-              <h2 className="font-serif text-2xl text-primary mb-3">
-                {ar ? `${dest.name_ar} قيد التنسيق` : `${dest.name_en} is being curated`}
-              </h2>
-              <p className="text-muted-foreground mb-6">
+            <p className="text-center text-muted-foreground py-20 text-sm uppercase tracking-[0.25em]">
+              {ar ? "جارٍ التحميل…" : "Loading…"}
+            </p>
+          ) : hotels.length === 0 ? (
+            <div className="max-w-xl mx-auto text-center py-20">
+              <p className="font-serif text-2xl md:text-3xl text-primary leading-snug mb-4">
                 {ar
-                  ? "نحن ننتقي عددًا محدودًا من المنتجعات في هذه الوجهة بصور رسمية كاملة. تواصل معنا للحصول على توصيات شخصية الآن."
-                  : "We're hand-picking a small number of resorts here with complete official photography. Speak to an advisor for tailored recommendations now."}
+                  ? "هذه المجموعة قيد التنسيق."
+                  : "This collection is currently being curated."}
               </p>
-              <a
-                href={`https://wa.me/${BRAND.whatsapp}?text=${waMsg}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1da851] text-white rounded-md px-6 py-3 font-medium transition-colors"
-              >
-                <MessageCircle className="h-4 w-4" />
-                {ar ? "تحدث مع مستشار" : "Speak to an advisor"}
-              </a>
+              <p className="text-muted-foreground text-base leading-relaxed">
+                {ar
+                  ? "متاحة بطلب خاص فقط. تواصل مع Resorts Offers للحصول على عرض مُصمَّم خصيصاً."
+                  : "Available by private request. Contact Resorts Offers for a tailored proposal."}
+              </p>
             </div>
           ) : (
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filtered.map((h) => {
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-16">
+              {hotels.map((h) => {
                 const name = ar && h.name_ar ? h.name_ar : h.name_en;
-                const desc = ar && h.short_desc_ar ? h.short_desc_ar : h.short_desc_en;
+                const blurb = ar && h.short_desc_ar ? h.short_desc_ar : h.short_desc_en;
                 return (
                   <Link
                     key={h.id}
                     to={lp(`/hotels/${h.slug}`)}
-                    className="group bg-card rounded-xl overflow-hidden border hover:shadow-lg transition-shadow"
+                    className="group block"
                   >
-                    <div className="aspect-[4/3] overflow-hidden bg-muted">
+                    <div className="relative aspect-[4/5] overflow-hidden bg-muted mb-5">
                       <img
                         src={safeHotelImage(h.hero_image_url)}
                         alt={name}
                         loading="lazy"
-                        onError={fallbackHotelImage}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1400ms] group-hover:scale-105"
                       />
                     </div>
-                    <div className="p-5">
-                      <Badge variant="secondary" className="mb-2 gap-1">
-                        <MapPin className="h-3 w-3" /> {h.destination}
-                      </Badge>
-                      <h3 className="font-serif text-xl text-primary mb-2 line-clamp-2">{name}</h3>
-                      {desc && <p className="text-sm text-muted-foreground line-clamp-3">{desc}</p>}
-                    </div>
+                    <h3 className="font-serif text-xl md:text-2xl text-primary leading-tight mb-2">
+                      {name}
+                    </h3>
+                    {blurb && (
+                      <p className="text-sm text-muted-foreground leading-relaxed mb-4 line-clamp-2">
+                        {blurb}
+                      </p>
+                    )}
+                    <span className="inline-flex items-center gap-2 text-accent uppercase tracking-[0.25em] text-[11px] font-medium">
+                      {ar ? "اكتشف المنتجع" : "Explore Resort"}
+                      <ArrowRight className="h-3 w-3" />
+                    </span>
                   </Link>
                 );
               })}

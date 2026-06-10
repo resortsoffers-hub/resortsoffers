@@ -100,9 +100,9 @@ const Index = () => {
 
       <main className="flex-1">
         {/* 1. Hero with photo slideshow */}
-        <section className="relative text-primary-foreground pt-24 pb-20 md:pt-32 md:pb-28 overflow-hidden">
+        <section className="relative isolate text-primary-foreground pt-24 pb-20 md:pt-32 md:pb-28 overflow-hidden">
           {/* Background slideshow */}
-          <div className="absolute inset-0 -z-10 bg-primary">
+          <div className="absolute inset-0 -z-10 bg-black">
             {HOME_HERO_IMAGES.map((src, i) => (
               <img
                 key={src}

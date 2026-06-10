@@ -19,8 +19,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { cn } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
-
-import consultancyHero from "@/assets/consultancy.jpg";
+import consultancyHero from "@/assets/uploads/consultation-pool-villa.jpeg.asset.json";
 
 const bookingSchema = z.object({
   name: z.string().trim().min(2, "Name must be at least 2 characters").max(100),
@@ -37,7 +36,7 @@ type BookingFormData = z.infer<typeof bookingSchema>;
 const timeSlots = [
   "09:00", "09:30", "10:00", "10:30", "11:00", "11:30",
   "12:00", "12:30", "14:00", "14:30", "15:00", "15:30",
-  "16:00", "16:30", "17:00", "17:30", "18:00", "18:30"
+  "16:00", "16:30", "17:00", "17:30", "18:00", "18:30",
 ];
 
 interface BookingDetails {
@@ -67,31 +66,23 @@ const BookConsultation = () => {
   const onSubmit = async (data: BookingFormData) => {
     setIsSubmitting(true);
     try {
-      // Format date and time for the database
       const formattedDate = format(data.preferredDate, "yyyy-MM-dd");
-      
-      // Insert into consultation_bookings table
-      const { error: dbError } = await supabase
-        .from('consultation_bookings')
-        .insert({
-          name: data.name,
-          email: data.email,
-          phone: data.phone,
-          preferred_date: formattedDate,
-          preferred_time: data.preferredTime,
-          consultation_type: data.consultationType,
-          message: data.message || null,
-          status: 'pending'
-        });
 
-      if (dbError) {
-        throw dbError;
-      }
+      const { error: dbError } = await supabase.from("consultation_bookings").insert({
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        preferred_date: formattedDate,
+        preferred_time: data.preferredTime,
+        consultation_type: data.consultationType,
+        message: data.message || null,
+        status: "pending",
+      });
 
-      // Call edge function for calendar and notifications
+      if (dbError) throw dbError;
+
       const datetime = new Date(`${formattedDate}T${data.preferredTime}:00`).toISOString();
-      
-      const { error: funcError } = await supabase.functions.invoke('book-consultation', {
+      const { error: funcError } = await supabase.functions.invoke("book-consultation", {
         body: {
           name: data.name,
           email: data.email,
@@ -99,14 +90,13 @@ const BookConsultation = () => {
           datetime,
           consultationType: data.consultationType,
           message: data.message,
-        }
+        },
       });
 
       if (funcError) {
-        console.warn('Calendar notification failed, but booking was saved:', funcError);
+        console.warn("Calendar notification failed, but booking was saved:", funcError);
       }
 
-      // Store booking details for confirmation page
       setBookingDetails({
         date: format(data.preferredDate, "EEEE, MMMM d, yyyy"),
         time: data.preferredTime,
@@ -120,7 +110,7 @@ const BookConsultation = () => {
         description: "You'll receive a confirmation email with calendar invite shortly.",
       });
     } catch (error) {
-      console.error('Booking error:', error);
+      console.error("Booking error:", error);
       toast({
         title: "Booking Failed",
         description: "Please try again or contact us via WhatsApp.",
@@ -131,7 +121,6 @@ const BookConsultation = () => {
     }
   };
 
-  // Disable past dates and weekends
   const disabledDays = (date: Date) => {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
@@ -142,25 +131,24 @@ const BookConsultation = () => {
     return (
       <div className="min-h-screen bg-white">
         <Navbar />
-        <div className="pt-20 pb-16">
+        <div className="pb-16 pt-20">
           <div className="container-custom">
-            <Card className="max-w-xl mx-auto text-center py-12">
+            <Card className="mx-auto max-w-xl py-12 text-center">
               <CardContent className="space-y-6">
-                <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto">
-                  <Check className="w-10 h-10 text-green-600" />
+                <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-green-100">
+                  <Check className="h-10 w-10 text-green-600" />
                 </div>
-                <h2 className="text-2xl font-bold text-[#1e3a5f]">Consultation Booked Successfully!</h2>
+                <h2 className="text-2xl font-bold text-[#1e3a5f]">Consultation Request Received!</h2>
                 <p className="text-gray-600">
-                  Thank you {bookingDetails.name} for booking your free consultation with Nora El Khalifi. 
-                  You'll receive a confirmation email with a calendar invite shortly.
+                  Thank you {bookingDetails.name} for booking your $200 consultation with Nora El Khalifi.
+                  You&apos;ll receive a confirmation email with a calendar invite shortly.
                 </p>
-                
-                {/* Booking Details */}
-                <div className="bg-[#1e3a5f]/5 rounded-xl p-6 text-left space-y-4">
-                  <h3 className="font-semibold text-[#1e3a5f] text-center mb-4">Your Booking Details</h3>
+
+                <div className="space-y-4 rounded-xl bg-[#1e3a5f]/5 p-6 text-left">
+                  <h3 className="mb-4 text-center font-semibold text-[#1e3a5f]">Your Booking Details</h3>
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-[#1e3a5f] rounded-full flex items-center justify-center flex-shrink-0">
-                      <CalendarIcon className="w-5 h-5 text-white" />
+                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-[#1e3a5f]">
+                      <CalendarIcon className="h-5 w-5 text-white" />
                     </div>
                     <div>
                       <p className="text-sm text-gray-500">Date</p>
@@ -168,8 +156,8 @@ const BookConsultation = () => {
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-[#1e3a5f] rounded-full flex items-center justify-center flex-shrink-0">
-                      <Clock className="w-5 h-5 text-white" />
+                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-[#1e3a5f]">
+                      <Clock className="h-5 w-5 text-white" />
                     </div>
                     <div>
                       <p className="text-sm text-gray-500">Time (Dubai)</p>
@@ -177,11 +165,11 @@ const BookConsultation = () => {
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-[#1e3a5f] rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-[#1e3a5f]">
                       {bookingDetails.consultationType === "Video Call" ? (
-                        <Video className="w-5 h-5 text-white" />
+                        <Video className="h-5 w-5 text-white" />
                       ) : (
-                        <Phone className="w-5 h-5 text-white" />
+                        <Phone className="h-5 w-5 text-white" />
                       )}
                     </div>
                     <div>
@@ -191,18 +179,19 @@ const BookConsultation = () => {
                   </div>
                 </div>
 
-                <div className="pt-4 space-y-3">
-                  <a 
-                    href="https://wa.me/971567622484" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                  >
+                <div className="rounded-xl border border-[#1e3a5f]/10 bg-[#1e3a5f]/5 p-4 text-center">
+                  <div className="text-xs uppercase tracking-[0.25em] text-[#1e3a5f]/70">Consultation Fee</div>
+                  <div className="mt-2 font-serif text-3xl text-[#1e3a5f]">$200</div>
+                </div>
+
+                <div className="space-y-3 pt-4">
+                  <a href="https://wa.me/971567622484" target="_blank" rel="noopener noreferrer">
                     <Button className="w-full bg-[#25D366] hover:bg-[#1DA851]">
-                      <MessageCircle className="w-5 h-5 mr-2" />
+                      <MessageCircle className="mr-2 h-5 w-5" />
                       Chat with us on WhatsApp
                     </Button>
                   </a>
-                  <Button variant="outline" onClick={() => window.location.href = "/"}>
+                  <Button variant="outline" onClick={() => (window.location.href = "/")}>
                     Back to Home
                   </Button>
                 </div>
@@ -218,84 +207,70 @@ const BookConsultation = () => {
   return (
     <div className="min-h-screen bg-white">
       <Helmet>
-        <title>Book Free Consultation | ResortsOffers.com</title>
-        <meta name="description" content="Book a free 15-minute consultation with our travel expert Nora El Khalifi. Get personalized luxury resort recommendations." />
+        <title>Book Paid Consultation | ResortsOffers.com</title>
+        <meta
+          name="description"
+          content="Book a $200 consultation with our travel expert Nora El Khalifi for personalized luxury resort recommendations."
+        />
       </Helmet>
-      
+
       <Navbar />
-      
-      {/* Hero Section */}
-      <section className="relative h-[40vh] min-h-[300px]">
+
+      <section className="relative min-h-[300px] h-[40vh]">
         <div className="absolute inset-0">
-          <img 
-            src={consultancyHero} 
-            alt="Luxury Travel Consultation"
-            className="w-full h-full object-cover"
-          />
+          <img src={consultancyHero.url} alt="Luxury resort consultation" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#1e3a5f]/70 to-[#1e3a5f]/90" />
         </div>
-        <div className="relative container-custom h-full flex items-center justify-center text-center">
+        <div className="relative container-custom flex h-full items-center justify-center text-center">
           <div className="text-white">
-            <h1 className="text-3xl md:text-5xl font-serif font-bold mb-4">
-              Book Your Free Consultation
-            </h1>
+            <h1 className="mb-4 font-serif text-3xl font-bold md:text-5xl">Book Your $200 Consultation</h1>
           </div>
         </div>
       </section>
 
-      {/* Booking Form Section */}
       <section className="py-16">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            {/* Benefits */}
+          <div className="grid items-start gap-12 lg:grid-cols-2">
             <div className="space-y-8">
               <div>
-                <h2 className="text-2xl font-serif font-bold text-[#1e3a5f] mb-4">
-                  What You'll Get
-                </h2>
+                <h2 className="mb-4 font-serif text-2xl font-bold text-[#1e3a5f]">What You&apos;ll Get</h2>
+                <div className="mb-6 rounded-2xl border border-[#1e3a5f]/15 bg-[#1e3a5f]/5 p-5">
+                  <div className="text-xs uppercase tracking-[0.25em] text-[#1e3a5f]/70">Consultation Fee</div>
+                  <div className="mt-2 font-serif text-4xl text-[#1e3a5f]">$200</div>
+                  <div className="mt-1 text-sm text-gray-600">Per consultation</div>
+                </div>
                 <div className="space-y-4">
                   {[
                     { icon: Check, text: "Personalized resort recommendations based on your preferences" },
                     { icon: Clock, text: "Save hours of research with expert guidance" },
                     { icon: MessageCircle, text: "Exclusive deals and added value packages" },
                   ].map((item, index) => (
-                    <div key={index} className="flex items-start gap-4 p-4 bg-[#1e3a5f]/5 rounded-lg">
-                      <div className="w-10 h-10 bg-[#1e3a5f] rounded-full flex items-center justify-center flex-shrink-0">
-                        <item.icon className="w-5 h-5 text-white" />
+                    <div key={index} className="flex items-start gap-4 rounded-lg bg-[#1e3a5f]/5 p-4">
+                      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-[#1e3a5f]">
+                        <item.icon className="h-5 w-5 text-white" />
                       </div>
-                      <p className="text-[#1e3a5f] font-medium">{item.text}</p>
+                      <p className="font-medium text-[#1e3a5f]">{item.text}</p>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-[#1e3a5f] to-[#2d4a6f] rounded-2xl p-6 text-white">
-                <h3 className="font-bold text-lg mb-2">Need immediate assistance?</h3>
-                <p className="text-white/80 mb-4">
-                  Chat with us on WhatsApp for instant response
-                </p>
-                <a 
-                  href="https://wa.me/971567622484" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                >
-                  <Button className="bg-[#25D366] hover:bg-[#1DA851] w-full">
-                    <MessageCircle className="w-5 h-5 mr-2" />
+              <div className="rounded-2xl bg-gradient-to-br from-[#1e3a5f] to-[#2d4a6f] p-6 text-white">
+                <h3 className="mb-2 text-lg font-bold">Need immediate assistance?</h3>
+                <p className="mb-4 text-white/80">Chat with us on WhatsApp for instant response</p>
+                <a href="https://wa.me/971567622484" target="_blank" rel="noopener noreferrer">
+                  <Button className="w-full bg-[#25D366] hover:bg-[#1DA851]">
+                    <MessageCircle className="mr-2 h-5 w-5" />
                     Chat on WhatsApp
                   </Button>
                 </a>
               </div>
             </div>
 
-            {/* Form */}
-            <Card className="shadow-xl border-[#1e3a5f]/10">
+            <Card className="border-[#1e3a5f]/10 shadow-xl">
               <CardHeader>
-                <CardTitle className="text-xl font-serif text-[#1e3a5f]">
-                  Schedule Your Consultation
-                </CardTitle>
-                <CardDescription>
-                  Fill in your details and select your preferred time slot
-                </CardDescription>
+                <CardTitle className="font-serif text-xl text-[#1e3a5f]">Schedule Your Paid Consultation</CardTitle>
+                <CardDescription>Fill in your details and select your preferred time slot</CardDescription>
               </CardHeader>
               <CardContent>
                 <Form {...form}>
@@ -314,7 +289,7 @@ const BookConsultation = () => {
                       )}
                     />
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                       <FormField
                         control={form.control}
                         name="email"
@@ -351,32 +326,28 @@ const BookConsultation = () => {
                         <FormItem>
                           <FormLabel>Consultation Type *</FormLabel>
                           <FormControl>
-                            <RadioGroup
-                              onValueChange={field.onChange}
-                              defaultValue={field.value}
-                              className="grid grid-cols-2 gap-4"
-                            >
-                              <div className={cn(
-                                "flex items-center gap-3 p-4 rounded-lg border-2 cursor-pointer transition-all",
-                                field.value === "video" 
-                                  ? "border-[#1e3a5f] bg-[#1e3a5f]/5" 
-                                  : "border-gray-200 hover:border-gray-300"
-                              )}>
+                            <RadioGroup onValueChange={field.onChange} defaultValue={field.value} className="grid grid-cols-2 gap-4">
+                              <div
+                                className={cn(
+                                  "flex cursor-pointer items-center gap-3 rounded-lg border-2 p-4 transition-all",
+                                  field.value === "video" ? "border-[#1e3a5f] bg-[#1e3a5f]/5" : "border-gray-200 hover:border-gray-300"
+                                )}
+                              >
                                 <RadioGroupItem value="video" id="video" />
-                                <label htmlFor="video" className="flex items-center gap-2 cursor-pointer">
-                                  <Video className="w-5 h-5 text-[#1e3a5f]" />
+                                <label htmlFor="video" className="flex cursor-pointer items-center gap-2">
+                                  <Video className="h-5 w-5 text-[#1e3a5f]" />
                                   <span className="font-medium">Video Call</span>
                                 </label>
                               </div>
-                              <div className={cn(
-                                "flex items-center gap-3 p-4 rounded-lg border-2 cursor-pointer transition-all",
-                                field.value === "phone" 
-                                  ? "border-[#1e3a5f] bg-[#1e3a5f]/5" 
-                                  : "border-gray-200 hover:border-gray-300"
-                              )}>
+                              <div
+                                className={cn(
+                                  "flex cursor-pointer items-center gap-3 rounded-lg border-2 p-4 transition-all",
+                                  field.value === "phone" ? "border-[#1e3a5f] bg-[#1e3a5f]/5" : "border-gray-200 hover:border-gray-300"
+                                )}
+                              >
                                 <RadioGroupItem value="phone" id="phone" />
-                                <label htmlFor="phone" className="flex items-center gap-2 cursor-pointer">
-                                  <Phone className="w-5 h-5 text-[#1e3a5f]" />
+                                <label htmlFor="phone" className="flex cursor-pointer items-center gap-2">
+                                  <Phone className="h-5 w-5 text-[#1e3a5f]" />
                                   <span className="font-medium">Phone Call</span>
                                 </label>
                               </div>
@@ -387,7 +358,7 @@ const BookConsultation = () => {
                       )}
                     />
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                       <FormField
                         control={form.control}
                         name="preferredDate"
@@ -399,28 +370,15 @@ const BookConsultation = () => {
                                 <FormControl>
                                   <Button
                                     variant="outline"
-                                    className={cn(
-                                      "w-full pl-3 text-left font-normal",
-                                      !field.value && "text-muted-foreground"
-                                    )}
+                                    className={cn("w-full pl-3 text-left font-normal", !field.value && "text-muted-foreground")}
                                   >
-                                    {field.value ? (
-                                      format(field.value, "PPP")
-                                    ) : (
-                                      <span>Pick a date</span>
-                                    )}
+                                    {field.value ? format(field.value, "PPP") : <span>Pick a date</span>}
                                     <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                                   </Button>
                                 </FormControl>
                               </PopoverTrigger>
                               <PopoverContent className="w-auto p-0" align="start">
-                                <Calendar
-                                  mode="single"
-                                  selected={field.value}
-                                  onSelect={field.onChange}
-                                  disabled={disabledDays}
-                                  initialFocus
-                                />
+                                <Calendar mode="single" selected={field.value} onSelect={field.onChange} disabled={disabledDays} initialFocus />
                               </PopoverContent>
                             </Popover>
                             <FormMessage />
@@ -461,28 +419,18 @@ const BookConsultation = () => {
                         <FormItem>
                           <FormLabel>What would you like to discuss? (Optional)</FormLabel>
                           <FormControl>
-                            <Textarea 
-                              placeholder="E.g., honeymoon in Maldives, family trip to Dubai, etc."
-                              className="min-h-[100px]"
-                              {...field} 
-                            />
+                            <Textarea placeholder="E.g., honeymoon in Maldives, family trip to Dubai, etc." className="min-h-[100px]" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
                       )}
                     />
 
-                    <Button 
-                      type="submit" 
-                      className="w-full bg-[#1e3a5f] hover:bg-[#1e3a5f]/90 py-6 text-lg"
-                      disabled={isSubmitting}
-                    >
-                      {isSubmitting ? "Booking..." : "Book My Free Consultation"}
+                    <Button type="submit" className="w-full bg-[#1e3a5f] py-6 text-lg hover:bg-[#1e3a5f]/90" disabled={isSubmitting}>
+                      {isSubmitting ? "Booking..." : "Book My $200 Consultation"}
                     </Button>
 
-                    <p className="text-xs text-gray-500 text-center">
-                      By booking, you agree to receive communication from Resorts Offers.
-                    </p>
+                    <p className="text-center text-xs text-gray-500">By booking, you agree to receive communication from Resorts Offers.</p>
                   </form>
                 </Form>
               </CardContent>

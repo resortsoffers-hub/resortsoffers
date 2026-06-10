@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { MessageCircle, Mail, Send, Facebook, Instagram, Twitter, Star, Youtube, Linkedin, Calendar, Bell } from "lucide-react";
+import { MessageCircle, Mail, Star, Calendar } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { toast } from "sonner";
@@ -169,16 +169,11 @@ const Contact = () => {
             <div>
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
-                  <Card key={index} className={info.badge ? "border-accent/50" : ""}>
+                  <Card key={index}>
                     <CardHeader>
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                          {info.icon}
-                          <CardTitle className="text-lg">{info.title}</CardTitle>
-                        </div>
-                        {info.badge && (
-                          <span className="rounded-full bg-accent px-3 py-1 text-xs font-semibold text-accent-foreground">{info.badge}</span>
-                        )}
+                      <div className="flex items-center gap-3">
+                        {info.icon}
+                        <CardTitle className="text-lg">{info.title}</CardTitle>
                       </div>
                     </CardHeader>
                     <CardContent>
@@ -222,22 +217,6 @@ const Contact = () => {
                 </Card>
               </div>
 
-              <Card className="mt-6">
-                <CardHeader>
-                  <CardTitle>Connect With Us</CardTitle>
-                  <CardDescription>Follow us on social media</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex gap-4">
-                    <a href="https://www.facebook.com/Resortsoffers/" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-accent" aria-label="Facebook"><Facebook size={24} /></a>
-                    <a href="https://www.instagram.com/resortsoffers/" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-accent" aria-label="Instagram"><Instagram size={24} /></a>
-                    <a href="https://www.linkedin.com/in/noraelkhalifi/" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-accent" aria-label="LinkedIn"><Linkedin size={24} /></a>
-                    <a href="https://twitter.com/Resortsoffers" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-accent" aria-label="Twitter"><Twitter size={24} /></a>
-                    <a href="https://www.youtube.com/@resortsoffers" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-accent" aria-label="YouTube"><Youtube size={24} /></a>
-                    <a href="https://t.me/resortsoffers" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-accent" aria-label="Telegram"><Send size={24} /></a>
-                  </div>
-                </CardContent>
-              </Card>
             </div>
           </div>
         </div>

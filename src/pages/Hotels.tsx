@@ -175,9 +175,14 @@ const Hotels = () => {
           {loading ? (
             <p className="text-center text-muted-foreground py-20">Loading…</p>
           ) : filtered.length === 0 ? (
-            <div className="text-center py-20">
-              <p className="text-muted-foreground">
-                {lang === "ar" ? "لا توجد منتجعات مطابقة بعد." : "No matching resorts yet."}
+            <div className="text-center py-24 max-w-xl mx-auto">
+              <div className="uppercase tracking-[0.3em] text-[10px] text-accent mb-4">
+                {lang === "ar" ? "قريباً" : "Coming Soon"}
+              </div>
+              <p className="font-serif text-2xl md:text-3xl text-primary leading-snug">
+                {lang === "ar"
+                  ? "مجموعتنا الافتتاحية تُكشف قريباً."
+                  : "Our opening collection is being prepared."}
               </p>
             </div>
           ) : (

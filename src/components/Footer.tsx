@@ -14,12 +14,9 @@ const Footer = () => {
     <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-6 py-16">
         <div className="flex flex-col items-center text-center gap-8">
-          {/* Wordmark + tagline */}
+          {/* Wordmark */}
           <div>
-            <div className="font-serif text-2xl tracking-wide mb-2">{BRAND.name}</div>
-            <p className="text-xs uppercase tracking-[0.35em] text-primary-foreground/60">
-              {ar ? BRAND.taglineAr : BRAND.tagline}
-            </p>
+            <div className="font-serif text-2xl tracking-wide">{BRAND.name}</div>
           </div>
 
           {/* Contact */}

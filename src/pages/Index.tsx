@@ -42,6 +42,12 @@ const Index = () => {
   const [featured, setFeatured] = useState<
     { id: string; slug: string; name_en: string; name_ar: string | null; destination: string; hero_image_url: string | null }[]
   >([]);
+  const [heroSlide, setHeroSlide] = useState(0);
+
+  useEffect(() => {
+    const t = setInterval(() => setHeroSlide((s) => (s + 1) % HOME_HERO_IMAGES.length), 5500);
+    return () => clearInterval(t);
+  }, []);
 
   useEffect(() => {
     (async () => {

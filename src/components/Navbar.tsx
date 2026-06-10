@@ -26,7 +26,7 @@ const Navbar = () => {
             <div className="flex items-center gap-1 md:gap-4">
               {/* WhatsApp */}
               <a
-                href="https://wa.me/971567622484"
+                href="https://wa.me/971547474404"
                 className="flex items-center gap-2 text-gray-700 hover:text-[#00A4E4] px-3 py-2"
               >
                 <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current">

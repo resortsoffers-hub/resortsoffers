@@ -14,7 +14,7 @@ import { useLocale, useLocalePath } from "@/hooks/useLocale";
  * AI / stock imagery and invented prices. Removed entirely until offers
  * come from the CMS bound to verified hotel records.
  */
-const WA = "971567622484";
+const WA = "971547474404";
 
 const Offers = () => {
   const lang = useLocale();

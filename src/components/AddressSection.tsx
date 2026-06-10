@@ -52,7 +52,7 @@ const AddressSection = () => {
                   <h3 className="font-semibold text-lg mb-2">Phone Numbers</h3>
                   <div className="space-y-2 text-muted-foreground">
                     <p>
-                      <a href="https://wa.me/971567622484" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                      <a href="https://wa.me/971547474404" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
                         +971 567 622 484 (UAE)
                       </a>
                     </p>

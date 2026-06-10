@@ -22,7 +22,7 @@ const Contact = () => {
       icon: <MessageCircle className="w-6 h-6 text-[#25D366]" />,
       title: "WhatsApp Business - Available 24/7",
       details: [
-        { text: "🇦🇪 +971 56 762 2484 (Worldwide)", link: "https://wa.me/971567622484" },
+        { text: "🇦🇪 +971 54 747 4404 (Worldwide)", link: "https://wa.me/971547474404" },
         { text: "🇸🇦 +971 54 747 4404 (Saudi Arabia)", link: "https://wa.me/971547474404" },
       ],
       badge: "24/7",
@@ -110,7 +110,7 @@ const Contact = () => {
                     </p>
                     <div className="flex flex-wrap gap-2">
                       <a
-                        href="https://wa.me/971567622484"
+                        href="https://wa.me/971547474404"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1.5 rounded-md border border-[#25D366]/30 bg-[#25D366]/10 px-3 py-2 text-sm font-medium transition-colors hover:bg-[#25D366]/20"

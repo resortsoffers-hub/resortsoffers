@@ -29,7 +29,7 @@ interface OfferDetailModalProps {
 const OfferDetailModal = ({ offer, isOpen, onClose }: OfferDetailModalProps) => {
   if (!offer) return null;
 
-  const whatsappNumber = "971567622484";
+  const whatsappNumber = "971547474404";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
     `Hi! I am interested in booking "${offer.title}" in ${offer.destination}. Price: ${offer.price}/night. Please send me availability and more details.`
   )}`;
@@ -145,7 +145,7 @@ const OfferDetailModal = ({ offer, isOpen, onClose }: OfferDetailModalProps) => 
                 Enquire Now
               </Button>
             </a>
-            <a href="tel:+971567622484" className="flex-1">
+            <a href="tel:+971547474404" className="flex-1">
               <Button variant="outline" className="w-full py-6 border-[#003B95] text-[#003B95] hover:bg-[#003B95] hover:text-white">
                 Call to Book
               </Button>

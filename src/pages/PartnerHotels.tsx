@@ -21,7 +21,7 @@ import { useLocale, useLocalePath } from "@/hooks/useLocale";
  * /admin/hotels and surfaced publicly at /en/hotels and /ar/hotels once
  * the first verified entries are published.
  */
-const WA = "971567622484";
+const WA = "971547474404";
 
 const PartnerHotels = () => {
   const lang = useLocale();

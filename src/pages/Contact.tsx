@@ -8,264 +8,13 @@ import { MapPin, Clock, MessageCircle, Mail, Send, Facebook, Instagram, Twitter,
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { toast } from "sonner";
-import contactHeroImg from "@/assets/contact-hero.jpg";
-
-const Contact = () => {
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast.success("Thank you for your message! We'll be in touch soon.");
-  };
-
-  const contactInfo = [
-    {
-      icon: <MessageCircle className="w-6 h-6 text-[#25D366]" />,
-      title: "WhatsApp Business - Available 24/7",
-      details: [
-        { text: "🇦🇪 +971 56 762 2484 (Worldwide)", link: "https://wa.me/971567622484" },
-        { text: "🇸🇦 +971 54 747 4404 (Saudi Arabia)", link: "https://wa.me/971547474404" }
-      ],
-      badge: "24/7"
-    },
-    {
-      icon: <Mail className="w-6 h-6 text-accent" />,
-      title: "Email Us",
-      details: [
-        { text: "VIP@resortsoffers.com", link: "mailto:VIP@resortsoffers.com" }
-      ]
-    },
-    {
-      icon: <Star className="w-6 h-6 text-accent" />,
-      title: "Google Reviews",
-      details: [{ text: "Leave us a review ⭐", link: "https://maps.app.goo.gl/yrTrMqHRhTEuwXmDA?g_st=ic" }]
-    }
-  ];
-
-  return (
-    <div className="min-h-screen">
-      <Helmet>
-        <title>Contact Us - Luxury Travel Experts | ResortsOffers.com</title>
-        <meta name="description" content="Contact our luxury travel experts. Get instant support via WhatsApp, email, or phone. Available 24/7 to help plan your perfect resort vacation." />
-        <meta name="keywords" content="contact travel agency, luxury travel experts, resort booking help, travel support, WhatsApp booking, travel consultation" />
-        <link rel="canonical" href="https://resortsoffers.com/contact" />
-        
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://resortsoffers.com/contact" />
-        <meta property="og:site_name" content="ResortsOffers.com" />
-        <meta property="og:title" content="Contact Us - Luxury Travel Experts" />
-        <meta property="og:description" content="Contact our luxury travel experts. Available 24/7 to help plan your vacation." />
-        <meta property="og:image" content="https://resortsoffers.com/contact-og.jpg" />
-        <meta property="og:locale" content="en_US" />
-        
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Contact Us - Luxury Travel Experts" />
-        <meta name="twitter:description" content="Available 24/7 to help plan your perfect vacation." />
-        
-        {/* Structured Data - Breadcrumb */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://resortsoffers.com/"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Contact",
-                "item": "https://resortsoffers.com/contact"
-              }
-            ]
-          })}
-        </script>
-        {/* Structured Data - Contact */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "ContactPage",
-            "mainEntity": {
-              "@type": "TravelAgency",
-              "name": "ResortsOffers.com",
-              "telephone": "+971567622484",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Deira - Port Saeed",
-                "addressLocality": "Dubai",
-                "addressCountry": "AE"
-              },
-              "contactPoint": [
-                {
-                  "@type": "ContactPoint",
-                  "telephone": "+971567622484",
-                  "contactType": "Customer Service",
-                  "availableLanguage": ["English", "Arabic", "Chinese", "Russian"],
-                  "areaServed": "Worldwide"
-                },
-                {
-                  "@type": "ContactPoint",
-                  "telephone": "+971547474404",
-                  "contactType": "Customer Service",
-                  "areaServed": "SA"
-                }
-              ]
-            }
-          })}
-        </script>
-      </Helmet>
-      <Navbar />
-      
-      {/* Hero Section */}
-      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden mt-20" style={{ backgroundImage: `url(${contactHeroImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-primary/60" />
-        <div className="relative z-10 container-custom text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 animate-fade-in">
-            Contact Us
-          </h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-white">
-            Let's plan your perfect luxury resort experience together
-          </p>
-        </div>
-      </section>
-
-      {/* Contact Form & Info */}
-      <section className="section-padding">
-        <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
-            <div>
-              <div className="mb-8">
-                <h2 className="text-3xl font-bold mb-4">Send Us a Message</h2>
-                <Card className="bg-accent/5 border-accent/20">
-                  <CardContent className="p-4">
-                    <p className="text-sm font-semibold mb-3 flex items-center gap-2">
-                      <MessageCircle className="h-4 w-4 text-[#25D366]" />
-                      Prefer instant chat? Contact us on WhatsApp!
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      <a 
-                        href="https://wa.me/971567622484" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-2 bg-[#25D366]/10 hover:bg-[#25D366]/20 border border-[#25D366]/30 rounded-md text-sm font-medium transition-colors"
-                        title="WhatsApp Worldwide"
-                      >
-                        <span>🇦🇪</span> Worldwide
-                      </a>
-                      <a 
-                        href="https://wa.me/971547474404" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-2 bg-[#25D366]/10 hover:bg-[#25D366]/20 border border-[#25D366]/30 rounded-md text-sm font-medium transition-colors"
-                        title="WhatsApp Saudi Arabia"
-                      >
-                        <span>🇸🇦</span> Saudi Arabia
-                      </a>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="firstName">First Name *</Label>
-                    <Input id="firstName" required placeholder="John" />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="lastName">Last Name *</Label>
-                    <Input id="lastName" required placeholder="Doe" />
-                  </div>
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email Address *</Label>
-                  <Input id="email" type="email" required placeholder="john.doe@example.com" />
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="phone">Phone Number</Label>
-                  <Input id="phone" type="tel" placeholder="+971 XX XXX XXXX" />
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="company">Preferred Destination (Optional)</Label>
-                  <Input id="company" placeholder="e.g., Maldives, Caribbean, Dubai" />
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="subject">Subject *</Label>
-                  <Input id="subject" required placeholder="How can we help you?" />
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="message">Message *</Label>
-                  <Textarea 
-                    id="message" 
-                    required 
-                    placeholder="Tell us about your dream vacation, travel dates, number of guests, and any special requirements..."
-                    rows={6}
-                  />
-                </div>
-                
-                <Button type="submit" size="lg" className="w-full md:w-auto px-12">
-                  Send Message
-                </Button>
-              </form>
-            </div>
-
-            {/* Contact Information */}
-            <div>
-              
-
-              <div className="space-y-6">
-                {contactInfo.map((info, index) => (
-                  <Card key={index} className={info.badge ? "border-accent/50" : ""}>
-                    <CardHeader>
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                          {info.icon}
-                          <CardTitle className="text-lg">{info.title}</CardTitle>
-                        </div>
-                        {info.badge && (
-                          <span className="bg-accent text-accent-foreground px-3 py-1 rounded-full text-xs font-semibold">
-                            {info.badge}
-                          </span>
-                        )}
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      {info.details.map((detail, i) => (
-                        <div key={i} className="mb-2 last:mb-0">
-                          {typeof detail === 'string' ? (
-                            <p className="text-muted-foreground">{detail}</p>
-                          ) : (
-                            <a 
-                              href={detail.link} 
-                              target="_blank" 
-                              rel="noopener noreferrer" 
-                              className="flex items-center gap-2 p-2 hover:bg-accent/10 rounded-lg transition-colors group"
-                            >
-                              <span className="text-base font-medium group-hover:text-accent transition-colors">
-                                {detail.text}
-                              </span>
-                            </a>
-                          )}
-                        </div>
-                      ))}
-                    </CardContent>
-                  </Card>
-                ))}
-
-                {/* Book Online Meeting Card */}
+import contactHeroImg from "@/assets/uploads/resorts-offers-nora-maldives.jpeg.asset.json";
+...
                 <Card className="border-primary/50 bg-gradient-to-br from-primary/5 to-accent/5">
                   <CardHeader>
                     <div className="flex items-center gap-3">
                       <Calendar className="w-6 h-6 text-primary" />
-                      <CardTitle className="text-lg">Book Online Meeting</CardTitle>
+                      <CardTitle className="text-lg">Book Paid Consultation</CardTitle>
                     </div>
                     <CardDescription className="flex items-center gap-2 mt-2">
                       <Bell className="w-4 h-4" />
@@ -274,8 +23,13 @@ const Contact = () => {
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <p className="text-sm text-muted-foreground">
-                      Schedule a personalized consultation with our travel experts. Perfect for urgent inquiries and detailed trip planning.
+                      Schedule a personalized consultation with our travel experts for urgent inquiries and detailed trip planning.
                     </p>
+                    <div className="rounded-lg border border-accent/30 bg-background/80 p-4 text-center">
+                      <div className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Consultation Fee</div>
+                      <div className="mt-2 text-3xl font-serif text-primary">$200</div>
+                      <div className="mt-1 text-sm text-muted-foreground">Per consultation</div>
+                    </div>
                     <div className="space-y-2">
                       <div className="flex items-start gap-2 text-sm">
                         <div className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0" />
@@ -296,10 +50,10 @@ const Contact = () => {
                       onClick={() => window.location.href = '/book-consultation'}
                     >
                       <Calendar className="w-4 h-4 mr-2" />
-                      Book Free Consultation
+                      Book $200 Consultation
                     </Button>
                     <p className="text-xs text-center text-muted-foreground">
-                      Schedule a free consultation with our travel experts
+                      Paid consultation — $200 per session
                     </p>
                   </CardContent>
                 </Card>

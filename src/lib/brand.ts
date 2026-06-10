@@ -12,7 +12,8 @@ export const BRAND = {
   taglineAr: "استشارة سفر فاخرة خاصة",
   domain: "resortsoffers.com",
   whatsapp: "971567622484",
-  email: "hello@resortsoffers.com",
+  email: "Vip@resortsoffers.com",
+  mobile: "+971547474404",
   // HSL tokens are defined in index.css; these literals are only for non-themed
   // surfaces (e.g. WhatsApp brand green which must remain its official color).
   colors: {

@@ -1,8 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
-import { Home, Phone, Building2, Tag } from "lucide-react";
+import { Home, Phone, Building2, Tag, Mail } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { useLocale, useLocalePath } from "@/hooks/useLocale";
+import { BRAND } from "@/lib/brand";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -65,14 +66,35 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
           </nav>
 
           {/* Contact Info */}
-          <div className="p-6 bg-white/5">
-            <p className="text-white/60 text-xs mb-2">{t('common.bookNowWhatsApp')}</p>
-            <a 
-              href="https://wa.me/971567622484" 
-              className="text-white font-semibold hover:text-white/80 transition-colors"
-            >
-              +971 56 762 2484
-            </a>
+          <div className="p-6 bg-white/5 space-y-3">
+            <div>
+              <p className="text-white/60 text-xs mb-1">{t('common.bookNowWhatsApp')}</p>
+              <a 
+                href={`https://wa.me/${BRAND.whatsapp}`} 
+                className="text-white font-semibold hover:text-white/80 transition-colors"
+              >
+                +971 56 762 2484
+              </a>
+            </div>
+            <div>
+              <p className="text-white/60 text-xs mb-1">Mobile</p>
+              <a 
+                href={`tel:${BRAND.mobile}`} 
+                className="text-white font-semibold hover:text-white/80 transition-colors"
+              >
+                {BRAND.mobile}
+              </a>
+            </div>
+            <div>
+              <p className="text-white/60 text-xs mb-1">Email</p>
+              <a 
+                href={`mailto:${BRAND.email}`} 
+                className="text-white font-semibold hover:text-white/80 transition-colors inline-flex items-center gap-2"
+              >
+                <Mail size={14} />
+                {BRAND.email}
+              </a>
+            </div>
           </div>
         </div>
       </SheetContent>

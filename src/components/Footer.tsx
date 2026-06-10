@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Linkedin, Youtube, MessageCircle, Mail } from "lucide-react";
+import { MessageCircle, Mail, Phone } from "lucide-react";
 import { BRAND } from "@/lib/brand";
 import { useLocale } from "@/hooks/useLocale";
 
@@ -34,6 +34,13 @@ const Footer = () => {
               +971 56 762 2484
             </a>
             <a
+              href={`tel:${BRAND.mobile}`}
+              className="inline-flex items-center gap-2 hover:text-accent transition-colors"
+            >
+              <Phone size={16} />
+              {BRAND.mobile}
+            </a>
+            <a
               href={`mailto:${BRAND.email}`}
               className="inline-flex items-center gap-2 hover:text-accent transition-colors"
             >
@@ -42,21 +49,7 @@ const Footer = () => {
             </a>
           </div>
 
-          {/* Social */}
-          <div className="flex gap-6">
-            <a href="https://instagram.com/resortsoffers" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-accent transition-colors">
-              <Instagram size={18} />
-            </a>
-            <a href="https://www.facebook.com/Resortsoffers/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-accent transition-colors">
-              <Facebook size={18} />
-            </a>
-            <a href="https://www.linkedin.com/in/noraelkhalifi/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-accent transition-colors">
-              <Linkedin size={18} />
-            </a>
-            <a href="https://www.youtube.com/@resortsoffers" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="hover:text-accent transition-colors">
-              <Youtube size={18} />
-            </a>
-          </div>
+          {/* Social removed per brand direction */}
 
           <p className="text-[11px] text-primary-foreground/50 tracking-wider">
             © {new Date().getFullYear()} {BRAND.name}

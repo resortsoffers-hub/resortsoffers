@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { X, Home, Phone, HelpCircle, FileText, Package, Building2, Tag, Star, MessageSquare, Ship, Users, CalendarDays, Globe } from "lucide-react";
+import { Home, Phone, Building2, Tag } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { useLocale, useLocalePath } from "@/hooks/useLocale";
@@ -15,16 +15,14 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
   const lang = useLocale();
   const lp = useLocalePath();
 
+  // Editorial focus — only the essentials. About / Vision / Destinations /
+  // Events / Reviews / FAQ / Terms intentionally hidden from the homepage
+  // navigation per brand direction (luxury magazine, not booking portal).
   const menuItems = [
     { name: t('nav.home'), path: "/", icon: Home },
-    { name: lang === "ar" ? "الوجهات" : "Destinations", path: "/destinations", icon: Globe },
-    { name: t('nav.aboutUs'), path: "/about-us", icon: Users },
-    { name: t('nav.cruises'), path: "/cruises", icon: Ship },
-    { name: t('nav.events'), path: "/events", icon: CalendarDays },
-    { name: t('nav.reviews'), path: "/reviews", icon: MessageSquare },
+    { name: lang === "ar" ? "المنتجعات" : "Resorts", path: "/hotels", icon: Building2 },
+    { name: lang === "ar" ? "العروض" : "Offers", path: "/offers", icon: Tag },
     { name: t('nav.contact'), path: "/contact", icon: Phone },
-    { name: t('nav.faq'), path: "/faq", icon: HelpCircle },
-    { name: t('nav.terms'), path: "/terms", icon: FileText },
   ];
 
   const isActive = (path: string) => location.pathname === lp(path);

@@ -8,8 +8,8 @@
 export const BRAND = {
   name: "Resorts Offers",
   legalName: "Resorts Offers Tourism Consultancy",
-  tagline: "Private luxury travel advisory",
-  taglineAr: "استشارة سفر فاخرة خاصة",
+  tagline: "",
+  taglineAr: "",
   domain: "resortsoffers.com",
   whatsapp: "971547474404",
   email: "Vip@resortsoffers.com",

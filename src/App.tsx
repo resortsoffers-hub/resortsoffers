@@ -10,17 +10,13 @@ import LocaleLayout from "@/components/LocaleLayout";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import Index from "./pages/Index";
 
-import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
 import Terms from "./pages/Terms";
 import Packages from "./pages/Packages";
-import Offers from "./pages/Offers";
-import OfferDetail from "./pages/OfferDetail";
 import AdminOffers from "./pages/AdminOffers";
 import AdminHotels from "./pages/AdminHotels";
 import AdminDraftReview from "./pages/AdminDraftReview";
 import AdminLogin from "./pages/AdminLogin";
-import Hotels from "./pages/Hotels";
 import HotelDetail from "./pages/HotelDetail";
 import Destinations from "./pages/Destinations";
 import DestinationHub from "./pages/DestinationHub";
@@ -32,7 +28,7 @@ import Cruises from "./pages/Cruises";
 import AboutUs from "./pages/AboutUs";
 import Events from "./pages/Events";
 import NotFound from "./pages/NotFound";
-// DhawaPackageSample removed — used a generic Maldives stock image as placeholder for a real hotel name.
+
 
 const queryClient = new QueryClient();
 
@@ -50,15 +46,11 @@ const RedirectToLocale = () => {
 const localizedChildren = (
   <>
     <Route index element={<Index />} />
-    <Route path="contact" element={<Contact />} />
     <Route path="faq" element={<FAQ />} />
     <Route path="terms" element={<Terms />} />
     <Route path="packages" element={<Packages />} />
-    <Route path="offers" element={<Offers />} />
-    <Route path="offers/:id" element={<OfferDetail />} />
     <Route path="book-consultation" element={<BookConsultation />} />
     <Route path="partner-hotels" element={<PartnerHotels />} />
-    <Route path="hotels" element={<Hotels />} />
     <Route path="hotels/:slug" element={<HotelDetail />} />
     <Route path="review/:slug/:previewId" element={<HotelDetail />} />
     <Route path="destinations" element={<Destinations />} />
@@ -68,9 +60,10 @@ const localizedChildren = (
     <Route path="cruises" element={<Cruises />} />
     <Route path="about-us" element={<AboutUs />} />
     <Route path="events" element={<Events />} />
-    {/* /package-sample route removed — see Index.tsx note above */}
+    {/* /hotels, /offers, /contact intentionally removed until launch */}
   </>
 );
+
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -93,15 +86,11 @@ const App = () => (
 
               {/* Bare root + legacy URLs → redirect to detected locale */}
               <Route path="/" element={<RedirectToLocale />} />
-              <Route path="/contact" element={<RedirectToLocale />} />
               <Route path="/faq" element={<RedirectToLocale />} />
               <Route path="/terms" element={<RedirectToLocale />} />
               <Route path="/packages" element={<RedirectToLocale />} />
-              <Route path="/offers" element={<RedirectToLocale />} />
-              <Route path="/offers/:id" element={<RedirectToLocale />} />
               <Route path="/book-consultation" element={<RedirectToLocale />} />
               <Route path="/partner-hotels" element={<RedirectToLocale />} />
-              <Route path="/hotels" element={<RedirectToLocale />} />
               <Route path="/hotels/:slug" element={<RedirectToLocale />} />
               <Route path="/review/:slug/:previewId" element={<RedirectToLocale />} />
               <Route path="/destinations" element={<RedirectToLocale />} />
@@ -111,6 +100,21 @@ const App = () => (
               <Route path="/cruises" element={<RedirectToLocale />} />
               <Route path="/about-us" element={<RedirectToLocale />} />
               <Route path="/events" element={<RedirectToLocale />} />
+
+              {/* Removed pages → send to home */}
+              <Route path="/contact" element={<Navigate to="/" replace />} />
+              <Route path="/offers" element={<Navigate to="/" replace />} />
+              <Route path="/offers/:id" element={<Navigate to="/" replace />} />
+              <Route path="/hotels" element={<Navigate to="/" replace />} />
+              <Route path="/en/contact" element={<Navigate to="/en" replace />} />
+              <Route path="/ar/contact" element={<Navigate to="/ar" replace />} />
+              <Route path="/en/offers" element={<Navigate to="/en" replace />} />
+              <Route path="/ar/offers" element={<Navigate to="/ar" replace />} />
+              <Route path="/en/offers/:id" element={<Navigate to="/en" replace />} />
+              <Route path="/ar/offers/:id" element={<Navigate to="/ar" replace />} />
+              <Route path="/en/hotels" element={<Navigate to="/en" replace />} />
+              <Route path="/ar/hotels" element={<Navigate to="/ar" replace />} />
+
               {/* /package-sample legacy redirect removed */}
 
               <Route path="*" element={<NotFound />} />

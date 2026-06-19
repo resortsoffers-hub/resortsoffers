@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Home, Phone, Building2, Tag, Mail, MessageCircle } from "lucide-react";
+import { Home, Mail, MessageCircle } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { useLocale, useLocalePath } from "@/hooks/useLocale";
@@ -21,10 +21,8 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
   // navigation per brand direction (luxury magazine, not booking portal).
   const menuItems = [
     { name: t('nav.home'), path: "/", icon: Home },
-    { name: lang === "ar" ? "المنتجعات" : "Resorts", path: "/hotels", icon: Building2 },
-    { name: lang === "ar" ? "العروض" : "Offers", path: "/offers", icon: Tag },
-    { name: t('nav.contact'), path: "/contact", icon: Phone },
   ];
+
 
   const isActive = (path: string) => location.pathname === lp(path);
 

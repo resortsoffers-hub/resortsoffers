@@ -81,6 +81,37 @@ const Index = () => {
             </div>
           </div>
         </section>
+
+        <section className="bg-background py-20 md:py-28">
+          <div className="container mx-auto px-6 max-w-3xl">
+            <h2 className="font-serif text-3xl md:text-4xl text-center mb-12">
+              {ar ? "من نحن" : "About Us"}
+            </h2>
+            <ul className="space-y-6">
+              {[
+                ar
+                  ? "تدعم عملياتنا شبكة من الفرق المحلية في الوجهات الرئيسية، مما يضمن تنسيقاً سلساً للوصول وتجارب محلية منظمة بعناية."
+                  : "Our operations are supported by a network of on-ground teams across key destinations, ensuring seamless arrival coordination and well-managed local experiences.",
+                ar
+                  ? "نحن نراجع ونقّيم المنتجعات التي نمثلها بشكل شخصي، مستفيدين من فهمنا العميق لصناعة السفر، ونقوم بتوثيق رؤى ومحتوى بصري خاص بنا للحفاظ على الدقة والأصالة."
+                  : "With a strong understanding of the travel industry, we personally review and assess the resorts we represent, capturing our own insights and visual content to maintain accuracy and authenticity.",
+                ar
+                  ? "نراقب ونحدّث باستمرار مستوى الخدمات المقدمة، مما يتيح لنا تقديم توصيات بثقة ووضوح."
+                  : "We continuously monitor and update the level of services provided, allowing us to recommend options with confidence and clarity.",
+                ar
+                  ? "تمكّننا علاقاتنا الراسخة مع فرق إدارة المنتجعات من التواصل بكفاءة وإدارة متطلبات عملائنا بسلاسة في كل مرحلة."
+                  : "Our established relationships with resort management teams enable efficient communication and smooth handling of our clients' requirements at every stage.",
+              ].map((text, i) => (
+                <li key={i} className="flex items-start gap-4">
+                  <Check className="h-5 w-5 mt-1 text-[#C9A961] shrink-0" />
+                  <p className="text-base md:text-lg leading-relaxed text-muted-foreground">
+                    {text}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
       </main>
 
       <Footer />

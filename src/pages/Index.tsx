@@ -26,6 +26,9 @@ const EXPERIENCES = [
     titleAr: "فلل فوق الماء",
     desc: "Wake above turquoise lagoons. Direct reef access, private pools, and uninterrupted horizon views.",
     descAr: "استيقظ فوق البحيرات الفيروزية. وصول مباشر إلى الشعاب، مسبح خاص، وإطلالات بحرية لا تُحجب.",
+    img: browseKuda,
+    alt: "Aerial view of lagoon pool villas",
+    altAr: "منظر جوي لفلل ومسابح على اللاجون",
   },
   {
     icon: Users,
@@ -33,6 +36,9 @@ const EXPERIENCES = [
     titleAr: "رحلات العائلة",
     desc: "Multi-bedroom villas, kids' clubs, and curated activities designed for every generation to enjoy together.",
     descAr: "فلل متعددة الغرف، نوادي للأطفال، وأنشطة منظمة مصممة لكي يستمتع بها كل جيل معاً.",
+    img: browseWaldorf,
+    alt: "Three bedroom beach villa for family stays",
+    altAr: "فيلا شاطئية بثلاث غرف لإقامات العائلة",
   },
   {
     icon: Heart,
@@ -40,6 +46,9 @@ const EXPERIENCES = [
     titleAr: "ملاذات شهر العسل",
     desc: "Secluded sanctuaries with romantic dining, sunset cruises, and butler service for two.",
     descAr: "ملاذات منعزلة مع عشاء رومانسي، جولات غروب الشمس، وخدمة خاصة لشخصين.",
+    img: browseRitz,
+    alt: "Private beach cove for honeymoon escapes",
+    altAr: "خليج شاطئي خاص لرحلات شهر العسل",
   },
   {
     icon: TreePine,
@@ -47,6 +56,9 @@ const EXPERIENCES = [
     titleAr: "جزر خاصة",
     desc: "Exclusive island buyouts where your party is the only guest. Total privacy, total control.",
     descAr: "حجز جزيرة كاملة حيث ضيوفك هم الضيوف الوحيدون. خصوصية تامة، تحكم كامل.",
+    img: browsePatina,
+    alt: "Private island resort aerial view",
+    altAr: "منظر جوي لمنتجع جزيرة خاصة",
   },
 ];
 
@@ -371,20 +383,29 @@ const Index = () => {
                     href={`https://wa.me/${BRAND.whatsapp}?text=${waExperience(ar ? exp.titleAr : exp.title)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group block relative bg-[#111] border border-white/5 hover:border-[#C9A961]/30 p-8 md:p-10 transition-all duration-500 hover:-translate-y-1"
+                    className="group block relative min-h-[360px] overflow-hidden bg-[#111] border border-white/5 hover:border-[#C9A961]/30 transition-all duration-500 hover:-translate-y-1"
                   >
-                    <div className="flex items-start justify-between mb-6">
-                      <div className="flex h-12 w-12 items-center justify-center border border-[#C9A961]/20">
-                        <exp.icon className="h-5 w-5 text-[#C9A961]" />
+                    <img
+                      src={exp.img}
+                      alt={ar ? exp.altAr : exp.alt}
+                      loading="lazy"
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/10" />
+                    <div className="relative flex min-h-[360px] flex-col justify-end p-8 md:p-10">
+                      <div className="mb-6 flex items-start justify-between">
+                        <div className="flex h-12 w-12 items-center justify-center border border-[#C9A961]/40 bg-black/30 backdrop-blur-sm">
+                          <exp.icon className="h-5 w-5 text-[#C9A961]" />
+                        </div>
+                        <ArrowRight className="h-5 w-5 text-white/60 group-hover:text-[#C9A961] group-hover:translate-x-1 transition-all" />
                       </div>
-                      <ArrowRight className="h-5 w-5 text-white/20 group-hover:text-[#C9A961] group-hover:translate-x-1 transition-all" />
+                      <h3 className="font-serif text-2xl mb-3 text-white group-hover:text-[#C9A961] transition-colors">
+                        {ar ? exp.titleAr : exp.title}
+                      </h3>
+                      <p className="text-white/80 leading-relaxed">
+                        {ar ? exp.descAr : exp.desc}
+                      </p>
                     </div>
-                    <h3 className="font-serif text-2xl mb-3 group-hover:text-[#C9A961] transition-colors">
-                      {ar ? exp.titleAr : exp.title}
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {ar ? exp.descAr : exp.desc}
-                    </p>
                   </a>
                 </RevealSection>
               ))}

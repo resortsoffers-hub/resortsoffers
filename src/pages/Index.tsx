@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { useEffect, useState, useRef } from "react";
-import { MessageCircle, Check, Heart, Users, Waves, TreePine, ArrowRight, ChevronDown, Star, Shield, MapPin, Search, Camera } from "lucide-react";
+import { MessageCircle, Check, Heart, Users, Waves, TreePine, ArrowRight, ChevronDown, Star, Shield, MapPin, Search } from "lucide-react";
 import { HOTEL_CATEGORIES, categoryLabel } from "@/lib/hotelCategories";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -10,6 +10,12 @@ import heroImg1 from "@/assets/home-hero/hero-seaplane.jpeg.asset.json";
 import heroImg2 from "@/assets/home-hero/hero-villa.jpeg.asset.json";
 import poolVilla from "@/assets/uploads/consultation-pool-villa.jpeg.asset.json";
 import noraMaldives from "@/assets/uploads/resorts-offers-nora-maldives.jpeg.asset.json";
+import browseKuda from "@/assets/uploads/browse-kuda-villingili-pool-aerial.jpg";
+import browsePatina from "@/assets/uploads/browse-patina-maldives-aerial.jpg";
+import browseWaldorf from "@/assets/uploads/browse-waldorf-three-bedroom-villa.jpg";
+import browseRitz from "@/assets/uploads/browse-ritz-carlton-beach-cove.jpg";
+import browseAyana from "@/assets/uploads/browse-ayana-ocean-beach-pool.jpg";
+import browseDhawa from "@/assets/uploads/browse-dhawa-ihuru-twin-island.jpeg";
 
 const HOME_HERO_IMAGES = [heroImg1.url, heroImg2.url];
 
@@ -121,6 +127,45 @@ const Index = () => {
   const waExperience = (exp: string) =>
     encodeURIComponent(ar ? `مرحباً، أنا مهتم بـ ${exp}.` : `Hello, I'm interested in ${exp}.`);
 
+  const browseCards = [
+    {
+      d: ar ? "كودا فيلينجيلي" : "Kuda Villingili",
+      c: ar ? "فلل ومسابح لاجون" : "Lagoon Pool Villas",
+      img: browseKuda,
+      alt: ar ? "منظر جوي لمسبح ولاجون كودا فيلينجيلي" : "Aerial view of Kuda Villingili lagoon and pool villas",
+    },
+    {
+      d: ar ? "باتينا المالديف" : "Patina Maldives",
+      c: ar ? "جزيرة عصرية" : "Design Island Escape",
+      img: browsePatina,
+      alt: ar ? "منظر جوي لجزيرة باتينا المالديف" : "Aerial view of Patina Maldives island resort",
+    },
+    {
+      d: ar ? "والدورف أستوريا إيثافوشي" : "Waldorf Astoria Ithaafushi",
+      c: ar ? "فيلا شاطئية بثلاث غرف" : "Three Bedroom Beach Villa",
+      img: browseWaldorf,
+      alt: ar ? "فيلا شاطئية بثلاث غرف في والدورف أستوريا المالديف" : "Three bedroom beach villa at Waldorf Astoria Maldives Ithaafushi",
+    },
+    {
+      d: ar ? "ريتز كارلتون المالديف" : "The Ritz-Carlton Maldives",
+      c: ar ? "خليج شاطئي هادئ" : "Private Beach Cove",
+      img: browseRitz,
+      alt: ar ? "خليج شاطئي في ريتز كارلتون المالديف" : "Beach cove at The Ritz-Carlton Maldives",
+    },
+    {
+      d: ar ? "أيانا بالي" : "AYANA Bali",
+      c: ar ? "مسبح ومحيط" : "Ocean Beach Pool",
+      img: browseAyana,
+      alt: ar ? "مسبح شاطئي مطل على المحيط في أيانا" : "Ocean beach pool aerial view at AYANA",
+    },
+    {
+      d: ar ? "داوا إيهورو" : "Dhawa Ihuru",
+      c: ar ? "تجربة جزيرتين" : "Twin Island Experience",
+      img: browseDhawa,
+      alt: ar ? "تجربة جزيرتين في داوا إيهورو" : "Twin island experience at Dhawa Ihuru",
+    },
+  ];
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Helmet>
@@ -198,24 +243,24 @@ const Index = () => {
         </section>
 
         {/* BROWSE STAYS — TBO-style discovery layout in brand colors */}
-        <section className="bg-background border-b border-white/5">
+        <section className="bg-[#050505] border-b border-white/10 text-white">
           <div className="container mx-auto px-6 py-16 md:py-20">
-            <RevealSection className="text-center mb-10">
+            <div className="text-center mb-10">
               <p className="text-[11px] uppercase tracking-[0.35em] text-[#C9A961] mb-3">
                 {ar ? "استكشف" : "Discover"}
               </p>
-              <h2 className="font-serif text-3xl md:text-5xl text-foreground mb-4">
+              <h2 className="font-serif text-3xl md:text-5xl text-white mb-4">
                 {ar ? "تصفّح المنتجعات" : "Browse Stays"}
               </h2>
-              <p className="text-muted-foreground max-w-xl mx-auto">
+              <p className="text-white/65 max-w-xl mx-auto">
                 {ar
                   ? "اختر أسلوب رحلتك — نُطابقك مع المنتجع الأنسب شخصياً."
                   : "Choose the style of your trip — we'll personally match you with the right resort."}
               </p>
-            </RevealSection>
+            </div>
 
             {/* Search bar (WhatsApp-linked) */}
-            <RevealSection className="max-w-3xl mx-auto mb-8">
+            <div className="max-w-3xl mx-auto mb-8">
               <a
                 href={`https://wa.me/${BRAND.whatsapp}?text=${encodeURIComponent(ar ? "أرغب في البحث عن منتجع." : "I'd like help searching for a resort.")}`}
                 target="_blank"
@@ -231,10 +276,10 @@ const Index = () => {
                   {ar ? "اسأل نورة" : "Ask Nora"}
                 </span>
               </a>
-            </RevealSection>
+            </div>
 
             {/* Category chips */}
-            <RevealSection className="mb-12">
+            <div className="mb-12">
               <div className="flex flex-wrap justify-center gap-2 max-w-4xl mx-auto">
                 {HOTEL_CATEGORIES.map((cat) => (
                   <a
@@ -248,27 +293,26 @@ const Index = () => {
                   </a>
                 ))}
               </div>
-            </RevealSection>
+            </div>
 
-            {/* Featured cards — empty states until verified imagery lands */}
+            {/* Featured cards — real user-provided imagery only */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
-              {[
-                { d: ar ? "المالديف" : "Maldives",   c: ar ? "فلل فوق الماء" : "Overwater Villas" },
-                { d: ar ? "سيشل"     : "Seychelles", c: ar ? "جزيرة خاصة"  : "Private Island"    },
-                { d: ar ? "بالي"     : "Bali",       c: ar ? "شهر العسل"   : "Honeymoon"         },
-              ].map((card) => (
-                <RevealSection key={card.d}>
+              {browseCards.map((card) => (
+                <div key={card.d}>
                   <a
                     href={`https://wa.me/${BRAND.whatsapp}?text=${encodeURIComponent(ar ? `أرغب في منتجع ${card.c} في ${card.d}.` : `I'd like a ${card.c} resort in ${card.d}.`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group block bg-[#0a0a0a] border border-white/5 hover:border-[#C9A961]/40 transition-all"
                   >
-                    <div className="relative aspect-[4/3] bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] flex flex-col items-center justify-center border-b border-white/5">
-                      <Camera className="h-8 w-8 text-[#C9A961]/40 mb-3" />
-                      <p className="text-[10px] uppercase tracking-[0.3em] text-white/40 text-center px-6">
-                        {ar ? "قريباً — تصوير رسمي قيد التحقق" : "Coming soon — verified imagery in progress"}
-                      </p>
+                    <div className="relative aspect-[4/3] overflow-hidden border-b border-white/5">
+                      <img
+                        src={card.img}
+                        alt={card.alt}
+                        loading="lazy"
+                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
                     </div>
                     <div className="p-5 flex items-center justify-between">
                       <div>
@@ -278,7 +322,7 @@ const Index = () => {
                       <ArrowRight className="h-4 w-4 text-white/30 group-hover:text-[#C9A961] group-hover:translate-x-1 transition-all" />
                     </div>
                   </a>
-                </RevealSection>
+                </div>
               ))}
             </div>
           </div>

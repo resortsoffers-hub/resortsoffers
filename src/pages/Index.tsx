@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { useEffect, useState, useRef } from "react";
-import { MessageCircle, Check, Heart, Users, Waves, TreePine, ArrowRight, ChevronDown, Star, Shield, MapPin } from "lucide-react";
+import { MessageCircle, Check, Heart, Users, Waves, TreePine, ArrowRight, ChevronDown, Star, Shield, MapPin, Search, Camera } from "lucide-react";
+import { HOTEL_CATEGORIES, categoryLabel } from "@/lib/hotelCategories";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useLocale } from "@/hooks/useLocale";
@@ -195,6 +196,94 @@ const Index = () => {
             <ChevronDown className="h-6 w-6 text-white/40" />
           </div>
         </section>
+
+        {/* BROWSE STAYS — TBO-style discovery layout in brand colors */}
+        <section className="bg-background border-b border-white/5">
+          <div className="container mx-auto px-6 py-16 md:py-20">
+            <RevealSection className="text-center mb-10">
+              <p className="text-[11px] uppercase tracking-[0.35em] text-[#C9A961] mb-3">
+                {ar ? "استكشف" : "Discover"}
+              </p>
+              <h2 className="font-serif text-3xl md:text-5xl text-foreground mb-4">
+                {ar ? "تصفّح المنتجعات" : "Browse Stays"}
+              </h2>
+              <p className="text-muted-foreground max-w-xl mx-auto">
+                {ar
+                  ? "اختر أسلوب رحلتك — نُطابقك مع المنتجع الأنسب شخصياً."
+                  : "Choose the style of your trip — we'll personally match you with the right resort."}
+              </p>
+            </RevealSection>
+
+            {/* Search bar (WhatsApp-linked) */}
+            <RevealSection className="max-w-3xl mx-auto mb-8">
+              <a
+                href={`https://wa.me/${BRAND.whatsapp}?text=${encodeURIComponent(ar ? "أرغب في البحث عن منتجع." : "I'd like help searching for a resort.")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 bg-[#0a0a0a] border border-white/10 hover:border-[#C9A961]/40 px-5 py-4 transition-colors group"
+              >
+                <Search className="h-5 w-5 text-[#C9A961] shrink-0" />
+                <span className="flex-1 text-white/50 group-hover:text-white/80 text-sm md:text-base">
+                  {ar ? "الوجهة، التواريخ، عدد الضيوف…" : "Destination, dates, guests…"}
+                </span>
+                <span className="hidden sm:inline-flex items-center gap-2 bg-[#25D366] text-white px-4 py-2 text-[11px] uppercase tracking-[0.2em]">
+                  <MessageCircle className="h-3.5 w-3.5" />
+                  {ar ? "اسأل نورة" : "Ask Nora"}
+                </span>
+              </a>
+            </RevealSection>
+
+            {/* Category chips */}
+            <RevealSection className="mb-12">
+              <div className="flex flex-wrap justify-center gap-2 max-w-4xl mx-auto">
+                {HOTEL_CATEGORIES.map((cat) => (
+                  <a
+                    key={cat.slug}
+                    href={`https://wa.me/${BRAND.whatsapp}?text=${encodeURIComponent(ar ? `مهتم بفئة ${cat.label_ar}.` : `Interested in ${cat.label_en} resorts.`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="border border-white/10 hover:border-[#C9A961] text-white/70 hover:text-[#C9A961] text-xs uppercase tracking-[0.15em] px-4 py-2 transition-colors"
+                  >
+                    {categoryLabel(cat.slug, ar ? "ar" : "en")}
+                  </a>
+                ))}
+              </div>
+            </RevealSection>
+
+            {/* Featured cards — empty states until verified imagery lands */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
+              {[
+                { d: ar ? "المالديف" : "Maldives",   c: ar ? "فلل فوق الماء" : "Overwater Villas" },
+                { d: ar ? "سيشل"     : "Seychelles", c: ar ? "جزيرة خاصة"  : "Private Island"    },
+                { d: ar ? "بالي"     : "Bali",       c: ar ? "شهر العسل"   : "Honeymoon"         },
+              ].map((card) => (
+                <RevealSection key={card.d}>
+                  <a
+                    href={`https://wa.me/${BRAND.whatsapp}?text=${encodeURIComponent(ar ? `أرغب في منتجع ${card.c} في ${card.d}.` : `I'd like a ${card.c} resort in ${card.d}.`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group block bg-[#0a0a0a] border border-white/5 hover:border-[#C9A961]/40 transition-all"
+                  >
+                    <div className="relative aspect-[4/3] bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] flex flex-col items-center justify-center border-b border-white/5">
+                      <Camera className="h-8 w-8 text-[#C9A961]/40 mb-3" />
+                      <p className="text-[10px] uppercase tracking-[0.3em] text-white/40 text-center px-6">
+                        {ar ? "قريباً — تصوير رسمي قيد التحقق" : "Coming soon — verified imagery in progress"}
+                      </p>
+                    </div>
+                    <div className="p-5 flex items-center justify-between">
+                      <div>
+                        <p className="text-[10px] uppercase tracking-[0.25em] text-[#C9A961] mb-1">{card.c}</p>
+                        <h3 className="font-serif text-lg text-white">{card.d}</h3>
+                      </div>
+                      <ArrowRight className="h-4 w-4 text-white/30 group-hover:text-[#C9A961] group-hover:translate-x-1 transition-all" />
+                    </div>
+                  </a>
+                </RevealSection>
+              ))}
+            </div>
+          </div>
+        </section>
+
 
         {/* TRUST STRIP */}
         <section className="bg-[#0a0a0a] border-b border-white/5">

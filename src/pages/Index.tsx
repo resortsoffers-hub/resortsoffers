@@ -243,24 +243,24 @@ const Index = () => {
         </section>
 
         {/* BROWSE STAYS — TBO-style discovery layout in brand colors */}
-        <section className="bg-background border-b border-white/5">
+        <section className="bg-[#050505] border-b border-white/10 text-white">
           <div className="container mx-auto px-6 py-16 md:py-20">
-            <RevealSection className="text-center mb-10">
+            <div className="text-center mb-10">
               <p className="text-[11px] uppercase tracking-[0.35em] text-[#C9A961] mb-3">
                 {ar ? "استكشف" : "Discover"}
               </p>
-              <h2 className="font-serif text-3xl md:text-5xl text-foreground mb-4">
+              <h2 className="font-serif text-3xl md:text-5xl text-white mb-4">
                 {ar ? "تصفّح المنتجعات" : "Browse Stays"}
               </h2>
-              <p className="text-muted-foreground max-w-xl mx-auto">
+              <p className="text-white/65 max-w-xl mx-auto">
                 {ar
                   ? "اختر أسلوب رحلتك — نُطابقك مع المنتجع الأنسب شخصياً."
                   : "Choose the style of your trip — we'll personally match you with the right resort."}
               </p>
-            </RevealSection>
+            </div>
 
             {/* Search bar (WhatsApp-linked) */}
-            <RevealSection className="max-w-3xl mx-auto mb-8">
+            <div className="max-w-3xl mx-auto mb-8">
               <a
                 href={`https://wa.me/${BRAND.whatsapp}?text=${encodeURIComponent(ar ? "أرغب في البحث عن منتجع." : "I'd like help searching for a resort.")}`}
                 target="_blank"
@@ -276,10 +276,10 @@ const Index = () => {
                   {ar ? "اسأل نورة" : "Ask Nora"}
                 </span>
               </a>
-            </RevealSection>
+            </div>
 
             {/* Category chips */}
-            <RevealSection className="mb-12">
+            <div className="mb-12">
               <div className="flex flex-wrap justify-center gap-2 max-w-4xl mx-auto">
                 {HOTEL_CATEGORIES.map((cat) => (
                   <a
@@ -293,12 +293,12 @@ const Index = () => {
                   </a>
                 ))}
               </div>
-            </RevealSection>
+            </div>
 
             {/* Featured cards — real user-provided imagery only */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
               {browseCards.map((card) => (
-                <RevealSection key={card.d}>
+                <div key={card.d}>
                   <a
                     href={`https://wa.me/${BRAND.whatsapp}?text=${encodeURIComponent(ar ? `أرغب في منتجع ${card.c} في ${card.d}.` : `I'd like a ${card.c} resort in ${card.d}.`)}`}
                     target="_blank"
@@ -322,7 +322,7 @@ const Index = () => {
                       <ArrowRight className="h-4 w-4 text-white/30 group-hover:text-[#C9A961] group-hover:translate-x-1 transition-all" />
                     </div>
                   </a>
-                </RevealSection>
+                </div>
               ))}
             </div>
           </div>

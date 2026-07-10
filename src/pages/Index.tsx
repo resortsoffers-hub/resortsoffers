@@ -501,7 +501,7 @@ const Index = () => {
               <p className="text-[11px] uppercase tracking-[0.35em] text-[#C9A961] mb-4">
                 {ar ? "الوجهات" : "Destinations"}
               </p>
-              <h2 className="font-serif text-4xl md:text-5xl">
+              <h2 className="font-serif text-4xl md:text-5xl text-white">
                 {ar ? "حيث نُنسّق" : "Where We Curate"}
               </h2>
             </RevealSection>

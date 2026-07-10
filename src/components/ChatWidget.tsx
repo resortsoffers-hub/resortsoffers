@@ -257,7 +257,7 @@ const ChatWidget = () => {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="en">English</SelectItem>
-                  <SelectItem value="ar">العربية</SelectItem>
+                  
                   <SelectItem value="ru">Русский</SelectItem>
                   <SelectItem value="zh">中文</SelectItem>
                 </SelectContent>

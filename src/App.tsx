@@ -39,9 +39,9 @@ const queryClient = new QueryClient();
  */
 const RedirectToLocale = () => {
   const location = useLocation();
-  const detected = typeof navigator !== "undefined" && navigator.language?.toLowerCase().startsWith("ar") ? "ar" : "en";
-  const path = location.pathname === "/" ? "" : location.pathname;
-  return <Navigate to={`/${detected}${path}${location.search}${location.hash}`} replace />;
+  const stripped = location.pathname.replace(/^\/(en|ar)(?=\/|$)/, "");
+  const path = stripped === "" || stripped === "/" ? "" : stripped;
+  return <Navigate to={`/en${path}${location.search}${location.hash}`} replace />;
 };
 
 const localizedChildren = (
@@ -84,7 +84,7 @@ const App = () => (
 
               {/* Localized trees — both prefixes share the same nested routes */}
               <Route path="/en" element={<LocaleLayout />}>{localizedChildren}</Route>
-              <Route path="/ar" element={<LocaleLayout />}>{localizedChildren}</Route>
+              <Route path="/ar/*" element={<RedirectToLocale />} />
 
               {/* Bare root + legacy URLs → redirect to detected locale */}
               <Route path="/" element={<RedirectToLocale />} />

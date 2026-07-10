@@ -39,7 +39,8 @@ const queryClient = new QueryClient();
  */
 const RedirectToLocale = () => {
   const location = useLocation();
-  const path = location.pathname === "/" ? "" : location.pathname;
+  const stripped = location.pathname.replace(/^\/(en|ar)(?=\/|$)/, "");
+  const path = stripped === "" || stripped === "/" ? "" : stripped;
   return <Navigate to={`/en${path}${location.search}${location.hash}`} replace />;
 };
 

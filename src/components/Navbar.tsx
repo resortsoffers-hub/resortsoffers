@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Menu, User, Heart, HelpCircle } from "lucide-react";
 import Sidebar from "./Sidebar";
-import LanguageSwitcher from "./LanguageSwitcher";
+
 import { useLocalePath } from "@/hooks/useLocale";
 
 const Navbar = () => {
@@ -35,8 +35,6 @@ const Navbar = () => {
                 <span className="hidden sm:inline text-sm">{t('nav.whatsapp')}</span>
               </a>
 
-              {/* Language */}
-              <LanguageSwitcher />
 
               {/* Sign in */}
               <a href="#" className="hidden md:flex items-center gap-2 text-gray-700 hover:text-[#00A4E4] px-3 py-2">

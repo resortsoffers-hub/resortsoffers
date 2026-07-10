@@ -9,7 +9,7 @@ import { BRAND } from "@/lib/brand";
 import heroImg1 from "@/assets/home-hero/hero-seaplane.jpeg.asset.json";
 import heroImg2 from "@/assets/home-hero/hero-villa.jpeg.asset.json";
 import poolVilla from "@/assets/uploads/consultation-pool-villa.jpeg.asset.json";
-import noraMaldives from "@/assets/uploads/resorts-offers-nora-maldives.jpeg.asset.json";
+
 import browseKuda from "@/assets/uploads/browse-kuda-villingili-pool-aerial.jpg";
 import browsePatina from "@/assets/uploads/browse-patina-maldives-aerial.jpg";
 import browseWaldorf from "@/assets/uploads/browse-waldorf-three-bedroom-villa.jpg";
@@ -461,10 +461,8 @@ const Index = () => {
 
         {/* BY INVITATION ONLY */}
         <section className="relative isolate py-32 md:py-40 overflow-hidden">
-          <div className="absolute inset-0 -z-10">
-            <img src={noraMaldives.url} alt="" aria-hidden="true" className="w-full h-full object-cover opacity-20" />
-            <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
-          </div>
+          <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background via-[#0a0a0a] to-background" />
+
           <div className="container mx-auto px-6 text-center max-w-3xl">
             <RevealSection>
               <div className="inline-flex items-center gap-2 border border-[#C9A961]/30 px-4 py-2 mb-8">
@@ -531,41 +529,33 @@ const Index = () => {
         <section className="bg-background py-24 md:py-32">
           <div className="container mx-auto px-6">
             <RevealSection>
-              <div className="relative max-w-5xl mx-auto border border-[#C9A961]/20 bg-[#faf9f6]">
-                <div className="grid grid-cols-1 lg:grid-cols-2">
-                  <div className="p-10 md:p-16 flex flex-col justify-center">
-                    <p className="text-[11px] uppercase tracking-[0.35em] text-[#C9A961] mb-4">
-                      {ar ? "خدمة مخصصة" : "Personalized Service"}
-                    </p>
-                    <h2 className="font-serif text-3xl md:text-4xl mb-4">
-                      {ar ? "استشارة سفر مدفوعة" : "Paid Travel Consultation"}
-                    </h2>
-                    <p className="text-muted-foreground leading-relaxed mb-8">
-                      {ar
-                        ? "جلسة شخصية مع نورة الخليفي لتحديد الخيارات المثالية لرحلتك. $200 تُسترد عند تأكيد الحجز."
-                        : "A private session with Nora El Khalifi to identify the perfect options for your trip. $200 is credited back upon booking confirmation."}
-                    </p>
-                    <div className="flex items-baseline gap-3 mb-8">
-                      <span className="font-serif text-5xl text-[#C9A961]">$200</span>
-                      <span className="text-muted-foreground text-sm">{ar ? "لكل استشارة" : "per consultation"}</span>
-                    </div>
-                    <a
-                      href="/book-consultation"
-                      className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground hover:bg-primary/90 rounded-none px-8 py-4 font-medium uppercase tracking-[0.2em] text-xs transition-colors w-fit"
-                    >
-                      {ar ? "احجز استشارتك" : "Book Your Consultation"}
-                      <ArrowRight className="h-4 w-4" />
-                    </a>
+              <div className="relative max-w-3xl mx-auto border border-[#C9A961]/20 bg-[#faf9f6]">
+                <div className="p-10 md:p-16 flex flex-col justify-center text-center items-center">
+                  <p className="text-[11px] uppercase tracking-[0.35em] text-[#C9A961] mb-4">
+                    {ar ? "خدمة مخصصة" : "Personalized Service"}
+                  </p>
+                  <h2 className="font-serif text-3xl md:text-4xl mb-4">
+                    {ar ? "استشارة سفر مدفوعة" : "Paid Travel Consultation"}
+                  </h2>
+                  <p className="text-muted-foreground leading-relaxed mb-8 max-w-xl">
+                    {ar
+                      ? "جلسة شخصية مع نورة الخليفي لتحديد الخيارات المثالية لرحلتك. $200 تُسترد عند تأكيد الحجز."
+                      : "A private session with Nora El Khalifi to identify the perfect options for your trip. $200 is credited back upon booking confirmation."}
+                  </p>
+                  <div className="flex items-baseline gap-3 mb-8">
+                    <span className="font-serif text-5xl text-[#C9A961]">$200</span>
+                    <span className="text-muted-foreground text-sm">{ar ? "لكل استشارة" : "per consultation"}</span>
                   </div>
-                  <div className="relative hidden lg:block">
-                    <img
-                      src={noraMaldives.url}
-                      alt="Nora in Maldives"
-                      className="absolute inset-0 w-full h-full object-cover"
-                    />
-                  </div>
+                  <a
+                    href="/book-consultation"
+                    className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground hover:bg-primary/90 rounded-none px-8 py-4 font-medium uppercase tracking-[0.2em] text-xs transition-colors w-fit"
+                  >
+                    {ar ? "احجز استشارتك" : "Book Your Consultation"}
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
                 </div>
               </div>
+
             </RevealSection>
           </div>
         </section>

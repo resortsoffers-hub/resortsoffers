@@ -41,6 +41,13 @@ const Footer = () => {
 
           {/* Social removed per brand direction */}
 
+          <a
+            href={`/${ar ? "ar" : "en"}/engagement-policy`}
+            className="text-[11px] uppercase tracking-[0.25em] text-primary-foreground/60 hover:text-accent transition-colors"
+          >
+            Engagement Policy
+          </a>
+
           <p className="text-[11px] text-primary-foreground/50 tracking-wider">
             © {new Date().getFullYear()} {BRAND.name}
           </p>

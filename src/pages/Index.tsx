@@ -6,8 +6,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useLocale } from "@/hooks/useLocale";
 import { BRAND } from "@/lib/brand";
-import heroImg1 from "@/assets/home-hero/hero-seaplane.jpeg.asset.json";
-import heroImg2 from "@/assets/home-hero/hero-villa.jpeg.asset.json";
 import poolVilla from "@/assets/uploads/consultation-pool-villa.jpeg.asset.json";
 
 import browseKuda from "@/assets/uploads/browse-kuda-villingili-pool-aerial.jpg";
@@ -17,7 +15,8 @@ import browseRitz from "@/assets/uploads/browse-ritz-carlton-beach-cove.jpg";
 import browseAyana from "@/assets/uploads/browse-ayana-ocean-beach-pool.jpg";
 import browseDhawa from "@/assets/uploads/browse-dhawa-ihuru-twin-island.jpeg";
 
-const HOME_HERO_IMAGES = [heroImg1.url, heroImg2.url];
+// Sharpest verified Maldives photos from your uploads — used as rotating hero
+const HOME_HERO_IMAGES = [browseKuda, browsePatina, browseWaldorf];
 
 const EXPERIENCES = [
   {

@@ -25,6 +25,16 @@ const bookingSchema = z.object({
   name: z.string().trim().min(2, "Name must be at least 2 characters").max(100),
   email: z.string().trim().email("Please enter a valid email").max(255),
   phone: z.string().trim().regex(/^\+?[\d\s-()]+$/, "Please enter a valid phone number").min(8).max(20),
+  destination: z.string().trim().min(2, "Please tell us the destination").max(100),
+  travelStartDate: z.date({ required_error: "Please select your travel start date" }),
+  travelEndDate: z.date({ required_error: "Please select your travel end date" }),
+  adults: z.coerce.number().int().min(1, "At least 1 adult").max(30),
+  children: z.coerce.number().int().min(0).max(20),
+  childrenAges: z.string().trim().max(100).optional(),
+  firstTimeVisit: z.enum(["yes", "no"], { required_error: "Please answer this question" }),
+  previousVisitNotes: z.string().trim().max(500).optional(),
+  preferredLanguage: z.enum(["english", "arabic"], { required_error: "Please select a language" }),
+  budgetRange: z.string().trim().max(60).optional(),
   preferredDate: z.date({ required_error: "Please select a date" }),
   preferredTime: z.string({ required_error: "Please select a time" }),
   consultationType: z.enum(["video", "phone"], { required_error: "Please select consultation type" }),
@@ -32,6 +42,7 @@ const bookingSchema = z.object({
 });
 
 type BookingFormData = z.infer<typeof bookingSchema>;
+
 
 const timeSlots = [
   "09:00", "09:30", "10:00", "10:30", "11:00", "11:30",

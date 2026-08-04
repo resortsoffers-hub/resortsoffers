@@ -1,7 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { useEffect, useState, useRef } from "react";
-import { MessageCircle, Check, Heart, Users, Waves, TreePine, ArrowRight, ChevronDown, Star, Shield, MapPin, Search } from "lucide-react";
-import { HOTEL_CATEGORIES, categoryLabel } from "@/lib/hotelCategories";
+import { MessageCircle, Check, Heart, Users, Waves, TreePine, ArrowRight, ChevronDown, Star, Shield, MapPin } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useLocale } from "@/hooks/useLocale";
@@ -12,8 +11,6 @@ import browseKuda from "@/assets/uploads/browse-kuda-villingili-pool-aerial.jpg"
 import browsePatina from "@/assets/uploads/browse-patina-maldives-aerial.jpg";
 import browseWaldorf from "@/assets/uploads/browse-waldorf-three-bedroom-villa.jpg";
 import browseRitz from "@/assets/uploads/browse-ritz-carlton-beach-cove.jpg";
-import browseAyana from "@/assets/uploads/browse-ayana-ocean-beach-pool.jpg";
-import browseDhawa from "@/assets/uploads/browse-dhawa-ihuru-twin-island.jpeg";
 
 // Sharpest verified Maldives photos from your uploads — used as rotating hero
 const HOME_HERO_IMAGES = [browseKuda, browsePatina, browseWaldorf];
@@ -135,44 +132,6 @@ const Index = () => {
   const waExperience = (exp: string) =>
     encodeURIComponent(ar ? `مرحباً، أنا مهتم بـ ${exp}.` : `Hello, I'm interested in ${exp}.`);
 
-  const browseCards = [
-    {
-      d: ar ? "كودا فيلينجيلي" : "Kuda Villingili",
-      c: ar ? "فلل ومسابح لاجون" : "Lagoon Pool Villas",
-      img: browseKuda,
-      alt: ar ? "منظر جوي لمسبح ولاجون كودا فيلينجيلي" : "Aerial view of Kuda Villingili lagoon and pool villas",
-    },
-    {
-      d: ar ? "باتينا المالديف" : "Patina Maldives",
-      c: ar ? "جزيرة عصرية" : "Design Island Escape",
-      img: browsePatina,
-      alt: ar ? "منظر جوي لجزيرة باتينا المالديف" : "Aerial view of Patina Maldives island resort",
-    },
-    {
-      d: ar ? "والدورف أستوريا إيثافوشي" : "Waldorf Astoria Ithaafushi",
-      c: ar ? "فيلا شاطئية بثلاث غرف" : "Three Bedroom Beach Villa",
-      img: browseWaldorf,
-      alt: ar ? "فيلا شاطئية بثلاث غرف في والدورف أستوريا المالديف" : "Three bedroom beach villa at Waldorf Astoria Maldives Ithaafushi",
-    },
-    {
-      d: ar ? "ريتز كارلتون المالديف" : "The Ritz-Carlton Maldives",
-      c: ar ? "خليج شاطئي هادئ" : "Private Beach Cove",
-      img: browseRitz,
-      alt: ar ? "خليج شاطئي في ريتز كارلتون المالديف" : "Beach cove at The Ritz-Carlton Maldives",
-    },
-    {
-      d: ar ? "أيانا بالي" : "AYANA Bali",
-      c: ar ? "مسبح ومحيط" : "Ocean Beach Pool",
-      img: browseAyana,
-      alt: ar ? "مسبح شاطئي مطل على المحيط في أيانا" : "Ocean beach pool aerial view at AYANA",
-    },
-    {
-      d: ar ? "داوا إيهورو" : "Dhawa Ihuru",
-      c: ar ? "تجربة جزيرتين" : "Twin Island Experience",
-      img: browseDhawa,
-      alt: ar ? "تجربة جزيرتين في داوا إيهورو" : "Twin island experience at Dhawa Ihuru",
-    },
-  ];
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -219,91 +178,8 @@ const Index = () => {
           </div>
         </section>
 
-        {/* BROWSE STAYS — TBO-style discovery layout in brand colors */}
-        <section className="bg-[#050505] border-b border-white/10 text-white">
-          <div className="container mx-auto px-6 py-16 md:py-20">
-            <div className="text-center mb-10">
-              <p className="text-[11px] uppercase tracking-[0.35em] text-[#C9A961] mb-3">
-                {ar ? "استكشف" : "Discover"}
-              </p>
-              <h2 className="font-serif text-3xl md:text-5xl text-white mb-4">
-                {ar ? "تصفّح المنتجعات" : "Browse Stays"}
-              </h2>
-              <p className="text-white/65 max-w-xl mx-auto">
-                {ar
-                  ? "اختر أسلوب رحلتك — نُطابقك مع المنتجع الأنسب شخصياً."
-                  : "Choose the style of your trip — we'll personally match you with the right resort."}
-              </p>
-            </div>
 
-            {/* Search bar (WhatsApp-linked) */}
-            <div className="max-w-3xl mx-auto mb-8">
-              <a
-                href={`https://wa.me/${BRAND.whatsapp}?text=${encodeURIComponent(ar ? "أرغب في البحث عن منتجع." : "I'd like help searching for a resort.")}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 bg-[#0a0a0a] border border-white/10 hover:border-[#C9A961]/40 px-5 py-4 transition-colors group"
-              >
-                <Search className="h-5 w-5 text-[#C9A961] shrink-0" />
-                <span className="flex-1 text-white/50 group-hover:text-white/80 text-sm md:text-base">
-                  {ar ? "الوجهة، التواريخ، عدد الضيوف…" : "Destination, dates, guests…"}
-                </span>
-                <span className="hidden sm:inline-flex items-center gap-2 bg-[#25D366] text-white px-4 py-2 text-[11px] uppercase tracking-[0.2em]">
-                  <MessageCircle className="h-3.5 w-3.5" />
-                  {ar ? "اسأل نورة" : "Ask Nora"}
-                </span>
-              </a>
-            </div>
 
-            {/* Category chips */}
-            <div className="mb-12">
-              <div className="flex flex-wrap justify-center gap-2 max-w-4xl mx-auto">
-                {HOTEL_CATEGORIES.map((cat) => (
-                  <a
-                    key={cat.slug}
-                    href={`https://wa.me/${BRAND.whatsapp}?text=${encodeURIComponent(ar ? `مهتم بفئة ${cat.label_ar}.` : `Interested in ${cat.label_en} resorts.`)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="border border-white/10 hover:border-[#C9A961] text-white/70 hover:text-[#C9A961] text-xs uppercase tracking-[0.15em] px-4 py-2 transition-colors"
-                  >
-                    {categoryLabel(cat.slug, ar ? "ar" : "en")}
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            {/* Featured cards — real user-provided imagery only */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
-              {browseCards.map((card) => (
-                <div key={card.d}>
-                  <a
-                    href={`https://wa.me/${BRAND.whatsapp}?text=${encodeURIComponent(ar ? `أرغب في منتجع ${card.c} في ${card.d}.` : `I'd like a ${card.c} resort in ${card.d}.`)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group block bg-[#0a0a0a] border border-white/5 hover:border-[#C9A961]/40 transition-all"
-                  >
-                    <div className="relative aspect-[4/3] overflow-hidden border-b border-white/5">
-                      <img
-                        src={card.img}
-                        alt={card.alt}
-                        loading="lazy"
-                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-                    </div>
-                    <div className="p-5 flex items-center justify-between">
-                      <div>
-                        <p className="text-[10px] uppercase tracking-[0.25em] text-[#C9A961] mb-1">{card.c}</p>
-                        <h3 className="font-serif text-lg text-white">{card.d}</h3>
-                      </div>
-                      <ArrowRight className="h-4 w-4 text-white/30 group-hover:text-[#C9A961] group-hover:translate-x-1 transition-all" />
-                    </div>
-                  </a>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
 
         {/* TRUST STRIP */}

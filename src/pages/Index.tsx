@@ -1,7 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { useEffect, useState, useRef } from "react";
-import { MessageCircle, Check, Heart, Users, Waves, TreePine, ArrowRight, ChevronDown, Star, Shield, MapPin, Search } from "lucide-react";
-import { HOTEL_CATEGORIES, categoryLabel } from "@/lib/hotelCategories";
+import { MessageCircle, Check, Heart, Users, Waves, TreePine, ArrowRight, ChevronDown, Star, Shield, MapPin } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useLocale } from "@/hooks/useLocale";

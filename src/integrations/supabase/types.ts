@@ -67,6 +67,7 @@ export type Database = {
           preferred_language: string | null
           preferred_time: string
           previous_visit_notes: string | null
+          reference_code: string
           status: Database["public"]["Enums"]["booking_status"]
           travel_end_date: string | null
           travel_start_date: string | null
@@ -91,6 +92,7 @@ export type Database = {
           preferred_language?: string | null
           preferred_time: string
           previous_visit_notes?: string | null
+          reference_code?: string
           status?: Database["public"]["Enums"]["booking_status"]
           travel_end_date?: string | null
           travel_start_date?: string | null
@@ -115,6 +117,7 @@ export type Database = {
           preferred_language?: string | null
           preferred_time?: string
           previous_visit_notes?: string | null
+          reference_code?: string
           status?: Database["public"]["Enums"]["booking_status"]
           travel_end_date?: string | null
           travel_start_date?: string | null
@@ -579,6 +582,21 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      gen_booking_reference: { Args: never; Returns: string }
+      get_booking_confirmation: {
+        Args: { _reference_code: string }
+        Returns: {
+          consultation_type: string
+          created_at: string
+          destination: string
+          name: string
+          payment_status: string
+          preferred_date: string
+          preferred_time: string
+          reference_code: string
+          status: Database["public"]["Enums"]["booking_status"]
+        }[]
+      }
       get_hotel_preview: {
         Args: { _preview_id: string; _slug: string }
         Returns: Json

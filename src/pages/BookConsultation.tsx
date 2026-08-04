@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -62,6 +63,7 @@ const BookConsultation = () => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [bookingDetails, setBookingDetails] = useState<BookingDetails | null>(null);
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const form = useForm<BookingFormData>({
     resolver: zodResolver(bookingSchema),
@@ -86,7 +88,15 @@ const BookConsultation = () => {
     try {
       const formattedDate = format(data.preferredDate, "yyyy-MM-dd");
 
+      const referenceCode =
+        "RO-" +
+        Array.from(crypto.getRandomValues(new Uint8Array(4)))
+          .map((b) => b.toString(16).padStart(2, "0"))
+          .join("")
+          .toUpperCase();
+
       const { error: dbError } = await supabase.from("consultation_bookings").insert({
+        reference_code: referenceCode,
         name: data.name,
         email: data.email,
         phone: data.phone,
@@ -136,6 +146,8 @@ const BookConsultation = () => {
       if (funcError) {
         console.warn("Calendar notification failed, but booking was saved:", funcError);
       }
+
+      navigate(`/en/booking-confirmation/${referenceCode}`);
 
       setBookingDetails({
         date: format(data.preferredDate, "EEEE, MMMM d, yyyy"),

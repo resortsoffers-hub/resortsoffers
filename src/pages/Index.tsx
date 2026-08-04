@@ -168,8 +168,14 @@ const Index = () => {
             <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/80" />
           </div>
 
-          <div className="container mx-auto px-6 pb-16 md:pb-28">
-            <div className="max-w-3xl" />
+          <div className="container mx-auto px-6 pb-20 md:pb-28">
+            <a
+              href="/book-consultation"
+              className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.3em] text-[#C9A961] border-b border-[#C9A961]/50 pb-1 hover:text-white hover:border-white transition-colors"
+            >
+              <Star className="h-3.5 w-3.5" />
+              {ar ? "استشارة بقيمة 200$" : "$200 Consultation"}
+            </a>
           </div>
 
 

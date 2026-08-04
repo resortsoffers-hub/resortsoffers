@@ -11,8 +11,6 @@ import browseKuda from "@/assets/uploads/browse-kuda-villingili-pool-aerial.jpg"
 import browsePatina from "@/assets/uploads/browse-patina-maldives-aerial.jpg";
 import browseWaldorf from "@/assets/uploads/browse-waldorf-three-bedroom-villa.jpg";
 import browseRitz from "@/assets/uploads/browse-ritz-carlton-beach-cove.jpg";
-import browseAyana from "@/assets/uploads/browse-ayana-ocean-beach-pool.jpg";
-import browseDhawa from "@/assets/uploads/browse-dhawa-ihuru-twin-island.jpeg";
 
 // Sharpest verified Maldives photos from your uploads — used as rotating hero
 const HOME_HERO_IMAGES = [browseKuda, browsePatina, browseWaldorf];

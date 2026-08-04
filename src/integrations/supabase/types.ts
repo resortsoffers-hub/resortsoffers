@@ -49,42 +49,75 @@ export type Database = {
       }
       consultation_bookings: {
         Row: {
+          adults: number | null
+          budget_range: string | null
+          children: number | null
+          children_ages: string | null
           consultation_type: string
           created_at: string
+          destination: string | null
           email: string
+          first_time_visit: boolean | null
           id: string
           message: string | null
           name: string
+          payment_status: string
           phone: string
           preferred_date: string
+          preferred_language: string | null
           preferred_time: string
+          previous_visit_notes: string | null
           status: Database["public"]["Enums"]["booking_status"]
+          travel_end_date: string | null
+          travel_start_date: string | null
           updated_at: string
         }
         Insert: {
+          adults?: number | null
+          budget_range?: string | null
+          children?: number | null
+          children_ages?: string | null
           consultation_type: string
           created_at?: string
+          destination?: string | null
           email: string
+          first_time_visit?: boolean | null
           id?: string
           message?: string | null
           name: string
+          payment_status?: string
           phone: string
           preferred_date: string
+          preferred_language?: string | null
           preferred_time: string
+          previous_visit_notes?: string | null
           status?: Database["public"]["Enums"]["booking_status"]
+          travel_end_date?: string | null
+          travel_start_date?: string | null
           updated_at?: string
         }
         Update: {
+          adults?: number | null
+          budget_range?: string | null
+          children?: number | null
+          children_ages?: string | null
           consultation_type?: string
           created_at?: string
+          destination?: string | null
           email?: string
+          first_time_visit?: boolean | null
           id?: string
           message?: string | null
           name?: string
+          payment_status?: string
           phone?: string
           preferred_date?: string
+          preferred_language?: string | null
           preferred_time?: string
+          previous_visit_notes?: string | null
           status?: Database["public"]["Enums"]["booking_status"]
+          travel_end_date?: string | null
+          travel_start_date?: string | null
           updated_at?: string
         }
         Relationships: []

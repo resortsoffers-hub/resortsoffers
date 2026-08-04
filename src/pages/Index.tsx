@@ -129,11 +129,8 @@ const Index = () => {
     return () => clearInterval(t);
   }, []);
 
-  const waMsg = encodeURIComponent(
-    ar
-      ? "مرحباً، أرغب في ترتيب جلسة تنسيق سفر خاصة."
-      : "Hello, I'd like to arrange a private travel curation session."
-  );
+
+
 
   const waExperience = (exp: string) =>
     encodeURIComponent(ar ? `مرحباً، أنا مهتم بـ ${exp}.` : `Hello, I'm interested in ${exp}.`);
@@ -213,40 +210,9 @@ const Index = () => {
           </div>
 
           <div className="container mx-auto px-6 pb-16 md:pb-28">
-            <div className="max-w-3xl">
-              <p className="text-[11px] uppercase tracking-[0.35em] text-[#C9A961] mb-6">
-                {ar ? "دار سفر فاخرة خاصة" : "A Private Luxury Travel House"}
-              </p>
-              <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl leading-[1.02] mb-8">
-                {ar ? "رحلات تُروى،\nلا تُباع." : "Journeys,\nquietly curated."}
-              </h1>
-              <p className="text-lg md:text-xl text-white/70 max-w-xl mb-10 leading-relaxed">
-                {ar
-                  ? "نحن لا نبيع الرحلات. نحن نصيغها — بعناية، سرية، وخبرة شخصية."
-                  : "We don't sell trips. We craft them — with care, discretion, and personal expertise."}
-              </p>
-              <div className="flex flex-wrap items-center gap-4">
-                <a
-                  href={`https://wa.me/${BRAND.whatsapp}?text=${waMsg}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 bg-[#25D366] text-white hover:bg-[#1ebe5d] rounded-none px-10 py-5 font-medium uppercase tracking-[0.2em] text-xs transition-colors shadow-lg shadow-[#25D366]/20"
-                >
-                  <MessageCircle className="h-5 w-5" />
-                  {ar ? "ابدأ رحلتك" : "Begin your journey"}
-                </a>
-                <a
-                  href={`https://wa.me/${BRAND.whatsapp}?text=${encodeURIComponent(ar ? "أريد حجز استشارة مدفوعة بقيمة 200 دولار." : "I'd like to book a $200 paid consultation.")}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 border border-white/30 text-white hover:bg-white/10 rounded-none px-8 py-5 font-medium uppercase tracking-[0.15em] text-[11px] transition-colors"
-                >
-                  <Star className="h-4 w-4 text-[#C9A961]" />
-                  {ar ? "استشارة بـ 200$" : "$200 Consultation"}
-                </a>
-              </div>
-            </div>
+            <div className="max-w-3xl" />
           </div>
+
 
           <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
             <ChevronDown className="h-6 w-6 text-white/40" />

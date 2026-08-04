@@ -25,6 +25,16 @@ const bookingSchema = z.object({
   name: z.string().trim().min(2, "Name must be at least 2 characters").max(100),
   email: z.string().trim().email("Please enter a valid email").max(255),
   phone: z.string().trim().regex(/^\+?[\d\s-()]+$/, "Please enter a valid phone number").min(8).max(20),
+  destination: z.string().trim().min(2, "Please tell us the destination").max(100),
+  travelStartDate: z.date({ required_error: "Please select your travel start date" }),
+  travelEndDate: z.date({ required_error: "Please select your travel end date" }),
+  adults: z.coerce.number().int().min(1, "At least 1 adult").max(30),
+  children: z.coerce.number().int().min(0).max(20),
+  childrenAges: z.string().trim().max(100).optional(),
+  firstTimeVisit: z.enum(["yes", "no"], { required_error: "Please answer this question" }),
+  previousVisitNotes: z.string().trim().max(500).optional(),
+  preferredLanguage: z.enum(["english", "arabic"], { required_error: "Please select a language" }),
+  budgetRange: z.string().trim().max(60).optional(),
   preferredDate: z.date({ required_error: "Please select a date" }),
   preferredTime: z.string({ required_error: "Please select a time" }),
   consultationType: z.enum(["video", "phone"], { required_error: "Please select consultation type" }),
@@ -32,6 +42,7 @@ const bookingSchema = z.object({
 });
 
 type BookingFormData = z.infer<typeof bookingSchema>;
+
 
 const timeSlots = [
   "09:00", "09:30", "10:00", "10:30", "11:00", "11:30",
@@ -58,6 +69,13 @@ const BookConsultation = () => {
       name: "",
       email: "",
       phone: "",
+      destination: "",
+      adults: 2,
+      children: 0,
+      childrenAges: "",
+      previousVisitNotes: "",
+      budgetRange: "",
+      preferredLanguage: "english",
       message: "",
       consultationType: "video",
     },
@@ -76,6 +94,16 @@ const BookConsultation = () => {
         preferred_time: data.preferredTime,
         consultation_type: data.consultationType,
         message: data.message || null,
+        destination: data.destination,
+        travel_start_date: format(data.travelStartDate, "yyyy-MM-dd"),
+        travel_end_date: format(data.travelEndDate, "yyyy-MM-dd"),
+        adults: data.adults,
+        children: data.children,
+        children_ages: data.childrenAges || null,
+        first_time_visit: data.firstTimeVisit === "yes",
+        previous_visit_notes: data.previousVisitNotes || null,
+        preferred_language: data.preferredLanguage,
+        budget_range: data.budgetRange || null,
         status: "pending",
       });
 
@@ -89,9 +117,21 @@ const BookConsultation = () => {
           phone: data.phone,
           datetime,
           consultationType: data.consultationType,
-          message: data.message,
+          message: [
+            `Destination: ${data.destination}`,
+            `Travel dates: ${format(data.travelStartDate, "yyyy-MM-dd")} → ${format(data.travelEndDate, "yyyy-MM-dd")}`,
+            `Travellers: ${data.adults} adult(s), ${data.children} child(ren)${data.childrenAges ? ` (ages ${data.childrenAges})` : ""}`,
+            `First time visiting: ${data.firstTimeVisit === "yes" ? "Yes" : "No"}`,
+            data.previousVisitNotes ? `Previous visits: ${data.previousVisitNotes}` : "",
+            `Preferred language: ${data.preferredLanguage}`,
+            data.budgetRange ? `Budget: ${data.budgetRange}` : "",
+            data.message ? `Notes: ${data.message}` : "",
+          ]
+            .filter(Boolean)
+            .join("\n"),
         },
       });
+
 
       if (funcError) {
         console.warn("Calendar notification failed, but booking was saved:", funcError);
@@ -318,6 +358,195 @@ const BookConsultation = () => {
                         )}
                       />
                     </div>
+
+                    <div className="rounded-lg border border-[#1e3a5f]/10 bg-[#1e3a5f]/5 p-4">
+                      <p className="mb-4 text-sm font-semibold uppercase tracking-[0.15em] text-[#1e3a5f]">Trip Details</p>
+
+                      <div className="space-y-4">
+                        <FormField
+                          control={form.control}
+                          name="destination"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Which destination are you considering? *</FormLabel>
+                              <FormControl>
+                                <Input placeholder="e.g., Maldives, Mauritius, Bali" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+
+                        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                          <FormField
+                            control={form.control}
+                            name="travelStartDate"
+                            render={({ field }) => (
+                              <FormItem className="flex flex-col">
+                                <FormLabel>Travel start date *</FormLabel>
+                                <Popover>
+                                  <PopoverTrigger asChild>
+                                    <FormControl>
+                                      <Button variant="outline" className={cn("w-full pl-3 text-left font-normal", !field.value && "text-muted-foreground")}>
+                                        {field.value ? format(field.value, "PPP") : <span>Pick a date</span>}
+                                        <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                                      </Button>
+                                    </FormControl>
+                                  </PopoverTrigger>
+                                  <PopoverContent className="w-auto p-0" align="start">
+                                    <Calendar mode="single" selected={field.value} onSelect={field.onChange} disabled={disabledDays} initialFocus />
+                                  </PopoverContent>
+                                </Popover>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+
+                          <FormField
+                            control={form.control}
+                            name="travelEndDate"
+                            render={({ field }) => (
+                              <FormItem className="flex flex-col">
+                                <FormLabel>Travel end date *</FormLabel>
+                                <Popover>
+                                  <PopoverTrigger asChild>
+                                    <FormControl>
+                                      <Button variant="outline" className={cn("w-full pl-3 text-left font-normal", !field.value && "text-muted-foreground")}>
+                                        {field.value ? format(field.value, "PPP") : <span>Pick a date</span>}
+                                        <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                                      </Button>
+                                    </FormControl>
+                                  </PopoverTrigger>
+                                  <PopoverContent className="w-auto p-0" align="start">
+                                    <Calendar mode="single" selected={field.value} onSelect={field.onChange} disabled={disabledDays} initialFocus />
+                                  </PopoverContent>
+                                </Popover>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                        </div>
+
+                        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+                          <FormField
+                            control={form.control}
+                            name="adults"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>Adults *</FormLabel>
+                                <FormControl>
+                                  <Input type="number" min={1} max={30} {...field} />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+
+                          <FormField
+                            control={form.control}
+                            name="children"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>Children</FormLabel>
+                                <FormControl>
+                                  <Input type="number" min={0} max={20} {...field} />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+
+                          <FormField
+                            control={form.control}
+                            name="childrenAges"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>Children ages</FormLabel>
+                                <FormControl>
+                                  <Input placeholder="e.g., 4, 9" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                        </div>
+
+                        <FormField
+                          control={form.control}
+                          name="firstTimeVisit"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Is this your first time travelling to this destination? *</FormLabel>
+                              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                <FormControl>
+                                  <SelectTrigger>
+                                    <SelectValue placeholder="Select an answer" />
+                                  </SelectTrigger>
+                                </FormControl>
+                                <SelectContent>
+                                  <SelectItem value="yes">Yes, first time</SelectItem>
+                                  <SelectItem value="no">No, I have been before</SelectItem>
+                                </SelectContent>
+                              </Select>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+
+                        <FormField
+                          control={form.control}
+                          name="previousVisitNotes"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>If you have been before, which resorts did you stay at?</FormLabel>
+                              <FormControl>
+                                <Input placeholder="e.g., Kuda Villingili, 2023" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+
+                        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                          <FormField
+                            control={form.control}
+                            name="preferredLanguage"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>Preferred language *</FormLabel>
+                                <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                  <FormControl>
+                                    <SelectTrigger>
+                                      <SelectValue placeholder="Select language" />
+                                    </SelectTrigger>
+                                  </FormControl>
+                                  <SelectContent>
+                                    <SelectItem value="english">English</SelectItem>
+                                    <SelectItem value="arabic">Arabic</SelectItem>
+                                  </SelectContent>
+                                </Select>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+
+                          <FormField
+                            control={form.control}
+                            name="budgetRange"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>Approximate budget</FormLabel>
+                                <FormControl>
+                                  <Input placeholder="e.g., $10,000 - $15,000" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                        </div>
+                      </div>
+                    </div>
+
 
                     <FormField
                       control={form.control}

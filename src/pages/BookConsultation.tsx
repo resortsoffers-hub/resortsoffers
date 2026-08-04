@@ -69,6 +69,13 @@ const BookConsultation = () => {
       name: "",
       email: "",
       phone: "",
+      destination: "",
+      adults: 2,
+      children: 0,
+      childrenAges: "",
+      previousVisitNotes: "",
+      budgetRange: "",
+      preferredLanguage: "english",
       message: "",
       consultationType: "video",
     },
@@ -87,6 +94,16 @@ const BookConsultation = () => {
         preferred_time: data.preferredTime,
         consultation_type: data.consultationType,
         message: data.message || null,
+        destination: data.destination,
+        travel_start_date: format(data.travelStartDate, "yyyy-MM-dd"),
+        travel_end_date: format(data.travelEndDate, "yyyy-MM-dd"),
+        adults: data.adults,
+        children: data.children,
+        children_ages: data.childrenAges || null,
+        first_time_visit: data.firstTimeVisit === "yes",
+        previous_visit_notes: data.previousVisitNotes || null,
+        preferred_language: data.preferredLanguage,
+        budget_range: data.budgetRange || null,
         status: "pending",
       });
 
@@ -100,9 +117,21 @@ const BookConsultation = () => {
           phone: data.phone,
           datetime,
           consultationType: data.consultationType,
-          message: data.message,
+          message: [
+            `Destination: ${data.destination}`,
+            `Travel dates: ${format(data.travelStartDate, "yyyy-MM-dd")} → ${format(data.travelEndDate, "yyyy-MM-dd")}`,
+            `Travellers: ${data.adults} adult(s), ${data.children} child(ren)${data.childrenAges ? ` (ages ${data.childrenAges})` : ""}`,
+            `First time visiting: ${data.firstTimeVisit === "yes" ? "Yes" : "No"}`,
+            data.previousVisitNotes ? `Previous visits: ${data.previousVisitNotes}` : "",
+            `Preferred language: ${data.preferredLanguage}`,
+            data.budgetRange ? `Budget: ${data.budgetRange}` : "",
+            data.message ? `Notes: ${data.message}` : "",
+          ]
+            .filter(Boolean)
+            .join("\n"),
         },
       });
+
 
       if (funcError) {
         console.warn("Calendar notification failed, but booking was saved:", funcError);

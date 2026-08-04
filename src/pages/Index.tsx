@@ -135,44 +135,6 @@ const Index = () => {
   const waExperience = (exp: string) =>
     encodeURIComponent(ar ? `مرحباً، أنا مهتم بـ ${exp}.` : `Hello, I'm interested in ${exp}.`);
 
-  const browseCards = [
-    {
-      d: ar ? "كودا فيلينجيلي" : "Kuda Villingili",
-      c: ar ? "فلل ومسابح لاجون" : "Lagoon Pool Villas",
-      img: browseKuda,
-      alt: ar ? "منظر جوي لمسبح ولاجون كودا فيلينجيلي" : "Aerial view of Kuda Villingili lagoon and pool villas",
-    },
-    {
-      d: ar ? "باتينا المالديف" : "Patina Maldives",
-      c: ar ? "جزيرة عصرية" : "Design Island Escape",
-      img: browsePatina,
-      alt: ar ? "منظر جوي لجزيرة باتينا المالديف" : "Aerial view of Patina Maldives island resort",
-    },
-    {
-      d: ar ? "والدورف أستوريا إيثافوشي" : "Waldorf Astoria Ithaafushi",
-      c: ar ? "فيلا شاطئية بثلاث غرف" : "Three Bedroom Beach Villa",
-      img: browseWaldorf,
-      alt: ar ? "فيلا شاطئية بثلاث غرف في والدورف أستوريا المالديف" : "Three bedroom beach villa at Waldorf Astoria Maldives Ithaafushi",
-    },
-    {
-      d: ar ? "ريتز كارلتون المالديف" : "The Ritz-Carlton Maldives",
-      c: ar ? "خليج شاطئي هادئ" : "Private Beach Cove",
-      img: browseRitz,
-      alt: ar ? "خليج شاطئي في ريتز كارلتون المالديف" : "Beach cove at The Ritz-Carlton Maldives",
-    },
-    {
-      d: ar ? "أيانا بالي" : "AYANA Bali",
-      c: ar ? "مسبح ومحيط" : "Ocean Beach Pool",
-      img: browseAyana,
-      alt: ar ? "مسبح شاطئي مطل على المحيط في أيانا" : "Ocean beach pool aerial view at AYANA",
-    },
-    {
-      d: ar ? "داوا إيهورو" : "Dhawa Ihuru",
-      c: ar ? "تجربة جزيرتين" : "Twin Island Experience",
-      img: browseDhawa,
-      alt: ar ? "تجربة جزيرتين في داوا إيهورو" : "Twin island experience at Dhawa Ihuru",
-    },
-  ];
 
   return (
     <div className="min-h-screen flex flex-col bg-background">

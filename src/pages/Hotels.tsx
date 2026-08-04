@@ -88,57 +88,8 @@ const Hotels = () => {
           </div>
         </section>
 
-        {/* Category chips — only relevant when browsing Maldives */}
-        {(() => {
-          const isMaldivesScope =
-            destFilter.toLowerCase() === "maldives" ||
-            (destFilter === "all" && hotels.length > 0 && hotels.every((h) => h.destination?.toLowerCase() === "maldives"));
-          if (!isMaldivesScope) return null;
-          return (
-            <div className="sticky top-0 z-30 bg-background/95 backdrop-blur border-b">
-              <div className="container mx-auto px-4 py-3">
-                <div className="flex gap-2 overflow-x-auto pb-1 -mx-4 px-4 scrollbar-thin">
-                  <button
-                    onClick={() => setActiveTag(null)}
-                    className={`flex-shrink-0 px-4 py-2 text-sm font-medium rounded-full border transition-all ${
-                      activeTag === null
-                        ? "bg-primary text-primary-foreground border-primary shadow-sm"
-                        : "bg-card hover:border-primary text-foreground/80"
-                    }`}
-                  >
-                    {lang === "ar" ? "كل المنتجعات" : "All resorts"}
-                  </button>
-                  {HOTEL_CATEGORIES.map((c) => {
-                    const count = tagCounts.get(c.slug) || 0;
-                    const active = activeTag === c.slug;
-                    return (
-                      <button
-                        key={c.slug}
-                        onClick={() => setActiveTag(active ? null : c.slug)}
-                        className={`flex-shrink-0 px-4 py-2 text-sm font-medium rounded-full border transition-all ${
-                          active
-                            ? "bg-primary text-primary-foreground border-primary shadow-sm"
-                            : "bg-card hover:border-primary text-foreground/80"
-                        } ${count === 0 && !active ? "opacity-50" : ""}`}
-                        aria-pressed={active}
-                      >
-                        {lang === "ar" ? c.label_ar : c.label_en}
-                        {count > 0 && (
-                          <span className={`ms-1.5 text-xs ${active ? "text-primary-foreground/70" : "text-muted-foreground"}`}>
-                            {count}
-                          </span>
-                        )}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-          );
-        })()}
-
         <section className="container mx-auto px-4 py-6">
-          {/* Secondary: search + destination */}
+          {/* Search + destination dropdown + category tick-list */}
           <div className="flex flex-col md:flex-row gap-3 mb-6">
             <div className="relative flex-1">
               <Search className="absolute start-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
@@ -149,35 +100,69 @@ const Hotels = () => {
                 onChange={(e) => setQuery(e.target.value)}
               />
             </div>
-            {destinations.length > 1 && (
-              <div className="flex gap-2 flex-wrap">
+
+            <Select value={destFilter} onValueChange={(v) => { setDestFilter(v); setActiveTags([]); }}>
+              <SelectTrigger className="md:w-56">
+                <SelectValue placeholder={lang === "ar" ? "الوجهة" : "Destination"} />
+              </SelectTrigger>
+              <SelectContent>
                 {destinations.map((d) => (
-                  <button
-                    key={d}
-                    onClick={() => setDestFilter(d)}
-                    className={`px-3 py-1.5 text-sm rounded-full border transition-colors ${
-                      destFilter === d ? "bg-primary text-primary-foreground border-primary" : "bg-background hover:border-primary"
-                    }`}
-                  >
+                  <SelectItem key={d} value={d}>
                     {d === "all" ? (lang === "ar" ? "كل الوجهات" : "All destinations") : d}
-                  </button>
+                  </SelectItem>
                 ))}
-              </div>
+              </SelectContent>
+            </Select>
+
+            {isMaldivesScope && (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="outline" className="md:w-56 justify-between">
+                    <span>
+                      {lang === "ar" ? "نوع المنتجع" : "Resort type"}
+                      {activeTags.length > 0 && ` (${activeTags.length})`}
+                    </span>
+                    <ChevronDown className="h-4 w-4 opacity-60" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-56 bg-popover z-50">
+                  {HOTEL_CATEGORIES.map((c) => (
+                    <DropdownMenuCheckboxItem
+                      key={c.slug}
+                      checked={activeTags.includes(c.slug)}
+                      onCheckedChange={(checked) =>
+                        setActiveTags((prev) =>
+                          checked ? [...prev, c.slug] : prev.filter((t) => t !== c.slug)
+                        )
+                      }
+                      onSelect={(e) => e.preventDefault()}
+                    >
+                      {lang === "ar" ? c.label_ar : c.label_en}
+                      {(tagCounts.get(c.slug) || 0) > 0 && (
+                        <span className="ms-auto text-xs text-muted-foreground">
+                          {tagCounts.get(c.slug)}
+                        </span>
+                      )}
+                    </DropdownMenuCheckboxItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
             )}
           </div>
 
           {/* Active-filter summary */}
-          {(activeTag || destFilter !== "all" || query) && (
+          {(activeTags.length > 0 || destFilter !== "all" || query) && (
             <div className="flex items-center gap-2 mb-4 text-sm text-muted-foreground">
               <span>{filtered.length} {lang === "ar" ? "نتيجة" : "results"}</span>
               <button
-                onClick={() => { setActiveTag(null); setDestFilter("all"); setQuery(""); }}
+                onClick={() => { setActiveTags([]); setDestFilter("all"); setQuery(""); }}
                 className="inline-flex items-center gap-1 text-primary hover:underline"
               >
                 <X className="h-3 w-3" /> {lang === "ar" ? "مسح الفلاتر" : "Clear filters"}
               </button>
             </div>
           )}
+
 
           {loading ? (
             <p className="text-center text-muted-foreground py-20">Loading…</p>

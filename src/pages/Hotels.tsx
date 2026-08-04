@@ -9,7 +9,15 @@ import { Badge } from "@/components/ui/badge";
 import { useLocale, useLocalePath } from "@/hooks/useLocale";
 import { fallbackHotelImage, safeHotelImage } from "@/lib/safeImage";
 import { HOTEL_CATEGORIES } from "@/lib/hotelCategories";
-import { MapPin, Search, X } from "lucide-react";
+import { MapPin, Search, X, ChevronDown } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 interface Hotel {
   id: string;
@@ -30,7 +38,7 @@ const Hotels = () => {
   const [loading, setLoading] = useState(true);
   const [query, setQuery] = useState("");
   const [destFilter, setDestFilter] = useState<string>("all");
-  const [activeTag, setActiveTag] = useState<string | null>(null);
+  const [activeTags, setActiveTags] = useState<string[]>([]);
 
   useEffect(() => {
     (async () => {
@@ -59,14 +67,18 @@ const Hotels = () => {
   const filtered = useMemo(() => {
     return hotels.filter((h) => {
       if (destFilter !== "all" && h.destination !== destFilter) return false;
-      if (activeTag && !(h.tags || []).includes(activeTag)) return false;
+      if (activeTags.length > 0 && !activeTags.some((t) => (h.tags || []).includes(t))) return false;
       if (query) {
         const q = query.toLowerCase();
         return (h.name_en + " " + (h.name_ar ?? "") + " " + h.destination).toLowerCase().includes(q);
       }
       return true;
     });
-  }, [hotels, query, destFilter, activeTag]);
+  }, [hotels, query, destFilter, activeTags]);
+
+  const isMaldivesScope =
+    destFilter.toLowerCase() === "maldives" ||
+    (destFilter === "all" && hotels.length > 0 && hotels.every((h) => h.destination?.toLowerCase() === "maldives"));
 
   const title = lang === "ar" ? "المنتجعات الفاخرة" : "Luxury Resorts";
   const subtitle = lang === "ar"

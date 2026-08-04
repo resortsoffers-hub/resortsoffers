@@ -129,11 +129,8 @@ const Index = () => {
     return () => clearInterval(t);
   }, []);
 
-  const waMsg = encodeURIComponent(
-    ar
-      ? "مرحباً، أرغب في ترتيب جلسة تنسيق سفر خاصة."
-      : "Hello, I'd like to arrange a private travel curation session."
-  );
+
+
 
   const waExperience = (exp: string) =>
     encodeURIComponent(ar ? `مرحباً، أنا مهتم بـ ${exp}.` : `Hello, I'm interested in ${exp}.`);

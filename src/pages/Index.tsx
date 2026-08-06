@@ -297,14 +297,15 @@ const Index = () => {
                   {ar ? "عضوية حصرية" : "Member-Only Access"}
                 </span>
               </div>
-              <h2 className="font-serif text-4xl md:text-6xl mb-6">
+              <h2 className="font-serif text-4xl md:text-6xl mb-6 text-white">
                 {ar ? "بطلب خاص فقط" : "By Invitation Only"}
               </h2>
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-10">
+              <p className="text-lg md:text-xl text-white/70 leading-relaxed mb-10">
                 {ar
                   ? "عروضنا لا تُعرض علنياً. تُشارك سراً مع أعضائنا — بدون قوائم عامة، وبدون أسعار مُعاد نشرها."
                   : "Our offers are never publicly listed. They are shared privately with our members — no public directories, no republished rates."}
               </p>
+
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
                   href={`https://wa.me/${BRAND.whatsapp}?text=${encodeURIComponent(ar ? "أرغب في الانضمام للوصول الحصري للعروض." : "I'd like to join for exclusive offer access.")}`}

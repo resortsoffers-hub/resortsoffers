@@ -363,7 +363,7 @@ const AdminBookings = () => {
                         Submitted {new Date(b.created_at).toLocaleString("en-GB")}
                       </p>
                       <div className="mt-2 w-40 ms-auto">
-                        <Select value={b.status} onValueChange={(v) => updateStatus(b.id, v)}>
+                        <Select value={b.status} onValueChange={(v) => updateStatus(b.id, v as "pending" | "confirmed" | "cancelled" | "completed")}>
                           <SelectTrigger><SelectValue /></SelectTrigger>
                           <SelectContent className="bg-popover z-50">
                             <SelectItem value="pending">Pending</SelectItem>

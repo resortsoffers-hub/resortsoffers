@@ -288,20 +288,16 @@ const Index = () => {
                 <p className="text-[11px] uppercase tracking-[0.35em] text-[#C9A961] mb-4">
                   {ar ? "من نحن" : "About Us"}
                 </p>
-                <h2 className="font-serif text-4xl md:text-5xl mb-10">
+                <h2 className="font-serif text-4xl md:text-5xl mb-8 text-white whitespace-pre-line">
                   {ar ? "خبرة شخصية،\nمصداقية مطلقة" : "Personal expertise.\nAbsolute integrity."}
                 </h2>
-                <div className="space-y-8">
-                  {ABOUT_POINTS.map((pt, i) => (
-                    <div key={i} className="flex items-start gap-4">
-                      <span className="text-[#C9A961] font-serif text-2xl shrink-0 w-8">0{i + 1}</span>
-                      <p className="text-white/70 leading-relaxed pt-1">
-                        {ar ? pt.ar : pt.en}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+                <p className="text-white/70 leading-relaxed">
+                  {ar
+                    ? "نراجع المنتجعات التي نمثلها بأنفسنا، وتدعمنا فرق محلية في الوجهات الرئيسية وعلاقات مباشرة مع إدارات المنتجعات."
+                    : "We review the resorts we represent ourselves, supported by on-ground teams across key destinations and direct relationships with resort management."}
+                </p>
               </RevealSection>
+
             </div>
           </div>
         </section>

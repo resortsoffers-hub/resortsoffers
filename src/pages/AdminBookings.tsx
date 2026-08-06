@@ -140,10 +140,13 @@ const AdminBookings = () => {
     });
   }, [bookings, search, status, payment, destination, type, fromDate, toDate]);
 
-  const updateStatus = async (id: string, next: string) => {
+  const updateStatus = async (
+    id: string,
+    next: "pending" | "confirmed" | "cancelled" | "completed"
+  ) => {
     const { error } = await supabase
       .from("consultation_bookings")
-      .update({ status: next as BookingRow["status"] })
+      .update({ status: next })
       .eq("id", id);
     if (error) {
       toast.error("Could not update status");

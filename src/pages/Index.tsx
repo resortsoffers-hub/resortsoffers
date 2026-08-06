@@ -67,24 +67,6 @@ const DESTINATIONS = [
   { name: "Caribbean", nameAr: "الكاريبي" },
 ];
 
-const ABOUT_POINTS = [
-  {
-    en: "Our operations are supported by a network of on-ground teams across key destinations, ensuring seamless arrival coordination and well-managed local experiences.",
-    ar: "تدعم عملياتنا شبكة من الفرق المحلية في الوجهات الرئيسية، مما يضمن تنسيقاً سلساً للوصول وتجارب محلية منظمة بعناية.",
-  },
-  {
-    en: "With a strong understanding of the travel industry, we personally review and assess the resorts we represent, capturing our own insights and visual content to maintain accuracy and authenticity.",
-    ar: "نحن نراجع ونقّيم المنتجعات التي نمثلها بشكل شخصي، مستفيدين من فهمنا العميق لصناعة السفر، ونقوم بتوثيق رؤى ومحتوى بصري خاص بنا للحفاظ على الدقة والأصالة.",
-  },
-  {
-    en: "We continuously monitor and update the level of services provided, allowing us to recommend options with confidence and clarity.",
-    ar: "نراقب ونحدّث باستمرار مستوى الخدمات المقدمة، مما يتيح لنا تقديم توصيات بثقة ووضوح.",
-  },
-  {
-    en: "Our established relationships with resort management teams enable efficient communication and smooth handling of our clients' requirements at every stage.",
-    ar: "تمكّننا علاقاتنا الراسخة مع فرق إدارة المنتجعات من التواصل بكفاءة وإدارة متطلبات عملائنا بسلاسة في كل مرحلة.",
-  },
-];
 
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -288,20 +270,16 @@ const Index = () => {
                 <p className="text-[11px] uppercase tracking-[0.35em] text-[#C9A961] mb-4">
                   {ar ? "من نحن" : "About Us"}
                 </p>
-                <h2 className="font-serif text-4xl md:text-5xl mb-10">
+                <h2 className="font-serif text-4xl md:text-5xl mb-8 text-white whitespace-pre-line">
                   {ar ? "خبرة شخصية،\nمصداقية مطلقة" : "Personal expertise.\nAbsolute integrity."}
                 </h2>
-                <div className="space-y-8">
-                  {ABOUT_POINTS.map((pt, i) => (
-                    <div key={i} className="flex items-start gap-4">
-                      <span className="text-[#C9A961] font-serif text-2xl shrink-0 w-8">0{i + 1}</span>
-                      <p className="text-white/70 leading-relaxed pt-1">
-                        {ar ? pt.ar : pt.en}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+                <p className="text-white/70 leading-relaxed">
+                  {ar
+                    ? "نراجع المنتجعات التي نمثلها بأنفسنا، وتدعمنا فرق محلية في الوجهات الرئيسية وعلاقات مباشرة مع إدارات المنتجعات."
+                    : "We review the resorts we represent ourselves, supported by on-ground teams across key destinations and direct relationships with resort management."}
+                </p>
               </RevealSection>
+
             </div>
           </div>
         </section>

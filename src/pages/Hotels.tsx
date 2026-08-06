@@ -101,79 +101,7 @@ const Hotels = () => {
         </section>
 
         <section className="container mx-auto px-4 py-6">
-          {/* Search + destination dropdown + category tick-list */}
-          <div className="flex flex-col md:flex-row gap-3 mb-6">
-            <div className="relative flex-1">
-              <Search className="absolute start-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              <Input
-                className="ps-9"
-                placeholder={lang === "ar" ? "ابحث عن منتجع..." : "Search resort or destination..."}
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-              />
-            </div>
 
-            <Select value={destFilter} onValueChange={(v) => { setDestFilter(v); setActiveTags([]); }}>
-              <SelectTrigger className="md:w-56">
-                <SelectValue placeholder={lang === "ar" ? "الوجهة" : "Destination"} />
-              </SelectTrigger>
-              <SelectContent>
-                {destinations.map((d) => (
-                  <SelectItem key={d} value={d}>
-                    {d === "all" ? (lang === "ar" ? "كل الوجهات" : "All destinations") : d}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-
-            {isMaldivesScope && (
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="outline" className="md:w-56 justify-between">
-                    <span>
-                      {lang === "ar" ? "نوع المنتجع" : "Resort type"}
-                      {activeTags.length > 0 && ` (${activeTags.length})`}
-                    </span>
-                    <ChevronDown className="h-4 w-4 opacity-60" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-56 bg-popover z-50">
-                  {HOTEL_CATEGORIES.map((c) => (
-                    <DropdownMenuCheckboxItem
-                      key={c.slug}
-                      checked={activeTags.includes(c.slug)}
-                      onCheckedChange={(checked) =>
-                        setActiveTags((prev) =>
-                          checked ? [...prev, c.slug] : prev.filter((t) => t !== c.slug)
-                        )
-                      }
-                      onSelect={(e) => e.preventDefault()}
-                    >
-                      {lang === "ar" ? c.label_ar : c.label_en}
-                      {(tagCounts.get(c.slug) || 0) > 0 && (
-                        <span className="ms-auto text-xs text-muted-foreground">
-                          {tagCounts.get(c.slug)}
-                        </span>
-                      )}
-                    </DropdownMenuCheckboxItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
-            )}
-          </div>
-
-          {/* Active-filter summary */}
-          {(activeTags.length > 0 || destFilter !== "all" || query) && (
-            <div className="flex items-center gap-2 mb-4 text-sm text-muted-foreground">
-              <span>{filtered.length} {lang === "ar" ? "نتيجة" : "results"}</span>
-              <button
-                onClick={() => { setActiveTags([]); setDestFilter("all"); setQuery(""); }}
-                className="inline-flex items-center gap-1 text-primary hover:underline"
-              >
-                <X className="h-3 w-3" /> {lang === "ar" ? "مسح الفلاتر" : "Clear filters"}
-              </button>
-            </div>
-          )}
 
 
           {loading ? (

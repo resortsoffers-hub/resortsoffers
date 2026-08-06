@@ -286,7 +286,8 @@ const Index = () => {
 
         {/* BY INVITATION ONLY */}
         <section className="relative isolate py-32 md:py-40 overflow-hidden">
-          <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background via-[#0a0a0a] to-background" />
+          <div className="absolute inset-0 -z-10 bg-[#0a0a0a]" />
+
 
           <div className="container mx-auto px-6 text-center max-w-3xl">
             <RevealSection>

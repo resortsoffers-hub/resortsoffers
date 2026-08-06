@@ -67,24 +67,6 @@ const DESTINATIONS = [
   { name: "Caribbean", nameAr: "الكاريبي" },
 ];
 
-const ABOUT_POINTS = [
-  {
-    en: "Our operations are supported by a network of on-ground teams across key destinations, ensuring seamless arrival coordination and well-managed local experiences.",
-    ar: "تدعم عملياتنا شبكة من الفرق المحلية في الوجهات الرئيسية، مما يضمن تنسيقاً سلساً للوصول وتجارب محلية منظمة بعناية.",
-  },
-  {
-    en: "With a strong understanding of the travel industry, we personally review and assess the resorts we represent, capturing our own insights and visual content to maintain accuracy and authenticity.",
-    ar: "نحن نراجع ونقّيم المنتجعات التي نمثلها بشكل شخصي، مستفيدين من فهمنا العميق لصناعة السفر، ونقوم بتوثيق رؤى ومحتوى بصري خاص بنا للحفاظ على الدقة والأصالة.",
-  },
-  {
-    en: "We continuously monitor and update the level of services provided, allowing us to recommend options with confidence and clarity.",
-    ar: "نراقب ونحدّث باستمرار مستوى الخدمات المقدمة، مما يتيح لنا تقديم توصيات بثقة ووضوح.",
-  },
-  {
-    en: "Our established relationships with resort management teams enable efficient communication and smooth handling of our clients' requirements at every stage.",
-    ar: "تمكّننا علاقاتنا الراسخة مع فرق إدارة المنتجعات من التواصل بكفاءة وإدارة متطلبات عملائنا بسلاسة في كل مرحلة.",
-  },
-];
 
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null);

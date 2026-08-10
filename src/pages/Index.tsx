@@ -311,7 +311,7 @@ const Index = () => {
                   href={`https://wa.me/${BRAND.whatsapp}?text=${encodeURIComponent(ar ? "أرغب في الانضمام للوصول الحصري للعروض." : "I'd like to join for exclusive offer access.")}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 bg-[#25D366] text-white hover:bg-[#1ebe5d] rounded-none px-10 py-5 font-medium uppercase tracking-[0.2em] text-xs transition-colors shadow-lg shadow-[#25D366]/20"
+                  className="inline-flex items-center gap-3 bg-[#25D366] text-[#04291a] hover:bg-[#1ebe5d] rounded-none px-10 py-5 font-medium uppercase tracking-[0.2em] text-xs transition-colors shadow-lg shadow-[#25D366]/20"
                 >
                   <MessageCircle className="h-5 w-5" />
                   {ar ? "اطلب العضوية" : "Request Membership"}

@@ -79,7 +79,7 @@ const OfferDetailModal = ({ offer, isOpen, onClose }: OfferDetailModalProps) => 
               <p className="text-sm text-green-600 font-medium">You save {offer.discount}%</p>
             </div>
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="bg-[#25D366] hover:bg-[#25D366]/90 text-white">
+              <Button size="lg" className="bg-[#25D366] hover:bg-[#25D366]/90 text-[#04291a]">
                 <MessageCircle className="w-5 h-5 mr-2" />
                 Book via WhatsApp
               </Button>

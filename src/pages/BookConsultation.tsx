@@ -238,7 +238,7 @@ const BookConsultation = () => {
 
                 <div className="space-y-3 pt-4">
                   <a href="https://wa.me/971547474404" target="_blank" rel="noopener noreferrer">
-                    <Button className="w-full bg-[#25D366] hover:bg-[#1DA851]">
+                    <Button className="w-full bg-[#25D366] hover:bg-[#1DA851] text-[#04291a]">
                       <MessageCircle className="mr-2 h-5 w-5" />
                       Chat with us on WhatsApp
                     </Button>
@@ -311,7 +311,7 @@ const BookConsultation = () => {
                 <h3 className="mb-2 text-lg font-bold">Need immediate assistance?</h3>
                 <p className="mb-4 text-white/80">Chat with us on WhatsApp for instant response</p>
                 <a href="https://wa.me/971547474404" target="_blank" rel="noopener noreferrer">
-                  <Button className="w-full bg-[#25D366] hover:bg-[#1DA851]">
+                  <Button className="w-full bg-[#25D366] hover:bg-[#1DA851] text-[#04291a]">
                     <MessageCircle className="mr-2 h-5 w-5" />
                     Chat on WhatsApp
                   </Button>

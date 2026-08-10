@@ -104,7 +104,7 @@ const BookingConfirmation = () => {
                     confirmation email, or message us and we&apos;ll locate it.
                   </p>
                   <a href="https://wa.me/971547474404" target="_blank" rel="noopener noreferrer">
-                    <Button className="bg-[#25D366] hover:bg-[#1DA851]">
+                    <Button className="bg-[#25D366] hover:bg-[#1DA851] text-[#04291a]">
                       <MessageCircle className="mr-2 h-5 w-5" /> Chat with us on WhatsApp
                     </Button>
                   </a>
@@ -168,7 +168,7 @@ const BookingConfirmation = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <Button className="w-full bg-[#25D366] hover:bg-[#1DA851]">
+                      <Button className="w-full bg-[#25D366] hover:bg-[#1DA851] text-[#04291a]">
                         <MessageCircle className="mr-2 h-5 w-5" />
                         Chat with us on WhatsApp
                       </Button>

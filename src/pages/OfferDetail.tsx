@@ -171,7 +171,7 @@ const OfferDetail = () => {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-[#25D366] hover:bg-[#1ebd5a] text-white shadow-md"
+                  className="bg-[#25D366] hover:bg-[#1ebd5a] text-[#04291a] shadow-md"
                 >
                   <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="h-5 w-5 mr-2" />

@@ -35,6 +35,8 @@ All colors MUST be HSL.
     /* Accent = champagne gold — for hairlines, hover, small marks */
     --accent: 41 45% 52%;
     --accent-foreground: 0 0% 8%;
+    /* Accessible gold for TEXT on light surfaces (WCAG AA) */
+    --accent-strong: 41 55% 32%;
 
     --destructive: 0 70% 45%;
     --destructive-foreground: 0 0% 100%;

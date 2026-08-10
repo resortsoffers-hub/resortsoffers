@@ -192,7 +192,7 @@ const Index = () => {
         <section className="bg-background py-24 md:py-32">
           <div className="container mx-auto px-6">
             <RevealSection className="text-center mb-16">
-              <p className="text-[11px] uppercase tracking-[0.35em] text-[#C9A961] mb-4">
+              <p className="text-[11px] uppercase tracking-[0.35em] text-accent-strong mb-4">
                 {ar ? "ما نقدمه" : "What We Curate"}
               </p>
               <h2 className="font-serif text-4xl md:text-5xl mb-6">
@@ -358,7 +358,7 @@ const Index = () => {
             <RevealSection>
               <div className="relative max-w-3xl mx-auto border border-[#C9A961]/20 bg-[#faf9f6]">
                 <div className="p-10 md:p-16 flex flex-col justify-center text-center items-center">
-                  <p className="text-[11px] uppercase tracking-[0.35em] text-[#C9A961] mb-4">
+                  <p className="text-[11px] uppercase tracking-[0.35em] text-accent-strong mb-4">
                     {ar ? "خدمة مخصصة" : "Personalized Service"}
                   </p>
                   <h2 className="font-serif text-3xl md:text-4xl mb-4">
@@ -370,7 +370,7 @@ const Index = () => {
                       : "A private session with Nora El Khalifi to identify the perfect options for your trip. $200 is credited back upon booking confirmation."}
                   </p>
                   <div className="flex items-baseline gap-3 mb-8">
-                    <span className="font-serif text-5xl text-[#C9A961]">$200</span>
+                    <span className="font-serif text-5xl text-accent-strong">$200</span>
                     <span className="text-muted-foreground text-sm">{ar ? "لكل استشارة" : "per consultation"}</span>
                   </div>
                   <a

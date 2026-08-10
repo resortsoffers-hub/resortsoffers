@@ -409,7 +409,7 @@ const CruiseCard = ({ cruise }: { cruise: Cruise }) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button className="bg-green-600 hover:bg-green-700 text-white gap-2">
+            <Button className="bg-green-700 hover:bg-green-800 text-white gap-2">
               <MessageCircle className="w-4 h-4" />
               Enquire
             </Button>

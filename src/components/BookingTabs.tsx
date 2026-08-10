@@ -49,13 +49,13 @@ const BookingTabs = () => {
             onClick={() => setActiveTab(tab.id)}
             className={`flex-1 py-4 px-6 text-sm font-medium transition-colors relative ${
               activeTab === tab.id
-                ? "text-[#00A4E4]"
-                : "text-gray-600 hover:text-[#00A4E4]"
+                ? "text-[#0077A8]"
+                : "text-gray-600 hover:text-[#0077A8]"
             }`}
           >
             {tab.label}
             {activeTab === tab.id && (
-              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#00A4E4]" />
+              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#0077A8]" />
             )}
           </button>
         ))}
@@ -105,7 +105,7 @@ const BookingTabs = () => {
           <div className="flex items-end">
             <Button 
               onClick={handleSearch}
-              className="w-full h-12 bg-[#00A4E4] hover:bg-[#0090c9] text-white font-semibold"
+              className="w-full h-12 bg-[#0077A8] hover:bg-[#0090c9] text-white font-semibold"
             >
               <Search className="w-5 h-5 mr-2" />
               Search

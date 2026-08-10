@@ -63,7 +63,7 @@ const Offers = () => {
               href={`https://wa.me/${WA}?text=${waMsg}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1da851] text-white rounded-md px-6 py-3 font-medium transition-colors shadow-sm"
+              className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1da851] text-[#04291a] rounded-md px-6 py-3 font-medium transition-colors shadow-sm"
             >
               <MessageCircle className="h-4 w-4" />
               {ar ? "احصل على العروض الحالية" : "Get current offers"}

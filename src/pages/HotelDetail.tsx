@@ -162,7 +162,7 @@ const HotelDetail = () => {
             </p>
             <Link
               to={lp("/destinations")}
-              className="inline-flex items-center gap-2 text-accent uppercase tracking-[0.25em] text-xs font-medium"
+              className="inline-flex items-center gap-2 text-accent-strong uppercase tracking-[0.25em] text-xs font-medium"
             >
               <ArrowLeft className="h-3 w-3" />
               {ar ? "كل المجموعات" : "All collections"}
@@ -241,7 +241,7 @@ const HotelDetail = () => {
           <section className="bg-secondary/40 py-20 md:py-28">
             <div className="container mx-auto px-6 max-w-4xl">
               <div className="text-center mb-12 md:mb-16">
-                <div className="uppercase tracking-[0.35em] text-[10px] md:text-xs text-accent mb-4">
+                <div className="uppercase tracking-[0.35em] text-[10px] md:text-xs text-accent-strong mb-4">
                   {ar ? "لماذا اخترناه" : "Why we selected this resort"}
                 </div>
               </div>
@@ -250,7 +250,7 @@ const HotelDetail = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10 mb-12">
                   {personality.map(({ Icon, en, ar: arLine }, i) => (
                     <div key={i} className="flex items-start gap-4">
-                      <Icon className="h-5 w-5 text-accent shrink-0 mt-1" />
+                      <Icon className="h-5 w-5 text-accent-strong shrink-0 mt-1" />
                       <p className="font-serif text-lg text-primary leading-snug">
                         {ar ? arLine : en}
                       </p>
@@ -271,7 +271,7 @@ const HotelDetail = () => {
         {/* 4 — Curated offer OR private-request fallback */}
         <section className="container mx-auto px-6 py-20 md:py-28 max-w-3xl">
           <div className="text-center mb-10">
-            <div className="uppercase tracking-[0.35em] text-[10px] md:text-xs text-accent mb-4">
+            <div className="uppercase tracking-[0.35em] text-[10px] md:text-xs text-accent-strong mb-4">
               {ar ? "العرض المُنسَّق" : "The Curated Offer"}
             </div>
           </div>
@@ -294,7 +294,7 @@ const HotelDetail = () => {
                       key={i}
                       className="flex items-start gap-3 text-sm text-primary"
                     >
-                      <span className="text-accent mt-1.5 h-1 w-1 rounded-full bg-accent shrink-0" />
+                      <span className="text-accent-strong mt-1.5 h-1 w-1 rounded-full bg-accent shrink-0" />
                       <span>{typeof f === "string" ? f : f?.en || f?.label}</span>
                     </li>
                   ))}
@@ -311,7 +311,7 @@ const HotelDetail = () => {
                   {offer.price && (
                     <div className="font-serif text-3xl text-primary">
                       {ar ? "من " : "From "}
-                      <span className="text-accent">
+                      <span className="text-accent-strong">
                         {offer.currency || "USD"} {Number(offer.price).toLocaleString()}
                       </span>
                     </div>
@@ -358,7 +358,7 @@ const HotelDetail = () => {
           <section className="bg-secondary/40 py-20 md:py-28">
             <div className="container mx-auto px-6">
               <div className="text-center mb-12">
-                <div className="uppercase tracking-[0.35em] text-[10px] md:text-xs text-accent mb-4">
+                <div className="uppercase tracking-[0.35em] text-[10px] md:text-xs text-accent-strong mb-4">
                   {ar ? "المعرض" : "The Gallery"}
                 </div>
               </div>
@@ -369,7 +369,7 @@ const HotelDetail = () => {
 
         {/* 6 — Request this experience (final CTA) */}
         <section className="container mx-auto px-6 py-24 md:py-32 max-w-2xl text-center">
-          <div className="uppercase tracking-[0.35em] text-[10px] md:text-xs text-accent mb-5">
+          <div className="uppercase tracking-[0.35em] text-[10px] md:text-xs text-accent-strong mb-5">
             {ar ? "ابدأ المحادثة" : "Begin the conversation"}
           </div>
           <h2 className="font-serif text-3xl md:text-5xl text-primary leading-tight mb-8">

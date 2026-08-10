@@ -79,7 +79,7 @@ const OfferDetailModal = ({ offer, isOpen, onClose }: OfferDetailModalProps) => 
               <p className="text-sm text-green-600 font-medium">You save {offer.discount}%</p>
             </div>
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="bg-[#25D366] hover:bg-[#25D366]/90 text-white">
+              <Button size="lg" className="bg-[#25D366] hover:bg-[#25D366]/90 text-[#04291a]">
                 <MessageCircle className="w-5 h-5 mr-2" />
                 Book via WhatsApp
               </Button>
@@ -115,7 +115,7 @@ const OfferDetailModal = ({ offer, isOpen, onClose }: OfferDetailModalProps) => 
                 const Icon = amenity.icon;
                 return (
                   <div key={index} className="flex items-center gap-2 text-gray-600">
-                    <Icon className="w-5 h-5 text-[#00A4E4]" />
+                    <Icon className="w-5 h-5 text-[#0077A8]" />
                     <span className="text-sm">{amenity.label}</span>
                   </div>
                 );
@@ -140,7 +140,7 @@ const OfferDetailModal = ({ offer, isOpen, onClose }: OfferDetailModalProps) => 
           {/* Bottom CTA */}
           <div className="flex gap-3">
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex-1">
-              <Button className="w-full bg-[#00A4E4] hover:bg-[#0090c9] text-white py-6">
+              <Button className="w-full bg-[#0077A8] hover:bg-[#0090c9] text-white py-6">
                 <MessageCircle className="w-5 h-5 mr-2" />
                 Enquire Now
               </Button>

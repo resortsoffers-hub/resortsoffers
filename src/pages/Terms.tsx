@@ -31,7 +31,7 @@ const Terms = () => {
           <Card className="shadow-sm">
             <CardHeader className="pb-4">
               <div className="flex items-center gap-3">
-                <CreditCard className="w-7 h-7 text-accent" />
+                <CreditCard className="w-7 h-7 text-accent-strong" />
                 <CardTitle className="text-xl md:text-2xl">Accepted Payment Methods</CardTitle>
               </div>
             </CardHeader>

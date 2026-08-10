@@ -23,7 +23,7 @@ const EngagementPolicy = () => {
       <main className="flex-1">
         <article className="max-w-2xl mx-auto px-6 py-24 md:py-32">
           <div className="text-center mb-14">
-            <div className="uppercase tracking-[0.3em] text-[10px] text-accent mb-6">
+            <div className="uppercase tracking-[0.3em] text-[10px] text-accent-strong mb-6">
               Resorts Offers
             </div>
             <h1 className="font-serif text-3xl md:text-5xl text-primary leading-tight">
@@ -89,7 +89,7 @@ const EngagementPolicy = () => {
             <p className="font-serif text-lg text-primary">
               Nora Abdullah Mohamed Elkhalifi
             </p>
-            <p className="text-xs uppercase tracking-[0.2em] text-accent mt-1">
+            <p className="text-xs uppercase tracking-[0.2em] text-accent-strong mt-1">
               Chief Executive Officer
             </p>
             <p className="text-sm text-primary/70 mt-3 leading-relaxed">

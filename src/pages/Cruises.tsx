@@ -316,19 +316,19 @@ const CruiseCard = ({ cruise }: { cruise: Cruise }) => {
         {/* Badges */}
         <div className="absolute top-4 left-4 flex flex-wrap gap-2">
           {cruise.isFamily && (
-            <Badge className="bg-emerald-500/90 text-white">
+            <Badge className="bg-emerald-700 text-white">
               <Users className="w-3 h-3 mr-1" />
               Family
             </Badge>
           )}
           {cruise.isRomantic && (
-            <Badge className="bg-rose-500/90 text-white">
+            <Badge className="bg-rose-700 text-white">
               <Heart className="w-3 h-3 mr-1" />
               Romantic
             </Badge>
           )}
           {cruise.isLuxury && (
-            <Badge className="bg-amber-500/90 text-white tracking-widest uppercase text-[10px]">
+            <Badge className="bg-amber-700 text-white tracking-widest uppercase text-[10px]">
               Luxury
             </Badge>
           )}
@@ -409,7 +409,7 @@ const CruiseCard = ({ cruise }: { cruise: Cruise }) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button className="bg-green-600 hover:bg-green-700 text-white gap-2">
+            <Button className="bg-green-700 hover:bg-green-800 text-white gap-2">
               <MessageCircle className="w-4 h-4" />
               Enquire
             </Button>

@@ -316,19 +316,19 @@ const CruiseCard = ({ cruise }: { cruise: Cruise }) => {
         {/* Badges */}
         <div className="absolute top-4 left-4 flex flex-wrap gap-2">
           {cruise.isFamily && (
-            <Badge className="bg-emerald-500/90 text-white">
+            <Badge className="bg-emerald-700 text-white">
               <Users className="w-3 h-3 mr-1" />
               Family
             </Badge>
           )}
           {cruise.isRomantic && (
-            <Badge className="bg-rose-500/90 text-white">
+            <Badge className="bg-rose-700 text-white">
               <Heart className="w-3 h-3 mr-1" />
               Romantic
             </Badge>
           )}
           {cruise.isLuxury && (
-            <Badge className="bg-amber-500/90 text-white tracking-widest uppercase text-[10px]">
+            <Badge className="bg-amber-700 text-white tracking-widest uppercase text-[10px]">
               Luxury
             </Badge>
           )}

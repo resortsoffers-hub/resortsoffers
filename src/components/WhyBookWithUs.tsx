@@ -254,7 +254,7 @@ const WhyBookWithUs = () => {
               {/* CTA Buttons */}
               <div className="flex flex-wrap gap-4 pt-4">
                 <Link to="/contact">
-                  <Button className="bg-accent hover:bg-accent/90">
+                  <Button className="bg-accent-strong hover:bg-accent-strong/90 text-white">
                     Become a Member
                   </Button>
                 </Link>

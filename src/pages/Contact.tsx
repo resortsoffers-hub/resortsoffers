@@ -26,12 +26,12 @@ const Contact = () => {
       ],
     },
     {
-      icon: <Mail className="w-6 h-6 text-accent" />,
+      icon: <Mail className="w-6 h-6 text-accent-strong" />,
       title: "Email Us",
       details: [{ text: "VIP@resortsoffers.com", link: "mailto:VIP@resortsoffers.com" }],
     },
     {
-      icon: <Star className="w-6 h-6 text-accent" />,
+      icon: <Star className="w-6 h-6 text-accent-strong" />,
       title: "Google Reviews",
       details: [{ text: "Leave us a review ⭐", link: "https://maps.app.goo.gl/yrTrMqHRhTEuwXmDA?g_st=ic" }],
     },
@@ -185,7 +185,7 @@ const Contact = () => {
                             rel="noopener noreferrer"
                             className="group flex items-center gap-2 rounded-lg p-2 transition-colors hover:bg-accent/10"
                           >
-                            <span className="text-base font-medium transition-colors group-hover:text-accent">{detail.text}</span>
+                            <span className="text-base font-medium transition-colors group-hover:text-accent-strong">{detail.text}</span>
                           </a>
                         </div>
                       ))}

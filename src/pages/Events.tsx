@@ -101,7 +101,7 @@ const Events = () => {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                       <div className="absolute bottom-4 left-4 right-4">
-                        <span className="inline-block bg-accent text-white px-4 py-2 rounded-full text-sm font-semibold">
+                        <span className="inline-block bg-accent-strong text-white px-4 py-2 rounded-full text-sm font-semibold">
                           {event.name}
                         </span>
                       </div>
@@ -116,11 +116,11 @@ const Events = () => {
                     
                     <div className="flex flex-wrap gap-4 mb-4 text-muted-foreground">
                       <div className="flex items-center gap-2">
-                        <MapPin className="w-4 h-4 text-accent" />
+                        <MapPin className="w-4 h-4 text-accent-strong" />
                         <span>{event.location}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <Calendar className="w-4 h-4 text-accent" />
+                        <Calendar className="w-4 h-4 text-accent-strong" />
                         <span>{event.venue}</span>
                       </div>
                     </div>
@@ -134,7 +134,7 @@ const Events = () => {
                       <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
                         {event.highlights.map((highlight, i) => (
                           <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
-                            <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                            <span className="w-1.5 h-1.5 rounded-full bg-accent-strong" />
                             {highlight}
                           </li>
                         ))}
@@ -169,7 +169,7 @@ const Events = () => {
                 Interested in meeting our team at an upcoming travel trade show? Contact us to schedule a private appointment and discuss partnership opportunities.
               </p>
               <a href="mailto:info@resortsoffers.com">
-                <Button size="lg" className="bg-accent hover:bg-accent/90">
+                <Button size="lg" className="bg-accent-strong hover:bg-accent-strong/90">
                   Schedule a Meeting
                 </Button>
               </a>

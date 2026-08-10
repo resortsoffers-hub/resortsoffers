@@ -86,7 +86,7 @@ const Destinations = () => {
         <p className="text-sm text-muted-foreground leading-relaxed mb-4 line-clamp-2">
           {blurb}
         </p>
-        <span className="inline-flex items-center gap-2 text-accent uppercase tracking-[0.25em] text-[11px] font-medium">
+        <span className="inline-flex items-center gap-2 text-accent-strong uppercase tracking-[0.25em] text-[11px] font-medium">
           {ar ? "اكتشف المجموعة" : "Explore"}
           <ArrowRight className="h-3 w-3" />
         </span>
@@ -109,7 +109,7 @@ const Destinations = () => {
       <main className="flex-1">
         {/* Editorial header */}
         <section className="container mx-auto px-6 pt-24 md:pt-32 pb-12 md:pb-16 max-w-3xl text-center">
-          <div className="uppercase tracking-[0.35em] text-[10px] md:text-xs text-accent mb-5">
+          <div className="uppercase tracking-[0.35em] text-[10px] md:text-xs text-accent-strong mb-5">
             {ar ? "المجموعات" : "The Collections"}
           </div>
           <h1 className="font-serif text-4xl md:text-6xl text-primary leading-[1.05] mb-6">

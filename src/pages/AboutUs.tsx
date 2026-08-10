@@ -44,7 +44,7 @@ const AboutUs = () => {
             <div className="max-w-4xl mx-auto text-center">
               <div className="flex justify-center mb-6">
                 <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center">
-                  <Award className="w-8 h-8 text-accent" />
+                  <Award className="w-8 h-8 text-accent-strong" />
                 </div>
               </div>
               <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6">
@@ -116,7 +116,7 @@ const AboutUs = () => {
                   >
                     <div className="flex gap-4">
                       <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center">
-                        <span className="text-accent font-bold text-sm">{index + 1}</span>
+                        <span className="text-accent-strong font-bold text-sm">{index + 1}</span>
                       </div>
                       <p className="text-gray-700 leading-relaxed">{principle}</p>
                     </div>
@@ -140,7 +140,7 @@ const AboutUs = () => {
               <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-8 md:p-12 text-white">
                 <div className="flex justify-center mb-6">
                   <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center">
-                    <Award className="w-8 h-8 text-accent" />
+                    <Award className="w-8 h-8 text-accent-strong" />
                   </div>
                 </div>
                 <h2 className="text-2xl md:text-3xl font-bold text-center mb-6">
@@ -164,10 +164,10 @@ const AboutUs = () => {
               <div className="text-center mb-10">
                 <div className="flex justify-center mb-6">
                   <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center">
-                    <Building2 className="w-8 h-8 text-accent" />
+                    <Building2 className="w-8 h-8 text-accent-strong" />
                   </div>
                 </div>
-                <span className="inline-block text-xs font-semibold tracking-widest uppercase text-accent mb-3">
+                <span className="inline-block text-xs font-semibold tracking-widest uppercase text-accent-strong mb-3">
                   Sister Agency
                 </span>
                 <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">
@@ -249,7 +249,7 @@ const AboutUs = () => {
             <div className="max-w-2xl mx-auto text-center">
               <div className="flex justify-center mb-6">
                 <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center">
-                  <Users className="w-8 h-8 text-accent" />
+                  <Users className="w-8 h-8 text-accent-strong" />
                 </div>
               </div>
               <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8">
@@ -260,7 +260,7 @@ const AboutUs = () => {
                 <h3 className="text-xl font-bold text-primary mb-2">
                   Nora Abdullah
                 </h3>
-                <p className="text-accent font-semibold mb-6">
+                <p className="text-accent-strong font-semibold mb-6">
                   CEO & Founder
                 </p>
                 
@@ -272,7 +272,7 @@ const AboutUs = () => {
                 <div className="mt-8 pt-6 border-t border-gray-100">
                   <a 
                     href="mailto:info@resortsoffers.com"
-                    className="inline-flex items-center gap-2 text-accent hover:text-accent/80 font-semibold transition-colors"
+                    className="inline-flex items-center gap-2 text-accent-strong hover:text-accent-strong/80 font-semibold transition-colors"
                   >
                     <Mail className="w-5 h-5" />
                     info@resortsoffers.com

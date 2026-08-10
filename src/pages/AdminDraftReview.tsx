@@ -313,7 +313,7 @@ const AdminDraftReview = () => {
                 {/* Header */}
                 <div className="flex flex-wrap items-end justify-between gap-4 border-b border-border pb-5">
                   <div>
-                    <div className="text-[10px] uppercase tracking-[0.3em] text-accent mb-1">
+                    <div className="text-[10px] uppercase tracking-[0.3em] text-accent-strong mb-1">
                       {hotel.destination}
                     </div>
                     <h2 className="font-serif text-2xl md:text-3xl text-primary">{hotel.name_en}</h2>

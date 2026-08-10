@@ -81,7 +81,7 @@ const DestinationHub = () => {
             <ArrowLeft className="h-3 w-3" />
             {ar ? "كل المجموعات" : "All collections"}
           </Link>
-          <div className="uppercase tracking-[0.35em] text-[10px] md:text-xs text-accent mb-5">
+          <div className="uppercase tracking-[0.35em] text-[10px] md:text-xs text-accent-strong mb-5">
             {dest.kind === "place"
               ? (ar ? "وجهة" : "Destination")
               : (ar ? "مجموعة" : "Collection")}
@@ -140,7 +140,7 @@ const DestinationHub = () => {
                         {blurb}
                       </p>
                     )}
-                    <span className="inline-flex items-center gap-2 text-accent uppercase tracking-[0.25em] text-[11px] font-medium">
+                    <span className="inline-flex items-center gap-2 text-accent-strong uppercase tracking-[0.25em] text-[11px] font-medium">
                       {ar ? "اكتشف المنتجع" : "Explore Resort"}
                       <ArrowRight className="h-3 w-3" />
                     </span>

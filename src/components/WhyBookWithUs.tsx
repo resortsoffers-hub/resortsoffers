@@ -65,26 +65,26 @@ const WhyBookWithUs = () => {
           {/* Contact Info */}
           <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10 mb-12 text-sm">
             <div className="flex items-center gap-2">
-              <span className="text-accent">📧</span>
+              <span className="text-accent-strong">📧</span>
               <span>info@resortsoffers.com</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-accent">📞</span>
+              <span className="text-accent-strong">📞</span>
               <span>+971 567 622 484</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-accent">📍</span>
+              <span className="text-accent-strong">📍</span>
               <span>Visit our Office</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="text-gray-400">Follow us</span>
-              <span className="text-accent">@resortsoffers</span>
+              <span className="text-accent-strong">@resortsoffers</span>
             </div>
           </div>
 
           {/* Services Grid Title */}
           <div className="text-center mb-8">
-            <h3 className="text-xl md:text-2xl font-semibold text-accent">
+            <h3 className="text-xl md:text-2xl font-semibold text-accent-strong">
               WE CAN HELP WITH ALL YOUR TRAVEL NEEDS INCLUDING:
             </h3>
           </div>
@@ -196,7 +196,7 @@ const WhyBookWithUs = () => {
               {/* Save Section */}
               <div className="flex items-start gap-4 mb-6">
                 <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
-                  <Percent className="w-6 h-6 text-accent" />
+                  <Percent className="w-6 h-6 text-accent-strong" />
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-primary mb-2">

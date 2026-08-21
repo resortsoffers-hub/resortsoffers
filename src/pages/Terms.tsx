@@ -247,13 +247,92 @@ const Terms = () => {
               <AccordionTrigger className="text-left hover:no-underline py-5">
                 <div className="flex items-center gap-3">
                   <XCircle className="w-5 h-5 text-primary shrink-0" />
-                  <span className="text-lg md:text-xl font-semibold">General Cancellation Policy</span>
+                  <span className="text-lg md:text-xl font-semibold">Cancellation & Last-Minute Offline Booking Policy</span>
                 </div>
               </AccordionTrigger>
               <AccordionContent className="pb-5">
-                <p className="text-muted-foreground text-sm md:text-base leading-relaxed text-left pt-2">
-                  Hotel cancellation terms vary depending on the property and package booked. Please refer to the specific hotel's policy for applicable charges in case of modification, no-show, or cancellation.
-                </p>
+                <div className="space-y-5 pt-2 text-left">
+                  <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
+                    Hotel cancellation terms vary depending on the property and package booked. Please refer to the specific hotel's policy for applicable charges in case of modification, no-show, or cancellation.
+                  </p>
+
+                  <div className="border-t border-border pt-5">
+                    <h3 className="font-semibold text-base md:text-lg mb-3 flex items-center gap-2">
+                      <Building className="w-5 h-5 text-accent-strong" />
+                      Last-Minute Offline / Manual Hotel Booking
+                    </h3>
+                    <p className="text-muted-foreground text-sm md:text-base leading-relaxed mb-3">
+                      For certain hotels and resorts, particularly for last-minute bookings, reservations may be processed manually and offline in accordance with the hotel's internal reservation and finance procedures.
+                    </p>
+                    <p className="text-muted-foreground text-sm md:text-base leading-relaxed mb-3">
+                      In such cases, the hotel may initially block or hold the requested room/villa manually and remove or restrict the inventory from further sale, while issuing a manual quotation, proforma invoice or payment instruction to the agency.
+                    </p>
+                    <p className="text-muted-foreground text-sm md:text-base leading-relaxed mb-4">
+                      At this stage, the hotel may not yet create the guest profile or reservation record in its central reservation system and may not yet issue a hotel confirmation number. This is part of the hotel's internal processing procedure and does not, by itself, mean that no booking process or inventory commitment exists.
+                    </p>
+
+                    <h4 className="font-semibold text-sm md:text-base mb-2">The process may proceed as follows:</h4>
+                    <ol className="space-y-2 text-muted-foreground text-sm md:text-base list-decimal ps-5 mb-4">
+                      <li>The hotel confirms availability and manually holds/blocks the requested room or villa.</li>
+                      <li>The hotel issues its quotation, proforma invoice and/or payment instructions.</li>
+                      <li>The agency submits the required guest information and initiates payment.</li>
+                      <li>Where international payment is involved, the funds may pass through intermediary/correspondent banks and remain subject to banking verification before being credited to the hotel.</li>
+                      <li>The hotel's Finance Department verifies receipt and clearance of the payment.</li>
+                      <li>Once the required financial verification is completed, the hotel's Reservation Department manually creates/finalises the reservation in its system under the guest's name.</li>
+                      <li>The hotel then releases its official final confirmation number.</li>
+                    </ol>
+
+                    <p className="text-muted-foreground text-sm md:text-base leading-relaxed mb-4">
+                      Accordingly, during this processing period, the guest may not yet be identifiable by name or confirmation number through the hotel's general reservation system.
+                    </p>
+
+                    <div className="bg-accent/10 p-4 rounded-lg mb-4">
+                      <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                        The absence of a hotel confirmation number before completion of this process — or after a cancellation interrupts the process — does not by itself establish that no booking process took place, where documentary evidence exists showing that the hotel had accepted the request, blocked/held the inventory, issued an invoice or payment instruction, or otherwise commenced processing the reservation.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="border-t border-border pt-5">
+                    <h3 className="font-semibold text-base md:text-lg mb-3 flex items-center gap-2">
+                      <XCircle className="w-5 h-5 text-accent-strong" />
+                      Cancellation During Processing
+                    </h3>
+                    <p className="text-muted-foreground text-sm md:text-base leading-relaxed mb-3">
+                      Once the hotel has committed or blocked inventory and the booking process has commenced, a subsequent cancellation does not automatically cancel the financial or contractual consequences of that commitment simply because the final confirmation number had not yet been released.
+                    </p>
+                    <p className="text-muted-foreground text-sm md:text-base leading-relaxed mb-3">
+                      Any cancellation requested during this stage remains subject to the applicable hotel cancellation conditions and the agency's agreed terms and service charges.
+                    </p>
+                    <div className="bg-primary/5 border border-primary/20 p-4 rounded-lg">
+                      <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                        This is particularly important for last-minute reservations, where inventory has been removed from sale close to the arrival date and the hotel may have little or no opportunity to resell the room/villa following cancellation.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="border-t border-border pt-5">
+                    <h3 className="font-semibold text-base md:text-lg mb-3 flex items-center gap-2">
+                      <ShieldCheck className="w-5 h-5 text-accent-strong" />
+                      Official Confirmation
+                    </h3>
+                    <p className="text-muted-foreground text-sm md:text-base leading-relaxed mb-3">
+                      Our agency does not generate, fabricate or issue provisional hotel confirmation numbers and later replace them with final numbers.
+                    </p>
+                    <p className="text-muted-foreground text-sm md:text-base leading-relaxed mb-3">
+                      We provide the guest only with the official confirmation issued directly by the hotel once the hotel's internal reservation and payment-verification process has been completed.
+                    </p>
+                    <p className="text-muted-foreground text-sm md:text-base leading-relaxed mb-3">
+                      Once the official hotel confirmation has been provided, the guest may contact the hotel directly to verify the confirmed reservation.
+                    </p>
+
+                    <div className="bg-accent/10 p-4 rounded-lg">
+                      <p className="text-sm md:text-base text-muted-foreground leading-relaxed italic">
+                        By proceeding with payment, the guest/agent acknowledges and accepts this offline/manual booking procedure and understands that issuance of the final hotel confirmation number may be the final stage of the process rather than the first.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </AccordionContent>
             </AccordionItem>
 

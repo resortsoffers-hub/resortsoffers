@@ -88,6 +88,15 @@ export const DESTINATIONS: Destination[] = [
     blurb_ar: "ملاذات على البحر الأحمر، منتجعات تراثية، وعقارات خاصة للغاية.",
   },
   {
+    slug: "paris",
+    kind: "place",
+    name_en: "Paris",
+    name_ar: "باريس",
+    region: "Europe",
+    blurb_en: "Palace addresses, Michelin gastronomy, and haute-couture avenues.",
+    blurb_ar: "قصور تاريخية، مطاعم ميشلان، وشوارع الأزياء الراقية.",
+  },
+  {
     slug: "europe",
     kind: "place",
     name_en: "Europe",
@@ -97,6 +106,7 @@ export const DESTINATIONS: Destination[] = [
     blurb_ar: "فيلات متوسطية، شاليهات ألبية، وقصور تاريخية في عواصم أوروبا.",
   },
 ];
+
 
 export const COLLECTIONS: Destination[] = [
   {

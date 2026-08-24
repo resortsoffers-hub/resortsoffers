@@ -355,7 +355,7 @@ const Index = () => {
           </div>
         </section>
 
-        {/* PAID CONSULTATION BANNER */}
+        {/* WHATSAPP OFFERS BANNER */}
         <section className="bg-background py-24 md:py-32">
           <div className="container mx-auto px-6">
             <RevealSection>
@@ -365,23 +365,21 @@ const Index = () => {
                     {ar ? "خدمة مخصصة" : "Personalized Service"}
                   </p>
                   <h2 className="font-serif text-3xl md:text-4xl mb-4">
-                    {ar ? "استشارة سفر مدفوعة" : "Paid Travel Consultation"}
+                    {ar ? "احصل على عروضك عبر واتساب" : "Get Your Offers on WhatsApp"}
                   </h2>
                   <p className="text-muted-foreground leading-relaxed mb-8 max-w-xl">
                     {ar
-                      ? "جلسة شخصية مع نورة الخليفي لتحديد الخيارات المثالية لرحلتك. $200 تُسترد عند تأكيد الحجز."
-                      : "A private session with Nora El Khalifi to identify the perfect options for your trip. $200 is credited back upon booking confirmation."}
+                      ? "أخبرنا بوجهتك وتواريخك، وسنرسل لك العروض المتاحة مباشرة عبر واتساب."
+                      : "Tell us your destination and dates, and we'll send the available offers straight to you on WhatsApp."}
                   </p>
-                  <div className="flex items-baseline gap-3 mb-8">
-                    <span className="font-serif text-5xl text-accent-strong">$200</span>
-                    <span className="text-muted-foreground text-sm">{ar ? "لكل استشارة" : "per consultation"}</span>
-                  </div>
                   <a
-                    href="/book-consultation"
-                    className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground hover:bg-primary/90 rounded-none px-8 py-4 font-medium uppercase tracking-[0.2em] text-xs transition-colors w-fit"
+                    href={`https://wa.me/${BRAND.whatsapp}?text=${encodeURIComponent(ar ? "مرحباً، أرغب في تلقي العروض المتاحة." : "Hello, I'd like to receive your available offers.")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 bg-[#25D366] text-[#0a0a0a] hover:bg-[#25D366]/90 rounded-none px-8 py-4 font-medium uppercase tracking-[0.2em] text-xs transition-colors w-fit"
                   >
-                    {ar ? "احجز استشارتك" : "Book Your Consultation"}
-                    <ArrowRight className="h-4 w-4" />
+                    <MessageCircle className="h-4 w-4" />
+                    {ar ? "تحدث معنا الآن" : "Message Us Now"}
                   </a>
                 </div>
               </div>
@@ -390,6 +388,7 @@ const Index = () => {
           </div>
         </section>
       </main>
+
 
       <Footer />
     </div>

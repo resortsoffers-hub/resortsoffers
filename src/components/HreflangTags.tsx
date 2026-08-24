@@ -1,6 +1,5 @@
 import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
-import { useLocale } from '@/hooks/useLocale';
 
 const SITE = 'https://resortsoffers.com';
 
@@ -8,7 +7,6 @@ const SITE = 'https://resortsoffers.com';
 const GCC_LOCALES = ['en-AE', 'en-SA', 'en-QA', 'en-KW', 'en-BH', 'en-OM'];
 
 const HreflangTags = () => {
-  const lang = useLocale();
   const location = useLocation();
   const stripped = location.pathname.replace(/^\/(en|ar)(?=\/|$)/, '') || '/';
   const path = stripped === '/' ? '' : stripped;

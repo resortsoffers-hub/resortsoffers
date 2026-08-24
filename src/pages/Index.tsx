@@ -152,13 +152,16 @@ const Index = () => {
 
           <div className="container mx-auto px-6 pb-20 md:pb-28">
             <a
-              href="/book-consultation"
+              href={`https://wa.me/${BRAND.whatsapp}`}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.3em] text-[#C9A961] border-b border-[#C9A961]/50 pb-1 hover:text-white hover:border-white transition-colors"
             >
               <Star className="h-3.5 w-3.5" />
-              {ar ? "استشارة بقيمة 200$" : "$200 Consultation"}
+              {ar ? "احصل على العروض عبر واتساب" : "Get Offers on WhatsApp"}
             </a>
           </div>
+
 
 
           <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">

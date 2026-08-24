@@ -69,7 +69,10 @@ const HotelDetail = () => {
   const [hotel, setHotel] = useState<Hotel | null>(null);
   const [images, setImages] = useState<Img[]>([]);
   const [offer, setOffer] = useState<Offer | null>(null);
+  const [roomOffers, setRoomOffers] = useState<Offer[]>([]);
+  const [terms, setTerms] = useState<Offer | null>(null);
   const [loading, setLoading] = useState(true);
+
 
   useEffect(() => {
     (async () => {

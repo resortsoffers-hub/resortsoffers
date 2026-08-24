@@ -43,7 +43,9 @@ interface Offer {
   nights: number | null;
   valid_until: string | null;
   features: any;
+  category?: string | null;
 }
+
 
 /**
  * Editorial personality lines for "Why we selected this resort".

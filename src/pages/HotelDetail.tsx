@@ -80,6 +80,21 @@ const HotelDetail = () => {
       setHotel(null);
       setImages([]);
       setOffer(null);
+      setRoomOffers([]);
+      setTerms(null);
+
+      const loadOffers = async (hotelId: string) => {
+        const { data } = await supabase
+          .from("offers")
+          .select("id,title,description,price,currency,nights,valid_until,features,category")
+          .eq("hotel_id", hotelId)
+          .eq("is_active", true)
+          .order("display_order", { ascending: true });
+        const list = (data as Offer[]) || [];
+        setRoomOffers(list.filter((o) => o.category === "room-type"));
+        setTerms(list.find((o) => o.category === "terms") || null);
+        return list;
+      };
 
       const privatePreviewId =
         previewId || new URLSearchParams(window.location.search).get("preview");
@@ -96,6 +111,7 @@ const HotelDetail = () => {
           setHotel(payload.hotel);
           setImages(payload.images || []);
           setOffer(payload.offer || null);
+          await loadOffers(payload.hotel.id);
           setLoading(false);
           return;
         }
@@ -110,23 +126,18 @@ const HotelDetail = () => {
 
       if (h) {
         setHotel(h as Hotel);
-        const [{ data: imgs }, { data: offers }] = await Promise.all([
+        const [{ data: imgs }, list] = await Promise.all([
           supabase
             .from("hotel_images")
             .select("id,image_url,caption_en,caption_ar,category_kind,category_label")
             .eq("hotel_id", (h as Hotel).id)
             .order("display_order", { ascending: true }),
-          supabase
-            .from("offers")
-            .select("id,title,description,price,currency,nights,valid_until,features")
-            .eq("hotel_id", (h as Hotel).id)
-            .eq("is_active", true)
-            .order("display_order", { ascending: true })
-            .limit(1),
+          loadOffers((h as Hotel).id),
         ]);
         setImages((imgs as Img[]) || []);
-        setOffer((offers?.[0] as Offer) || null);
+        setOffer((list.find((o) => o.category !== "terms") as Offer) || null);
       }
+
       setLoading(false);
     })();
   }, [slug, previewId]);

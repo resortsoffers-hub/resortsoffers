@@ -23,6 +23,9 @@ export function safeHotelImage(src?: string | null): string {
   if (!src) return PLACEHOLDER;
   // Supabase Storage public URLs — these come from our admin upload pipeline
   if (src.includes("/storage/v1/object/")) return src;
+  // Lovable CDN assets — official hotel photography uploaded by us
+  if (src.startsWith("/__l5e/assets-v1/")) return src;
+
   // The placeholder itself
   if (src === PLACEHOLDER || src.endsWith("/hotel-placeholder.svg")) return src;
   // Everything else (bundled AI assets, unsplash, pexels, third-party) → placeholder

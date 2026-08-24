@@ -43,7 +43,9 @@ interface Offer {
   nights: number | null;
   valid_until: string | null;
   features: any;
+  category?: string | null;
 }
+
 
 /**
  * Editorial personality lines for "Why we selected this resort".
@@ -67,7 +69,10 @@ const HotelDetail = () => {
   const [hotel, setHotel] = useState<Hotel | null>(null);
   const [images, setImages] = useState<Img[]>([]);
   const [offer, setOffer] = useState<Offer | null>(null);
+  const [roomOffers, setRoomOffers] = useState<Offer[]>([]);
+  const [terms, setTerms] = useState<Offer | null>(null);
   const [loading, setLoading] = useState(true);
+
 
   useEffect(() => {
     (async () => {
@@ -75,6 +80,21 @@ const HotelDetail = () => {
       setHotel(null);
       setImages([]);
       setOffer(null);
+      setRoomOffers([]);
+      setTerms(null);
+
+      const loadOffers = async (hotelId: string) => {
+        const { data } = await supabase
+          .from("offers")
+          .select("id,title,description,price,currency,nights,valid_until,features,category")
+          .eq("hotel_id", hotelId)
+          .eq("is_active", true)
+          .order("display_order", { ascending: true });
+        const list = (data as Offer[]) || [];
+        setRoomOffers(list.filter((o) => o.category === "room-type"));
+        setTerms(list.find((o) => o.category === "terms") || null);
+        return list;
+      };
 
       const privatePreviewId =
         previewId || new URLSearchParams(window.location.search).get("preview");
@@ -91,6 +111,7 @@ const HotelDetail = () => {
           setHotel(payload.hotel);
           setImages(payload.images || []);
           setOffer(payload.offer || null);
+          await loadOffers(payload.hotel.id);
           setLoading(false);
           return;
         }
@@ -105,23 +126,18 @@ const HotelDetail = () => {
 
       if (h) {
         setHotel(h as Hotel);
-        const [{ data: imgs }, { data: offers }] = await Promise.all([
+        const [{ data: imgs }, list] = await Promise.all([
           supabase
             .from("hotel_images")
             .select("id,image_url,caption_en,caption_ar,category_kind,category_label")
             .eq("hotel_id", (h as Hotel).id)
             .order("display_order", { ascending: true }),
-          supabase
-            .from("offers")
-            .select("id,title,description,price,currency,nights,valid_until,features")
-            .eq("hotel_id", (h as Hotel).id)
-            .eq("is_active", true)
-            .order("display_order", { ascending: true })
-            .limit(1),
+          loadOffers((h as Hotel).id),
         ]);
         setImages((imgs as Img[]) || []);
-        setOffer((offers?.[0] as Offer) || null);
+        setOffer((list.find((o) => o.category !== "terms") as Offer) || null);
       }
+
       setLoading(false);
     })();
   }, [slug, previewId]);
@@ -276,7 +292,83 @@ const HotelDetail = () => {
             </div>
           </div>
 
-          {offer ? (
+          {roomOffers.length > 0 ? (
+            <div className="space-y-6">
+              {roomOffers.map((r) => (
+                <div key={r.id} className="border border-border bg-card p-8 md:p-10">
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
+                    <div>
+                      <h3 className="font-serif text-xl md:text-2xl text-primary leading-snug">
+                        {r.title}
+                      </h3>
+                      {r.description && (
+                        <p className="text-sm text-muted-foreground mt-1">{r.description}</p>
+                      )}
+                    </div>
+                    {r.price && (
+                      <div className="text-start sm:text-end shrink-0">
+                        <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-1">
+                          {ar ? `من · ${r.nights ?? 3} ليالٍ` : `From · ${r.nights ?? 3} nights`}
+                        </div>
+                        <div className="font-serif text-2xl text-accent-strong">
+                          {r.currency || "USD"} {Number(r.price).toLocaleString()}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                  {Array.isArray(r.features) && r.features.length > 0 && (
+                    <ul className="space-y-2 border-t border-border pt-5">
+                      {r.features.map((f: any, i: number) => (
+                        <li key={i} className="flex items-start gap-3 text-sm text-primary/90">
+                          <span className="mt-2 h-1 w-1 rounded-full bg-accent shrink-0" />
+                          <span>{typeof f === "string" ? f : f?.en || f?.label}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  <a
+                    href={waHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-6 inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground hover:bg-primary/90 px-7 py-3 uppercase tracking-[0.2em] text-[11px] font-medium transition-colors"
+                  >
+                    <MessageCircle className="h-4 w-4" />
+                    {ar ? "احجز هذه الفيلا" : "Request this villa"}
+                  </a>
+                </div>
+              ))}
+
+              {terms && (
+                <div className="border border-border bg-secondary/40 p-8 md:p-10">
+                  <div className="uppercase tracking-[0.3em] text-[10px] text-accent-strong mb-4">
+                    {ar ? "الشروط والأحكام" : "Terms & Conditions"}
+                  </div>
+                  <h3 className="font-serif text-lg md:text-xl text-primary mb-3">{terms.title}</h3>
+                  {terms.description && (
+                    <p className="text-sm text-muted-foreground mb-4">{terms.description}</p>
+                  )}
+                  {Array.isArray(terms.features) && (
+                    <ul className="space-y-2">
+                      {terms.features.map((f: any, i: number) => (
+                        <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
+                          <span className="mt-2 h-1 w-1 rounded-full bg-accent shrink-0" />
+                          <span>{typeof f === "string" ? f : f?.en || f?.label}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  <Link
+                    to={lp("/terms")}
+                    className="mt-5 inline-flex items-center gap-2 text-accent-strong uppercase tracking-[0.25em] text-[11px] font-medium"
+                  >
+                    {ar ? "سياسة الحجز والإلغاء" : "Booking & cancellation policy"}
+                    <ArrowLeft className="h-3 w-3 rotate-180" />
+                  </Link>
+                </div>
+              )}
+            </div>
+          ) : offer ? (
+
             <div className="border border-border bg-card p-10 md:p-14">
               <h3 className="font-serif text-2xl md:text-3xl text-primary leading-snug mb-6 text-center">
                 {offer.title}

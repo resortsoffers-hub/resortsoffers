@@ -275,7 +275,7 @@ const BookConsultation = () => {
         </div>
         <div className="relative container-custom flex h-full items-center justify-center text-center">
           <div className="text-white">
-            <h1 className="mb-4 font-serif text-3xl font-bold md:text-5xl">Book Your $200 Consultation</h1>
+            <h1 className="mb-4 font-serif text-3xl font-bold md:text-5xl">Book Your Consultation</h1>
           </div>
         </div>
       </section>
@@ -668,7 +668,7 @@ const BookConsultation = () => {
                     />
 
                     <Button type="submit" className="w-full bg-[#1e3a5f] py-6 text-lg hover:bg-[#1e3a5f]/90" disabled={isSubmitting}>
-                      {isSubmitting ? "Booking..." : "Book My $200 Consultation"}
+                      {isSubmitting ? "Booking..." : "Book My Consultation"}
                     </Button>
 
                     <p className="text-center text-xs text-gray-500">By booking, you agree to receive communication from Resorts Offers.</p>

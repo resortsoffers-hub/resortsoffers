@@ -211,7 +211,7 @@ const Contact = () => {
                     </div>
                     <Button className="w-full" size="lg" onClick={() => (window.location.href = "/book-consultation")}>
                       <Calendar className="mr-2 h-4 w-4" />
-                      Book $200 Consultation
+                      Book a Consultation
                     </Button>
                   </CardContent>
                 </Card>

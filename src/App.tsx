@@ -57,7 +57,9 @@ const localizedChildren = (
     <Route path="booking-confirmation" element={<BookingConfirmation />} />
     <Route path="booking-confirmation/:reference" element={<BookingConfirmation />} />
     <Route path="partner-hotels" element={<PartnerHotels />} />
+    <Route path="resorts" element={<Resorts />} />
     <Route path="hotels/:slug" element={<HotelDetail />} />
+
     <Route path="review/:slug/:previewId" element={<HotelDetail />} />
     <Route path="destinations" element={<Destinations />} />
     <Route path="destinations/:slug" element={<DestinationHub />} />

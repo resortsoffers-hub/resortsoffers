@@ -24,6 +24,7 @@ import DestinationHub from "./pages/DestinationHub";
 import BookConsultation from "./pages/BookConsultation";
 import BookingConfirmation from "./pages/BookingConfirmation";
 import PartnerHotels from "./pages/PartnerHotels";
+import Resorts from "./pages/Resorts";
 import SubmitReview from "./pages/SubmitReview";
 import Reviews from "./pages/Reviews";
 import Cruises from "./pages/Cruises";
@@ -56,7 +57,9 @@ const localizedChildren = (
     <Route path="booking-confirmation" element={<BookingConfirmation />} />
     <Route path="booking-confirmation/:reference" element={<BookingConfirmation />} />
     <Route path="partner-hotels" element={<PartnerHotels />} />
+    <Route path="resorts" element={<Resorts />} />
     <Route path="hotels/:slug" element={<HotelDetail />} />
+
     <Route path="review/:slug/:previewId" element={<HotelDetail />} />
     <Route path="destinations" element={<Destinations />} />
     <Route path="destinations/:slug" element={<DestinationHub />} />
@@ -100,7 +103,9 @@ const App = () => (
               <Route path="/booking-confirmation" element={<RedirectToLocale />} />
               <Route path="/booking-confirmation/:reference" element={<RedirectToLocale />} />
               <Route path="/partner-hotels" element={<RedirectToLocale />} />
+              <Route path="/resorts" element={<RedirectToLocale />} />
               <Route path="/hotels/:slug" element={<RedirectToLocale />} />
+
               <Route path="/review/:slug/:previewId" element={<RedirectToLocale />} />
               <Route path="/destinations" element={<RedirectToLocale />} />
               <Route path="/destinations/:slug" element={<RedirectToLocale />} />

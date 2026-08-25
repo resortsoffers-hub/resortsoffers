@@ -103,7 +103,9 @@ const App = () => (
               <Route path="/booking-confirmation" element={<RedirectToLocale />} />
               <Route path="/booking-confirmation/:reference" element={<RedirectToLocale />} />
               <Route path="/partner-hotels" element={<RedirectToLocale />} />
+              <Route path="/resorts" element={<RedirectToLocale />} />
               <Route path="/hotels/:slug" element={<RedirectToLocale />} />
+
               <Route path="/review/:slug/:previewId" element={<RedirectToLocale />} />
               <Route path="/destinations" element={<RedirectToLocale />} />
               <Route path="/destinations/:slug" element={<RedirectToLocale />} />

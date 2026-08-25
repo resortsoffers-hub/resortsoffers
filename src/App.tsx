@@ -24,6 +24,7 @@ import DestinationHub from "./pages/DestinationHub";
 import BookConsultation from "./pages/BookConsultation";
 import BookingConfirmation from "./pages/BookingConfirmation";
 import PartnerHotels from "./pages/PartnerHotels";
+import Resorts from "./pages/Resorts";
 import SubmitReview from "./pages/SubmitReview";
 import Reviews from "./pages/Reviews";
 import Cruises from "./pages/Cruises";

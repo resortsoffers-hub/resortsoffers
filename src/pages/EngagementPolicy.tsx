@@ -76,28 +76,8 @@ const EngagementPolicy = () => {
               resort partners.
             </p>
 
-            <p>
-              You are free to proceed with any provider of your choice.
-              However, absent confirmed alignment with the above principles,
-              we will pause communication at this stage. Should your
-              expectations align in the future, you may contact us by email.
-            </p>
           </div>
 
-          <div className="mt-16 pt-10 border-t border-primary/10 text-start">
-            <p className="text-sm text-primary/70 mb-1">Kind regards,</p>
-            <p className="font-serif text-lg text-primary">
-              Nora Abdullah Mohamed Elkhalifi
-            </p>
-            <p className="text-xs uppercase tracking-[0.2em] text-accent-strong mt-1">
-              Chief Executive Officer
-            </p>
-            <p className="text-sm text-primary/70 mt-3 leading-relaxed">
-              Resorts Offers Tourism LLC
-              <br />
-              Noel Marketing and Design Management LLC
-            </p>
-          </div>
         </article>
       </main>
 

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useSearchParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { format, parseISO } from "date-fns";
-import { Calendar as CalendarIcon, Clock, Video, Phone, MessageCircle, Check, Hash, CreditCard } from "lucide-react";
+import { Calendar as CalendarIcon, Clock, Video, Phone, MessageCircle, Check, Hash, CreditCard, Download } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";

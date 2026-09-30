@@ -185,6 +185,8 @@ export type Database = {
           description_ar: string | null
           description_en: string | null
           display_order: number
+          flagged_ai: boolean
+          flagged_ai_at: string | null
           hotel_id: string
           id: string
           image_url: string
@@ -203,6 +205,8 @@ export type Database = {
           description_ar?: string | null
           description_en?: string | null
           display_order?: number
+          flagged_ai?: boolean
+          flagged_ai_at?: string | null
           hotel_id: string
           id?: string
           image_url: string
@@ -221,6 +225,8 @@ export type Database = {
           description_ar?: string | null
           description_en?: string | null
           display_order?: number
+          flagged_ai?: boolean
+          flagged_ai_at?: string | null
           hotel_id?: string
           id?: string
           image_url?: string
@@ -608,6 +614,7 @@ export type Database = {
         }
         Returns: boolean
       }
+      is_ai_image_url: { Args: { _url: string }; Returns: boolean }
     }
     Enums: {
       app_role: "admin" | "user"

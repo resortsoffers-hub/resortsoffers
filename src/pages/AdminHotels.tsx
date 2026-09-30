@@ -51,6 +51,7 @@ interface HotelImage {
   id: string;
   hotel_id: string;
   image_url: string;
+  flagged_ai?: boolean;
   caption_en: string | null;
   display_order: number;
   category_label: string | null;

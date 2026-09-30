@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useSearchParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { format, parseISO } from "date-fns";
-import { Calendar as CalendarIcon, Clock, Video, Phone, MessageCircle, Check, Hash, CreditCard } from "lucide-react";
+import { Calendar as CalendarIcon, Clock, Video, Phone, MessageCircle, Check, Hash, CreditCard, Download } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -79,6 +79,31 @@ const BookingConfirmation = () => {
 
   const prettyDate = booking ? format(parseISO(booking.preferred_date), "EEEE, MMMM d, yyyy") : "";
   const isVideo = booking?.consultation_type === "video";
+  const isPaid = booking?.payment_status === "paid";
+
+  const downloadReceipt = () => {
+    if (!booking) return;
+    const win = window.open("", "_blank");
+    if (!win) return;
+    win.document.write(`<!doctype html><html><head><title>Receipt ${booking.reference_code}</title>
+<style>body{font-family:Georgia,serif;color:#1e3a5f;max-width:600px;margin:40px auto;padding:0 20px}
+h1{font-size:22px;border-bottom:2px solid #C9A961;padding-bottom:12px}
+.row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #eee;font-size:14px}
+.total{font-size:18px;font-weight:bold;border-top:2px solid #C9A961;margin-top:12px;padding-top:12px}
+.muted{color:#777;font-size:12px;margin-top:32px}</style></head><body>
+<h1>Payment Receipt — Resorts Offers</h1>
+<div class="row"><span>Reference</span><strong>${booking.reference_code}</strong></div>
+<div class="row"><span>Client</span><strong>${booking.name}</strong></div>
+<div class="row"><span>Service</span><strong>Private Travel Consultation (${isVideo ? "Video Call" : "Phone Call"})</strong></div>
+<div class="row"><span>Agenda</span><strong>${prettyDate} · ${booking.preferred_time?.slice(0, 5)} (Dubai)</strong></div>
+${booking.destination ? `<div class="row"><span>Destination</span><strong>${booking.destination}</strong></div>` : ""}
+<div class="row"><span>Payment status</span><strong>${booking.payment_status.toUpperCase()}</strong></div>
+<div class="row total"><span>Amount</span><span>USD 200.00</span></div>
+<p class="muted">Resorts Offers Tourism Consultancy · resortsoffers.com · WhatsApp +971 54 747 4404<br/>
+Generated ${format(new Date(), "MMMM d, yyyy")}. For the official Stripe receipt, message us with your reference code.</p>
+<script>window.print()</script></body></html>`);
+    win.document.close();
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -173,6 +198,16 @@ const BookingConfirmation = () => {
                         Chat with us on WhatsApp
                       </Button>
                     </a>
+                    <Button
+                      variant="outline"
+                      className="w-full border-[#C9A961] text-[#1e3a5f] hover:bg-[#C9A961]/10"
+                      onClick={downloadReceipt}
+                      disabled={!isPaid}
+                      title={isPaid ? "Download your receipt" : "Receipt available once payment is confirmed"}
+                    >
+                      <Download className="mr-2 h-5 w-5" />
+                      {isPaid ? "Download Receipt ($200)" : "Receipt available after payment"}
+                    </Button>
                     <Link to={lp("/")}>
                       <Button variant="outline" className="w-full">
                         Back to Home

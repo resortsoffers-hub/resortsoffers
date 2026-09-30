@@ -51,6 +51,7 @@ interface HotelImage {
   id: string;
   hotel_id: string;
   image_url: string;
+  flagged_ai?: boolean;
   caption_en: string | null;
   display_order: number;
   category_label: string | null;
@@ -240,6 +241,27 @@ const AdminHotels = () => {
     if (match) await supabase.storage.from("hotel-images").remove([match[1]]);
     if (editing?.id) loadImages(editing.id);
   };
+
+  const flagAsAi = async (img: HotelImage) => {
+    if (!confirm("Mark this photo as AI-generated? It will be hidden from the site and queued for removal. This cannot be undone.")) return;
+    const { error } = await supabase.from("hotel_images").update({ flagged_ai: true } as any).eq("id", img.id);
+    if (error) return toast.error(error.message);
+    toast.success("Flagged as AI — remove it when ready");
+    if (editing?.id) { loadImages(editing.id); loadHotels(); }
+  };
+
+  const removeAllFlagged = async () => {
+    const flagged = images.filter((i) => i.flagged_ai);
+    if (!flagged.length || !confirm(`Permanently remove ${flagged.length} flagged photo(s)?`)) return;
+    const { error } = await supabase.from("hotel_images").delete().in("id", flagged.map((i) => i.id));
+    if (error) return toast.error(error.message);
+    const paths = flagged.map((i) => i.image_url.match(/hotel-images\/(.+)$/)?.[1]).filter(Boolean) as string[];
+    if (paths.length) await supabase.storage.from("hotel-images").remove(paths);
+    toast.success("Flagged photos removed");
+    if (editing?.id) loadImages(editing.id);
+  };
+
+
 
   const updateImageCategory = async (img: HotelImage, patch: Partial<Pick<HotelImage, "category_label" | "category_kind">>) => {
     const { error } = await supabase.from("hotel_images").update(patch).eq("id", img.id);
@@ -583,17 +605,29 @@ const AdminHotels = () => {
                     <p className="text-xs text-muted-foreground">
                       Upload official photography only. Every photo MUST be tagged to the exact villa, restaurant, or spa it shows — no mixing across categories.
                     </p>
+                    {images.some((i) => i.flagged_ai) && (
+                      <div className="rounded-md border border-destructive bg-destructive/10 p-3 flex items-center justify-between gap-3">
+                        <p className="text-sm text-destructive font-medium">
+                          {images.filter((i) => i.flagged_ai).length} photo(s) flagged as AI — hidden from the site and must be removed.
+                        </p>
+                        <Button size="sm" variant="destructive" onClick={removeAllFlagged}>Remove all flagged</Button>
+                      </div>
+                    )}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       {images.map((img) => (
-                        <div key={img.id} className="rounded-lg overflow-hidden border bg-muted">
+                        <div key={img.id} className={`rounded-lg overflow-hidden border bg-muted ${img.flagged_ai ? "border-destructive border-2" : ""}`}>
                           <div className="relative group aspect-[4/3]">
-                            <img src={img.image_url} alt="" className="w-full h-full object-cover" />
+                            <img src={img.image_url} alt="" className={`w-full h-full object-cover ${img.flagged_ai ? "opacity-40 grayscale" : ""}`} />
                             <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-2">
-                              <Button size="sm" variant="secondary" onClick={() => setHero(img.image_url)}>Set as hero</Button>
+                              {!img.flagged_ai && <Button size="sm" variant="secondary" onClick={() => setHero(img.image_url)}>Set as hero</Button>}
+                              {!img.flagged_ai && <Button size="sm" variant="outline" onClick={() => flagAsAi(img)}>Mark as AI</Button>}
                               <Button size="sm" variant="destructive" onClick={() => deleteImage(img)}><Trash2 className="h-3 w-3" /></Button>
                             </div>
                             {editing.hero_image_url === img.image_url && (
                               <div className="absolute top-1 left-1 bg-primary text-primary-foreground text-[10px] px-2 py-0.5 rounded">HERO</div>
+                            )}
+                            {img.flagged_ai && (
+                              <div className="absolute top-1 right-1 bg-destructive text-destructive-foreground text-[10px] px-2 py-0.5 rounded font-semibold">AI — REMOVE</div>
                             )}
                           </div>
                           <div className="p-2 grid grid-cols-[110px_1fr] gap-2 bg-card">

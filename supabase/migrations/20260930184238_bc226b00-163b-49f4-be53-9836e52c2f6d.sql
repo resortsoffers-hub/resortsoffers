@@ -1,0 +1,1 @@
+REVOKE EXECUTE ON FUNCTION public.clear_flagged_hero() FROM PUBLIC, anon, authenticated;

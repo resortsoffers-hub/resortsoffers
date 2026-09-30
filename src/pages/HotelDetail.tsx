@@ -127,10 +127,11 @@ const HotelDetail = () => {
       if (h) {
         setHotel(h as Hotel);
         const [{ data: imgs }, list] = await Promise.all([
-          supabase
+          (supabase as any)
             .from("hotel_images")
             .select("id,image_url,caption_en,caption_ar,category_kind,category_label")
             .eq("hotel_id", (h as Hotel).id)
+            .eq("flagged_ai", false)
             .order("display_order", { ascending: true }),
           loadOffers((h as Hotel).id),
         ]);

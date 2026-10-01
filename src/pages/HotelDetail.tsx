@@ -92,7 +92,12 @@ const HotelDetail = () => {
           .eq("is_active", true)
           .order("display_order", { ascending: true });
         const list = (data as Offer[]) || [];
-        setRoomOffers(list.filter((o) => o.category === "room-type"));
+        const today = new Date().toISOString().slice(0, 10);
+        setRoomOffers(
+          list.filter(
+            (o) => o.category !== "terms" && (!o.valid_until || o.valid_until >= today),
+          ),
+        );
         setTerms(list.find((o) => o.category === "terms") || null);
         return list;
       };
@@ -299,7 +304,13 @@ const HotelDetail = () => {
         <section className="container mx-auto px-6 py-20 md:py-28 max-w-3xl">
           <div className="text-center mb-10">
             <div className="uppercase tracking-[0.35em] text-[10px] md:text-xs text-accent-strong mb-4">
-              {ar ? "العرض المُنسَّق" : "The Curated Offer"}
+              {roomOffers.length > 0
+                ? ar
+                  ? `العروض المتاحة (${roomOffers.length})`
+                  : `Active Offers (${roomOffers.length})`
+                : ar
+                  ? "العرض المُنسَّق"
+                  : "The Curated Offer"}
             </div>
           </div>
 

@@ -6,6 +6,7 @@ import { supabase } from "@/integrations/supabase/client";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PhotoGallery from "@/components/PhotoGallery";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { useLocale, useLocalePath } from "@/hooks/useLocale";
 import { safeHotelImage } from "@/lib/safeImage";
 import { BRAND } from "@/lib/brand";
@@ -254,7 +255,7 @@ const HotelDetail = () => {
         )}
 
         {/* 3 — Why we selected this resort */}
-        {(personality.length > 0 || long) && (
+        {personality.length > 0 && (
           <section className="bg-secondary/40 py-20 md:py-28">
             <div className="container mx-auto px-6 max-w-4xl">
               <div className="text-center mb-12 md:mb-16">
@@ -276,11 +277,7 @@ const HotelDetail = () => {
                 </div>
               )}
 
-              {long && (
-                <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-center max-w-2xl mx-auto">
-                  {long}
-                </p>
-              )}
+
             </div>
           </section>
         )}
@@ -446,19 +443,62 @@ const HotelDetail = () => {
           )}
         </section>
 
-        {/* 5 — Gallery */}
-        {galleryImages.length > 0 && (
-          <section className="bg-secondary/40 py-20 md:py-28">
-            <div className="container mx-auto px-6">
-              <div className="text-center mb-12">
-                <div className="uppercase tracking-[0.35em] text-[10px] md:text-xs text-accent-strong mb-4">
-                  {ar ? "المعرض" : "The Gallery"}
+        {/* 5 — Structured tabs (photos grouped by tag; only user-provided text) */}
+        {(() => {
+          const toGallery = (list: Img[]) => list.map((i) => ({
+            src: safeHotelImage(i.image_url),
+            alt: (ar && i.caption_ar ? i.caption_ar : i.caption_en) || i.category_label || name,
+            caption: (ar && i.caption_ar ? i.caption_ar : i.caption_en) || i.category_label || undefined,
+          }));
+          const by = (...kinds: string[]) => images.filter((i) => kinds.includes(i.category_kind || ""));
+          const overviewImgs = by("exterior");
+          const tabs = [
+            { key: "overview", en: "Overview", ar: "نظرة عامة", text: long, imgs: overviewImgs },
+            { key: "villas", en: "Villas & Rooms", ar: "الفلل والغرف", imgs: by("villa") },
+            { key: "dining", en: "Dining", ar: "المطاعم", imgs: by("restaurant") },
+            { key: "spa", en: "Spa", ar: "السبا", imgs: by("spa") },
+            { key: "activities", en: "Activities", ar: "الأنشطة", imgs: by("experience", "pool") },
+            { key: "gallery", en: "Gallery", ar: "المعرض", imgs: images },
+          ].filter((t) => (t.text && t.text.length) || t.imgs.length > 0);
+          if (!tabs.length) return null;
+          return (
+            <section className="bg-secondary/40 py-20 md:py-28">
+              <div className="container mx-auto px-6">
+                <div className="text-center mb-10">
+                  <div className="uppercase tracking-[0.35em] text-[10px] md:text-xs text-accent-strong mb-4">
+                    {ar ? "استكشف المنتجع" : "Explore the Resort"}
+                  </div>
                 </div>
+                <Tabs defaultValue={tabs[0].key} className="w-full">
+                  <TabsList className="flex flex-wrap h-auto justify-center gap-1 bg-transparent border-b border-border rounded-none w-full mb-10 p-0">
+                    {tabs.map((t) => (
+                      <TabsTrigger
+                        key={t.key}
+                        value={t.key}
+                        className="uppercase tracking-[0.2em] text-[11px] rounded-none px-5 py-3 data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:text-primary data-[state=active]:border-b-2 data-[state=active]:border-accent text-muted-foreground"
+                      >
+                        {ar ? t.ar : t.en}
+                      </TabsTrigger>
+                    ))}
+                  </TabsList>
+                  {tabs.map((t) => (
+                    <TabsContent key={t.key} value={t.key}>
+                      <h2 className="font-serif text-3xl md:text-4xl text-primary text-center mb-8">
+                        {ar ? t.ar : t.en}
+                      </h2>
+                      {t.text && (
+                        <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-center max-w-2xl mx-auto mb-10">
+                          {t.text}
+                        </p>
+                      )}
+                      {t.imgs.length > 0 && <PhotoGallery images={toGallery(t.imgs)} />}
+                    </TabsContent>
+                  ))}
+                </Tabs>
               </div>
-              <PhotoGallery images={galleryImages} />
-            </div>
-          </section>
-        )}
+            </section>
+          );
+        })()}
 
         {/* 6 — Request this experience (final CTA) */}
         <section className="container mx-auto px-6 py-24 md:py-32 max-w-2xl text-center">

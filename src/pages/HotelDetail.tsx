@@ -203,6 +203,7 @@ const HotelDetail = () => {
       : `Hello, I'd like to request the ${hotel.name_en} experience.`
   );
   const waHref = `https://wa.me/${BRAND.whatsapp}?text=${waMsg}`;
+  const isMaldives = (hotel.destination || "").toLowerCase().includes("maldives");
 
   const galleryImages = images.map((i) => ({
     src: safeHotelImage(i.image_url),

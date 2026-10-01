@@ -255,7 +255,7 @@ const HotelDetail = () => {
         )}
 
         {/* 3 — Why we selected this resort */}
-        {(personality.length > 0 || long) && (
+        {personality.length > 0 && (
           <section className="bg-secondary/40 py-20 md:py-28">
             <div className="container mx-auto px-6 max-w-4xl">
               <div className="text-center mb-12 md:mb-16">
@@ -277,11 +277,7 @@ const HotelDetail = () => {
                 </div>
               )}
 
-              {long && (
-                <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-center max-w-2xl mx-auto">
-                  {long}
-                </p>
-              )}
+
             </div>
           </section>
         )}

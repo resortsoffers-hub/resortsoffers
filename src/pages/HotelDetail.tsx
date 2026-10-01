@@ -203,6 +203,7 @@ const HotelDetail = () => {
       : `Hello, I'd like to request the ${hotel.name_en} experience.`
   );
   const waHref = `https://wa.me/${BRAND.whatsapp}?text=${waMsg}`;
+  const isMaldives = (hotel.destination || "").toLowerCase().includes("maldives");
 
   const galleryImages = images.map((i) => ({
     src: safeHotelImage(i.image_url),
@@ -242,6 +243,18 @@ const HotelDetail = () => {
             <h1 className="font-serif text-4xl md:text-6xl leading-[1.05] max-w-3xl">
               {name}
             </h1>
+            {isMaldives && (
+              <a
+                href={waHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={ar ? "اطلب العروض عبر واتساب" : "Request offers on WhatsApp"}
+                className="mt-8 inline-flex items-center gap-3 rounded-full bg-[#25D366] px-8 py-4 text-xs md:text-sm font-semibold uppercase tracking-[0.2em] text-black shadow-[0_8px_30px_rgba(37,211,102,0.35)] transition-transform hover:scale-[1.03] active:scale-[0.98]"
+              >
+                <MessageCircle className="h-4 w-4" />
+                {ar ? "اطلب العروض" : "Request offers"}
+              </a>
+            )}
           </div>
         </section>
 

@@ -355,7 +355,7 @@ const HotelDetail = () => {
                     className="mt-6 inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground hover:bg-primary/90 px-7 py-3 uppercase tracking-[0.2em] text-[11px] font-medium transition-colors"
                   >
                     <MessageCircle className="h-4 w-4" />
-                    {ar ? "احجز هذه الفيلا" : "Request this villa"}
+                    {r.category === "room-type" ? (ar ? "احجز هذه الفيلا" : "Request this villa") : (ar ? "اطلب هذا العرض" : "Request this offer")}
                   </a>
                 </div>
               ))}

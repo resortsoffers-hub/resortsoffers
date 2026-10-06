@@ -5,7 +5,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useLocale } from "@/hooks/useLocale";
 import { BRAND } from "@/lib/brand";
-import poolVilla from "@/assets/uploads/consultation-pool-villa.jpeg.asset.json";
+import aboutImg from "@/assets/uploads/browse-dhawa-ihuru-twin-island.jpeg";
+import browseAyana from "@/assets/uploads/browse-ayana-ocean-beach-pool.jpg";
 
 import browseKuda from "@/assets/uploads/browse-kuda-villingili-pool-aerial.jpg";
 import browsePatina from "@/assets/uploads/browse-patina-maldives-aerial.jpg";
@@ -59,12 +60,54 @@ const EXPERIENCES = [
 ];
 
 const DESTINATIONS = [
-  { name: "Maldives", nameAr: "المالديف" },
-  { name: "Seychelles", nameAr: "سيشل" },
-  { name: "Bali", nameAr: "بالي" },
-  { name: "Thailand", nameAr: "تايلاند" },
-  { name: "Mauritius", nameAr: "موريشيوس" },
-  { name: "Caribbean", nameAr: "الكاريبي" },
+  {
+    name: "Maldives", nameAr: "المالديف",
+    desc: "Overwater villas, private sandbanks and some of the world's clearest lagoons.",
+    descAr: "فلل فوق الماء، جزر رملية خاصة، ومن أصفى البحيرات في العالم.",
+    season: "Nov – Apr", seasonAr: "نوفمبر – أبريل",
+    flight: "4 hrs", flightAr: "٤ ساعات",
+    img: browseRitz as string | undefined,
+  },
+  {
+    name: "Seychelles", nameAr: "سيشل",
+    desc: "Granite-framed beaches, rainforest walks and quiet island-hopping.",
+    descAr: "شواطئ بين صخور الجرانيت، غابات استوائية، وتنقل هادئ بين الجزر.",
+    season: "Apr – May · Oct – Nov", seasonAr: "أبريل – مايو · أكتوبر – نوفمبر",
+    flight: "4.5 hrs", flightAr: "٤٫٥ ساعات",
+    img: undefined,
+  },
+  {
+    name: "Bali", nameAr: "بالي",
+    desc: "Clifftop resorts, rice-terrace retreats and a deeply spiritual culture.",
+    descAr: "منتجعات على المنحدرات، ملاذات بين حقول الأرز، وثقافة روحانية عريقة.",
+    season: "Apr – Oct", seasonAr: "أبريل – أكتوبر",
+    flight: "9 hrs", flightAr: "٩ ساعات",
+    img: browseAyana as string | undefined,
+  },
+  {
+    name: "Thailand", nameAr: "تايلاند",
+    desc: "Phuket and Koh Samui beach villas, wellness retreats and Thai hospitality.",
+    descAr: "فلل شاطئية في بوكيت وكوه ساموي، منتجعات عافية، وضيافة تايلاندية.",
+    season: "Nov – Apr", seasonAr: "نوفمبر – أبريل",
+    flight: "6 hrs", flightAr: "٦ ساعات",
+    img: undefined,
+  },
+  {
+    name: "Mauritius", nameAr: "موريشيوس",
+    desc: "Lagoon-front resorts, golf, and family-friendly luxury in the Indian Ocean.",
+    descAr: "منتجعات على البحيرة، غولف، وفخامة مناسبة للعائلات في المحيط الهندي.",
+    season: "May – Dec", seasonAr: "مايو – ديسمبر",
+    flight: "6.5 hrs", flightAr: "٦٫٥ ساعات",
+    img: undefined,
+  },
+  {
+    name: "Caribbean", nameAr: "الكاريبي",
+    desc: "St Barts, Turks & Caicos and the Bahamas — for a once-in-a-lifetime escape.",
+    descAr: "سانت بارت، تركس وكايكوس، والباهاما — لرحلة العمر.",
+    season: "Dec – Apr", seasonAr: "ديسمبر – أبريل",
+    flight: "14+ hrs", flightAr: "+١٤ ساعة",
+    img: undefined,
+  },
 ];
 
 
@@ -252,8 +295,9 @@ const Index = () => {
               <RevealSection>
                 <div className="relative">
                   <img
-                    src={poolVilla.url}
-                    alt="Luxury pool villa"
+                    src={aboutImg}
+                    alt="Dhawa Ihuru island, Maldives"
+                    loading="lazy"
                     className="w-full aspect-[4/5] object-cover"
                   />
                   <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent">
@@ -336,19 +380,51 @@ const Index = () => {
               </h2>
             </RevealSection>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-white/10 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
               {DESTINATIONS.map((dest) => (
                 <a
                   key={dest.name}
-                  href={`https://wa.me/${BRAND.whatsapp}?text=${encodeURIComponent(ar ? `أرغب في معرفة المزيد عن ${dest.nameAr}.` : `I'd like to know more about ${dest.name}.`)}`}
+                  href={`https://wa.me/${BRAND.whatsapp}?text=${encodeURIComponent(ar ? `أرغب في تلقي عروض ${dest.nameAr}.` : `I'd like to receive your ${dest.name} offers.`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group bg-[#0a0a0a] p-8 text-center hover:bg-[#141414] transition-colors"
+                  className="group flex flex-col border border-white/10 bg-[#111] hover:border-[#C9A961]/50 transition-colors"
                 >
-                  <MapPin className="h-5 w-5 text-[#C9A961] mx-auto mb-4 group-hover:scale-110 transition-transform" />
-                  <span className="text-white/80 group-hover:text-white transition-colors">
-                    {ar ? dest.nameAr : dest.name}
-                  </span>
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    {dest.img ? (
+                      <img
+                        src={dest.img}
+                        alt={ar ? dest.nameAr : dest.name}
+                        loading="lazy"
+                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                    ) : (
+                      <div className="h-full w-full bg-[radial-gradient(ellipse_at_top_left,#2a2418_0%,#111_70%)] flex items-center justify-center">
+                        <MapPin className="h-8 w-8 text-[#C9A961]/60" />
+                      </div>
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                    <h3 className="absolute bottom-4 left-5 right-5 font-serif text-3xl text-white">
+                      {ar ? dest.nameAr : dest.name}
+                    </h3>
+                  </div>
+                  <div className="flex flex-1 flex-col p-6">
+                    <p className="text-white/70 text-sm leading-relaxed mb-6">{ar ? dest.descAr : dest.desc}</p>
+                    <dl className="grid grid-cols-2 gap-4 border-t border-white/10 pt-4 mb-6 text-xs">
+                      <div>
+                        <dt className="uppercase tracking-[0.2em] text-[#C9A961] mb-1">{ar ? "أفضل وقت" : "Best time"}</dt>
+                        <dd className="text-white/80">{ar ? dest.seasonAr : dest.season}</dd>
+                      </div>
+                      <div>
+                        <dt className="uppercase tracking-[0.2em] text-[#C9A961] mb-1">{ar ? "من دبي" : "From Dubai"}</dt>
+                        <dd className="text-white/80">{ar ? dest.flightAr : dest.flight}</dd>
+                      </div>
+                    </dl>
+                    <span className="mt-auto inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] text-white group-hover:text-[#C9A961] transition-colors">
+                      <MessageCircle className="h-4 w-4 text-[#25D366]" />
+                      {ar ? `عروض ${dest.nameAr}` : `Get ${dest.name} offers`}
+                      <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1 rtl:rotate-180" />
+                    </span>
+                  </div>
                 </a>
               ))}
             </div>

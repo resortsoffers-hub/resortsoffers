@@ -20,7 +20,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { cn } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
-import consultancyHero from "@/assets/uploads/consultation-pool-villa.jpeg.asset.json";
+import consultancyHero from "@/assets/uploads/browse-dhawa-ihuru-twin-island.jpeg";
 
 const bookingSchema = z.object({
   name: z.string().trim().min(2, "Name must be at least 2 characters").max(100),
@@ -270,7 +270,7 @@ const BookConsultation = () => {
 
       <section className="relative min-h-[300px] h-[40vh]">
         <div className="absolute inset-0">
-          <img src={consultancyHero.url} alt="Luxury resort consultation" className="h-full w-full object-cover" />
+          <img src={consultancyHero} alt="Luxury resort consultation" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#1e3a5f]/70 to-[#1e3a5f]/90" />
         </div>
         <div className="relative container-custom flex h-full items-center justify-center text-center">

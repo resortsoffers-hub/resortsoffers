@@ -48,6 +48,43 @@ const Footer = () => {
             Engagement Policy
           </a>
 
+          {/* Trade licence — QR links to the official DET verification page */}
+          <a
+            href={BRAND.license.verifyUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-col sm:flex-row items-center gap-4 text-[11px] leading-relaxed text-primary-foreground/60 hover:text-accent transition-colors"
+          >
+            <img
+              src={BRAND.license.qrImage}
+              alt={ar ? "رمز التحقق من الرخصة" : "Licence verification QR code"}
+              width={72}
+              height={72}
+              className="rounded-sm bg-white p-1"
+              loading="lazy"
+            />
+            <span className="sm:text-left" dir={ar ? "rtl" : "ltr"}>
+              {ar ? (
+                <>
+                  مسجلة باسم {BRAND.license.businessName} لدى {BRAND.license.authorityAr}
+                  <br />
+                  رقم الرخصة {BRAND.license.number} · الرخصة الموحدة {BRAND.license.unifiedCode}
+                  <br />
+                  امسح الرمز أو اضغط للتحقق
+                </>
+              ) : (
+                <>
+                  Registered as {BRAND.license.businessName} ({BRAND.license.legalType}) with the{" "}
+                  {BRAND.license.authority}
+                  <br />
+                  Licence No. {BRAND.license.number} · Dubai Unified License {BRAND.license.unifiedCode}
+                  <br />
+                  Scan or tap to verify
+                </>
+              )}
+            </span>
+          </a>
+
           <p className="text-[11px] text-primary-foreground/50 tracking-wider">
             © {new Date().getFullYear()} {BRAND.name}
           </p>

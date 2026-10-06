@@ -8,8 +8,8 @@ import { MessageCircle, Mail, Star, Calendar } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { toast } from "sonner";
-import contactHeroImg from "@/assets/uploads/resorts-offers-nora-maldives.jpeg.asset.json";
-import consultationPoolImg from "@/assets/uploads/consultation-pool-villa.jpeg.asset.json";
+import contactHeroImg from "@/assets/uploads/browse-patina-maldives-aerial.jpg";
+import consultationPoolImg from "@/assets/uploads/browse-dhawa-ihuru-twin-island.jpeg";
 
 const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
@@ -74,7 +74,7 @@ const Contact = () => {
         <meta property="og:site_name" content="ResortsOffers.com" />
         <meta property="og:title" content="Contact Us - Luxury Travel Experts" />
         <meta property="og:description" content="Contact our luxury travel experts or book a $200 consultation." />
-        <meta property="og:image" content={contactHeroImg.url} />
+        <meta property="og:image" content={contactHeroImg} />
         <meta property="og:locale" content="en_US" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Contact Us - Luxury Travel Experts" />
@@ -85,7 +85,7 @@ const Contact = () => {
 
       <section
         className="relative mt-20 flex min-h-[60vh] items-end overflow-hidden"
-        style={{ backgroundImage: `url(${contactHeroImg.url})`, backgroundSize: "cover", backgroundPosition: "center top" }}
+        style={{ backgroundImage: `url(${contactHeroImg})`, backgroundSize: "cover", backgroundPosition: "center top" }}
       >
         <div className="absolute inset-0 bg-black/45" />
         <div className="relative z-10 container-custom pb-14 text-center text-white">
@@ -195,7 +195,7 @@ const Contact = () => {
 
                 <Card className="overflow-hidden border-primary/50 bg-gradient-to-br from-primary/5 to-accent/5">
                   <div className="aspect-[16/10] w-full overflow-hidden">
-                    <img src={consultationPoolImg.url} alt="Luxury consultation setting" className="h-full w-full object-cover" loading="lazy" />
+                    <img src={consultationPoolImg} alt="Luxury consultation setting" className="h-full w-full object-cover" loading="lazy" />
                   </div>
                   <CardHeader>
                     <div className="flex items-center gap-3">

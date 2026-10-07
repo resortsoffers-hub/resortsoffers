@@ -1,17 +1,21 @@
-name: Deploy to Namecheap
+name: Deploy
 
 on:
   push:
-    branches: [main]
+    branches: ["**"]
   workflow_dispatch:
 
 concurrency:
-  group: deploy-production
+  group: deploy-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      PAGES_PROJECT: resortsoffers
     steps:
       - uses: actions/checkout@v4
 
@@ -26,7 +30,22 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Deploy dist/ via FTPS
+      - name: Ensure Pages project exists
+        run: ./scripts/cloudflare-pages-project.sh
+
+      # main deploys to production (resortsoffers.com); other branches get a preview URL.
+      - name: Deploy dist/ to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ env.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=${{ env.PAGES_PROJECT }} --branch=${{ github.ref_name }} --commit-dirty=true
+
+      # Keeps the Namecheap copy current until the domain points at Cloudflare.
+      # Delete this step once the Namecheap hosting is cancelled.
+      - name: Deploy dist/ to Namecheap via FTPS
+        if: github.ref == 'refs/heads/main'
+        continue-on-error: true
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}

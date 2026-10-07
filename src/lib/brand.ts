@@ -21,8 +21,12 @@ export const BRAND = {
     accent: "#C9A961", // Champagne gold
     whatsapp: "#25D366",
   },
+  // Same links as the Google Business Profile.
   social: {
-    instagram: "https://instagram.com/resortsoffers",
+    instagram: "https://www.instagram.com/resortsoffers",
+    tiktok: "https://www.tiktok.com/@resortsoffers",
+    youtube: "https://www.youtube.com/@resortsoffers",
+    x: "https://www.twitter.com/resortsoffers",
     bioLink: "https://resortsoffers.bio.link",
   },
   // Dubai Unified License — shown in the footer for verification.

@@ -12,6 +12,9 @@ import browseKuda from "@/assets/uploads/browse-kuda-villingili-pool-aerial.jpg"
 import browsePatina from "@/assets/uploads/browse-patina-maldives-aerial.jpg";
 import browseWaldorf from "@/assets/uploads/browse-waldorf-three-bedroom-villa.jpg";
 import browseRitz from "@/assets/uploads/browse-ritz-carlton-beach-cove.jpg";
+import seychellesImg from "@/assets/destinations/seychelles-hero.jpg";
+import thailandImg from "@/assets/destinations/phuket-hero.jpg";
+import mauritiusImg from "@/assets/destinations/mauritius-hero.jpg";
 
 // Sharpest verified Maldives photos from your uploads — used as rotating hero
 const HOME_HERO_IMAGES = [browseKuda, browsePatina, browseWaldorf];
@@ -74,7 +77,7 @@ const DESTINATIONS = [
     descAr: "شواطئ بين صخور الجرانيت، غابات استوائية، وتنقل هادئ بين الجزر.",
     season: "Apr – May · Oct – Nov", seasonAr: "أبريل – مايو · أكتوبر – نوفمبر",
     flight: "4.5 hrs", flightAr: "٤٫٥ ساعات",
-    img: undefined,
+    img: seychellesImg,
   },
   {
     name: "Bali", nameAr: "بالي",
@@ -90,7 +93,7 @@ const DESTINATIONS = [
     descAr: "فلل شاطئية في بوكيت وكوه ساموي، منتجعات عافية، وضيافة تايلاندية.",
     season: "Nov – Apr", seasonAr: "نوفمبر – أبريل",
     flight: "6 hrs", flightAr: "٦ ساعات",
-    img: undefined,
+    img: thailandImg,
   },
   {
     name: "Mauritius", nameAr: "موريشيوس",
@@ -98,15 +101,7 @@ const DESTINATIONS = [
     descAr: "منتجعات على البحيرة، غولف، وفخامة مناسبة للعائلات في المحيط الهندي.",
     season: "May – Dec", seasonAr: "مايو – ديسمبر",
     flight: "6.5 hrs", flightAr: "٦٫٥ ساعات",
-    img: undefined,
-  },
-  {
-    name: "Caribbean", nameAr: "الكاريبي",
-    desc: "St Barts, Turks & Caicos and the Bahamas — for a once-in-a-lifetime escape.",
-    descAr: "سانت بارت، تركس وكايكوس، والباهاما — لرحلة العمر.",
-    season: "Dec – Apr", seasonAr: "ديسمبر – أبريل",
-    flight: "14+ hrs", flightAr: "+١٤ ساعة",
-    img: undefined,
+    img: mauritiusImg,
   },
 ];
 
@@ -389,25 +384,27 @@ const Index = () => {
                   rel="noopener noreferrer"
                   className="group flex flex-col border border-white/10 bg-[#111] hover:border-[#C9A961]/50 transition-colors"
                 >
-                  <div className="relative aspect-[16/10] overflow-hidden">
-                    {dest.img ? (
+                  {dest.img && (
+                    <div className="relative aspect-[16/10] overflow-hidden">
                       <img
                         src={dest.img}
                         alt={ar ? dest.nameAr : dest.name}
                         loading="lazy"
                         className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                       />
-                    ) : (
-                      <div className="h-full w-full bg-[radial-gradient(ellipse_at_top_left,#2a2418_0%,#111_70%)] flex items-center justify-center">
-                        <MapPin className="h-8 w-8 text-[#C9A961]/60" />
-                      </div>
-                    )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-                    <h3 className="absolute bottom-4 left-5 right-5 font-serif text-3xl text-white">
-                      {ar ? dest.nameAr : dest.name}
-                    </h3>
-                  </div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                      <h3 className="absolute bottom-4 left-5 right-5 font-serif text-3xl text-white">
+                        {ar ? dest.nameAr : dest.name}
+                      </h3>
+                    </div>
+                  )}
                   <div className="flex flex-1 flex-col p-6">
+                    {!dest.img && (
+                      <h3 className="flex items-center gap-2 font-serif text-2xl text-white mb-3">
+                        <MapPin className="h-5 w-5 text-[#C9A961]" />
+                        {ar ? dest.nameAr : dest.name}
+                      </h3>
+                    )}
                     <p className="text-white/70 text-sm leading-relaxed mb-6">{ar ? dest.descAr : dest.desc}</p>
                     <dl className="grid grid-cols-2 gap-4 border-t border-white/10 pt-4 mb-6 text-xs">
                       <div>

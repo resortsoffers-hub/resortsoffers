@@ -1,4 +1,4 @@
-import { MessageCircle, Mail } from "lucide-react";
+import { MessageCircle, Mail, Instagram } from "lucide-react";
 import { BRAND } from "@/lib/brand";
 import { useLocale } from "@/hooks/useLocale";
 
@@ -37,9 +37,16 @@ const Footer = () => {
               <Mail size={16} />
               {BRAND.email}
             </a>
+            <a
+              href={BRAND.social.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 hover:text-accent transition-colors"
+            >
+              <Instagram size={16} />
+              Instagram
+            </a>
           </div>
-
-          {/* Social removed per brand direction */}
 
           <a
             href={`/${ar ? "ar" : "en"}/engagement-policy`}

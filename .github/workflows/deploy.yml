@@ -30,11 +30,14 @@ jobs:
       - name: Build
         run: npm run build
 
+      # The Cloudflare steps wait until the CLOUDFLARE_API_TOKEN secret is added.
       - name: Ensure Pages project exists
+        if: env.CLOUDFLARE_API_TOKEN != ''
         run: ./scripts/cloudflare-pages-project.sh
 
       # main deploys to production (resortsoffers.com); other branches get a preview URL.
       - name: Deploy dist/ to Cloudflare Pages
+        if: env.CLOUDFLARE_API_TOKEN != ''
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}

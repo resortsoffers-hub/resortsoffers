@@ -12,6 +12,9 @@ import browseKuda from "@/assets/uploads/browse-kuda-villingili-pool-aerial.jpg"
 import browsePatina from "@/assets/uploads/browse-patina-maldives-aerial.jpg";
 import browseWaldorf from "@/assets/uploads/browse-waldorf-three-bedroom-villa.jpg";
 import browseRitz from "@/assets/uploads/browse-ritz-carlton-beach-cove.jpg";
+import seychellesImg from "@/assets/destinations/seychelles-hero.jpg";
+import thailandImg from "@/assets/destinations/phuket-hero.jpg";
+import mauritiusImg from "@/assets/destinations/mauritius-hero.jpg";
 
 // Sharpest verified Maldives photos from your uploads — used as rotating hero
 const HOME_HERO_IMAGES = [browseKuda, browsePatina, browseWaldorf];
@@ -74,7 +77,7 @@ const DESTINATIONS = [
     descAr: "شواطئ بين صخور الجرانيت، غابات استوائية، وتنقل هادئ بين الجزر.",
     season: "Apr – May · Oct – Nov", seasonAr: "أبريل – مايو · أكتوبر – نوفمبر",
     flight: "4.5 hrs", flightAr: "٤٫٥ ساعات",
-    img: undefined,
+    img: seychellesImg,
   },
   {
     name: "Bali", nameAr: "بالي",
@@ -90,7 +93,7 @@ const DESTINATIONS = [
     descAr: "فلل شاطئية في بوكيت وكوه ساموي، منتجعات عافية، وضيافة تايلاندية.",
     season: "Nov – Apr", seasonAr: "نوفمبر – أبريل",
     flight: "6 hrs", flightAr: "٦ ساعات",
-    img: undefined,
+    img: thailandImg,
   },
   {
     name: "Mauritius", nameAr: "موريشيوس",
@@ -98,15 +101,7 @@ const DESTINATIONS = [
     descAr: "منتجعات على البحيرة، غولف، وفخامة مناسبة للعائلات في المحيط الهندي.",
     season: "May – Dec", seasonAr: "مايو – ديسمبر",
     flight: "6.5 hrs", flightAr: "٦٫٥ ساعات",
-    img: undefined,
-  },
-  {
-    name: "Caribbean", nameAr: "الكاريبي",
-    desc: "St Barts, Turks & Caicos and the Bahamas — for a once-in-a-lifetime escape.",
-    descAr: "سانت بارت، تركس وكايكوس، والباهاما — لرحلة العمر.",
-    season: "Dec – Apr", seasonAr: "ديسمبر – أبريل",
-    flight: "14+ hrs", flightAr: "+١٤ ساعة",
-    img: undefined,
+    img: mauritiusImg,
   },
 ];
 
@@ -380,15 +375,14 @@ const Index = () => {
               </h2>
             </RevealSection>
 
-            {/* Destinations with an original photo get a wide card; the rest are text cards. */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-              {[...DESTINATIONS].sort((a, b) => Number(!a.img) - Number(!b.img)).map((dest) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              {DESTINATIONS.map((dest) => (
                 <a
                   key={dest.name}
                   href={`https://wa.me/${BRAND.whatsapp}?text=${encodeURIComponent(ar ? `أرغب في تلقي عروض ${dest.nameAr}.` : `I'd like to receive your ${dest.name} offers.`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`group flex flex-col border border-white/10 bg-[#111] hover:border-[#C9A961]/50 transition-colors ${dest.img ? "lg:col-span-2" : ""}`}
+                  className="group flex flex-col border border-white/10 bg-[#111] hover:border-[#C9A961]/50 transition-colors"
                 >
                   {dest.img && (
                     <div className="relative aspect-[16/10] overflow-hidden">

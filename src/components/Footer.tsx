@@ -1,4 +1,4 @@
-import { MessageCircle, Mail, Instagram } from "lucide-react";
+import { MessageCircle, Mail, Instagram, Youtube } from "lucide-react";
 import { BRAND } from "@/lib/brand";
 import { useLocale } from "@/hooks/useLocale";
 
@@ -37,15 +37,27 @@ const Footer = () => {
               <Mail size={16} />
               {BRAND.email}
             </a>
-            <a
-              href={BRAND.social.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 hover:text-accent transition-colors"
-            >
-              <Instagram size={16} />
-              Instagram
-            </a>
+          </div>
+
+          {/* Social: same accounts as the Google Business Profile */}
+          <div className="flex items-center gap-5">
+            {[
+              { href: BRAND.social.instagram, label: "Instagram", icon: <Instagram size={18} /> },
+              { href: BRAND.social.tiktok, label: "TikTok", icon: <span className="text-xs font-semibold">TikTok</span> },
+              { href: BRAND.social.youtube, label: "YouTube", icon: <Youtube size={18} /> },
+              { href: BRAND.social.x, label: "X (Twitter)", icon: <span className="text-sm font-semibold">X</span> },
+            ].map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={s.label}
+                className="inline-flex items-center hover:text-accent transition-colors"
+              >
+                {s.icon}
+              </a>
+            ))}
           </div>
 
           <a

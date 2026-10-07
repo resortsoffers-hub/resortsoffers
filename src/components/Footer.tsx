@@ -1,4 +1,4 @@
-import { MessageCircle, Mail, Facebook, Instagram, Youtube } from "lucide-react";
+import { MessageCircle, Mail, Facebook, Instagram, Youtube, MapPin } from "lucide-react";
 import { BRAND } from "@/lib/brand";
 import { useLocale } from "@/hooks/useLocale";
 
@@ -47,6 +47,7 @@ const Footer = () => {
               { href: BRAND.social.tiktok, label: "TikTok", icon: <span className="text-xs font-semibold">TikTok</span> },
               { href: BRAND.social.youtube, label: "YouTube", icon: <Youtube size={18} /> },
               { href: BRAND.social.x, label: "X (Twitter)", icon: <span className="text-sm font-semibold">X</span> },
+              { href: BRAND.social.google, label: "Google Business Profile", icon: <MapPin size={18} /> },
             ].map((s) => (
               <a
                 key={s.label}

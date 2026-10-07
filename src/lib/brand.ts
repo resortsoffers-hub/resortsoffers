@@ -29,17 +29,6 @@ export const BRAND = {
     x: "https://www.twitter.com/resortsoffers",
     bioLink: "https://resortsoffers.bio.link",
   },
-  // Dubai Unified License — shown in the footer for verification.
-  license: {
-    businessName: "Noel Marketing Management",
-    number: "1276776",
-    unifiedCode: "CU5106",
-    authority: "Department of Economy and Tourism (DET), Dubai",
-    authorityAr: "دائرة الاقتصاد والسياحة في دبي",
-    legalType: "Sole Establishment",
-    verifyUrl: "https://app.invest.dubai.ae/DUL/35ECD0FA-6E97-46A6-98EA-0789BE860D2F",
-    qrImage: "/licence-qr.svg",
-  },
 } as const;
 
 export type Brand = typeof BRAND;

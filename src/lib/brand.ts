@@ -24,6 +24,7 @@ export const BRAND = {
   // Same links as the Google Business Profile.
   social: {
     facebook: "https://www.facebook.com/share/1T9b62UH9M/",
+    google: "https://maps.app.goo.gl/9ynX4gDmjGR3J2V79",
     instagram: "https://www.instagram.com/resortsoffers",
     tiktok: "https://www.tiktok.com/@resortsoffers",
     youtube: "https://www.youtube.com/@resortsoffers",

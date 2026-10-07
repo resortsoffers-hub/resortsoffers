@@ -13,7 +13,6 @@ import browsePatina from "@/assets/uploads/browse-patina-maldives-aerial.jpg";
 import browseWaldorf from "@/assets/uploads/browse-waldorf-three-bedroom-villa.jpg";
 import browseRitz from "@/assets/uploads/browse-ritz-carlton-beach-cove.jpg";
 import seychellesImg from "@/assets/destinations/seychelles-hero.jpg";
-import thailandImg from "@/assets/destinations/phuket-hero.jpg";
 import mauritiusImg from "@/assets/destinations/mauritius-hero.jpg";
 
 // Sharpest verified Maldives photos from your uploads — used as rotating hero
@@ -86,14 +85,6 @@ const DESTINATIONS = [
     season: "Apr – Oct", seasonAr: "أبريل – أكتوبر",
     flight: "9 hrs", flightAr: "٩ ساعات",
     img: browseAyana as string | undefined,
-  },
-  {
-    name: "Thailand", nameAr: "تايلاند",
-    desc: "Phuket and Koh Samui beach villas, wellness retreats and Thai hospitality.",
-    descAr: "فلل شاطئية في بوكيت وكوه ساموي، منتجعات عافية، وضيافة تايلاندية.",
-    season: "Nov – Apr", seasonAr: "نوفمبر – أبريل",
-    flight: "6 hrs", flightAr: "٦ ساعات",
-    img: thailandImg,
   },
   {
     name: "Mauritius", nameAr: "موريشيوس",
@@ -375,7 +366,7 @@ const Index = () => {
               </h2>
             </RevealSection>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
               {DESTINATIONS.map((dest) => (
                 <a
                   key={dest.name}

@@ -17,6 +17,7 @@ if [[ ! "$CLOUDFLARE_API_TOKEN" =~ ^[A-Za-z0-9_-]+$ ]]; then
   echo "::error::CLOUDFLARE_API_TOKEN (${#CLOUDFLARE_API_TOKEN} characters) is not a bare token; paste only the token value." >&2
   exit 1
 fi
+echo "Token length: ${#CLOUDFLARE_API_TOKEN} characters."
 
 cf() {
   local method="$1" path="$2" body="${3:-}"
@@ -29,7 +30,7 @@ cf() {
 }
 
 ok() { jq -e '.success == true' >/dev/null <<<"$1"; }
-errors() { jq -r '[.errors[]? | "\(.code): \(.message)"] | join("; ")' <<<"$1"; }
+errors() { jq -r '[.errors[]? | "\(.code): \(.message)", (.error_chain[]? | "\(.code): \(.message)")] | join("; ")' <<<"$1"; }
 
 account_id() {
   if [[ -n "${CLOUDFLARE_ACCOUNT_ID:-}" ]]; then

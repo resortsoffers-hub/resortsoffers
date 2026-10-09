@@ -11,6 +11,13 @@ API="https://api.cloudflare.com/client/v4"
 
 : "${CLOUDFLARE_API_TOKEN:?CLOUDFLARE_API_TOKEN is not set}"
 
+# A token pasted from a phone often carries a trailing newline or space.
+CLOUDFLARE_API_TOKEN=$(printf '%s' "$CLOUDFLARE_API_TOKEN" | tr -d '[:space:]')
+if [[ ! "$CLOUDFLARE_API_TOKEN" =~ ^[A-Za-z0-9_-]+$ ]]; then
+  echo "::error::CLOUDFLARE_API_TOKEN (${#CLOUDFLARE_API_TOKEN} characters) is not a bare token; paste only the token value." >&2
+  exit 1
+fi
+
 cf() {
   local method="$1" path="$2" body="${3:-}"
   if [[ -n "$body" ]]; then
@@ -61,6 +68,8 @@ ensure_project() {
   echo "Pages address: https://$(pages_subdomain)" | tee -a "${GITHUB_STEP_SUMMARY:-/dev/null}"
   if [[ -n "${GITHUB_ENV:-}" ]]; then
     echo "CLOUDFLARE_ACCOUNT_ID=$ACCOUNT" >>"$GITHUB_ENV"
+    echo "::add-mask::$CLOUDFLARE_API_TOKEN"
+    echo "CF_PAGES_TOKEN=$CLOUDFLARE_API_TOKEN" >>"$GITHUB_ENV"
   fi
 }
 

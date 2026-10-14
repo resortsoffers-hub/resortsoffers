@@ -4,7 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { MessageCircle, Mail, Star, Calendar } from "lucide-react";
+import { MessageCircle, Mail, Star, Calendar, MapPin } from "lucide-react";
+import { BRAND } from "@/lib/brand";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { toast } from "sonner";
@@ -18,6 +19,14 @@ const Contact = () => {
   };
 
   const contactInfo = [
+    {
+      icon: <MapPin className="w-6 h-6 text-accent-strong" />,
+      title: "Our Office",
+      details: [
+        { text: BRAND.address.en, link: BRAND.mapUrl },
+        { text: "About the Hamdan Innovation Incubator (Hi2) →", link: BRAND.hi2Url },
+      ],
+    },
     {
       icon: <MessageCircle className="w-6 h-6 text-[#25D366]" />,
       title: "WhatsApp",

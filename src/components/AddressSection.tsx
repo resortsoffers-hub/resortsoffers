@@ -111,7 +111,7 @@ const AddressSection = () => {
           <div className="bg-card p-4 rounded-lg shadow-sm border">
             <div className="aspect-[4/3] rounded-lg overflow-hidden">
               <iframe
-                src="https://www.google.com/maps?q=Hamdan+Innovation+Incubator+Dubai&output=embed"
+                src="https://www.google.com/maps?q=Hamdan+Innovation+Incubator+Hi2+Business+Village+Deira+Dubai&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

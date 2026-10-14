@@ -296,7 +296,7 @@ const AboutUs = () => {
                 Where We Are
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                Resorts Offers is based at the Hamdan Innovation Incubator (Hi2) in Dubai, the business incubator of Dubai SME, the Mohammed Bin Rashid Establishment for SME Development.
+                Resorts Offers is based at the Hamdan Innovation Incubator (Hi2) in Business Village, Deira, Dubai. Hi2 was launched in 2014 by Dubai SME, the Mohammed Bin Rashid Establishment for SME Development, under the patronage of H.H. Sheikh Hamdan bin Mohammed bin Rashid Al Maktoum, Crown Prince of Dubai, to support entrepreneurs and start-ups, and is now part of Dubai Founders HQ.
               </p>
               <p className="font-medium text-gray-700 mb-6">{BRAND.address.en}</p>
               <p className="font-medium text-gray-700 mb-6" dir="rtl">{BRAND.address.ar}</p>

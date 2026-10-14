@@ -1,8 +1,9 @@
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Shield, Users, Award, Handshake, Mail, ExternalLink, Building2, Megaphone, Palette, Globe } from "lucide-react";
+import { Shield, Users, Award, Handshake, Mail, ExternalLink, Building2, Megaphone, Palette, Globe, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { BRAND } from "@/lib/brand";
 
 const AboutUs = () => {
   const policyPrinciples = [
@@ -278,6 +279,34 @@ const AboutUs = () => {
                     info@resortsoffers.com
                   </a>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        {/* Office: Hamdan Innovation Incubator (owner, 14 Oct 2026) */}
+        <section className="py-16 bg-white">
+          <div className="container-custom">
+            <div className="max-w-2xl mx-auto text-center">
+              <div className="flex justify-center mb-6">
+                <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center">
+                  <MapPin className="w-8 h-8 text-accent-strong" />
+                </div>
+              </div>
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6">
+                Where We Are
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                Resorts Offers is based at the Hamdan Innovation Incubator (Hi2) in Business Village, Deira, Dubai. Hi2 was launched in 2014 by Dubai SME, the Mohammed Bin Rashid Establishment for SME Development, under the patronage of H.H. Sheikh Hamdan bin Mohammed bin Rashid Al Maktoum, Crown Prince of Dubai, to support entrepreneurs and start-ups, and is now part of Dubai Founders HQ.
+              </p>
+              <p className="font-medium text-gray-700 mb-6">{BRAND.address.en}</p>
+              <p className="font-medium text-gray-700 mb-6" dir="rtl">{BRAND.address.ar}</p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href={BRAND.mapUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 text-accent-strong hover:text-accent-strong/80 font-semibold transition-colors">
+                  <MapPin className="w-5 h-5" /> Get directions
+                </a>
+                <a href={BRAND.hi2Url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 text-accent-strong hover:text-accent-strong/80 font-semibold transition-colors">
+                  <ExternalLink className="w-5 h-5" /> About Hi2 (Dubai Department of Economy and Tourism)
+                </a>
               </div>
             </div>
           </div>

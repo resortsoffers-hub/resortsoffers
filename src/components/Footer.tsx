@@ -39,6 +39,18 @@ const Footer = () => {
             </a>
           </div>
 
+          {/* Office */}
+          <a
+            href={BRAND.mapUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            dir={ar ? "rtl" : "ltr"}
+            className="inline-flex items-start gap-2 text-sm text-primary-foreground/80 hover:text-accent transition-colors max-w-md"
+          >
+            <MapPin size={16} className="mt-0.5 shrink-0" />
+            <span>{ar ? BRAND.address.ar : BRAND.address.en}</span>
+          </a>
+
           {/* Social: same accounts as the Google Business Profile */}
           <div className="flex items-center gap-5">
             {[

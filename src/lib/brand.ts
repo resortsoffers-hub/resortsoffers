@@ -14,6 +14,13 @@ export const BRAND = {
   whatsapp: "971547474404",
   email: "Vip@resortsoffers.com",
   mobile: "+971547474404",
+  // Office (owner, 14 Oct 2026): Hamdan Innovation Incubator (Hi2), Dubai SME.
+  address: {
+    en: "Hamdan Innovation Incubator (Hi2), Business Village, Building B, Port Saeed, Deira, P.O. Box 66166, Dubai, United Arab Emirates",
+    ar: "مركز حمدان للإبداع والابتكار (Hi2)، قرية الأعمال، المبنى B، بور سعيد، ديرة، ص.ب. 66166، دبي، الإمارات العربية المتحدة",
+  },
+  mapUrl: "https://maps.google.com/?q=Hamdan+Innovation+Incubator+Hi2+Business+Village+Deira+Dubai",
+  hi2Url: "https://www.dubaidet.gov.ae/ar/newsroom/press-releases/hamdan-innovation-incubator-hi2",
   // HSL tokens are defined in index.css; these literals are only for non-themed
   // surfaces (e.g. WhatsApp brand green which must remain its official color).
   colors: {

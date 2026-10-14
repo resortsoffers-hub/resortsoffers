@@ -33,14 +33,16 @@ jobs:
       # The Cloudflare steps wait until the CLOUDFLARE_API_TOKEN secret is added.
       - name: Ensure Pages project exists
         if: env.CLOUDFLARE_API_TOKEN != ''
+        continue-on-error: true
         run: ./scripts/cloudflare-pages-project.sh
 
       # main deploys to production (resortsoffers.com); other branches get a preview URL.
       - name: Deploy dist/ to Cloudflare Pages
         if: env.CLOUDFLARE_API_TOKEN != ''
+        continue-on-error: true
         uses: cloudflare/wrangler-action@v3
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          apiToken: ${{ env.CF_PAGES_TOKEN }}
           accountId: ${{ env.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy dist --project-name=${{ env.PAGES_PROJECT }} --branch=${{ github.ref_name }} --commit-dirty=true
 

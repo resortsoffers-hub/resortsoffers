@@ -1,4 +1,5 @@
 import { MapPin, Phone, Mail } from "lucide-react";
+import { BRAND } from "@/lib/brand";
 
 const AddressSection = () => {
   return (
@@ -7,7 +8,7 @@ const AddressSection = () => {
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Visit Our Offices</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Located in Dubai, we're here to help you plan your perfect getaway
+            Based at the Hamdan Innovation Incubator in Dubai, we're here to help you plan your perfect getaway
           </p>
         </div>
 
@@ -22,17 +23,11 @@ const AddressSection = () => {
                 <div className="flex-1">
                   <h3 className="font-semibold text-lg mb-4">Our Office</h3>
                   <div>
-                    <p className="font-medium text-foreground mb-1">Creators HQ</p>
-                    <p className="text-muted-foreground">
-                      Jumeirah Emirates Towers<br />
-                      Dubai, United Arab Emirates
-                    </p>
-                    <p className="text-sm text-muted-foreground mt-2">
-                      A global hub for digital creators, influencers, and entrepreneurs, launched during the 1 Billion Followers Summit.
-                    </p>
-                    <a 
-                      href="https://maps.google.com/?q=Jumeirah+Emirates+Towers+Dubai+UAE" 
-                      target="_blank" 
+                    <p className="font-medium text-foreground mb-1">Hamdan Innovation Incubator (Hi2)</p>
+                    <p className="text-muted-foreground">{BRAND.address.en}</p>
+                    <a
+                      href={BRAND.mapUrl}
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="inline-block mt-2 text-primary hover:underline text-sm"
                     >
@@ -53,17 +48,7 @@ const AddressSection = () => {
                   <div className="space-y-2 text-muted-foreground">
                     <p>
                       <a href="https://wa.me/971547474404" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-                        +971 567 622 484 (UAE)
-                      </a>
-                    </p>
-                    <p>
-                      <a href="https://wa.me/966582360080" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-                        +966 582 360 080 (KSA)
-                      </a>
-                    </p>
-                    <p>
-                      <a href="https://wa.me/447500029091" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-                        +44 7500 029091 (UK)
+                        +971 54 747 4404 (UAE)
                       </a>
                     </p>
                   </div>
@@ -126,18 +111,18 @@ const AddressSection = () => {
           <div className="bg-card p-4 rounded-lg shadow-sm border">
             <div className="aspect-[4/3] rounded-lg overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.1856384628544!2d55.27244931501217!3d25.217989883881494!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f432b5c5a3e47%3A0x462fd5c8c19e8b17!2sJumeirah%20Emirates%20Towers!5e0!3m2!1sen!2sae!4v1234567890"
+                src="https://www.google.com/maps?q=Hamdan+Innovation+Incubator+Hi2+Business+Village+Deira+Dubai&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Resorts Offers Tourism Consultancy - Creators HQ, Jumeirah Emirates Towers"
+                title="Resorts Offers Tourism Consultancy - Hamdan Innovation Incubator, Dubai"
               />
             </div>
             <p className="text-sm text-muted-foreground mt-4 text-center">
-              Our office at Creators HQ, Jumeirah Emirates Towers, Dubai
+              Our office at the Hamdan Innovation Incubator (Hi2), Dubai
             </p>
           </div>
         </div>

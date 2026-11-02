@@ -1,20 +1,38 @@
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Calendar, MapPin, ExternalLink } from "lucide-react";
+import { Calendar, MapPin, ExternalLink, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 import wtmLondon from "@/assets/events/wtm-london.jpg";
 import atmDubai from "@/assets/events/atm-dubai.jpg";
 import iltmCannes from "@/assets/events/iltm-cannes.jpg";
 
+type TradeEvent = {
+  name: string;
+  fullName: string;
+  location: string;
+  venue: string;
+  dates: string;
+  /** Last day of the event, used to sort and to hide past editions. */
+  endDate: string;
+  attending?: boolean;
+  description: string;
+  image?: string;
+  website: string;
+  highlights: string[];
+};
+
 const Events = () => {
-  const events = [
+  const allEvents: TradeEvent[] = [
     {
       name: "WTM London",
-      fullName: "World Travel Market London",
+      fullName: "World Travel Market London 2026",
       location: "London, United Kingdom",
       venue: "ExCeL London",
+      dates: "3 – 5 November 2026",
+      endDate: "2026-11-05",
+      attending: true,
       description: "The leading global event for the travel industry. WTM London is where the travel trade meets to conduct business deals, network with industry professionals, and discover the latest trends in travel and tourism.",
       image: wtmLondon,
       website: "https://www.wtm.com/london",
@@ -26,25 +44,12 @@ const Events = () => {
       ]
     },
     {
-      name: "ATM Dubai",
-      fullName: "Arabian Travel Market",
-      location: "Dubai, United Arab Emirates",
-      venue: "Dubai World Trade Centre",
-      description: "The Middle East's leading travel and tourism event. ATM showcases over 2,800 exhibiting companies to more than 28,000 buyers and travel trade visitors, providing unrivalled business opportunities.",
-      image: atmDubai,
-      website: "https://www.wtm.com/atm",
-      highlights: [
-        "Middle East's largest travel show",
-        "Luxury travel pavilion",
-        "Hotel industry summit",
-        "Travel technology showcase"
-      ]
-    },
-    {
       name: "ILTM Cannes",
-      fullName: "International Luxury Travel Market",
+      fullName: "International Luxury Travel Market 2026",
       location: "Cannes, France",
       venue: "Palais des Festivals",
+      dates: "30 November – 3 December 2026",
+      endDate: "2026-12-03",
       description: "The premier global event for the luxury travel industry. ILTM brings together the world's most influential luxury travel advisors with exceptional travel brands and destinations.",
       image: iltmCannes,
       website: "https://www.iltm.com/cannes",
@@ -54,8 +59,63 @@ const Events = () => {
         "Exclusive networking events",
         "Premium destination showcases"
       ]
+    },
+    {
+      name: "FITUR",
+      fullName: "FITUR International Tourism Trade Fair 2027",
+      location: "Madrid, Spain",
+      venue: "IFEMA Madrid",
+      dates: "20 – 24 January 2027",
+      endDate: "2027-01-24",
+      description: "One of the world's largest tourism trade fairs, opening the travel industry calendar each year in Madrid, with a strong focus on Europe, Latin America and emerging destinations.",
+      website: "https://www.ifema.es/en/fitur",
+      highlights: [
+        "Opening event of the travel year",
+        "Europe and Latin America focus",
+        "Destination and hotel pavilions",
+        "Trade and public days"
+      ]
+    },
+    {
+      name: "ITB Berlin",
+      fullName: "ITB Berlin 2027",
+      location: "Berlin, Germany",
+      venue: "Messe Berlin",
+      dates: "16 – 18 March 2027",
+      endDate: "2027-03-18",
+      description: "The world's leading B2B travel trade show, bringing together tour operators, hotels, destinations and travel technology providers from every continent.",
+      website: "https://www.itb.com",
+      highlights: [
+        "Global B2B travel trade",
+        "ITB Convention and industry insights",
+        "Hotel and destination exhibitors",
+        "Travel technology hall"
+      ]
+    },
+    {
+      name: "ATM Dubai",
+      fullName: "Arabian Travel Market 2027",
+      location: "Dubai, United Arab Emirates",
+      venue: "Dubai World Trade Centre",
+      dates: "3 – 6 May 2027",
+      endDate: "2027-05-06",
+      description: "The Middle East's leading travel and tourism event, showcasing thousands of exhibitors to buyers and travel trade visitors from around the world.",
+      image: atmDubai,
+      website: "https://www.wtm.com/atm",
+      highlights: [
+        "Middle East's largest travel show",
+        "Luxury travel pavilion",
+        "Hotel industry summit",
+        "Travel technology showcase"
+      ]
     }
   ];
+
+  // Show upcoming and ongoing editions only, soonest first.
+  const today = new Date().toISOString().slice(0, 10);
+  const events = allEvents
+    .filter((e) => e.endDate >= today)
+    .sort((a, b) => a.endDate.localeCompare(b.endDate));
 
   return (
     <>
@@ -63,7 +123,7 @@ const Events = () => {
         <title>Industry Events | Resorts Offers - Travel Trade Shows</title>
         <meta 
           name="description" 
-          content="Meet Resorts Offers at leading travel industry events including WTM London, ATM Dubai, and ILTM Cannes. Connect with our team for exclusive partnerships." 
+          content="Meet Resorts Offers at leading travel industry events: WTM London, ILTM Cannes, FITUR, ITB Berlin and ATM Dubai. Dates, venues and how to meet our team." 
         />
       </Helmet>
 
@@ -94,11 +154,22 @@ const Events = () => {
                   {/* Image */}
                   <div className="w-full lg:w-1/2">
                     <div className="relative rounded-2xl overflow-hidden shadow-xl">
-                      <img 
-                        src={event.image} 
-                        alt={event.name}
-                        className="w-full h-64 md:h-80 object-cover"
-                      />
+                      {event.image ? (
+                        <img
+                          src={event.image}
+                          alt={event.name}
+                          className="w-full h-64 md:h-80 object-cover"
+                        />
+                      ) : (
+                        <div className="w-full h-64 md:h-80 bg-gradient-to-br from-primary via-primary/90 to-accent-strong flex items-center justify-center">
+                          <span className="text-white text-4xl md:text-5xl font-bold tracking-wide">{event.name}</span>
+                        </div>
+                      )}
+                      {event.attending && (
+                        <span className="absolute top-4 left-4 bg-white text-primary px-4 py-2 rounded-full text-sm font-semibold shadow">
+                          We're attending
+                        </span>
+                      )}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                       <div className="absolute bottom-4 left-4 right-4">
                         <span className="inline-block bg-accent-strong text-white px-4 py-2 rounded-full text-sm font-semibold">
@@ -120,8 +191,12 @@ const Events = () => {
                         <span>{event.location}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <Calendar className="w-4 h-4 text-accent-strong" />
+                        <Building2 className="w-4 h-4 text-accent-strong" />
                         <span>{event.venue}</span>
+                      </div>
+                      <div className="flex items-center gap-2 font-semibold text-primary">
+                        <Calendar className="w-4 h-4 text-accent-strong" />
+                        <span>{event.dates}</span>
                       </div>
                     </div>
 

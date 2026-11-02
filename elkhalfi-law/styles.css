@@ -193,3 +193,25 @@ summary h3 { font-family: var(--sans); font-size: 1rem; font-weight: 600; margin
 summary::after { content: "+"; color: var(--gold); font-size: 1.4rem; line-height: 1; transition: transform .2s; flex-shrink: 0; }
 details[open] summary::after { transform: rotate(45deg); }
 details p { padding-bottom: 1.2rem; color: var(--muted); }
+
+/* Practice area pages */
+.card-link { display: block; color: inherit; }
+.card-link .more { display: inline-block; margin-top: 0.8rem; color: var(--gold); font-weight: 600; font-size: 0.88rem; }
+.hero-page { padding: clamp(3.5rem, 8vw, 6rem) 0 clamp(3rem, 7vw, 5rem); }
+.hero-page .display { font-size: clamp(2rem, 4.2vw, 3.2rem); }
+.crumbs { font-size: 0.85rem; color: var(--gold-light); margin-bottom: 1.2rem; opacity: .85; }
+.crumbs a:hover { color: var(--white); }
+.area-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 3.5rem; align-items: start; }
+.checklist { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem 1.6rem; margin-top: 1.5rem; }
+.checklist li { padding-inline-start: 1.8rem; position: relative; color: var(--ink); }
+.checklist li::before { content: "✓"; position: absolute; inset-inline-start: 0; color: var(--gold); font-weight: 700; }
+.lawyers-box { background: var(--cream); border-radius: var(--radius); padding: 1.8rem; border-top: 3px solid var(--gold); }
+.lawyers-box p, .lawyers-box address { color: var(--muted); font-size: 0.95rem; margin: 0.4rem 0 0.6rem; }
+.lawyers-box .map-link { color: var(--navy); }
+.lawyers-box hr { border: 0; border-top: 1px solid var(--line); margin: 1.4rem 0; }
+.note-small { font-size: 0.85rem; color: var(--muted); margin-top: 1.4rem; text-align: center; }
+.other-areas { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; }
+.other-areas a { border: 1px solid var(--line); border-radius: 999px; padding: 0.6rem 1.2rem; font-weight: 500; color: var(--navy); }
+.other-areas a:hover { border-color: var(--gold); color: var(--gold); }
+@media (max-width: 960px) { .area-grid { grid-template-columns: 1fr; gap: 2rem; } }
+@media (max-width: 560px) { .checklist { grid-template-columns: 1fr; } }

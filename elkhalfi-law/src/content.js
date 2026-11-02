@@ -7,7 +7,7 @@ const AREAS = {
   ar: [
     ["قضايا الأسرة", "الزواج، الطلاق والتطليق، الحضانة، النفقة، ثبوت النسب، الكفالة والإرث، وفق مدونة الأسرة."],
     ["القضايا المدنية", "العقود، المسؤولية المدنية والتعويض، استخلاص الديون وتنفيذ الأحكام القضائية."],
-    ["القضايا العقارية", "البيوع العقارية، الكراء، التحفيظ والرسوم العقارية، الملكية المشتركة ونزاعات البناء."],
+    ["القضايا العقارية", "نزاعات البيوع العقارية، الكراء، التحفيظ والرسوم العقارية، الملكية المشتركة ونزاعات البناء."],
     ["القضايا التجارية", "تأسيس الشركات، العقود التجارية، الأوراق التجارية، صعوبات المقاولة والنزاعات أمام المحاكم التجارية."],
     ["القضايا الجنائية", "مؤازرة الضحايا والدفاع عن المتابَعين، من البحث التمهيدي إلى المحاكمة والطعن."],
     ["قضايا الشغل", "عقود الشغل، الفصل التعسفي، حوادث الشغل والأمراض المهنية، والنزاعات بين المشغّلين والأجراء."],
@@ -18,7 +18,7 @@ const AREAS = {
   fr: [
     ["Droit de la famille", "Mariage, divorce, garde des enfants, pension alimentaire, filiation, kafala et successions, selon le Code de la famille (Moudawana)."],
     ["Droit civil", "Contrats, responsabilité civile et indemnisation, recouvrement de créances et exécution des jugements."],
-    ["Droit immobilier", "Ventes immobilières, baux, immatriculation foncière, copropriété et litiges de construction."],
+    ["Droit immobilier", "Litiges de ventes immobilières, baux, immatriculation foncière, copropriété et litiges de construction."],
     ["Droit commercial", "Création de sociétés, contrats commerciaux, effets de commerce, entreprises en difficulté et litiges devant les tribunaux de commerce."],
     ["Droit pénal", "Assistance des victimes et défense des personnes poursuivies, de l'enquête préliminaire au jugement et aux recours."],
     ["Droit du travail", "Contrats de travail, licenciement abusif, accidents du travail et litiges entre employeurs et salariés."],
@@ -29,7 +29,7 @@ const AREAS = {
   en: [
     ["Family Law", "Marriage, divorce, child custody, maintenance, parentage, kafala and inheritance under the Moroccan Family Code (Moudawana)."],
     ["Civil Law", "Contracts, civil liability and compensation, debt recovery and enforcement of judgments."],
-    ["Real Estate Law", "Property sales, leases, land registration, co-ownership and construction disputes."],
+    ["Real Estate Law", "Property sale disputes, leases, land registration, co-ownership and construction disputes."],
     ["Commercial Law", "Company formation, commercial contracts, negotiable instruments, businesses in difficulty and commercial court disputes."],
     ["Criminal Law", "Assistance to victims and defence of the accused, from the preliminary investigation to trial and appeal."],
     ["Employment Law", "Employment contracts, unfair dismissal, workplace accidents and employer–employee disputes."],

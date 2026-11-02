@@ -20,6 +20,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
 // Contact form: validates, then opens the visitor's email app with the message filled in.
 // Text for each language comes from data- attributes on the form.
 const form = document.getElementById("contact-form");
+if (form) {
 const status = form.querySelector(".form-status");
 const t = form.dataset;
 
@@ -42,3 +43,4 @@ form.addEventListener("submit", (e) => {
   status.textContent = t.ok;
   status.className = "form-status ok";
 });
+}

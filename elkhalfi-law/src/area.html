@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="{{lang}}" dir="{{dir}}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{pageTitle}}</title>
+  <meta name="description" content="{{pageDesc}}" />
+  <link rel="canonical" href="{{canonical}}" />
+{{hreflang}}
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="{{brand.full}}" />
+  <meta property="og:title" content="{{pageTitle}}" />
+  <meta property="og:description" content="{{pageDesc}}" />
+  <meta property="og:url" content="{{canonical}}" />
+  <meta property="og:locale" content="{{ogLocale}}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script type="application/ld+json">{{jsonld}}</script>
+</head>
+<body>
+
+  <header class="site-header" id="top">
+    <div class="container nav">
+      <a href="{{home}}" class="brand" aria-label="{{brand.full}}">
+        <span class="brand-mark">E</span>
+        <span class="brand-text"><span>{{brand.name}}</span><small>{{brand.sub}}</small></span>
+      </a>
+      <div class="nav-right">
+        <nav class="lang" aria-label="Language">{{langLinks}}</nav>
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <nav class="nav-links" aria-label="Main">
+        <a href="{{home}}#cabinet">{{nav.about}}</a>
+        <a href="{{home}}#domaines">{{nav.areas}}</a>
+        <a href="{{home}}#equipe">{{nav.team}}</a>
+        <a href="{{home}}#contact" class="btn btn-small">{{nav.cta}}</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero hero-page">
+      <div class="container hero-inner">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="{{home}}">{{brand.name}}</a> › <a href="{{home}}#domaines">{{nav.areas}}</a> › <span>{{areaName}}</span></nav>
+        <h1 class="display">{{h1}}</h1>
+        <p class="lead">{{intro}}</p>
+        <div class="hero-actions">
+          <a href="{{home}}#contact" class="btn">{{nav.cta}}</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container area-grid">
+        <div>
+          <p class="eyebrow">{{L.services}}</p>
+          <h2>{{L.servicesTitle}}</h2>
+          <ul class="checklist">
+{{items}}
+          </ul>
+        </div>
+        <aside class="lawyers-box">
+          <h3>{{L.lawyers}}</h3>
+          <p>{{L.lawyersText}}</p>
+          <a href="{{home}}#equipe" class="map-link">{{nav.team}} →</a>
+          <hr />
+          <h3>{{contact.address}}</h3>
+          <address>{{contact.addressV}}</address>
+          <a href="{{home}}#contact" class="btn btn-full" style="margin-top:1.2rem">{{nav.cta}}</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container narrow">
+        <div class="section-head">
+          <p class="eyebrow">{{faq.eyebrow}}</p>
+          <h2>{{L.faqTitle}}</h2>
+        </div>
+{{faqItems}}
+        <p class="note-small">{{L.note}}</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head"><h2>{{L.others}}</h2></div>
+        <div class="other-areas">
+{{others}}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <a href="{{home}}" class="brand brand-light">
+          <span class="brand-mark">E</span>
+          <span class="brand-text"><span>{{brand.name}}</span><small>{{brand.sub}}</small></span>
+        </a>
+      </div>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="{{home}}#cabinet">{{nav.about}}</a>
+        <a href="{{home}}#domaines">{{nav.areas}}</a>
+        <a href="{{home}}#equipe">{{nav.team}}</a>
+        <a href="{{home}}#contact">{{nav.contact}}</a>
+      </nav>
+    </div>
+    <div class="container disclaimer">
+      <p>{{footer.disclaimer}}</p>
+      <p>&copy; <span id="year">{{year}}</span> {{brand.full}}</p>
+    </div>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>

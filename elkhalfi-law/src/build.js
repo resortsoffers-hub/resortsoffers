@@ -237,16 +237,22 @@ ${urls}
 `;
 }
 
+// Public build hides any line that still holds an unconfirmed detail; DRAFT=1 shows them highlighted.
+const DRAFT = process.env.DRAFT === "1";
+const publish = (html) => DRAFT ? html : html.split("\n").filter((l) => !l.includes('mark class="todo"')).join("\n");
+const _write = fs.writeFileSync;
+const writePage = (file, html) => _write(file, publish(html));
+
 fs.rmSync(OUT, { recursive: true, force: true });
 for (const lang of Object.keys(LANGS)) {
   const dir = path.join(OUT, LANGS[lang].path);
   fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(path.join(dir, "index.html"), render(lang));
+  writePage(path.join(dir, "index.html"), render(lang));
 }
 for (const page of PAGES) for (const lang of AREA_LANGS) {
   const dir = path.join(OUT, areaPath(lang, page.slug));
   fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(path.join(dir, "index.html"), renderArea(lang, page));
+  writePage(path.join(dir, "index.html"), renderArea(lang, page));
 }
 for (const f of ["styles.css", "script.js"]) fs.copyFileSync(path.join(ROOT, f), path.join(OUT, f));
 if (fs.existsSync(path.join(ROOT, "images"))) fs.cpSync(path.join(ROOT, "images"), path.join(OUT, "images"), { recursive: true });

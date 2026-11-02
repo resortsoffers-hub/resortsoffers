@@ -162,3 +162,9 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--g
   .contact-form { padding: 1.5rem; }
   .brand-text { font-size: 1.25rem; }
 }
+
+/* Map */
+.map { margin-top: 2rem; border-radius: var(--radius); overflow: hidden; border: 1px solid rgba(255,255,255,.15); aspect-ratio: 16 / 10; background: var(--navy-2); }
+.map iframe { width: 100%; height: 100%; border: 0; display: block; }
+.map-link { display: inline-block; margin-top: 0.8rem; color: var(--gold-light); font-weight: 600; font-size: 0.9rem; border-bottom: 1px solid var(--gold); }
+.map-link:hover { color: var(--white); }

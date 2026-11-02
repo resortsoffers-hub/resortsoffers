@@ -39,15 +39,15 @@ const AREAS = {
 const T = {
   fr: {
     "brand.name": "Elkhalfi",
-    "brand.sub": "Avocats",
-    "brand.full": "Cabinet Elkhalfi – Avocats",
+    "brand.sub": "Avocats & Conseil juridique",
+    "brand.full": "Elkhalfi – Avocats & Conseil juridique",
     "nav.about": "Le cabinet",
     "nav.areas": "Domaines",
     "nav.team": "Les avocates",
     "nav.contact": "Contact",
     "nav.cta": "Prendre rendez-vous",
 
-    "hero.eyebrow": "Cabinet d'avocats · Rabat, Maroc",
+    "hero.eyebrow": "Avocats & Conseil juridique · Rabat, Maroc",
     "hero.title": "Conseil et défense, avec rigueur et écoute.",
     "hero.lead": "Maître Amal El Khalfi et Maître Latifa El Khalfi accompagnent particuliers, familles et entreprises, du conseil juridique à la défense devant les juridictions du Royaume.",
     "hero.cta1": "Prendre rendez-vous",
@@ -58,7 +58,7 @@ const T = {
 
     "about.eyebrow": "Le cabinet",
     "about.title": "Un cabinet familial, une exigence professionnelle",
-    "about.p1": "Le cabinet Elkhalfi réunit deux sœurs avocates, une solide formation universitaire et une pratique quotidienne du droit marocain. Chaque dossier est suivi personnellement, avec un objectif simple : vous expliquer clairement votre situation et défendre vos intérêts avec rigueur.",
+    "about.p1": "Le cabinet Elkhalfi – Avocats & Conseil juridique réunit deux sœurs avocates, une solide formation universitaire et une pratique quotidienne du droit marocain. Chaque dossier est suivi personnellement, avec un objectif simple : vous expliquer clairement votre situation et défendre vos intérêts avec rigueur.",
     "about.p2": "Nous intervenons en conseil, pour prévenir les litiges, comme en contentieux, devant les juridictions compétentes.",
     "v1.t": "Écoute", "v1.d": "Comprendre votre situation avant de proposer une solution.",
     "v2.t": "Rigueur", "v2.d": "Une analyse juridique précise de chaque dossier.",
@@ -115,15 +115,15 @@ const T = {
 
   ar: {
     "brand.name": "الخلفي",
-    "brand.sub": "للمحاماة",
-    "brand.full": "مكتب الخلفي للمحاماة",
+    "brand.sub": "للمحاماة والاستشارات القانونية",
+    "brand.full": "الخلفي للمحاماة والاستشارات القانونية",
     "nav.about": "المكتب",
     "nav.areas": "مجالات الممارسة",
     "nav.team": "المحاميتان",
     "nav.contact": "اتصل بنا",
     "nav.cta": "حجز موعد",
 
-    "hero.eyebrow": "مكتب للمحاماة · الرباط، المغرب",
+    "hero.eyebrow": "محاماة واستشارات قانونية · الرباط، المغرب",
     "hero.title": "استشارة ودفاع، بدقة وإنصات.",
     "hero.lead": "الأستاذة أمل الخلفي والأستاذة لطيفة الخلفي تواكبان الأفراد والأسر والمقاولات، من الاستشارة القانونية إلى الدفاع أمام محاكم المملكة.",
     "hero.cta1": "حجز موعد",
@@ -134,7 +134,7 @@ const T = {
 
     "about.eyebrow": "المكتب",
     "about.title": "مكتب عائلي، والتزام مهني",
-    "about.p1": "يجمع مكتب الخلفي محاميتين شقيقتين، بين تكوين جامعي متين وممارسة يومية للقانون المغربي. نتابع كل ملف بشكل شخصي، بهدف واضح: أن نشرح لكم وضعيتكم بوضوح، وأن ندافع عن مصالحكم بكل دقة.",
+    "about.p1": "يجمع مكتب الخلفي للمحاماة والاستشارات القانونية محاميتين شقيقتين، بين تكوين جامعي متين وممارسة يومية للقانون المغربي. نتابع كل ملف بشكل شخصي، بهدف واضح: أن نشرح لكم وضعيتكم بوضوح، وأن ندافع عن مصالحكم بكل دقة.",
     "about.p2": "نشتغل في مجال الاستشارة للوقاية من النزاعات، كما نشتغل في مجال التقاضي أمام المحاكم المختصة.",
     "v1.t": "الإنصات", "v1.d": "نفهم وضعيتكم قبل أن نقترح الحل.",
     "v2.t": "الدقة", "v2.d": "تحليل قانوني دقيق لكل ملف.",
@@ -191,15 +191,15 @@ const T = {
 
   en: {
     "brand.name": "Elkhalfi",
-    "brand.sub": "Advocates",
-    "brand.full": "Elkhalfi Advocates",
+    "brand.sub": "Law & Legal Consulting",
+    "brand.full": "Elkhalfi Law & Legal Consulting",
     "nav.about": "The Firm",
     "nav.areas": "Practice Areas",
     "nav.team": "Our Lawyers",
     "nav.contact": "Contact",
     "nav.cta": "Book an Appointment",
 
-    "hero.eyebrow": "Law Firm · Rabat, Morocco",
+    "hero.eyebrow": "Law & Legal Consulting · Rabat, Morocco",
     "hero.title": "Advice and advocacy, with rigour and care.",
     "hero.lead": "Amal El Khalfi and Latifa El Khalfi advise and represent individuals, families and businesses, from legal advice through to proceedings before the Moroccan courts.",
     "hero.cta1": "Book an Appointment",
@@ -210,7 +210,7 @@ const T = {
 
     "about.eyebrow": "The Firm",
     "about.title": "A family firm with professional standards",
-    "about.p1": "Elkhalfi Advocates brings together two sisters, both lawyers, combining strong academic training with daily practice of Moroccan law. Every case is handled personally, with one simple aim: to explain your situation clearly and defend your interests with rigour.",
+    "about.p1": "Elkhalfi Law & Legal Consulting brings together two sisters, both lawyers, combining strong academic training with daily practice of Moroccan law. Every case is handled personally, with one simple aim: to explain your situation clearly and defend your interests with rigour.",
     "about.p2": "We act both in an advisory capacity, to prevent disputes, and in litigation before the competent courts.",
     "v1.t": "Listening", "v1.d": "Understanding your situation before proposing a solution.",
     "v2.t": "Rigour", "v2.d": "Precise legal analysis of every case.",

@@ -16,12 +16,12 @@ const Representation = () => {
     {
       icon: Building2,
       title: "Hotel & Resort Representation",
-      text: "We represent luxury hotels and resorts in the Middle East and GCC market, building visibility and demand with travel agents, tour operators and high-end travellers.",
+      text: "Representation for luxury hotels and resorts entering or growing in the Middle East and GCC market, building visibility and demand with travel agents, tour operators and high-end travellers.",
     },
     {
       icon: Compass,
       title: "DMC Representation",
-      text: "We act as the regional partner for premium destination management companies, introducing their tailor-made itineraries and experiences to the right buyers.",
+      text: "A regional partner for premium destination management companies, introducing their tailor-made itineraries and experiences to the right buyers.",
     },
     {
       icon: Megaphone,
@@ -31,7 +31,7 @@ const Representation = () => {
     {
       icon: CalendarDays,
       title: "Trade Shows & Events",
-      text: "Representation at leading travel trade shows such as WTM London, ILTM Cannes and Arabian Travel Market, with meetings booked on your behalf.",
+      text: "Presence at leading travel trade shows such as WTM London, ILTM Cannes and Arabian Travel Market, with meetings arranged with partners.",
     },
     {
       icon: Plane,
@@ -62,7 +62,7 @@ const Representation = () => {
           <div className="container-custom text-center">
             <h1 className="text-3xl md:text-5xl font-bold mb-6">Hotel &amp; DMC Representation</h1>
             <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-              We represent premium DMCs and luxury hotels, connecting them with travellers and travel partners across the Middle East and the GCC.
+              We help premium DMCs and luxury hotels grow in the Middle East and GCC, connecting them with the right travellers and travel partners.
             </p>
           </div>
         </section>
@@ -88,7 +88,7 @@ const Representation = () => {
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">Become a Partner</h2>
               <p className="text-muted-foreground mb-8">
-                Hotels, resorts and DMCs looking to grow in the Middle East market: let's talk about how we can represent you.
+                Hotels, resorts and DMCs looking to grow in the Middle East market: let's talk about how we can help.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href={`mailto:${BRAND.email}?subject=Representation enquiry`}>

@@ -215,3 +215,6 @@ details p { padding-bottom: 1.2rem; color: var(--muted); }
 .other-areas a:hover { border-color: var(--gold); color: var(--gold); }
 @media (max-width: 960px) { .area-grid { grid-template-columns: 1fr; gap: 2rem; } }
 @media (max-width: 560px) { .checklist { grid-template-columns: 1fr; } }
+
+/* Lawyer photos */
+.avatar-photo { object-fit: cover; object-position: center top; display: block; }

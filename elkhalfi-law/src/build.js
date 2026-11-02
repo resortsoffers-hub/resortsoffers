@@ -51,6 +51,7 @@ function jsonLd(lang) {
     name: "Amal El Khalfi",
     alternateName: ["آمال الخلفي", "Maître Amal El Khalfi", "Amal Elkhalfi"],
     jobTitle: stripTags(t["amal.role"]),
+    ...(photoFile("amal") ? { image: `${SITE_URL}/${photoFile("amal")}` } : {}),
     description: stripTags(t["amal.bio"]),
     hasCredential: { "@type": "EducationalOccupationalCredential", credentialCategory: "Doctorate in Law" },
     worksFor: { "@id": SITE_URL + "/#firm" },
@@ -61,6 +62,7 @@ function jsonLd(lang) {
     name: "Latifa El Khalfi",
     alternateName: ["لطيفة الخلفي", "Maître Latifa El Khalfi", "Latifa Elkhalfi"],
     jobTitle: stripTags(t["latifa.role"]),
+    ...(photoFile("latifa") ? { image: `${SITE_URL}/${photoFile("latifa")}` } : {}),
     description: stripTags(t["latifa.bio"]),
     worksFor: { "@id": SITE_URL + "/#firm" },
   };
@@ -74,6 +76,15 @@ function jsonLd(lang) {
     })),
   };
   return JSON.stringify({ "@context": "https://schema.org", "@graph": [firm, amal, latifa, faq] }).replace(/</g, "\\u003c");
+}
+
+// Lawyer photo: drop images/amal.jpg or images/latifa.jpg into elkhalfi-law/ and it is used automatically.
+const photoFile = (key) => ["jpg", "jpeg", "png", "webp"].map((e) => `images/${key}.${e}`).find((f) => fs.existsSync(path.join(ROOT, f)));
+function photo(key, name, initials) {
+  const f = photoFile(key);
+  return f
+    ? `<img class="avatar avatar-photo" src="/${f}" alt="${stripTags(name)}" width="240" height="300" loading="lazy" />`
+    : `<div class="avatar" aria-hidden="true">${initials}</div>`;
 }
 
 function render(lang) {
@@ -107,6 +118,8 @@ function render(lang) {
       .map(([q, a]) => `        <details>\n          <summary><h3>${q}</h3></summary>\n          <p>${a}</p>\n        </details>`)
       .join("\n"),
     jsonld: jsonLd(lang),
+    amalPhoto: photo("amal", t["amal.name"], "AE"),
+    latifaPhoto: photo("latifa", t["latifa.name"], "LE"),
   };
   return fill("template.html", t, vars, lang);
 }

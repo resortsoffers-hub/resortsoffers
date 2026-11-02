@@ -243,11 +243,16 @@ const Events = () => {
               <p className="text-muted-foreground mb-8">
                 Interested in meeting our team at an upcoming travel trade show? Contact us to schedule a private appointment and discuss partnership opportunities.
               </p>
-              <a href="mailto:info@resortsoffers.com">
-                <Button size="lg" className="bg-accent-strong hover:bg-accent-strong/90">
-                  Schedule a Meeting
-                </Button>
-              </a>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="mailto:info@resortsoffers.com">
+                  <Button size="lg" className="bg-accent-strong hover:bg-accent-strong/90">
+                    Schedule a Meeting
+                  </Button>
+                </a>
+                <a href="representation">
+                  <Button size="lg" variant="outline">Our Representation Services</Button>
+                </a>
+              </div>
             </div>
           </div>
         </section>

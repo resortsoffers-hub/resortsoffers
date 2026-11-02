@@ -98,6 +98,16 @@ const posts = [
       <li><b>→</b>New ideas shaping 2027</li>
     </ul>
     <p class="foot">#WTMLondon2026 · #Networking</p></div>`],
+  ["6-meet-nora-wtm", `<div class="p night">
+    <div class="glow" style="width:720px;height:720px;right:-260px;top:-220px;background:radial-gradient(circle,rgba(232,201,142,.35),transparent 65%)"></div>
+    <p class="k">WTM London 2026 · 3 – 5 November</p>
+    <h1 class="mid" style="margin-bottom:10px">Meet us at<br>WTM London</h1>
+    <div class="rule"></div>
+    <p style="font-family:'Playfair Display',serif;font-size:76px;font-weight:700">Nora El</p>
+    <p class="sub" style="font-size:42px;font-weight:600;color:#e8c98e;margin-top:8px">99 Selection</p>
+    <p class="sub" style="margin-top:6px">Buyer · United Arab Emirates</p>
+    <p class="sub" style="margin-top:46px;font-size:30px;opacity:.85">ExCeL London</p>
+    <p class="foot">#WTMLondon2026 · Let's connect</p></div>`],
 ];
 
 (async () => {

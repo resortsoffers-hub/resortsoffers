@@ -6,8 +6,9 @@ const { chromium } = require("playwright");
 
 const OUT = __dirname;
 const DOMAIN = "elkhalfiavocates.com";
-const EMAIL = `contact@${DOMAIN}`;
-const PHONE = "+212 ⋯"; // TODO: office phone number
+// Leave empty until confirmed by the firm; empty lines are left off the card.
+const EMAIL = "";
+const PHONE = "";
 
 const NAVY = "#14233c", GOLD = "#b8945a", CREAM = "#f8f5ef", LIGHT = "#e9dcc4";
 
@@ -53,16 +54,20 @@ html, body { width: 85mm; height: 55mm; }
 .front::after { content:""; position:absolute; inset: 3mm; border: .3mm solid rgba(184,148,90,.6); }
 .back { background: ${CREAM}; color: ${NAVY}; padding: 5mm 5.5mm 4.5mm; display:flex; flex-direction:column; justify-content:space-between; }
 .names { display:flex; justify-content:space-between; gap: 3mm; } .names > div { flex: 1 1 50%; min-width: 0; }
-.fr { font-family: 'Cormorant Garamond', serif; direction:ltr; text-align:left; }
+.fr { font-family: 'Cormorant Garamond', serif; direction:ltr; text-align:left; } .fr .n { font-weight: 700; }
 .arb { font-family: Tajawal, sans-serif; direction:rtl; text-align:right; }
 .fr .n { font-size: 11pt; font-weight: 700; line-height:1.15; }
 .arb .n { font-family: Amiri, serif; font-size: 12pt; white-space: nowrap; font-weight: 700; line-height:1.2; }
 .t { color: ${GOLD}; font-weight: 700; margin-top: .8mm; }
 .fr .t { font-size: 8pt; } .arb .t { font-size: 7.4pt; }
-.u { font-size: 6.6pt; color: #4a5568; margin-top: .6mm; line-height:1.3; }
+.u { font-size: 6.4pt; color: #3d4757; margin-top: .5mm; line-height:1.3; }
 .fr .u { font-family: Tajawal, sans-serif; }
-.rule { height: .3mm; background: ${GOLD}; margin: 2mm 0; opacity:.8; }
-.contact { display:grid; grid-template-columns: 1fr 1fr; gap: 1mm 4mm; font-family: Tajawal, sans-serif; font-size: 6.6pt; line-height: 1.35; }
+.areas .i { white-space: nowrap; }
+.contact .r { white-space: nowrap; }
+.areas { border-top: .3mm solid ${GOLD}; border-bottom: .3mm solid ${GOLD}; padding: 1.6mm 0; text-align: center; }
+.areas .arr { font-family: Tajawal, sans-serif; direction: rtl; font-size: 7pt; font-weight: 500; color: ${NAVY}; line-height: 1.45; }
+.areas .afr { font-family: Tajawal, sans-serif; font-size: 6.3pt; color: #4a5568; line-height: 1.4; margin-top: .4mm; }
+.contact { display:grid; grid-template-columns: auto 1fr; gap: 3mm; font-family: Tajawal, sans-serif; font-size: 7pt; line-height: 1.4; align-items: end; }
 .contact .l { direction:ltr; text-align:left; } .contact .r { direction:rtl; text-align:right; }
 .contact b { color: ${GOLD}; font-weight:700; }
 .mini { position:absolute; left: 50%; bottom: 3.2mm; transform: translateX(-50%); opacity: .9; }
@@ -79,19 +84,27 @@ const front = `
   </div>
 </div>`;
 
-const back = (p) => `
+const AREAS_FR = ["Famille", "Civil", "Immobilier", "Commercial", "Pénal", "Travail", "Administratif", "Accidents de la route", "Conseil juridique"];
+const AREAS_AR = ["الأسرة", "المدني", "العقاري", "التجاري", "الجنائي", "الشغل", "الإداري", "حوادث السير", "الاستشارة القانونية"];
+
+const back = (p) => {
+  const lines = [PHONE && `<b>T</b> ${PHONE}`, EMAIL && `<b>@</b> ${EMAIL}`, `<b>W</b> ${DOMAIN}`].filter(Boolean).join("<br>");
+  return `
 <div class="card back">
   <div class="names">
     <div class="fr"><div class="n">${p.fr}</div><div class="t">${p.frRole}</div><div class="u">${p.frUni}</div></div>
     <div class="arb"><div class="n">${p.ar}</div><div class="t">${p.arRole}</div><div class="u">${p.arUni}</div></div>
   </div>
-  <div class="rule"></div>
+  <div class="areas">
+    <div class="arr">${AREAS_AR.map((a) => `<span class="i">${a}</span>`).join(" · ")}</div>
+    <div class="afr">${AREAS_FR.map((a) => `<span class="i">${a}</span>`).join(" · ")}</div>
+  </div>
   <div class="contact">
-    <div class="l"><b>T</b> ${PHONE}<br><b>@</b> ${EMAIL}<br><b>W</b> ${DOMAIN}</div>
-    <div class="r">42، زنقة عبد الكريم الديوري<br>شارع مدغشقر، الطابق الأرضي<br>الرباط</div>
-    <div class="l" style="grid-column:1/3;font-size:6pt;color:#5f6b7a">42, rue Abdelkrim Diouri, avenue de Madagascar, rez-de-chaussée – Rabat</div>
+    <div class="l">${lines}</div>
+    <div class="r">42، زنقة عبد الكريم الديوري<br>شارع مدغشقر، الطابق الأرضي – الرباط</div>
   </div>
 </div>`;
+};
 
 const PEOPLE = {
   amal: {

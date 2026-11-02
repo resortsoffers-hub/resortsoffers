@@ -249,8 +249,8 @@ const Events = () => {
                     Schedule a Meeting
                   </Button>
                 </a>
-                <a href="representation">
-                  <Button size="lg" variant="outline">Our Representation Services</Button>
+                <a href="marketing-pr">
+                  <Button size="lg" variant="outline">Our Marketing &amp; PR Services</Button>
                 </a>
               </div>
             </div>

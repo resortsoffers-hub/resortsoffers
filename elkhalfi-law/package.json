@@ -1,0 +1,6 @@
+{
+  "name": "elkhalfi-law",
+  "private": true,
+  "type": "commonjs",
+  "scripts": { "build": "node src/build.js" }
+}

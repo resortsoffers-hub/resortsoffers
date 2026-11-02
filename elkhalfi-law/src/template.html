@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="{{lang}}" dir="{{dir}}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{meta.title}}</title>
+  <meta name="description" content="{{meta.desc}}" />
+  <link rel="canonical" href="{{canonical}}" />
+{{hreflang}}
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="{{brand.full}}" />
+  <meta property="og:title" content="{{meta.title}}" />
+  <meta property="og:description" content="{{meta.desc}}" />
+  <meta property="og:url" content="{{canonical}}" />
+  <meta property="og:locale" content="{{ogLocale}}" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script type="application/ld+json">{{jsonld}}</script>
+</head>
+<body>
+
+  <header class="site-header" id="top">
+    <div class="container nav">
+      <a href="{{home}}" class="brand" aria-label="{{brand.full}}">
+        <span class="brand-mark">E</span>
+        <span class="brand-text"><span>{{brand.name}}</span><small>{{brand.sub}}</small></span>
+      </a>
+      <div class="nav-right">
+        <nav class="lang" aria-label="Language">{{langLinks}}</nav>
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <nav class="nav-links" aria-label="Main">
+        <a href="#cabinet">{{nav.about}}</a>
+        <a href="#domaines">{{nav.areas}}</a>
+        <a href="#equipe">{{nav.team}}</a>
+        <a href="#faq">{{nav.faq}}</a>
+        <a href="#contact" class="btn btn-small">{{nav.cta}}</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <h1 class="eyebrow">{{hero.h1}}</h1>
+        <p class="display">{{hero.title}}</p>
+        <p class="lead">{{hero.lead}}</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn">{{hero.cta1}}</a>
+          <a href="#domaines" class="btn btn-ghost">{{hero.cta2}}</a>
+        </div>
+        <ul class="hero-points">
+          <li>{{hero.p1}}</li>
+          <li>{{hero.p2}}</li>
+          <li>{{hero.p3}}</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="cabinet">
+      <div class="container about">
+        <div class="about-text">
+          <p class="eyebrow">{{about.eyebrow}}</p>
+          <h2>{{about.title}}</h2>
+          <p>{{about.p1}}</p>
+          <p>{{about.p2}}</p>
+        </div>
+        <ul class="values">
+          <li><strong>{{v1.t}}</strong><span>{{v1.d}}</span></li>
+          <li><strong>{{v2.t}}</strong><span>{{v2.d}}</span></li>
+          <li><strong>{{v3.t}}</strong><span>{{v3.d}}</span></li>
+          <li><strong>{{v4.t}}</strong><span>{{v4.d}}</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="domaines">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">{{areas.eyebrow}}</p>
+          <h2>{{areas.title}}</h2>
+          <p>{{areas.lead}}</p>
+        </div>
+        <div class="cards">
+{{areaCards}}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="equipe">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">{{team.eyebrow}}</p>
+          <h2>{{team.title}}</h2>
+        </div>
+        <div class="team">
+          <article class="member">
+            <!-- Replace with <img src="/images/amal.jpg" alt="..."> when the photo is ready -->
+            <div class="avatar" aria-hidden="true">AE</div>
+            <div>
+              <h3>{{amal.name}}</h3>
+              <p class="role">{{amal.role}}</p>
+              <p>{{amal.bio}}</p>
+              <ul class="facts">
+                <li>{{amal.f1}}</li>
+                <li>{{amal.f2}}</li>
+                <li>{{amal.f3}}</li>
+              </ul>
+            </div>
+          </article>
+          <article class="member">
+            <div class="avatar" aria-hidden="true">LE</div>
+            <div>
+              <h3>{{latifa.name}}</h3>
+              <p class="role">{{latifa.role}}</p>
+              <p>{{latifa.bio}}</p>
+              <ul class="facts">
+                <li>{{latifa.f1}}</li>
+                <li>{{latifa.f2}}</li>
+                <li>{{latifa.f3}}</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="faq">
+      <div class="container narrow">
+        <div class="section-head">
+          <p class="eyebrow">{{faq.eyebrow}}</p>
+          <h2>{{faq.title}}</h2>
+        </div>
+{{faqItems}}
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-info">
+          <p class="eyebrow">{{contact.eyebrow}}</p>
+          <h2>{{contact.title}}</h2>
+          <p>{{contact.lead}}</p>
+          <ul class="contact-list">
+            <li><span>{{contact.address}}</span><address>{{contact.addressV}}</address></li>
+            <li><span>{{contact.phone}}</span><p>{{contact.phoneV}}</p></li>
+            <li><span>WhatsApp</span><p>{{contact.phoneV}}</p></li>
+            <li><span>{{contact.email}}</span><p>{{contact.emailV}}</p></li>
+            <li><span>{{contact.hours}}</span><p>{{contact.hoursV}}</p></li>
+          </ul>
+          <!-- Map uses the street address for now; swap in the exact pin link when available. -->
+          <div class="map">
+            <iframe title="Map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              src="https://maps.google.com/maps?q=42%20rue%20Abdelkrim%20Diouri%2C%20Rabat%2C%20Maroc&amp;z=16&amp;output=embed"></iframe>
+          </div>
+          <a class="map-link" target="_blank" rel="noopener"
+            href="https://www.google.com/maps/search/?api=1&amp;query=42%20rue%20Abdelkrim%20Diouri%2C%20Rabat%2C%20Maroc">{{contact.map}}</a>
+        </div>
+        <form class="contact-form" id="contact-form" novalidate
+          data-err="{{form.err}}" data-ok="{{form.ok}}" data-subject="{{form.subject}}"
+          data-l-name="{{form.name}}" data-l-email="{{form.email}}" data-l-phone="{{form.phone}}" data-l-topic="{{form.topic}}">
+          <div class="field">
+            <label for="name">{{form.name}}</label>
+            <input id="name" name="name" type="text" autocomplete="name" required />
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="email">{{form.email}}</label>
+              <input id="email" name="email" type="email" autocomplete="email" required dir="ltr" />
+            </div>
+            <div class="field">
+              <label for="phone">{{form.phone}}</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" dir="ltr" />
+            </div>
+          </div>
+          <div class="field">
+            <label for="topic">{{form.topic}}</label>
+            <select id="topic" name="topic">
+{{topicOptions}}
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">{{form.message}}</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <label class="check">
+            <input type="checkbox" id="consent" required />
+            <span>{{form.consent}}</span>
+          </label>
+          <button type="submit" class="btn btn-full">{{form.send}}</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <a href="{{home}}" class="brand brand-light">
+          <span class="brand-mark">E</span>
+          <span class="brand-text"><span>{{brand.name}}</span><small>{{brand.sub}}</small></span>
+        </a>
+        <p class="footer-note">{{footer.bar}}</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="#cabinet">{{nav.about}}</a>
+        <a href="#domaines">{{nav.areas}}</a>
+        <a href="#equipe">{{nav.team}}</a>
+        <a href="#faq">{{nav.faq}}</a>
+        <a href="#contact">{{nav.contact}}</a>
+      </nav>
+    </div>
+    <div class="container disclaimer">
+      <p>{{footer.disclaimer}}</p>
+      <p>&copy; <span id="year">{{year}}</span> {{brand.full}}</p>
+    </div>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>

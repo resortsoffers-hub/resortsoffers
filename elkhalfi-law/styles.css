@@ -173,3 +173,23 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--g
 html[lang="ar"] .brand-text { line-height: 1.35; font-size: 1.45rem; }
 html[lang="ar"] .brand-text small { margin-top: 0; }
 @media (max-width: 560px) { .brand-text small { max-width: 150px; line-height: 1.3; } }
+
+/* SEO layout: keyword H1 sits as the small line above the large display slogan */
+.hero h1.eyebrow { font-family: var(--sans); font-size: 0.8rem; color: var(--gold); line-height: 1.5; margin-bottom: 1rem; }
+html[lang="ar"] .hero h1.eyebrow { font-size: 1rem; font-weight: 700; }
+.display { font-family: var(--serif); color: var(--white); font-size: clamp(2.4rem, 5vw, 3.8rem); line-height: 1.2; font-weight: 600; margin-bottom: 1.3rem; }
+html[lang="ar"] .display { font-weight: 700; line-height: 1.45; }
+.lang a { padding: 0.35rem 0.7rem; font-size: 0.8rem; font-weight: 600; color: var(--muted); }
+.lang a.active { background: var(--navy); color: var(--white); }
+@media (min-width: 961px) { .cards { grid-template-columns: repeat(3, 1fr); } }
+address { font-style: normal; }
+
+/* FAQ */
+.narrow { width: min(820px, 92%); }
+details { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); margin-bottom: 0.8rem; padding: 0 1.4rem; }
+summary { cursor: pointer; padding: 1.15rem 0; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+summary::-webkit-details-marker { display: none; }
+summary h3 { font-family: var(--sans); font-size: 1rem; font-weight: 600; margin: 0; color: var(--navy); line-height: 1.5; }
+summary::after { content: "+"; color: var(--gold); font-size: 1.4rem; line-height: 1; transition: transform .2s; flex-shrink: 0; }
+details[open] summary::after { transform: rotate(45deg); }
+details p { padding-bottom: 1.2rem; color: var(--muted); }

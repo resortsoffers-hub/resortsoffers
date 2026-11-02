@@ -131,7 +131,7 @@ const T = {
     "latifa.name": "الأستاذة لطيفة الخلفي",
     "latifa.role": "محامية",
     "latifa.bio": `الأستاذة لطيفة الخلفي محامية بالرباط، تشتغل إلى جانب أختها في مختلف أنواع القضايا: الأسرة، المدني، العقاري، التجاري، الجنائي والشغل. تحرص على الإنصات للموكلين وشرح كل مرحلة من مراحل الملف بوضوح، وعلى المتابعة الدقيقة للقضايا أمام المحاكم. خريجة جامعة محمد الخامس بالرباط.`,
-    "latifa.f1": `مسجلة بهيئة المحامين بـ${todo("المدينة")} منذ ${todo("السنة")}`,
+    "latifa.f1": "محامية بهيئة المحامين بالرباط",
     "latifa.f2": "خريجة جامعة محمد الخامس بالرباط",
     "latifa.f3": "جميع أنواع القضايا",
 
@@ -213,7 +213,7 @@ const T = {
     "latifa.name": "Maître Latifa El Khalfi",
     "latifa.role": "Avocate",
     "latifa.bio": `Maître Latifa El Khalfi est avocate à Rabat. Aux côtés de sa sœur, elle intervient dans tous les types d'affaires : famille, civil, immobilier, commercial, pénal et travail. Elle veille à écouter chaque client, à expliquer clairement chaque étape de la procédure et à suivre les dossiers avec précision devant les tribunaux. Elle est diplômée de l'Université Mohammed V de Rabat.`,
-    "latifa.f1": `Inscrite au Barreau de ${todo("ville")} depuis ${todo("année")}`,
+    "latifa.f1": "Avocate au Barreau de Rabat",
     "latifa.f2": "Lauréate de l'Université Mohammed V de Rabat",
     "latifa.f3": "Tous types d'affaires",
 
@@ -295,7 +295,7 @@ const T = {
     "latifa.name": "Latifa El Khalfi",
     "latifa.role": "Lawyer",
     "latifa.bio": `Latifa El Khalfi is a lawyer in Rabat. Alongside her sister, she handles all types of cases: family, civil, real estate, commercial, criminal and employment. She takes care to listen to every client, explain each stage of the process clearly and follow cases closely before the courts. She is a graduate of Mohammed V University in Rabat.`,
-    "latifa.f1": `Member of the ${todo("City")} Bar since ${todo("year")}`,
+    "latifa.f1": "Member of the Rabat Bar",
     "latifa.f2": "Graduate of Mohammed V University, Rabat",
     "latifa.f3": "All types of cases",
 

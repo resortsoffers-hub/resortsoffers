@@ -9,10 +9,10 @@
 
 يسعدنا أن نقدّم لكم **الخلفي للمحاماة والاستشارات القانونية** بالرباط ⚖️
 
-الأستاذة أمل الخلفي والأستاذة لطيفة الخلفي، محاميتان في خدمة الأفراد والأسر والمقاولات، من الاستشارة القانونية إلى الدفاع أمام المحاكم.
+الأستاذة آمال الخلفي والأستاذة لطيفة الخلفي، محاميتان في خدمة الأفراد والأسر والمقاولات، من الاستشارة القانونية إلى الدفاع أمام المحاكم.
 
 📍 الرباط – شارع مدغشقر، زنقة عبد الكريم الديوري، رقم 42
-🌐 elkhalfiavocats.com
+🌐 elkhalfiavocates.com
 
 **FR :** Nous avons le plaisir de vous présenter **Elkhalfi – Avocats & Conseil juridique**, à Rabat. Maître Amal El Khalfi et Maître Latifa El Khalfi accompagnent particuliers, familles et entreprises, du conseil à la défense devant les tribunaux.
 
@@ -20,9 +20,9 @@
 
 ---
 
-## 02 – الأستاذة أمل الخلفي (`02-amal.png`)
+## 02 – الأستاذة آمال الخلفي (`02-amal.png`)
 
-تعرّفوا على **الأستاذة أمل الخلفي** 👩‍⚖️
+تعرّفوا على **الأستاذة آمال الخلفي** 👩‍⚖️
 
 محامية بالرباط ودكتورة في القانون، أنجزت أطروحتها حول «التضامن في الالتزامات في القانون المغربي». بخبرة تفوق عشر سنوات، تضع هذا العمق الأكاديمي في خدمة موكليها في جميع أنواع القضايا.
 
@@ -50,7 +50,7 @@
 
 قضايا الأسرة · المدني · العقاري · التجاري · الجنائي · الشغل · الإداري · حوادث السير والتأمين · الاستشارة القانونية
 
-لحجز موعد: elkhalfiavocats.com
+لحجز موعد: elkhalfiavocates.com
 
 **FR :** Un cabinet d'avocats à Rabat pour tous types d'affaires : famille, civil, immobilier, commercial, pénal, travail, administratif, accidents de la circulation et conseil juridique.
 
@@ -104,7 +104,7 @@
 
 شارع مدغشقر، زنقة عبد الكريم الديوري، رقم 42، الطابق الأرضي – الرباط
 
-لحجز موعد: elkhalfiavocats.com
+لحجز موعد: elkhalfiavocates.com
 
 **FR :** Retrouvez-nous à Rabat : 42, rue Abdelkrim Diouri, avenue de Madagascar, rez-de-chaussée.
 

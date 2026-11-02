@@ -1,5 +1,5 @@
 // Firm email for the contact form. Update once the domain and mailbox exist.
-const FIRM_EMAIL = "contact@elkhalfiavocats.com";
+const FIRM_EMAIL = "contact@elkhalfiavocates.com";
 
 // Mobile menu
 const toggle = document.querySelector(".nav-toggle");

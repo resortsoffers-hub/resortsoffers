@@ -9,7 +9,7 @@ const fs = require("fs");
 const path = require("path");
 const { T, AREAS, FAQ } = require("./content");
 
-const SITE_URL = (process.env.SITE_URL || "https://elkhalfiavocats.com").replace(/\/$/, "");
+const SITE_URL = (process.env.SITE_URL || "https://elkhalfiavocates.com").replace(/\/$/, "");
 const ROOT = path.join(__dirname, "..");
 const OUT = path.join(ROOT, "site");
 
@@ -48,7 +48,7 @@ function jsonLd(lang) {
     "@type": "Person",
     "@id": SITE_URL + "/#amal",
     name: "Amal El Khalfi",
-    alternateName: ["أمل الخلفي", "Maître Amal El Khalfi", "Amal Elkhalfi"],
+    alternateName: ["آمال الخلفي", "Maître Amal El Khalfi", "Amal Elkhalfi"],
     jobTitle: stripTags(t["amal.role"]),
     description: stripTags(t["amal.bio"]),
     hasCredential: { "@type": "EducationalOccupationalCredential", credentialCategory: "Doctorate in Law" },
@@ -125,7 +125,7 @@ function llmsTxt() {
 
 - Website: ${SITE_URL}/ (Arabic), ${SITE_URL}/fr/ (French), ${SITE_URL}/en/ (English)
 - Address: 42, rue Abdelkrim Diouri, avenue de Madagascar, ground floor, Rabat, Morocco
-- Lawyers: Maître Amal El Khalfi (أمل الخلفي), Doctor of Law; Maître Latifa El Khalfi (لطيفة الخلفي)
+- Lawyers: Maître Amal El Khalfi (آمال الخلفي), Doctor of Law; Maître Latifa El Khalfi (لطيفة الخلفي)
 
 ## About (English)
 ${stripTags(en["about.p1"])} ${stripTags(en["about.p2"])}

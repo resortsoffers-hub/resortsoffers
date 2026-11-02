@@ -5,8 +5,8 @@ const fs = require("fs");
 const { chromium } = require("playwright");
 
 const OUT = path.join(__dirname, "posts");
-const HANDLE = "@elkhalfiavocats";
-const SITE = "elkhalfiavocats.com";
+const HANDLE = "@elkhalfiavocates";
+const SITE = "elkhalfiavocates.com";
 
 const css = `
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -58,10 +58,10 @@ const posts = [
   ["01-launch", wrap(`
     <p class="kicker">محاماة واستشارات قانونية · الرباط</p>
     <h1>استشارة ودفاع،<br>بدقة وإنصات.</h1>
-    <p class="lead">الأستاذة أمل الخلفي والأستاذة لطيفة الخلفي، محاميتان بالرباط، في خدمة الأفراد والأسر والمقاولات في جميع أنواع القضايا.</p>`)],
+    <p class="lead">الأستاذة آمال الخلفي والأستاذة لطيفة الخلفي، محاميتان بالرباط، في خدمة الأفراد والأسر والمقاولات في جميع أنواع القضايا.</p>`)],
   ["02-amal", wrap(`
     <div class="avatar">AE</div>
-    <h1 class="md">الأستاذة أمل الخلفي</h1>
+    <h1 class="md">الأستاذة آمال الخلفي</h1>
     <p class="role">محامية · دكتورة في القانون</p>
     <ul>
       <li>دكتوراه في القانون: «التضامن في الالتزامات في القانون المغربي»</li>

@@ -30,6 +30,7 @@ import Reviews from "./pages/Reviews";
 import Cruises from "./pages/Cruises";
 import AboutUs from "./pages/AboutUs";
 import Events from "./pages/Events";
+import MarketingPR from "./pages/MarketingPR";
 import EngagementPolicy from "./pages/EngagementPolicy";
 import NotFound from "./pages/NotFound";
 
@@ -68,6 +69,7 @@ const localizedChildren = (
     <Route path="cruises" element={<Cruises />} />
     <Route path="about-us" element={<AboutUs />} />
     <Route path="events" element={<Events />} />
+    <Route path="marketing-pr" element={<MarketingPR />} />
     <Route path="engagement-policy" element={<EngagementPolicy />} />
     {/* /hotels, /offers, /contact intentionally removed until launch */}
   </>
@@ -114,6 +116,7 @@ const App = () => (
               <Route path="/cruises" element={<RedirectToLocale />} />
               <Route path="/about-us" element={<RedirectToLocale />} />
               <Route path="/events" element={<RedirectToLocale />} />
+              <Route path="/marketing-pr" element={<RedirectToLocale />} />
               <Route path="/engagement-policy" element={<RedirectToLocale />} />
 
               {/* Removed pages → send to home */}

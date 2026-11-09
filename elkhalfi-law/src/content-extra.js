@@ -6,7 +6,7 @@ module.exports = (en) => {
   const shared = {
     "brand.name": "Elkhalfi",
     "org.noraName": "Nora Elkhalfi",
-    "org.samadName": "Samad Elkhalfi",
+    "org.samadName": "Abdul Samad Elkhalfi",
     "org.hananeName": "Hanane El Khaldi",
     "amal.name": en["amal.name"],
     "latifa.name": en["latifa.name"],

@@ -54,54 +54,54 @@ const AREAS = {
 // Lawyer bios (short): Amal Moroccan-French, doctorate (Perpignan), interior design; Latifa Rabat Bar, Mohammed V University.
 const BIOS = {
  "ar": [
-  "محامية مغربية وفرنسية، دكتورة في القانون من جامعة بربينيان (فرنسا). تخرّجت أولاً في التصميم الداخلي قبل أن تتجه إلى القانون.",
+  "محامية مغربية وفرنسية، دكتورة في القانون المدني والتجاري من جامعة بربينيان (فرنسا) بميزة مشرف جداً مع تهنئة لجنة المناقشة. مارست المحاماة في فرنسا قبل أن تعود مع أسرتها إلى المغرب. وقبل القانون، تخرّجت في التصميم الداخلي.",
   "دكتوراه في القانون – جامعة بربينيان (فرنسا)",
-  "شهادة في التصميم الداخلي",
+  "محامية سابقاً في فرنسا، واليوم في الرباط",
   "الجنسية المغربية والفرنسية",
   "محامية بهيئة المحامين بالرباط، خرّيجة جامعة محمد الخامس بالرباط.",
   "محامية بهيئة المحامين بالرباط",
   "خرّيجة جامعة محمد الخامس – الرباط"
  ],
  "fr": [
-  "Avocate franco-marocaine, docteure en droit de l'Université de Perpignan (France). Diplômée d'abord en architecture d'intérieur, elle s'est ensuite tournée vers le droit.",
+  "Avocate franco-marocaine, docteure en droit civil et commercial de l'Université de Perpignan (mention très honorable avec félicitations du jury). Après avoir exercé comme avocate en France, elle s'est installée au Maroc avec sa famille. Avant le droit, elle était diplômée en architecture d'intérieur.",
   "Doctorat en droit – Université de Perpignan (France)",
-  "Diplôme en architecture d'intérieur",
+  "Avocate en France, aujourd'hui à Rabat",
   "Nationalités marocaine et française",
   "Avocate au barreau de Rabat, diplômée de l'Université Mohammed V de Rabat.",
   "Avocate au barreau de Rabat",
   "Diplômée de l'Université Mohammed V – Rabat"
  ],
  "en": [
-  "Moroccan and French lawyer, Doctor of Law from the University of Perpignan (France). She first graduated in interior design before turning to law.",
+  "Moroccan and French lawyer, Doctor of civil and commercial law from the University of Perpignan (highest honours). After practising as a lawyer in France, she moved to Morocco with her family. Before law, she graduated in interior design.",
   "Doctorate in Law – University of Perpignan (France)",
-  "Degree in interior design",
+  "Former lawyer in France, now in Rabat",
   "Moroccan & French nationality",
   "Lawyer at the Rabat Bar, graduate of Mohammed V University, Rabat.",
   "Member of the Rabat Bar",
   "Graduate of Mohammed V University – Rabat"
  ],
  "es": [
-  "Abogada marroquí y francesa, doctora en Derecho por la Universidad de Perpiñán (Francia). Antes se graduó en diseño de interiores.",
+  "Abogada marroquí y francesa, doctora en Derecho civil y mercantil por la Universidad de Perpiñán (máxima calificación). Tras ejercer como abogada en Francia, se trasladó a Marruecos con su familia. Antes del Derecho, se graduó en diseño de interiores.",
   "Doctorado en Derecho – Universidad de Perpiñán (Francia)",
-  "Título en diseño de interiores",
+  "Abogada en Francia, hoy en Rabat",
   "Nacionalidad marroquí y francesa",
   "Abogada del Colegio de Abogados de Rabat, licenciada por la Universidad Mohammed V de Rabat.",
   "Colegio de Abogados de Rabat",
   "Licenciada por la Universidad Mohammed V – Rabat"
  ],
  "de": [
-  "Marokkanisch-französische Rechtsanwältin, promoviert in Rechtswissenschaften an der Universität Perpignan (Frankreich). Zuvor schloss sie ein Studium der Innenarchitektur ab.",
+  "Marokkanisch-französische Rechtsanwältin, promoviert im Zivil- und Handelsrecht an der Universität Perpignan (mit Auszeichnung). Nach ihrer Tätigkeit als Anwältin in Frankreich zog sie mit ihrer Familie nach Marokko. Vor dem Jurastudium schloss sie ein Studium der Innenarchitektur ab.",
   "Promotion in Rechtswissenschaften – Universität Perpignan (Frankreich)",
-  "Abschluss in Innenarchitektur",
+  "Früher Anwältin in Frankreich, heute in Rabat",
   "Marokkanische und französische Staatsangehörigkeit",
   "Rechtsanwältin der Anwaltskammer Rabat, Absolventin der Universität Mohammed V in Rabat.",
   "Anwaltskammer Rabat",
   "Absolventin der Universität Mohammed V – Rabat"
  ],
  "nl": [
-  "Marokkaans-Franse advocaat, doctor in de rechten aan de Universiteit van Perpignan (Frankrijk). Eerder studeerde zij af in binnenhuisarchitectuur.",
+  "Marokkaans-Franse advocaat, doctor in het burgerlijk en handelsrecht aan de Universiteit van Perpignan (met de hoogste onderscheiding). Na haar praktijk als advocaat in Frankrijk verhuisde zij met haar gezin naar Marokko. Vóór de rechten studeerde zij af in binnenhuisarchitectuur.",
   "Doctoraat in de rechten – Universiteit van Perpignan (Frankrijk)",
-  "Diploma binnenhuisarchitectuur",
+  "Voorheen advocaat in Frankrijk, nu in Rabat",
   "Marokkaanse en Franse nationaliteit",
   "Advocaat bij de balie van Rabat, afgestudeerd aan de Universiteit Mohammed V in Rabat.",
   "Balie van Rabat",

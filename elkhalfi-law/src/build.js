@@ -13,6 +13,12 @@ const PAGES = require("./areas");
   const extra = require("./content-extra")(T.en);
   Object.assign(T, extra.T); Object.assign(AREAS, extra.AREAS); Object.assign(FAQ, extra.FAQ);
 }
+// Short, scannable home-page texts.
+{
+  const short = require("./short");
+  for (const l of Object.keys(short.T)) Object.assign(T[l], short.T[l]);
+  for (const l of Object.keys(short.AREAS)) AREAS[l] = AREAS[l].map(([t, d], i) => [t, short.AREAS[l][i] || d]);
+}
 
 const SITE_URL = (process.env.SITE_URL || "https://elkhalfiavocates.com").replace(/\/$/, "");
 const ROOT = path.join(__dirname, "..");
@@ -264,7 +270,7 @@ ${urls}
 
 // Public build hides any line that still holds an unconfirmed detail; DRAFT=1 shows them highlighted.
 const DRAFT = process.env.DRAFT === "1";
-const publish = (html) => (DRAFT ? html : html.split("\n").filter((l) => !l.includes('mark class="todo"')).join("\n")).replace(/\n\s*<li><\/li>/g, "");
+const publish = (html) => (DRAFT ? html : html.split("\n").filter((l) => !l.includes('mark class="todo"')).join("\n")).replace(/\n\s*<li><\/li>/g, "").replace(/\n\s*<p><\/p>/g, "");
 const _write = fs.writeFileSync;
 const writePage = (file, html) => _write(file, publish(html));
 

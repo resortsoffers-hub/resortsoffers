@@ -110,4 +110,7 @@ const BIOS = {
 };
 for (const [l, b] of Object.entries(BIOS)) Object.assign(T[l], { "amal.bio": b[0], "amal.f1": b[1], "amal.f2": b[2], "amal.f3": b[3], "latifa.bio": b[4], "latifa.f1": b[5], "latifa.f2": b[6] });
 
+const HOURS = {"ar": "الإثنين – الجمعة، 9:00 – 18:00", "fr": "Lundi – vendredi, 9h – 18h", "en": "Monday – Friday, 9:00 – 18:00", "es": "Lunes – viernes, 9:00 – 18:00", "de": "Montag – Freitag, 9:00 – 18:00", "nl": "Maandag – vrijdag, 9:00 – 18:00"};
+for (const [l, h] of Object.entries(HOURS)) T[l]["contact.hoursV"] = h;
+
 module.exports = { T, AREAS };

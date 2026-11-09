@@ -56,6 +56,7 @@ function jsonLd(lang) {
     },
     telephone: ["+212667499187", "+212661983230"],
     email: "elkhalfiavocates@gmail.com",
+    openingHours: "Mo-Fr 09:00-18:00",
     areaServed: { "@type": "Country", name: "Morocco" },
     knowsAbout: AREAS[lang].map(([a]) => a),
     employee: [{ "@id": SITE_URL + "/#amal" }, { "@id": SITE_URL + "/#latifa" }],

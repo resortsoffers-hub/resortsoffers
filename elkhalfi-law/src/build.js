@@ -9,6 +9,10 @@ const fs = require("fs");
 const path = require("path");
 const { T, AREAS, FAQ } = require("./content");
 const PAGES = require("./areas");
+{
+  const extra = require("./content-extra")(T.en);
+  Object.assign(T, extra.T); Object.assign(AREAS, extra.AREAS); Object.assign(FAQ, extra.FAQ);
+}
 
 const SITE_URL = (process.env.SITE_URL || "https://elkhalfiavocates.com").replace(/\/$/, "");
 const ROOT = path.join(__dirname, "..");
@@ -18,8 +22,11 @@ const LANGS = {
   ar: { path: "/", dir: "rtl", og: "ar_MA", label: "العربية", short: "ع" },
   fr: { path: "/fr/", dir: "ltr", og: "fr_MA", label: "Français", short: "FR" },
   en: { path: "/en/", dir: "ltr", og: "en_US", label: "English", short: "EN" },
+  es: { path: "/es/", dir: "ltr", og: "es_ES", label: "Español", short: "ES" },
+  de: { path: "/de/", dir: "ltr", og: "de_DE", label: "Deutsch", short: "DE" },
+  nl: { path: "/nl/", dir: "ltr", og: "nl_NL", label: "Nederlands", short: "NL" },
 };
-const ORDER = ["fr", "ar", "en"]; // order of the language buttons
+const ORDER = ["ar", "fr", "en", "es", "de", "nl"]; // order of the language buttons
 
 const stripTags = (s) => s.replace(/<mark class="todo">[\s\S]*?<\/mark>/g, "").replace(/<br\s*\/?>/g, ", ").replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
 const attr = (s) => stripTags(s).replace(/&(?!amp;)/g, "&amp;").replace(/"/g, "&quot;");
@@ -32,7 +39,7 @@ function jsonLd(lang) {
     "@type": "LegalService",
     "@id": SITE_URL + "/#firm",
     name: t["brand.full"],
-    alternateName: ["الخلفي للمحاماة والاستشارات القانونية", "Elkhalfi – Avocats & Conseil juridique", "Elkhalfi Law & Legal Consulting", "Cabinet El Khalfi"],
+    alternateName: ["الخلفي للمحاماة والاستشارات القانونية", "Elkhalfi – Avocats & Conseil juridique", "Elkhalfi Law & Legal Consulting", "Elkhalfi Abogadas y Asesoría Jurídica", "Elkhalfi Rechtsanwältinnen & Rechtsberatung", "Elkhalfi Advocaten & Juridisch Advies", "Elkhalfi Advocates", "Cabinet El Khalfi"],
     description: stripTags(t["meta.desc"]),
     url,
     address: {
@@ -105,6 +112,7 @@ function render(lang) {
     langLinks: ORDER.map((l) =>
       `<a href="${LANGS[l].path}" hreflang="${l}" lang="${l}" title="${LANGS[l].label}"${l === lang ? ' class="active" aria-current="page"' : ""}>${LANGS[l].short}</a>`
     ).join(""),
+    langOptions: ORDER.map((l) => `<option value="${LANGS[l].path}"${l === lang ? " selected" : ""}>${LANGS[l].label}</option>`).join(""),
     areaCards: AREAS[lang]
       .map(([title, desc], i) => {
         const inner = `<div class="icon" aria-hidden="true">${ICONS[i]}</div><h3>${title}</h3><p>${desc}</p>`;
@@ -179,6 +187,7 @@ function renderArea(lang, page) {
       const href = AREA_LANGS.includes(l) ? areaPath(l, page.slug) : LANGS[l].path;
       return `<a href="${href}" hreflang="${l}" lang="${l}" title="${LANGS[l].label}"${l === lang ? ' class="active" aria-current="page"' : ""}>${LANGS[l].short}</a>`;
     }).join(""),
+    langOptions: ORDER.map((l) => { const href = AREA_LANGS.includes(l) ? areaPath(l, page.slug) : LANGS[l].path; return `<option value="${href}"${l === lang ? " selected" : ""}>${LANGS[l].label}</option>`; }).join(""),
     items: a.items.map((i) => `            <li>${i}</li>`).join("\n"),
     faqItems: a.faq.map(([q, ans]) => `        <details>\n          <summary><h3>${q}</h3></summary>\n          <p>${ans}</p>\n        </details>`).join("\n"),
     others: PAGES.filter((p) => p !== page).map((p) => `          <a href="${areaPath(lang, p.slug)}">${p[lang].name}</a>`).join("\n"),

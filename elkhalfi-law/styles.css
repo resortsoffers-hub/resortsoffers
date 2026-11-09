@@ -229,3 +229,9 @@ details p { padding-bottom: 1.2rem; color: var(--muted); }
 .org-box.lead b { color: var(--white); }
 .org-box.lead span { color: var(--gold-light); }
 .org-line { width: 2px; height: 36px; background: var(--gold); margin: 0.6rem auto; }
+
+/* Language picker: buttons on desktop, dropdown on small screens */
+.lang-select { display: none; font: inherit; font-size: 0.85rem; font-weight: 600; color: var(--navy); background: var(--white); border: 1px solid var(--line); border-radius: 999px; padding: 0.35rem 0.6rem; }
+.nav-links a { white-space: nowrap; }
+@media (max-width: 1200px) { .nav-links { gap: 1.1rem; } .lang a { padding: 0.35rem 0.5rem; } }
+@media (max-width: 960px) { .lang { display: none; } .lang-select { display: block; } }

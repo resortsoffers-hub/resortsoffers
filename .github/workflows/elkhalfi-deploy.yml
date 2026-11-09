@@ -1,0 +1,38 @@
+name: Deploy Elkhalfi site
+
+# Builds elkhalfi-law/ and uploads it to the Namecheap hosting folder of
+# elkhalfiavocates.com (an addon domain in the same cPanel as resortsoffers.com).
+on:
+  push:
+    paths:
+      - "elkhalfi-law/**"
+      - ".github/workflows/elkhalfi-deploy.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: elkhalfi-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Build site
+        run: node elkhalfi-law/src/build.js
+
+      - name: Upload to Namecheap via FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          local-dir: ./elkhalfi-law/site/
+          server-dir: elkhalfiavocates.com/

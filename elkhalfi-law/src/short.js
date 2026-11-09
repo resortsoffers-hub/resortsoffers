@@ -57,7 +57,7 @@ const BIOS = {
   "الدكتورة آمال الخلفي حاصلة على الدكتوراه في القانون المدني والتجاري من جامعة بربينيان (فرنسا)، بميزة مشرف جداً مع تهنئة لجنة المناقشة، عن أطروحة حول «التضامن في الالتزامات في القانون المغربي: مساهمة في تاريخ مؤسسة رومانية إسلامية». مارست المحاماة في فرنسا قبل أن تستقر مع أسرتها في المغرب. وقبل دراسة القانون، تخرّجت في التصميم الداخلي.",
   "دكتوراه في القانون المدني والتجاري – جامعة بربينيان (فرنسا)",
   "أطروحة: التضامن في الالتزامات في القانون المغربي",
-  "محامية سابقاً في فرنسا، واليوم في الرباط",
+  "محامية بهيئة المحامين بالرباط",
   "محامية بهيئة المحامين بالرباط، خرّيجة جامعة محمد الخامس بالرباط.",
   "محامية بهيئة المحامين بالرباط",
   "خرّيجة جامعة محمد الخامس – الرباط"
@@ -66,7 +66,7 @@ const BIOS = {
   "Dr Amal Elkhalfi est docteure en droit civil et commercial de l'Université de Perpignan Via Domitia (France), avec la mention très honorable et les félicitations du jury, pour sa thèse «Les obligations solidaires en droit marocain – contribution à l'histoire d'une institution romano-islamique». Elle a exercé comme avocate en France avant de s'installer au Maroc avec sa famille. Avant le droit, elle était diplômée en architecture d'intérieur.",
   "Doctorat en droit civil et commercial – Université de Perpignan (France)",
   "Thèse : les obligations solidaires en droit marocain",
-  "Avocate en France, aujourd'hui à Rabat",
+  "Avocate au Barreau de Rabat",
   "Avocate au barreau de Rabat, diplômée de l'Université Mohammed V de Rabat.",
   "Avocate au barreau de Rabat",
   "Diplômée de l'Université Mohammed V – Rabat"
@@ -75,7 +75,7 @@ const BIOS = {
   "Dr. Amal Elkhalfi holds a Doctorate in civil and commercial law from the University of Perpignan Via Domitia (France), awarded with highest honours and the jury's congratulations, for her thesis on joint and several obligations in Moroccan law, a contribution to the history of a Romano-Islamic institution. She practised as a lawyer in France before settling in Morocco with her family. Before law, she graduated in interior design.",
   "Doctorate in civil & commercial law – University of Perpignan (France)",
   "Thesis: joint and several obligations in Moroccan law",
-  "Former lawyer in France, now in Rabat",
+  "Member of the Rabat Bar",
   "Lawyer at the Rabat Bar, graduate of Mohammed V University, Rabat.",
   "Member of the Rabat Bar",
   "Graduate of Mohammed V University – Rabat"
@@ -84,7 +84,7 @@ const BIOS = {
   "La Dra. Amal Elkhalfi es doctora en Derecho civil y mercantil por la Universidad de Perpiñán Via Domitia (Francia), con la máxima calificación y felicitaciones del tribunal, por su tesis sobre las obligaciones solidarias en el derecho marroquí. Ejerció como abogada en Francia antes de instalarse en Marruecos con su familia. Antes del Derecho, se graduó en diseño de interiores.",
   "Doctorado en Derecho civil y mercantil – Universidad de Perpiñán (Francia)",
   "Tesis: obligaciones solidarias en el derecho marroquí",
-  "Abogada en Francia, hoy en Rabat",
+  "Colegio de Abogados de Rabat",
   "Abogada del Colegio de Abogados de Rabat, licenciada por la Universidad Mohammed V de Rabat.",
   "Colegio de Abogados de Rabat",
   "Licenciada por la Universidad Mohammed V – Rabat"
@@ -93,7 +93,7 @@ const BIOS = {
   "Dr. Amal Elkhalfi ist promoviert im Zivil- und Handelsrecht an der Universität Perpignan Via Domitia (Frankreich), mit höchster Auszeichnung und Glückwünschen der Jury, mit einer Dissertation über die Gesamtschuld im marokkanischen Recht. Sie war als Anwältin in Frankreich tätig, bevor sie sich mit ihrer Familie in Marokko niederließ. Vor dem Jurastudium schloss sie ein Studium der Innenarchitektur ab.",
   "Promotion im Zivil- und Handelsrecht – Universität Perpignan (Frankreich)",
   "Dissertation: Gesamtschuld im marokkanischen Recht",
-  "Früher Anwältin in Frankreich, heute in Rabat",
+  "Anwaltskammer Rabat",
   "Rechtsanwältin der Anwaltskammer Rabat, Absolventin der Universität Mohammed V in Rabat.",
   "Anwaltskammer Rabat",
   "Absolventin der Universität Mohammed V – Rabat"
@@ -102,7 +102,7 @@ const BIOS = {
   "Dr. Amal Elkhalfi is doctor in het burgerlijk en handelsrecht aan de Universiteit van Perpignan Via Domitia (Frankrijk), met de hoogste onderscheiding en felicitaties van de jury, met een proefschrift over hoofdelijke verbintenissen in het Marokkaanse recht. Zij was advocaat in Frankrijk voordat zij zich met haar gezin in Marokko vestigde. Vóór de rechten studeerde zij af in binnenhuisarchitectuur.",
   "Doctoraat in het burgerlijk en handelsrecht – Universiteit van Perpignan (Frankrijk)",
   "Proefschrift: hoofdelijke verbintenissen in het Marokkaanse recht",
-  "Voorheen advocaat in Frankrijk, nu in Rabat",
+  "Balie van Rabat",
   "Advocaat bij de balie van Rabat, afgestudeerd aan de Universiteit Mohammed V in Rabat.",
   "Balie van Rabat",
   "Afgestudeerd aan de Universiteit Mohammed V – Rabat"
@@ -112,5 +112,8 @@ for (const [l, b] of Object.entries(BIOS)) Object.assign(T[l], { "amal.bio": b[0
 
 const HOURS = {"ar": "الإثنين – الجمعة، 9:00 – 18:00", "fr": "Lundi – vendredi, 9h – 18h", "en": "Monday – Friday, 9:00 – 18:00", "es": "Lunes – viernes, 9:00 – 18:00", "de": "Montag – Freitag, 9:00 – 18:00", "nl": "Maandag – vrijdag, 9:00 – 18:00"};
 for (const [l, h] of Object.entries(HOURS)) T[l]["contact.hoursV"] = h;
+
+const SIGN_ALT = {"ar": "لوحة مكتب الأستاذة آمال الخلفي، محامية بهيئة الرباط، الرباط", "fr": "Plaque du cabinet de Maître Amal El Khalfi, avocate au Barreau de Rabat", "en": "Office sign of Maître Amal El Khalfi, lawyer at the Rabat Bar", "es": "Placa del despacho de Maître Amal El Khalfi, abogada en Rabat", "de": "Kanzleischild von Maître Amal El Khalfi, Rechtsanwältin in Rabat", "nl": "Naambord van Maître Amal El Khalfi, advocaat in Rabat"};
+for (const [l, a] of Object.entries(SIGN_ALT)) T[l]["contact.signAlt"] = a;
 
 module.exports = { T, AREAS };

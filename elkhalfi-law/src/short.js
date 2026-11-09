@@ -51,4 +51,63 @@ const AREAS = {
   nl: ["Echtscheiding, gezag, alimentatie, erfenis", "Contracten, schadevergoeding, incasso", "Koop, huur, kadaster, syndicus", "Vennootschappen, contracten, cheques", "Slachtoffers en verdediging, elke fase", "Ontslag, arbeidsongevallen", "Beroep tegen de overheid", "Schadevergoeding, verzekeraars", "Advies, opstellen van contracten"],
 };
 
+// Lawyer bios (short): Amal Moroccan-French, doctorate (Perpignan), interior design; Latifa Rabat Bar, Mohammed V University.
+const BIOS = {
+ "ar": [
+  "محامية مغربية وفرنسية، دكتورة في القانون من جامعة بربينيان (فرنسا). تخرّجت أولاً في التصميم الداخلي قبل أن تتجه إلى القانون.",
+  "دكتوراه في القانون – جامعة بربينيان (فرنسا)",
+  "شهادة في التصميم الداخلي",
+  "الجنسية المغربية والفرنسية",
+  "محامية بهيئة المحامين بالرباط، خرّيجة جامعة محمد الخامس بالرباط.",
+  "محامية بهيئة المحامين بالرباط",
+  "خرّيجة جامعة محمد الخامس – الرباط"
+ ],
+ "fr": [
+  "Avocate franco-marocaine, docteure en droit de l'Université de Perpignan (France). Diplômée d'abord en architecture d'intérieur, elle s'est ensuite tournée vers le droit.",
+  "Doctorat en droit – Université de Perpignan (France)",
+  "Diplôme en architecture d'intérieur",
+  "Nationalités marocaine et française",
+  "Avocate au barreau de Rabat, diplômée de l'Université Mohammed V de Rabat.",
+  "Avocate au barreau de Rabat",
+  "Diplômée de l'Université Mohammed V – Rabat"
+ ],
+ "en": [
+  "Moroccan and French lawyer, Doctor of Law from the University of Perpignan (France). She first graduated in interior design before turning to law.",
+  "Doctorate in Law – University of Perpignan (France)",
+  "Degree in interior design",
+  "Moroccan & French nationality",
+  "Lawyer at the Rabat Bar, graduate of Mohammed V University, Rabat.",
+  "Member of the Rabat Bar",
+  "Graduate of Mohammed V University – Rabat"
+ ],
+ "es": [
+  "Abogada marroquí y francesa, doctora en Derecho por la Universidad de Perpiñán (Francia). Antes se graduó en diseño de interiores.",
+  "Doctorado en Derecho – Universidad de Perpiñán (Francia)",
+  "Título en diseño de interiores",
+  "Nacionalidad marroquí y francesa",
+  "Abogada del Colegio de Abogados de Rabat, licenciada por la Universidad Mohammed V de Rabat.",
+  "Colegio de Abogados de Rabat",
+  "Licenciada por la Universidad Mohammed V – Rabat"
+ ],
+ "de": [
+  "Marokkanisch-französische Rechtsanwältin, promoviert in Rechtswissenschaften an der Universität Perpignan (Frankreich). Zuvor schloss sie ein Studium der Innenarchitektur ab.",
+  "Promotion in Rechtswissenschaften – Universität Perpignan (Frankreich)",
+  "Abschluss in Innenarchitektur",
+  "Marokkanische und französische Staatsangehörigkeit",
+  "Rechtsanwältin der Anwaltskammer Rabat, Absolventin der Universität Mohammed V in Rabat.",
+  "Anwaltskammer Rabat",
+  "Absolventin der Universität Mohammed V – Rabat"
+ ],
+ "nl": [
+  "Marokkaans-Franse advocaat, doctor in de rechten aan de Universiteit van Perpignan (Frankrijk). Eerder studeerde zij af in binnenhuisarchitectuur.",
+  "Doctoraat in de rechten – Universiteit van Perpignan (Frankrijk)",
+  "Diploma binnenhuisarchitectuur",
+  "Marokkaanse en Franse nationaliteit",
+  "Advocaat bij de balie van Rabat, afgestudeerd aan de Universiteit Mohammed V in Rabat.",
+  "Balie van Rabat",
+  "Afgestudeerd aan de Universiteit Mohammed V – Rabat"
+ ]
+};
+for (const [l, b] of Object.entries(BIOS)) Object.assign(T[l], { "amal.bio": b[0], "amal.f1": b[1], "amal.f2": b[2], "amal.f3": b[3], "latifa.bio": b[4], "latifa.f1": b[5], "latifa.f2": b[6] });
+
 module.exports = { T, AREAS };

@@ -25,23 +25,22 @@ const html = (bg, fg, sub) => `<!doctype html><html><head><meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
 <style>*{margin:0;padding:0;box-sizing:border-box}
 body{width:1080px;height:1080px;background:${bg};display:flex;flex-direction:column;align-items:center;justify-content:center;color:${fg};text-align:center}
-.t{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:74px;letter-spacing:.04em;margin-top:34px;line-height:1.05}
+.t{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:64px;letter-spacing:.04em;margin-top:34px;line-height:1.05}
 .t2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:46px;color:${GOLD};margin-top:6px}
 .k{font-family:Montserrat,sans-serif;font-weight:600;font-size:23px;letter-spacing:.32em;text-transform:uppercase;color:${sub};margin-top:26px;padding-left:.32em}
 .r{font-family:Montserrat,sans-serif;font-weight:500;font-size:21px;letter-spacing:.38em;text-transform:uppercase;color:${GOLD};margin-top:14px;padding-left:.38em}
 .rule{width:230px;height:2px;background:${GOLD};margin:40px 0 34px}
 .nm{display:flex;align-items:center;gap:20px;justify-content:center}
-.n{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:40px}
+.n{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:44px}
 .amp{font-family:'Cormorant Garamond',serif;font-size:40px;color:${GOLD}}
 .nm svg{border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,.15)}
 </style></head><body>
 ${mark(GOLD, 150)}
-<div class="t">Elkhalfi Advocates</div>
-<div class="t2">Avocates</div>
-<div class="k">Law Firm · Cabinet d'Avocats</div>
-<div class="r">Rabat — Morocco</div>
+<div class="t">Elkhalfi Advocates / Avocates</div>
+<div class="k">Law Firm / Cabinet d'Avocat</div>
+<div class="r">Rabat - Morocco</div>
 <div class="rule"></div>
-<div class="nm">${FR}<span class="n">Dr. Amal Elkhalfi</span><span class="amp">&amp;</span><span class="n">Maître Latifa Elkhalfi</span>${MA}</div>
+<div class="nm"><span class="n">Dr. Amal Elkhalfi</span><span class="amp">&amp;</span><span class="n">Maître Latifa Elkhalfi</span></div>
 </body></html>`;
 
 (async () => {

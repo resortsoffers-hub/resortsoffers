@@ -77,7 +77,7 @@ function jsonLd(lang) {
   const faq = {
     "@type": "FAQPage",
     inLanguage: lang,
-    mainEntity: FAQ[lang].map(([q, a]) => ({
+    mainEntity: FAQ[lang].filter(([q]) => !q.startsWith("# ")).map(([q, a]) => ({
       "@type": "Question",
       name: q,
       acceptedAnswer: { "@type": "Answer", text: a },
@@ -124,7 +124,9 @@ function render(lang) {
     topicOptions: AREAS[lang].map(([title]) => `              <option>${title}</option>`)
       .concat(`              <option>${t["form.other"]}</option>`).join("\n"),
     faqItems: FAQ[lang]
-      .map(([q, a]) => `        <details>\n          <summary><h3>${q}</h3></summary>\n          <p>${a}</p>\n        </details>`)
+      .map(([q, a]) => q.startsWith("# ")
+        ? `        <h3 class="faq-group">${q.slice(2)}</h3>`
+        : `        <details>\n          <summary><h3>${q}</h3></summary>\n          <p>${a}</p>\n        </details>`)
       .join("\n"),
     jsonld: jsonLd(lang),
     amalPhoto: photo("amal", t["amal.name"], "AE"),
@@ -198,7 +200,7 @@ function renderArea(lang, page) {
 function llmsTxt() {
   const fr = T.fr, ar = T.ar, en = T.en;
   const list = (lang) => AREAS[lang].map(([a, d]) => `- ${a}: ${d}`).join("\n");
-  const faq = (lang) => FAQ[lang].map(([q, a]) => `### ${q}\n${a}`).join("\n\n");
+  const faq = (lang) => FAQ[lang].map(([q, a]) => q.startsWith("# ") ? `#${q}` : `### ${q}\n${a}`).join("\n\n");
   return `# ${fr["brand.full"]} / ${ar["brand.full"]} / ${en["brand.full"]}
 
 > ${stripTags(en["meta.desc"])}

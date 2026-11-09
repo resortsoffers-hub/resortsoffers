@@ -33,6 +33,7 @@ body{width:1080px;height:1080px;background:${bg};display:flex;flex-direction:col
 .nm{display:flex;align-items:center;gap:20px;justify-content:center}
 .n{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:44px}
 .amp{font-family:'Cormorant Garamond',serif;font-size:40px;color:${GOLD}}
+.w{font-family:Montserrat,sans-serif;font-weight:500;font-size:24px;letter-spacing:.14em;color:${GOLD};margin-top:34px}
 .nm svg{border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,.15)}
 </style></head><body>
 ${mark(GOLD, 150)}
@@ -41,6 +42,7 @@ ${mark(GOLD, 150)}
 <div class="r">Rabat - Morocco</div>
 <div class="rule"></div>
 <div class="nm"><span class="n">Dr. Amal Elkhalfi</span><span class="amp">&amp;</span><span class="n">Maître Latifa Elkhalfi</span></div>
+<div class="w">www.elkhalfiavocates.com</div>
 </body></html>`;
 
 (async () => {

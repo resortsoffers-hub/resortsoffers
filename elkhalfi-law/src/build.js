@@ -65,7 +65,7 @@ function jsonLd(lang) {
     "@type": "Person",
     "@id": SITE_URL + "/#amal",
     name: "Amal El Khalfi",
-    alternateName: ["آمال الخلفي", "Maître Amal El Khalfi", "Amal Elkhalfi"],
+    alternateName: ["آمال الخلفي", "Maître Amal El Khalfi", "Amal Elkhalfi", "Dr. Amal Elkhalfi", "Amal Zahti", "Amal El Khalfi épouse Zahti", "Amal Zahti née El Khalfi"],
     jobTitle: stripTags(t["amal.role"]),
     ...(photoFile("amal") ? { image: `${SITE_URL}/${photoFile("amal")}` } : {}),
     description: stripTags(t["amal.bio"]),

@@ -54,55 +54,55 @@ const AREAS = {
 // Lawyer bios (short): Amal Moroccan-French, doctorate (Perpignan), interior design; Latifa Rabat Bar, Mohammed V University.
 const BIOS = {
  "ar": [
-  "محامية مغربية وفرنسية، دكتورة في القانون المدني والتجاري من جامعة بربينيان (فرنسا) بميزة مشرف جداً مع تهنئة لجنة المناقشة. مارست المحاماة في فرنسا قبل أن تعود مع أسرتها إلى المغرب. وقبل القانون، تخرّجت في التصميم الداخلي.",
-  "دكتوراه في القانون – جامعة بربينيان (فرنسا)",
+  "الدكتورة آمال الخلفي حاصلة على الدكتوراه في القانون المدني والتجاري من جامعة بربينيان (فرنسا)، بميزة مشرف جداً مع تهنئة لجنة المناقشة، عن أطروحة حول «التضامن في الالتزامات في القانون المغربي: مساهمة في تاريخ مؤسسة رومانية إسلامية». مارست المحاماة في فرنسا قبل أن تستقر مع أسرتها في المغرب. وقبل دراسة القانون، تخرّجت في التصميم الداخلي.",
+  "دكتوراه في القانون المدني والتجاري – جامعة بربينيان (فرنسا)",
+  "أطروحة: التضامن في الالتزامات في القانون المغربي",
   "محامية سابقاً في فرنسا، واليوم في الرباط",
-  "الجنسية المغربية والفرنسية",
   "محامية بهيئة المحامين بالرباط، خرّيجة جامعة محمد الخامس بالرباط.",
   "محامية بهيئة المحامين بالرباط",
   "خرّيجة جامعة محمد الخامس – الرباط"
  ],
  "fr": [
-  "Avocate franco-marocaine, docteure en droit civil et commercial de l'Université de Perpignan (mention très honorable avec félicitations du jury). Après avoir exercé comme avocate en France, elle s'est installée au Maroc avec sa famille. Avant le droit, elle était diplômée en architecture d'intérieur.",
-  "Doctorat en droit – Université de Perpignan (France)",
+  "Dr Amal Elkhalfi est docteure en droit civil et commercial de l'Université de Perpignan Via Domitia (France), avec la mention très honorable et les félicitations du jury, pour sa thèse «Les obligations solidaires en droit marocain – contribution à l'histoire d'une institution romano-islamique». Elle a exercé comme avocate en France avant de s'installer au Maroc avec sa famille. Avant le droit, elle était diplômée en architecture d'intérieur.",
+  "Doctorat en droit civil et commercial – Université de Perpignan (France)",
+  "Thèse : les obligations solidaires en droit marocain",
   "Avocate en France, aujourd'hui à Rabat",
-  "Nationalités marocaine et française",
   "Avocate au barreau de Rabat, diplômée de l'Université Mohammed V de Rabat.",
   "Avocate au barreau de Rabat",
   "Diplômée de l'Université Mohammed V – Rabat"
  ],
  "en": [
-  "Moroccan and French lawyer, Doctor of civil and commercial law from the University of Perpignan (highest honours). After practising as a lawyer in France, she moved to Morocco with her family. Before law, she graduated in interior design.",
-  "Doctorate in Law – University of Perpignan (France)",
+  "Dr. Amal Elkhalfi holds a Doctorate in civil and commercial law from the University of Perpignan Via Domitia (France), awarded with highest honours and the jury's congratulations, for her thesis on joint and several obligations in Moroccan law, a contribution to the history of a Romano-Islamic institution. She practised as a lawyer in France before settling in Morocco with her family. Before law, she graduated in interior design.",
+  "Doctorate in civil & commercial law – University of Perpignan (France)",
+  "Thesis: joint and several obligations in Moroccan law",
   "Former lawyer in France, now in Rabat",
-  "Moroccan & French nationality",
   "Lawyer at the Rabat Bar, graduate of Mohammed V University, Rabat.",
   "Member of the Rabat Bar",
   "Graduate of Mohammed V University – Rabat"
  ],
  "es": [
-  "Abogada marroquí y francesa, doctora en Derecho civil y mercantil por la Universidad de Perpiñán (máxima calificación). Tras ejercer como abogada en Francia, se trasladó a Marruecos con su familia. Antes del Derecho, se graduó en diseño de interiores.",
-  "Doctorado en Derecho – Universidad de Perpiñán (Francia)",
+  "La Dra. Amal Elkhalfi es doctora en Derecho civil y mercantil por la Universidad de Perpiñán Via Domitia (Francia), con la máxima calificación y felicitaciones del tribunal, por su tesis sobre las obligaciones solidarias en el derecho marroquí. Ejerció como abogada en Francia antes de instalarse en Marruecos con su familia. Antes del Derecho, se graduó en diseño de interiores.",
+  "Doctorado en Derecho civil y mercantil – Universidad de Perpiñán (Francia)",
+  "Tesis: obligaciones solidarias en el derecho marroquí",
   "Abogada en Francia, hoy en Rabat",
-  "Nacionalidad marroquí y francesa",
   "Abogada del Colegio de Abogados de Rabat, licenciada por la Universidad Mohammed V de Rabat.",
   "Colegio de Abogados de Rabat",
   "Licenciada por la Universidad Mohammed V – Rabat"
  ],
  "de": [
-  "Marokkanisch-französische Rechtsanwältin, promoviert im Zivil- und Handelsrecht an der Universität Perpignan (mit Auszeichnung). Nach ihrer Tätigkeit als Anwältin in Frankreich zog sie mit ihrer Familie nach Marokko. Vor dem Jurastudium schloss sie ein Studium der Innenarchitektur ab.",
-  "Promotion in Rechtswissenschaften – Universität Perpignan (Frankreich)",
+  "Dr. Amal Elkhalfi ist promoviert im Zivil- und Handelsrecht an der Universität Perpignan Via Domitia (Frankreich), mit höchster Auszeichnung und Glückwünschen der Jury, mit einer Dissertation über die Gesamtschuld im marokkanischen Recht. Sie war als Anwältin in Frankreich tätig, bevor sie sich mit ihrer Familie in Marokko niederließ. Vor dem Jurastudium schloss sie ein Studium der Innenarchitektur ab.",
+  "Promotion im Zivil- und Handelsrecht – Universität Perpignan (Frankreich)",
+  "Dissertation: Gesamtschuld im marokkanischen Recht",
   "Früher Anwältin in Frankreich, heute in Rabat",
-  "Marokkanische und französische Staatsangehörigkeit",
   "Rechtsanwältin der Anwaltskammer Rabat, Absolventin der Universität Mohammed V in Rabat.",
   "Anwaltskammer Rabat",
   "Absolventin der Universität Mohammed V – Rabat"
  ],
  "nl": [
-  "Marokkaans-Franse advocaat, doctor in het burgerlijk en handelsrecht aan de Universiteit van Perpignan (met de hoogste onderscheiding). Na haar praktijk als advocaat in Frankrijk verhuisde zij met haar gezin naar Marokko. Vóór de rechten studeerde zij af in binnenhuisarchitectuur.",
-  "Doctoraat in de rechten – Universiteit van Perpignan (Frankrijk)",
+  "Dr. Amal Elkhalfi is doctor in het burgerlijk en handelsrecht aan de Universiteit van Perpignan Via Domitia (Frankrijk), met de hoogste onderscheiding en felicitaties van de jury, met een proefschrift over hoofdelijke verbintenissen in het Marokkaanse recht. Zij was advocaat in Frankrijk voordat zij zich met haar gezin in Marokko vestigde. Vóór de rechten studeerde zij af in binnenhuisarchitectuur.",
+  "Doctoraat in het burgerlijk en handelsrecht – Universiteit van Perpignan (Frankrijk)",
+  "Proefschrift: hoofdelijke verbintenissen in het Marokkaanse recht",
   "Voorheen advocaat in Frankrijk, nu in Rabat",
-  "Marokkaanse en Franse nationaliteit",
   "Advocaat bij de balie van Rabat, afgestudeerd aan de Universiteit Mohammed V in Rabat.",
   "Balie van Rabat",
   "Afgestudeerd aan de Universiteit Mohammed V – Rabat"

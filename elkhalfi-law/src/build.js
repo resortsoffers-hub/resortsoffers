@@ -53,7 +53,6 @@ function jsonLd(lang) {
     jobTitle: stripTags(t["amal.role"]),
     ...(photoFile("amal") ? { image: `${SITE_URL}/${photoFile("amal")}` } : {}),
     description: stripTags(t["amal.bio"]),
-    hasCredential: { "@type": "EducationalOccupationalCredential", credentialCategory: "Doctorate in Law" },
     worksFor: { "@id": SITE_URL + "/#firm" },
   };
   const latifa = {
@@ -144,13 +143,13 @@ const areaPath = (lang, slug) => `${LANGS[lang].path}${slug}/`;
 const LABELS = {
   ar: {
     services: "خدماتنا", servicesTitle: "ما نقوم به في هذا المجال", lawyers: "المحاميتان",
-    lawyersText: "الأستاذة آمال الخلفي، دكتورة في القانون، والأستاذة لطيفة الخلفي، محاميتان بالرباط.",
+    lawyersText: "الأستاذة آمال الخلفي والأستاذة لطيفة الخلفي، محاميتان.",
     faqTitle: "أسئلة شائعة", others: "مجالات أخرى",
     note: "المعلومات الواردة في هذه الصفحة عامة ولا تغني عن استشارة قانونية تراعي وضعيتكم الخاصة.",
   },
   fr: {
     services: "Nos services", servicesTitle: "Ce que nous faisons dans ce domaine", lawyers: "Les avocates",
-    lawyersText: "Maître Amal El Khalfi, docteure en droit, et Maître Latifa El Khalfi, avocates à Rabat.",
+    lawyersText: "Maître Amal El Khalfi et Maître Latifa El Khalfi, avocates.",
     faqTitle: "Questions fréquentes", others: "Autres domaines",
     note: "Les informations de cette page sont générales et ne remplacent pas une consultation adaptée à votre situation.",
   },
@@ -195,7 +194,7 @@ function llmsTxt() {
 
 - Website: ${SITE_URL}/ (Arabic), ${SITE_URL}/fr/ (French), ${SITE_URL}/en/ (English)
 - Address: 42, rue Abdelkrim Diouri, avenue de Madagascar, ground floor, Rabat, Morocco
-- Lawyers: Maître Amal El Khalfi (آمال الخلفي), Doctor of Law; Maître Latifa El Khalfi (لطيفة الخلفي)
+- Lawyers: Maître Amal El Khalfi (آمال الخلفي); Maître Latifa El Khalfi (لطيفة الخلفي)
 
 ## About (English)
 ${stripTags(en["about.p1"])} ${stripTags(en["about.p2"])}
@@ -252,7 +251,7 @@ ${urls}
 
 // Public build hides any line that still holds an unconfirmed detail; DRAFT=1 shows them highlighted.
 const DRAFT = process.env.DRAFT === "1";
-const publish = (html) => DRAFT ? html : html.split("\n").filter((l) => !l.includes('mark class="todo"')).join("\n");
+const publish = (html) => (DRAFT ? html : html.split("\n").filter((l) => !l.includes('mark class="todo"')).join("\n")).replace(/\n\s*<li><\/li>/g, "");
 const _write = fs.writeFileSync;
 const writePage = (file, html) => _write(file, publish(html));
 

@@ -135,6 +135,15 @@ const T = {
     "latifa.f2": "التكوين القانوني في المغرب",
     "latifa.f3": "",
 
+    "org.eyebrow": "الهيكل التنظيمي",
+    "org.title": "فريق المكتب",
+    "org.lawyer": "محامية",
+    "org.noraName": "نورة الخلفي",
+    "org.samadName": "صمد الخلفي",
+    "org.hananeName": "حنان الخالدي",
+    "org.nora": "مسؤولة العلاقات العامة الدولية · الإمارات والمملكة المتحدة",
+    "org.samad": "الخدمات الإدارية · عن بُعد",
+    "org.hanane": "ترجمة · بدوام جزئي",
     "faq.eyebrow": "أسئلة شائعة",
     "faq.title": "أجوبة عن أسئلتكم القانونية",
 
@@ -217,6 +226,15 @@ const T = {
     "latifa.f2": "Formation juridique au Maroc",
     "latifa.f3": "",
 
+    "org.eyebrow": "Organisation",
+    "org.title": "L'équipe du cabinet",
+    "org.lawyer": "Avocate",
+    "org.noraName": "Nora Elkhalfi",
+    "org.samadName": "Samad Elkhalfi",
+    "org.hananeName": "Hanane El Khaldi",
+    "org.nora": "Relations publiques internationales · EAU et Royaume-Uni",
+    "org.samad": "Services administratifs · à distance",
+    "org.hanane": "Traduction · temps partiel",
     "faq.eyebrow": "Questions fréquentes",
     "faq.title": "Réponses à vos questions juridiques",
 
@@ -299,6 +317,15 @@ const T = {
     "latifa.f2": "Legal studies in Morocco",
     "latifa.f3": "",
 
+    "org.eyebrow": "Organisation",
+    "org.title": "Our team",
+    "org.lawyer": "Lawyer",
+    "org.noraName": "Nora Elkhalfi",
+    "org.samadName": "Samad Elkhalfi",
+    "org.hananeName": "Hanane El Khaldi",
+    "org.nora": "International Public Relations · UAE & UK",
+    "org.samad": "Administrative services · remote",
+    "org.hanane": "Translator · part-time",
     "faq.eyebrow": "FAQ",
     "faq.title": "Answers to your legal questions",
 

@@ -218,3 +218,14 @@ details p { padding-bottom: 1.2rem; color: var(--muted); }
 
 /* Lawyer photos */
 .avatar-photo { object-fit: cover; object-position: center top; display: block; }
+
+/* Organisation chart */
+.org { max-width: 900px; margin: 0 auto; }
+.org-row { display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap; }
+.org-box { background: var(--white); border: 1px solid var(--line); border-top: 3px solid var(--gold); border-radius: var(--radius); padding: 1.1rem 1.4rem; min-width: 220px; flex: 1 1 220px; max-width: 280px; text-align: center; box-shadow: var(--shadow); }
+.org-box b { display: block; font-family: var(--serif); font-size: 1.3rem; color: var(--navy); }
+.org-box span { display: block; font-size: 0.88rem; color: var(--muted); margin-top: 0.3rem; }
+.org-box.lead { background: var(--navy); border-color: var(--navy); border-top-color: var(--gold); }
+.org-box.lead b { color: var(--white); }
+.org-box.lead span { color: var(--gold-light); }
+.org-line { width: 2px; height: 36px; background: var(--gold); margin: 0.6rem auto; }

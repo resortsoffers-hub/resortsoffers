@@ -42,7 +42,7 @@ function jsonLd(lang) {
       addressCountry: "MA",
     },
     telephone: ["+212667499187", "+212661983230"],
-    email: "latifa.elkhalfi1@gmail.com",
+    email: "elkhalfiavocates@gmail.com",
     areaServed: { "@type": "Country", name: "Morocco" },
     knowsAbout: AREAS[lang].map(([a]) => a),
     employee: [{ "@id": SITE_URL + "/#amal" }, { "@id": SITE_URL + "/#latifa" }],

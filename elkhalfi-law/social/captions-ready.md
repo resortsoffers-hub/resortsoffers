@@ -19,7 +19,6 @@
 هذا المنشور للإعلام. لحالتكم الخاصة، احجزوا استشارة.
 
 📩 لحجز استشارة: الرابط في البايو
-📍 42، زنقة عبد الكريم الديوري، شارع مدغشقر، الطابق الأرضي، الرباط
 
 #محامية #الرباط #واتساب #الإثبات #ElkhalfiAvocates
 ```
@@ -34,7 +33,6 @@
 هذا المنشور للإعلام. لحالتكم الخاصة، احجزوا استشارة.
 
 📩 لحجز استشارة: الرابط في البايو
-📍 42، زنقة عبد الكريم الديوري، شارع مدغشقر، الطابق الأرضي، الرباط
 
 #مدونة_الأسرة #محامية #الرباط #المغرب #ElkhalfiAvocates
 ```
@@ -48,7 +46,6 @@
 هذا المنشور للإعلام. لحالتكم الخاصة، احجزوا استشارة.
 
 📩 لحجز استشارة: الرابط في البايو
-📍 42، زنقة عبد الكريم الديوري، شارع مدغشقر، الطابق الأرضي، الرباط
 
 #الدستور #المحكمة_الدستورية #محامية #الرباط #ElkhalfiAvocates
 ```
@@ -63,7 +60,6 @@
 هذا المنشور للإعلام. لحالتكم الخاصة، احجزوا استشارة.
 
 📩 لحجز استشارة: الرابط في البايو
-📍 42، زنقة عبد الكريم الديوري، شارع مدغشقر، الطابق الأرضي، الرباط
 
 #حقوق_المؤلف #القرصنة #محامية #الرباط #ElkhalfiAvocates
 ```
@@ -81,7 +77,6 @@
 هذا المنشور للإعلام. لحالتكم الخاصة، احجزوا استشارة.
 
 📩 لحجز استشارة: الرابط في البايو
-📍 42، زنقة عبد الكريم الديوري، شارع مدغشقر، الطابق الأرضي، الرباط
 
 #الطلاق #حقوق_المرأة #مدونة_الأسرة #محامية #ElkhalfiAvocates
 ```
@@ -98,7 +93,6 @@
 هذا المنشور للإعلام. لحالتكِ الخاصة، احجزي استشارة.
 
 📩 لحجز استشارة: الرابط في البايو
-📍 42، زنقة عبد الكريم الديوري، شارع مدغشقر، الطابق الأرضي، الرباط
 
 #25نوفمبر #العنف_ضد_النساء #محامية #الرباط #ElkhalfiAvocates
 ```
@@ -120,7 +114,6 @@ Oui, ils peuvent l'être (loi 53-05). Le tribunal apprécie leur valeur dans cha
 Ce post est à titre d'information. Pour votre cas, prenez rendez-vous.
 
 📩 Rendez-vous : lien dans la bio
-📍 42, rue Abdelkrim Diouri, avenue de Madagascar, rez-de-chaussée, Rabat
 
 #avocate #Rabat #preuve #WhatsApp #ElkhalfiAvocates
 ```
@@ -135,7 +128,6 @@ Le Code de la famille de 2004 reste le texte applicable.
 Ce post est à titre d'information. Pour votre cas, prenez rendez-vous.
 
 📩 Rendez-vous : lien dans la bio
-📍 42, rue Abdelkrim Diouri, avenue de Madagascar, rez-de-chaussée, Rabat
 
 #Moudawana #codedelafamille #avocate #Rabat #ElkhalfiAvocates
 ```
@@ -149,7 +141,6 @@ Dès le 1er juillet 2028, tout justiciable pourra contester devant la Cour const
 Ce post est à titre d'information. Pour votre cas, prenez rendez-vous.
 
 📩 Rendez-vous : lien dans la bio
-📍 42, rue Abdelkrim Diouri, avenue de Madagascar, rez-de-chaussée, Rabat
 
 #Constitution #droitmarocain #avocate #Rabat #ElkhalfiAvocates
 ```
@@ -164,7 +155,6 @@ Créateurs et entreprises : protégez vos œuvres.
 Ce post est à titre d'information. Pour votre cas, prenez rendez-vous.
 
 📩 Rendez-vous : lien dans la bio
-📍 42, rue Abdelkrim Diouri, avenue de Madagascar, rez-de-chaussée, Rabat
 
 #droitdauteur #piratage #avocate #Rabat #ElkhalfiAvocates
 ```
@@ -182,7 +172,6 @@ Ce post est à titre d'information. Pour votre cas, prenez rendez-vous.
 Ce post est à titre d'information. Pour votre cas, prenez rendez-vous.
 
 📩 Rendez-vous : lien dans la bio
-📍 42, rue Abdelkrim Diouri, avenue de Madagascar, rez-de-chaussée, Rabat
 
 #divorce #droitsdesfemmes #Moudawana #avocate #ElkhalfiAvocates
 ```
@@ -199,7 +188,6 @@ Ne restez pas seule.
 Ce post est à titre d'information. Pour votre cas, prenez rendez-vous.
 
 📩 Rendez-vous : lien dans la bio
-📍 42, rue Abdelkrim Diouri, avenue de Madagascar, rez-de-chaussée, Rabat
 
 #25novembre #violencesfaitesauxfemmes #avocate #Rabat #ElkhalfiAvocates
 ```
@@ -216,7 +204,6 @@ Nous accompagnons les clients internationaux en français et en anglais.
 Ce post est à titre d'information. Pour votre cas, prenez rendez-vous.
 
 📩 Rendez-vous : lien dans la bio
-📍 42, rue Abdelkrim Diouri, avenue de Madagascar, rez-de-chaussée, Rabat
 
 #immobilierMaroc #investirauMaroc #avocate #Rabat #ElkhalfiAvocates
 ```
@@ -234,7 +221,6 @@ Ce post est à titre d'information. Pour votre cas, prenez rendez-vous.
 Ce post est à titre d'information. Pour votre cas, prenez rendez-vous.
 
 📩 Rendez-vous : lien dans la bio
-📍 42, rue Abdelkrim Diouri, avenue de Madagascar, rez-de-chaussée, Rabat
 
 #Apostille #mariagemixte #avocate #Rabat #ElkhalfiAvocates
 ```
@@ -255,7 +241,6 @@ We help international clients in English and French.
 This post is for information. For your own case, book a consultation.
 
 📩 Book a consultation: link in bio
-📍 42, Rue Abdelkrim Diouri, Avenue de Madagascar, Ground floor, Rabat
 
 #MoroccoRealEstate #ExpatsInMorocco #MoroccoLawyer #Rabat #ElkhalfiAvocates
 ```
@@ -275,7 +260,6 @@ We help international clients in English and French.
 This post is for information. For your own case, book a consultation.
 
 📩 Book a consultation: link in bio
-📍 42, Rue Abdelkrim Diouri, Avenue de Madagascar, Ground floor, Rabat
 
 #Apostille #MarriageInMorocco #ExpatsInMorocco #MoroccoLawyer #ElkhalfiAvocates
 ```

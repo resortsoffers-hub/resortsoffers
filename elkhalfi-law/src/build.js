@@ -106,7 +106,7 @@ function photo(key, name, initials) {
 // Social accounts. Add the Facebook Page link here when available ("" hides it).
 const SOCIAL = [
   ["Instagram", "https://www.instagram.com/maitre.amal.elkhalfi/", '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>'],
-  ["Facebook", "", '<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-4 1.8-4 4.5V11H7v4h3v7h4v-7h3l1-4h-4V8.6c0-.4.3-.6.6-.6z"/></svg>'],
+  ["Facebook", "https://www.facebook.com/profile.php?id=61596045707191", '<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-4 1.8-4 4.5V11H7v4h3v7h4v-7h3l1-4h-4V8.6c0-.4.3-.6.6-.6z"/></svg>'],
 ].filter(([, url]) => url);
 const socialLinks = () => SOCIAL.length
   ? `<div class="social">${SOCIAL.map(([n, u, i]) => `<a href="${u}" target="_blank" rel="noopener" aria-label="${n}">${i}<span>${n}</span></a>`).join("")}</div>`

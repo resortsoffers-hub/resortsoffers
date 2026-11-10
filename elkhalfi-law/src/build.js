@@ -298,7 +298,43 @@ for (const f of ["styles.css", "script.js"]) fs.copyFileSync(path.join(ROOT, f),
 // Search engine verification files (e.g. google*.html) are served from the site root.
 for (const f of fs.readdirSync(ROOT).filter((f) => /^google[0-9a-f]+\.html$/.test(f))) fs.copyFileSync(path.join(ROOT, f), path.join(OUT, f));
 if (fs.existsSync(path.join(ROOT, "images"))) fs.cpSync(path.join(ROOT, "images"), path.join(OUT, "images"), { recursive: true });
+// Private helper page for the team: post images + captions with one-tap Copy buttons (not indexed).
+{
+  const CAPS = require("../social/captions-short.js");
+  const cdir = path.join(OUT, "copy");
+  fs.mkdirSync(path.join(cdir, "img"), { recursive: true });
+  const esc = (t) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  const cards = CAPS.map((c, i) => {
+    fs.copyFileSync(path.join(ROOT, "social", "posts", c.img), path.join(cdir, "img", c.img));
+    return `<section class="c"><h2>${c.id}${c.note ? ` <small>${c.note}</small>` : ""}</h2>
+<img src="img/${c.img}" alt="" loading="lazy">
+<a class="b s" href="img/${c.img}" download>⬇ Save image</a>
+<pre id="t${i}" dir="${c.dir || "ltr"}">${esc(c.text)}</pre>
+<button class="b" onclick="cp(${i},this)">📋 Copy caption</button></section>`;
+  }).join("\n");
+  fs.writeFileSync(path.join(cdir, "index.html"), `<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>Captions</title><style>
+body{margin:0;background:#f6f2ea;font-family:-apple-system,system-ui,sans-serif;color:#1c1c1c}
+header{position:sticky;top:0;background:#14161c;color:#c9a35a;padding:14px 18px;font-weight:700;z-index:2}
+nav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 14px}nav a{background:#fff;border:1px solid #c9a35a;border-radius:20px;padding:6px 12px;color:#1c1c1c;text-decoration:none;font-size:14px}
+.c{scroll-margin-top:60px;background:#fff;margin:14px;padding:16px;border-radius:14px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+h2{margin:0 0 10px;font-size:20px}h2 small{color:#b3261e;font-size:14px}
+img{width:100%;border-radius:8px;display:block}
+pre{white-space:pre-wrap;font-family:inherit;font-size:16px;line-height:1.5;background:#faf7f0;padding:12px;border-radius:8px;user-select:all;-webkit-user-select:all}
+.b{display:block;width:100%;box-sizing:border-box;text-align:center;border:0;border-radius:10px;padding:16px;font-size:18px;font-weight:700;background:#14161c;color:#fff;margin-top:10px;text-decoration:none;cursor:pointer}
+.b.s{background:#c9a35a;color:#14161c}.b.ok{background:#2e7d32}
+</style></head><body><header>Elkhalfi · Instagram &amp; Facebook captions</header>
+<nav>${CAPS.map((c, i) => `<a href="#c${i}">${c.id}</a>`).join("")}</nav>
+${cards.replace(/<section class="c">/g, (() => { let n = 0; return () => `<section class="c" id="c${n++}">`; })())}
+<script>
+function cp(i,btn){var t=document.getElementById("t"+i).innerText;
+function done(){btn.textContent="✅ Copied!";btn.classList.add("ok");setTimeout(function(){btn.textContent="📋 Copy caption";btn.classList.remove("ok")},2500)}
+function old(){var a=document.createElement("textarea");a.value=t;a.style.position="fixed";a.style.opacity="0";document.body.appendChild(a);a.focus();a.select();a.setSelectionRange(0,99999);try{document.execCommand("copy");done()}catch(e){alert("Press and hold the text to copy")}document.body.removeChild(a)}
+if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(done,old)}else old()}
+</script></body></html>`);
+}
 fs.writeFileSync(path.join(OUT, "sitemap.xml"), sitemap());
-fs.writeFileSync(path.join(OUT, "robots.txt"), `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`);
+fs.writeFileSync(path.join(OUT, "robots.txt"), `User-agent: *\nAllow: /\nDisallow: /copy/\n\nSitemap: ${SITE_URL}/sitemap.xml\n`);
 fs.writeFileSync(path.join(OUT, "llms.txt"), llmsTxt());
 console.log(`Built ${Object.keys(LANGS).length + PAGES.length * AREA_LANGS.length} pages into ${path.relative(process.cwd(), OUT) || OUT} for ${SITE_URL}`);

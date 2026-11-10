@@ -287,6 +287,8 @@ for (const page of PAGES) for (const lang of AREA_LANGS) {
   writePage(path.join(dir, "index.html"), renderArea(lang, page));
 }
 for (const f of ["styles.css", "script.js"]) fs.copyFileSync(path.join(ROOT, f), path.join(OUT, f));
+// Search engine verification files (e.g. google*.html) are served from the site root.
+for (const f of fs.readdirSync(ROOT).filter((f) => /^google[0-9a-f]+\.html$/.test(f))) fs.copyFileSync(path.join(ROOT, f), path.join(OUT, f));
 if (fs.existsSync(path.join(ROOT, "images"))) fs.cpSync(path.join(ROOT, "images"), path.join(OUT, "images"), { recursive: true });
 fs.writeFileSync(path.join(OUT, "sitemap.xml"), sitemap());
 fs.writeFileSync(path.join(OUT, "robots.txt"), `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`);

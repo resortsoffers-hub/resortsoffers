@@ -70,6 +70,7 @@ function jsonLd(lang) {
     ...(photoFile("amal") ? { image: `${SITE_URL}/${photoFile("amal")}` } : {}),
     description: stripTags(t["amal.bio"]),
     worksFor: { "@id": SITE_URL + "/#firm" },
+    ...(SOCIAL.length ? { sameAs: SOCIAL.map(([, u]) => u) } : {}),
   };
   const latifa = {
     "@type": "Person",
@@ -101,6 +102,15 @@ function photo(key, name, initials) {
     ? `<img class="avatar avatar-photo" src="/${f}" alt="${stripTags(name)}" width="240" height="300" loading="lazy" />`
     : `<div class="avatar" aria-hidden="true">${initials}</div>`;
 }
+
+// Social accounts. Add the Facebook Page link here when available ("" hides it).
+const SOCIAL = [
+  ["Instagram", "https://www.instagram.com/maitre.amal.elkhalfi/", '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>'],
+  ["Facebook", "", '<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-4 1.8-4 4.5V11H7v4h3v7h4v-7h3l1-4h-4V8.6c0-.4.3-.6.6-.6z"/></svg>'],
+].filter(([, url]) => url);
+const socialLinks = () => SOCIAL.length
+  ? `<div class="social">${SOCIAL.map(([n, u, i]) => `<a href="${u}" target="_blank" rel="noopener" aria-label="${n}">${i}<span>${n}</span></a>`).join("")}</div>`
+  : "";
 
 // Google review link: paste the "Ask for reviews" link from the Google Business Profile here.
 // While it is empty, the review box stays hidden.
@@ -144,6 +154,7 @@ function render(lang) {
       .join("\n"),
     jsonld: jsonLd(lang),
     reviewBlock: reviewBlock(t),
+    social: socialLinks(),
     amalPhoto: photo("amal", t["amal.name"], "AE"),
     latifaPhoto: photo("latifa", t["latifa.name"], "LE"),
   };
@@ -198,7 +209,7 @@ function renderArea(lang, page) {
   }).replace(/</g, "\\u003c");
   const vars = {
     ...labels, lang, dir: L.dir, ogLocale: L.og, canonical: url, home: L.path, year: String(new Date().getFullYear()),
-    pageTitle: attr(a.title), pageDesc: attr(a.desc), h1: a.h1, intro: a.intro, areaName: a.name, jsonld,
+    pageTitle: attr(a.title), pageDesc: attr(a.desc), h1: a.h1, intro: a.intro, areaName: a.name, jsonld, social: socialLinks(),
     hreflang: AREA_LANGS.map((l) => `  <link rel="alternate" hreflang="${l}" href="${SITE_URL}${areaPath(l, page.slug)}" />`).join("\n"),
     langLinks: ORDER.map((l) => {
       const href = AREA_LANGS.includes(l) ? areaPath(l, page.slug) : LANGS[l].path;

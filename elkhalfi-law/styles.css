@@ -253,3 +253,6 @@ details p { padding-bottom: 1.2rem; color: var(--muted); }
   .hero-points { gap: 0.6rem 1rem; font-size: 0.82rem; }
 }
 .office-sign { display: block; width: 100%; max-width: 420px; border-radius: var(--radius); margin-top: 2rem; box-shadow: 0 12px 30px rgba(0,0,0,.3); }
+.review-box { margin-top: 1.6rem; padding: 1.2rem 1.4rem; border: 1px solid rgba(255,255,255,.2); border-radius: var(--radius); display: grid; gap: .4rem; }
+.review-box b { color: var(--white); font-family: var(--serif); font-size: 1.2rem; }
+.review-box .btn { justify-self: start; margin-top: .4rem; }

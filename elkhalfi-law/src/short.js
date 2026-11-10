@@ -116,4 +116,7 @@ for (const [l, h] of Object.entries(HOURS)) T[l]["contact.hoursV"] = h;
 const SIGN_ALT = {"ar": "لوحة مكتب الأستاذة آمال الخلفي، محامية بهيئة الرباط، الرباط", "fr": "Plaque du cabinet de Maître Amal El Khalfi, avocate au Barreau de Rabat", "en": "Office sign of Maître Amal El Khalfi, lawyer at the Rabat Bar", "es": "Placa del despacho de Maître Amal El Khalfi, abogada en Rabat", "de": "Kanzleischild von Maître Amal El Khalfi, Rechtsanwältin in Rabat", "nl": "Naambord van Maître Amal El Khalfi, advocaat in Rabat"};
 for (const [l, a] of Object.entries(SIGN_ALT)) T[l]["contact.signAlt"] = a;
 
+const REVIEW = {"ar": ["تعاملتم معنا؟", "شاركونا رأيكم على Google", "اترك تقييماً ⭐"], "fr": ["Vous avez fait appel à nous ?", "Partagez votre avis sur Google", "Laisser un avis ⭐"], "en": ["Worked with us?", "Share your experience on Google", "Leave a review ⭐"], "es": ["¿Ha trabajado con nosotras?", "Comparta su opinión en Google", "Dejar una reseña ⭐"], "de": ["Haben Sie mit uns gearbeitet?", "Teilen Sie Ihre Erfahrung auf Google", "Bewertung abgeben ⭐"], "nl": ["Met ons samengewerkt?", "Deel uw ervaring op Google", "Review achterlaten ⭐"]};
+for (const [l, r] of Object.entries(REVIEW)) Object.assign(T[l], { "review.t": r[0], "review.d": r[1], "review.cta": r[2] });
+
 module.exports = { T, AREAS };

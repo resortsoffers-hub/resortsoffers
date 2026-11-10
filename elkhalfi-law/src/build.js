@@ -102,6 +102,13 @@ function photo(key, name, initials) {
     : `<div class="avatar" aria-hidden="true">${initials}</div>`;
 }
 
+// Google review link: paste the "Ask for reviews" link from the Google Business Profile here.
+// While it is empty, the review box stays hidden.
+const GOOGLE_REVIEW_URL = "";
+const reviewBlock = (t) => GOOGLE_REVIEW_URL
+  ? `          <div class="review-box"><b>${t["review.t"]}</b><span>${t["review.d"]}</span><a class="btn btn-small" href="${GOOGLE_REVIEW_URL}" target="_blank" rel="noopener">${t["review.cta"]}</a></div>`
+  : "";
+
 function render(lang) {
   const t = T[lang];
   const L = LANGS[lang];
@@ -136,6 +143,7 @@ function render(lang) {
         : `        <details>\n          <summary><h3>${q}</h3></summary>\n          <p>${a}</p>\n        </details>`)
       .join("\n"),
     jsonld: jsonLd(lang),
+    reviewBlock: reviewBlock(t),
     amalPhoto: photo("amal", t["amal.name"], "AE"),
     latifaPhoto: photo("latifa", t["latifa.name"], "LE"),
   };

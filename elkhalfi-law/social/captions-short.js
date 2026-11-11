@@ -4,12 +4,9 @@ const BIO_AR = "📩 لحجز استشارة: الرابط في البايو";
 const BIO_FR = "📩 Rendez-vous : lien dans la bio";
 const BIO_EN = "📩 Book a consultation: link in bio";
 module.exports = [
-  { id: "AR 1", img: "whatsapp-evidence-ar.png", dir: "rtl", text: `📱 هل رسائل الواتساب دليل أمام المحكمة؟
-✅ نعم، يمكن الاعتماد عليها (القانون 53.05)
-✅ لا تحذفوا المحادثات واحتفظوا بالهاتف
-✅ وثّقوها بمحضر مفوّض قضائي
+  { id: "AR 1", img: "dark-whatsapp-ar.png", dir: "rtl", text: `📱 رسائل الواتساب دليل أمام المحكمة؟ نعم، احتفظوا بها ووثّقوها.
 ${BIO_AR}
-#محامية #الرباط #واتساب #الإثبات #ElkhalfiAvocates` },
+#محامية #الرباط #واتساب #ElkhalfiAvocates` },
   { id: "AR 2", img: "dark-moudawana-ar.png", dir: "rtl", text: `📘 تعديل مدونة الأسرة: أين وصل؟
 المشروع لم يُعرض بعد على البرلمان، والمطبَّق اليوم هو مدونة 2004.
 ${BIO_AR}
@@ -33,12 +30,9 @@ ${BIO_AR}
 ✅ في حالة الخطر، اتصلي بالشرطة فوراً
 ${BIO_AR}
 #25نوفمبر #العنف_ضد_النساء #محامية #الرباط #ElkhalfiAvocates` },
-  { id: "FR 1", img: "whatsapp-evidence-fr.png", text: `📱 Les messages WhatsApp sont-ils une preuve ?
-✅ Oui, ils peuvent l'être (loi 53-05)
-✅ Ne supprimez rien, gardez le téléphone
-✅ Faites-les constater par un commissaire de justice
+  { id: "FR 1", img: "dark-whatsapp-fr.png", text: `📱 WhatsApp, une preuve en justice ? Oui : gardez vos messages et faites-les constater.
 ${BIO_FR}
-#avocate #Rabat #preuve #WhatsApp #ElkhalfiAvocates` },
+#avocate #Rabat #WhatsApp #ElkhalfiAvocates` },
   { id: "FR 2", img: "trend-moudawana-fr.png", text: `📘 Réforme de la Moudawana : où en est-on ?
 ✅ Décembre 2024 : propositions validées par le Roi
 ✅ Le projet n'est pas encore au Parlement

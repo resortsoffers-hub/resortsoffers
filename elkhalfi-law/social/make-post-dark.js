@@ -49,6 +49,10 @@ const POSTS = {
     points: ["المشروع لم يُعرض بعد على البرلمان", "المطبَّق اليوم: مدونة 2004", "ملفاتكم تُعالَج بالقانون الحالي"] },
   "copyright-ar": { dir: "rtl", k: "مستجدات قانونية", title: "القرصنة الرقمية<br><span>قانون جديد</span>",
     points: ["حماية أقوى لحقوق المؤلف", "عقوبات على البث غير القانوني", "المبدعون والشركات: احموا أعمالكم"] },
+  "whatsapp-ar": { dir: "rtl", k: "سؤال قانوني", title: "رسائل الواتساب<br><span>دليل أمام المحكمة؟</span>",
+    points: ["نعم، وفق القانون 53.05", "لا تحذفوا المحادثات", "وثّقوها بمحضر مفوّض قضائي"] },
+  "whatsapp-fr": { dir: "ltr", k: "Question juridique", title: "Messages WhatsApp<br><span>une preuve&nbsp;?</span>",
+    points: ["Oui, selon la loi 53-05", "Ne supprimez pas les messages", "Faites-les constater par un commissaire judiciaire"] },
 };
 (async () => {
   const b = await chromium.launch();

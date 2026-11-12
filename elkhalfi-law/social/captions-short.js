@@ -60,24 +60,18 @@ ${BIO_FR}
 ✅ En cas de danger, appelez la police
 ${BIO_FR}
 #25novembre #violencesfaitesauxfemmes #avocate #Rabat #ElkhalfiAvocates` },
-  { id: "FR 7", img: "intl-property-fr.png", text: `🏡 Étranger et acheteur au Maroc ?
-✅ Autorisé en zone urbaine
-✅ Vérifiez le titre foncier avant de signer
-✅ Payez en devises via une banque marocaine
+  { id: "FR 7", img: "dark-property-fr.png", text: `🏡 Étranger et acheteur au Maroc ? Vérifiez le titre foncier et payez en devises via une banque marocaine.
 ${BIO_FR}
-#immobilierMaroc #investirauMaroc #avocate #Rabat #ElkhalfiAvocates` },
+#immobilierMaroc #avocate #Rabat #ElkhalfiAvocates` },
   { id: "FR 8", img: "intl-apostille-fr.png", text: `💍 Acte de mariage étranger au Maroc ?
 ✅ Apostille, ou légalisation consulaire
 ✅ Traduction en arabe par un traducteur assermenté
 ✅ Marocains : dépôt au consulat sous 3 mois (art. 15)
 ${BIO_FR}
 #Apostille #mariagemixte #avocate #Rabat #ElkhalfiAvocates` },
-  { id: "EN 1", img: "intl-property-en.png", text: `🏡 Buying property in Morocco as a foreigner?
-✅ Allowed in urban areas
-✅ Check the land title before you sign
-✅ Pay in foreign currency through a Moroccan bank
+  { id: "EN 1", img: "dark-property-en.png", text: `🏡 Buying property in Morocco? Check the land title and pay in foreign currency via a Moroccan bank.
 ${BIO_EN}
-#MoroccoRealEstate #ExpatsInMorocco #MoroccoLawyer #Rabat #ElkhalfiAvocates` },
+#MoroccoRealEstate #ExpatsInMorocco #Rabat #ElkhalfiAvocates` },
   { id: "EN 2", img: "intl-apostille-en-v2.png", text: `💍 Married abroad? Make it valid in Morocco.
 ✅ Apostille, or consular legalisation
 ✅ Sworn Arabic translation

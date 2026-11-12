@@ -53,6 +53,10 @@ const POSTS = {
     points: ["نعم، وفق القانون 53.05", "لا تحذفوا المحادثات", "وثّقوها بمحضر مفوّض قضائي"] },
   "whatsapp-fr": { dir: "ltr", k: "Question juridique", title: "Messages WhatsApp<br><span>une preuve&nbsp;?</span>",
     points: ["Oui, selon la loi 53-05", "Ne supprimez pas les messages", "Faites-les constater par un commissaire judiciaire"] },
+  "property-fr": { dir: "ltr", k: "Clients internationaux", title: "Étranger&nbsp;?<br><span>Acheter au Maroc</span>",
+    points: ["Autorisé en zone urbaine", "Vérifiez le titre foncier avant de signer", "Payez en devises, via une banque"] },
+  "property-en": { dir: "ltr", k: "International clients", title: "Buying in Morocco<br><span>as a foreigner</span>",
+    points: ["Allowed in urban areas", "Check the land title before you sign", "Pay in foreign currency, via a bank"] },
 };
 (async () => {
   const b = await chromium.launch();

@@ -57,6 +57,8 @@ const POSTS = {
     points: ["Autorisé en zone urbaine", "Vérifiez le titre foncier avant de signer", "Payez en devises, via une banque"] },
   "property-en": { dir: "ltr", k: "International clients", title: "Buying in Morocco<br><span>as a foreigner</span>",
     points: ["Allowed in urban areas", "Check the land title before you sign", "Pay in foreign currency, via a bank"] },
+  "divorce-ar": { dir: "rtl", k: "مدونة الأسرة", title: "حقوق المطلّقة<br><span>في المغرب</span>",
+    points: ["الصداق المؤخر", "نفقة العدة والمتعة", "الحضانة ونفقة الأطفال"] },
 };
 (async () => {
   const b = await chromium.launch();

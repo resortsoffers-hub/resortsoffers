@@ -46,12 +46,9 @@ ${BIO_FR}
 ✅ Créateurs et entreprises : protégez vos œuvres
 ${BIO_FR}
 #droitdauteur #piratage #avocate #Rabat #ElkhalfiAvocates` },
-  { id: "FR 5", img: "divorce-rights-fr.png", text: `⚖️ Les droits de la femme divorcée au Maroc
-✅ Reliquat de la dot, pension et logement de viduité
-✅ Don de consolation (mut'a)
-✅ Garde et pension des enfants
+  { id: "FR 5", img: "dark-divorce-fr.png", text: `⚖️ Femme divorcée au Maroc : dot, pension de viduité, don de consolation, garde et pension des enfants.
 ${BIO_FR}
-#divorce #droitsdesfemmes #Moudawana #avocate #ElkhalfiAvocates` },
+#divorce #Moudawana #avocate #ElkhalfiAvocates` },
   { id: "FR 6", note: "25 November only", img: "violence-women-fr.png", text: `🟠 25 novembre : la loi vous protège
 ✅ La loi 103-13 punit toutes les violences faites aux femmes
 ✅ En cas de danger, appelez la police

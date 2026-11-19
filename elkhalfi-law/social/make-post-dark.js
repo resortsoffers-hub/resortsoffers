@@ -59,6 +59,8 @@ const POSTS = {
     points: ["Allowed in urban areas", "Check the land title before you sign", "Pay in foreign currency, via a bank"] },
   "divorce-ar": { dir: "rtl", k: "مدونة الأسرة", title: "حقوق المطلّقة<br><span>في المغرب</span>",
     points: ["الصداق المؤخر", "نفقة العدة والمتعة", "الحضانة ونفقة الأطفال"] },
+  "divorce-fr": { dir: "ltr", k: "Code de la famille", title: "Femme divorcée<br><span>vos droits</span>",
+    points: ["Le reliquat de la dot", "Pension de viduité et mut’a", "Garde et pension des enfants"] },
 };
 (async () => {
   const b = await chromium.launch();

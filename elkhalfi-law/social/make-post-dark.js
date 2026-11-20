@@ -67,6 +67,16 @@ const POSTS = {
     points: ["Dans la rue, par téléphone ou message", "1 à 6 mois de prison et une amende", "Peine aggravée si la victime est mineure"] },
   "harassment-en": { dir: "ltr", k: "Criminal Code · art. 503-1-1", title: "Harassment<br><span>is a crime</span>",
     points: ["In the street, by phone or message", "1 to 6 months in prison and a fine", "Heavier penalty if the victim is a minor"] },
+  "childsupport-ar": { dir: "rtl", k: "مدونة الأسرة · المادة <bdi dir=\"ltr\">198</bdi>", title: "نفقة الأطفال<br><span>إلى متى؟</span>",
+    points: ["إلى سن الرشد (18 سنة)", "إلى 25 سنة لمن يتابع دراسته", "البنت إلى أن تتزوج أو تكسب"] },
+  "custody-ar": { dir: "rtl", k: "مدونة الأسرة · المادة <bdi dir=\"ltr\">171</bdi>", title: "الحضانة<br><span>لمن تكون؟</span>",
+    points: ["للأم أولاً", "ثم للأب", "ثم لأم الأم"] },
+  "mutual-en": { dir: "ltr", k: "Family Code · art. 114", title: "Divorce<br><span>by mutual consent</span>",
+    points: ["Both spouses agree", "Terms set in a written agreement", "Approved by the family court"] },
+  "apostille-fr": { dir: "ltr", k: "Clients internationaux", title: "Mariage à l'étranger<br><span>valable au Maroc</span>",
+    points: ["Apostille ou légalisation", "Traduction en arabe assermentée", "Marocains : consulat sous 3 mois"] },
+  "copro-fr": { dir: "ltr", k: "Loi 18-00 · copropriété", title: "Charges<br><span>d'immeuble</span>",
+    points: ["Chaque copropriétaire doit payer", "Le syndic peut agir en justice", "Gardez vos reçus"] },
 };
 (async () => {
   const b = await chromium.launch();

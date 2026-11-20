@@ -61,8 +61,12 @@ const POSTS = {
     points: ["الصداق المؤخر", "نفقة العدة والمتعة", "الحضانة ونفقة الأطفال"] },
   "divorce-fr": { dir: "ltr", k: "Code de la famille", title: "Femme divorcée<br><span>vos droits</span>",
     points: ["Le reliquat de la dot", "Pension de viduité et mut’a", "Garde et pension des enfants"] },
-  "harassment-ar": { dir: "rtl", k: "القانون الجنائي · الفصل <bdi dir=\"ltr\">503-1</bdi>", title: "التحرش<br><span>جريمة</span>",
+  "harassment-ar": { dir: "rtl", k: "القانون الجنائي · الفصل <bdi dir=\"ltr\">503-1-1</bdi>", title: "التحرش<br><span>جريمة</span>",
     points: ["في الشارع أو عبر الهاتف والرسائل", "الحبس من شهر إلى 6 أشهر وغرامة", "عقوبة أشد إذا كانت الضحية قاصراً"] },
+  "harassment-fr": { dir: "ltr", k: "Code pénal · art. 503-1-1", title: "Le harcèlement<br><span>est un délit</span>",
+    points: ["Dans la rue, par téléphone ou message", "1 à 6 mois de prison et une amende", "Peine aggravée si la victime est mineure"] },
+  "harassment-en": { dir: "ltr", k: "Criminal Code · art. 503-1-1", title: "Harassment<br><span>is a crime</span>",
+    points: ["In the street, by phone or message", "1 to 6 months in prison and a fine", "Heavier penalty if the victim is a minor"] },
 };
 (async () => {
   const b = await chromium.launch();

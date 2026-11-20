@@ -28,9 +28,15 @@ ${BIO_AR}
 ✅ في حالة الخطر، اتصلي بالشرطة فوراً
 ${BIO_AR}
 #25نوفمبر #العنف_ضد_النساء #محامية #الرباط #ElkhalfiAvocates` },
-  { id: "AR 7", date: "2026-11-20", today: true, img: "dark-harassment-ar.png", dir: "rtl", text: `🚫 التحرش في الشارع أو عبر الرسائل جريمة يعاقب عليها القانون (الفصل ‎503-1‎).
+  { id: "AR 7", date: "2026-11-20", today: true, img: "dark-harassment-ar.png", dir: "rtl", text: `🚫 التحرش في الشارع أو عبر الرسائل جريمة يعاقب عليها القانون (الفصل ‎503-1-1‎).
 ${BIO_AR}
 #التحرش #محامية #الرباط #ElkhalfiAvocates` },
+  { id: "FR 9", date: "2026-11-20", img: "dark-harassment-fr.png", text: `🚫 Le harcèlement dans la rue ou par message est un délit puni par la loi (art. 503-1-1 du Code pénal).
+${BIO_FR}
+#harcèlement #avocate #Rabat #Maroc #ElkhalfiAvocates` },
+  { id: "EN 3", date: "2026-11-20", img: "dark-harassment-en.png", text: `🚫 Harassment in the street or by message is a crime in Morocco (Criminal Code, art. 503-1-1).
+${BIO_EN}
+#Harassment #Morocco #MoroccoLawyer #Rabat #ElkhalfiAvocates` },
   { id: "FR 1", img: "dark-whatsapp-fr.png", text: `📱 WhatsApp, une preuve en justice ? Oui : gardez vos messages et faites-les constater.
 ${BIO_FR}
 #avocate #Rabat #WhatsApp #ElkhalfiAvocates` },

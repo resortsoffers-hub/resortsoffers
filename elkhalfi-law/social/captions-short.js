@@ -5,10 +5,15 @@ const BIO_AR = "📩 لحجز استشارة: الرابط في البايو";
 const BIO_FR = "📩 Rendez-vous : lien dans la bio";
 const BIO_EN = "📩 Book a consultation: link in bio";
 module.exports = [
-  { id: "General", today: true, img: "dark-harassment-ar.png", text: `⚖️ Maître Amal El Khalfi – Avocate à Rabat
-Lawyer in Rabat · محامية بالرباط
+  { id: "General · English", today: true, general: true, text: `⚖️ Maître Amal El Khalfi, lawyer in Rabat.
 📩 Link in bio
-#ElkhalfiAvocates #Rabat #Maroc #Avocate #محامية`, general: true },
+#Lawyer #Rabat #Morocco #ElkhalfiAvocates` },
+  { id: "General · Français", today: true, general: true, text: `⚖️ Maître Amal El Khalfi, avocate à Rabat.
+📩 Lien dans la bio
+#Avocate #Rabat #Maroc #ElkhalfiAvocates` },
+  { id: "General · العربية", today: true, general: true, dir: "rtl", text: `⚖️ الأستاذة آمال الخلفي، محامية بالرباط.
+📩 الرابط في البايو
+#محامية #الرباط #المغرب #ElkhalfiAvocates` },
   { id: "AR 1", date: "2026-11-11", img: "dark-whatsapp-ar.png", dir: "rtl", text: `📱 رسائل الواتساب دليل أمام المحكمة؟ نعم، احتفظوا بها ووثّقوها.
 ${BIO_AR}
 #محامية #الرباط #واتساب #ElkhalfiAvocates` },

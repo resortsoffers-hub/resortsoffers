@@ -61,6 +61,8 @@ const POSTS = {
     points: ["الصداق المؤخر", "نفقة العدة والمتعة", "الحضانة ونفقة الأطفال"] },
   "divorce-fr": { dir: "ltr", k: "Code de la famille", title: "Femme divorcée<br><span>vos droits</span>",
     points: ["Le reliquat de la dot", "Pension de viduité et mut’a", "Garde et pension des enfants"] },
+  "harassment-ar": { dir: "rtl", k: "القانون الجنائي · الفصل <bdi dir=\"ltr\">503-1</bdi>", title: "التحرش<br><span>جريمة</span>",
+    points: ["في الشارع أو عبر الهاتف والرسائل", "الحبس من شهر إلى 6 أشهر وغرامة", "عقوبة أشد إذا كانت الضحية قاصراً"] },
 };
 (async () => {
   const b = await chromium.launch();

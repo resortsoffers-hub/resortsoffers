@@ -27,6 +27,9 @@ ${BIO_AR}
 ✅ في حالة الخطر، اتصلي بالشرطة فوراً
 ${BIO_AR}
 #25نوفمبر #العنف_ضد_النساء #محامية #الرباط #ElkhalfiAvocates` },
+  { id: "AR 7", img: "dark-harassment-ar.png", dir: "rtl", text: `🚫 التحرش في الشارع أو عبر الرسائل جريمة يعاقب عليها القانون (الفصل ‎503-1‎).
+${BIO_AR}
+#التحرش #محامية #الرباط #ElkhalfiAvocates` },
   { id: "FR 1", img: "dark-whatsapp-fr.png", text: `📱 WhatsApp, une preuve en justice ? Oui : gardez vos messages et faites-les constater.
 ${BIO_FR}
 #avocate #Rabat #WhatsApp #ElkhalfiAvocates` },

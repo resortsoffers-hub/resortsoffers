@@ -115,7 +115,7 @@ const socialLinks = () => SOCIAL.length
 // Latest social posts shown on the home page, in the page's language (EN for es/de/nl).
 const POSTS = require("../social/captions-short.js").filter((c) => c.date).sort((a, b) => b.date.localeCompare(a.date));
 const POSTS_T = { ar: "آخر منشوراتنا", fr: "Nos dernières publications", en: "Latest posts", es: "Últimas publicaciones", de: "Neueste Beiträge", nl: "Laatste berichten" };
-const postText = (t) => t.split("\n").filter((l) => !/^(📩|#)/.test(l.trim())).join(" ").replace(/\u200e/g, "");
+const postText = (t) => t.split("\n").filter((l) => !/^(📩|#)/.test(l.trim())).join(" ");
 function postsBlock(lang) {
   const want = ["ar", "fr"].includes(lang) ? lang : "en";
   const list = POSTS.filter((c) => c.id.toLowerCase().startsWith(want)).slice(0, 3);

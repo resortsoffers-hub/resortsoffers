@@ -348,6 +348,9 @@ for (const c of POSTS) {
     const webSrc = path.join(ROOT, "social", "web", jpg);
     const file = fs.existsSync(webSrc) ? jpg : c.img;
     fs.copyFileSync(fs.existsSync(webSrc) ? webSrc : path.join(ROOT, "social", "posts", c.img), path.join(cdir, "img", file));
+    if (c.general) return `<section class="c today"><h2>⭐ General caption (for any post)</h2>
+<pre id="t${i}">${esc(c.text)}</pre>
+<button class="b" onclick="cp(${i},this)">📋 Copy caption</button></section>`;
     return `<section class="c${c.today ? " today" : ""}"><h2>${c.today ? "⭐ Today · " : ""}${c.id}${c.note ? ` <small>${c.note}</small>` : ""}</h2>
 <img src="img/${file}" alt=""${i > 1 ? ' loading="lazy"' : ""} width="1080" height="1350">
 <a class="b s" href="img/${file}" download>⬇ Save image</a>

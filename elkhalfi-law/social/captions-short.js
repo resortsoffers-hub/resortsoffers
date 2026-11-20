@@ -5,6 +5,10 @@ const BIO_AR = "📩 لحجز استشارة: الرابط في البايو";
 const BIO_FR = "📩 Rendez-vous : lien dans la bio";
 const BIO_EN = "📩 Book a consultation: link in bio";
 module.exports = [
+  { id: "General", today: true, img: "dark-harassment-ar.png", text: `⚖️ Maître Amal El Khalfi – Avocate à Rabat
+Lawyer in Rabat · محامية بالرباط
+📩 Link in bio
+#ElkhalfiAvocates #Rabat #Maroc #Avocate #محامية`, general: true },
   { id: "AR 1", date: "2026-11-11", img: "dark-whatsapp-ar.png", dir: "rtl", text: `📱 رسائل الواتساب دليل أمام المحكمة؟ نعم، احتفظوا بها ووثّقوها.
 ${BIO_AR}
 #محامية #الرباط #واتساب #ElkhalfiAvocates` },
@@ -28,7 +32,7 @@ ${BIO_AR}
 ✅ في حالة الخطر، اتصلي بالشرطة فوراً
 ${BIO_AR}
 #25نوفمبر #العنف_ضد_النساء #محامية #الرباط #ElkhalfiAvocates` },
-  { id: "AR 7", date: "2026-11-20", today: true, img: "dark-harassment-ar.png", dir: "rtl", text: `🚫 التحرش في الشارع أو عبر الرسائل جريمة يعاقب عليها القانون (الفصل ‎503-1-1‎).
+  { id: "AR 7", date: "2026-11-20", img: "dark-harassment-ar.png", dir: "rtl", text: `🚫 التحرش في الشارع أو عبر الرسائل جريمة يعاقب عليها القانون (الفصل ‎503-1-1‎).
 ${BIO_AR}
 #التحرش #محامية #الرباط #ElkhalfiAvocates` },
   { id: "FR 9", date: "2026-11-20", img: "dark-harassment-fr.png", text: `🚫 Le harcèlement dans la rue ou par message est un délit puni par la loi (art. 503-1-1 du Code pénal).

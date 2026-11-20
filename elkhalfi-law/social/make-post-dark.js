@@ -73,6 +73,8 @@ const POSTS = {
     await pg.setContent(page(p), { waitUntil: "networkidle" });
     await pg.evaluate(() => document.fonts.ready);
     await pg.screenshot({ path: path.join(__dirname, "posts", `dark-${name}.png`) });
+    // Light copy for the /copy page (fast on phones).
+    await pg.screenshot({ path: path.join(__dirname, "web", `dark-${name}.jpg`), type: "jpeg", quality: 85, scale: "css" });
   }
   await b.close();
   console.log("done");

@@ -311,15 +311,21 @@ for (const f of fs.readdirSync(ROOT).filter((f) => /^google[0-9a-f]+\.html$/.tes
 if (fs.existsSync(path.join(ROOT, "images"))) fs.cpSync(path.join(ROOT, "images"), path.join(OUT, "images"), { recursive: true });
 // Private helper page for the team: post images + captions with one-tap Copy buttons (not indexed).
 {
-  const CAPS = require("../social/captions-short.js");
+  const ALL = require("../social/captions-short.js");
+  // Today's post (today: true) is shown first so it is the first thing on the page.
+  const CAPS = ALL.filter((c) => c.today).concat(ALL.filter((c) => !c.today));
   const cdir = path.join(OUT, "copy");
   fs.mkdirSync(path.join(cdir, "img"), { recursive: true });
   const esc = (t) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
   const cards = CAPS.map((c, i) => {
-    fs.copyFileSync(path.join(ROOT, "social", "posts", c.img), path.join(cdir, "img", c.img));
-    return `<section class="c"><h2>${c.id}${c.note ? ` <small>${c.note}</small>` : ""}</h2>
-<img src="img/${c.img}" alt="" loading="lazy">
-<a class="b s" href="img/${c.img}" download>⬇ Save image</a>
+    // Use the light JPG (social/web) when it exists, else the full PNG.
+    const jpg = c.img.replace(/\.png$/, ".jpg");
+    const webSrc = path.join(ROOT, "social", "web", jpg);
+    const file = fs.existsSync(webSrc) ? jpg : c.img;
+    fs.copyFileSync(fs.existsSync(webSrc) ? webSrc : path.join(ROOT, "social", "posts", c.img), path.join(cdir, "img", file));
+    return `<section class="c${c.today ? " today" : ""}"><h2>${c.today ? "⭐ Today · " : ""}${c.id}${c.note ? ` <small>${c.note}</small>` : ""}</h2>
+<img src="img/${file}" alt=""${i > 1 ? ' loading="lazy"' : ""} width="1080" height="1350">
+<a class="b s" href="img/${file}" download>⬇ Save image</a>
 <pre id="t${i}" dir="${c.dir || "ltr"}">${esc(c.text)}</pre>
 <button class="b" onclick="cp(${i},this)">📋 Copy caption</button></section>`;
   }).join("\n");
@@ -331,7 +337,7 @@ header{position:sticky;top:0;background:#14161c;color:#c9a35a;padding:14px 18px;
 nav{display:flex;flex-wrap:wrap;gap:6px;padding:10px 14px}nav a{background:#fff;border:1px solid #c9a35a;border-radius:20px;padding:6px 12px;color:#1c1c1c;text-decoration:none;font-size:14px}
 .c{scroll-margin-top:60px;background:#fff;margin:14px;padding:16px;border-radius:14px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
 h2{margin:0 0 10px;font-size:20px}h2 small{color:#b3261e;font-size:14px}
-img{width:100%;border-radius:8px;display:block}
+img{width:100%;height:auto;border-radius:8px;display:block;background:#14161c}.today{border:3px solid #c9a35a}
 pre{white-space:pre-wrap;font-family:inherit;font-size:16px;line-height:1.5;background:#faf7f0;padding:12px;border-radius:8px;user-select:all;-webkit-user-select:all}
 .b{display:block;width:100%;box-sizing:border-box;text-align:center;border:0;border-radius:10px;padding:16px;font-size:18px;font-weight:700;background:#14161c;color:#fff;margin-top:10px;text-decoration:none;cursor:pointer}
 .b.s{background:#c9a35a;color:#14161c}.b.ok{background:#2e7d32}

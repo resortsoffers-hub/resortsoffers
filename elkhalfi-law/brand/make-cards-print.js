@@ -42,13 +42,13 @@ const cards={
    <div style="font-size:2mm;margin-top:2.6mm;display:flex;gap:4mm;justify-content:center"><span><b style="color:${G}">Instagram</b> @maitre.amal.elkhalfi</span><span><b style="color:${G}">LinkedIn</b> /elkhalfi-avocates</span></div>
    <div style="font-size:1.8mm;color:#bdb6a8;margin-top:1.4mm">Facebook: Maître Amal El Khalfi – Avocate</div></div></body></html>`},
  "99selection":{
-  front:`<!doctype html><html><head>${css(NN_BG,G2)}</head><body><div class="frame"></div><div class="safe" style="display:flex;align-items:center;gap:6mm">
-   <div style="flex:0 0 25mm;text-align:center"><div style="font-family:'Playfair Display',serif;font-weight:700;font-size:13mm;line-height:.9;color:${G2}">99</div><div style="letter-spacing:.4em;font-size:2.4mm;margin-top:1.2mm;padding-left:.4em">SELECTION</div></div>
-   <div style="flex:1;border-left:.25mm solid rgba(232,199,126,.5);padding-left:5mm"><div class="nm">Nora Elkhalfi</div><div class="ti">Founder &amp; Owner</div><div class="sub">Hospitality Marketing &amp; PR</div>
+  front:`<!doctype html><html><head>${css(ELK_BG,G)}</head><body><div class="frame"></div><div class="safe" style="display:flex;align-items:center;gap:6mm">
+   <div style="flex:0 0 25mm;text-align:center"><div style="font-family:'Playfair Display',serif;font-weight:700;font-size:13mm;line-height:.9;color:${G}">99</div><div style="letter-spacing:.4em;font-size:2.4mm;margin-top:1.2mm;padding-left:.4em">SELECTION</div></div>
+   <div style="flex:1;border-left:.25mm solid rgba(201,163,90,.5);padding-left:5mm"><div class="nm">Nora Elkhalfi</div><div class="ti">Founder &amp; Owner</div><div class="sub">Hospitality Marketing &amp; PR</div>
    <ul><li><b>✆</b>${PHONE}</li><li><b>✉</b>book@99selection.com</li><li><b>◎</b>99selection.com</li><li style="font-size:2mm;color:#bdb6a8"><b>⌖</b>Emirates Towers, Dubai, UAE</li></ul></div></div></body></html>`,
-  back:`<!doctype html><html><head>${css(NN_BG,G2)}</head><body><div class="frame"></div><div class="safe center">
-   <div style="display:flex;align-items:center;gap:9mm"><div style="text-align:center"><div style="font-family:'Playfair Display',serif;font-weight:700;font-size:13mm;line-height:.9;color:${G2}">99</div><div style="letter-spacing:.4em;font-size:2.4mm;margin-top:1.2mm;padding-left:.4em">SELECTION</div></div>
-   <div style="text-align:center"><div style="width:17mm;height:17mm;background:#fff;padding:1.2mm;border-radius:1.2mm">${qr("qr-99selection.svg","#0d1530")}</div><div style="font-size:1.9mm;margin-top:1.4mm;color:#bdb6a8">99selection.com</div></div></div>
+  back:`<!doctype html><html><head>${css(ELK_BG,G)}</head><body><div class="frame"></div><div class="safe center">
+   <div style="display:flex;align-items:center;gap:9mm"><div style="text-align:center"><div style="font-family:'Playfair Display',serif;font-weight:700;font-size:13mm;line-height:.9;color:${G}">99</div><div style="letter-spacing:.4em;font-size:2.4mm;margin-top:1.2mm;padding-left:.4em">SELECTION</div></div>
+   <div style="text-align:center"><div style="width:17mm;height:17mm;background:#fff;padding:1.2mm;border-radius:1.2mm">${qr("qr-99selection.svg","#121317")}</div><div style="font-size:1.9mm;margin-top:1.4mm;color:#bdb6a8">99selection.com</div></div></div>
    <div style="font-size:1.9mm;color:#bdb6a8;margin-top:3mm">Luxury resort holidays · Maldives · Seychelles · Mauritius · Bali</div></div></body></html>`}
 };
 (async()=>{const b=await chromium.launch();

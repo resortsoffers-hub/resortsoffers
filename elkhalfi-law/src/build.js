@@ -112,6 +112,25 @@ const socialLinks = () => SOCIAL.length
   ? `<div class="social">${SOCIAL.map(([n, u, i]) => `<a href="${u}" target="_blank" rel="noopener" aria-label="${n}">${i}<span>${n}</span></a>`).join("")}</div>`
   : "";
 
+// Latest social posts shown on the home page, in the page's language (EN for es/de/nl).
+const POSTS = require("../social/captions-short.js").filter((c) => c.date).sort((a, b) => b.date.localeCompare(a.date));
+const POSTS_T = { ar: "آخر منشوراتنا", fr: "Nos dernières publications", en: "Latest posts", es: "Últimas publicaciones", de: "Neueste Beiträge", nl: "Laatste berichten" };
+const postText = (t) => t.split("\n").filter((l) => !/^(📩|#)/.test(l.trim())).join(" ").replace(/\u200e/g, "");
+function postsBlock(lang) {
+  const want = ["ar", "fr"].includes(lang) ? lang : "en";
+  const list = POSTS.filter((c) => c.id.toLowerCase().startsWith(want)).slice(0, 3);
+  if (!list.length) return "";
+  const dfmt = new Intl.DateTimeFormat(lang === "ar" ? "ar-MA" : lang, { day: "numeric", month: "long", year: "numeric" });
+  return `    <section class="section" id="publications">
+      <div class="container">
+        <div class="section-head"><h2>${POSTS_T[lang]}</h2></div>
+        <div class="posts">
+${list.map((c) => `          <article class="post"><img src="/images/posts/${c.img.replace(/\.png$/, ".jpg")}" alt="" width="1080" height="1350" loading="lazy" /><time datetime="${c.date}">${dfmt.format(new Date(c.date))}</time><p>${postText(c.text)}</p></article>`).join("\n")}
+        </div>
+      </div>
+    </section>`;
+}
+
 // Google review link: paste the "Ask for reviews" link from the Google Business Profile here.
 // While it is empty, the review box stays hidden.
 const GOOGLE_REVIEW_URL = "";
@@ -155,6 +174,7 @@ function render(lang) {
     jsonld: jsonLd(lang),
     reviewBlock: reviewBlock(t),
     social: socialLinks(),
+    postsBlock: postsBlock(lang),
     amalPhoto: photo("amal", t["amal.name"], "AE"),
     latifaPhoto: photo("latifa", t["latifa.name"], "LE"),
   };
@@ -309,6 +329,11 @@ for (const f of ["styles.css", "script.js"]) fs.copyFileSync(path.join(ROOT, f),
 // Search engine verification files (e.g. google*.html) are served from the site root.
 for (const f of fs.readdirSync(ROOT).filter((f) => /^google[0-9a-f]+\.html$/.test(f))) fs.copyFileSync(path.join(ROOT, f), path.join(OUT, f));
 if (fs.existsSync(path.join(ROOT, "images"))) fs.cpSync(path.join(ROOT, "images"), path.join(OUT, "images"), { recursive: true });
+fs.mkdirSync(path.join(OUT, "images", "posts"), { recursive: true });
+for (const c of POSTS) {
+  const jpg = c.img.replace(/\.png$/, ".jpg");
+  if (fs.existsSync(path.join(ROOT, "social", "web", jpg))) fs.copyFileSync(path.join(ROOT, "social", "web", jpg), path.join(OUT, "images", "posts", jpg));
+}
 // Private helper page for the team: post images + captions with one-tap Copy buttons (not indexed).
 {
   const ALL = require("../social/captions-short.js");

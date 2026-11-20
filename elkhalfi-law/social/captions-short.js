@@ -1,13 +1,14 @@
 // Short captions for Instagram/Facebook, shown on /copy/ with one-tap Copy buttons.
+// date: day it was published (shown on the website, newest first). today: shown first on /copy.
 // No address or phone in captions. Max 5 hashtags. One language per post.
 const BIO_AR = "📩 لحجز استشارة: الرابط في البايو";
 const BIO_FR = "📩 Rendez-vous : lien dans la bio";
 const BIO_EN = "📩 Book a consultation: link in bio";
 module.exports = [
-  { id: "AR 1", img: "dark-whatsapp-ar.png", dir: "rtl", text: `📱 رسائل الواتساب دليل أمام المحكمة؟ نعم، احتفظوا بها ووثّقوها.
+  { id: "AR 1", date: "2026-11-11", img: "dark-whatsapp-ar.png", dir: "rtl", text: `📱 رسائل الواتساب دليل أمام المحكمة؟ نعم، احتفظوا بها ووثّقوها.
 ${BIO_AR}
 #محامية #الرباط #واتساب #ElkhalfiAvocates` },
-  { id: "AR 2", img: "dark-moudawana-ar.png", dir: "rtl", text: `📘 تعديل مدونة الأسرة: أين وصل؟
+  { id: "AR 2", date: "2026-11-10", img: "dark-moudawana-ar.png", dir: "rtl", text: `📘 تعديل مدونة الأسرة: أين وصل؟
 المشروع لم يُعرض بعد على البرلمان، والمطبَّق اليوم هو مدونة 2004.
 ${BIO_AR}
 #مدونة_الأسرة #محامية #الرباط #ElkhalfiAvocates` },
@@ -19,7 +20,7 @@ ${BIO_AR}
 حماية أقوى لحقوق المؤلف. المبدعون والشركات: احموا أعمالكم.
 ${BIO_AR}
 #حقوق_المؤلف #محامية #الرباط #ElkhalfiAvocates` },
-  { id: "AR 5", img: "dark-divorce-ar.png", dir: "rtl", text: `⚖️ حقوق المطلّقة في المغرب: الصداق المؤخر، نفقة العدة، المتعة، والحضانة ونفقة الأطفال.
+  { id: "AR 5", date: "2026-11-18", img: "dark-divorce-ar.png", dir: "rtl", text: `⚖️ حقوق المطلّقة في المغرب: الصداق المؤخر، نفقة العدة، المتعة، والحضانة ونفقة الأطفال.
 ${BIO_AR}
 #الطلاق #مدونة_الأسرة #محامية #ElkhalfiAvocates` },
   { id: "AR 6", note: "25 November only", img: "violence-women-ar.png", dir: "rtl", text: `🟠 25 نوفمبر: القانون يحميكِ
@@ -27,7 +28,7 @@ ${BIO_AR}
 ✅ في حالة الخطر، اتصلي بالشرطة فوراً
 ${BIO_AR}
 #25نوفمبر #العنف_ضد_النساء #محامية #الرباط #ElkhalfiAvocates` },
-  { id: "AR 7", today: true, img: "dark-harassment-ar.png", dir: "rtl", text: `🚫 التحرش في الشارع أو عبر الرسائل جريمة يعاقب عليها القانون (الفصل ‎503-1‎).
+  { id: "AR 7", date: "2026-11-20", today: true, img: "dark-harassment-ar.png", dir: "rtl", text: `🚫 التحرش في الشارع أو عبر الرسائل جريمة يعاقب عليها القانون (الفصل ‎503-1‎).
 ${BIO_AR}
 #التحرش #محامية #الرباط #ElkhalfiAvocates` },
   { id: "FR 1", img: "dark-whatsapp-fr.png", text: `📱 WhatsApp, une preuve en justice ? Oui : gardez vos messages et faites-les constater.
@@ -49,7 +50,7 @@ ${BIO_FR}
 ✅ Créateurs et entreprises : protégez vos œuvres
 ${BIO_FR}
 #droitdauteur #piratage #avocate #Rabat #ElkhalfiAvocates` },
-  { id: "FR 5", img: "dark-divorce-fr.png", text: `⚖️ Femme divorcée au Maroc : dot, pension de viduité, don de consolation, garde et pension des enfants.
+  { id: "FR 5", date: "2026-11-19", img: "dark-divorce-fr.png", text: `⚖️ Femme divorcée au Maroc : dot, pension de viduité, don de consolation, garde et pension des enfants.
 ${BIO_FR}
 #divorce #Moudawana #avocate #ElkhalfiAvocates` },
   { id: "FR 6", note: "25 November only", img: "violence-women-fr.png", text: `🟠 25 novembre : la loi vous protège
@@ -57,7 +58,7 @@ ${BIO_FR}
 ✅ En cas de danger, appelez la police
 ${BIO_FR}
 #25novembre #violencesfaitesauxfemmes #avocate #Rabat #ElkhalfiAvocates` },
-  { id: "FR 7", img: "dark-property-fr.png", text: `🏡 Étranger et acheteur au Maroc ? Vérifiez le titre foncier et payez en devises via une banque marocaine.
+  { id: "FR 7", date: "2026-11-12", img: "dark-property-fr.png", text: `🏡 Étranger et acheteur au Maroc ? Vérifiez le titre foncier et payez en devises via une banque marocaine.
 ${BIO_FR}
 #immobilierMaroc #avocate #Rabat #ElkhalfiAvocates` },
   { id: "FR 8", img: "intl-apostille-fr.png", text: `💍 Acte de mariage étranger au Maroc ?

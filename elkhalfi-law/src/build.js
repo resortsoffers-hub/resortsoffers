@@ -161,6 +161,29 @@ ${c.motto ? `<p class="article-motto">${c.motto}</p>` : ""}
 <footer class="site-footer"><div class="container disclaimer"><p>&copy; ${new Date().getFullYear()} ${t["brand.full"]}</p></div></footer></body></html>`;
 }
 
+// Articles index page: /articles/ (AR), /fr/articles/, /en/articles/.
+const ART_T = { ar: ["مقالات", "تعرّفوا على فريق مكتب الخلفي للمحاماة.", "اقرأ المقال ←"], fr: ["Articles", "Découvrez l'équipe du cabinet Elkhalfi Avocates.", "Lire l'article →"], en: ["Articles", "Meet the team of Elkhalfi Avocates.", "Read the article →"] };
+const artIndexPath = (lang) => (lang === "ar" ? "/articles/" : `/${lang}/articles/`);
+function renderArticleIndex(lang) {
+  const t = T[lang], L = LANGS[lang], [h, lead, read] = ART_T[lang], url = SITE_URL + artIndexPath(lang);
+  const ORDER_SLUGS = ["amal-elkhalfi", "latifa-elkhalfi", "nora-elkhalfi"];
+  const list = [...ARTICLES].sort((a, b) => b.date.localeCompare(a.date) || ORDER_SLUGS.indexOf(a.slug) - ORDER_SLUGS.indexOf(b.slug));
+  return `<!DOCTYPE html>
+<html lang="${lang}" dir="${L.dir}"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>${h} | ${t["brand.full"]}</title><meta name="description" content="${attr(lead)}" /><link rel="canonical" href="${url}" />
+${ART_LANGS.map((l) => `<link rel="alternate" hreflang="${l}" href="${SITE_URL}${artIndexPath(l)}" />`).join("\n")}
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/styles.css" /></head>
+<body><header class="site-header"><div class="container nav"><a href="${L.path}" class="brand"><span class="brand-mark">E</span><span class="brand-text"><span>${t["brand.name"]}</span><small>${t["brand.sub"]}</small></span></a></div></header>
+<main><section class="section"><div class="container">
+<div class="section-head"><h1 class="display" style="color:var(--navy)">${h}</h1><p>${lead}</p></div>
+<div class="posts">
+${list.map((a) => `<a class="post" href="${artPath(lang, a.slug)}"><img src="/${a.photo}" alt="" width="800" height="1000" loading="lazy" /><p><b>${a[lang].title}</b><br /><span class="map-link">${read}</span></p></a>`).join("\n")}
+</div></div></section></main>
+<footer class="site-footer"><div class="container disclaimer"><p>&copy; ${new Date().getFullYear()} ${t["brand.full"]}</p></div></footer></body></html>`;
+}
+
 // Google review link: paste the "Ask for reviews" link from the Google Business Profile here.
 // While it is empty, the review box stays hidden.
 const GOOGLE_REVIEW_URL = "https://www.google.com/maps?cid=13568400987389958585"; // replace with the "Ask for reviews" link when available
@@ -204,6 +227,7 @@ function render(lang) {
     jsonld: jsonLd(lang),
     reviewBlock: reviewBlock(t),
     social: socialLinks(),
+    articlesLink: `<a href="${artIndexPath(artLang(lang))}">${ART_T[artLang(lang)][0]}</a>`,
     postsBlock: postsBlock(lang),
     amalPhoto: photo("amal", t["amal.name"], "AE"),
     latifaPhoto: photo("latifa", t["latifa.name"], "LE"),
@@ -337,6 +361,7 @@ function sitemap() {
   });
   const urls = Object.values(LANGS)
     .map((v) => `  <url>\n    <loc>${SITE_URL}${v.path}</loc>\n    <lastmod>${today}</lastmod>\n${alts}\n  </url>`).concat(areaUrls)
+    .concat(ART_LANGS.map((l) => `  <url>\n    <loc>${SITE_URL}${artIndexPath(l)}</loc>\n    <lastmod>${today}</lastmod>\n  </url>`))
     .concat(ARTICLES.flatMap((a) => ART_LANGS.map((l) => `  <url>\n    <loc>${SITE_URL}${artPath(l, a.slug)}</loc>\n    <lastmod>${a.date}</lastmod>\n  </url>`))).join("\n");
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
@@ -424,6 +449,10 @@ const REVIEW_URL = GOOGLE_REVIEW_URL || MAP_URL;
 for (const [dir, url, title] of [["map", MAP_URL, "Map"], ["review", REVIEW_URL, "Review"]]) {
   fs.mkdirSync(path.join(OUT, dir), { recursive: true });
   fs.writeFileSync(path.join(OUT, dir, "index.html"), `<!doctype html><meta charset="utf-8"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0;url=${url}"><title>Elkhalfi Avocates – ${title}</title><a href="${url}">Open in Google Maps</a><script>location.replace(${JSON.stringify(url)})</script>`);
+}
+for (const l of ART_LANGS) {
+  fs.mkdirSync(path.join(OUT, artIndexPath(l)), { recursive: true });
+  fs.writeFileSync(path.join(OUT, artIndexPath(l), "index.html"), renderArticleIndex(l));
 }
 for (const a of ARTICLES) for (const l of ART_LANGS) {
   const dir = path.join(OUT, artPath(l, a.slug));

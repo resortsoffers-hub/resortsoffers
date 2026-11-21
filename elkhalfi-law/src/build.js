@@ -156,7 +156,7 @@ function render(lang) {
     langLinks: ORDER.map((l) =>
       `<a href="${LANGS[l].path}" hreflang="${l}" lang="${l}" title="${LANGS[l].label}"${l === lang ? ' class="active" aria-current="page"' : ""}>${LANGS[l].short}</a>`
     ).join(""),
-    langOptions: ORDER.map((l) => `<option value="${LANGS[l].path}"${l === lang ? " selected" : ""}>${LANGS[l].label}</option>`).join(""),
+    langOptions: ORDER.map((l) => `<option value="${LANGS[l].path}"${l === lang ? " selected" : ""}>🌐 ${LANGS[l].label}</option>`).join(""),
     areaCards: AREAS[lang]
       .map(([title, desc], i) => {
         const inner = `<div class="icon" aria-hidden="true">${ICONS[i]}</div><h3>${title}</h3><p>${desc}</p>`;
@@ -236,7 +236,7 @@ function renderArea(lang, page) {
       const href = AREA_LANGS.includes(l) ? areaPath(l, page.slug) : LANGS[l].path;
       return `<a href="${href}" hreflang="${l}" lang="${l}" title="${LANGS[l].label}"${l === lang ? ' class="active" aria-current="page"' : ""}>${LANGS[l].short}</a>`;
     }).join(""),
-    langOptions: ORDER.map((l) => { const href = AREA_LANGS.includes(l) ? areaPath(l, page.slug) : LANGS[l].path; return `<option value="${href}"${l === lang ? " selected" : ""}>${LANGS[l].label}</option>`; }).join(""),
+    langOptions: ORDER.map((l) => { const href = AREA_LANGS.includes(l) ? areaPath(l, page.slug) : LANGS[l].path; return `<option value="${href}"${l === lang ? " selected" : ""}>🌐 ${LANGS[l].label}</option>`; }).join(""),
     items: a.items.map((i) => `            <li>${i}</li>`).join("\n"),
     faqItems: a.faq.map(([q, ans]) => `        <details>\n          <summary><h3>${q}</h3></summary>\n          <p>${ans}</p>\n        </details>`).join("\n"),
     others: PAGES.filter((p) => p !== page).map((p) => `          <a href="${areaPath(lang, p.slug)}">${p[lang].name}</a>`).join("\n"),

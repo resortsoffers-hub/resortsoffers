@@ -269,3 +269,7 @@ details p { padding-bottom: 1.2rem; color: var(--muted); }
 .post img { width: 100%; height: auto; display: block; }
 .post time { font-size: .8rem; color: var(--gold); font-weight: 600; padding: 1rem 1.1rem 0; }
 .post p { padding: .4rem 1.1rem 1.2rem; margin: 0; line-height: 1.6; }
+
+/* Language menu: make it obvious there are other languages */
+.lang-select { border: 1.5px solid var(--gold); color: var(--navy); padding: 0.4rem 0.7rem; }
+.avatar.avatar-photo { width: 100%; max-width: 320px; height: auto; aspect-ratio: 4 / 5; }

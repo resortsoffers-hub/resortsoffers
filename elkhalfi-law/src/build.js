@@ -60,7 +60,8 @@ function jsonLd(lang) {
     openingHours: "Mo-Fr 09:00-18:00",
     areaServed: { "@type": "Country", name: "Morocco" },
     knowsAbout: AREAS[lang].map(([a]) => a),
-    employee: [{ "@id": SITE_URL + "/#amal" }, { "@id": SITE_URL + "/#latifa" }],
+    employee: [{ "@id": SITE_URL + "/#amal" }, { "@id": SITE_URL + "/#latifa" }, { "@type": "Person", name: "Nora Elkhalfi", jobTitle: "International PR & Client Relations", ...(photoFile("nora") ? { image: `${SITE_URL}/${photoFile("nora")}` } : {}) }],
+    image: [`${SITE_URL}/images/og-image.jpg`, ...["amal", "latifa"].map((k) => photoFile(k)).filter(Boolean).map((f) => `${SITE_URL}/${f}`)],
   };
   const amal = {
     "@type": "Person",
@@ -353,6 +354,8 @@ ${faq("ar")}
 `;
 }
 
+const HOME_IMAGES = ["amal", "latifa", "nora"].map((k) => photoFile(k)).filter(Boolean).concat(["images/og-image.jpg", "images/logo-512.png"])
+  .map((f) => `    <image:image><image:loc>${SITE_URL}/${f}</image:loc></image:image>\n`).join("");
 function sitemap() {
   const alts = Object.entries(LANGS)
     .map(([l, v]) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${SITE_URL}${v.path}"/>`).join("\n");
@@ -362,11 +365,11 @@ function sitemap() {
     return AREA_LANGS.map((l) => `  <url>\n    <loc>${SITE_URL}${areaPath(l, p.slug)}</loc>\n    <lastmod>${today}</lastmod>\n${a}\n  </url>`);
   });
   const urls = Object.values(LANGS)
-    .map((v) => `  <url>\n    <loc>${SITE_URL}${v.path}</loc>\n    <lastmod>${today}</lastmod>\n${alts}\n  </url>`).concat(areaUrls)
+    .map((v) => `  <url>\n    <loc>${SITE_URL}${v.path}</loc>\n    <lastmod>${today}</lastmod>\n${alts}\n${HOME_IMAGES}  </url>`).concat(areaUrls)
     .concat(ART_LANGS.map((l) => `  <url>\n    <loc>${SITE_URL}${artIndexPath(l)}</loc>\n    <lastmod>${today}</lastmod>\n  </url>`))
-    .concat(ARTICLES.flatMap((a) => ART_LANGS.map((l) => `  <url>\n    <loc>${SITE_URL}${artPath(l, a.slug)}</loc>\n    <lastmod>${a.date}</lastmod>\n  </url>`))).join("\n");
+    .concat(ARTICLES.flatMap((a) => ART_LANGS.map((l) => `  <url>\n    <loc>${SITE_URL}${artPath(l, a.slug)}</loc>\n    <lastmod>${a.date}</lastmod>\n    <image:image><image:loc>${SITE_URL}/${a.photo}</image:loc></image:image>\n  </url>`))).join("\n");
   return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${urls}
 </urlset>
 `;

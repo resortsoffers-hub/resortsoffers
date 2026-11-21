@@ -40,7 +40,7 @@ const cards={
    <div style="display:flex;align-items:center;gap:7mm"><div style="text-align:center">${mark(G,48)}<div style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:5mm;margin-top:1.5mm">Elkhalfi</div><div style="color:${G};font-weight:600;font-size:1.9mm;letter-spacing:.3em;margin-top:1mm">AVOCATES</div></div>
    <div style="text-align:center"><div style="width:17mm;height:17mm;background:#fff;padding:1.2mm;border-radius:1.2mm">${qr("qr-linkedin-elkhalfi.svg","#121317")}</div><div style="font-size:1.9mm;margin-top:1.4mm;color:#bdb6a8">LinkedIn</div></div></div>
    <div style="font-size:2mm;margin-top:2.6mm;display:flex;gap:4mm;justify-content:center"><span><b style="color:${G}">Instagram</b> @elkhalfi_avocates</span><span><b style="color:${G}">LinkedIn</b> /elkhalfi-avocates</span></div>
-   <div style="font-size:1.8mm;color:#bdb6a8;margin-top:1.4mm">Facebook: Maître Amal El Khalfi – Avocate</div></div></body></html>`},
+   <div style="font-size:1.8mm;color:#bdb6a8;margin-top:1.4mm">Facebook: Elkhalfi Avocates</div></div></body></html>`},
  "99selection":{
   front:`<!doctype html><html><head>${css(ELK_BG,G)}</head><body><div class="frame"></div><div class="safe" style="display:flex;align-items:center;gap:6mm">
    <div style="flex:0 0 25mm;text-align:center"><div style="font-family:'Playfair Display',serif;font-weight:700;font-size:13mm;line-height:.9;color:${G}">99</div><div style="letter-spacing:.4em;font-size:2.4mm;margin-top:1.2mm;padding-left:.4em">SELECTION</div></div>

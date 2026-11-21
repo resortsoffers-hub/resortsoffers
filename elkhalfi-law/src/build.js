@@ -45,6 +45,7 @@ function jsonLd(lang) {
     "@type": "LegalService",
     "@id": SITE_URL + "/#firm",
     name: t["brand.full"],
+    logo: `${SITE_URL}/images/logo-512.png`,
     alternateName: ["الخلفي للمحاماة والاستشارات القانونية", "Elkhalfi – Avocats & Conseil juridique", "Elkhalfi Law & Legal Consulting", "Elkhalfi Abogadas y Asesoría Jurídica", "Elkhalfi Rechtsanwältinnen & Rechtsberatung", "Elkhalfi Advocaten & Juridisch Advies", "Elkhalfi Advocates", "Cabinet El Khalfi"],
     description: stripTags(t["meta.desc"]),
     url,
@@ -147,8 +148,8 @@ ${ART_LANGS.map((l) => `<link rel="alternate" hreflang="${l}" href="${SITE_URL}$
 <meta property="og:type" content="article" /><meta property="og:title" content="${attr(c.title)}" /><meta property="og:description" content="${attr(c.paras[0])}" /><meta property="og:url" content="${url}" /><meta property="og:image" content="${SITE_URL}/${a.photo}" />
 <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="/styles.css" /><script type="application/ld+json">${ld}</script></head>
-<body><header class="site-header"><div class="container nav"><a href="${L.path}" class="brand"><span class="brand-mark">E</span><span class="brand-text"><span>${t["brand.name"]}</span><small>${t["brand.sub"]}</small></span></a></div></header>
+<link rel="icon" href="/favicon.ico" sizes="48x48" /><link rel="icon" href="/favicon.svg" type="image/svg+xml" /><link rel="apple-touch-icon" href="/apple-touch-icon.png" /><link rel="stylesheet" href="/styles.css" /><script type="application/ld+json">${ld}</script></head>
+<body><header class="site-header"><div class="container nav"><a href="${L.path}" class="brand"><span class="brand-mark"><img src="/favicon.svg" alt="" width="40" height="40" /></span><span class="brand-text"><span>${t["brand.name"]}</span><small>${t["brand.sub"]}</small></span></a></div></header>
 <main><article class="section"><div class="container narrow article">
 <img class="article-photo" src="/${a.photo}" alt="${attr(c.title.split("|")[0].trim())}" width="800" height="1000" />
 <h1>${c.title}</h1>
@@ -174,8 +175,8 @@ function renderArticleIndex(lang) {
 ${ART_LANGS.map((l) => `<link rel="alternate" hreflang="${l}" href="${SITE_URL}${artIndexPath(l)}" />`).join("\n")}
 <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="/styles.css" /></head>
-<body><header class="site-header"><div class="container nav"><a href="${L.path}" class="brand"><span class="brand-mark">E</span><span class="brand-text"><span>${t["brand.name"]}</span><small>${t["brand.sub"]}</small></span></a></div></header>
+<link rel="icon" href="/favicon.ico" sizes="48x48" /><link rel="icon" href="/favicon.svg" type="image/svg+xml" /><link rel="apple-touch-icon" href="/apple-touch-icon.png" /><link rel="stylesheet" href="/styles.css" /></head>
+<body><header class="site-header"><div class="container nav"><a href="${L.path}" class="brand"><span class="brand-mark"><img src="/favicon.svg" alt="" width="40" height="40" /></span><span class="brand-text"><span>${t["brand.name"]}</span><small>${t["brand.sub"]}</small></span></a></div></header>
 <main><section class="section"><div class="container">
 <div class="section-head"><h1 class="display" style="color:var(--navy)">${h}</h1><p>${lead}</p></div>
 <div class="posts">
@@ -387,7 +388,7 @@ for (const page of PAGES) for (const lang of AREA_LANGS) {
   fs.mkdirSync(dir, { recursive: true });
   writePage(path.join(dir, "index.html"), renderArea(lang, page));
 }
-for (const f of ["styles.css", "script.js"]) fs.copyFileSync(path.join(ROOT, f), path.join(OUT, f));
+for (const f of ["styles.css", "script.js", "favicon.ico", "favicon.svg", "favicon-96.png", "apple-touch-icon.png"]) fs.copyFileSync(path.join(ROOT, f), path.join(OUT, f));
 // Search engine verification files (e.g. google*.html) are served from the site root.
 for (const f of fs.readdirSync(ROOT).filter((f) => /^google[0-9a-f]+\.html$/.test(f))) fs.copyFileSync(path.join(ROOT, f), path.join(OUT, f));
 if (fs.existsSync(path.join(ROOT, "images"))) fs.cpSync(path.join(ROOT, "images"), path.join(OUT, "images"), { recursive: true });

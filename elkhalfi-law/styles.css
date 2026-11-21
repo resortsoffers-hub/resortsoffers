@@ -285,3 +285,5 @@ details p { padding-bottom: 1.2rem; color: var(--muted); }
 .org-box .map-link, .member .map-link { color: var(--gold); font-weight: 600; display: inline-block; margin-top: .7rem; }
 a.post { color: inherit; text-decoration: none; }
 .post .map-link { color: var(--gold); font-weight: 600; }
+.brand-mark img { width: 100%; height: 100%; display: block; border-radius: 50%; }
+.brand-mark:has(img) { background: none; }

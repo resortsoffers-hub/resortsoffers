@@ -176,7 +176,7 @@ const FAQ = {
 
 const T = {
   ar: {
-    "meta.title": "الخلفي للمحاماة والاستشارات القانونية | محاميتان في الرباط",
+    "meta.title": "Elkhalfi Avocates | الأستاذة آمال الخلفي والأستاذة لطيفة الخلفي، محاميتان بالرباط",
     "meta.desc": "مكتب الخلفي للمحاماة والاستشارات القانونية بالرباط: الأستاذة آمال الخلفي والأستاذة لطيفة الخلفي. قضايا الأسرة والطلاق، المدني، العقاري، التجاري، الجنائي والشغل.",
     "brand.name": "Elkhalfi",
     "brand.sub": "Avocates",
@@ -243,7 +243,7 @@ const T = {
     "contact.address": "العنوان",
     "contact.addressV": "شارع مدغشقر، زنقة عبد الكريم ديوري، رقم 42<br>الطابق الأرضي، القبيبات – الرباط",
     "contact.phone": "الهاتف",
-    "contact.phoneV": "<span dir=\"ltr\"><a href=\"tel:+212667499187\">06 67 49 91 87</a> · <a href=\"tel:+212661983230\">06 61 98 32 30</a></span>",
+    "contact.phoneV": "<span dir=\"ltr\"><a href=\"tel:+212672801583\">06 72 80 15 83</a> · <a href=\"https://wa.me/212672801583\">WhatsApp</a></span>",
     "contact.email": "البريد الإلكتروني",
     "contact.emailV": "<a href=\"mailto:elkhalfiavocates@gmail.com\">elkhalfiavocates@gmail.com</a><br><a href=\"mailto:latifa.elkhalfi1@gmail.com\">latifa.elkhalfi1@gmail.com</a>",
     "contact.hours": "أوقات العمل",
@@ -267,7 +267,7 @@ const T = {
   },
 
   fr: {
-    "meta.title": "Elkhalfi – Avocats & Conseil juridique à Rabat | Maître Amal et Latifa El Khalfi",
+    "meta.title": "Elkhalfi Avocates | Maître Amal et Maître Latifa Elkhalfi, avocates à Rabat",
     "meta.desc": "Cabinet d'avocats à Rabat : Maître Amal El Khalfi et Maître Latifa El Khalfi. Divorce et famille, civil, immobilier, commercial, pénal, travail.",
     "brand.name": "Elkhalfi",
     "brand.sub": "Avocates",
@@ -334,7 +334,7 @@ const T = {
     "contact.address": "Adresse",
     "contact.addressV": "42, rue Abdelkrim Diouri, avenue de Madagascar<br>Rez-de-chaussée – Rabat",
     "contact.phone": "Téléphone",
-    "contact.phoneV": "<span dir=\"ltr\"><a href=\"tel:+212667499187\">06 67 49 91 87</a> · <a href=\"tel:+212661983230\">06 61 98 32 30</a></span>",
+    "contact.phoneV": "<span dir=\"ltr\"><a href=\"tel:+212672801583\">06 72 80 15 83</a> · <a href=\"https://wa.me/212672801583\">WhatsApp</a></span>",
     "contact.email": "E-mail",
     "contact.emailV": "<a href=\"mailto:elkhalfiavocates@gmail.com\">elkhalfiavocates@gmail.com</a><br><a href=\"mailto:latifa.elkhalfi1@gmail.com\">latifa.elkhalfi1@gmail.com</a>",
     "contact.hours": "Horaires",
@@ -358,7 +358,7 @@ const T = {
   },
 
   en: {
-    "meta.title": "Elkhalfi Law & Legal Consulting | Lawyers in Rabat, Morocco",
+    "meta.title": "Elkhalfi Avocates | Maître Amal & Maître Latifa Elkhalfi, Lawyers in Rabat",
     "meta.desc": "Law firm in Rabat, Morocco: Amal El Khalfi and Latifa El Khalfi. Family and divorce, civil, real estate, commercial, criminal and employment law.",
     "brand.name": "Elkhalfi",
     "brand.sub": "Avocates",
@@ -425,7 +425,7 @@ const T = {
     "contact.address": "Address",
     "contact.addressV": "42 Abdelkrim Diouri Street, Madagascar Avenue<br>Ground floor – Rabat",
     "contact.phone": "Phone",
-    "contact.phoneV": "<span dir=\"ltr\"><a href=\"tel:+212667499187\">06 67 49 91 87</a> · <a href=\"tel:+212661983230\">06 61 98 32 30</a></span>",
+    "contact.phoneV": "<span dir=\"ltr\"><a href=\"tel:+212672801583\">06 72 80 15 83</a> · <a href=\"https://wa.me/212672801583\">WhatsApp</a></span>",
     "contact.email": "Email",
     "contact.emailV": "<a href=\"mailto:elkhalfiavocates@gmail.com\">elkhalfiavocates@gmail.com</a><br><a href=\"mailto:latifa.elkhalfi1@gmail.com\">latifa.elkhalfi1@gmail.com</a>",
     "contact.hours": "Hours",

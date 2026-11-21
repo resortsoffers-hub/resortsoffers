@@ -19,7 +19,7 @@ module.exports = (en) => {
   const T = {
     es: {
       ...shared,
-      "meta.title": "Elkhalfi Abogadas y Asesoría Jurídica | Abogadas en Rabat, Marruecos",
+      "meta.title": "Elkhalfi Avocates | Amal y Latifa Elkhalfi, abogadas en Rabat",
       "meta.desc": "Despacho de abogados en Rabat, Marruecos: Dr. Amal Elkhalfi y Maître Latifa Elkhalfi. Familia y divorcio, civil, inmobiliario, mercantil, penal y laboral. Asistencia a clientes internacionales.",
       "brand.sub": "Avocates",
       "brand.full": "Elkhalfi Avocates",
@@ -72,7 +72,7 @@ module.exports = (en) => {
 
     de: {
       ...shared,
-      "meta.title": "Elkhalfi Rechtsanwältinnen & Rechtsberatung | Anwältinnen in Rabat, Marokko",
+      "meta.title": "Elkhalfi Avocates | Amal & Latifa Elkhalfi, Anwältinnen in Rabat",
       "meta.desc": "Anwaltskanzlei in Rabat, Marokko: Dr. Amal Elkhalfi und Maître Latifa Elkhalfi. Familien- und Scheidungsrecht, Zivil-, Immobilien-, Handels-, Straf- und Arbeitsrecht. Betreuung internationaler Mandanten.",
       "brand.sub": "Avocates",
       "brand.full": "Elkhalfi Avocates",
@@ -125,7 +125,7 @@ module.exports = (en) => {
 
     nl: {
       ...shared,
-      "meta.title": "Elkhalfi Advocaten & Juridisch Advies | Advocaten in Rabat, Marokko",
+      "meta.title": "Elkhalfi Avocates | Amal & Latifa Elkhalfi, advocaten in Rabat",
       "meta.desc": "Advocatenkantoor in Rabat, Marokko: Dr. Amal Elkhalfi en Maître Latifa Elkhalfi. Familie- en echtscheidingsrecht, civiel, vastgoed, ondernemingsrecht, strafrecht en arbeidsrecht. Begeleiding van internationale cliënten.",
       "brand.sub": "Avocates",
       "brand.full": "Elkhalfi Avocates",

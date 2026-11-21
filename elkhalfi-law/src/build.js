@@ -383,6 +383,12 @@ function old(){var a=document.createElement("textarea");a.value=t;a.style.positi
 if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(done,old)}else old()}
 </script></body></html>`);
 }
+// Short link to share: elkhalfiavocates.com/map opens the firm's Google Maps profile.
+{
+  const MAP_URL = "https://www.google.com/maps/search/?api=1&query=Ma%C3%AEtre%20Amal%20El%20Khalfi%20Avocate%2C%2042%20Rue%20Abdelkrim%20Diouri%2C%20Rabat";
+  fs.mkdirSync(path.join(OUT, "map"), { recursive: true });
+  fs.writeFileSync(path.join(OUT, "map", "index.html"), `<!doctype html><meta charset="utf-8"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0;url=${MAP_URL}"><title>Elkhalfi Avocates – Map</title><a href="${MAP_URL}">Open in Google Maps</a><script>location.replace(${JSON.stringify(MAP_URL)})</script>`);
+}
 fs.writeFileSync(path.join(OUT, "sitemap.xml"), sitemap());
 fs.writeFileSync(path.join(OUT, "robots.txt"), `User-agent: *\nAllow: /\nDisallow: /copy/\n\nSitemap: ${SITE_URL}/sitemap.xml\n`);
 fs.writeFileSync(path.join(OUT, "llms.txt"), llmsTxt());

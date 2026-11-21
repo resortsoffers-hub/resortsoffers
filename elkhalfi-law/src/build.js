@@ -155,7 +155,7 @@ ${ART_LANGS.map((l) => `<link rel="alternate" hreflang="${l}" href="${SITE_URL}$
 ${c.paras.map((p) => `<p>${p}</p>`).join("\n")}
 <ul class="checklist">${c.list.map((x) => `<li>${x}</li>`).join("")}</ul>
 ${c.after.map((p) => `<p>${p}</p>`).join("\n")}
-<p class="article-motto">${c.motto}</p>
+${c.motto ? `<p class="article-motto">${c.motto}</p>` : ""}
 <p><a class="btn" href="${L.path}#equipe">${c.back}</a></p>
 </div></article></main>
 <footer class="site-footer"><div class="container disclaimer"><p>&copy; ${new Date().getFullYear()} ${t["brand.full"]}</p></div></footer></body></html>`;

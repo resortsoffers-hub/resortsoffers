@@ -1,5 +1,51 @@
 // Articles about the team (text supplied by Nora, 21 Nov 2026). One page per language.
 module.exports = [{
+  slug: "amal-elkhalfi",
+  photo: "images/amal.jpg",
+  date: "2026-11-21",
+  ar: {
+    title: "الدكتورة آمال الخلفي | دكتوراه في القانون وخبرة بين فرنسا والمغرب",
+    paras: [
+      "الدكتورة آمال الخلفي محامية بهيئة الرباط، تجمع بين تكوين أكاديمي فرنسي رفيع وخبرة مهنية في فرنسا والمغرب.",
+      "تابعت دراستها العليا بجامعة بربينيان فيا دوميتيا (UPVD) بفرنسا، وحصلت على:",
+    ],
+    list: ["الماستر في قانون الأعمال – العلوم القانونية (2002–2004).", "الدكتوراه في القانون – القانون المدني والتجاري (2005–2010)، بميزة مشرف جداً مع تهنئة لجنة المناقشة."],
+    after: [
+      "تناولت أطروحتها الالتزامات التضامنية في القانون المغربي، كمساهمة في تاريخ مؤسسة رومانية إسلامية.",
+      "مارست المحاماة في فرنسا قبل أن تستقر في المغرب مع عائلتها، وقبل دراسة القانون تخرجت في التصميم الداخلي.",
+    ],
+    motto: "معرفة عميقة بالقانون، ورؤية دولية في خدمة موكليها.",
+    back: "العودة إلى الموقع", more: "اقرأ المزيد عن الدكتورة آمال ←",
+  },
+  fr: {
+    title: "Dr. Amal Elkhalfi | Docteur en droit, une expérience entre la France et le Maroc",
+    paras: [
+      "Dr. Amal Elkhalfi est avocate au Barreau de Rabat. Elle allie une solide formation universitaire française à une expérience professionnelle en France et au Maroc.",
+      "Elle a suivi ses études supérieures à l'Université de Perpignan Via Domitia (UPVD), en France, où elle a obtenu :",
+    ],
+    list: ["Master Droit des affaires – Sciences juridiques (2002–2004).", "Doctorat en droit – Droit civil et commercial (2005–2010), mention très honorable avec félicitations du jury."],
+    after: [
+      "Sa thèse porte sur les obligations solidaires en droit marocain, une contribution à l'histoire d'une institution romano-islamique.",
+      "Elle a exercé comme avocate en France avant de s'installer au Maroc avec sa famille. Avant le droit, elle était diplômée en architecture d'intérieur.",
+    ],
+    motto: "Une connaissance approfondie du droit, une vision internationale au service de ses clients.",
+    back: "Retour au site", more: "En savoir plus sur Dr. Amal →",
+  },
+  en: {
+    title: "Dr. Amal Elkhalfi | Doctor of Law, experience in France and Morocco",
+    paras: [
+      "Dr. Amal Elkhalfi is a lawyer at the Rabat Bar. She combines a strong French academic background with professional experience in France and Morocco.",
+      "She completed her higher education at the University of Perpignan Via Domitia (UPVD), France, obtaining:",
+    ],
+    list: ["Master in Business Law – Legal Sciences (2002–2004).", "Doctorate in Law – Civil and Commercial Law (2005–2010), with highest honours and the jury's congratulations."],
+    after: [
+      "Her thesis examines joint and several obligations in Moroccan law, a contribution to the history of a Romano-Islamic institution.",
+      "She practised as a lawyer in France before settling in Morocco with her family. Before law, she graduated in interior design.",
+    ],
+    motto: "In-depth legal knowledge and an international outlook, at the service of her clients.",
+    back: "Back to the website", more: "Read more about Dr. Amal →",
+  },
+}, {
   slug: "latifa-elkhalfi",
   photo: "images/latifa.jpg",
   date: "2026-11-21",

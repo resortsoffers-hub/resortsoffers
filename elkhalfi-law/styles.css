@@ -275,3 +275,10 @@ details p { padding-bottom: 1.2rem; color: var(--muted); }
 .avatar.avatar-photo { width: 100%; max-width: 320px; height: auto; aspect-ratio: 4 / 5; }
 .org-photo { width: 96px; height: 120px; object-fit: cover; object-position: center top; border-radius: var(--radius); display: block; margin: 0 auto .6rem; }
 .org-bio { display: block; margin-top: .6rem; font-size: .85rem; line-height: 1.55; color: var(--muted); }
+
+/* Articles */
+.article h1 { font-family: var(--serif); font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.2; margin: 1.4rem 0 1.2rem; color: var(--navy); }
+.article p { margin: 0 0 1rem; line-height: 1.8; }
+.article-photo { width: 100%; max-width: 420px; height: auto; border-radius: var(--radius); display: block; }
+.article-motto { font-family: var(--serif); font-size: 1.3rem; color: var(--gold); font-style: italic; margin: 1.6rem 0; }
+.article .checklist { margin: 0 0 1.4rem; }

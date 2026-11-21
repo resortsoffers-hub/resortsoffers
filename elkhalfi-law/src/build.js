@@ -132,6 +132,35 @@ ${list.map((c) => `          <article class="post"><img src="/images/posts/${c.i
     </section>`;
 }
 
+// Team articles (src/articles.js): AR at /<slug>/, FR at /fr/<slug>/, EN at /en/<slug>/ (es/de/nl link to EN).
+const ARTICLES = require("./articles.js");
+const ART_LANGS = ["ar", "fr", "en"];
+const artPath = (lang, slug) => (lang === "ar" ? `/${slug}/` : `/${lang}/${slug}/`);
+const artLang = (lang) => (ART_LANGS.includes(lang) ? lang : "en");
+function renderArticle(a, lang) {
+  const t = T[lang], L = LANGS[lang], c = a[lang], url = SITE_URL + artPath(lang, a.slug);
+  const ld = JSON.stringify({ "@context": "https://schema.org", "@type": "Article", headline: c.title, image: `${SITE_URL}/${a.photo}`, datePublished: a.date, inLanguage: lang, author: { "@type": "Organization", name: "Elkhalfi Avocates", url: SITE_URL }, about: { "@id": SITE_URL + "/#latifa" }, mainEntityOfPage: url }).replace(/</g, "\\u003c");
+  return `<!DOCTYPE html>
+<html lang="${lang}" dir="${L.dir}"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>${c.title}</title><meta name="description" content="${attr(c.paras[0])}" /><link rel="canonical" href="${url}" />
+${ART_LANGS.map((l) => `<link rel="alternate" hreflang="${l}" href="${SITE_URL}${artPath(l, a.slug)}" />`).join("\n")}
+<meta property="og:type" content="article" /><meta property="og:title" content="${attr(c.title)}" /><meta property="og:description" content="${attr(c.paras[0])}" /><meta property="og:url" content="${url}" /><meta property="og:image" content="${SITE_URL}/${a.photo}" />
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/styles.css" /><script type="application/ld+json">${ld}</script></head>
+<body><header class="site-header"><div class="container nav"><a href="${L.path}" class="brand"><span class="brand-mark">E</span><span class="brand-text"><span>${t["brand.name"]}</span><small>${t["brand.sub"]}</small></span></a></div></header>
+<main><article class="section"><div class="container narrow article">
+<img class="article-photo" src="/${a.photo}" alt="${attr(c.title.split("|")[0].trim())}" width="800" height="1000" />
+<h1>${c.title}</h1>
+${c.paras.map((p) => `<p>${p}</p>`).join("\n")}
+<ul class="checklist">${c.list.map((x) => `<li>${x}</li>`).join("")}</ul>
+${c.after.map((p) => `<p>${p}</p>`).join("\n")}
+<p class="article-motto">${c.motto}</p>
+<p><a class="btn" href="${L.path}#equipe">${c.back}</a></p>
+</div></article></main>
+<footer class="site-footer"><div class="container disclaimer"><p>&copy; ${new Date().getFullYear()} ${t["brand.full"]}</p></div></footer></body></html>`;
+}
+
 // Google review link: paste the "Ask for reviews" link from the Google Business Profile here.
 // While it is empty, the review box stays hidden.
 const GOOGLE_REVIEW_URL = "https://www.google.com/maps?cid=13568400987389958585"; // replace with the "Ask for reviews" link when available
@@ -178,6 +207,7 @@ function render(lang) {
     postsBlock: postsBlock(lang),
     amalPhoto: photo("amal", t["amal.name"], "AE"),
     latifaPhoto: photo("latifa", t["latifa.name"], "LE"),
+    latifaMore: `<a class="map-link" href="${artPath(artLang(lang), "latifa-elkhalfi")}">${ARTICLES[0][artLang(lang)].more}</a>`,
     amalSmall: photoFile("amal") ? `<img class="org-photo" src="/${photoFile("amal")}" alt="" width="96" height="120" loading="lazy" />` : "",
     latifaSmall: photoFile("latifa") ? `<img class="org-photo" src="/${photoFile("latifa")}" alt="" width="96" height="120" loading="lazy" />` : "",
     noraPhoto: photoFile("nora") ? `<img class="org-photo" src="/${photoFile("nora")}" alt="${t["org.noraName"]}" width="96" height="120" loading="lazy" />` : "",
@@ -304,7 +334,8 @@ function sitemap() {
     return AREA_LANGS.map((l) => `  <url>\n    <loc>${SITE_URL}${areaPath(l, p.slug)}</loc>\n    <lastmod>${today}</lastmod>\n${a}\n  </url>`);
   });
   const urls = Object.values(LANGS)
-    .map((v) => `  <url>\n    <loc>${SITE_URL}${v.path}</loc>\n    <lastmod>${today}</lastmod>\n${alts}\n  </url>`).concat(areaUrls).join("\n");
+    .map((v) => `  <url>\n    <loc>${SITE_URL}${v.path}</loc>\n    <lastmod>${today}</lastmod>\n${alts}\n  </url>`).concat(areaUrls)
+    .concat(ARTICLES.flatMap((a) => ART_LANGS.map((l) => `  <url>\n    <loc>${SITE_URL}${artPath(l, a.slug)}</loc>\n    <lastmod>${a.date}</lastmod>\n  </url>`))).join("\n");
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${urls}
@@ -391,6 +422,11 @@ const REVIEW_URL = GOOGLE_REVIEW_URL || MAP_URL;
 for (const [dir, url, title] of [["map", MAP_URL, "Map"], ["review", REVIEW_URL, "Review"]]) {
   fs.mkdirSync(path.join(OUT, dir), { recursive: true });
   fs.writeFileSync(path.join(OUT, dir, "index.html"), `<!doctype html><meta charset="utf-8"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0;url=${url}"><title>Elkhalfi Avocates – ${title}</title><a href="${url}">Open in Google Maps</a><script>location.replace(${JSON.stringify(url)})</script>`);
+}
+for (const a of ARTICLES) for (const l of ART_LANGS) {
+  const dir = path.join(OUT, artPath(l, a.slug));
+  fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(path.join(dir, "index.html"), renderArticle(a, l));
 }
 fs.writeFileSync(path.join(OUT, "sitemap.xml"), sitemap());
 fs.writeFileSync(path.join(OUT, "robots.txt"), `User-agent: *\nAllow: /\nDisallow: /copy/\n\nSitemap: ${SITE_URL}/sitemap.xml\n`);

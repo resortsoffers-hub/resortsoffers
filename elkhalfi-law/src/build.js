@@ -178,6 +178,7 @@ function render(lang) {
     postsBlock: postsBlock(lang),
     amalPhoto: photo("amal", t["amal.name"], "AE"),
     latifaPhoto: photo("latifa", t["latifa.name"], "LE"),
+    noraPhoto: photoFile("nora") ? `<img class="org-photo" src="/${photoFile("nora")}" alt="${t["org.noraName"]}" width="96" height="120" loading="lazy" />` : "",
   };
   return fill("template.html", t, vars, lang);
 }

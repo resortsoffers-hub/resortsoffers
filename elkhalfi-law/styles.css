@@ -99,7 +99,7 @@ html[dir="rtl"] .hero { background: linear-gradient(245deg, rgba(20,35,60,.97) 0
 .card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.8rem; transition: transform .25s, box-shadow .25s, border-color .25s; }
 .card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: var(--gold-light); }
 .card p { color: var(--muted); font-size: 0.94rem; }
-.icon { width: 48px; height: 48px; border-radius: 12px; background: var(--cream); color: var(--gold); display: grid; place-items: center; font-size: 1.4rem; margin-bottom: 1.1rem; }
+.icon { width: 68px; height: 68px; border-radius: 16px; background: var(--cream); color: var(--gold); display: grid; place-items: center; font-size: 2.2rem; margin-bottom: 1.1rem; }
 
 /* Team */
 .team { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
@@ -248,7 +248,7 @@ details p { padding-bottom: 1.2rem; color: var(--muted); }
   .card { padding: 1rem; }
   .card h3 { font-size: 1.05rem; }
   .card p { font-size: 0.8rem; }
-  .card .icon { width: 36px; height: 36px; font-size: 1.05rem; margin-bottom: 0.6rem; }
+  .card .icon { width: 60px; height: 60px; font-size: 1.9rem; margin-bottom: 0.8rem; }
   .card-link .more { font-size: 0.78rem; margin-top: 0.4rem; }
   .hero-points { gap: 0.6rem 1rem; font-size: 0.82rem; }
 }

@@ -7,7 +7,7 @@ module.exports = (en) => {
     "brand.name": "Elkhalfi",
     "org.noraName": "Nora Elkhalfi",
     "org.samadName": "Abdul Samad Elkhalfi",
-    "org.hananeName": "Hanane El Khaldi",
+    "org.hananeName": "Hanan Elkhalfi",
     "amal.name": en["amal.name"],
     "latifa.name": en["latifa.name"],
     "team.title": en["team.title"],

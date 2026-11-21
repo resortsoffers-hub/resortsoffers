@@ -1,5 +1,45 @@
 // Articles about the team (text supplied by Nora, 21 Nov 2026). One page per language.
 module.exports = [{
+  slug: "nora-elkhalfi",
+  photo: "images/nora-article.jpg",
+  date: "2026-11-21",
+  ar: {
+    title: "نورة الخلفي | العلاقات العامة الدولية وعلاقات العملاء",
+    paras: [
+      "تتخصص نورة الخلفي في العلاقات العامة الدولية وعلاقات العملاء، مع تركيز على أسواق دول الخليج: السعودية، الإمارات، الكويت، البحرين وقطر.",
+      "وبفضل تواصلها بالعربية والإنجليزية والفرنسية والإسبانية، تسهّل العلاقة بين العملاء الدوليين والبيئة القانونية والاقتصادية في المغرب.",
+      "يشمل عملها:",
+    ],
+    list: ["تنسيق التواصل مع العملاء.", "متابعة الاتفاقيات والوثائق.", "مرافقة العملاء الدوليين المهتمين باقتناء العقارات وفرص الاستثمار في المغرب."],
+    after: [],
+    motto: "نربط العملاء الدوليين بالمغرب من خلال التواصل والثقة والتنسيق المهني.",
+    back: "العودة إلى الموقع", more: "اقرأ المزيد عن نورة ←",
+  },
+  fr: {
+    title: "Nora Elkhalfi | Relations publiques internationales et relations clients",
+    paras: [
+      "Nora Elkhalfi est spécialisée dans les relations publiques internationales et les relations clients, avec un accent sur les marchés du Golfe : Arabie saoudite, Émirats arabes unis, Koweït, Bahreïn et Qatar.",
+      "Grâce à sa communication en arabe, anglais, français et espagnol, elle facilite la relation entre les clients internationaux et l'environnement juridique et économique marocain.",
+      "Son travail comprend :",
+    ],
+    list: ["la coordination de la communication avec les clients ;", "le suivi des accords et de la documentation ;", "l'accompagnement des clients internationaux intéressés par l'acquisition immobilière et l'investissement au Maroc."],
+    after: [],
+    motto: "Relier les clients internationaux au Maroc par la communication, la confiance et une coordination professionnelle.",
+    back: "Retour au site", more: "En savoir plus sur Nora →",
+  },
+  en: {
+    title: "Nora Elkhalfi | International PR & Client Relations",
+    paras: [
+      "Nora Elkhalfi specialises in international public relations and client relations, with a focus on the GCC markets: Saudi Arabia, UAE, Kuwait, Bahrain and Qatar.",
+      "With multilingual communication skills in Arabic, English, French and Spanish, she facilitates relationships between international clients and the Moroccan legal and business environment.",
+      "Her work includes:",
+    ],
+    list: ["Coordinating client communications.", "Agreements and documentation.", "Supporting international clients interested in property acquisition and investment opportunities in Morocco."],
+    after: [],
+    motto: "Connecting international clients with Morocco through communication, trust and professional coordination.",
+    back: "Back to the website", more: "Read more about Nora →",
+  },
+}, {
   slug: "amal-elkhalfi",
   photo: "images/amal.jpg",
   date: "2026-11-21",

@@ -282,3 +282,4 @@ details p { padding-bottom: 1.2rem; color: var(--muted); }
 .article-photo { width: 100%; max-width: 420px; height: auto; border-radius: var(--radius); display: block; }
 .article-motto { font-family: var(--serif); font-size: 1.3rem; color: var(--gold); font-style: italic; margin: 1.6rem 0; }
 .article .checklist { margin: 0 0 1.4rem; }
+.org-box .map-link, .member .map-link { color: var(--gold); font-weight: 600; display: inline-block; margin-top: .7rem; }

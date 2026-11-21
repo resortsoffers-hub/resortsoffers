@@ -139,7 +139,7 @@ const artPath = (lang, slug) => (lang === "ar" ? `/${slug}/` : `/${lang}/${slug}
 const artLang = (lang) => (ART_LANGS.includes(lang) ? lang : "en");
 function renderArticle(a, lang) {
   const t = T[lang], L = LANGS[lang], c = a[lang], url = SITE_URL + artPath(lang, a.slug);
-  const ld = JSON.stringify({ "@context": "https://schema.org", "@type": "Article", headline: c.title, image: `${SITE_URL}/${a.photo}`, datePublished: a.date, inLanguage: lang, author: { "@type": "Organization", name: "Elkhalfi Avocates", url: SITE_URL }, about: { "@id": SITE_URL + (a.slug.startsWith("amal") ? "/#amal" : "/#latifa") }, mainEntityOfPage: url }).replace(/</g, "\\u003c");
+  const ld = JSON.stringify({ "@context": "https://schema.org", "@type": "Article", headline: c.title, image: `${SITE_URL}/${a.photo}`, datePublished: a.date, inLanguage: lang, author: { "@type": "Organization", name: "Elkhalfi Avocates", url: SITE_URL }, about: { "@type": "Person", name: c.title.split("|")[0].trim() }, mainEntityOfPage: url }).replace(/</g, "\\u003c");
   return `<!DOCTYPE html>
 <html lang="${lang}" dir="${L.dir}"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>${c.title}</title><meta name="description" content="${attr(c.paras[0])}" /><link rel="canonical" href="${url}" />
@@ -208,6 +208,7 @@ function render(lang) {
     amalPhoto: photo("amal", t["amal.name"], "AE"),
     latifaPhoto: photo("latifa", t["latifa.name"], "LE"),
     latifaMore: `<a class="map-link" href="${artPath(artLang(lang), "latifa-elkhalfi")}">${ARTICLES.find((a) => a.slug === "latifa-elkhalfi")[artLang(lang)].more}</a>`,
+    noraMore: `<a class="map-link" href="${artPath(artLang(lang), "nora-elkhalfi")}">${ARTICLES.find((a) => a.slug === "nora-elkhalfi")[artLang(lang)].more}</a>`,
     amalMore: `<a class="map-link" href="${artPath(artLang(lang), "amal-elkhalfi")}">${ARTICLES.find((a) => a.slug === "amal-elkhalfi")[artLang(lang)].more}</a>`,
     amalSmall: photoFile("amal") ? `<img class="org-photo" src="/${photoFile("amal")}" alt="" width="96" height="120" loading="lazy" />` : "",
     latifaSmall: photoFile("latifa") ? `<img class="org-photo" src="/${photoFile("latifa")}" alt="" width="96" height="120" loading="lazy" />` : "",

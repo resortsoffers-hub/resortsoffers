@@ -257,7 +257,7 @@ function llmsTxt() {
 - Lawyers: Maître Amal El Khalfi (آمال الخلفي); Maître Latifa El Khalfi (لطيفة الخلفي)
 
 ## About (English)
-${stripTags(en["about.p1"])} ${stripTags(en["about.p2"])}
+${stripTags(en["about.p2"])}
 
 ## Lawyers
 - ${stripTags(en["amal.name"])}: ${stripTags(en["amal.bio"])}
@@ -267,13 +267,13 @@ ${stripTags(en["about.p1"])} ${stripTags(en["about.p2"])}
 ${list("en")}
 
 ## À propos (Français)
-${stripTags(fr["about.p1"])}
+${stripTags(fr["about.p2"])}
 
 ## Domaines
 ${list("fr")}
 
 ## عن المكتب (العربية)
-${stripTags(ar["about.p1"])}
+${stripTags(ar["about.p2"])}
 
 ## مجالات الممارسة
 ${list("ar")}

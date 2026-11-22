@@ -55,9 +55,9 @@ ${BIO_AR}
   { id: "AR 9", date: "2026-11-22", today: true, img: "dark-rehab-ar.png", dir: "rtl", text: `⚖️ رد الاعتبار بقوة القانون: بعد 6 أشهر للغرامة، سنتين للحبس 6 أشهر أو أقل، و4 سنوات للحبس حتى سنتين (المادة 688 من قانون المسطرة الجنائية).
 ${BIO_AR}
 #رد_الاعتبار #المسطرة_الجنائية #محامية #ElkhalfiAvocates` },
-  { id: "AR 10", img: "dark-hiba-ar.png", dir: "rtl", text: `🎁 الهبة تمليك بلا مقابل وتتم بالحيازة، والصدقة لا رجوع فيها (مدونة الأسرة، المواد 273 إلى 298).
+  { id: "AR 10", img: "dark-hiba-ar.png", dir: "rtl", text: `🎁 الهبة تمليك بلا مقابل، ويجوز للأب والأم الاعتصار في هبة ولدهما بشروط (المادتان 283 و285)، أما الصدقة فلا رجوع فيها (مدونة الحقوق العينية).
 ${BIO_AR}
-#الهبة #الصدقة #مدونة_الأسرة #ElkhalfiAvocates` },
+#الهبة #الصدقة #الاعتصار #ElkhalfiAvocates` },
   { id: "FR 1", img: "dark-whatsapp-fr.png", text: `📱 WhatsApp, une preuve en justice ? Oui : gardez vos messages et faites-les constater.
 ${BIO_FR}
 #avocate #Rabat #WhatsApp #ElkhalfiAvocates` },

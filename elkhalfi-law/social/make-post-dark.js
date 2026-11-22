@@ -79,8 +79,8 @@ const POSTS = {
     points: ["Chaque copropriétaire doit payer", "Le syndic peut agir en justice", "Gardez vos reçus"] },
   "rehab-ar": { dir: "rtl", k: "المسطرة الجنائية · المادة <bdi dir=\"ltr\">688</bdi>", title: "رد الاعتبار<br><span>بعد العقوبة</span>",
     points: ["غرامة: بعد 6 أشهر", "حبس 6 أشهر أو أقل: بعد سنتين", "حبس حتى سنتين: بعد 4 سنوات"] },
-  "hiba-ar": { dir: "rtl", k: "مدونة الأسرة · المواد <bdi dir=\"ltr\">273–298</bdi>", title: "الهبة والصدقة<br><span>ما الفرق؟</span>",
-    points: ["الهبة: تمليك بلا مقابل", "تتم بالحيازة قبل الوفاة", "الصدقة: لا رجوع فيها"] },
+  "hiba-ar": { dir: "rtl", k: "مدونة الحقوق العينية · المواد <bdi dir=\"ltr\">273–291</bdi>", title: "الهبة والصدقة<br><span>ما الفرق؟</span>",
+    points: ["الهبة: تمليك بلا مقابل", "الاعتصار: للأب والأم في هبة ولدهما", "الصدقة: لا رجوع فيها"] },
 };
 (async () => {
   const b = await chromium.launch();

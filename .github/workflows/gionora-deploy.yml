@@ -1,0 +1,31 @@
+name: Deploy Gionora site
+
+# Uploads gionora/site/ (static copy of gionora.com, moved off Lovable) to the
+# Namecheap hosting folder gionora.com/ (addon domain in the same cPanel).
+on:
+  push:
+    paths:
+      - "gionora/site/**"
+      - ".github/workflows/gionora-deploy.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: gionora-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Upload to Namecheap via FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          local-dir: ./gionora/site/
+          server-dir: gionora.com/

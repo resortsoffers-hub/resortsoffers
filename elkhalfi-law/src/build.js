@@ -451,7 +451,7 @@ if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t)
 const GOOGLE_CID = "13568400987389958585";
 const MAP_URL = `https://www.google.com/maps?cid=${GOOGLE_CID}`;
 const REVIEW_URL = GOOGLE_REVIEW_URL || MAP_URL;
-for (const [dir, url, title] of [["map", MAP_URL, "Map"], ["review", REVIEW_URL, "Review"]]) {
+for (const [dir, url, title] of [["map", MAP_URL, "Map"], ["review", REVIEW_URL, "Review"], ["nora", `${SITE_URL}/en/nora-elkhalfi/`, "Nora Elkhalfi"], ["amal", `${SITE_URL}/fr/amal-elkhalfi/`, "Maître Amal Elkhalfi-Zahti"], ["latifa", `${SITE_URL}/fr/latifa-elkhalfi/`, "Maître Latifa Elkhalfi"]]) {
   fs.mkdirSync(path.join(OUT, dir), { recursive: true });
   fs.writeFileSync(path.join(OUT, dir, "index.html"), `<!doctype html><meta charset="utf-8"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0;url=${url}"><title>Elkhalfi Avocates – ${title}</title><a href="${url}">Open in Google Maps</a><script>location.replace(${JSON.stringify(url)})</script>`);
 }

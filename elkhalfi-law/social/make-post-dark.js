@@ -35,7 +35,7 @@ li::before{content:"";flex:0 0 18px;height:18px;border-radius:50%;background:${G
 .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;font-size:24px;color:#a9a296}
 .foot .w{color:${G};font-weight:700;direction:ltr}
 </style></head><body>
-<div class="top">${mark(G, 58)}<div class="bn">Elkhalfi Advocates<small>RABAT · MOROCCO</small></div></div>
+<div class="top">${mark(G, 58)}<div class="bn">Elkhalfi Avocates<small>RABAT · MOROCCO</small></div></div>
 <p class="k">${p.k}</p>
 <h1>${p.title}</h1>
 <ul>${p.points.map((x) => `<li>${x}</li>`).join("")}</ul>
@@ -77,6 +77,10 @@ const POSTS = {
     points: ["Apostille ou légalisation", "Traduction en arabe assermentée", "Marocains : consulat sous 3 mois"] },
   "copro-fr": { dir: "ltr", k: "Loi 18-00 · copropriété", title: "Charges<br><span>d'immeuble</span>",
     points: ["Chaque copropriétaire doit payer", "Le syndic peut agir en justice", "Gardez vos reçus"] },
+  "rehab-ar": { dir: "rtl", k: "المسطرة الجنائية · المادة <bdi dir=\"ltr\">688</bdi>", title: "رد الاعتبار<br><span>بعد العقوبة</span>",
+    points: ["غرامة: بعد 6 أشهر", "حبس 6 أشهر أو أقل: بعد سنتين", "حبس حتى سنتين: بعد 4 سنوات"] },
+  "hiba-ar": { dir: "rtl", k: "مدونة الأسرة · المواد <bdi dir=\"ltr\">273–298</bdi>", title: "الهبة والصدقة<br><span>ما الفرق؟</span>",
+    points: ["الهبة: تمليك بلا مقابل", "تتم بالحيازة قبل الوفاة", "الصدقة: لا رجوع فيها"] },
 };
 (async () => {
   const b = await chromium.launch();

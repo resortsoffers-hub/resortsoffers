@@ -49,9 +49,15 @@ ${BIO_EN}
   { id: "EN 4", date: "2026-11-21", img: "dark-mutual-en.png", text: `🤝 Divorce by mutual consent in Morocco: both spouses agree, the family court approves (Family Code, art. 114).
 ${BIO_EN}
 #Divorce #FamilyLaw #Morocco #ElkhalfiAvocates` },
-  { id: "AR 8", date: "2026-11-22", today: true, img: "dark-childsupport-ar.png", dir: "rtl", text: `👨‍👩‍👧 نفقة الأطفال إلى سن الرشد، وإلى 25 سنة لمن يتابع دراسته (المادة 198 من مدونة الأسرة).
+  { id: "AR 8", date: "2026-11-22", img: "dark-childsupport-ar.png", dir: "rtl", text: `👨‍👩‍👧 نفقة الأطفال إلى سن الرشد، وإلى 25 سنة لمن يتابع دراسته (المادة 198 من مدونة الأسرة).
 ${BIO_AR}
 #نفقة_الأطفال #مدونة_الأسرة #محامية #ElkhalfiAvocates` },
+  { id: "AR 9", date: "2026-11-22", today: true, img: "dark-rehab-ar.png", dir: "rtl", text: `⚖️ رد الاعتبار بقوة القانون: بعد 6 أشهر للغرامة، سنتين للحبس 6 أشهر أو أقل، و4 سنوات للحبس حتى سنتين (المادة 688 من قانون المسطرة الجنائية).
+${BIO_AR}
+#رد_الاعتبار #المسطرة_الجنائية #محامية #ElkhalfiAvocates` },
+  { id: "AR 10", img: "dark-hiba-ar.png", dir: "rtl", text: `🎁 الهبة تمليك بلا مقابل وتتم بالحيازة، والصدقة لا رجوع فيها (مدونة الأسرة، المواد 273 إلى 298).
+${BIO_AR}
+#الهبة #الصدقة #مدونة_الأسرة #ElkhalfiAvocates` },
   { id: "FR 1", img: "dark-whatsapp-fr.png", text: `📱 WhatsApp, une preuve en justice ? Oui : gardez vos messages et faites-les constater.
 ${BIO_FR}
 #avocate #Rabat #WhatsApp #ElkhalfiAvocates` },

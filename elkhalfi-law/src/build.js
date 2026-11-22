@@ -464,6 +464,30 @@ for (const a of ARTICLES) for (const l of ART_LANGS) {
   fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(path.join(dir, "index.html"), renderArticle(a, l));
 }
+// Nora's digital business card (link-in-bio) at /nora — owned by us, never locked out.
+{
+  const PH = "+971547474404";
+  const btn = (href, label) => `<a class="b" href="${href}" target="_blank" rel="noopener">${label}</a>`;
+  const vcf = ["BEGIN:VCARD", "VERSION:3.0", "N:Elkhalfi;Nora Nana;;;", "FN:Nora Nana Elkhalfi", "TITLE:International PR & Client Relations", "ORG:Elkhalfi Avocates · 99 Selection", `TEL;TYPE=CELL:${PH}`, "EMAIL:book@99selection.com", "EMAIL:elkhalfiavocates@gmail.com", `URL:${SITE_URL}/nora/`, "END:VCARD"].join("\r\n");
+  fs.mkdirSync(path.join(OUT, "nora"), { recursive: true });
+  fs.writeFileSync(path.join(OUT, "nora", "nora-nana-elkhalfi.vcf"), vcf);
+  fs.writeFileSync(path.join(OUT, "nora", "index.html"), `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nora Nana Elkhalfi | International PR & Client Relations</title><meta name="description" content="Nora Nana Elkhalfi – International PR & Client Relations, Elkhalfi Avocates. Founder, 99 Selection. Dubai.">
+<link rel="canonical" href="${SITE_URL}/nora/"><meta property="og:image" content="${SITE_URL}/images/nora-article.jpg"><link rel="icon" href="/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@type": "Person", name: "Nora Nana Elkhalfi", alternateName: ["Nora Elkhalfi", "NanaNorita"], jobTitle: "International PR & Client Relations", image: `${SITE_URL}/images/nora-article.jpg`, url: `${SITE_URL}/nora/`, worksFor: [{ "@type": "LegalService", name: "Elkhalfi Avocates", url: SITE_URL }, { "@type": "Organization", name: "99 Selection", url: "https://99selection.com" }], sameAs: ["https://www.linkedin.com/in/noraelkhalifi/", "https://www.instagram.com/nora_nana_elkhalfi/", "https://www.tiktok.com/@nana_norita"] })}</script>
+<style>*{box-sizing:border-box}body{margin:0;font-family:Inter,sans-serif;background:#121a2c;color:#f4efe4;display:flex;justify-content:center}
+.w{max-width:440px;width:100%;padding:36px 22px 48px;text-align:center}.p{width:132px;height:132px;border-radius:50%;object-fit:cover;object-position:top;border:3px solid #c9a35a}
+h1{font-family:'Cormorant Garamond',serif;font-size:2.2rem;margin:.6rem 0 .2rem}.t{color:#c9a35a;font-weight:600}.s{color:#bdb6a8;font-size:.9rem;margin:.3rem 0 1.4rem}
+.b{display:block;padding:14px;margin:10px 0;border:1.5px solid #c9a35a;border-radius:12px;color:#f4efe4;text-decoration:none;font-weight:600}.b.g{background:#c9a35a;color:#121a2c}</style></head>
+<body><div class="w"><img class="p" src="/images/nora-article.jpg" alt="Nora Nana Elkhalfi"><h1>Nora Nana Elkhalfi</h1>
+<div class="t">International PR &amp; Client Relations</div><div class="s">Elkhalfi Avocates · Founder, 99 Selection · Dubai<br>Arabic · English · French · Spanish</div>
+<a class="b g" href="nora-nana-elkhalfi.vcf">📇 Save my contact</a>
+${btn(`https://wa.me/${PH.slice(1)}`, "💬 WhatsApp")}${btn("mailto:book@99selection.com", "✉️ Email")}
+${btn(`${SITE_URL}/en/nora-elkhalfi/`, "⚖️ Elkhalfi Avocates")}${btn("https://99selection.com", "🌴 99 Selection")}
+${btn("https://www.linkedin.com/in/noraelkhalifi/", "LinkedIn")}${btn("https://www.instagram.com/nora_nana_elkhalfi/", "Instagram")}${btn("https://www.tiktok.com/@nana_norita", "TikTok")}
+</div></body></html>`);
+}
 fs.writeFileSync(path.join(OUT, "sitemap.xml"), sitemap());
 fs.writeFileSync(path.join(OUT, "robots.txt"), `User-agent: *\nAllow: /\nDisallow: /copy/\n\nSitemap: ${SITE_URL}/sitemap.xml\n`);
 fs.writeFileSync(path.join(OUT, "llms.txt"), llmsTxt());

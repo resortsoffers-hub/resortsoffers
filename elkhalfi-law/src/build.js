@@ -60,7 +60,7 @@ function jsonLd(lang) {
     openingHours: "Mo-Fr 09:00-18:00",
     areaServed: { "@type": "Country", name: "Morocco" },
     knowsAbout: AREAS[lang].map(([a]) => a),
-    employee: [{ "@id": SITE_URL + "/#amal" }, { "@id": SITE_URL + "/#latifa" }, { "@type": "Person", name: "Nora Elkhalfi", jobTitle: "International PR & Client Relations", ...(photoFile("nora") ? { image: `${SITE_URL}/${photoFile("nora")}` } : {}) }],
+    employee: [{ "@id": SITE_URL + "/#amal" }, { "@id": SITE_URL + "/#latifa" }, { "@type": "Person", name: "Nora Elkhalfi", jobTitle: "International PR & Client Relations", url: `${SITE_URL}/en/nora-elkhalfi/`, sameAs: ["https://www.linkedin.com/in/noraelkhalifi/"], ...(photoFile("nora") ? { image: `${SITE_URL}/${photoFile("nora")}` } : {}) }],
     image: [`${SITE_URL}/images/og-image.jpg`, ...["amal", "latifa"].map((k) => photoFile(k)).filter(Boolean).map((f) => `${SITE_URL}/${f}`)],
   };
   const amal = {

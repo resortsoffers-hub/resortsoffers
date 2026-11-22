@@ -4,9 +4,9 @@ module.exports = [{
   photo: "images/nora-article.jpg",
   date: "2026-11-21",
   ar: {
-    title: "مرحباً بنورة الخلفي | العلاقات العامة الدولية وعلاقات العملاء",
+    title: "مرحباً بنورة نانا الخلفي | العلاقات العامة الدولية وعلاقات العملاء",
     paras: [
-      "يسعد مكتب الخلفي للمحاماة أن يرحب بنورة الخلفي، مسؤولة العلاقات العامة الدولية وعلاقات العملاء. تعمل نورة عن بُعد وتضع خبرتها في خدمة موكلي المكتب الدوليين.",
+      "يسعد مكتب الخلفي للمحاماة أن يرحب بنورة نانا الخلفي، مسؤولة العلاقات العامة الدولية وعلاقات العملاء. تعمل نورة عن بُعد وتضع خبرتها في خدمة موكلي المكتب الدوليين.",
       "تتخصص في العلاقات العامة الدولية وعلاقات العملاء، مع تركيز على أسواق دول الخليج: السعودية، الإمارات، الكويت، البحرين وقطر.",
       "وبفضل تواصلها بالعربية والإنجليزية والفرنسية والإسبانية، تسهّل العلاقة بين العملاء الدوليين والبيئة القانونية والاقتصادية في المغرب.",
       "يشمل عملها:",
@@ -17,9 +17,9 @@ module.exports = [{
     back: "العودة إلى الموقع", more: "اقرأ المزيد عن نورة ←",
   },
   fr: {
-    title: "Bienvenue à Nora Elkhalfi | Relations publiques internationales et relations clients",
+    title: "Bienvenue à Nora Nana Elkhalfi | Relations publiques internationales et relations clients",
     paras: [
-      "Le cabinet Elkhalfi Avocates a le plaisir d'accueillir Nora Elkhalfi, chargée des relations publiques internationales et des relations clients. Nora travaille à distance et met son expertise au service des clients internationaux du cabinet.",
+      "Le cabinet Elkhalfi Avocates a le plaisir d'accueillir Nora Nana Elkhalfi, chargée des relations publiques internationales et des relations clients. Nora travaille à distance et met son expertise au service des clients internationaux du cabinet.",
       "Elle est spécialisée dans les relations publiques internationales et les relations clients, avec un accent sur les marchés du Golfe : Arabie saoudite, Émirats arabes unis, Koweït, Bahreïn et Qatar.",
       "Grâce à sa communication en arabe, anglais, français et espagnol, elle facilite la relation entre les clients internationaux et l'environnement juridique et économique marocain.",
       "Son travail comprend :",
@@ -30,9 +30,9 @@ module.exports = [{
     back: "Retour au site", more: "En savoir plus sur Nora →",
   },
   en: {
-    title: "Welcome Nora Elkhalfi | International PR & Client Relations",
+    title: "Welcome Nora Nana Elkhalfi | International PR & Client Relations",
     paras: [
-      "Elkhalfi Avocates is pleased to welcome Nora Elkhalfi as International PR & Client Relations. Working remotely, Nora brings her expertise to support the firm's international clients.",
+      "Elkhalfi Avocates is pleased to welcome Nora Nana Elkhalfi as International PR & Client Relations. Working remotely, Nora brings her expertise to support the firm's international clients.",
       "She specialises in international public relations and client relations, with a focus on the GCC markets: Saudi Arabia, UAE, Kuwait, Bahrain and Qatar.",
       "With multilingual communication skills in Arabic, English, French and Spanish, she facilitates relationships between international clients and the Moroccan legal and business environment.",
       "Her work includes:",

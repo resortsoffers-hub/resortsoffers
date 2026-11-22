@@ -34,7 +34,7 @@ const cards={
  "elkhalfi":{
   front:`<!doctype html><html><head>${css(ELK_BG,G)}</head><body><div class="frame"></div><div class="safe" style="display:flex;align-items:center;gap:6mm">
    <div style="flex:0 0 25mm;text-align:center">${mark(G,46)}<div style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:4.6mm;margin-top:1.5mm">Elkhalfi</div><div style="color:${G};font-weight:600;font-size:1.6mm;letter-spacing:.3em;margin-top:.8mm">AVOCATES · RABAT</div></div>
-   <div style="flex:1;border-left:.25mm solid rgba(201,163,90,.5);padding-left:5mm"><div class="nm">Nora Elkhalfi</div><div class="ti">International Business Relations</div><div class="sub">UAE &amp; United Kingdom</div>
+   <div style="flex:1;border-left:.25mm solid rgba(201,163,90,.5);padding-left:5mm"><div class="nm">Nora Nana Elkhalfi</div><div class="ti">International Business Relations</div><div class="sub">UAE &amp; United Kingdom</div>
    <ul><li><b>✆</b>${PHONE}</li><li><b>✉</b>elkhalfiavocates@gmail.com</li><li><b>◎</b>elkhalfiavocates.com</li></ul></div></div></body></html>`,
   back:`<!doctype html><html><head>${css(ELK_BG,G)}</head><body><div class="frame"></div><div class="safe center">
    <div style="display:flex;align-items:center;gap:7mm"><div style="text-align:center">${mark(G,48)}<div style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:5mm;margin-top:1.5mm">Elkhalfi</div><div style="color:${G};font-weight:600;font-size:1.9mm;letter-spacing:.3em;margin-top:1mm">AVOCATES</div></div>
@@ -44,7 +44,7 @@ const cards={
  "99selection":{
   front:`<!doctype html><html><head>${css(ELK_BG,G)}</head><body><div class="frame"></div><div class="safe" style="display:flex;align-items:center;gap:6mm">
    <div style="flex:0 0 25mm;text-align:center"><div style="font-family:'Playfair Display',serif;font-weight:700;font-size:13mm;line-height:.9;color:${G}">99</div><div style="letter-spacing:.4em;font-size:2.4mm;margin-top:1.2mm;padding-left:.4em">SELECTION</div></div>
-   <div style="flex:1;border-left:.25mm solid rgba(201,163,90,.5);padding-left:5mm"><div class="nm">Nora Elkhalfi</div><div class="ti">Founder &amp; Owner</div><div class="sub">Hospitality Marketing &amp; PR</div>
+   <div style="flex:1;border-left:.25mm solid rgba(201,163,90,.5);padding-left:5mm"><div class="nm">Nora Nana Elkhalfi</div><div class="ti">Founder &amp; Owner</div><div class="sub">Hospitality Marketing &amp; PR</div>
    <ul><li><b>✆</b>${PHONE}</li><li><b>✉</b>book@99selection.com</li><li><b>◎</b>99selection.com</li><li style="font-size:2mm;color:#bdb6a8"><b>⌖</b>Emirates Towers, Dubai, UAE</li></ul></div></div></body></html>`,
   back:`<!doctype html><html><head>${css(ELK_BG,G)}</head><body><div class="frame"></div><div class="safe center">
    <div style="display:flex;align-items:center;gap:9mm"><div style="text-align:center"><div style="font-family:'Playfair Display',serif;font-weight:700;font-size:13mm;line-height:.9;color:${G}">99</div><div style="letter-spacing:.4em;font-size:2.4mm;margin-top:1.2mm;padding-left:.4em">SELECTION</div></div>
@@ -53,7 +53,7 @@ const cards={
 };
 // One card, two faces (asked 20 Nov): Elkhalfi face + 99 Selection face, each with a QR to its website.
 const face=(brand,title,sub,lines,qrFile,qrLabel)=>`<!doctype html><html><head>${css(ELK_BG,G)}</head><body><div class="frame"></div><div class="safe" style="display:flex;align-items:center;gap:5mm">
- <div style="flex:1">${brand}<div class="nm" style="margin-top:3mm">Nora Elkhalfi</div><div class="ti">${title}</div><div class="sub">${sub}</div>
+ <div style="flex:1">${brand}<div class="nm" style="margin-top:3mm">Nora Nana Elkhalfi</div><div class="ti">${title}</div><div class="sub">${sub}</div>
  <ul style="margin-top:2.4mm">${lines.map((l)=>`<li>${l}</li>`).join("")}</ul></div>
  <div style="flex:0 0 19mm;text-align:center"><div style="width:19mm;height:19mm;background:#fff;padding:1.2mm;border-radius:1.2mm">${qr(qrFile,"#121317")}</div><div style="font-size:1.8mm;margin-top:1.2mm;color:${G};font-weight:600">Scan me</div><div style="font-size:1.7mm;color:#bdb6a8;margin-top:.4mm">${qrLabel}</div></div></div></body></html>`;
 cards["nora"]={

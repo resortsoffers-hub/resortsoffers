@@ -28,7 +28,7 @@ body::after{content:"";position:absolute;inset:16px;border:1.5px solid ${G};opac
 .sep{width:1.5px;height:40px;background:${G};opacity:.6}
 .u{font-size:16px;color:${G};margin-top:22px;letter-spacing:.04em}
 </style></head><body><div class="w">
-<div class="n">Nora Elkhalfi</div>
+<div class="n">Nora Nana Elkhalfi</div>
 <div class="t">International PR &amp; Client Relations · GCC &amp; Morocco</div>
 <div class="g">Arabic · English · French · Spanish &nbsp;|&nbsp; Dubai, UAE</div>
 <div class="b"><div>${mark(G,34)}<span class="e">Elkhalfi Avocates</span></div><span class="sep"></span><div><span class="nn">99</span><span style="letter-spacing:.35em">SELECTION</span></div></div>

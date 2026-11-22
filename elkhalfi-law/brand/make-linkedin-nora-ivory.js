@@ -32,7 +32,6 @@ body::after{content:"";position:absolute;inset:16px;border:1.5px solid ${G};opac
 <div class="t">Entrepreneur · Luxury Travel &amp; Hospitality Expert</div>
 <div class="g">Arabic · English · French · Spanish &nbsp;|&nbsp; Dubai, UAE</div>
 <div class="b"><div>${mark(G,34)}<span class="e">Elkhalfi Avocates</span></div><span class="sep"></span><div><span class="nn">99</span><span style="letter-spacing:.35em">SELECTION</span></div></div>
-<div class="u">elkhalfiavocates.com/nora &nbsp;·&nbsp; 99selection.com</div>
 </div></body></html>`;
 (async()=>{const b=await chromium.launch();const p=await b.newPage({viewport:{width:1584,height:396},deviceScaleFactor:2});
 await p.setContent(html,{waitUntil:"networkidle"});await p.evaluate(()=>document.fonts.ready);

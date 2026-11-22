@@ -46,9 +46,12 @@ ${BIO_FR}
   { id: "EN 3", date: "2026-11-20", img: "dark-harassment-en.png", text: `🚫 Harassment in the street or by message is a crime in Morocco (Criminal Code, art. 503-1-1).
 ${BIO_EN}
 #Harassment #Morocco #MoroccoLawyer #Rabat #ElkhalfiAvocates` },
-  { id: "EN 4", date: "2026-11-21", today: true, img: "dark-mutual-en.png", text: `🤝 Divorce by mutual consent in Morocco: both spouses agree, the family court approves (Family Code, art. 114).
+  { id: "EN 4", date: "2026-11-21", img: "dark-mutual-en.png", text: `🤝 Divorce by mutual consent in Morocco: both spouses agree, the family court approves (Family Code, art. 114).
 ${BIO_EN}
 #Divorce #FamilyLaw #Morocco #ElkhalfiAvocates` },
+  { id: "AR 8", date: "2026-11-22", today: true, img: "dark-childsupport-ar.png", dir: "rtl", text: `👨‍👩‍👧 نفقة الأطفال إلى سن الرشد، وإلى 25 سنة لمن يتابع دراسته (المادة 198 من مدونة الأسرة).
+${BIO_AR}
+#نفقة_الأطفال #مدونة_الأسرة #محامية #ElkhalfiAvocates` },
   { id: "FR 1", img: "dark-whatsapp-fr.png", text: `📱 WhatsApp, une preuve en justice ? Oui : gardez vos messages et faites-les constater.
 ${BIO_FR}
 #avocate #Rabat #WhatsApp #ElkhalfiAvocates` },

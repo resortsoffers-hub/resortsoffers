@@ -14,6 +14,9 @@ module.exports = [
   { id: "General · العربية", today: true, general: true, dir: "rtl", text: `⚖️ الأستاذة آمال الخلفي، محامية بالرباط.
 📩 الرابط في البايو
 #محامية #الرباط #المغرب #ElkhalfiAvocates` },
+  { id: "FR 10", date: "2026-11-23", today: true, img: "dark-custody-fr.png", text: `👨‍👩‍👧 Garde des enfants au Maroc : la mère d'abord, et dès 15 ans l'enfant choisit (Code de la famille, art. 166 et 171).
+${BIO_FR}
+#CodeDeLaFamille #Garde #Avocate #Rabat #ElkhalfiAvocates` },
   { id: "AR 1", date: "2026-11-11", img: "dark-whatsapp-ar.png", dir: "rtl", text: `📱 رسائل الواتساب دليل أمام المحكمة؟ نعم، احتفظوا بها ووثّقوها.
 ${BIO_AR}
 #محامية #الرباط #واتساب #ElkhalfiAvocates` },
@@ -52,7 +55,7 @@ ${BIO_EN}
   { id: "AR 8", date: "2026-11-22", img: "dark-childsupport-ar.png", dir: "rtl", text: `👨‍👩‍👧 نفقة الأطفال إلى سن الرشد، وإلى 25 سنة لمن يتابع دراسته (المادة 198 من مدونة الأسرة).
 ${BIO_AR}
 #نفقة_الأطفال #مدونة_الأسرة #محامية #ElkhalfiAvocates` },
-  { id: "AR 9", date: "2026-11-22", today: true, img: "dark-rehab-ar.png", dir: "rtl", text: `⚖️ رد الاعتبار بقوة القانون: بعد 6 أشهر للغرامة، سنتين للحبس 6 أشهر أو أقل، و4 سنوات للحبس حتى سنتين (المادة 688 من قانون المسطرة الجنائية).
+  { id: "AR 9", date: "2026-11-22", img: "dark-rehab-ar.png", dir: "rtl", text: `⚖️ رد الاعتبار بقوة القانون: بعد 6 أشهر للغرامة، سنتين للحبس 6 أشهر أو أقل، و4 سنوات للحبس حتى سنتين (المادة 688 من قانون المسطرة الجنائية).
 ${BIO_AR}
 #رد_الاعتبار #المسطرة_الجنائية #محامية #ElkhalfiAvocates` },
   { id: "AR 10", img: "dark-hiba-ar.png", dir: "rtl", text: `🎁 الهبة تمليك بلا مقابل، ويجوز للأب والأم الاعتصار في هبة ولدهما بشروط (المادتان 283 و285)، أما الصدقة فلا رجوع فيها (مدونة الحقوق العينية).

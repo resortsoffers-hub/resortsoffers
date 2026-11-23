@@ -43,6 +43,8 @@ li::before{content:"";flex:0 0 18px;height:18px;border-radius:50%;background:${G
 </body></html>`;
 };
 const POSTS = {
+  "custody-fr": { dir: "ltr", k: "Code de la famille", title: "Garde des enfants<br><span>après le divorce</span>",
+    points: ["La mère d'abord, puis le père (art. 171)", "Jusqu'à la majorité, 18 ans (art. 166)", "Dès 15 ans, l'enfant choisit (art. 166)"] },
   "constitution-ar": { dir: "rtl", k: "مستجدات قانونية", title: "الدفع بعدم<br><span>دستورية القوانين</span>",
     points: ["يبدأ العمل به في 1 يوليوز 2028", "يحق لأطراف الدعوى إثارته أمام المحكمة", "الفصل 133 من الدستور"] },
   "moudawana-ar": { dir: "rtl", k: "مستجدات قانونية", title: "تعديل مدونة الأسرة<br><span>أين وصل؟</span>",

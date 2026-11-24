@@ -43,6 +43,8 @@ li::before{content:"";flex:0 0 18px;height:18px;border-radius:50%;background:${G
 </body></html>`;
 };
 const POSTS = {
+  "custody-en": { dir: "ltr", k: "Family Code", title: "Child custody<br><span>after divorce</span>",
+    points: ["Mother first, then father (art. 171)", "Until legal age, 18 (art. 166)", "From 15, the child chooses (art. 166)"] },
   "custody-fr": { dir: "ltr", k: "Code de la famille", title: "Garde des enfants<br><span>après le divorce</span>",
     points: ["La mère d'abord, puis le père (art. 171)", "Jusqu'à la majorité, 18 ans (art. 166)", "Dès 15 ans, l'enfant choisit (art. 166)"] },
   "constitution-ar": { dir: "rtl", k: "مستجدات قانونية", title: "الدفع بعدم<br><span>دستورية القوانين</span>",

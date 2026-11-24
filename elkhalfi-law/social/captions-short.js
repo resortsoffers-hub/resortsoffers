@@ -14,7 +14,10 @@ module.exports = [
   { id: "General · العربية", today: true, general: true, dir: "rtl", text: `⚖️ الأستاذة آمال الخلفي، محامية بالرباط.
 📩 الرابط في البايو
 #محامية #الرباط #المغرب #ElkhalfiAvocates` },
-  { id: "FR 10", date: "2026-11-23", today: true, img: "dark-custody-fr.png", text: `👨‍👩‍👧 Garde des enfants au Maroc : la mère d'abord, et dès 15 ans l'enfant choisit (Code de la famille, art. 166 et 171).
+  { id: "EN 5", date: "2026-11-24", today: true, img: "dark-custody-en.png", text: `👨‍👩‍👧 Child custody in Morocco: the mother first, and from age 15 the child chooses (Family Code, art. 166 and 171).
+${BIO_EN}
+#FamilyLaw #Custody #Lawyer #Rabat #ElkhalfiAvocates` },
+  { id: "FR 10", date: "2026-11-23", img: "dark-custody-fr.png", text: `👨‍👩‍👧 Garde des enfants au Maroc : la mère d'abord, et dès 15 ans l'enfant choisit (Code de la famille, art. 166 et 171).
 ${BIO_FR}
 #CodeDeLaFamille #Garde #Avocate #Rabat #ElkhalfiAvocates` },
   { id: "AR 1", date: "2026-11-11", img: "dark-whatsapp-ar.png", dir: "rtl", text: `📱 رسائل الواتساب دليل أمام المحكمة؟ نعم، احتفظوا بها ووثّقوها.

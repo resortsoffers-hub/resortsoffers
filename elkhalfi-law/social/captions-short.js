@@ -14,7 +14,7 @@ module.exports = [
   { id: "General · العربية", today: true, general: true, dir: "rtl", text: `⚖️ الأستاذة آمال الخلفي، محامية بالرباط.
 📩 الرابط في البايو
 #محامية #الرباط #المغرب #ElkhalfiAvocates` },
-  { id: "EN 5", date: "2026-11-24", today: true, img: "dark-custody-en.png", text: `👨‍👩‍👧 Child custody in Morocco: the mother first, and from age 15 the child chooses (Family Code, art. 166 and 171).
+  { id: "EN 5", date: "2026-11-24", img: "dark-custody-en.png", text: `👨‍👩‍👧 Child custody in Morocco: the mother first, and from age 15 the child chooses (Family Code, art. 166 and 171).
 ${BIO_EN}
 #FamilyLaw #Custody #Lawyer #Rabat #ElkhalfiAvocates` },
   { id: "FR 10", date: "2026-11-23", img: "dark-custody-fr.png", text: `👨‍👩‍👧 Garde des enfants au Maroc : la mère d'abord, et dès 15 ans l'enfant choisit (Code de la famille, art. 166 et 171).
@@ -38,9 +38,7 @@ ${BIO_AR}
   { id: "AR 5", date: "2026-11-18", img: "dark-divorce-ar.png", dir: "rtl", text: `⚖️ حقوق المطلّقة في المغرب: الصداق المؤخر، نفقة العدة، المتعة، والحضانة ونفقة الأطفال.
 ${BIO_AR}
 #الطلاق #مدونة_الأسرة #محامية #ElkhalfiAvocates` },
-  { id: "AR 6", note: "25 November only", img: "violence-women-ar.png", dir: "rtl", text: `🟠 25 نوفمبر: القانون يحميكِ
-✅ القانون 103.13 يعاقب على كل أشكال العنف ضد النساء
-✅ في حالة الخطر، اتصلي بالشرطة فوراً
+  { id: "AR 6", date: "2026-11-25", today: true, img: "dark-violence-ar.png", dir: "rtl", text: `🟠 25 نوفمبر: القانون ‎103.13‎ يحميكِ من كل أشكال العنف، ويمكنكِ تقديم شكاية لدى النيابة العامة.
 ${BIO_AR}
 #25نوفمبر #العنف_ضد_النساء #محامية #الرباط #ElkhalfiAvocates` },
   { id: "AR 7", date: "2026-11-20", img: "dark-harassment-ar.png", dir: "rtl", text: `🚫 التحرش في الشارع أو عبر الرسائل جريمة يعاقب عليها القانون (الفصل ‎503-1-1‎).

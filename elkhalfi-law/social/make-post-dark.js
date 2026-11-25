@@ -43,6 +43,8 @@ li::before{content:"";flex:0 0 18px;height:18px;border-radius:50%;background:${G
 </body></html>`;
 };
 const POSTS = {
+  "violence-ar": { dir: "rtl", k: "25 نوفمبر", title: "العنف ضد النساء<br><span>القانون يحميكِ</span>",
+    points: ["القانون <bdi dir=\"ltr\">103.13</bdi> يعاقب على العنف", "قدّمي شكاية لدى النيابة العامة", "احتفظي بالأدلة والشهادة الطبية"] },
   "custody-en": { dir: "ltr", k: "Family Code", title: "Child custody<br><span>after divorce</span>",
     points: ["Mother first, then father (art. 171)", "Until legal age, 18 (art. 166)", "From 15, the child chooses (art. 166)"] },
   "custody-fr": { dir: "ltr", k: "Code de la famille", title: "Garde des enfants<br><span>après le divorce</span>",

@@ -43,6 +43,8 @@ li::before{content:"";flex:0 0 18px;height:18px;border-radius:50%;background:${G
 </body></html>`;
 };
 const POSTS = {
+  "marriage-age-en": { dir: "ltr", k: "Family Code", title: "Marriage age<br><span>in Morocco</span>",
+    points: ["Legal age: 18 for both (art. 19)", "A judge may allow an exception (art. 20)", "Only by a reasoned decision (art. 20)"] },
   "mariage-etranger-fr": { dir: "ltr", k: "Code de la famille", title: "Mariage à l'étranger<br><span>Marocains résidents</span>",
     points: ["Selon la loi du pays de résidence (art. 14)", "Deux témoins musulmans (art. 14)", "Copie au consulat sous 3 mois (art. 15)"] },
   "violence-ar": { dir: "rtl", k: "25 نوفمبر", title: "العنف ضد النساء<br><span>القانون يحميكِ</span>",

@@ -17,7 +17,10 @@ module.exports = [
   { id: "EN 5", date: "2026-11-24", img: "dark-custody-en.png", text: `👨‍👩‍👧 Child custody in Morocco: the mother first, and from age 15 the child chooses (Family Code, art. 166 and 171).
 ${BIO_EN}
 #FamilyLaw #Custody #Lawyer #Rabat #ElkhalfiAvocates` },
-  { id: "FR 11", date: "2026-11-26", today: true, img: "dark-mariage-etranger-fr.png", text: `💍 Marocains à l'étranger : votre mariage selon la loi locale est valable, à condition de déposer une copie au consulat sous 3 mois (Code de la famille, art. 14 et 15).
+  { id: "EN 6", date: "2026-11-27", today: true, img: "dark-marriage-age-en.png", text: `💍 Marriage age in Morocco: 18 for both, and an exception only by a reasoned court decision (Family Code, art. 19 and 20).
+${BIO_EN}
+#Morocco #FamilyCode #Marriage #Lawyer #ElkhalfiAvocates` },
+  { id: "FR 11", date: "2026-11-26", img: "dark-mariage-etranger-fr.png", text: `💍 Marocains à l'étranger : votre mariage selon la loi locale est valable, à condition de déposer une copie au consulat sous 3 mois (Code de la famille, art. 14 et 15).
 ${BIO_FR}
 #MRE #CodeDeLaFamille #Mariage #Avocate #ElkhalfiAvocates` },
   { id: "FR 10", date: "2026-11-23", img: "dark-custody-fr.png", text: `👨‍👩‍👧 Garde des enfants au Maroc : la mère d'abord, et dès 15 ans l'enfant choisit (Code de la famille, art. 166 et 171).
